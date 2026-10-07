@@ -13,7 +13,9 @@ The shot flies from the muzzle towards the aimed point, so even with a camera ov
 
 ## The Aimed strategy
 
-Choose **Aimed** with **Strategy Type** in the targeting section of the [Abilities](/guide/abilities-and-effects/abilities) editor. It resolves to an entity when it can, and otherwise to the point the aim hits.
+<Shot name="aiming-aimed-settings" caption="The settings of the Aimed strategy." />
+
+Choose **Aimed** with **Strategy Type** in the targeting section of the [Abilities](/basic/abilities-and-effects/abilities) editor. It resolves to an entity when it can, and otherwise to the point the aim hits.
 
 The ability picks its target in this order, and uses the first that gives an answer:
 
@@ -33,11 +35,11 @@ It works this out again for every use, and again when a cast completes, so a sho
 | **Prefer Locked Target** | A target the user has locked on to wins over whatever the aim says | on |
 | **Fallback To Selected Target** | With nothing aimed at, a selected (not locked) target is still the target before a free shot. Tab-target players keep their target | on |
 
-The strategy also has the settings shared by all targeting strategies: range, line of sight, markers. See [Targeting](/guide/abilities-and-effects/targeting).
+The strategy also has the settings shared by all targeting strategies: range, line of sight, markers. See [Targeting](/basic/abilities-and-effects/targeting).
 
 ## Draw and release
 
-A **Cast** use style can make the player hold the shot at full draw and let go when ready. The fields are on the Cast strategy, under **Draw and Release**: **Release To Fire**, **Min Hold** and **Max Hold**. They are described in [Using an ability](/guide/abilities-and-effects/using-an-ability#draw-and-release).
+A **Cast** use style can make the player hold the shot at full draw and let go when ready. The fields are on the Cast strategy, under **Draw and Release**: **Release To Fire**, **Min Hold** and **Max Hold**. They are described in [Using an ability](/basic/abilities-and-effects/using-an-ability#draw-and-release).
 
 Letting go early fires at part of the charge.
 
@@ -47,7 +49,7 @@ The time a shot is held is its **charge**. Effects can use it:
 
 - **Damage** and **Heal** effects have **Scales With Charge** and a minimum share: a short draw does less than a full one.
 - **Projectile** effects have **Charge Scales Speed**: a full draw flies faster.
-- A **Power-up** ability's tiers also follow the draw, since the held time counts as the cast time. See [Abilities](/guide/abilities-and-effects/abilities#power-up).
+- A **Power-up** ability's tiers also follow the draw, since the held time counts as the cast time. See [Abilities](/basic/abilities-and-effects/abilities#power-up).
 
 ## Hitscan
 
@@ -59,5 +61,5 @@ The demo's **Hunting Bow** uses all of this. Its basic attack, **Bow Shot**, is 
 
 ## See also
 
-- [Targeting](/guide/abilities-and-effects/targeting)
-- [Using an ability](/guide/abilities-and-effects/using-an-ability)
+- [Targeting](/basic/abilities-and-effects/targeting)
+- [Using an ability](/basic/abilities-and-effects/using-an-ability)

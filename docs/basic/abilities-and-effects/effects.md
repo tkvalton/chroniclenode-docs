@@ -1,12 +1,14 @@
 # Effects
 
-An effect is one thing that happens: damage, a heal, a change to a stat, a stun, a push, a projectile, a summon. Abilities, items, quests and events all apply effects. You build them in the **Effects** tab of the **Abilities & Effects** category. For how effects and abilities fit together, read the [overview](/guide/abilities-and-effects/) first.
+An effect is one thing that happens: damage, a heal, a change to a stat, a stun, a push, a projectile, a summon. Abilities, items, quests and events all apply effects. You build them in the **Effects** tab of the **Abilities & Effects** category. For how effects and abilities fit together, read the [overview](/basic/abilities-and-effects/) first.
 
 ## The editor
 
+<Shot name="effects-editor" caption="The Effects editor with an effect selected." />
+
 On the left is the list of effects, with a **Filter files** box and the **Add** button. Select an effect to edit it on the right.
 
-The fields at the top are the same for every effect. At the bottom, **Specific Properties** has a **Select Effect Type** button. Choose a type, such as *Damage*, *Heal*, *Stun* or *Projectile*, and the fields of that type appear below. The type decides what the effect actually does. Every type is described in [Effect types](/guide/abilities-and-effects/effect-types).
+The fields at the top are the same for every effect. At the bottom, **Specific Properties** has a **Select Effect Type** button. Choose a type, such as *Damage*, *Heal*, *Stun* or *Projectile*, and the fields of that type appear below. The type decides what the effect actually does. Every type is described in [Effect types](/basic/abilities-and-effects/effect-types).
 
 ## Basic properties
 
@@ -21,6 +23,8 @@ The fields at the top are the same for every effect. At the bottom, **Specific P
 | **Applies to** | Whether the effect lands on the **Target** or on the **Self** (the caster). A self-effect on an ability aimed at an ally is how a "Misdirection" effect puts something on the caster while the ally is the target |
 
 ## How long it lasts
+
+<Shot name="effects-time-strategy" caption="The time strategy, duration and tick rate." />
 
 An effect has a **time strategy**. It decides how long the effect exists and whether it repeats.
 
@@ -42,6 +46,8 @@ The first application counts as the first tick. A 10-second poison with a tick r
 An effect ends when its duration runs out, or when something removes it: a dispel, the death of its owner, or the ability that applied it ending.
 
 ## Stacking
+
+<Shot name="effects-stacking" caption="The stacking settings." />
 
 When an effect is applied while the same effect is already running on the target, the **stacking** settings decide what happens.
 
@@ -102,5 +108,5 @@ Click either button to choose from the libraries in the **Assets** category.
 
 ## See also
 
-- [Abilities & Effects overview](/guide/abilities-and-effects/)
-- [Abilities](/guide/abilities-and-effects/abilities)
+- [Abilities & Effects overview](/basic/abilities-and-effects/)
+- [Abilities](/basic/abilities-and-effects/abilities)

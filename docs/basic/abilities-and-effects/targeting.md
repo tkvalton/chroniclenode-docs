@@ -4,6 +4,8 @@ An active ability has a **targeting strategy**: the rule that decides who or wha
 
 ## The strategies
 
+<Shot name="targeting-strategy-dropdown" caption="Choosing the targeting strategy." />
+
 | Strategy | The ability targets | Typical use |
 |---|---|---|
 | **Self** | The caster, always | A buff, a self-heal, a transformation |
@@ -13,11 +15,13 @@ An active ability has a **targeting strategy**: the rule that decides who or wha
 | **Any Entity** | Any entity or targetable object, friend or foe. It does not check factions | A spell that works on everyone |
 | **Point** | A point on the ground | A ground-targeted area spell, a teleport |
 | **Multi Point** | Several points, picked one after another | A wall of fire, a line attack |
-| **Aimed** | Whatever the user is aiming at, or the point the aim hits | A bow, a gun, a thrown weapon. See [Aiming](/guide/abilities-and-effects/aiming) |
+| **Aimed** | Whatever the user is aiming at, or the point the aim hits | A bow, a gun, a thrown weapon. See [Aiming](/basic/abilities-and-effects/aiming) |
 
 Enemy and Ally use the factions you set up in the **Behaviors** category: a target is an enemy when its faction is hostile to the caster's.
 
 ## Settings shared by the strategies
+
+<Shot name="targeting-enemy-settings" caption="The shared settings of the Enemy strategy." />
 
 Every strategy has these. A strategy ignores the ones that make no sense for it (a Self ability needs no range).
 
@@ -73,6 +77,6 @@ Before an ability starts, the targeting strategy checks the target. If it is not
 
 ## See also
 
-- [Using an ability](/guide/abilities-and-effects/using-an-ability)
-- [Aiming](/guide/abilities-and-effects/aiming)
-- [Abilities](/guide/abilities-and-effects/abilities)
+- [Using an ability](/basic/abilities-and-effects/using-an-ability)
+- [Aiming](/basic/abilities-and-effects/aiming)
+- [Abilities](/basic/abilities-and-effects/abilities)

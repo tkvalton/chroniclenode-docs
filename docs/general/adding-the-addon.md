@@ -3,7 +3,7 @@
 This page adds ChronicleNode to a Godot project of your own. It shows the steps, what enabling the plugin does to your project, and what you see the first time you run it.
 
 ::: info Before you start
-You need **Godot 4.7** and a 3D project. If you only want to try the toolkit, the [template project](/getting-started/template) needs no setup.
+You need **Godot 4.7** and a 3D project. If you only want to try the toolkit, the [template project](/general/template) needs no setup.
 :::
 
 ## 1. Copy the addon
@@ -23,6 +23,8 @@ your_project/
 If your project has no `addons` folder yet, create it. Go back to the Godot editor and wait for it to finish importing.
 
 ## 2. Enable the plugin
+
+<Shot name="general-plugins-enable" caption="Project Settings > Plugins, with the ChronicleNode plugin enabled." />
 
 1. Open **Project > Project Settings**.
 2. Choose the **Plugins** tab.
@@ -50,9 +52,13 @@ It does not create any content: there are no classes, abilities, items, quests o
 
 ## 3. Open the editor
 
-Click the **Database** tab. The editor opens on the **World** category, with nothing in it yet. Use the drop-down at the top left to move between the categories. The [editor tour](/getting-started/editor-tour) explains them.
+<Shot name="general-database-tab" caption="The Database tab, next to 2D, 3D, Script and AssetLib." />
+
+Click the **Database** tab. The editor opens on the **World** category, with nothing in it yet. Use the drop-down at the top left to move between the categories. The [editor tour](/general/editor-tour) explains them.
 
 ## What happens when you press Play
+
+<Shot name="general-no-starting-map" caption="The message in the Output panel when the project has no world yet." />
 
 Press **Play** (**F5**) right away and the game starts, then stops with a message like this in Godot's *Output* panel:
 
@@ -65,8 +71,8 @@ This is expected. The toolkit starts every new game in a *starting map*, and a n
 
 ## Next
 
-1. [The editor at a glance](/getting-started/editor-tour) shows how the editors are organised.
-2. The [Guide](/guide/) has a chapter for each part of the editor, including the world editor and the Game Settings you need to choose a starting map.
+1. [The editor at a glance](/general/editor-tour) shows how the editors are organised.
+2. The [Basic guide](/basic/) has a chapter for each part of the editor, including the world editor and the Game Settings you need to choose a starting map.
 
 ## Turning the plugin off
 

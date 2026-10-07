@@ -4,6 +4,8 @@ The template project is a complete Godot project with ChronicleNode already inst
 
 ## Open it
 
+<Shot name="general-project-import" caption="Importing the template project in the Godot Project Manager." />
+
 1. Download the template project and unpack it somewhere on your computer.
 2. Start **Godot 4.7**. In the Project Manager choose **Import**, browse to the unpacked folder, and select its `project.godot` file.
 3. Open the project.
@@ -16,9 +18,13 @@ The ChronicleNode plugin is already enabled in the template, so you do not need 
 
 ## Play the demo
 
+<Shot name="general-main-menu" caption="The main menu of the demo." />
+
 Press **Play** (**F5**). The project's main scene is the ChronicleNode game root, so the game starts at its **main menu**. From there you can start a new game, load a saved game, change the settings, or quit. Starting a new game puts you in the **demo world**.
 
 ### The demo world
+
+<Shot name="general-demo-world" caption="The demo world: target dummies, vendors, NPCs and quests." />
 
 The demo world is a full world built to show and test as many features of the toolkit as possible. In it you find:
 
@@ -44,13 +50,13 @@ The demo uses a third-person camera with the mouse and keyboard:
 | Select or target | **Left click** |
 | Attack or interact | **Right click** |
 
-Mouse sensitivity and inversion are in the in-game options, under *Gameplay*. Both the camera and the controls are presets that you can change or replace: see *Game Settings* in the [editor tour](/getting-started/editor-tour).
+Mouse sensitivity and inversion are in the in-game options, under *Gameplay*. Both the camera and the controls are presets that you can change or replace: see *Game Settings* in the [editor tour](/general/editor-tour).
 
 ## Open the editor
 
 Look at the row of tabs at the top of Godot, next to **2D**, **3D**, **Script** and **AssetLib**. The **Database** tab is where you author the game. Click it.
 
-Everything you just played is in there: the character classes, their abilities, the items, the quests and conversations, the world, and the settings that decide how the game plays. The [editor tour](/getting-started/editor-tour) explains how it is organised.
+Everything you just played is in there: the character classes, their abilities, the items, the quests and conversations, the world, and the settings that decide how the game plays. The [editor tour](/general/editor-tour) explains how it is organised.
 
 ::: tip Try a small change
 Open **Abilities & Effects**, pick an ability, change a number such as its damage or cooldown, and play again. Changes in the editor are saved to the project's data files straight away.
@@ -66,5 +72,5 @@ You can keep the demo content, delete the parts you do not want, or empty the pr
 
 ## Next
 
-- [The editor at a glance](/getting-started/editor-tour)
-- The [Guide](/guide/)
+- [The editor at a glance](/general/editor-tour)
+- The [Basic guide](/basic/)

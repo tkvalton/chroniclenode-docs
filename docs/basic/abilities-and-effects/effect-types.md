@@ -1,6 +1,8 @@
 # Effect types
 
-Every effect has a **type**: the thing it actually does. You choose it with the **Select Effect Type** button in the [Effects](/guide/abilities-and-effects/effects) editor. The dialog groups the types into categories and has a search box. When you pick a type, the editor shows that type's own fields below **Specific Properties**.
+<Shot name="effects-type-dialog" caption="The effect type dialog, with its categories and search box." />
+
+Every effect has a **type**: the thing it actually does. You choose it with the **Select Effect Type** button in the [Effects](/basic/abilities-and-effects/effects) editor. The dialog groups the types into categories and has a search box. When you pick a type, the editor shows that type's own fields below **Specific Properties**.
 
 The name in the code font is the name the editor shows, as in *Type: DamageEffect*.
 
@@ -106,7 +108,7 @@ A projectile effect launches something that flies, and applies its child effects
 | **Boomerang Projectile** (`BoomerangProjectileEffect`) | Travels to the target and returns to the caster |
 | **Hitscan** (`HitscanEffect`) | Not a projectile: an instant line from the muzzle towards the target or the aimed point, up to a maximum range. Its child effects apply to the first entity the line meets, or to several with **Pierce Count**. Walls stop it unless told not to. Nothing can be dodged |
 
-The direct, physics and chain types choose what makes them apply: a **collision** with something, reaching their **destination**, or a **timer**. The boomerang only uses a collision. A projectile's **Charge Scales Speed** makes a drawn shot fly faster. See [Aiming](/guide/abilities-and-effects/aiming).
+The direct, physics and chain types choose what makes them apply: a **collision** with something, reaching their **destination**, or a **timer**. The boomerang only uses a collision. A projectile's **Charge Scales Speed** makes a drawn shot fly faster. See [Aiming](/basic/abilities-and-effects/aiming).
 
 ## Area effects
 
@@ -177,5 +179,5 @@ A proc effect waits for something to happen to its holder, and then applies its 
 
 ## See also
 
-- [Effects](/guide/abilities-and-effects/effects)
-- [Abilities & Effects overview](/guide/abilities-and-effects/)
+- [Effects](/basic/abilities-and-effects/effects)
+- [Abilities & Effects overview](/basic/abilities-and-effects/)

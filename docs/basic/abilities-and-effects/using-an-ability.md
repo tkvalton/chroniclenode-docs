@@ -25,8 +25,8 @@ These settings are shared by all four, under the heading of the base use strateg
 
 ## What happens when an ability is used
 
-1. The ability is checked: it must be active and off cooldown, its user alive, not silenced or incapacitated (unless the strategy is immune), off the global cooldown if it is on it, and its [requirements](/guide/abilities-and-effects/abilities#requirements) met.
-2. The target is checked by the [targeting strategy](/guide/abilities-and-effects/abilities#targeting-and-use-style). If the target is not valid, the game tries to pick one automatically.
+1. The ability is checked: it must be active and off cooldown, its user alive, not silenced or incapacitated (unless the strategy is immune), off the global cooldown if it is on it, and its [requirements](/basic/abilities-and-effects/abilities#requirements) met.
+2. The target is checked by the [targeting strategy](/basic/abilities-and-effects/abilities#targeting-and-use-style). If the target is not valid, the game tries to pick one automatically.
 3. The **cost is paid**, before anything else can go wrong.
 4. The use strategy runs: it completes at once, waits out the cast, ticks through the channel or switches the toggle.
 5. When it completes, the on-use effects apply (after the **On-use application delay**), the cooldown starts, any resource gain is given, and the global cooldown starts if the ability is on it.
@@ -43,6 +43,8 @@ An ability can stop before it completes in two different ways:
 The ability completes the moment it is used. It has no settings of its own beyond the shared presentation.
 
 ## Cast
+
+<Shot name="use-cast-settings" caption="The settings of the Cast strategy." />
 
 The ability takes a cast time. The effects apply when the cast finishes.
 
@@ -69,6 +71,8 @@ For a bow or a charged shot, the cast can end with the shot held at full draw un
 
 ## Channel
 
+<Shot name="use-channel-settings" caption="The settings of the Channel strategy." />
+
 The ability keeps going for its **Channel Duration**, and its effects apply during that time, until it ends or is interrupted.
 
 | Field | What it does | Default |
@@ -85,6 +89,8 @@ The ability keeps going for its **Channel Duration**, and its effects apply duri
 | **Casting Animation**, **Casting SFX**, **Casting VFX** | Shown while channelling | none |
 
 ## Toggle
+
+<Shot name="use-toggle-settings" caption="The settings of the Toggle strategy, with resource drain." />
 
 A toggle ability switches on when used and off when used again: a stance, an aura, a mode.
 
@@ -120,5 +126,5 @@ Toggles can be put in a group so only one is on at a time, like stances.
 
 ## See also
 
-- [Abilities](/guide/abilities-and-effects/abilities)
-- [Abilities & Effects overview](/guide/abilities-and-effects/)
+- [Abilities](/basic/abilities-and-effects/abilities)
+- [Abilities & Effects overview](/basic/abilities-and-effects/)

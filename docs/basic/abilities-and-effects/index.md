@@ -9,12 +9,15 @@ You build both in the **Abilities & Effects** category of the editor. This page 
 
 | Page | What it covers |
 |---|---|
-| [Abilities](/guide/abilities-and-effects/abilities) | The Abilities editor: the five kinds of ability, and every field |
-| [Using an ability](/guide/abilities-and-effects/using-an-ability) | Instant, cast, channel and toggle: every setting, interrupts and cancelling |
-| [Targeting](/guide/abilities-and-effects/targeting) | Who or what an ability can be aimed at: the eight strategies, range, line of sight, markers |
-| [Aiming](/guide/abilities-and-effects/aiming) | Bows and guns: the Aimed strategy, aim assist, draw and release, charge, hitscan |
-| [Effects](/guide/abilities-and-effects/effects) | The Effects editor: time strategies, stacking, auras, groups, limited uses |
-| [Effect types](/guide/abilities-and-effects/effect-types) | Every effect type by category: damage, stats, status, movement, projectiles, procs and more |
+| [Abilities](/basic/abilities-and-effects/abilities) | The Abilities editor: the five kinds of ability, and every field |
+| [Using an ability](/basic/abilities-and-effects/using-an-ability) | Instant, cast, channel and toggle: every setting, interrupts and cancelling |
+| [Targeting](/basic/abilities-and-effects/targeting) | Who or what an ability can be aimed at: the eight strategies, range, line of sight, markers |
+| [Aiming](/basic/abilities-and-effects/aiming) | Bows and guns: the Aimed strategy, aim assist, draw and release, charge, hitscan |
+| [Effects](/basic/abilities-and-effects/effects) | The Effects editor: time strategies, stacking, auras, groups, limited uses |
+| [Effect types](/basic/abilities-and-effects/effect-types) | Every effect type by category: damage, stats, status, movement, projectiles, procs and more |
+| [Stacking and groups](/basic/abilities-and-effects/stacking-and-groups) | Stacking rules, and groups: exclusive effects, shared cooldowns, enchant slots |
+| [Scaling and trigger rules](/basic/abilities-and-effects/scaling-and-trigger-rules) | Execute and combo bonuses, always-crit and never-dodge rules |
+| [Crowd control](/basic/abilities-and-effects/crowd-control) | Stuns, roots and silences: status types, diminishing returns, immunity, breaking on damage |
 
 ## How the two fit together
 

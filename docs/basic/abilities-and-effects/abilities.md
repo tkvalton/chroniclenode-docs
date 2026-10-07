@@ -1,12 +1,16 @@
 # Abilities
 
-An ability describes something an entity can do, and when and how it can do it. You build abilities in the **Abilities** tab of the **Abilities & Effects** category. For how abilities and effects fit together, read the [overview](/guide/abilities-and-effects/) first.
+An ability describes something an entity can do, and when and how it can do it. You build abilities in the **Abilities** tab of the **Abilities & Effects** category. For how abilities and effects fit together, read the [overview](/basic/abilities-and-effects/) first.
 
 ## The editor
+
+<Shot name="abilities-editor" caption="The Abilities editor with an ability selected." />
 
 On the left is the list of abilities, with a **Filter files** box and the **Add** button. Select an ability to edit it on the right. The fields that you see depend on the **Ability type**: a passive ability has fewer fields than an active one, and each of the other kinds adds its own.
 
 ## Basic properties
+
+<Shot name="abilities-basic-properties" caption="Basic properties: name, description and its preview, color and icon." />
 
 | Field | What it does |
 |---|---|
@@ -32,6 +36,8 @@ The **Ability type** decides what the ability is and which other fields appear:
 
 ## General properties
 
+<Shot name="abilities-general-properties" caption="General properties of an active ability." />
+
 These fields belong to every kind of active ability.
 
 | Field | What it does | Default |
@@ -45,6 +51,8 @@ These fields belong to every kind of active ability.
 
 ## Pool actions
 
+<Shot name="abilities-pool-actions" caption="Pool actions: what the ability costs and what it gives back." />
+
 An ability can cost a resource, and can give one back.
 
 | Field | What it does |
@@ -57,6 +65,8 @@ An ability can cost a resource, and can give one back.
 The ability cannot be used if the user cannot pay. The cost is paid when the ability starts.
 
 ## Ammo and reagents
+
+<Shot name="abilities-ammo" caption="Ammo and reagents." />
 
 An ability can also use up items or money each time it is used.
 
@@ -72,6 +82,8 @@ An ability can also use up items or money each time it is used.
 
 ## Requirements
 
+<Shot name="abilities-requirements" caption="The requirements list, with Add Requirement." />
+
 **Requirements** are conditions that must be true before the ability can be used, or, for a passive ability, for its effects to apply: a weapon type, a level, a stat value, a class. Press **Add Requirement** to add one; right-click one to edit or remove it.
 
 ## Groups
@@ -80,9 +92,11 @@ An ability can also use up items or money each time it is used.
 
 ## Targeting and use style
 
-An active ability has a **targeting strategy** (who or what it can be aimed at) and a **use strategy** (how it is carried out over time: instant, cast, channel or toggle). Each has its own settings, such as range, cast time and whether it can be interrupted. The use strategies are described in [Using an ability](/guide/abilities-and-effects/using-an-ability).
+An active ability has a **targeting strategy** (who or what it can be aimed at) and a **use strategy** (how it is carried out over time: instant, cast, channel or toggle). Each has its own settings, such as range, cast time and whether it can be interrupted. The use strategies are described in [Using an ability](/basic/abilities-and-effects/using-an-ability).
 
 ## Effects
+
+<Shot name="abilities-effects-trees" caption="The on-use and passive effect trees of an ability." />
 
 An ability lists the effects it applies, in two places:
 
@@ -95,6 +109,8 @@ Each is a tree you build in the editor: pick an effect for each slot and the tre
 
 ### Charge stack
 
+<Shot name="abilities-charge-stack" caption="The settings of a charge stack ability." />
+
 | Field | What it does | Default |
 |---|---|---|
 | **Max charges** | How many charges the ability can hold | `2` |
@@ -102,6 +118,8 @@ Each is a tree you build in the editor: pick an effect for each slot and the tre
 | **Charge cooldown** | How charges come back: *Shared* regains them one after another, with one timer. *Independent* gives each charge its own timer, so they regain at the same time | Shared |
 
 ### Combo
+
+<Shot name="abilities-combo" caption="The settings and steps of a combo ability." />
 
 The first use of a combo ability does what the ability normally does. Each use within the time limit moves it to the next step, and a step can change the effects, the cost, the name and the icon.
 
@@ -113,6 +131,8 @@ The first use of a combo ability does what the ability normally does. Each use w
 | **Combo cooldown mode** | When the cooldown starts: *on completion* (only after the last step), *on every use* (after each step) or *on timeout or completion* | on completion |
 
 ### Power-up
+
+<Shot name="abilities-power-up" caption="The settings and tiers of a power-up ability." />
 
 A power-up ability has **tiers**. The more it is charged, the higher the tier, and each tier has its own effects. What "charged" means depends on the ability's use style:
 
@@ -134,4 +154,4 @@ A power-up ability has **tiers**. The more it is charged, the higher the tier, a
 
 ## See also
 
-- [Abilities & Effects overview](/guide/abilities-and-effects/)
+- [Abilities & Effects overview](/basic/abilities-and-effects/)

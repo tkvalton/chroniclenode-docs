@@ -1,8 +1,10 @@
 # The editor at a glance
 
-The **Database** tab is where you author the game. This page shows how it is laid out and how its editors work, so every chapter of the [Guide](/guide/) feels familiar.
+The **Database** tab is where you author the game. This page shows how it is laid out and how its editors work, so every chapter of the [Basic guide](/basic/) feels familiar.
 
 ## The top bar
+
+<Shot name="general-top-bar" caption="The top bar: category drop-down, tabs, Docs and the version." />
 
 Along the top of the tab you find, from left to right:
 
@@ -13,6 +15,8 @@ Along the top of the tab you find, from left to right:
 - **F** pops the editor out into its own floating window, and **P** keeps that window on top of the others.
 
 ## The categories
+
+<Shot name="general-category-dropdown" caption="The category drop-down." />
 
 Each category holds the editors for one part of the game.
 
@@ -32,6 +36,8 @@ Each category holds the editors for one part of the game.
 
 ## How an editor works
 
+<Shot name="general-editor-layout" caption="The list on the left and the fields of the selected item on the right." />
+
 Most editors share the same layout:
 
 - On the **left** is a **list** of everything of that kind. A **Filter files** box narrows it down, the **Add** button above it makes a new one, and a right click on an entry offers **Duplicate**, **Delete** and **Copy Path**.
@@ -50,4 +56,4 @@ Everything you create is a resource file under `res://src/data/`, in a folder fo
 
 ## Next
 
-The [Guide](/guide/) has a chapter for each category, starting with **Abilities & Effects**.
+The [Basic guide](/basic/) has a chapter for each category, starting with **Abilities & Effects**.

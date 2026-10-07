@@ -20,11 +20,11 @@ Everything you author is saved as ordinary Godot resource files in your project,
 | **Setup** | None. Open it and press play | Copy a folder and enable a plugin |
 | **You get** | A working game to play, explore and edit | An empty toolkit: you build every part yourself |
 | **Best for** | Learning, and building on the demo | Starting a game from scratch, or adding the toolkit to an existing project |
-| **Guide** | [Using the template project](/getting-started/template) | [Adding the addon to your project](/getting-started/adding-the-addon) |
+| **Guide** | [Using the template project](/general/template) | [Adding the addon to your project](/general/adding-the-addon) |
 
 Not sure? Start with the template. Play the demo for a few minutes, open the editor tab, and look at how the pieces you just played are built.
 
 ## After you are set up
 
-- [The editor at a glance](/getting-started/editor-tour) shows what is in the Database tab and how the editors work.
-- The [Guide](/guide/) has one chapter for each part of the editor.
+- [The editor at a glance](/general/editor-tour) shows what is in the Database tab and how the editors work.
+- The [Basic guide](/basic/) has one chapter for each part of the editor.
