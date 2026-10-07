@@ -14,7 +14,7 @@ Save each picture as a **PNG** in `docs/public/screenshots/`, named exactly as i
 - Leave out anything personal: file paths with your user name, the Godot project list.
 - A tooltip or highlight is only needed if the caption says so.
 
-## The list (33 screenshots)
+## The list (40 screenshots)
 
 | File | Page | What to show |
 |---|---|---|
@@ -39,6 +39,13 @@ Save each picture as a **PNG** in `docs/public/screenshots/`, named exactly as i
 | `groups-editor.png` | `/basic/abilities-and-effects/stacking-and-groups` | The Groups editor (Tags & Groups > Groups). |
 | `targeting-strategy-dropdown.png` | `/basic/abilities-and-effects/targeting` | Choosing the targeting strategy. |
 | `targeting-enemy-settings.png` | `/basic/abilities-and-effects/targeting` | The shared settings of the Enemy strategy. |
+| `tutorial3-cast-settings.png` | `/basic/abilities-and-effects/tutorials/cast-time-and-interrupts` | The Cast strategy settings for Frost Bolt. |
+| `tutorial2-gain-rage.png` | `/basic/abilities-and-effects/tutorials/cost-and-cooldown` | Spark gives 10 rage when it completes. |
+| `tutorial2-overload.png` | `/basic/abilities-and-effects/tutorials/cost-and-cooldown` | Spark Overload: costs 30 rage, hits for 40. |
+| `tutorial1-effect-type-dialog.png` | `/basic/abilities-and-effects/tutorials/first-damage-attack` | Creating the effect: name, category and type. |
+| `tutorial1-damage-effect.png` | `/basic/abilities-and-effects/tutorials/first-damage-attack` | The finished Spark Hit effect. |
+| `tutorial1-ability.png` | `/basic/abilities-and-effects/tutorials/first-damage-attack` | The finished Spark ability. |
+| `tutorial1-class-abilities.png` | `/basic/abilities-and-effects/tutorials/first-damage-attack` | Spark in the class's active abilities. |
 | `use-cast-settings.png` | `/basic/abilities-and-effects/using-an-ability` | The settings of the Cast strategy. |
 | `use-channel-settings.png` | `/basic/abilities-and-effects/using-an-ability` | The settings of the Channel strategy. |
 | `use-toggle-settings.png` | `/basic/abilities-and-effects/using-an-ability` | The settings of the Toggle strategy, with resource drain. |

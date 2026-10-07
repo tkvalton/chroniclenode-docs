@@ -28,6 +28,16 @@ const abilitiesAndEffects = {
         { text: 'Crowd control', link: '/basic/abilities-and-effects/crowd-control' },
       ],
     },
+    {
+      text: 'Tutorials',
+      collapsed: true,
+      items: [
+        { text: 'About the tutorials', link: '/basic/abilities-and-effects/tutorials/' },
+        { text: '1. A damage attack', link: '/basic/abilities-and-effects/tutorials/first-damage-attack' },
+        { text: '2. A cost and a cooldown', link: '/basic/abilities-and-effects/tutorials/cost-and-cooldown' },
+        { text: '3. Cast time and interrupts', link: '/basic/abilities-and-effects/tutorials/cast-time-and-interrupts' },
+      ],
+    },
   ],
 }
 
