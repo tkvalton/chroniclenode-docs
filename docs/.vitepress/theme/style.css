@@ -1,0 +1,57 @@
+/* A look in the spirit of the Godot documentation: a dark navigation column, a light page, blue links,
+   clear note / tip / warning boxes. Our own colours and no Godot assets. */
+:root {
+  --tk-nav: #353d4b;
+  --tk-nav-deep: #2b323e;
+  --tk-nav-text: #d6dbe4;
+  --tk-accent: #4a8fc4;
+  --tk-accent-dark: #2f6fa3;
+
+  --vp-c-brand-1: var(--tk-accent-dark);
+  --vp-c-brand-2: var(--tk-accent);
+  --vp-c-brand-3: var(--tk-accent);
+  --vp-c-brand-soft: rgba(74, 143, 196, 0.14);
+  --vp-font-family-base: 'Roboto', 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --vp-layout-max-width: 1440px;
+}
+
+/* top bar */
+.VPNav .VPNavBar, .VPNavBar.has-sidebar .content-body, .VPNavBar .divider-line {
+  background-color: var(--tk-nav) !important;
+}
+.VPNavBar .title, .VPNavBarTitle .title { color: #fff !important; font-weight: 600; }
+.VPNavBar .VPNavBarSearch .DocSearch-Button, .VPNavBar .VPNavBarSearch .VPNavBarSearchButton { color: var(--tk-nav-text); }
+.VPNavBar .VPNavBarMenuLink, .VPNavBar .VPNavBarMenuGroup .button { color: var(--tk-nav-text) !important; }
+.VPNavBar .divider .divider-line { background-color: rgba(255, 255, 255, 0.08) !important; }
+
+/* sidebar */
+.VPSidebar { background-color: var(--tk-nav-deep) !important; }
+.VPSidebar .VPSidebarItem .text,
+.VPSidebar .VPSidebarItem .link .text { color: var(--tk-nav-text) !important; }
+.VPSidebar .VPSidebarItem.level-0 .item > .text,
+.VPSidebar .VPSidebarItem.level-0 > .item > .text { color: #fff !important; font-weight: 600; }
+.VPSidebar .VPSidebarItem .link:hover .text { color: #fff !important; }
+.VPSidebar .VPSidebarItem.is-active > .item .link > .text,
+.VPSidebar .VPSidebarItem.is-active > .item > .link .text { color: #8fc3ee !important; }
+.VPSidebar .group + .group { border-top-color: rgba(255, 255, 255, 0.08); }
+/* the page */
+.vp-doc h1 { font-weight: 500; font-size: 2.1rem; }
+.vp-doc h2 { font-weight: 500; border-top: none; padding-top: 8px; border-bottom: 1px solid var(--vp-c-divider); padding-bottom: 6px; }
+.vp-doc a { text-decoration: none; }
+.vp-doc a:hover { text-decoration: underline; }
+.vp-doc table { display: table; width: 100%; }
+.vp-doc th { background: #f1f3f6; }
+.vp-doc :not(pre) > code { color: #b3382c; }
+
+/* note / tip / warning boxes, flat like the Godot manual */
+.vp-doc .custom-block { border-radius: 4px; border-width: 0 0 0 4px; padding: 12px 16px; }
+.vp-doc .custom-block.info { background-color: #e7f2fa; border-color: #6ab0de; }
+.vp-doc .custom-block.tip { background-color: #dbfaf4; border-color: #1abc9c; }
+.vp-doc .custom-block.warning { background-color: #ffedcc; border-color: #f0b37e; }
+.vp-doc .custom-block.danger { background-color: #fdf3f2; border-color: #e74c3c; }
+.vp-doc .custom-block .custom-block-title { font-weight: 700; }
+.vp-doc .custom-block p, .vp-doc .custom-block li { color: #404040; }
+
+/* previous / next at the bottom */
+.VPDocFooter .prev-next { border-top: 1px solid var(--vp-c-divider); }
+.VPDocFooter .pager-link { border-radius: 4px; }
