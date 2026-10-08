@@ -142,4 +142,4 @@ A reaction hit has `chain_depth + 1`. The game settings set the longest chain (`
 
 ## Immunities and statuses
 
-A damage immunity is checked before the defender's phase. Status effects go through `StatsComponent.apply_status_effect`, which asks for immunity, tenacity (the *status duration* gain channel) and diminishing returns, and answers `{can_apply, effective_duration, ...}`. School immunities are checked when an effect is started on a target (`EffectInstance.start_effect`). See [Types & Groups: how they are built](/advanced/entity-stats/tags-and-groups).
+A damage immunity is checked before the defender's phase. Status effects go through `StatsComponent.apply_status_effect`, which asks for immunity, tenacity (the *status duration* gain channel) and diminishing returns, and answers `{can_apply, effective_duration, ...}`. School immunities are checked when an effect is started on a target (`EffectInstance.start_effect`). See [Immunities: how they are built](/advanced/abilities-and-effects/immunities).

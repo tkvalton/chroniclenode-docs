@@ -27,4 +27,4 @@ These are resources in the [database](/basic/database), so any other editor that
 ## See also
 
 - [Entity Stats](/basic/entity-stats/)
-- [Types & Groups: how they are built](/advanced/entity-stats/tags-and-groups) (Advanced)
+- [Types & Groups: how they are built](/advanced/types-and-groups/) (Advanced)

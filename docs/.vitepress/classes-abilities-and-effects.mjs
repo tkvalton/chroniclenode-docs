@@ -713,6 +713,12 @@ export const groups = [
         "file": "data_classes/effects/stats/effect_modify_resource_pool.gd"
       },
       {
+        "name": "ProficiencyEffect",
+        "base": "Effect",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\stats\\effect_proficiency.gd",
+        "file": "data_classes/effects/stats/effect_proficiency.gd"
+      },
+      {
         "name": "SetStatActiveStateEffect",
         "base": "Effect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\stats\\effect_set_stat_active_state.gd",

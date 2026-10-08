@@ -22,6 +22,9 @@ It listens to the player: a hit dealt with a weapon, a hit taken in armor and an
 |---|---|
 | `void` | [setup](#method-setup)( `p_player: Player` ) |
 | `int` | [get_level](#method-get-level)( `proficiency_id: int` ) |
+| `int` | [get_base_level](#method-get-base-level)( `proficiency_id: int` ) |
+| `int` | [get_bonus_levels](#method-get-bonus-levels)( `proficiency_id: int` ) |
+| `int` | [add_bonus_levels](#method-add-bonus-levels)( `proficiency_id: int, levels: int` ) |
 | `float` | [get_experience](#method-get-experience)( `proficiency_id: int` ) |
 | `float` | [get_experience_to_next](#method-get-experience-to-next)( `proficiency_id: int` ) |
 | `int` | [add_experience](#method-add-experience)( `proficiency_id: int, amount: float` ) |
@@ -53,7 +56,19 @@ Connects to the player. Called once when the player is set up
 
 ### int get_level( proficiency_id: int ) {#method-get-level}
 
-The level of a proficiency (its starting level when the player never trained it)
+The level of a proficiency now: the trained level (or the starting level when the player never trained it) plus the temporary boosts, kept between 0 and the highest level
+
+### int get_base_level( proficiency_id: int ) {#method-get-base-level}
+
+The trained level, without the temporary boosts (what is saved)
+
+### int get_bonus_levels( proficiency_id: int ) {#method-get-bonus-levels}
+
+The levels the temporary boosts add now (negative for a curse)
+
+### int add_bonus_levels( proficiency_id: int, levels: int ) {#method-add-bonus-levels}
+
+Adds levels for as long as something lasts (an effect with a duration). Give the same number with a minus to take them away again. Returns the change of the level that results
 
 ### float get_experience( proficiency_id: int ) {#method-get-experience}
 

@@ -50,11 +50,15 @@ Each use calls `_gain_from_use`, which honors `minimum_seconds_between_gains` (t
 
 `Player.to_save_data` writes the tracker under `"proficiencies"`: `{ "<id>": { "level": n, "experience": x } }`. `Player.from_save_data` gives it to the tracker, or keeps it until the tracker exists when a load comes before the player is set up. `load_save_data` takes the points it gave back before it sets the saved levels, so a load never counts a point twice.
 
-## The requirement and the reward
+## The requirement, the reward, the effect and the condition
 
-`RequirementProficiency.check` reads `player.proficiencies.get_level`; any other entity has the starting level of the proficiency. It connects to `level_changed` in `connect_to_entity_signals` and emits `requirement_state_changed` so passive abilities and effects are asked again. `ProficiencyReward.apply_to_player` calls `add_experience` or `add_levels` and returns `{"success": true, "levels_gained": n}`. It cannot be undone.
+`Entity.get_proficiency_level(id)` answers the starting level of the proficiency; `Player` overrides it with `get_proficiencies().get_level(id)`. `RequirementProficiency.check` and `ProficiencyCondition.evaluate_entity` both call it, so any entity can be asked.
 
-The add dialogs of requirements and rewards show a picker for `proficiency_id` (`PROPERTY_SELECTORS` in `UnifiedResourceDialog`).
+`ProficiencyEffect` (`data_classes/effects/stats/`) has `Action`: `ADD_LEVELS` (`add_levels`, may be negative), `ADD_EXPERIENCE`, `SET_LEVEL` and `BOOST_LEVELS`. The three permanent actions are `is_one_off_application`: a loaded save does not do them again. A boost calls `ProficiencyTracker.add_bonus_levels(id, n)` and remembers `n` in `custom_effect_data["proficiency_boost"]`; `on_apply_finished` and `_on_apply_cancelled` call it again with `-n`. The tracker keeps boosts in `_bonus` (never saved) beside `_levels` (the trained level, saved); `get_level` is `clamp(base + bonus, 0, max_level)`, `get_base_level` is the trained level, `level_changed` is emitted for the effective level. Experience and `set_level` work on the trained level.
+
+`RequirementProficiency` connects to `level_changed` in `connect_to_entity_signals` and emits `requirement_state_changed` so passive abilities and effects are asked again. `ProficiencyReward.apply_to_player` calls `add_experience` or `add_levels` and returns `{"success": true, "levels_gained": n}`. It cannot be undone.
+
+The add dialogs of requirements, rewards and conditions show a picker for `proficiency_id` (`PROPERTY_SELECTORS` in `UnifiedResourceDialog`), and so does the effect editor (`PropertySelectorRegistry`).
 
 ## The editor
 

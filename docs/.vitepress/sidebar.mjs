@@ -10,6 +10,8 @@ import { groups as abilitiesAndEffectsClasses } from './classes-abilities-and-ef
 import { groups as databaseClasses } from './classes-data-and-database.mjs'
 import { groups as sharedClasses } from './classes-shared-systems.mjs'
 import { groups as statClasses } from './classes-entity-stats.mjs'
+import { groups as itemClasses } from './classes-items.mjs'
+import { groups as equipmentClasses } from './classes-equipment-definitions.mjs'
 
 const page = (text, link, extra = {}) => ({ text, link, ...extra })
 const kebab = name => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2').toLowerCase()
@@ -255,7 +257,7 @@ const advancedEntityStats = {
     page('The hit and heal pipeline', '/advanced/entity-stats/pipeline', { title: 'The hit and heal pipeline' }),
     page('Pools and damage layers', '/advanced/entity-stats/pools', { title: 'Pools and damage layers' }),
     page('Growth, core stats and gain channels', '/advanced/entity-stats/growth-and-core-stats', { title: 'Growth, core stats and gain channels' }),
-    page('Types & Groups', '/advanced/entity-stats/tags-and-groups', { title: 'Types & Groups: how they are built' }),
+    page('Trigger tags and stat groups', '/advanced/entity-stats/trigger-tags-and-stat-groups', { title: 'Trigger tags and stat groups: how they are built' }),
     page('Proficiencies', '/advanced/entity-stats/proficiencies', { title: 'Proficiencies: how they are built' }),
     ...statClasses.map(group => ({
       text: group.text,
@@ -284,11 +286,15 @@ const advancedSystems = [
   ['Behaviors', 'behaviors'], ['Entity Stats', 'entity-stats'], ['Types & Groups', 'types-and-groups'], ['Items', 'items'],
   ['Equipment Definitions', 'equipment-definitions'], ['Assets', 'assets'], ['Game Settings', 'game-settings'],
 ].map(([text, slug]) => slug === 'abilities-and-effects'
-  ? withPages(classSystem(text, slug, abilitiesAndEffectsClasses), [page('The effect amount', '/advanced/abilities-and-effects/effect-amount', { title: 'The effect amount: how it is built' })])
+  ? withPages(classSystem(text, slug, abilitiesAndEffectsClasses), [page('The effect amount', '/advanced/abilities-and-effects/effect-amount', { title: 'The effect amount: how it is built' }), page('Immunities', '/advanced/abilities-and-effects/immunities', { title: 'Immunities: how they are built' })])
   : slug === 'world'
   ? worldAdvanced
   : slug === 'entity-stats'
   ? advancedEntityStats
+  : slug === 'items'
+  ? classSystem(text, slug, itemClasses)
+  : slug === 'equipment-definitions'
+  ? classSystem(text, slug, equipmentClasses)
   : page(text, `/advanced/${slug}/`, { title: `${text}: how it is built` }))
 
 export const sidebar = [

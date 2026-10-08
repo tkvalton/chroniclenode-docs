@@ -136,6 +136,7 @@ func get_entity_description() -> String:
 | [IsPlayerClassCondition](/advanced/shared-systems/entity-conditions/is-player-class-condition) | Checks if the target entity is a Player with a specific class ID. |
 | [MetadataCondition](/advanced/shared-systems/entity-conditions/metadata-condition) | Check entity metadata with flexible operations and type handling |
 | [MovementStateCondition](/advanced/shared-systems/entity-conditions/movement-state-condition) | Checks whether the entity is standing still, moving, in the air or on the ground. |
+| [ProficiencyCondition](/advanced/shared-systems/entity-conditions/proficiency-condition) | Checks the level of an entity in a proficiency: "has Lockpicking 25 or more", "is untrained in swords". |
 | [TargetDistanceBetweenCondition](/advanced/shared-systems/entity-conditions/target-distance-between-condition) | Checks if the target is within a specified distance range (between min and max). |
 | [TargetDistanceCondition](/advanced/shared-systems/entity-conditions/target-distance-condition) | Checks if the target is closer/farther than a specified range. |
 | [TargetIsPlayerCondition](/advanced/shared-systems/entity-conditions/target-is-player-condition) | Checks if the target is a player entity. |

@@ -341,6 +341,12 @@ export const groups = [
         "file": "data_classes/conditions/entity/movement_state_condition.gd"
       },
       {
+        "name": "ProficiencyCondition",
+        "base": "EntityCondition",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\entity\\proficiency_condition.gd",
+        "file": "data_classes/conditions/entity/proficiency_condition.gd"
+      },
+      {
         "name": "TargetDistanceBetweenCondition",
         "base": "EntityCondition",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\entity\\target_distance_between_condition.gd",

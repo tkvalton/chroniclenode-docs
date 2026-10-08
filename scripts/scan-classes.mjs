@@ -99,6 +99,35 @@ const SYSTEMS = {
       { text: 'Diminishing returns', slug: 'diminishing-returns', dirs: [['data_classes/stats/diminishing_returns', true]] },
     ],
   },
+  'items': {
+    title: 'Items',
+    groups: [
+      { text: 'Item definitions', slug: 'item-definitions', dirs: [['data_classes/items', false]] },
+      { text: 'Currency', slug: 'currency', dirs: [['data_classes/items/definitions/currency_definition.gd', false]] },
+      { text: 'Crafting', slug: 'crafting', dirs: [['data_classes/crafting', true], ['runtime_classes/player/crafting', true], ['runtime_classes/player/crafting_manager.gd', false]] },
+      { text: 'Vendors', slug: 'vendors', dirs: [['data_classes/vendor', true]] },
+      { text: 'Inventory and equipment (runtime)', slug: 'runtime', dirs: [['runtime_classes/entity/components/inventory', true]] },
+    ],
+  },
+  'equipment-definitions': {
+    title: 'Equipment Definitions',
+    groups: [
+      {
+        text: 'Definitions',
+        slug: 'definitions',
+        dirs: [
+          ['data_classes/items/definitions/armor_class_definition.gd', false],
+          ['data_classes/items/definitions/equipment_slot_definition.gd', false],
+          ['data_classes/items/definitions/equipment_type_definition.gd', false],
+          ['data_classes/items/definitions/quality_definition.gd', false],
+          ['data_classes/items/definitions/set_bonus_definition.gd', false],
+          ['data_classes/items/definitions/socketable_slot_definition.gd', false],
+          ['data_classes/items/definitions/weapon_class_definition.gd', false],
+          ['data_classes/items/definitions/weapon_type_definition.gd', false],
+        ],
+      },
+    ],
+  },
   'entity-stats': {
     title: 'Entity Stats',
     groups: [

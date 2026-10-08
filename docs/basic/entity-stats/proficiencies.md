@@ -80,12 +80,49 @@ The **stat effects** of the skill are in the right column: **Add stat effect** a
 
 If your game has no misses ([Gameplay Config > Hit Rules](/basic/game-settings/gameplay-config#hit-rules)), leave the accuracy effect out: it does nothing while the hit system is off.
 
-## The requirement and the reward
+## Proficiencies in other systems
 
-| Type | Fields | What it does |
+A proficiency is a number the player owns, so the rest of the toolkit can ask for it and change it:
+
+| Where | What | What it does |
 |---|---|---|
-| **Proficiency** requirement | **Proficiency**, **Required level** | Met when the player has that level. It is asked again when a level changes |
-| **Proficiency** reward | **Proficiency**, **Mode** (*Experience* or *Levels*), **Amount** | Gives experience (levels follow) or whole levels |
+| [Requirement](/basic/shared-systems/requirements) | **Proficiency**: *Proficiency*, *Required level* | Met when the player has that level. It is asked again when a level changes. Use it on abilities, items, quests and anything with requirements |
+| [Condition](/basic/shared-systems/conditions) | **ProficiencyCondition**: *Proficiency*, *Level check logic*, *Required level* | The same question as a condition: stat effects ("more damage while Lockpicking is 50 or more"), conditional effects, events, behavior. Compare with at least, at most, equals, above, below or not equal |
+| [Reward](/basic/shared-systems/rewards) | **Proficiency**: *Proficiency*, *Mode* (*Experience* or *Levels*), *Amount* | Gives experience (levels follow) or whole levels. A quest, a loot drop, a level-up |
+| [Effect](/basic/abilities-and-effects/effect-types) | **Proficiency Effect**: *Proficiency*, *Action*, *Amount* | A trainer that teaches, a potion that dulls a skill, a buff that raises it. See below |
+
+### The Proficiency Effect
+
+| Action | Lasts | What it does |
+|---|---|---|
+| **Add levels** | Permanent | Adds whole levels to the trained level. A **negative** amount takes levels away |
+| **Add experience** | Permanent | Adds experience towards the next level. Levels follow when it is enough |
+| **Set level** | Permanent | Sets the trained level. The experience towards the next level starts again |
+| **Boost levels** | While the effect lasts | Adds levels when the effect starts and takes them away when it ends. A **negative** amount is a curse |
+
+The level always stays between 0 and the highest level of the proficiency. Only players train proficiencies, so the effect does nothing to other targets.
+
+A **boost** is not part of the saved level: the character keeps the trained level, and the effect gives its boost again when a save is loaded. Give the effect a duration (or make it a buff on an ability that is toggled or channelled), or it ends at once. The boosted level is the one that counts everywhere: the points of the effects of the proficiency, requirements and conditions all see it.
+
+## Who holds proficiencies, and how to ask
+
+**Players hold them**, and every party member is a player, so each companion has levels of its own. NPCs do not train: they have the stat effects of their own stats, and anything that asks for a proficiency level gets the **starting level** of the proficiency.
+
+For a UI or your own code:
+
+```gdscript
+var level: int = entity.get_proficiency_level(proficiency_id)   # any entity; boosts included
+
+var skills: ProficiencyTracker = player.get_proficiencies()      # players
+skills.get_level(id)                 # trained level plus boosts
+skills.get_base_level(id)            # trained level only
+skills.get_experience(id)            # towards the next level
+skills.get_experience_to_next(id)    # 0 at the highest level
+skills.get_known_ids()               # the proficiencies the player has any progress in
+
+skills.level_changed.connect(func(id, new_level, old_level): ...)   # redraw a skill list
+skills.experience_gained.connect(func(id, amount): ...)             # fill an experience bar
+```
 
 ## Saving
 
