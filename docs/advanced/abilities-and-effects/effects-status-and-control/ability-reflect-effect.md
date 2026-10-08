@@ -2,7 +2,7 @@
 
 # AbilityReflectEffect
 
-**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 A reflective ward: abilities that other entities target at the holder can be sent back at their caster.
 
@@ -54,7 +54,7 @@ Reflect only abilities cast by hostile entities (a friendly heal is not sent bac
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-*No description yet.*
+Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
 
 ### bool try_reflect( effect_instance: EffectInstance, ability: AbilityInstance ) {#method-try-reflect}
 
@@ -62,9 +62,9 @@ Does this ward reflect this ability? Rolls the chance and uses a charge (the war
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
 

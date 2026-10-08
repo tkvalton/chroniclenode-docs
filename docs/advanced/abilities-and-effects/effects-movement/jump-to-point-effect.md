@@ -2,7 +2,7 @@
 
 # JumpToPointEffect
 
-**Inherits:** [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 JumpToPointEffect: Direct CharacterBody3D movement along arc path
 
@@ -39,21 +39,21 @@ Maximum height of the arc above the start/end positions
 
 ### void process_before_start( effect_instance: EffectInstance ) {#method-process-before-start}
 
-*No description yet.*
+Override duration setup — point movement effects own their lifecycle via movement completion. Set duration to permanent (0.0) so start_effect() won't create competing duration timers. Child classes that need immediate mode override this themselves. *(from [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect))*
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-*No description yet.*
+*Overrides this function of [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect).*
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-*No description yet.*
+*Overrides this function of [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect).*
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+*Overrides this function of [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect).*
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
 

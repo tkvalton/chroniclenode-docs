@@ -2,7 +2,7 @@
 
 # ProcEffect
 
-**Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 **Inherited by:** [AbilityProcEffect](/advanced/abilities-and-effects/effects-procs/ability-proc-effect), [CombatProcEffect](/advanced/abilities-and-effects/effects-procs/combat-proc-effect), [CombatStateProcEffect](/advanced/abilities-and-effects/effects-procs/combat-state-proc-effect), [DeathProcEffect](/advanced/abilities-and-effects/effects-procs/death-proc-effect), [EffectEventProcEffect](/advanced/abilities-and-effects/effects-procs/effect-event-proc-effect), [HealthThresholdProcEffect](/advanced/abilities-and-effects/effects-procs/health-threshold-proc-effect), [ResourceThresholdProcEffect](/advanced/abilities-and-effects/effects-procs/resource-threshold-proc-effect), [StatusProcEffect](/advanced/abilities-and-effects/effects-procs/status-proc-effect)
 
@@ -89,7 +89,7 @@ Child classes override this to set up their specific signal connections
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-*No description yet.*
+Handle effect completion *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
 
 ### String get_rng_mode_description() {#method-get-rng-mode-description}
 
@@ -97,5 +97,5 @@ Get description of RNG mode for tooltips
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
 

@@ -19,6 +19,18 @@ function docBefore(lines, index) {
   return doc
 }
 
+// where a trailing `## comment` starts on a line of code (not inside a string), or -1
+function trailingDocIndex(line) {
+  let quote = ''
+  for (let i = 0; i < line.length - 1; i++) {
+    const c = line[i]
+    if (quote) { if (c === '\\') i++; else if (c === quote) quote = ''; continue }
+    if (c === '"' || c === "'") { quote = c; continue }
+    if (c === '#') return line[i + 1] === '#' ? i : -1
+  }
+  return -1
+}
+
 // the signature of a function may run over several lines
 function readStatement(lines, start) {
   let text = lines[start]
@@ -72,14 +84,20 @@ export function parseClass(file) {
   let group = ''
   for (let i = 0; i < lines.length; i++) {
     const raw = lines[i]
-    const line = raw.trimEnd()
+    let line = raw.trimEnd()
+    let trailingDoc = ''
+    if (/^(@export|var |static var |const )/.test(line)) {
+      const at = trailingDocIndex(line)
+      if (at > 0) { trailingDoc = line.slice(at + 2).trim(); line = line.slice(0, at).trimEnd() }
+    }
     if (/^\s/.test(line) || line === '') continue // only the top level
     let m
     if ((m = line.match(/^@export_(?:category|group|subgroup)\("([^"]*)"/))) {
       group = m[1]
       continue
     }
-    const doc = i < classDocEnd ? [] : docBefore(lines, i)
+    let doc = i < classDocEnd ? [] : docBefore(lines, i)
+    if (doc.length === 0 && trailingDoc) doc = [trailingDoc]
     if ((m = line.match(/^signal\s+(\w+)\s*(\(.*\))?/))) {
       info.signals.push({ name: m[1], args: m[2] ? m[2].slice(1, -1) : '', doc })
     } else if ((m = line.match(/^enum\s+(\w+)?\s*\{(.*)$/))) {
@@ -258,8 +276,20 @@ export function renderClass(info, ctx) {
     out.push('## Method descriptions', '')
     for (const m of info.methods) {
       out.push(`### ${clean(m.returns)} ${m.name}( ${clean(m.args)} ) {#${anchor('method-' + m.name)}}`.replace(/\( \s*\)/, '()'), '')
-      out.push(m.doc.length ? paragraphs(m.doc) : '*No description yet.*', '')
+      // a function without a comment takes the comment of the function it overrides
+      let text = m.doc.length ? paragraphs(m.doc) : ''
+      if (!text && ctx.methodDoc) {
+        const inherited = ctx.methodDoc(info.base, m.name)
+        if (inherited) text = inherited.doc.length ? `${paragraphs(inherited.doc)} *(from ${link(inherited.owner)})*` : `*Overrides this function of ${link(inherited.owner)}.*`
+      }
+      out.push(text || '*No description yet.*', '')
     }
   }
   return out.join('\n').replace(/\n{3,}/g, '\n\n') + '\n'
+}
+
+/** The first line of the description of a class, ready for a table cell */
+export function briefOf(info) {
+  const first = info.doc.find(l => l.trim() !== '')
+  return first ? inlineCode(first.trim()).replace(/\|/g, '\\|') : ''
 }

@@ -38,7 +38,7 @@ A type that changes something *for a while* has no **Immediate** time strategy, 
 
 | Type | What it does |
 |---|---|
-| [**Status**](/advanced/abilities-and-effects/effects-status-and-control/status-effect) (`StatusEffect`) | Puts a status condition on the target: stun, root, silence, disarm, cripple. The condition itself is a *[Status Effect](/basic/abilities-and-effects/status-effects)* you define in *Entity Stats*, with its own diminishing returns and [immunity](/basic/tags-and-groups/immunities) |
+| [**Status**](/advanced/abilities-and-effects/effects-status-and-control/status-effect) (`StatusEffect`) | Puts a status condition on the target: stun, root, silence, disarm, cripple. The condition itself is a *[Status Effect](/basic/abilities-and-effects/status-effects)* you define in *Entity Stats*, with its own [diminishing returns](/basic/keywords#diminishing-returns) and [immunity](/basic/tags-and-groups/immunities) |
 | [**Interrupt**](/advanced/abilities-and-effects/effects-status-and-control/interrupt-effect) (`InterruptEffect`) | Interrupts the target's current cast or channel |
 | [**School Lock**](/advanced/abilities-and-effects/effects-status-and-control/school-lock-effect) (`SchoolLockEffect`) | Locks all of one school's abilities on the target: a counterspell, a school-specific silence |
 | [**Ability Reflect**](/advanced/abilities-and-effects/effects-status-and-control/ability-reflect-effect) (`AbilityReflectEffect`) | A ward that sends abilities aimed at its holder back at their caster |

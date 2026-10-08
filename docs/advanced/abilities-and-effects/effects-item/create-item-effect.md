@@ -2,7 +2,7 @@
 
 # CreateItemEffect
 
-**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 Creates items and adds them to target entity's inventory or drops them in the world
 
@@ -49,7 +49,7 @@ Whether to validate that the item ID exists in the database
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-*No description yet.*
+Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
 
 ### void create_item( effect_instance: EffectInstance ) {#method-create-item}
 
@@ -61,11 +61,11 @@ Handle effect-specific stacking logic
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
 
 ### bool is_item_valid() {#method-is-item-valid}
 

@@ -2,7 +2,7 @@
 
 # ChargeStackActiveAbilityDefinition
 
-**Inherits:** [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition) < [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition) < [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition) < [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition) < [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 Charge-based ability system with configurable regeneration modes.
 
@@ -69,15 +69,15 @@ Whether to start with full charges (true) or build them up over time (false = st
 
 ### void handle_completion( ability_instance: AbilityInstance ) {#method-handle-completion}
 
-*No description yet.*
+Override to add active ability specific validation Active abilities complete the standard way (cooldown, resource gain, state, ability_used); the passive base class that this extends has no completion logic *(from [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition))*
 
 ### AbilityInstance.AbilityUseAttemptResult validate_ability_usage( ability_instance: AbilityInstance, from_action: bool ) {#method-validate-ability-usage}
 
-*No description yet.*
+*Overrides this function of [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition).*
 
 ### void cleanup_ability_logic( ability_instance: AbilityInstance ) {#method-cleanup-ability-logic}
 
-*No description yet.*
+No special cleanup needed - AbilityInstance handles effect removal. *(from [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition))*
 
 ### void initialize_charge_system( ability_instance: AbilityInstance ) {#method-initialize-charge-system}
 
@@ -121,7 +121,7 @@ Whether to start with full charges (true) or build them up over time (false = st
 
 ### String get_tooltip_description() {#method-get-tooltip-description}
 
-*No description yet.*
+*Overrides this function of [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition).*
 
 ### void restore_regeneration( ability_instance: AbilityInstance, cooldown_remaining: float, independent_remaining: Array ) {#method-restore-regeneration}
 

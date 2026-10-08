@@ -2,7 +2,7 @@
 
 # EqualizeHealingAreaEffect
 
-**Inherits:** [EqualizeAreaEffect](/advanced/abilities-and-effects/effects-area/equalize-area-effect) < [MinimumApplicationAreaEffect](/advanced/abilities-and-effects/effects-area/minimum-application-area-effect) < [AreaEffect](/advanced/abilities-and-effects/effects-area/area-effect) < [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [EqualizeAreaEffect](/advanced/abilities-and-effects/effects-area/equalize-area-effect) < [MinimumApplicationAreaEffect](/advanced/abilities-and-effects/effects-area/minimum-application-area-effect) < [AreaEffect](/advanced/abilities-and-effects/effects-area/area-effect) < [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 EqualizeHealingAreaEffect distributes healing among all targets in area.
 
@@ -72,7 +72,7 @@ Check if healing would be meaningful (not all overheal)
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+*Overrides this function of [EqualizeAreaEffect](/advanced/abilities-and-effects/effects-area/equalize-area-effect).*
 
 ### String get_mode_description() {#method-get-mode-description}
 
@@ -80,5 +80,5 @@ Get mode-specific description
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [EqualizeAreaEffect](/advanced/abilities-and-effects/effects-area/equalize-area-effect).*
 

@@ -12,6 +12,9 @@ export const TERMS = [
   { pattern: 'threat', url: k('threat') },
   { pattern: 'stacks?', url: k('stacks') },
   { pattern: 'originator', url: k('originator-and-target') },
+  { pattern: 'argument entity', url: k('argument-entity') },
+  { pattern: 'pending rewards?', url: k('pending-reward') },
+  { pattern: 'diminishing returns', url: k('diminishing-returns') },
 
   // the pages of the Abilities & Effects chapter
   { pattern: 'effect types?', url: b('abilities-and-effects/effect-types') },
@@ -33,6 +36,7 @@ export const TERMS = [
   { pattern: 'stat groups?', url: b('tags-and-groups/stat-groups') },
   { pattern: 'immunit(?:y|ies)', url: b('tags-and-groups/immunities') },
   { pattern: 'requirements?', url: b('shared-systems/requirements') },
+  { pattern: 'formulas?', url: b('shared-systems/formulas') },
   { pattern: 'rewards?', url: b('shared-systems/rewards') },
   { pattern: 'text tokens?', url: b('shared-systems/text-tokens') },
   { pattern: 'factions?', url: b('behaviors/factions') },

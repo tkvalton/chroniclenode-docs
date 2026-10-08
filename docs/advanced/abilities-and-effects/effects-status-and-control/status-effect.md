@@ -2,7 +2,7 @@
 
 # StatusEffect
 
-**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 StatusEffect applies a status condition (stun, root, silence, disarm, cripple ...) to the target entity.
 
@@ -96,5 +96,5 @@ Get the effect description for tooltips
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
 

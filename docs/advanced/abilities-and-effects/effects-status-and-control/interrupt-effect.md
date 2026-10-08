@@ -2,7 +2,7 @@
 
 # InterruptEffect
 
-**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 InterruptEffect is a simple effect that interrupts the target's current casting.
 
@@ -23,7 +23,7 @@ Applies the specific logic for this effect, interrupting the target's cast
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
 
 ### String get_effect_description() {#method-get-effect-description}
 

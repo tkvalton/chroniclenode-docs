@@ -44,3 +44,18 @@ The count of one effect on one target. Applying an effect that is already runnin
 ## Originator and target
 
 The *originator* of an effect is the entity that causes it: the caster of the ability, or the owner of the item or the trap. Its *target* is the entity it lands on. Most effects land on the target, and an effect with **Applies to** set to Self lands on the originator. The [scaling rules](/basic/abilities-and-effects/scaling-and-trigger-rules) named *Originator …* (the caster's health, the caster's pool) read the originator.
+
+## Argument entity
+
+The entity a condition or a stat effect is *about*, when nothing else is chosen. For an enemy's behavior it is the enemy; for a stat effect it is the owner of the stat; for the Condition conditional effect it is the target or the user. A condition's **Entity target** can move the question to the argument entity's target, the current player, a summoner, a specific placed entity, or (on stat effects) the opponent of the hit. See [Conditions](/basic/shared-systems/conditions).
+
+## Pending reward
+
+A [reward](/basic/shared-systems/rewards) that could not be given yet and waits. An item reward that does not fit in the bag is not lost: the player is warned and it is given as soon as there is room. A [quest](/basic/events-and-quests/quests) whose reward is pending is not completed until it can be given. See [Rewards](/basic/shared-systems/rewards#when-there-is-no-room).
+
+## Diminishing returns
+
+Two different things use the name, and both mean "each repeat is worth less":
+
+- On a **stat**: points above a threshold count for less. A stat effect can run its points through a *soft cap* or a drawn curve before the [formula](/basic/shared-systems/formulas) turns them into a value. See [Formulas](/basic/shared-systems/formulas#diminishing-returns).
+- On **crowd control**: the same control on the same target gets shorter each time, so it cannot be chained forever. See [Status Effects](/basic/abilities-and-effects/status-effects#diminishing-returns).

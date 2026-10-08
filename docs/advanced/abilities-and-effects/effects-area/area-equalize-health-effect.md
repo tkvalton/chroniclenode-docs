@@ -2,7 +2,7 @@
 
 # AreaEqualizeHealthEffect
 
-**Inherits:** [EqualizeAreaEffect](/advanced/abilities-and-effects/effects-area/equalize-area-effect) < [MinimumApplicationAreaEffect](/advanced/abilities-and-effects/effects-area/minimum-application-area-effect) < [AreaEffect](/advanced/abilities-and-effects/effects-area/area-effect) < [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [EqualizeAreaEffect](/advanced/abilities-and-effects/effects-area/equalize-area-effect) < [MinimumApplicationAreaEffect](/advanced/abilities-and-effects/effects-area/minimum-application-area-effect) < [AreaEffect](/advanced/abilities-and-effects/effects-area/area-effect) < [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 AreaEqualizeHealthEffect equalizes health among all entities in the area.
 
@@ -65,7 +65,7 @@ Check if effect would actually do anything useful
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+*Overrides this function of [EqualizeAreaEffect](/advanced/abilities-and-effects/effects-area/equalize-area-effect).*
 
 ### String get_detailed_description( effect_instance: EffectInstance ) {#method-get-detailed-description}
 
@@ -73,5 +73,5 @@ Get detailed description for tooltips
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [EqualizeAreaEffect](/advanced/abilities-and-effects/effects-area/equalize-area-effect).*
 

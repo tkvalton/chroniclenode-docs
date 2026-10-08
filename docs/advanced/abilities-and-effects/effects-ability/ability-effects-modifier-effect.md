@@ -2,7 +2,7 @@
 
 # AbilityEffectsModifierEffect
 
-**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 AbilityEffectsModifierEffect adds or removes effects from a target ability's
 
@@ -66,7 +66,7 @@ Effect ID to add or remove
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-*No description yet.*
+Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
 
 ### void modify_ability_effects( effect_instance: EffectInstance, mod_ability: AbilityInstance ) {#method-modify-ability-effects}
 
@@ -82,7 +82,7 @@ Effect ID to add or remove
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-*No description yet.*
+Handles the finishing of the effect, including cleanup and VFX/SFX (override in child classes if needed, call .super for cleanup) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
 
 ### void restore_ability_effects( effect_instance: EffectInstance ) {#method-restore-ability-effects}
 
@@ -90,9 +90,9 @@ Effect ID to add or remove
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
 

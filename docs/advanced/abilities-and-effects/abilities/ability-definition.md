@@ -2,7 +2,7 @@
 
 # AbilityDefinition
 
-**Inherits:** `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 **Inherited by:** [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition)
 

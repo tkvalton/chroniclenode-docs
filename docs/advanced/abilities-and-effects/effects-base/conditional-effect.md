@@ -2,7 +2,7 @@
 
 # ConditionalEffect
 
-**Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 **Inherited by:** [ConditionConditionalEffect](/advanced/abilities-and-effects/effects-conditional/condition-conditional-effect), [DistanceConditionalEffect](/advanced/abilities-and-effects/effects-conditional/distance-conditional-effect), [EffectConditionalEffect](/advanced/abilities-and-effects/effects-conditional/effect-conditional-effect), [HealthConditionalEffect](/advanced/abilities-and-effects/effects-conditional/health-conditional-effect), [RandomChanceConditionalEffect](/advanced/abilities-and-effects/effects-conditional/random-chance-conditional-effect)
 
@@ -40,7 +40,7 @@ Effects applied when the condition is NOT met ("if undead apply A, else apply B"
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-*No description yet.*
+Apply all child effects using the simplified system *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
 
 ### void apply_else_effects( effect_instance: EffectInstance ) {#method-apply-else-effects}
 

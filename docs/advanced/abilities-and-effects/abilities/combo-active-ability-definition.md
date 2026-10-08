@@ -2,7 +2,7 @@
 
 # ComboActiveAbilityDefinition
 
-**Inherits:** [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition) < [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition) < [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition) < [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition) < [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 ComboActiveAbilityDefinition supports multi-step combo sequences.
 
@@ -82,7 +82,7 @@ Whether the combo loops back to step 0 after the final step.
 
 ### void handle_completion( ability_instance: AbilityInstance ) {#method-handle-completion}
 
-*No description yet.*
+Override to add active ability specific validation Active abilities complete the standard way (cooldown, resource gain, state, ability_used); the passive base class that this extends has no completion logic *(from [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition))*
 
 ### Array get_current_on_use_effects( ability_instance: AbilityInstance ) {#method-get-current-on-use-effects}
 
@@ -90,7 +90,7 @@ Return on-use effects for the current combo step.
 
 ### void cleanup_ability_logic( ability_instance: AbilityInstance ) {#method-cleanup-ability-logic}
 
-*No description yet.*
+No special cleanup needed - AbilityInstance handles effect removal. *(from [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition))*
 
 ### Array get_combo_effects( combo_index: int ) {#method-get-combo-effects}
 
@@ -130,5 +130,5 @@ Return on-use effects for the current combo step.
 
 ### String get_tooltip_description() {#method-get-tooltip-description}
 
-*No description yet.*
+*Overrides this function of [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition).*
 

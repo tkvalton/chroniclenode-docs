@@ -2,7 +2,7 @@
 
 # CollisionEffect
 
-**Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 **Inherited by:** [AreaEffect](/advanced/abilities-and-effects/effects-area/area-effect), [WeaponCollisionEffect](/advanced/abilities-and-effects/effects-area/weapon-collision-effect)
 
@@ -120,11 +120,11 @@ How InteractableObjects are treated relative to entities during filtering.
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-*No description yet.*
+Apply all child effects using the simplified system *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-*No description yet.*
+Handle effect completion *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
 
 ### Array[Variant] get_entities_in_area( effect_instance: EffectInstance ) {#method-get-entities-in-area}
 
@@ -148,9 +148,9 @@ How InteractableObjects are treated relative to entities during filtering.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
 

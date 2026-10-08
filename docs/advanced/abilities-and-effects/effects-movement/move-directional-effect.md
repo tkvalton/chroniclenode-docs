@@ -2,7 +2,7 @@
 
 # MoveDirectionalEffect
 
-**Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 **Inherited by:** [AcceleratedMoveEffect](/advanced/abilities-and-effects/effects-movement/accelerated-move-effect), [ConstantMoveEffect](/advanced/abilities-and-effects/effects-movement/constant-move-effect), [DashEffect](/advanced/abilities-and-effects/effects-movement/dash-effect), [ImpulseEffect](/advanced/abilities-and-effects/effects-movement/impulse-effect), [PullEffect](/advanced/abilities-and-effects/effects-movement/pull-effect), [PushEffect](/advanced/abilities-and-effects/effects-movement/push-effect)
 
@@ -112,15 +112,15 @@ Timer callback from EffectInstance - child classes can override
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-*No description yet.*
+Handle effect completion *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

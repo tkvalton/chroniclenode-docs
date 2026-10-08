@@ -8,6 +8,7 @@
 
 import { groups as abilitiesAndEffectsClasses } from './classes-abilities-and-effects.mjs'
 import { groups as databaseClasses } from './classes-data-and-database.mjs'
+import { groups as sharedClasses } from './classes-shared-systems.mjs'
 
 const page = (text, link, extra = {}) => ({ text, link, ...extra })
 const kebab = name => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2').toLowerCase()
@@ -164,6 +165,7 @@ const sharedSystems = {
   items: [
     page('Overview', '/basic/shared-systems/', { title: 'Shared systems' }),
     page('Requirements', '/basic/shared-systems/requirements'),
+    page('Conditions', '/basic/shared-systems/conditions'),
     page('Groups', '/basic/shared-systems/groups'),
     page('Rewards', '/basic/shared-systems/rewards'),
     page('Text tokens', '/basic/shared-systems/text-tokens'),
@@ -200,6 +202,36 @@ const dataAndDatabase = {
       collapsed: true,
       items: group.classes.map(c => page(c.name, `/advanced/data-and-database/${group.slug}/${kebab(c.name)}`, { title: c.name })),
     })),
+  ],
+}
+
+// Shared systems (advanced): a page for each system and a page for each of its classes
+const sharedGroups = Object.fromEntries(sharedClasses.map(g => [g.slug, g]))
+const sharedClassItems = group => group.classes.map(c => page(c.name, `/advanced/shared-systems/${group.slug}/${kebab(c.name)}`, { title: c.name }))
+function sharedSystem(text, slug, groupSlugs) {
+  const groups = groupSlugs.map(g => sharedGroups[g])
+  return {
+    text,
+    collapsed: true,
+    items: [
+      page('How it is built', `/advanced/shared-systems/${slug}`, { title: `${text}: how it is built` }),
+      ...(groups.length === 1
+        ? sharedClassItems(groups[0])
+        : groups.map(group => ({ text: group.text, collapsed: true, items: sharedClassItems(group) }))),
+    ],
+  }
+}
+const advancedShared = {
+  text: 'Shared systems',
+  collapsed: true,
+  items: [
+    page('Overview', '/advanced/shared-systems/', { title: 'Shared systems: how they are built' }),
+    sharedSystem('Requirements', 'requirements', ['requirements']),
+    sharedSystem('Conditions', 'conditions', ['condition-bases', 'entity-conditions', 'encounter-conditions', 'event-conditions', 'general-conditions']),
+    sharedSystem('Rewards', 'rewards', ['rewards']),
+    sharedSystem('Groups', 'groups', ['groups']),
+    sharedSystem('Text tokens', 'text-tokens', ['text-tokens']),
+    sharedSystem('Formulas', 'formulas', ['formulas', 'diminishing-returns']),
   ],
 }
 
@@ -260,6 +292,7 @@ export const sidebar = [
       dataAndDatabase,
       page('Save and load', '/advanced/save-and-load'),
       page('Extending the toolkit', '/advanced/extending'),
+      advancedShared,
       { text: 'Systems', collapsed: true, items: advancedSystems },
     ],
   },

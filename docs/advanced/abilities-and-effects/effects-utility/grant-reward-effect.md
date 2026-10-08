@@ -2,7 +2,7 @@
 
 # GrantRewardEffect
 
-**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 Applies a Reward to the target entity
 
@@ -16,7 +16,7 @@ NOTE: QuestReward is not allowed as it cannot be reversed
 
 | | | |
 |---|---|---|
-| `Reward ## The reward to grant` | [reward](#prop-reward) |  |
+| `Reward` | [reward](#prop-reward) |  |
 
 ## Methods
 
@@ -31,9 +31,9 @@ NOTE: QuestReward is not allowed as it cannot be reversed
 
 ## Property descriptions
 
-### Reward ## The reward to grant reward {#prop-reward}
+### Reward reward {#prop-reward}
 
-*No description yet.*
+The reward to grant
 
 ## Method descriptions
 
@@ -47,11 +47,11 @@ When effect is removed, unapply the reward if it supports it
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
 
 ### Array[Dictionary] validate() {#method-validate}
 

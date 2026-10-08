@@ -2,7 +2,7 @@
 
 # ScalingEffect
 
-**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 **Inherited by:** [CombatResultEffect](/advanced/abilities-and-effects/effects-base/combat-result-effect), [StatModifierEffect](/advanced/abilities-and-effects/effects-stats/stat-modifier-effect)
 

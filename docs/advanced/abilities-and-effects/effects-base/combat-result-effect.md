@@ -2,7 +2,7 @@
 
 # CombatResultEffect
 
-**Inherits:** [ScalingEffect](/advanced/abilities-and-effects/effects-base/scaling-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [ScalingEffect](/advanced/abilities-and-effects/effects-base/scaling-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 **Inherited by:** [DamageEffect](/advanced/abilities-and-effects/effects-damage-and-healing/damage-effect), [HealEffect](/advanced/abilities-and-effects/effects-damage-and-healing/heal-effect)
 

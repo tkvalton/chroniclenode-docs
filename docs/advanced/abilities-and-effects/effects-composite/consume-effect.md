@@ -2,7 +2,7 @@
 
 # ConsumeEffect
 
-**Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 ConsumeEffect consumes another effect and applies child effects based on consumed stacks.
 
@@ -70,11 +70,11 @@ Find and consume the target effect, returning the number of stacks consumed
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

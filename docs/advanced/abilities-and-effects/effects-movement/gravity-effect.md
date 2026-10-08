@@ -2,7 +2,7 @@
 
 # GravityEffect
 
-**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 Modifies the gravity applied to the target entity
 
@@ -10,8 +10,8 @@ Modifies the gravity applied to the target entity
 
 | | | |
 |---|---|---|
-| `float` | [gravity_value](#prop-gravity-value) | `9.8 ## The gravity value to apply (default: 9.8, 0 = floa...` |
-| `bool` | [use_preset](#prop-use-preset) | `false ## Use a preset instead of custom value` |
+| `float` | [gravity_value](#prop-gravity-value) | `9.8` |
+| `bool` | [use_preset](#prop-use-preset) | `false` |
 | `GravityPreset` | [gravity_preset](#prop-gravity-preset) | `2` |
 
 ## Methods
@@ -36,15 +36,15 @@ Modifies the gravity applied to the target entity
 
 ## Property descriptions
 
-### float gravity_value = 9.8 ## The gravity value to apply (default: 9.8, 0 = floatin {#prop-gravity-value}
+### float gravity_value = 9.8 {#prop-gravity-value}
 
-*No description yet.*
+The gravity value to apply (default: 9.8, 0 = floating, negative = anti-gravity)
 
 *Presets*
 
-### bool use_preset = false ## Use a preset instead of custom value {#prop-use-preset}
+### bool use_preset = false {#prop-use-preset}
 
-*No description yet.*
+Use a preset instead of custom value
 
 ### GravityPreset gravity_preset = 2 {#prop-gravity-preset}
 
@@ -62,11 +62,11 @@ When effect is removed, restore original gravity
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
 
 ### Array[Dictionary] validate() {#method-validate}
 

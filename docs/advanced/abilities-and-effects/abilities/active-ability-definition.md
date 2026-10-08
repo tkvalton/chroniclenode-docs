@@ -2,7 +2,7 @@
 
 # ActiveAbilityDefinition
 
-**Inherits:** [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition) < [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition) < [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 **Inherited by:** [ChargeStackActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/charge-stack-active-ability-definition), [ComboActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/combo-active-ability-definition), [PowerUpActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/power-up-active-ability-definition)
 
@@ -168,7 +168,7 @@ Override to add active ability specific validation Active abilities complete the
 
 ### AbilityInstance.AbilityUseAttemptResult validate_ability_usage( ability_instance: AbilityInstance, from_action: bool ) {#method-validate-ability-usage}
 
-*No description yet.*
+Passive abilities cannot be actively used. *(from [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition))*
 
 ### float get_effective_cooldown_duration( ability_instance: AbilityInstance ) {#method-get-effective-cooldown-duration}
 
@@ -220,5 +220,5 @@ Check if this ability grants any resources
 
 ### String get_tooltip_description() {#method-get-tooltip-description}
 
-*No description yet.*
+*Overrides this function of [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition).*
 

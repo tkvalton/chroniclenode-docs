@@ -2,7 +2,7 @@
 
 # PassiveAbilityDefinition
 
-**Inherits:** [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 **Inherited by:** [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition)
 
@@ -58,5 +58,5 @@ No special cleanup needed - AbilityInstance handles effect removal.
 
 ### String get_tooltip_description() {#method-get-tooltip-description}
 
-*No description yet.*
+Get formatted description for tooltips with effect placeholder replacement *(from [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition))*
 

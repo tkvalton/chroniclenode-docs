@@ -2,7 +2,7 @@
 
 # DamageEffect
 
-**Inherits:** [CombatResultEffect](/advanced/abilities-and-effects/effects-base/combat-result-effect) < [ScalingEffect](/advanced/abilities-and-effects/effects-base/scaling-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [CombatResultEffect](/advanced/abilities-and-effects/effects-base/combat-result-effect) < [ScalingEffect](/advanced/abilities-and-effects/effects-base/scaling-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 DamageEffect is a an effect that applies damage to the target entity.
 
@@ -120,11 +120,11 @@ Applies the specific logic for this effect
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

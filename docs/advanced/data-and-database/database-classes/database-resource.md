@@ -4,6 +4,8 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
+**Inherited by:** [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition), [Effect](/advanced/abilities-and-effects/effects-base/effect), [GroupDefinition](/advanced/shared-systems/groups/group-definition)
+
 The base of everything the database stores. A DatabaseResource has an id, a name, an icon and a description; the id is what other resources use to refer to it.
 
 ## Description

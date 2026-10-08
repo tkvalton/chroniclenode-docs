@@ -2,7 +2,7 @@
 
 # MinimumApplicationAreaEffect
 
-**Inherits:** [AreaEffect](/advanced/abilities-and-effects/effects-area/area-effect) < [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [AreaEffect](/advanced/abilities-and-effects/effects-area/area-effect) < [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 **Inherited by:** [AreaRandomizeTargetEffect](/advanced/abilities-and-effects/effects-area/area-randomize-target-effect), [EqualizeAreaEffect](/advanced/abilities-and-effects/effects-area/equalize-area-effect)
 
@@ -49,9 +49,9 @@ Every way a collision effect applies its child effects goes through here, so the
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+Override description to include shape info *(from [AreaEffect](/advanced/abilities-and-effects/effects-area/area-effect))*
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [AreaEffect](/advanced/abilities-and-effects/effects-area/area-effect).*
 

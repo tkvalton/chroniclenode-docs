@@ -2,7 +2,7 @@
 
 # ChainProjectileEffect
 
-**Inherits:** [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 Chain projectile effect - bounces between multiple targets with selectable trigger
 
@@ -10,12 +10,12 @@ Chain projectile effect - bounces between multiple targets with selectable trigg
 
 | | | |
 |---|---|---|
-| `TriggerType` | [trigger_type](#prop-trigger-type) | `TriggerType.DESTINATION ## Default to destination for cha...` |
-| `int` | [max_chains](#prop-max-chains) | `3 ## Maximum number of chain bounces` |
-| `float` | [chain_range](#prop-chain-range) | `5.0 ## Range to find next chain target` |
+| `TriggerType` | [trigger_type](#prop-trigger-type) | `TriggerType.DESTINATION` |
+| `int` | [max_chains](#prop-max-chains) | `3` |
+| `float` | [chain_range](#prop-chain-range) | `5.0` |
 | `ChainEffect.ChainTargetType` | [chain_target_filter](#prop-chain-target-filter) | `ChainEffect.ChainTargetType.ENAMY` |
-| `bool` | [allow_repeat_targets](#prop-allow-repeat-targets) | `false ## Allow hitting same target multiple times` |
-| `float` | [arrival_threshold](#prop-arrival-threshold) | `1.0 ## Distance to consider target reached` |
+| `bool` | [allow_repeat_targets](#prop-allow-repeat-targets) | `false` |
+| `float` | [arrival_threshold](#prop-arrival-threshold) | `1.0` |
 | `CollisionLayerUtility.HitMode` | [hit_mode](#prop-hit-mode) | `CollisionLayerUtility.HitMode.ENEMY_ENTITIES` |
 | `int` | [pierce_count](#prop-pierce-count) | `0` |
 | `bool` | [stop_on_world_hit](#prop-stop-on-world-hit) | `true` |
@@ -36,31 +36,31 @@ Chain projectile effect - bounces between multiple targets with selectable trigg
 
 *Trigger Settings*
 
-### TriggerType trigger_type = TriggerType.DESTINATION ## Default to destination for chaini {#prop-trigger-type}
+### TriggerType trigger_type = TriggerType.DESTINATION {#prop-trigger-type}
 
-*No description yet.*
+Default to destination for chaining
 
 *Chain Settings*
 
-### int max_chains = 3 ## Maximum number of chain bounces {#prop-max-chains}
+### int max_chains = 3 {#prop-max-chains}
 
-*No description yet.*
+Maximum number of chain bounces
 
-### float chain_range = 5.0 ## Range to find next chain target {#prop-chain-range}
+### float chain_range = 5.0 {#prop-chain-range}
 
-*No description yet.*
+Range to find next chain target
 
 ### ChainEffect.ChainTargetType chain_target_filter = ChainEffect.ChainTargetType.ENAMY {#prop-chain-target-filter}
 
 *No description yet.*
 
-### bool allow_repeat_targets = false ## Allow hitting same target multiple times {#prop-allow-repeat-targets}
+### bool allow_repeat_targets = false {#prop-allow-repeat-targets}
 
-*No description yet.*
+Allow hitting same target multiple times
 
-### float arrival_threshold = 1.0 ## Distance to consider target reached {#prop-arrival-threshold}
+### float arrival_threshold = 1.0 {#prop-arrival-threshold}
 
-*No description yet.*
+Distance to consider target reached
 
 *Collision Settings*
 
@@ -102,9 +102,9 @@ Chain projectile effect - bounces between multiple targets with selectable trigg
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+Override this to provide complete effect description *(from [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect))*
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect).*
 

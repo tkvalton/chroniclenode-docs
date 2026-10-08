@@ -6,7 +6,7 @@
 // Only abilities and effects so far: add a system to SYSTEMS to do the next one.
 import fs from 'node:fs'
 import path from 'node:path'
-import { parseClass, renderClass, MARKER } from './gdscript-doc.mjs'
+import { parseClass, renderClass, briefOf, MARKER } from './gdscript-doc.mjs'
 
 const ADDON = process.env.CHRONICLENODE_ADDON ?? 'C:/Users/Rhys/Documents/rpg-toolkit/addons/chroniclenode'
 
@@ -64,6 +64,22 @@ const SYSTEMS = {
       },
     ],
   },
+  'shared-systems': {
+    title: 'Shared systems',
+    groups: [
+      { text: 'Requirements', slug: 'requirements', dirs: [['data_classes/requirements', true], ['runtime_classes/utility/requirement_checker.gd', false]] },
+      { text: 'Rewards', slug: 'rewards', dirs: [['data_classes/rewards', true]] },
+      { text: 'Conditions: base classes', slug: 'condition-bases', dirs: [['data_classes/conditions', false]] },
+      { text: 'Conditions: entity', slug: 'entity-conditions', dirs: [['data_classes/conditions/entity', true]] },
+      { text: 'Conditions: encounter', slug: 'encounter-conditions', dirs: [['data_classes/conditions/encounter', true]] },
+      { text: 'Conditions: events', slug: 'event-conditions', dirs: [['data_classes/conditions/event', true]] },
+      { text: 'Conditions: general', slug: 'general-conditions', dirs: [['data_classes/conditions/general', true]] },
+      { text: 'Groups', slug: 'groups', dirs: [['data_classes/groups', true]] },
+      { text: 'Text tokens', slug: 'text-tokens', dirs: [['runtime_classes/utility/text_tokens.gd', false], ['runtime_classes/utility/effect_text_util.gd', false]] },
+      { text: 'Formulas', slug: 'formulas', dirs: [['data_classes/stats/formulas', true], ['data_classes/stats/formula_context.gd', false]] },
+      { text: 'Diminishing returns', slug: 'diminishing-returns', dirs: [['data_classes/stats/diminishing_returns', true]] },
+    ],
+  },
 }
 
 const kebab = name => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2').toLowerCase()
@@ -85,13 +101,35 @@ function classOf(file) {
   const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/)
   for (const l of lines) {
     const m = l.match(/^class_name\s+(\w+)(?:\s+extends\s+(\w+))?/)
-    if (m) return { name: m[1], base: m[2] ?? 'RefCounted' }
+    if (m) return { name: m[1], base: m[2] ?? 'RefCounted', path: file }
   }
   return null
 }
 
 let written = 0
 let skipped = 0
+
+// every class of the addon, to follow the inheritance chain
+const all = new Map()
+for (const file of gdFiles('.', true)) {
+  const c = classOf(file)
+  if (c) all.set(c.name, c)
+}
+
+// the comment of a function in the nearest ancestor that has the function (null when none has it)
+const parsedClasses = new Map()
+const methodDoc = (className, methodName) => {
+  for (let name = className, i = 0; name && all.has(name) && i < 20; name = all.get(name).base, i++) {
+    if (!parsedClasses.has(name)) parsedClasses.set(name, parseClass(all.get(name).path))
+    const found = parsedClasses.get(name)?.methods.find(m => m.name === methodName)
+    if (found) return { doc: found.doc, owner: name }
+  }
+  return null
+}
+
+// first pass: the classes of every system, and the page of each class (a class can link to the page of a class of another system)
+const built = {}
+const pages = new Map()
 for (const [slug, system] of Object.entries(SYSTEMS)) {
   const out = []
   const seen = new Set()
@@ -108,33 +146,64 @@ for (const [slug, system] of Object.entries(SYSTEMS)) {
     classes.sort((a, b) => a.name.localeCompare(b.name))
     out.push({ text: group.text, slug: group.slug, classes })
   }
+  built[slug] = out
+  for (const group of out) for (const c of group.classes) if (!pages.has(c.name)) pages.set(c.name, `/advanced/${slug}/${group.slug}/${kebab(c.name)}`)
   fs.writeFileSync(
     `docs/.vitepress/classes-${slug}.mjs`,
-    `// Written by scripts/scan-classes.mjs from the addon: the classes of the ${system.title} system.\nexport const groups = ${JSON.stringify(out, null, 2)}\n`,
+    `// Written by scripts/scan-classes.mjs from the addon: the classes of the ${system.title} system.
+export const groups = ${JSON.stringify(out, null, 2)}
+`,
   )
-  // every class of the addon, to follow the inheritance chain; the pages of this system, to link to
-  const all = new Map()
-  for (const file of gdFiles('.', true)) {
-    const c = classOf(file)
-    if (c) all.set(c.name, c)
-  }
-  const pages = new Map()
-  for (const group of out) for (const c of group.classes) pages.set(c.name, `/advanced/${slug}/${group.slug}/${kebab(c.name)}`)
-  const stub = name => `# ${name}\n\n::: warning Work in progress\nThis page is being written.\n:::\n`
+}
+
+// second pass: the page of every class
+const stub = name => `# ${name}
+
+::: warning Work in progress
+This page is being written.
+:::
+`
+const briefs = new Map() // class name -> the first line of its description
+for (const [slug, out] of Object.entries(built)) {
   for (const group of out) {
     for (const c of group.classes) {
       const file = `docs/advanced/${slug}/${group.slug}/${kebab(c.name)}.md`
+      const info = parseClass(path.join(ADDON, c.file))
+      briefs.set(c.name, info ? briefOf(info) : '')
       // a page written by hand is never touched: only a stub or a generated page is written again
       if (fs.existsSync(file)) {
         const current = fs.readFileSync(file, 'utf8')
         if (!current.includes(MARKER) && current !== stub(c.name)) { skipped++; continue }
       }
-      const info = parseClass(path.join(ADDON, c.file))
       fs.mkdirSync(path.dirname(file), { recursive: true })
-      fs.writeFileSync(file, info ? renderClass(info, { all, pages }) : stub(c.name))
+      fs.writeFileSync(file, info ? renderClass(info, { all, pages, methodDoc }) : stub(c.name))
       written++
     }
   }
   console.log(slug, out.map(g => `${g.text}: ${g.classes.length}`).join(', '))
 }
 console.log(written, 'class pages written,', skipped, 'written by hand and left alone')
+
+// third pass: the class tables. A page holds <!-- classes:system/group --> and <!-- /classes -->, and what is between them is the table of the classes of that group
+function mdFiles(dir, out = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name)
+    if (e.isDirectory()) { if (e.name !== '.vitepress' && e.name !== 'public') mdFiles(p, out) }
+    else if (e.name.endsWith('.md')) out.push(p)
+  }
+  return out
+}
+let tables = 0
+for (const file of mdFiles('docs')) {
+  const text = fs.readFileSync(file, 'utf8')
+  if (!text.includes('<!-- classes:')) continue
+  const next = text.replace(/<!-- classes:([\w-]+)\/([\w-]+) -->[\s\S]*?<!-- \/classes -->/g, (_, system, groupSlug) => {
+    const group = (built[system] ?? []).find(g => g.slug === groupSlug)
+    if (!group) throw new Error(`${file}: no class group ${system}/${groupSlug}`)
+    const rows = group.classes.map(c => `| [${c.name}](/advanced/${system}/${group.slug}/${kebab(c.name)}) | ${briefs.get(c.name) ?? ''} |`)
+    tables++
+    return `<!-- classes:${system}/${groupSlug} -->\n| Class | What it is |\n|---|---|\n${rows.join('\n')}\n<!-- /classes -->`
+  })
+  if (next !== text) fs.writeFileSync(file, next)
+}
+console.log(tables, 'class tables filled in')

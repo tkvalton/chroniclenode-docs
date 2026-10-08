@@ -69,9 +69,9 @@ The aim decides the target, whatever the controller passed (the basic attack pas
 
 ### Variant get_auto_target( _strategy_instance: TargetStrategyInstance, user: Variant ) {#method-get-auto-target}
 
-*No description yet.*
+Virtual method for auto-target selection - override in subclasses to implement specific auto-targeting *(from [TargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/target-strategy-definition))*
 
 ### Variant get_property_value( strategy_instance: TargetStrategyInstance, property_name: String ) {#method-get-property-value}
 
-*No description yet.*
+Virtual method for property getters with runtime override support - override in subclasses *(from [TargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/target-strategy-definition))*
 

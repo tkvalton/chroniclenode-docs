@@ -2,7 +2,7 @@
 
 # CompositeEffect
 
-**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 **Inherited by:** [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect), [ChainEffect](/advanced/abilities-and-effects/effects-composite/chain-effect), [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect), [ConditionalEffect](/advanced/abilities-and-effects/effects-base/conditional-effect), [ConsumeEffect](/advanced/abilities-and-effects/effects-composite/consume-effect), [DelayedEffect](/advanced/abilities-and-effects/effects-composite/delayed-effect), [HitscanEffect](/advanced/abilities-and-effects/effects-projectiles-and-shots/hitscan-effect), [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect), [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect), [ProcEffect](/advanced/abilities-and-effects/effects-base/proc-effect)
 
@@ -101,5 +101,5 @@ Get effect description for tooltips
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
 

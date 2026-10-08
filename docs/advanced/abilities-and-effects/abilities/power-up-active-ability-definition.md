@@ -2,7 +2,7 @@
 
 # PowerUpActiveAbilityDefinition
 
-**Inherits:** [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition) < [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition) < [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+**Inherits:** [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition) < [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition) < [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
 PowerUpActiveAbilityDefinition adapts its charging behaviour based on the UseStrategyDefinition.
 
@@ -77,7 +77,7 @@ Whether tier effects stack (add new effects) or replace (change effects)
 
 ### Array get_current_on_use_effects( ability_instance: AbilityInstance ) {#method-get-current-on-use-effects}
 
-*No description yet.*
+Return the resolved on-use effects for this ability. Respects live_effects overrides on the instance if present. *(from [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition))*
 
 ### void prepare_usage( ability_instance: AbilityInstance ) {#method-prepare-usage}
 
@@ -109,5 +109,5 @@ Standard completion; the one-use cost and tier are forgotten afterwards
 
 ### String get_tooltip_description() {#method-get-tooltip-description}
 
-*No description yet.*
+*Overrides this function of [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition).*
 
