@@ -12,6 +12,8 @@ import { groups as sharedClasses } from './classes-shared-systems.mjs'
 import { groups as statClasses } from './classes-entity-stats.mjs'
 import { groups as itemClasses } from './classes-items.mjs'
 import { groups as equipmentClasses } from './classes-equipment-definitions.mjs'
+import { groups as entityClasses } from './classes-entities.mjs'
+import { groups as behaviorClasses } from './classes-behaviors.mjs'
 
 const page = (text, link, extra = {}) => ({ text, link, ...extra })
 const kebab = name => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2').toLowerCase()
@@ -293,6 +295,10 @@ const advancedSystems = [
   ? advancedEntityStats
   : slug === 'items'
   ? classSystem(text, slug, itemClasses)
+  : slug === 'entities'
+  ? classSystem(text, slug, entityClasses)
+  : slug === 'behaviors'
+  ? classSystem(text, slug, behaviorClasses)
   : slug === 'equipment-definitions'
   ? classSystem(text, slug, equipmentClasses)
   : page(text, `/advanced/${slug}/`, { title: `${text}: how it is built` }))

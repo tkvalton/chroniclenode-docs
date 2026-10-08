@@ -128,6 +128,42 @@ const SYSTEMS = {
       },
     ],
   },
+  'entities': {
+    title: 'Entities',
+    groups: [
+      { text: 'Definitions', slug: 'definitions', dirs: [['data_classes/entity', false]] },
+      { text: 'Interactions', slug: 'interactions', dirs: [['data_classes/interactions', true]] },
+      {
+        text: 'Entities (runtime)',
+        slug: 'runtime',
+        dirs: [
+          ['runtime_classes/entity/entity.gd', false],
+          ['runtime_classes/entity/player.gd', false],
+          ['runtime_classes/entity/npc.gd', false],
+          ['runtime_classes/entity/pet.gd', false],
+          ['runtime_classes/entity/interactable_object.gd', false],
+          ['runtime_classes/entity/components/entity_component_registry.gd', false],
+          ['runtime_classes/entity/components/entity_component_mediator.gd', false],
+          ['runtime_classes/entity/components/pet_manager_component.gd', false],
+          ['runtime_classes/entity/components/dynamic_follower_system.gd', false],
+          ['runtime_classes/player/party_manager.gd', false],
+          ['runtime_classes/player/formation_system.gd', false],
+        ],
+      },
+    ],
+  },
+  'behaviors': {
+    title: 'Behaviors',
+    groups: [
+      { text: 'Factions', slug: 'factions', dirs: [['data_classes/factions', false]] },
+      { text: 'Behavior scripts', slug: 'behavior-scripts', dirs: [['data_classes/entity/behavior_states/modular_behavior_script.gd', false], ['data_classes/entity/behavior_states/behavior_reaction.gd', false], ['data_classes/entity/behavior_states/schedules', true]] },
+      { text: 'Behavior tasks', slug: 'tasks', dirs: [['data_classes/entity/behavior_states/tasks', true]] },
+      { text: 'Combat scripts', slug: 'combat-scripts', dirs: [['data_classes/entity/behavior_states/modular_combat_script.gd', false], ['data_classes/entity/behavior_states/combat_reaction.gd', false], ['data_classes/entity/behavior_states/attack_state_logic', true], ['data_classes/entity/behavior_states/phase_system', true]] },
+      { text: 'Combat actions', slug: 'combat-actions', dirs: [['data_classes/entity/behavior_states/combat_actions', true]] },
+      { text: 'Conversations', slug: 'conversations', dirs: [['data_classes/conversation', true], ['runtime_classes/conversation', true]] },
+      { text: 'States (runtime)', slug: 'states', dirs: [['runtime_classes/entity/components/states', true]] },
+    ],
+  },
   'entity-stats': {
     title: 'Entity Stats',
     groups: [

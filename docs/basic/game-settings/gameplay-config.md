@@ -2,7 +2,7 @@
 
 <Shot name="gameplay-config-editor" caption="The Gameplay Config editor (Game Settings > Gameplay Config)." />
 
-The **Gameplay Config** holds the rules of your game that are not about one thing in the database: how combat is resolved, what death costs, how the party works, what is saved. Every field has a tooltip. This page describes the **Combat** category in full, because the other chapters point to it, and lists the others.
+The **Gameplay Config** holds the rules of your game that are not about one thing in the database: how combat is resolved, what death costs, how the party works, what is saved. Every field has a tooltip. This page describes the **Party Management** and **Combat** categories in full, because the other chapters point to them, and lists the others.
 
 ## Categories
 
@@ -13,6 +13,50 @@ The **Gameplay Config** holds the rules of your game that are not about one thin
 | **Party Management** | New Game Rules, Leveling, Controller Logic, Input |
 | **Combat** | Death & Revival, Threat, Damage Results, Pools, **Hit Rules** |
 | **NPC LOD System** | LOD distance thresholds, update intervals, batch processing |
+
+## Party Management
+
+The rules for the party of player characters. See [Playable Character](/basic/entities/playable-character#companions) for how the companions behave.
+
+### Party
+
+| Field | What it does | Default |
+|---|---|---|
+| **Max party size** | How many characters are in the active party | `4` |
+| **Max reserve companions** | How many recruited companions can wait out of the world, besides the active party. `0` = no reserve: a recruit with a full party is turned down | `6` |
+| **Reserve experience enabled** | Companions in the reserve gain experience too | on |
+| **Reserve experience percentage** | The share of every experience grant the reserve gets (`0.5` = half) | `0.5` |
+| **Allow character switching** | The player may take over any living party member. Off: the player only ever controls the first member, and the others are companions (when that member falls, control still passes to a living one) | on |
+| **Allow switching in combat** | The player may switch characters while the party is fighting | on |
+
+The first member of the party is the **main character**. It cannot be put in the reserve, and its death ends the game when the death behavior is *Game over* or *Permadeath*.
+
+### Companions
+
+| Field | What it does | Default |
+|---|---|---|
+| **Companion follow distance** | How far (in metres) a companion stays behind the character the player controls. Each companion further down the line stands a little farther back | `3` |
+| **Companion assist range** | How far from a fighting party member a companion joins the fight | `25` |
+| **Companions use abilities** | Off: a companion only uses its basic attack | on |
+
+### New game rules
+
+| Field | What it does | Default |
+|---|---|---|
+| **Use character creation UI** | The player chooses or makes a character at the start of a new game | on |
+| **Starting party composition** | The [characters](/basic/entities/playable-character) of the starting party | none |
+| **Starting map** | The id of the [world](/basic/world/worlds) a new game starts in | |
+
+### Leveling
+
+| Field | What it does | Default |
+|---|---|---|
+| **Max level** | The highest level a player can reach | `50` |
+| **Experience per level** | The experience each level needs, as a table you edit. Levels you leave out use the default: `100 x (level - 1)` experience to go from the level before | table empty |
+
+### Controller logic and input
+
+**Camera logic** and **Player controller logic** are the resources that decide how the camera and the movement work (see [Controller & Camera](/basic/game-settings/controller-and-camera)). **Look drag threshold** is how far the mouse moves with a button held before a drag begins; **Log input routing** prints where each click went, for finding interface problems.
 
 ## Combat
 
