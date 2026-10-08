@@ -7,7 +7,7 @@ Every effect has a **type**: the thing it actually does. You choose it with the 
 The name in the code font is the name the editor shows, as in *Type: DamageEffect*.
 
 ::: info Some types cannot be immediate
-A type that changes something *for a while* has no **Immediate** time strategy, because it would end before it did anything. This applies to the stat modifier, status, stealth and school lock effects, thorns and damage redirection, the projectile types, the summons, *Delayed*, *Gravity*, *Create Item*, *Grant [Reward](/basic/shared-systems/rewards)*, and the ability-changing types that set, grant or change an ability for a time. The editor hides **Immediate** for them.
+A type that changes something *for a while* has no **Immediate** time strategy, because it would end before it did anything. This applies to the stat modifier, status, stealth and school lock effects, damage reflect and damage redirection, the projectile types, the summons, *Delayed*, *Gravity*, *Create Item*, *Grant [Reward](/basic/shared-systems/rewards)*, and the ability-changing types that set, grant or change an ability for a time. The editor hides **Immediate** for them.
 :::
 
 ## Damage and healing
@@ -16,7 +16,7 @@ A type that changes something *for a while* has no **Immediate** time strategy, 
 |---|---|
 | [**Damage**](/advanced/abilities-and-effects/effects-damage-and-healing/damage-effect) (`DamageEffect`) | Damages the target. The damage goes through the [calculations](/basic/entity-stats/calculations) in *[Entity Stats](/basic/entity-stats/)*, so stats, critical strikes, dodges and armor all apply. It also has *Scales with charge*, [scaling rules](/basic/abilities-and-effects/scaling-and-trigger-rules) and trigger rules |
 | [**Heal**](/advanced/abilities-and-effects/effects-damage-and-healing/heal-effect) (`HealEffect`) | Heals the target, through the same calculations. It has scaling rules and trigger rules too |
-| [**Thorns**](/advanced/abilities-and-effects/effects-damage-and-healing/thorns-effect) (`ThornsEffect`) | Reflects a part of the damage the target takes back at the attacker |
+| [**Damage Reflect**](/advanced/abilities-and-effects/effects-damage-and-healing/damage-reflect-effect) (`DamageReflectEffect`) | Reflects a part of the damage the target takes back at the attacker |
 | [**Damage Redirection**](/advanced/abilities-and-effects/effects-damage-and-healing/damage-redirection-effect) (`DamageRedirectionEffect`) | The damage the target would take goes to the caster instead: a guardian or tank ability |
 | [**Equalize Health**](/advanced/abilities-and-effects/effects-damage-and-healing/equalize-health-effect) (`EqualizeHealthEffect`) | Evens out the health of the target and the caster |
 
@@ -36,10 +36,10 @@ A type that changes something *for a while* has no **Immediate** time strategy, 
 
 | Type | What it does |
 |---|---|
-| [**Status**](/advanced/abilities-and-effects/effects-status-and-control/status-effect) (`StatusEffect`) | Puts a status condition on the target: stun, root, silence, disarm, cripple. The condition itself is a *[Status Effect](/basic/entity-stats/status-effects)* you define in *Entity Stats*, with its own diminishing returns and [immunity](/basic/tags-and-groups/immunities) |
+| [**Status**](/advanced/abilities-and-effects/effects-status-and-control/status-effect) (`StatusEffect`) | Puts a status condition on the target: stun, root, silence, disarm, cripple. The condition itself is a *[Status Effect](/basic/abilities-and-effects/status-effects)* you define in *Entity Stats*, with its own diminishing returns and [immunity](/basic/tags-and-groups/immunities) |
 | [**Interrupt**](/advanced/abilities-and-effects/effects-status-and-control/interrupt-effect) (`InterruptEffect`) | Interrupts the target's current cast or channel |
 | [**School Lock**](/advanced/abilities-and-effects/effects-status-and-control/school-lock-effect) (`SchoolLockEffect`) | Locks all of one school's abilities on the target: a counterspell, a school-specific silence |
-| [**Spell Reflect**](/advanced/abilities-and-effects/effects-status-and-control/spell-reflect-effect) (`SpellReflectEffect`) | A ward that sends abilities aimed at its holder back at their caster |
+| [**Ability Reflect**](/advanced/abilities-and-effects/effects-status-and-control/ability-reflect-effect) (`AbilityReflectEffect`) | A ward that sends abilities aimed at its holder back at their caster |
 | [**Immunity**](/advanced/abilities-and-effects/effects-status-and-control/immunity-effect) (`ImmunityEffect`) | Gives or removes an immunity to some kinds of effect or damage |
 | [**Clear**](/advanced/abilities-and-effects/effects-status-and-control/clear-effect) (`ClearEffect`) | Removes other effects from the target, by school or by effect |
 | [**Stealth**](/advanced/abilities-and-effects/effects-status-and-control/stealth-effect) (`StealthEffect`) | Makes the target stealthy or invisible |

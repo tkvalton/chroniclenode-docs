@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-Threat (aggro) in one place: who gets threat on whom, from damage, from healing and from effects, with the redirects (misdirection) applied.
+Threat (threat) in one place: who gets threat on whom, from damage, from healing and from effects, with the redirects (misdirection) applied.
 
 ## Methods
 
@@ -27,7 +27,7 @@ The same amount of threat on several NPCs: one action of the source (a misdirect
 
 ### Array[NPC] get_engaged_enemies( entity: Entity, reference: Entity, combat_manager: CombatManager ) {#method-get-engaged-enemies}
 
-The hostile NPCs with an aggro table that are fighting with this entity (its encounter), hostile to `reference`
+The hostile NPCs with a threat table that are fighting with this entity (its encounter), hostile to `reference`
 
 ### void apply_heal_threat( result: HealingResult, combat_manager: CombatManager ) {#method-apply-heal-threat}
 

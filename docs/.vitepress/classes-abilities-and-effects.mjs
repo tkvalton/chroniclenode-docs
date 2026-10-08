@@ -343,6 +343,11 @@ export const groups = [
         "file": "data_classes/effects/damage_and_healing/effect_damage_redirection.gd"
       },
       {
+        "name": "DamageReflectEffect",
+        "base": "Effect",
+        "file": "data_classes/effects/damage_and_healing/effect_damage_reflect.gd"
+      },
+      {
         "name": "EqualizeHealthEffect",
         "base": "Effect",
         "file": "data_classes/effects/damage_and_healing/effect_equalize_health.gd"
@@ -351,11 +356,6 @@ export const groups = [
         "name": "HealEffect",
         "base": "CombatResultEffect",
         "file": "data_classes/effects/damage_and_healing/effect_heal.gd"
-      },
-      {
-        "name": "ThornsEffect",
-        "base": "Effect",
-        "file": "data_classes/effects/damage_and_healing/effect_thorns.gd"
       }
     ]
   },
@@ -585,6 +585,11 @@ export const groups = [
     "slug": "effects-status-and-control",
     "classes": [
       {
+        "name": "AbilityReflectEffect",
+        "base": "Effect",
+        "file": "data_classes/effects/status_and_control/effect_ability_reflect.gd"
+      },
+      {
         "name": "CharmEffect",
         "base": "Effect",
         "file": "data_classes/effects/status_and_control/effect_charm.gd"
@@ -618,11 +623,6 @@ export const groups = [
         "name": "SchoolLockEffect",
         "base": "Effect",
         "file": "data_classes/effects/status_and_control/effect_school_lock.gd"
-      },
-      {
-        "name": "SpellReflectEffect",
-        "base": "Effect",
-        "file": "data_classes/effects/status_and_control/effect_spell_reflect.gd"
       },
       {
         "name": "StatusEffect",
@@ -735,6 +735,11 @@ export const groups = [
         "name": "TargetStrategyInstance",
         "base": "RefCounted",
         "file": "runtime_classes/entity/abilities/target_strategy_instance.gd"
+      },
+      {
+        "name": "ThreatTableComponent",
+        "base": "Resource",
+        "file": "runtime_classes/entity/components/threat_table_component.gd"
       },
       {
         "name": "ThreatUtility",

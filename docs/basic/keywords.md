@@ -22,7 +22,7 @@ The time before the *same* ability can be used again. Each ability has its own, 
 
 The number that decides who an enemy attacks. Every hostile non-player character keeps a list of the entities it is fighting and how much *threat* each one has made. It attacks the one with the most.
 
-- **Damage** makes threat, in proportion to the damage dealt. A damage effect has an *aggro multiplier* to make an attack louder or quieter.
+- **Damage** makes threat, in proportion to the damage dealt. A damage effect has an *threat multiplier* to make an attack louder or quieter.
 - **Healing** makes threat too. The healer's threat is a share of the healing done, split between the enemies fighting the healed entity. The share is *Heal Threat Multiplier* in the [Gameplay Config](/basic/game-settings/gameplay-config).
 - Any other effect makes none by itself. To make threat with it, put a **Threat** effect beside it in the ability, with the mode **Add**.
 

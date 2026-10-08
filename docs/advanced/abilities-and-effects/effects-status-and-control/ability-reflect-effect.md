@@ -1,6 +1,6 @@
 <!-- generated from the code comments by scripts/scan-classes.mjs: change the comments in the code, not this page -->
 
-# SpellReflectEffect
+# AbilityReflectEffect
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 

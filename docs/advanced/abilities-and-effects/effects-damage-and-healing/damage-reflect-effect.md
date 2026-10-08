@@ -1,10 +1,10 @@
 <!-- generated from the code comments by scripts/scan-classes.mjs: change the comments in the code, not this page -->
 
-# ThornsEffect
+# DamageReflectEffect
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-ThornsEffect reflects a portion of damage taken back to the attacker.
+DamageReflectEffect reflects a portion of damage taken back to the attacker.
 
 ## Properties
 
@@ -27,7 +27,7 @@ ThornsEffect reflects a portion of damage taken back to the attacker.
 | `float` | [get_damage_reflected](#method-get-damage-reflected)( `effect_instance: EffectInstance` ) |
 | `int` | [get_remaining_reflect_capacity](#method-get-remaining-reflect-capacity)( `effect_instance: EffectInstance` ) |
 | `float` | [get_reflection_preview](#method-get-reflection-preview)( `base_damage: float` ) |
-| `bool` | [is_thorns_active](#method-is-thorns-active)( `effect_instance: EffectInstance` ) |
+| `bool` | [is_reflect_active](#method-is-reflect-active)( `effect_instance: EffectInstance` ) |
 | `String` | [get_effect_description](#method-get-effect-description)() |
 | `String` | [get_editor_description](#method-get-editor-description)() |
 
@@ -59,7 +59,7 @@ Which number of the hit the reflection is taken from. HEALTH_ONLY reflects only 
 
 ### int max_reflect_chain = -1 {#prop-max-reflect-chain}
 
-How many reactions deep a hit may be and still be reflected. 1: a normal hit is reflected, a reflection is never reflected again. Higher values let reflections ping-pong between two thorns users that many times. -1 = the project default (GameplayConfig, Damage Results)
+How many reactions deep a hit may be and still be reflected. 1: a normal hit is reflected, a reflection is never reflected again. Higher values let reflections ping-pong between two damage reflection users that many times. -1 = the project default (GameplayConfig, Damage Results)
 
 ## Method descriptions
 
@@ -83,9 +83,9 @@ Gets the remaining damage that can be reflected for a specific effect instance
 
 Calculate potential reflection amount for preview/tooltip purposes
 
-### bool is_thorns_active( effect_instance: EffectInstance ) {#method-is-thorns-active}
+### bool is_reflect_active( effect_instance: EffectInstance ) {#method-is-reflect-active}
 
-Check if thorns effect is still active and has capacity
+Check if damage reflection effect is still active and has capacity
 
 ### String get_effect_description() {#method-get-effect-description}
 

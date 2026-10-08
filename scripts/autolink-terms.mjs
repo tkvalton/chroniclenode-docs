@@ -24,7 +24,7 @@ export const TERMS = [
 
   // the other systems
   { pattern: 'entity stats', url: b('entity-stats/') },
-  { pattern: 'status effects?', url: b('entity-stats/status-effects') },
+  { pattern: 'status effects?', url: b('abilities-and-effects/status-effects') },
   { pattern: 'calculations', url: b('entity-stats/calculations') },
   { pattern: 'trigger tags?', url: b('tags-and-groups/trigger-tags') },
   { pattern: 'damage types?', url: b('tags-and-groups/damage-types') },

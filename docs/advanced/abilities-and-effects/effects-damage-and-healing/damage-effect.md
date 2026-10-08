@@ -18,7 +18,7 @@ DamageEffect is a an effect that applies damage to the target entity.
 | `float` | [damage_variance](#prop-damage-variance) | `0.0` |
 | `float` | [weapon_damage_percentage](#prop-weapon-damage-percentage) | `0.0` |
 | `float` | [total_health_percentage](#prop-total-health-percentage) | `0.0` |
-| `float` | [aggro_multiplier](#prop-aggro-multiplier) | `1.0` |
+| `float` | [threat_multiplier](#prop-threat-multiplier) | `1.0` |
 | `float` | [protective_pool_multiplier](#prop-protective-pool-multiplier) | `1.0` |
 | `bool` | [scales_with_charge](#prop-scales-with-charge) | `false` |
 | `float` | [min_charge_multiplier](#prop-min-charge-multiplier) | `0.3` |
@@ -26,7 +26,7 @@ DamageEffect is a an effect that applies damage to the target entity.
 | `float` | [leech_percentage](#prop-leech-percentage) | `0.0` |
 | `TriggerTagDefinition` | [repeat_tag](#prop-repeat-tag) |  |
 | `float` | [repeat_damage_percent](#prop-repeat-damage-percent) | `50.0` |
-| `CombatOptions.BasisChoice` | [aggro_basis](#prop-aggro-basis) | `CombatOptions.BasisChoice.PROJECT_DEFAULT` |
+| `CombatOptions.BasisChoice` | [threat_basis](#prop-threat-basis) | `CombatOptions.BasisChoice.PROJECT_DEFAULT` |
 | `CombatOptions.BasisChoice` | [leech_basis](#prop-leech-basis) | `CombatOptions.BasisChoice.PROJECT_DEFAULT` |
 
 ## Methods
@@ -72,9 +72,9 @@ Percentage of wielder's weapon damage to add
 
 Percentage of target's max health to deal as damage
 
-### float aggro_multiplier = 1.0 {#prop-aggro-multiplier}
+### float threat_multiplier = 1.0 {#prop-threat-multiplier}
 
-Multiplier for aggro generation (1.0 = normal, 2.0 = double aggro)
+Multiplier for threat generation (1.0 = normal, 2.0 = double threat)
 
 ### float protective_pool_multiplier = 1.0 {#prop-protective-pool-multiplier}
 
@@ -104,9 +104,9 @@ Repeat hits (multistrike): when this trigger tag fires on the hit, its magnitude
 
 The damage of each extra hit, as a percentage of this effect's damage
 
-### CombatOptions.BasisChoice aggro_basis = CombatOptions.BasisChoice.PROJECT_DEFAULT {#prop-aggro-basis}
+### CombatOptions.BasisChoice threat_basis = CombatOptions.BasisChoice.PROJECT_DEFAULT {#prop-threat-basis}
 
-Which number of the hit generates aggro. Project default: GameplayConfig, Combat, Damage Results
+Which number of the hit generates threat. Project default: GameplayConfig, Combat, Damage Results
 
 ### CombatOptions.BasisChoice leech_basis = CombatOptions.BasisChoice.PROJECT_DEFAULT {#prop-leech-basis}
 

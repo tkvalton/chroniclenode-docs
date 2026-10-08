@@ -41,6 +41,7 @@ const SYSTEMS = {
           ['runtime_classes/entity/components/effects_component.gd', false],
           ['runtime_classes/combat/effect_instance_pool.gd', false],
           ['runtime_classes/combat/threat_utility.gd', false],
+          ['runtime_classes/entity/components/threat_table_component.gd', false],
         ],
       },
     ],

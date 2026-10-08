@@ -46,6 +46,7 @@ const abilitiesAndEffects = {
       items: [
         page('The Effects editor', '/basic/abilities-and-effects/effects', { view: 'effects' }),
         page('Effect types', '/basic/abilities-and-effects/effect-types'),
+        page('Status Effects', '/basic/abilities-and-effects/status-effects', { view: 'status_effects' }),
         page('Stacking and groups', '/basic/abilities-and-effects/stacking-and-groups'),
         page('Scaling and trigger rules', '/basic/abilities-and-effects/scaling-and-trigger-rules'),
         page('Crowd control', '/basic/abilities-and-effects/crowd-control'),
@@ -71,7 +72,20 @@ const basicSystems = [
     ['Worlds', 'worlds', 'maps'],
     ['World Configs', 'world-configs', 'world_configs'],
     ['Uniques', 'uniques', 'uniques'],
-  ]),
+  ], {
+    after: [
+      {
+        text: 'In the 3D viewport',
+        collapsed: true,
+        items: [
+          page('Add Object', '/basic/world/add-object'),
+          page('The Unique Object tool', '/basic/world/unique-object-tool'),
+          page('Regions', '/basic/world/regions'),
+          page('Encounters', '/basic/world/encounters'),
+        ],
+      },
+    ],
+  }),
   system('Events & Quests', 'events-and-quests', [
     ['Events', 'events', 'events'],
     ['Quests', 'quests', 'quests'],
@@ -95,7 +109,6 @@ const basicSystems = [
   system('Entity Stats', 'entity-stats', [
     ['Stats', 'stats', 'stats'],
     ['Pool', 'pool', 'pool_stats'],
-    ['Status Effects', 'status-effects', 'status_effects'],
     ['Calculations', 'calculations', 'calculations'],
   ]),
   system('Tags & Groups', 'tags-and-groups', [
@@ -173,6 +186,19 @@ function classSystem(text, slug, groups) {
   }
 }
 
+// World: the overview and the tools of the 3D viewport
+const worldAdvanced = {
+  text: 'World',
+  collapsed: true,
+  items: [
+    page('Overview', '/advanced/world/', { title: 'World: how it is built' }),
+    page('Add Object', '/advanced/world/add-object', { title: 'Add Object: how it is built' }),
+    page('The Unique Object tool', '/advanced/world/unique-object-tool', { title: 'The Unique Object tool: how it is built' }),
+    page('Regions', '/advanced/world/regions', { title: 'Regions: how they are built' }),
+    page('Encounters', '/advanced/world/encounters', { title: 'Encounters: how they are built' }),
+  ],
+}
+
 // The same systems in the advanced section: how they are built
 const advancedSystems = [
   ['World', 'world'], ['Events & Quests', 'events-and-quests'], ['Entities', 'entities'], ['Abilities & Effects', 'abilities-and-effects'],
@@ -180,6 +206,8 @@ const advancedSystems = [
   ['Equipment Definitions', 'equipment-definitions'], ['Assets', 'assets'], ['Game Settings', 'game-settings'],
 ].map(([text, slug]) => slug === 'abilities-and-effects'
   ? classSystem(text, slug, abilitiesAndEffectsClasses)
+  : slug === 'world'
+  ? worldAdvanced
   : page(text, `/advanced/${slug}/`, { title: `${text}: how it is built` }))
 
 export const sidebar = [
