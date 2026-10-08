@@ -1,11 +1,11 @@
 # Scaling and trigger rules
 
-Two kinds of rules on an effect change how a hit or heal turns out:
+Two kinds of rules on a **Damage** or **Heal** effect change how a hit or heal turns out:
 
 - **Scaling rules** make the damage or healing depend on the situation: a target low on health, a target with a shield, a target with many stacks of something.
 - **Trigger rules** change how special outcomes behave for this effect: a critical strike, a dodge, a multistrike.
 
-Both are lists on the effect. You find them in the [Effects editor](/basic/abilities-and-effects/effects#other-settings).
+Both are lists on the effect. They are part of the damage and heal effect types only, because those are the effects that have a number to scale and a hit to roll: the other effect types do not show them. In the code they come from one shared base, `ScalingEffect`, so a new effect that does damage-like or heal-like work can have them too. You find them in the [Effects editor](/basic/abilities-and-effects/effects#settings-of-the-damage-and-heal-effects), under **Specific Properties**.
 
 ## Scaling rules
 

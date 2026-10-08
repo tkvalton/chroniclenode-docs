@@ -6,7 +6,10 @@
 // An item is { text, link } for a page, or { text, items } for a group. `title` is the heading of a stub when it differs from `text`,
 // and `view` is the name of the tab of the Database editor that the page belongs to (the "?" button opens it).
 
+import { groups as abilitiesAndEffectsClasses } from './classes-abilities-and-effects.mjs'
+
 const page = (text, link, extra = {}) => ({ text, link, ...extra })
+const kebab = name => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2').toLowerCase()
 
 // A chapter of the basic guide: an overview, a page for each tab of its category, and anything extra
 function system(text, slug, tabs, { before = [], after = [] } = {}) {
@@ -153,12 +156,30 @@ const sharedSystems = {
   ],
 }
 
+// A system of the advanced section that has a page for each of its classes (the list is made by scripts/scan-classes.mjs)
+function classSystem(text, slug, groups) {
+  return {
+    text,
+    collapsed: true,
+    items: [
+      page('Overview', `/advanced/${slug}/`, { title: `${text}: how it is built` }),
+      ...groups.map(group => ({
+        text: group.text,
+        collapsed: true,
+        items: group.classes.map(c => page(c.name, `/advanced/${slug}/${group.slug}/${kebab(c.name)}`, { title: c.name })),
+      })),
+    ],
+  }
+}
+
 // The same systems in the advanced section: how they are built
 const advancedSystems = [
   ['World', 'world'], ['Events & Quests', 'events-and-quests'], ['Entities', 'entities'], ['Abilities & Effects', 'abilities-and-effects'],
   ['Behaviors', 'behaviors'], ['Entity Stats', 'entity-stats'], ['Tags & Groups', 'tags-and-groups'], ['Items', 'items'],
   ['Equipment Definitions', 'equipment-definitions'], ['Assets', 'assets'], ['Game Settings', 'game-settings'],
-].map(([text, slug]) => page(text, `/advanced/${slug}/`, { title: `${text}: how it is built` }))
+].map(([text, slug]) => slug === 'abilities-and-effects'
+  ? classSystem(text, slug, abilitiesAndEffectsClasses)
+  : page(text, `/advanced/${slug}/`, { title: `${text}: how it is built` }))
 
 export const sidebar = [
   {

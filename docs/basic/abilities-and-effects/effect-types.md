@@ -14,8 +14,8 @@ A type that changes something *for a while* has no **Immediate** time strategy, 
 
 | Type | What it does |
 |---|---|
-| **Damage** (`DamageEffect`) | Damages the target. The damage goes through the calculations in *Entity Stats*, so stats, critical strikes, dodges and armor all apply. It also has *Scales with charge* and scaling rules |
-| **Heal** (`HealEffect`) | Heals the target, through the same calculations |
+| **Damage** (`DamageEffect`) | Damages the target. The damage goes through the calculations in *Entity Stats*, so stats, critical strikes, dodges and armor all apply. It also has *Scales with charge*, scaling rules and trigger rules |
+| **Heal** (`HealEffect`) | Heals the target, through the same calculations. It has scaling rules and trigger rules too |
 | **Thorns** (`ThornsEffect`) | Reflects a part of the damage the target takes back at the attacker |
 | **Damage Redirection** (`DamageRedirectionEffect`) | The damage the target would take goes to the caster instead: a guardian or tank ability |
 | **Equalize Health** (`EqualizeHealthEffect`) | Evens out the health of the target and the caster |
@@ -55,7 +55,7 @@ A type that changes something *for a while* has no **Immediate** time strategy, 
 
 **Threat** can add or reduce an entity's threat, clear it, or put it at the top. Its **Redirect** mode, with a duration, makes the threat an entity generates go to someone else: **misdirection**. Put the effect on the caster, aimed at the tank, and the caster's threat goes to the tank. **Redirect Percent** decides how much of it goes, from 1 to 100.
 
-Healing also makes threat, and any effect can make threat when it is applied with **Threat on apply**.
+Healing also makes threat. To make threat with any other effect, put a **Threat** effect beside it in the ability, with the mode **Add**.
 
 ## Ability
 
@@ -80,6 +80,7 @@ A composite effect holds other effects and decides when they are applied.
 
 | Type | What it does |
 |---|---|
+| **Composite** (`CompositeEffect`) | Holds other effects and applies them together as one effect. Use it to keep a complex buff or debuff in one piece: for example a buff that heals and raises stats, and is removed as one. Only the effects you mark as an [aura](/basic/abilities-and-effects/effects#aura) are shown on the interface, so you decide which effect of the chain the player sees. Its logic is the base of **40** other effect types: the conditional, delayed, chain and consume effects, projectiles, area effects, movement and procs |
 | **Delayed** (`DelayedEffect`) | Applies its child effects after a delay. It can also apply them when it is cancelled, like a trap |
 | **Chain** (`ChainEffect`) | Applies its child effects in a chain from target to target |
 | **Consume** (`ConsumeEffect`) | Consumes another effect and applies child effects based on the stacks it consumed: a finisher that spends combo points |

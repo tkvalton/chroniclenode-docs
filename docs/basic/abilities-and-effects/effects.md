@@ -98,13 +98,9 @@ An effect can end after a number of uses of abilities by the entity it is on. Th
 | **Uses count** | What counts as a use: any ability, the basic attack, abilities in a group, abilities of a school, or one specific ability |
 | **Uses filter** | The group, school or ability, for the last three choices |
 
-## Other settings
+## Settings of the damage and heal effects
 
-| Field | What it does |
-|---|---|
-| **Trigger rules** | Rules that change how trigger tags (critical strike, dodge, multistrike) behave when this effect is used: always, never, a chance bonus, a magnitude bonus. They apply to the hit or heal this effect causes, whatever the stats say |
-| **Scaling rules** | Make damage and healing depend on the target: an execute that hits harder below 20 % health, a bonus against a shielded target. Used by damage and heal effects |
-| **Threat on apply** | Threat the effect makes when it is applied (`0` is none). On a hostile NPC it hits, otherwise on every enemy fighting the entity it lands on |
+**Damage** and **Heal** effects also have **Scaling rules** and **Trigger rules**. They change how much a hit or heal does and how critical strikes, dodges and multistrikes behave for it. See [Scaling and trigger rules](/basic/abilities-and-effects/scaling-and-trigger-rules). Other effect types do not have them.
 
 ## SFX and VFX
 
