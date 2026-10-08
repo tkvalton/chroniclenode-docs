@@ -19,23 +19,33 @@ Useful for abilities that must always fire N times — e.g. a 3-bounce lightning
 | | | |
 |---|---|---|
 | `int` | [minimum_applications](#prop-minimum-applications) | `0` |
+| `int` | [maximum_applications](#prop-maximum-applications) | `0` |
 
 ## Methods
 
 | | |
 |---|---|
+| `void` | [apply_child_effects_to_target](#method-apply-child-effects-to-target)( `effect_instance: EffectInstance, target: Variant` ) |
 | `String` | [get_effect_description](#method-get-effect-description)() |
 | `String` | [get_editor_description](#method-get-editor-description)() |
 
 ## Property descriptions
 
-*Minimum Applications*
+*Applications*
 
 ### int minimum_applications = 0 {#prop-minimum-applications}
 
 Minimum number of effect applications per activation. 0 = disabled. When the ordered target list has fewer entries than this value, the effect cycles back through the list. Deliberately bypasses prevent_duplicate_hits — intentional.
 
+### int maximum_applications = 0 {#prop-maximum-applications}
+
+Maximum number of effect applications over the whole life of this effect, repeat hits included. 0 = unlimited. Max targets limits how many entities are chosen; this limits how many times the child effects are applied in all: a pulse that heals at most 5 times, or a persistent area that gives its effect to the first 3 entrants and then stops. When it is lower than the minimum, the maximum wins.
+
 ## Method descriptions
+
+### void apply_child_effects_to_target( effect_instance: EffectInstance, target: Variant ) {#method-apply-child-effects-to-target}
+
+Every way a collision effect applies its child effects goes through here, so the maximum holds for all of them.
 
 ### String get_effect_description() {#method-get-effect-description}
 

@@ -36,7 +36,7 @@ In this tutorial you build **Frost Bolt**, a spell that takes two seconds to cas
 
 7. Play, start a new game, and put **Frost Bolt** on an action bar slot (spellbook **P**, then drag).
 8. Target a dummy and use Frost Bolt. The character stops and casts for two seconds. The bolt hits when the cast ends.
-9. Use it again, and use another ability before the cast ends. The first cast is **cancelled**: nothing is spent and no cooldown starts.
+9. Use it again, and use another ability before the cast ends. The first cast is **cancelled**: nothing is spent and no [cooldown](/basic/keywords#cooldown) starts.
 
 ::: info Cancelled is not the same as interrupted
 When the *user* cancels (or the target is lost), the cost is **given back**. When an *effect* interrupts the cast (a stun, an interrupt effect), the cost is **kept** and the cooldown starts. See [Using an ability](/basic/abilities-and-effects/using-an-ability#cancelling-and-interrupting).

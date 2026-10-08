@@ -2,7 +2,7 @@
 
 **ChronicleNode** is a toolkit for building role-playing games in the Godot engine. It gives you two things:
 
-- a **runtime**: the systems an RPG needs, already working together: stats, abilities and effects, items and inventories, quests and conversations, entities with companion AI, worlds, and the game's menus and HUD;
+- a **runtime**: the systems an RPG needs, already working together: stats, abilities and effects, items and inventories, [quests](/basic/events-and-quests/quests) and conversations, entities with companion AI, worlds, and the game's menus and HUD;
 - an **editor**: a new tab in Godot where you author all the content of the game (classes, abilities, items, quests, worlds, settings) without writing code for the common parts.
 
 Everything you author is saved as ordinary Godot resource files in your project, so it works with version control, the file system dock and the inspector like any other Godot content.

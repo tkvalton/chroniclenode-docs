@@ -6,7 +6,7 @@ Crowd control stops an entity from doing something for a while: it cannot move, 
 
 | Piece | Where | What it is |
 |---|---|---|
-| **Status effect definition** | *Entity Stats > Status Effects* | The condition itself: which kind it is, its diminishing returns, its immunity and whether damage breaks it |
+| **Status effect definition** | *[Entity Stats](/basic/entity-stats/) > [Status Effects](/basic/entity-stats/status-effects)* | The condition itself: which kind it is, its diminishing returns, its [immunity](/basic/tags-and-groups/immunities) and whether damage breaks it |
 | **Status effect** | *Abilities & Effects > Effects*, type **Status** | An effect that puts a status definition on a target, for a duration |
 | **Interrupt** | *Effects*, type **Interrupt** | Stops the cast or channel in progress. It applies no lasting status |
 | **School lock** | *Effects*, type **School Lock** | Locks all abilities of one school, such as a counterspell |
@@ -40,7 +40,7 @@ Repeated crowd control on the same target gets shorter, so it cannot be chained 
 |---|---|---|
 | **Enable diminishing returns** | Repeated applications get shorter | on |
 | **Diminishing return percentage** | Each repeated application is shortened by this fraction | `0.5` |
-| **Max diminishing applications** | How many times the shortening stacks | `3` |
+| **Max diminishing applications** | How many times the shortening [stacks](/basic/keywords#stacks) | `3` |
 | **Diminishing reset time** | Seconds without the status before the counter starts over | `10` |
 
 The shortened duration replaces the effect's own duration.
@@ -84,7 +84,7 @@ The hit is measured after the target's own reductions and before its shields.
 
 ## Threat
 
-Crowd control sits next to threat, which decides who an enemy attacks. See [Threat](/basic/abilities-and-effects/effect-types#threat) in Effect types for **Taunt** and **Threat** effects.
+Crowd control sits next to [threat](/basic/keywords#threat), which decides who an enemy attacks. See [Threat](/basic/abilities-and-effects/effect-types#threat) in Effect types for **Taunt** and **Threat** effects.
 
 ## See also
 

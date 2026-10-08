@@ -7,7 +7,9 @@
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
     "stubs": "node scripts/make-stubs.mjs",
-    "links": "node scripts/docs-links.mjs"
+    "links": "node scripts/docs-links.mjs",
+    "classes": "node scripts/scan-classes.mjs",
+    "autolink": "node scripts/autolink.mjs"
   },
   "devDependencies": {
     "vitepress": "^1.6.4"

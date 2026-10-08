@@ -25,7 +25,7 @@ These settings are shared by all four, under the heading of the base use strateg
 
 ## What happens when an ability is used
 
-1. The ability is checked: it must be active and off cooldown, its user alive, not silenced or incapacitated (unless the strategy is immune), off the global cooldown if it is on it, and its [requirements](/basic/abilities-and-effects/abilities#requirements) met.
+1. The ability is checked: it must be active and off [cooldown](/basic/keywords#cooldown), its user alive, not silenced or incapacitated (unless the strategy is immune), off the [global cooldown](/basic/keywords#global-cooldown) if it is on it, and its [requirements](/basic/abilities-and-effects/abilities#requirements) met.
 2. The target is checked by the [targeting strategy](/basic/abilities-and-effects/abilities#targeting-and-use-style). If the target is not valid, the game tries to pick one automatically.
 3. The **cost is paid**, before anything else can go wrong.
 4. The use strategy runs: it completes at once, waits out the cast, ticks through the channel or switches the toggle.

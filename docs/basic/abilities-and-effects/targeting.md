@@ -12,7 +12,7 @@ An active ability has a **targeting strategy**: the rule that decides who or wha
 | **None** | Nothing in particular. It happens around the caster or in the world | An area attack around you, a global effect |
 | **Enemy** | A hostile entity, or a destructible object that can be targeted | An attack, a curse |
 | **Ally** | A friendly entity, a party member, or (if allowed) yourself | A heal, a blessing |
-| **Any Entity** | Any entity or targetable object, friend or foe. It does not check factions | A spell that works on everyone |
+| **Any Entity** | Any entity or targetable object, friend or foe. It does not check [factions](/basic/behaviors/factions) | A spell that works on everyone |
 | **Point** | A point on the ground | A ground-targeted area spell, a teleport |
 | **Multi Point** | Several points, picked one after another | A wall of fire, a line attack |
 | **Aimed** | Whatever the user is aiming at, or the point the aim hits | A bow, a gun, a thrown weapon. See [Aiming](/basic/abilities-and-effects/aiming) |
@@ -45,7 +45,7 @@ A marker is a picture shown on the ground or on the target while the player is c
 |---|---|---|
 | **Has Marker** | Show a targeting marker | off |
 | **Marker Location** | Where it is placed: at the **Mouse** or on the **User** | Mouse |
-| **Marker Texture** | The picture. The choices come from *Ability Target Textures* in the Gameplay Config | none |
+| **Marker Texture** | The picture. The choices come from *Ability Target Textures* in the [Gameplay Config](/basic/game-settings/gameplay-config) | none |
 | **Marker Is Friendly** | Draws the marker in the style used for friendly targets | off |
 | **Marker X**, **Marker Z** | Moves the marker sideways from its location | `0` |
 | **Marker Offset** | An extra offset applied to the marker | `0` |

@@ -13,11 +13,11 @@ You build both in the **Abilities & Effects** category of the editor. This page 
 | [Using an ability](/basic/abilities-and-effects/using-an-ability) | Instant, cast, channel and toggle: every setting, interrupts and cancelling |
 | [Targeting](/basic/abilities-and-effects/targeting) | Who or what an ability can be aimed at: the eight strategies, range, line of sight, markers |
 | [Aiming](/basic/abilities-and-effects/aiming) | Bows and guns: the Aimed strategy, aim assist, draw and release, charge, hitscan |
-| [Effects](/basic/abilities-and-effects/effects) | The Effects editor: time strategies, stacking, auras, groups, limited uses |
+| [Effects](/basic/abilities-and-effects/effects) | The Effects editor: time strategies, stacking, [auras](/basic/keywords#aura), [groups](/basic/shared-systems/groups), limited uses |
 | [Effect types](/basic/abilities-and-effects/effect-types) | Every effect type by category: damage, stats, status, movement, projectiles, procs and more |
-| [Stacking and groups](/basic/abilities-and-effects/stacking-and-groups) | Stacking rules, and groups: exclusive effects, shared cooldowns, enchant slots |
+| [Stacking and groups](/basic/abilities-and-effects/stacking-and-groups) | Stacking rules, and groups: exclusive effects, shared [cooldowns](/basic/keywords#cooldown), enchant slots |
 | [Scaling and trigger rules](/basic/abilities-and-effects/scaling-and-trigger-rules) | Execute and combo bonuses, always-crit and never-dodge rules |
-| [Crowd control](/basic/abilities-and-effects/crowd-control) | Stuns, roots and silences: status types, diminishing returns, immunity, breaking on damage |
+| [Crowd control](/basic/abilities-and-effects/crowd-control) | Stuns, roots and silences: status types, diminishing returns, [immunity](/basic/tags-and-groups/immunities), breaking on damage |
 | [Child effects and auras](/basic/abilities-and-effects/child-effects-and-auras) | Chains of effects: which one the player sees, what ends them, and how their text is written |
 
 ## How the two fit together
@@ -38,7 +38,7 @@ Abilities come in five kinds. The kind decides which fields the editor shows.
 
 | Kind | What it is | Example |
 |---|---|---|
-| **Passive** | Always on. It needs no input: its effects are applied while its requirements hold, and removed when they stop holding | An aura that raises armor, a bonus for wearing a shield |
+| **Passive** | Always on. It needs no input: its effects are applied while its [requirements](/basic/shared-systems/requirements) hold, and removed when they stop holding | An aura that raises armor, a bonus for wearing a shield |
 | **Active** | The player or an NPC uses it. It has a target, a use style, a cost and a cooldown | A fireball, a heal, a sword strike |
 | **Charge stack** | An active ability that holds several charges and regains them over time | A dash with three charges |
 | **Combo** | An active ability whose steps change each time you use it in time | A three-hit sword combo |
@@ -65,11 +65,11 @@ An effect has a **time behaviour** that decides how long it lasts:
 | **Temporary** | Lasts for a duration, then ends: a buff, a stun |
 | **Temporary ticking** | Lasts for a duration and repeats at a set rate: poison, regeneration |
 
-An effect that is applied again while it is still running can **stack**, so a second application adds a stack instead of a second copy, up to a maximum, and can restart the timer.
+An effect that is applied again while it is still running can **stack**, so a second application adds a [stack](/basic/keywords#stacks) instead of a second copy, up to a maximum, and can restart the timer.
 
 ## Where abilities and effects meet the rest of the toolkit
 
-- **Cost and resources** use the **pools** you define in *Entity Stats*.
-- **Damage and healing** go through the calculations in *Entity Stats*, so stats, critical strikes, dodges and armor apply to every ability.
+- **Cost and resources** use the **pools** you define in *[Entity Stats](/basic/entity-stats/)*.
+- **Damage and healing** go through the [calculations](/basic/entity-stats/calculations) in *Entity Stats*, so stats, critical strikes, dodges and armor apply to every ability.
 - **Tags & Groups** label damage and abilities by kind, make abilities share a cooldown, and decide which effects exclude each other.
 - **Skill Trees** are how players unlock abilities.

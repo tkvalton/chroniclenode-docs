@@ -19,7 +19,6 @@ Applies child effects based on the health percentage of the target or originator
 | | |
 |---|---|
 | `void` | [specific_effect_logic](#method-specific-effect-logic)( `effect_instance: EffectInstance` ) |
-| `String` | [get_effect_description](#method-get-effect-description)() |
 | `String` | [get_editor_description](#method-get-editor-description)() |
 
 ## Enumerations
@@ -53,10 +52,6 @@ Health percentage threshold (0–100)
 ## Method descriptions
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
-
-*No description yet.*
-
-### String get_effect_description() {#method-get-effect-description}
 
 *No description yet.*
 

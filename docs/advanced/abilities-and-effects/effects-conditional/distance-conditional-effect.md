@@ -17,7 +17,6 @@ Applies child effects based on the distance between originator and target.
 | | |
 |---|---|
 | `void` | [specific_effect_logic](#method-specific-effect-logic)( `effect_instance: EffectInstance` ) |
-| `String` | [get_effect_description](#method-get-effect-description)() |
 | `String` | [get_editor_description](#method-get-editor-description)() |
 
 ## Property descriptions
@@ -31,10 +30,6 @@ Maximum distance (in units) for the condition to pass
 ## Method descriptions
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
-
-*No description yet.*
-
-### String get_effect_description() {#method-get-effect-description}
 
 *No description yet.*
 

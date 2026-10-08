@@ -8,7 +8,7 @@ The stacking fields are in the [Effects editor](/basic/abilities-and-effects/eff
 
 | Stacking rule | What happens when the effect is applied again |
 |---|---|
-| **Separate copies** | Nothing is combined: each application is a new copy with its own timer, and the stack fields (**Max stacks** and the rest) do not apply. The same caster applying it twice gets two copies |
+| **Separate copies** | Nothing is combined: each application is a new copy with its own timer, and the [stack](/basic/keywords#stacks) fields (**Max stacks** and the rest) do not apply. The same caster applying it twice gets two copies |
 | **Per originator** | Each caster has one copy on the target. More applications by the same caster add stacks to that copy |
 | **Global** | The target has one copy, whoever applies it. Every application adds stacks to it |
 
@@ -33,7 +33,7 @@ With **Per originator**, each caster's copy is separate, so it ends with its own
 
 <Shot name="groups-editor" caption="The Groups editor (Tags & Groups > Groups)." />
 
-A **group** is a label that effects, abilities and items can be part of, several at once. You make groups in **Tags & Groups > Groups**. A group does up to four jobs, and you switch on the ones you need.
+A **group** is a label that effects, abilities and items can be part of, several at once. You make [groups](/basic/shared-systems/groups) in **Tags & Groups > Groups**. A group does up to four jobs, and you switch on the ones you need.
 
 ### Exclusive effects
 
@@ -61,7 +61,7 @@ An effect that is in several groups needs a free slot in each. A flask that belo
 
 | Field | What it does | Default |
 |---|---|---|
-| **Shares cooldown** | Using any ability or consumable in the group puts all the others in the group on cooldown | off |
+| **Shares cooldown** | Using any ability or consumable in the group puts all the others in the group on [cooldown](/basic/keywords#cooldown) | off |
 | **Shared cooldown duration** | How long that cooldown is. `0` uses the cooldown of the member that was used | `0` |
 
 This is how potions share a cooldown. Put an ability in a group with the **Groups** field of the [Abilities editor](/basic/abilities-and-effects/abilities#groups), and an item in the group in the Items editor.

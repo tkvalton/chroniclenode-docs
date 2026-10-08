@@ -31,7 +31,7 @@ The demo world is a full world built to show and test as many features of the to
 - **Target dummies** to try abilities and see damage, healing and effects on;
 - **Interactables**: objects you can open, use and trigger;
 - **Vendors** to buy from and sell to;
-- **NPCs to talk to**, with conversations that offer and complete quests;
+- **NPCs to talk to**, with conversations that offer and complete [quests](/basic/events-and-quests/quests);
 - **NPCs to fight**, including enemies that attack back;
 - **Quests** to accept, play through and hand in.
 
@@ -59,7 +59,7 @@ Look at the row of tabs at the top of Godot, next to **2D**, **3D**, **Script** 
 Everything you just played is in there: the character classes, their abilities, the items, the quests and conversations, the world, and the settings that decide how the game plays. The [editor tour](/general/editor-tour) explains how it is organised.
 
 ::: tip Try a small change
-Open **Abilities & Effects**, pick an ability, change a number such as its damage or cooldown, and play again. Changes in the editor are saved to the project's data files straight away.
+Open **Abilities & Effects**, pick an ability, change a number such as its damage or [cooldown](/basic/keywords#cooldown), and play again. Changes in the editor are saved to the project's data files straight away.
 :::
 
 ## Where the content lives

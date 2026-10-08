@@ -302,6 +302,11 @@ export const groups = [
     "slug": "effects-conditional",
     "classes": [
       {
+        "name": "ConditionConditionalEffect",
+        "base": "ConditionalEffect",
+        "file": "data_classes/effects/conditional/effect_conditional_condition.gd"
+      },
+      {
         "name": "DistanceConditionalEffect",
         "base": "ConditionalEffect",
         "file": "data_classes/effects/conditional/effect_conditional_distance.gd"

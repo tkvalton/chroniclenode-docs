@@ -21,7 +21,6 @@ Applies child effects based on whether an entity has (or is missing) a specific 
 | | |
 |---|---|
 | `void` | [specific_effect_logic](#method-specific-effect-logic)( `effect_instance: EffectInstance` ) |
-| `String` | [get_effect_description](#method-get-effect-description)() |
 | `String` | [get_editor_description](#method-get-editor-description)() |
 
 ## Enumerations
@@ -70,10 +69,6 @@ How to compare the stack count — only used when effect_check is STACK_COUNT
 ## Method descriptions
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
-
-*No description yet.*
-
-### String get_effect_description() {#method-get-effect-description}
 
 *No description yet.*
 

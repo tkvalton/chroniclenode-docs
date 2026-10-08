@@ -33,6 +33,7 @@ Key features:
 | `void` | [specific_effect_logic](#method-specific-effect-logic)( `effect_instance: EffectInstance` ) |
 | `void` | [apply_child_effects](#method-apply-child-effects)( `effect_instance: EffectInstance` ) |
 | `void` | [apply_child_effects_to_target](#method-apply-child-effects-to-target)( `effect_instance: EffectInstance, target: Variant` ) |
+| `void` | [apply_effect_list_to_target](#method-apply-effect-list-to-target)( `effect_instance: EffectInstance, effect_ids: Array[int], target: Variant` ) |
 | `void` | [apply_child_effect](#method-apply-child-effect)( `parent_instance: EffectInstance, child_effect: Effect, target: Variant` ) |
 | `void` | [on_apply_finished](#method-on-apply-finished)( `effect_instance: EffectInstance` ) |
 | `void` | [cleanup_child_effects](#method-cleanup-child-effects)( `effect_instance: EffectInstance` ) |
@@ -65,6 +66,10 @@ Apply child effects to the standard target (can be overridden by specialized eff
 ### void apply_child_effects_to_target( effect_instance: EffectInstance, target: Variant ) {#method-apply-child-effects-to-target}
 
 Apply child effects to a specific target (used by AreaEffect and other specialized effects)
+
+### void apply_effect_list_to_target( effect_instance: EffectInstance, effect_ids: Array[int], target: Variant ) {#method-apply-effect-list-to-target}
+
+Apply a list of effects (ids) to a specific target, each as its own running effect
 
 ### void apply_child_effect( parent_instance: EffectInstance, child_effect: Effect, target: Variant ) {#method-apply-child-effect}
 

@@ -15,7 +15,7 @@ You will make two things, because that is how ChronicleNode works: an **effect**
 ## Part 1: the effect
 
 1. Click the **Database** tab at the top of Godot. In the category drop-down choose **Abilities & Effects**, then click the **Effects** tab.
-2. Click **Add** above the list. The effect type dialog opens.
+2. Click **Add** above the list. The [effect type](/basic/abilities-and-effects/effect-types) dialog opens.
 3. In the dialog, type the name `spark_hit`. Choose the category **Damage And Healing** and the type **DamageEffect**, then confirm. The new effect appears in the list and opens on the right.
 
 <Shot name="tutorial1-effect-type-dialog" caption="Creating the effect: name, category and type." />
@@ -55,7 +55,7 @@ An ability does nothing until an entity has it. Here you give it to the class yo
 17. Find a target dummy in the demo world. Press **P** to open the **spellbook**, and drag **Spark** onto the first slot of the action bar.
 18. **Left-click** the dummy to target it, then press **1**.
 
-The dummy loses 10 health, and the action bar slot starts its 3-second cooldown. Press **1** again straight away: nothing happens until the cooldown ends.
+The dummy loses 10 health, and the action bar slot starts its 3-second [cooldown](/basic/keywords#cooldown). Press **1** again straight away: nothing happens until the cooldown ends.
 
 ::: tip If nothing happens
 Make sure the dummy is within 10 metres (the **Max Range** you set) and that you can see it. Out of range, the ability tells you instead of firing. If the ability is not in the spellbook, check step 15 and start a *new* game, because a running game keeps the abilities its character started with.

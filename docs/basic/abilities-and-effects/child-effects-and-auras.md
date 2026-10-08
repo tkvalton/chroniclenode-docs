@@ -4,7 +4,7 @@ Some effects hold other effects. The **Composite** effect is the plain one, and 
 
 ## Every effect in a chain is its own running effect
 
-When a composite effect is applied, each of its child effects starts as a separate running effect on its target. Each has its own timer, its own stacks and its own settings. This matters for three things:
+When a composite effect is applied, each of its child effects starts as a separate running effect on its target. Each has its own timer, its own [stacks](/basic/keywords#stacks) and its own settings. This matters for three things:
 
 - **What the player sees.** A running effect is shown on the interface (the buff and debuff bars, the nameplates, the unit frames) only if its **Show as buff/debuff** is on. You choose per effect.
 - **What ends it.** A composite can take its children with it. With **Remove child effects on end** on, the children are removed when the composite ends, by its duration or because something removed it (a dispel). With it off, the children carry on until their own ends, even after the composite is gone.
@@ -12,7 +12,7 @@ When a composite effect is applied, each of its child effects starts as a separa
 
 ## Deciding which effect is the aura
 
-You decide, effect by effect. The usual choice is to show the one effect that stands for the whole bundle, and to leave the rest unmarked.
+An [aura](/basic/keywords#aura) is an effect shown on the interface. You decide, effect by effect. The usual choice is to show the one effect that stands for the whole bundle, and to leave the rest unmarked.
 
 **Example: Blessing of Vigor.** A buff that heals over time and raises Strength, which the player can see and have dispelled as one thing.
 
@@ -37,7 +37,7 @@ When the player points at an effect on the interface, the tooltip shows its name
 - **The Description you wrote** in the effect's *Description* field, when there is one.
 - **The text the effect type writes itself** when the Description is empty. For a damage effect that reads like "deals 10 damage"; for a composite it only says how many effects it triggers.
 
-The generated text is right for simple effects, because it follows the numbers you set. For a composite it says little, so write a Description for a composite that is an aura.
+The generated text is right for simple effects, because it follows the numbers you set. For a composite it says little, so write a Description for a composite that is an [aura](/basic/keywords#aura).
 
 ### Using the text of the child effects in a Description
 
@@ -48,7 +48,7 @@ In the Description of an effect, two placeholders bring in the text of its child
 | `<Effect1>`, `<Effect2>`, ... | The text the child effect's type writes itself, so it follows that effect's numbers |
 | `<EffectText1>`, `<EffectText2>`, ... | The *Description* written on the child effect (its own text when it has none) |
 
-The numbers count the child effects in order, and the children of the children after their parent. For *Blessing of Vigor* above, `<Effect1>` is the heal and `<Effect2>` the stat modifier, so its Description could be:
+The numbers count the child effects in order, and the children of the children after their parent. On a conditional effect the **Else effects** come after the child effects, each with its own children. For *Blessing of Vigor* above, `<Effect1>` is the heal and `<Effect2>` the stat modifier, so its Description could be:
 
 ```
 Blessed with vigor: <Effect1> and <Effect2>.

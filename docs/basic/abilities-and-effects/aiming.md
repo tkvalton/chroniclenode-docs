@@ -53,7 +53,7 @@ The time a shot is held is its **charge**. Effects can use it:
 
 ## Hitscan
 
-A **Hitscan** effect is an instant line from the muzzle towards the target (or the aimed point), up to a maximum range. The effects inside it are applied to the entities the line meets. Nothing flies, so nothing can be dodged. It can pierce a number of entities, and walls stop it unless you say otherwise. Hitscan is an effect type, described with the other types in the Effects chapter.
+A **Hitscan** effect is an instant line from the muzzle towards the target (or the aimed point), up to a maximum range. The effects inside it are applied to the entities the line meets. Nothing flies, so nothing can be dodged. It can pierce a number of entities, and walls stop it unless you say otherwise. Hitscan is an [effect type](/basic/abilities-and-effects/effect-types), described with the other types in the Effects chapter.
 
 ## In the demo
 

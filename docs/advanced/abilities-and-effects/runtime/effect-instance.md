@@ -19,6 +19,7 @@ Lightweight runtime instance of an effect that references an EffectDefinition fo
 | `CombatManager` | [combat_manager](#var-combat-manager) |  |
 | `ChronoManager` | [chrono_manager](#var-chrono-manager) |  |
 | `ObjectRegistry` | [object_registry](#var-object-registry) |  |
+| `GameHost.SystemHub` | [hub](#var-hub) |  |
 | `String` | [registered_with](#var-registered-with) | `""  # "entity", "world", or "none"` |
 | `Variant` | [registered_manager](#var-registered-manager) | `null  # Reference to the manager` |
 | `bool` | [active](#var-active) | `false` |
@@ -126,6 +127,10 @@ SystemManager refs
 ### ObjectRegistry object_registry {#var-object-registry}
 
 *No description yet.*
+
+### GameHost.SystemHub hub {#var-hub}
+
+The systems of the game, for the effects that evaluate conditions (a condition may look an entity up by its id)
 
 ### String registered_with = ""  # "entity", "world", or "none" {#var-registered-with}
 

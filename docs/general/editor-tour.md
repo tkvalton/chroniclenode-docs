@@ -22,17 +22,17 @@ Each category holds the editors for one part of the game.
 
 | Category | Its tabs | What it is for |
 |---|---|---|
-| **World** | Worlds, World Configs, Uniques | The places of the game, their time, sky and weather, and the one-of-a-kind characters and objects placed in them |
-| **Events & Quests** | Events, Quests, Quest Lines, Global Variables, Popups | What happens in the game: triggers and actions, quests and the chains they form, variables the game remembers, and message popups |
-| **Entities** | Playable Character, Player Classes, NPCs, Interactables | The characters, creatures and objects of the game |
-| **Abilities & Effects** | Abilities, Effects, Skill Trees | What entities can do, what that does to the world, and how players unlock it |
-| **Behaviors** | Factions, Combat Scripts, Behavior Scripts, Conversations | How non-player characters act, fight and talk |
-| **Entity Stats** | Stats, Pool, Status Effects, Calculations | The numbers that describe an entity and how damage and healing are worked out |
-| **Tags & Groups** | Damage Types, School Types, Trigger Tags, Entity Tags, Groups, Stat Groups, Immunities | The labels that connect the other systems: what kind of damage, what an entity is, and what shares a cooldown |
-| **Items** | Items, Currency, Loot Tables, Craft Recipes, Craft Schools, Vendors | Everything a player can own, find, make and trade |
-| **Equipment Definitions** | Armor Class, Weapon Class, Equipment Type, Equipment Slot, Quality, Set Bonus, Socket | The rules that equipment is built from |
-| **Assets** | Model Scenes, Meshes, Animations, VFX, Audio, Albums, Icons | The art and sound libraries the other editors pick from |
-| **Game Settings** | Game Settings, Gameplay Config, Character Creation, Collision Layers, Controller & Camera, UI Settings, Localization | How the game plays, looks and is controlled |
+| **World** | [Worlds](/basic/world/worlds), [World Configs](/basic/world/world-configs), [Uniques](/basic/world/uniques) | The places of the game, their time, sky and weather, and the one-of-a-kind characters and objects placed in them |
+| **Events & Quests** | [Events](/basic/events-and-quests/events), [Quests](/basic/events-and-quests/quests), [Quest Lines](/basic/events-and-quests/quest-lines), [Global Variables](/basic/events-and-quests/global-variables), [Popups](/basic/events-and-quests/popups) | What happens in the game: triggers and actions, quests and the chains they form, variables the game remembers, and message popups |
+| **Entities** | [Playable Character](/basic/entities/playable-character), [Player Classes](/basic/entities/player-classes), [NPCs](/basic/entities/npcs), [Interactables](/basic/entities/interactables) | The characters, creatures and objects of the game |
+| **Abilities & Effects** | [Abilities](/basic/abilities-and-effects/abilities), [Effects](/basic/abilities-and-effects/effects), [Skill Trees](/basic/abilities-and-effects/skill-trees) | What entities can do, what that does to the world, and how players unlock it |
+| **Behaviors** | [Factions](/basic/behaviors/factions), [Combat Scripts](/basic/behaviors/combat-scripts), [Behavior Scripts](/basic/behaviors/behavior-scripts), [Conversations](/basic/behaviors/conversations) | How non-player characters act, fight and talk |
+| **Entity Stats** | [Stats](/basic/entity-stats/stats), [Pool](/basic/entity-stats/pool), [Status Effects](/basic/entity-stats/status-effects), [Calculations](/basic/entity-stats/calculations) | The numbers that describe an entity and how damage and healing are worked out |
+| **Tags & Groups** | [Damage Types](/basic/tags-and-groups/damage-types), [School Types](/basic/tags-and-groups/school-types), [Trigger Tags](/basic/tags-and-groups/trigger-tags), [Entity Tags](/basic/tags-and-groups/entity-tags), [Groups](/basic/tags-and-groups/groups), [Stat Groups](/basic/tags-and-groups/stat-groups), [Immunities](/basic/tags-and-groups/immunities) | The labels that connect the other systems: what kind of damage, what an entity is, and what shares a [cooldown](/basic/keywords#cooldown) |
+| **Items** | [Items](/basic/items/items), [Currency](/basic/items/currency), [Loot Tables](/basic/items/loot-tables), [Craft Recipes](/basic/items/craft-recipes), [Craft Schools](/basic/items/craft-schools), [Vendors](/basic/items/vendors) | Everything a player can own, find, make and trade |
+| **Equipment Definitions** | [Armor Class](/basic/equipment-definitions/armor-class), [Weapon Class](/basic/equipment-definitions/weapon-class), [Equipment Type](/basic/equipment-definitions/equipment-type), [Equipment Slot](/basic/equipment-definitions/equipment-slot), [Quality](/basic/equipment-definitions/quality), [Set Bonus](/basic/equipment-definitions/set-bonus), [Socket](/basic/equipment-definitions/socket) | The rules that equipment is built from |
+| **Assets** | [Model Scenes](/basic/assets/model-scenes), [Meshes](/basic/assets/meshes), [Animations](/basic/assets/animations), [VFX](/basic/assets/vfx), [Audio](/basic/assets/audio), [Albums](/basic/assets/albums), [Icons](/basic/assets/icons) | The art and sound libraries the other editors pick from |
+| **Game Settings** | [Game Settings](/basic/game-settings/settings), [Gameplay Config](/basic/game-settings/gameplay-config), [Character Creation](/basic/game-settings/character-creation), [Collision Layers](/basic/game-settings/collision-layers), [Controller & Camera](/basic/game-settings/controller-and-camera), [UI Settings](/basic/game-settings/ui-settings), [Localization](/basic/game-settings/localization) | How the game plays, looks and is controlled |
 
 ## How an editor works
 

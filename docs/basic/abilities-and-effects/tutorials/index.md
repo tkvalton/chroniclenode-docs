@@ -7,7 +7,7 @@ Every tutorial uses the **Database** tab, and ends by trying the result in the g
 | Tutorial | You build | New idea |
 |---|---|---|
 | [1. Your first ability: a damage attack](/basic/abilities-and-effects/tutorials/first-damage-attack) | *Spark*, an instant attack that hits an enemy | An effect, an ability, and how they connect |
-| [2. A cost and a cooldown](/basic/abilities-and-effects/tutorials/cost-and-cooldown) | Spark with a resource cost and a cooldown | Pools, the global cooldown, cooldown duration |
+| [2. A cost and a cooldown](/basic/abilities-and-effects/tutorials/cost-and-cooldown) | Spark with a resource cost and a [cooldown](/basic/keywords#cooldown) | Pools, the [global cooldown](/basic/keywords#global-cooldown), cooldown duration |
 | [3. Cast time and interrupts](/basic/abilities-and-effects/tutorials/cast-time-and-interrupts) | *Frost Bolt*, a spell with a cast time | The Cast use style, interrupting, moving while casting |
 
 ::: info Status of the tutorials

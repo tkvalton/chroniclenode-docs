@@ -4,11 +4,11 @@
 Written from the editor's fields and the demo. Not yet checked step by step in the editor.
 :::
 
-In this tutorial you make **Spark** a *builder*: it gives the user a resource each time it is used. Then you make a stronger copy, **Spark Overload**, that *spends* that resource and has a longer cooldown. Using the first to afford the second is the heart of many classes.
+In this tutorial you make **Spark** a *builder*: it gives the user a resource each time it is used. Then you make a stronger copy, **Spark Overload**, that *spends* that resource and has a longer [cooldown](/basic/keywords#cooldown). Using the first to afford the second is the heart of many classes.
 
 **Time:** about 15 minutes.
 
-**Before you start:** finish [tutorial 1](/basic/abilities-and-effects/tutorials/first-damage-attack). The demo's class has a **Rage** resource pool, which this tutorial uses. If you use your own class, any resource pool the class has will do (you define pools in *Entity Stats > Pool*).
+**Before you start:** finish [tutorial 1](/basic/abilities-and-effects/tutorials/first-damage-attack). The demo's class has a **Rage** resource pool, which this tutorial uses. If you use your own class, any resource pool the class has will do (you define pools in *[Entity Stats](/basic/entity-stats/) > Pool*).
 
 ## Part 1: Spark gives rage
 

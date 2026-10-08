@@ -2,7 +2,7 @@
 
 Two kinds of rules change how much an effect does and how a hit or heal turns out:
 
-- **Scaling rules** (on **Damage**, **Heal** and **Stat Modifier** effects) make the number depend on the situation: a target low on health, a target with a shield, a target with many stacks of something.
+- **Scaling rules** (on **Damage**, **Heal** and **Stat Modifier** effects) make the number depend on the situation: a target low on health, a target with a shield, a target with many [stacks](/basic/keywords#stacks) of something.
 - **Trigger rules** (on **Damage** and **Heal** effects) change how special outcomes behave for this effect: a critical strike, a dodge, a multistrike.
 
 Both are lists on the effect. Only the effect types that have a number to scale carry the scaling rules, and only the ones that cause a hit or a heal carry the trigger rules: the other effect types do not show them. In the code the scaling rules come from `ScalingEffect` (damage, heal and stat modifiers) and the trigger rules from `CombatResultEffect` (damage and heal), so a new effect of that kind can have them too. You find them in the [Effects editor](/basic/abilities-and-effects/effects#settings-of-the-damage-and-heal-effects), under **Specific Properties**.
@@ -18,7 +18,7 @@ Scaling rules apply to **Damage** and **Heal** effects (what they deal or heal) 
 | Field | What it does | Default |
 |---|---|---|
 | **Source** | What is measured (see the table below) | Target health % |
-| **Pool**, **Effect**, **Tag** | The pool, effect or entity tag the source needs, for the sources that use one | none |
+| **Pool**, **Effect**, **Tag** | The pool, effect or [entity tag](/basic/tags-and-groups/entity-tags) the source needs, for the sources that use one | none |
 | **Only own stacks** | For the stacks source: count only the stacks the caster put there | on |
 | **Applies when** | **Always**, only **Below** the threshold, or only **Above** it | Always |
 | **Threshold** | The value the measured number is compared with (`20` for "below 20 % health") | `0` |
@@ -63,7 +63,7 @@ A **trigger rule** on an effect overrides that for hits and heals *caused by thi
 
 | Field | What it does | Default |
 |---|---|---|
-| **Tag** | The trigger tag the rule is about. Empty means every tag (a "luck" bonus to all chances) | none |
+| **Tag** | The [trigger tag](/basic/tags-and-groups/trigger-tags) the rule is about. Empty means every tag (a "luck" bonus to all chances) | none |
 | **Force** | **Normal**: roll as usual, only the bonuses apply. **Always**: the tag always fires, with no roll, even for an entity with no stat that rolls it. **Never**: the tag never fires. *Never* beats *Always* | Normal |
 | **Chance bonus** | Added to the chance, in percentage points (`30` is 30 more percent) | `0` |
 | **Magnitude bonus** | Added to the tag's magnitude. A critical strike with `+50` is a +150 % crit instead of +100 % | `0` |

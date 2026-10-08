@@ -23,7 +23,6 @@ Applies child effects based on a percentage chance, with optional advanced RNG m
 | `void` | [specific_effect_logic](#method-specific-effect-logic)( `effect_instance: EffectInstance` ) |
 | `float` | [get_current_chance](#method-get-current-chance)( `effect_instance: EffectInstance` ) |
 | `void` | [reset_rng_state](#method-reset-rng-state)( `effect_instance: EffectInstance` ) |
-| `String` | [get_effect_description](#method-get-effect-description)() |
 | `String` | [get_editor_description](#method-get-editor-description)() |
 
 ## Enumerations
@@ -78,10 +77,6 @@ Returns the effective chance for this instance (accounts for pity / streak state
 ### void reset_rng_state( effect_instance: EffectInstance ) {#method-reset-rng-state}
 
 Resets the RNG state for this effect instance (e.g. on combat state transitions).
-
-### String get_effect_description() {#method-get-effect-description}
-
-*No description yet.*
 
 ### String get_editor_description() {#method-get-editor-description}
 

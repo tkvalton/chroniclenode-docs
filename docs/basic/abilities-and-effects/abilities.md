@@ -16,7 +16,7 @@ On the left is the list of abilities, with a **Filter files** box and the **Add*
 |---|---|
 | **Display name** | The name the player sees |
 | **ID** | The number the toolkit gave this ability. Other things refer to the ability by it. You never type it, and it does not change when you rename the ability |
-| **Description** | The text of the ability's tooltip. Write `<Effect1>`, `<Effect2>` and so on where you want the text of the ability's effects to appear. `<Effect1>` is the text the effect type writes itself ("deals 10 damage"), so it follows the effect's numbers. If you want your own words for an effect, write them in that effect's Description and use `<EffectText1>` instead. The numbers count the on-use effects, then the passive effects, and the child effects of each. The **Preview** under the field shows the result |
+| **Description** | The text of the ability's tooltip. Write `<Effect1>`, `<Effect2>` and so on where you want the text of the ability's effects to appear. `<Effect1>` is the text the [effect type](/basic/abilities-and-effects/effect-types) writes itself ("deals 10 damage"), so it follows the effect's numbers. If you want your own words for an effect, write them in that effect's Description and use `<EffectText1>` instead. The numbers count the on-use effects, then the passive effects, and the [child effects](/basic/abilities-and-effects/child-effects-and-auras) of each. The **Preview** under the field shows the result |
 | **Icon** | The picture shown on the action bar and in the spellbook. The **X** button next to it removes the icon |
 
 ::: tip The description keeps itself right
@@ -27,7 +27,7 @@ Because `<Effect1>` is replaced with the effect's own description, you can chang
 
 The **Ability type** decides what the ability is and which other fields appear:
 
-- **Passive**: always on. Its effects apply while its requirements hold.
+- **Passive**: always on. Its effects apply while its [requirements](/basic/shared-systems/requirements) hold.
 - **Active**: used on demand. Everything under [General properties](#general-properties) below.
 - **Power-up**: an active ability whose power depends on how much it is charged.
 - **Charge stack**: an active ability that holds several charges.
@@ -41,9 +41,9 @@ These fields belong to every kind of active ability.
 
 | Field | What it does | Default |
 |---|---|---|
-| **Ability school** | The school the ability belongs to (fire, healing, physical and so on). Immunities and dispels use it. You define schools under *Tags & Groups > School Types* | none |
+| **Ability school** | The school the ability belongs to (fire, healing, physical and so on). [Immunities](/basic/tags-and-groups/immunities) and dispels use it. You define schools under *Tags & Groups > [School Types](/basic/tags-and-groups/school-types)* | none |
 | **On global cooldown** | Using this ability starts the [**global cooldown**](/basic/keywords#global-cooldown), a short pause during which other abilities on it cannot be used | on |
-| **Use weapon speed as cooldown** | The cooldown is the equipped weapon's attack speed instead of **Cooldown duration**. Use it for basic attacks | off |
+| **Use weapon speed as cooldown** | The [cooldown](/basic/keywords#cooldown) is the equipped weapon's attack speed instead of **Cooldown duration**. Use it for basic attacks | off |
 | **Cooldown duration** | Seconds before the ability can be used again. `0` means no cooldown | `0` |
 | **On-use application delay** | Seconds to wait after the ability fires before its on-use effects apply. Use it to line up the effect with an animation, for example a swing that visibly lands 0.3 seconds after it starts | `0` |
 | **Strip passive on inactive** | For an ability that also has passive effects: remove them when the requirements stop holding (on), or keep them even then (off). Keep them for abilities whose passive effect is what makes the requirement true again | on |
@@ -57,7 +57,7 @@ An ability can cost a resource, and can give one back.
 | Field | What it does |
 |---|---|
 | **Cost pool type** | What the ability spends: *No Cost*, a *Resource Pool* such as mana or rage, or the *Health Pool* |
-| **Cost pool** | Which pool to spend from. You define pools in *Entity Stats > Pool* |
+| **Cost pool** | Which pool to spend from. You define pools in *[Entity Stats](/basic/entity-stats/) > Pool* |
 | **Cost amount** | How much it spends each use |
 | **Gain pool type**, **Gain pool**, **Gain amount** | The same three fields for a resource the ability gives back when it completes, such as combo points or rage |
 

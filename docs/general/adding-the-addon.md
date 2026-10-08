@@ -41,11 +41,11 @@ Enabling the plugin prepares your project so the toolkit can run. It never overw
 | What | Details |
 |---|---|
 | **Sets the main scene** | The project's main scene becomes the ChronicleNode game root, so pressing play starts the toolkit's game (main menu, new game, load). If your project already had a main scene, it is replaced. Set it back in Project Settings if you need to: disabling the plugin does not change it back |
-| **Adds input actions** | Movement (**W A S D**), the mouse actions (primary, secondary, zoom, rotate), interact, jump, crouch, chat, the panel keys (quest log, spellbook, map, character), pause, and thirty action bar slots (**1** to **0**, with **Shift** and **Ctrl**). An action that already has the same name keeps your keys |
+| **Adds input actions** | Movement (**W A S D**), the mouse actions (primary, secondary, zoom, rotate), interact, jump, crouch, chat, the panel keys ([quest](/basic/events-and-quests/quests) log, spellbook, map, character), pause, and thirty action bar slots (**1** to **0**, with **Shift** and **Ctrl**). An action that already has the same name keeps your keys |
 | **Adds audio buses** | `Music`, `SFX`, `Voice`, `Ambiance` and `UI`, saved in the project's audio bus layout so the game's volume settings work |
 | **Adds shader globals** | `WindDirection`, `WindIntensity` and `GaleStrength`, used by the toolkit's wind effects |
 | **Creates the data folders** | A `res://src/data/` folder with one subfolder for each kind of content: abilities, effects, items, quests, worlds and so on. They start empty |
-| **Creates the settings files** | Five files in `res://src/data/config_data/` with the default settings: *Settings*, *Gameplay Config*, *UI Settings*, *Character Creation* and *Collision Layers*. You edit them in the **Game Settings** editors |
+| **Creates the settings files** | Five files in `res://src/data/config_data/` with the default settings: *Settings*, *[Gameplay Config](/basic/game-settings/gameplay-config)*, *UI Settings*, *Character Creation* and *[Collision Layers](/basic/game-settings/collision-layers)*. You edit them in the **Game Settings** editors |
 | **Adds the editor tab** | A **Database** tab next to **2D**, **3D**, **Script** and **AssetLib** |
 
 It does not create any content: there are no classes, abilities, items, quests or worlds until you make them.
