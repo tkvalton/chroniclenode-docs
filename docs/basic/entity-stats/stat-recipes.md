@@ -20,6 +20,8 @@ Every effect has [conditions](/basic/shared-systems/conditions) (against Undead,
 
 ## Hit chance
 
+Whether attacks can miss at all is a rule of your game: **Gameplay Config > Combat > [Hit Rules](/basic/game-settings/gameplay-config#hit-rules)** has **Misses enabled**, a **Base miss chance** for everyone and a **Guaranteed hit chance**. A game with no misses switches it off and builds none of the stats below.
+
 A hit chance is the chance that an attack *reaches* its target. Every hit that does not is a **miss**: the target is not touched and the attacker sees "Miss".
 
 1. Make a [trigger tag](/basic/tags-and-groups/trigger-tags) *Miss* with kind **Avoid** and **Calculations** set to *Damage Done*. The demo has it.
@@ -37,6 +39,10 @@ A hit chance is the chance that an attack *reaches* its target. Every hit that d
 
 A hit that cannot be avoided cannot be missed.
 
+## A mastery
+
+A mastery makes some abilities stronger, and gets better with a stat. Give a stat a **Calculation Modifier Effect** on Damage Done (or Healing Done), percentage increase, and tick the abilities in **Only these abilities** (or the effects in **Only these effects**). For a flat talent that does not grow with a stat, use the [Ability Boost](/basic/abilities-and-effects/effect-amount#boosting-some-abilities) effect in a passive ability.
+
 ## Expertise
 
 Expertise lowers the chance of the target to *avoid* your attacks (dodge, parry, block).
@@ -47,6 +53,7 @@ A **Trigger Rule Effect** on the stat:
 |---|---|
 | Tag | none |
 | Tags of kind | **Avoid** (or pick one **Tag**, such as *Dodge*, and nothing else is changed) |
+| Works in | **Damage Taken** (so your own miss chance is left alone) |
 | Changes the rolls of | **Whoever defends against the owner** |
 | What it does | **Chance bonus (%)** |
 | Formula | Linear, `-0.25` per point |

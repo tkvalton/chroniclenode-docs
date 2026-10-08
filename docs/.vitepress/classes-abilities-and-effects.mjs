@@ -677,6 +677,12 @@ export const groups = [
     "slug": "effects-stats",
     "classes": [
       {
+        "name": "AbilityBoostEffect",
+        "base": "Effect",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\stats\\effect_ability_boost.gd",
+        "file": "data_classes/effects/stats/effect_ability_boost.gd"
+      },
+      {
         "name": "AbsorbWithPoolEffect",
         "base": "Effect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\stats\\effect_absorb_with_pool.gd",

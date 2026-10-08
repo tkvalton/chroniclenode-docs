@@ -17,6 +17,7 @@ One effect does one thing (`bonus_kind`); the number comes from the formula slot
 | `TriggerTagDefinition` | [tag](#prop-tag) |  |
 | `BonusKind` | [bonus_kind](#prop-bonus-kind) | `BonusKind.MAGNITUDE_BONUS` |
 | `RuleSide` | [applies_to](#prop-applies-to) | `RuleSide.OWNER` |
+| `Array[int]` | [target_calculations](#prop-target-calculations) | `[]` |
 | `TagKindFilter` | [tag_kind](#prop-tag-kind) | `TagKindFilter.ANY` |
 
 ## Methods
@@ -72,6 +73,10 @@ What the stat gives the tag: a chance bonus, a magnitude bonus, a magnitude mult
 ### RuleSide applies_to = RuleSide.OWNER {#prop-applies-to}
 
 Whose rolls it changes: the owner's own, or the opponent's (when it acts on the owner, or when it defends against the owner)
+
+### Array[int] target_calculations = [] {#prop-target-calculations}
+
+The calculations the rule works in (CalculationBase.CalculationType numbers: 0 damage done, 1 damage taken, 2 healing done, 3 healing taken). Empty = all of them. Lower your own chance to miss in damage done only, so your own dodges stay as they are
 
 ### TagKindFilter tag_kind = TagKindFilter.ANY {#prop-tag-kind}
 

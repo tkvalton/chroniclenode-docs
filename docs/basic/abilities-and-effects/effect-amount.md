@@ -54,6 +54,40 @@ Two rules to remember:
 
 This is different from [leech](/basic/entity-stats/stats#the-effect-types), which is a share of one hit that is healed to the attacker through the healing [calculations](/basic/entity-stats/calculations). Use leech for "life steal"; use a part when you need a different effect, a different target or a different number.
 
+## Boosting some abilities
+
+The amount is about one effect. To make **some abilities** stronger without touching them (a talent, a passive, a mastery stat), use one of two tools:
+
+| Tool | Where | What it does |
+|---|---|---|
+| **Ability Boost** effect | Put it in a [passive ability](/basic/abilities-and-effects/abilities) or a talent, or use it as a buff | While it lasts, the damage, the healing or both that its target does with the listed **abilities** and **effects** is raised by a **percentage** and a **flat amount** (per stack). With no list, everything is boosted. A composite effect's id boosts the effects inside it |
+| **Only these abilities / effects** on a stat effect | A Calculation Modifier Effect of a stat (a mastery stat) | The same, but it comes from a stat and grows with its points. See [Stats](/basic/entity-stats/stats#the-effect-types) |
+
+The boost is applied after the modifiers of the stats of the doer, as a step of the damage done (or healing done) calculation, so it shows in the combat log like any modifier. Two boosts on the same ability add up one after the other.
+
+| You want | Setup |
+|---|---|
+| **Talent: Fireball does 20 % more** | A passive ability with an Ability Boost: *Boosts* damage, *Abilities* Fireball, *Percent bonus* `20` |
+| **A buff that makes your heals over time 15 % stronger** | An Ability Boost buff: *Boosts* healing, *Effects* the heal over time effects, *Percent bonus* `15`, with a duration |
+| **Mastery: each point makes your fire spells 0.5 % stronger** | A stat with a Calculation Modifier Effect on Damage Done, percentage increase, `0.5` per point, **Only these abilities** your fire spells |
+
+## Boosting some abilities
+
+The amount is about one effect. To make **some abilities** stronger without touching them (a talent, a passive, a mastery stat), use one of two tools:
+
+| Tool | Where | What it does |
+|---|---|---|
+| **Ability Boost** effect | Put it in a [passive ability](/basic/abilities-and-effects/abilities) or a talent, or use it as a buff | While it lasts, the damage, the healing or both that its target does with the listed **abilities** and **effects** is raised by a **percentage** and a **flat amount** (per stack). With no list, everything is boosted. A composite effect's id boosts the effects inside it |
+| **Only these abilities / effects** on a stat effect | A Calculation Modifier Effect of a stat (a mastery stat) | The same, but it comes from a stat and grows with its points. See [Stats](/basic/entity-stats/stats#the-effect-types) |
+
+The boost is applied after the modifiers of the stats of the doer, as a step of the damage done (or healing done) calculation, so it shows in the combat log like any modifier. Two boosts on the same ability add up one after the other.
+
+| You want | Setup |
+|---|---|
+| **Talent: Fireball does 20 % more** | A passive ability with an Ability Boost: *Boosts* damage, *Abilities* Fireball, *Percent bonus* `20` |
+| **A buff that makes your heals over time 15 % stronger** | An Ability Boost buff: *Boosts* healing, *Effects* the heal over time effects, *Percent bonus* `15`, with a duration |
+| **Mastery: each point makes your fire spells 0.5 % stronger** | A stat with a Calculation Modifier Effect on Damage Done, percentage increase, `0.5` per point, **Only these abilities** your fire spells |
+
 ## See also
 
 - [Effect types](/basic/abilities-and-effects/effect-types), [Scaling and trigger rules](/basic/abilities-and-effects/scaling-and-trigger-rules)

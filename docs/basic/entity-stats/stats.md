@@ -58,7 +58,7 @@ Most effects share these parts:
 | [**Calculation Trigger Effect**](/advanced/entity-stats/stat-effects/calculation-trigger-stat-effect) | Rolls a chance each time a calculation runs and, when it hits, fires a **trigger tag**: a dodge, a block, a critical strike | **Target Calculations**, **Tag Definition**, **Trigger Kind**, **Inverted** (a hit chance), **Special Animation**, **Special Message**, **Log Phrase**, **Damage Type** |
 | [**Pool Restoration Effect**](/advanced/entity-stats/stat-effects/pool-restoration-stat-effect) | Restores a pool when something happens: life steal, mana on hit, health on a kill | **Trigger Type** (damage dealt, damage taken, kill), **Target Pool**, **Scaling Type** (flat, percent of damage, percent of the pool maximum), **Damage Basis**, **Damage Type** |
 | [**Reactive Damage Effect**](/advanced/entity-stats/stat-effects/reactive-damage-stat-effect) | Damages the attacker back: damage reflection, retaliation | **Trigger Type** (damage taken, block, being hit), **Damage Scaling**, **Percent of Damage**, **Damage Basis**, **Damage Type**, **Can Be Avoided** |
-| [**Trigger Rule Effect**](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect) | Changes a trigger tag from the points of the stat: more critical strike damage, a chance bonus for every roll ("luck"), always or never | **Tag** (empty = every tag), **Tags of kind** (avoid, mitigate or boost, when no tag is chosen), **Changes the rolls of** (the owner, whoever acts on the owner, or whoever defends against the owner), **What It Does**: chance bonus, magnitude bonus, magnitude more (a percentage), always, never |
+| [**Trigger Rule Effect**](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect) | Changes a trigger tag from the points of the stat: more critical strike damage, a chance bonus for every roll ("luck"), always or never | **Tag** (empty = every tag), **Works in** (the calculations it applies to; none ticked = all four), **Works in** (the calculations it applies to; none ticked = all four), **Tags of kind** (avoid, mitigate or boost, when no tag is chosen), **Changes the rolls of** (the owner, whoever acts on the owner, or whoever defends against the owner), **What It Does**: chance bonus, magnitude bonus, magnitude more (a percentage), always, never |
 | [**Gain Modifier Effect**](/advanced/entity-stats/stat-effects/gain-modifier-stat-effect) | Changes what the entity gains: experience, currency, loot quantity, loot rarity, [threat](/basic/keywords#threat), resources, status duration (tenacity), effect duration, shield strength, drain resistance | **Channel**, **Calculation Type** |
 
 #### Hit filters
@@ -68,6 +68,10 @@ The effects that work on a hit or a heal (Calculation Trigger, Calculation Modif
 | Filter | What it does |
 |---|---|
 | **Only these schools** | Only abilities and effects of these [schools](/basic/tags-and-groups/school-types). Empty = every school |
+| **Only these abilities** | Only hits and heals that come from these abilities. A **mastery**: +20 % damage for Fireball and Ignite only |
+| **Only these effects** | Only hits and heals that come from these effects. An effect inside a composite effect also counts under the id of the composite, so naming a composite names everything it applies |
+| **Only these abilities** | Only hits and heals that come from these abilities. A **mastery**: +20 % damage for Fireball and Ignite only |
+| **Only these effects** | Only hits and heals that come from these effects. An effect inside a composite effect also counts under the id of the composite, so naming a composite names everything it applies |
 | **Minimum distance (m)** | Only when the two are at least this far apart: ranged attacks |
 | **Maximum distance (m)** | Only when the two are at most this far apart: melee attacks |
 | **Direct or periodic** | Both, only direct hits, or only the ticks of damage or healing over time |
@@ -96,6 +100,8 @@ Several effects choose how their value changes a number:
 | **Dodge** | A Calculation Trigger Effect on **Damage Taken** with Trigger Kind **Avoid**, a **Hyperbolic** formula for the chance (max `75`, K `300`) |
 | **Critical Strike Rating** | A Calculation Trigger Effect with a *Critical Strike* tag, a **Linear** chance of `0.05` per point behind a **Soft cap** of `400` points |
 | **A hit chance** | A Calculation Trigger Effect on Damage Done, Tag *Miss* (kind Avoid), **Inverted**, a Linear formula of `1`. See [Stat recipes](/basic/entity-stats/stat-recipes#hit-chance) |
+| **A mastery** | A Calculation Modifier Effect on Damage Done with **Only these abilities** (or **Only these effects**): the damage of the abilities the stat names goes up. For a talent or a passive, use the [Ability Boost](/basic/abilities-and-effects/effect-types) effect |
+| **A mastery** | A Calculation Modifier Effect on Damage Done with **Only these abilities** (or **Only these effects**): the damage of the abilities the stat names goes up. For a talent or a passive, use the [Ability Boost](/basic/abilities-and-effects/effect-types) effect |
 | **Expertise** | A Trigger Rule Effect that changes the rolls of *whoever defends against the owner*, for the tags of kind Avoid, Chance bonus, Linear `-0.25`. See [Stat recipes](/basic/entity-stats/stat-recipes#expertise) |
 | **Life steal** | A Pool Restoration Effect on *Health*, trigger **damage dealt**, scaling **percent of damage** |
 | **Damage against Undead** | A Calculation Modifier Effect with the Condition *opponent has the [entity tag](/basic/tags-and-groups/entity-tags) Undead* |

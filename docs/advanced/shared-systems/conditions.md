@@ -125,6 +125,7 @@ func get_entity_description() -> String:
 | [EntityDistanceToEntityCondition](/advanced/shared-systems/entity-conditions/entity-distance-to-entity-condition) | Checks distance between the target entity and another specific entity. |
 | [EntityDistanceToInteractableCondition](/advanced/shared-systems/entity-conditions/entity-distance-to-interactable-condition) | Checks distance between the target entity and a specific interactable object. |
 | [EntityHasTagCondition](/advanced/shared-systems/entity-conditions/entity-has-tag-condition) | Checks the type tags of an entity ("Undead", "Beast" ...). |
+| [EquippedWeaponTypeCondition](/advanced/shared-systems/entity-conditions/equipped-weapon-type-condition) | Checks the weapons an entity holds: "holds a one-handed weapon". |
 | [HasEffectCondition](/advanced/shared-systems/entity-conditions/has-effect-condition) | Checks if the entity or target has a specific effect active. |
 | [HasEquippedCondition](/advanced/shared-systems/entity-conditions/has-equipped-condition) | Check if entity has specific equipment items equipped Evaluates whether the entity has the required equipment items currently equipped |
 | [HasItemCondition](/advanced/shared-systems/entity-conditions/has-item-condition) | Check if entity has specific items in their inventory Evaluates whether the entity has the required items and quantities |
@@ -138,6 +139,7 @@ func get_entity_description() -> String:
 | [TargetDistanceBetweenCondition](/advanced/shared-systems/entity-conditions/target-distance-between-condition) | Checks if the target is within a specified distance range (between min and max). |
 | [TargetDistanceCondition](/advanced/shared-systems/entity-conditions/target-distance-condition) | Checks if the target is closer/farther than a specified range. |
 | [TargetIsPlayerCondition](/advanced/shared-systems/entity-conditions/target-is-player-condition) | Checks if the target is a player entity. |
+| [WearingArmorClassCondition](/advanced/shared-systems/entity-conditions/wearing-armor-class-condition) | Checks the armor an entity wears: "wears at least three pieces of plate". |
 | [WorldPositionDistanceBetweenCondition](/advanced/shared-systems/entity-conditions/world-position-distance-between-condition) | Checks if the entity is within a specified distance range from a world position. |
 | [WorldPositionDistanceCondition](/advanced/shared-systems/entity-conditions/world-position-distance-condition) | Checks if the entity is within range or farther than a world position. |
 <!-- /classes -->

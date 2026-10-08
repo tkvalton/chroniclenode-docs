@@ -14,7 +14,7 @@ The [basic page](/basic/entity-stats/stats#stat-effects) lists the nine types an
 | `active_trigger_type` | `PERMANENT`, `IN_COMBAT`, `OUT_OF_COMBAT`, checked against `context.in_combat` |
 | `conditions` | `Array[Condition]`: entity conditions that must all be true. Evaluated with the owner and the **opponent** in the context |
 | `formula`, `returns`, `max_result` | The **value**: the [formula](/advanced/shared-systems/formulas) that turns points into a number, optional [diminishing returns](/basic/keywords#diminishing-returns), a cap |
-| `only_schools`, `minimum_distance`, `maximum_distance`, `periodic_filter` | **Hit filters**: the effect only works for hits and heals of those schools, in that range of distances, direct or periodic. `passes_hit_filters(context)` checks them against the `school`, `distance` and `is_periodic` keys of the context (a context without a key passes); `applies_to_context` and the rule collection call it |
+| `only_schools`, `only_abilities`, `only_effects`, `minimum_distance`, `maximum_distance`, `periodic_filter` | **Hit filters**: the effect only works for hits and heals of those schools, in that range of distances, direct or periodic. `passes_hit_filters(context)` checks them against the `school`, `ability_id`, `effect_ids`, `distance` and `is_periodic` keys of the context (a context without a key passes); `applies_to_context` and the rule collection call it |
 | `evaluate_points(points, formula_context)` | The value of the effect for the points: formula, then returns, then the cap |
 | `is_active(context)` | Enabled, the trigger type fits the combat state, the conditions are met |
 | `validate()` | The problems the editor shows (a missing target, an empty list) |
@@ -48,7 +48,7 @@ The fields `value_per_point`, `use_scaling`, `scaling_mode`, `scaling_threshold`
 
 [`CalculationTriggerStatEffect`](/advanced/entity-stats/stat-effects/calculation-trigger-stat-effect) has `inverted`: the value of the formula is the chance that the tag does not fire (`get_effective_trigger_chance` returns `100 - value`). That is a hit chance.
 
-[`TriggerRuleStatEffect`](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect) has `applies_to` (`RuleSide`: `OWNER`, `OPPONENT_ACTING_ON_ME`, `OPPONENT_DEFENDING_AGAINST_ME`) and, when no tag is chosen, `tag_kind` (`TagKindFilter`: any, avoid, mitigate, boost). The two enums are in that class; `CalculationBase` uses plain numbers for the sides because the class needs `CalculationBase` and the compiler does not allow the cycle.
+[`TriggerRuleStatEffect`](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect) has `applies_to` (`RuleSide`: `OWNER`, `OPPONENT_ACTING_ON_ME`, `OPPONENT_DEFENDING_AGAINST_ME`) `target_calculations` (the calculations the rule works in, as numbers; empty = all) and, when no tag is chosen, `tag_kind` (`TagKindFilter`: any, avoid, mitigate, boost). The two enums are in that class; `CalculationBase` uses plain numbers for the sides because the class needs `CalculationBase` and the compiler does not allow the cycle.
 
 ## Conditions, the opponent and the context
 

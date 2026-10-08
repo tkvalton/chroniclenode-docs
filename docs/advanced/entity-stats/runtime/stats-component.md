@@ -32,6 +32,7 @@ Every Entity owns one (`entity.components.stats()`), built from a StatsData. It 
 | `Dictionary` | [multiplier_bonuses](#var-multiplier-bonuses) | `{}  # Track which stats have multiplier bonuses applied` |
 | `Array[DamageLayer]` | [damage_layers](#var-damage-layers) | `[]` |
 | `Array[Dictionary]` | [heal_absorbs](#var-heal-absorbs) | `[]` |
+| `Array[EffectInstance]` | [done_boosts](#var-done-boosts) | `[]` |
 
 ## Methods
 
@@ -91,6 +92,9 @@ Every Entity owns one (`entity.components.stats()`), built from a StatsData. It 
 | `void` | [register_redirection_effect](#method-register-redirection-effect)( `effect_instance: EffectInstance` ) |
 | `void` | [unregister_redirection_effect](#method-unregister-redirection-effect)( `effect_instance: EffectInstance` ) |
 | `HealingResult` | [take_healing](#method-take-healing)( `result: HealingResult` ) |
+| `void` | [add_done_boost](#method-add-done-boost)( `instance: EffectInstance` ) |
+| `void` | [remove_done_boost](#method-remove-done-boost)( `instance: EffectInstance` ) |
+| `float` | [apply_done_boosts](#method-apply-done-boosts)( `calculation_type: int, value: float, context: Dictionary, steps: Array[ModifierStep]` ) |
 | `void` | [add_heal_absorb](#method-add-heal-absorb)( `instance: EffectInstance, amount: float` ) |
 | `void` | [remove_heal_absorb](#method-remove-heal-absorb)( `instance: EffectInstance` ) |
 | `float` | [get_heal_absorb_total](#method-get-heal-absorb-total)() |
@@ -246,6 +250,10 @@ The pools that take damage, with the order they take it in. Health and shields h
 ### Array[Dictionary] heal_absorbs = [] {#var-heal-absorbs}
 
 The heal absorbs on this entity (HealAbsorbEffect), oldest first: {"instance": EffectInstance, "remaining": float}
+
+### Array[EffectInstance] done_boosts = [] {#var-done-boosts}
+
+The AbilityBoostEffect instances that raise what this entity deals or heals with some abilities and effects
 
 ## Method descriptions
 
@@ -464,6 +472,18 @@ Forgets a damage redirection effect
 ### HealingResult take_healing( result: HealingResult ) {#method-take-healing}
 
 Completes the HealingResult for a heal on this entity: the target's calculation phase (healing taken modifiers), then the pools, then the death check (a heal can revive). The healer's phase has already run, so `result.taken` holds the healing done. Returns the same result, or null when a script error aborted the function.
+
+### void add_done_boost( instance: EffectInstance ) {#method-add-done-boost}
+
+A boost is now on this entity (the instance of an AbilityBoostEffect)
+
+### void remove_done_boost( instance: EffectInstance ) {#method-remove-done-boost}
+
+The boost of this instance ends
+
+### float apply_done_boosts( calculation_type: int, value: float, context: Dictionary, steps: Array[ModifierStep] ) {#method-apply-done-boosts}
+
+Applies the boosts that fit to the number of a damage done or healing done calculation, after its modifiers. Flat first, then the percentage, each stack adding its share; a step is recorded for every boost that changed the number. The ability and the effects come from the context
 
 ### void add_heal_absorb( instance: EffectInstance, amount: float ) {#method-add-heal-absorb}
 

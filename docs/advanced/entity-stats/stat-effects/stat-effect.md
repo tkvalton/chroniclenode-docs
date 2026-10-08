@@ -19,6 +19,8 @@ Base class for all stat effects Effects are composable modifiers that can be att
 | `float` | [minimum_distance](#prop-minimum-distance) | `0.0` |
 | `float` | [maximum_distance](#prop-maximum-distance) | `0.0` |
 | `PeriodicFilter` | [periodic_filter](#prop-periodic-filter) | `PeriodicFilter.ANY` |
+| `Array[int]` | [only_abilities](#prop-only-abilities) | `[]` |
+| `Array[int]` | [only_effects](#prop-only-effects) | `[]` |
 | `CalculationFormula` | [formula](#prop-formula) |  |
 | `DiminishingReturns` | [returns](#prop-returns) |  |
 | `float` | [max_result](#prop-max-result) | `0.0` |
@@ -124,6 +126,14 @@ Only when the two are at most this far apart, in metres (0 = no maximum): melee 
 ### PeriodicFilter periodic_filter = PeriodicFilter.ANY {#prop-periodic-filter}
 
 Only direct hits, or only ticks of damage or healing over time
+
+### Array[int] only_abilities = [] {#prop-only-abilities}
+
+Only hits and heals that come from these abilities (Ability ids; empty = every ability): a mastery for some abilities
+
+### Array[int] only_effects = [] {#prop-only-effects}
+
+Only hits and heals that come from these effects (Effect ids; empty = every effect). An effect inside a composite effect counts under the id of the composite too
 
 *Value*
 

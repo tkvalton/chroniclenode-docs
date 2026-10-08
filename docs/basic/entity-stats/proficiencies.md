@@ -46,6 +46,30 @@ Hitting the same dummy every half second for hours gives a level every so often,
 | **A trainer** | A [conversation](/basic/behaviors/conversations) or [event](/basic/events-and-quests/events) that gives a **Proficiency reward**, with a cost |
 | **Slower skill gain at the top** | An experience formula such as a Linear formula of `25` per level |
 
+## What a skill does
+
+A proficiency does nothing by itself: its level becomes **points of a stat**, and the stat does the work with [stat effects](/basic/entity-stats/stats#stat-effects). That is where you decide what the skill does, and for which weapon.
+
+Two conditions limit a stat effect to the right equipment:
+
+| Condition | Fields | True when |
+|---|---|---|
+| **Equipped Weapon Type** | **Weapon type ids**, **Require all**, **Invert** | The entity holds a weapon of the type (or, inverted, holds none of them). A disarmed entity holds nothing |
+| **Wearing Armor Class** | **Armor class ids**, **Minimum pieces**, **Invert** | The entity wears at least that many pieces of the class. Weapons do not count |
+
+Put the condition on the effect (the **Conditions** list of the effect, target kind *[Argument Entity](/basic/keywords#argument-entity)*) and the effect only works with that equipment:
+
+| The skill should | The stat has |
+|---|---|
+| **Make hits stronger with one-handed weapons** | A Calculation Modifier Effect on Damage Done, percentage increase, `0.5` per point, condition *Equipped Weapon Type* One Hand |
+| **Raise the hit chance with one-handed weapons** | A [Trigger Rule Effect](/basic/entity-stats/stats#the-effect-types): *Tags of kind* Avoid, *Works in* Damage Done, *Changes the rolls of* the owner, *Chance bonus* `-0.1` per point, with the same condition. Lowering the chance of the miss is raising the chance to hit |
+| **Make plate hurt less** | A Calculation Modifier Effect on Damage Taken, percentage decrease, condition *Wearing Armor Class* Plate |
+| **Cause an effect when a weapon type hits** | A [proc](/basic/abilities-and-effects/effect-types) effect in a passive ability whose requirement is the weapon, or a stat effect with the condition |
+
+The demo's **Weapon Skill** stat does the first two: while a one-handed weapon is held, half a percent more damage and a tenth of a percent fewer misses for every level of the proficiency. **Armor Skill** does the third. Open them in the Stats editor to see how they are built.
+
+If your game has no misses ([Gameplay Config > Hit Rules](/basic/game-settings/gameplay-config#hit-rules)), leave the hit effect out.
+
 ## The requirement and the reward
 
 | Type | Fields | What it does |

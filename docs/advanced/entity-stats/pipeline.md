@@ -68,6 +68,12 @@ The stat ids are sorted before every loop, so the result never depends on the or
 
 The **universal order** is built once by [`CombatCalculations`](/advanced/entity-stats/calculations/combat-calculations) from all the stats in the database, for each of the four calculations (`build_order`: priority, then stat id, then the position of the effect in the stat). It is a cache; the Calculations editor and any stat change invalidate it.
 
+### Hit rules and boosts
+
+`DamageDoneCalculation.apply_to` reads the project rules from `CombatOptions` before the phase: `misses_enabled` (off: the done phase cannot roll an avoid), `guaranteed_hit_chance` (a random share of the attacks cannot be missed) and, after the phase, `base_miss_chance` (a flat roll for a miss with a synthetic `miss` record, when no stat missed already). The previews never roll a miss.
+
+After its modifiers, a done calculation (damage done, healing done) calls `StatsComponent.apply_done_boosts`: for every active [`AbilityBoostEffect`](/advanced/abilities-and-effects/effects-stats/ability-boost-effect) instance on the doer whose lists match the `ability_id` and `effect_ids` of the context, the number becomes `(number + flat x stacks) x (1 + percent x stacks / 100)` and a `ModifierStep` named after the effect is recorded.
+
 ### Rules
 
 `_collect_rules` builds the `TriggerRuleSet` of a phase from three places:
@@ -94,6 +100,8 @@ The context dictionary holds what the stat effects look at:
 | `owner`, `opponent` | The entity being calculated and the other side |
 | `school` | The school id of the ability (else of the effect) that causes the hit, 0 for none |
 | `distance` | The distance in metres between the two, when both are in the world |
+| `ability_id` | The id of the ability that causes the hit (the effect owner, when it is an ability), else 0 |
+| `effect_ids` | The id of the effect that causes the hit and of every effect around it (`parent_instance` chain, at most 16) |
 | `is_periodic` | True for a tick of a damage or healing over time (the effect instance has a tick interval) |
 | *the tag* | `true` when a trigger with this tag fired |
 | `"magnitude:" + tag` | The magnitude of the fired tag |
