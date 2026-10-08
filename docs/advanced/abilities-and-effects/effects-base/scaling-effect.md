@@ -22,6 +22,9 @@ It adds a list of **scaling rules**: each measures something about the target or
 
 | | |
 |---|---|
+| `EffectAmount` | [get_amount](#method-get-amount)() |
+| `EffectAmount` | [ensure_amount](#method-ensure-amount)() |
+| `float` | [calculate_amount](#method-calculate-amount)( `effect_instance: EffectInstance, overrides: Dictionary = {}` ) |
 | `float` | [get_scaling_multiplier](#method-get-scaling-multiplier)( `effect_instance: EffectInstance` ) |
 
 ## Property descriptions
@@ -33,6 +36,18 @@ It adds a list of **scaling rules**: each measures something about the target or
 Rules that scale the number of the effect by the target or the user (execute, missing health, a shield, stacks of an effect): see EffectScalingRule
 
 ## Method descriptions
+
+### EffectAmount get_amount() {#method-get-amount}
+
+The amount of the effect: its own, or the one the older fields describe
+
+### EffectAmount ensure_amount() {#method-ensure-amount}
+
+Gives the effect its own amount (made from the older fields) so it can be edited
+
+### float calculate_amount( effect_instance: EffectInstance, overrides: Dictionary = {} ) {#method-calculate-amount}
+
+The amount for an effect that runs now, before stacks, scaling rules and charge
 
 ### float get_scaling_multiplier( effect_instance: EffectInstance ) {#method-get-scaling-multiplier}
 

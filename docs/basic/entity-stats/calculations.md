@@ -19,12 +19,21 @@ Every damaging effect runs *Damage Done* for the attacker and then *Damage Taken
 
 Each calculation has two phases:
 
-1. **Triggers.** Stats with a [Calculation Trigger Effect](/basic/entity-stats/stats#the-effect-types) roll their chance. **Avoid** triggers go first (a dodge or parry): when one fires, the number becomes 0 and the calculation ends. Other triggers (critical strike, block) set a [trigger tag](/basic/tags-and-groups/trigger-tags) and carry on.
+1. **Triggers.** Stats with a [Calculation Trigger Effect](/basic/entity-stats/stats#the-effect-types) roll their chance. **Avoid** triggers go first. In **Damage Taken** an avoid trigger is a dodge or parry; in **Damage Done** it is a **miss** (a trigger that names Damage Done). When one fires, the number becomes 0 and the calculation ends. A miss ends the whole hit: the target is not touched. Other triggers (critical strike, block) set a [trigger tag](/basic/tags-and-groups/trigger-tags) and carry on.
 2. **Modifiers.** Every Calculation Modifier Effect changes the number, one at a time, in the order of the list below. A modifier that **requires a trigger tag** only runs when that tag fired: "block lowers the damage by 30 %" needs the *block* tag.
 
 A trigger tag can also change the number by itself: a *critical strike* adds +100 % when it fires, without any modifier.
 
 The number cannot go below 0.
+
+## Rules from the other side
+
+The chance of a trigger is changed by [trigger rules](/basic/tags-and-groups/trigger-tags). Besides the rules of the entity itself, a calculation also takes the rules of its **opponent**, when the stat says so:
+
+| In the calculation of | The rules that apply | Example |
+|---|---|---|
+| The attacker (Damage Done, Healing Done) | Its own, and those of the target that change the rolls of *whoever acts on it* | The target's Defense lowers your crit chance and raises your chance to miss |
+| The target (Damage Taken, Healing Taken) | Its own, and those of the attacker that change the rolls of *whoever defends against it* | Your Expertise lowers the target's chance to dodge |
 
 ## The editor
 

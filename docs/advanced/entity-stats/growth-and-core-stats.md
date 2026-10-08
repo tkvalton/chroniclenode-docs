@@ -61,6 +61,9 @@ A **gain channel** is a name for something an entity is given. [`GainChannels`](
 | `threat` | The threat a hit generates |
 | `resource` | The resource an ability gains for its user (Rage, Combo ...) |
 | `status_duration` | The duration of a status effect put on the entity: tenacity |
+| `effect_duration` | The duration of the timed effects the entity applies, to others or to itself (`EffectInstance.initialize`, after the time strategy is set up; never below the minimum duration) |
+| `shield_strength` | The size of the shield an `AddHealthPoolEffect` puts up, for its originator |
+| `resource_drain_taken` | What another entity drains from a resource pool (`ModifyResourcePoolEffect`, calculation type *Add* with a negative value): the victim's channel shortens it |
 
 A project can use any other name from its own code.
 

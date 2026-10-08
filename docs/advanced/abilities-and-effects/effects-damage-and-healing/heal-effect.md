@@ -10,12 +10,6 @@ HealEffect is a an effect that applies healing to the target entity.
 
 | | | |
 |---|---|---|
-| `float` | [base_healing](#prop-base-healing) | `1.0` |
-| `int` | [stat_id](#prop-stat-id) | `0` |
-| `float` | [stat_multiplier](#prop-stat-multiplier) | `1.0` |
-| `float` | [heal_variance](#prop-heal-variance) | `0.0` |
-| `float` | [weapon_damage_percentage](#prop-weapon-damage-percentage) | `0.0` |
-| `float` | [total_health_percentage](#prop-total-health-percentage) | `0.0` |
 | `float` | [leech_percentage](#prop-leech-percentage) | `0.0` |
 | `float` | [threat_multiplier](#prop-threat-multiplier) | `-1.0` |
 | `bool` | [scales_with_charge](#prop-scales-with-charge) | `false` |
@@ -43,30 +37,6 @@ HealEffect is a an effect that applies healing to the target entity.
 ## Property descriptions
 
 *Healing Values*
-
-### float base_healing = 1.0 {#prop-base-healing}
-
-The base healing
-
-### int stat_id = 0 {#prop-stat-id}
-
-Adds the originator's stat value to base healing (0 = disabled, set base_healing 0 for stat only)
-
-### float stat_multiplier = 1.0 {#prop-stat-multiplier}
-
-Multiplier applied to stat value before adding to base_healing
-
-### float heal_variance = 0.0 {#prop-heal-variance}
-
-Variance applied to base + stat sum
-
-### float weapon_damage_percentage = 0.0 {#prop-weapon-damage-percentage}
-
-Percentage of weapon damage to add to healing
-
-### float total_health_percentage = 0.0 {#prop-total-health-percentage}
-
-Percentage of health to add to healing
 
 ### float leech_percentage = 0.0 {#prop-leech-percentage}
 

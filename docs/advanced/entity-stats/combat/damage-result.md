@@ -49,6 +49,7 @@ Created by CombatManager.apply_damage, completed by each phase (attacker's calcu
 | `void` | [add_step_done](#method-add-step-done)( `step: ModifierStep` ) |
 | `void` | [add_step_taken](#method-add-step-taken)( `step: ModifierStep` ) |
 | `void` | [mark_avoided](#method-mark-avoided)( `record: TriggerRecord` ) |
+| `void` | [mark_missed](#method-mark-missed)( `record: TriggerRecord` ) |
 | `void` | [mark_immune](#method-mark-immune)( `p_immunity_id: int = 0` ) |
 | `void` | [mark_negated](#method-mark-negated)() |
 | `void` | [mark_target_dead](#method-mark-target-dead)() |
@@ -57,6 +58,7 @@ Created by CombatManager.apply_damage, completed by each phase (attacker's calcu
 | `bool` | [is_success](#method-is-success)() |
 | `bool` | [is_hit](#method-is-hit)() |
 | `bool` | [was_avoided](#method-was-avoided)() |
+| `bool` | [was_missed](#method-was-missed)() |
 | `bool` | [was_crit](#method-was-crit)() |
 | `bool` | [has_tag](#method-has-tag)( `tag: String` ) |
 | `float` | [blocked_amount](#method-blocked-amount)( `tag: String` ) |
@@ -82,6 +84,7 @@ How the hit ended
 - **TARGET_DEAD** = `4` - The target was already dead: nothing happened
 - **FAILED** = `5` - The pipeline could not process the hit (see `error`)
 - **NEGATED** = `6` - Modifiers reduced the hit to nothing and the project says that is not a hit (GameplayConfig)
+- **MISSED** = `7` - An avoid trigger in the attacker's own phase (a miss) ended the hit before it reached the target
 
 ### enum DamageBasis {#enum-damagebasis}
 
@@ -152,7 +155,7 @@ What actually reached health
 
 ### String avoid_kind = "" {#var-avoid-kind}
 
-The tag of the avoid trigger that fired (only for Outcome.AVOIDED)
+The tag of the avoid trigger that fired (only for Outcome.AVOIDED and Outcome.MISSED)
 
 ### bool target_died = false {#var-target-died}
 
@@ -216,6 +219,10 @@ Keeps a modifier that changed the number in the target's phase
 
 An avoid trigger negated the hit: nothing after this point reaches the pools
 
+### void mark_missed( record: TriggerRecord ) {#method-mark-missed}
+
+An avoid trigger in the attacker's phase (a miss) ended the hit: the target is never touched
+
 ### void mark_immune( p_immunity_id: int = 0 ) {#method-mark-immune}
 
 Ends the hit as IMMUNE: nothing reaches the pools
@@ -247,6 +254,10 @@ Did the hit land (outcome HIT)? An avoided, immune or redirected hit did not
 ### bool was_avoided() {#method-was-avoided}
 
 Did an avoid trigger (dodge) negate the hit?
+
+### bool was_missed() {#method-was-missed}
+
+Did the attacker miss (an avoid trigger in the attacker's phase)?
 
 ### bool was_crit() {#method-was-crit}
 

@@ -41,6 +41,12 @@ export const groups = [
         "file": "data_classes/requirements/types/requirement_player_class.gd"
       },
       {
+        "name": "RequirementProficiency",
+        "base": "Requirement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\requirements\\types\\requirement_proficiency.gd",
+        "file": "data_classes/requirements/types/requirement_proficiency.gd"
+      },
+      {
         "name": "RequirementResponseSeen",
         "base": "Requirement",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\requirements\\types\\requirement_response_seen.gd",
@@ -123,6 +129,12 @@ export const groups = [
         "base": "Resource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\rewards\\level_reward.gd",
         "file": "data_classes/rewards/level_reward.gd"
+      },
+      {
+        "name": "ProficiencyReward",
+        "base": "Reward",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\rewards\\types\\proficiency_reward.gd",
+        "file": "data_classes/rewards/types/proficiency_reward.gd"
       },
       {
         "name": "Reward",

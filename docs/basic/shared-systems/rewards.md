@@ -33,6 +33,7 @@ Click the add button next to the list, choose the **type** of reward in the dial
 | [FactionStandingReward](/advanced/shared-systems/rewards/faction-standing-reward) | Sets reputation to a specific standing level with a faction |
 | [ItemReward](/advanced/shared-systems/rewards/item-reward) | Grants items to the player's inventory. |
 | [LevelReward](/advanced/shared-systems/rewards/level-reward) | Container for rewards granted at a specific level |
+| [ProficiencyReward](/advanced/shared-systems/rewards/proficiency-reward) | Trains the player in a proficiency: experience towards the next level, or whole levels. |
 | [Reward](/advanced/shared-systems/rewards/reward) | Base class for all reward types |
 | [SkillPointReward](/advanced/shared-systems/rewards/skill-point-reward) | Grants skill points to a specific point pool |
 <!-- /classes -->
@@ -50,6 +51,7 @@ The fields of each type:
 | **Crafting Skill Point** | **Craft school**, **Skill points** | Levels in a crafting school |
 | **Equipment Slot Unlock** | **Equipment slot** | Opens an equipment slot for use |
 | **Faction Reputation** | **Faction**, **Reputation amount** | Reputation with a faction. A negative amount takes reputation away |
+| **Proficiency** | **Proficiency**, **Mode** (experience or levels), **Amount** | Trains the player in a [proficiency](/basic/entity-stats/proficiencies) |
 | **Faction Standing** | **Faction**, **Standing name** | Sets reputation to a named standing ("Friendly") with a faction |
 
 ## When there is no room

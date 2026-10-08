@@ -4,7 +4,7 @@
 
 **Inherits:** [StatEffect](/advanced/entity-stats/stat-effects/stat-effect) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Effect that modifies ability properties (cooldown, cost, gain) Each effect modifies ONE property - add multiple effects to modify multiple properties
+Effect that modifies ability properties (cooldown, cost, gain, cast time, range) Each effect modifies ONE property - add multiple effects to modify multiple properties
 
 ## Properties
 
@@ -41,6 +41,9 @@ Effect that modifies ability properties (cooldown, cost, gain) Each effect modif
 
 - **COOLDOWN_DURATION** = `0`
 - **COST_AMOUNT** = `1`
+- **GAIN_AMOUNT** = `2`
+- **CAST_DURATION** = `3`
+- **MAX_RANGE** = `4`
 
 ### enum AbilityFilterType {#enum-abilityfiltertype}
 
@@ -69,7 +72,7 @@ Ability IDs for SPECIFIC_ABILITIES or ALL_EXCEPT_BLACKLIST
 
 ### AbilityProperty ability_property = AbilityProperty.COOLDOWN_DURATION {#prop-ability-property}
 
-What is changed: the cooldown, the cost or the resource gain
+What is changed: the cooldown, the cost, the resource gain, the cast time or the range
 
 ### CalculationType calculation_type = CalculationType.PERCENTAGE_DECREASE {#prop-calculation-type}
 

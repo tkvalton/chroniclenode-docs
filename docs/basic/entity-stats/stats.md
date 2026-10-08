@@ -53,13 +53,26 @@ Most effects share these parts:
 |---|---|---|
 | [**Multiplier Effect**](/advanced/entity-stats/stat-effects/multiplier-stat-effect) | Changes another stat from the points of this one: "+2 Attack Power per point of Strength" | **Target Stat**, **Calculation Type** |
 | [**Pool Modifier Effect**](/advanced/entity-stats/stat-effects/pool-modifier-stat-effect) | Changes a pool: maximum health per point of Stamina, the regeneration rate | **Target Pool**, **Pool Property** (max value, generation rate, generation value), **Calculation Type** |
-| [**Ability Modifier Effect**](/advanced/entity-stats/stat-effects/ability-modifier-stat-effect) | Changes abilities: shorter [cooldowns](/basic/keywords#cooldown), cheaper costs, more resource gained | **Filter Type** (all abilities, specific ones, a school, all but some), **Abilities**, **School**, **Ability Property** (cooldown, cost, gain), **Calculation Type** |
+| [**Ability Modifier Effect**](/advanced/entity-stats/stat-effects/ability-modifier-stat-effect) | Changes abilities: shorter [cooldowns](/basic/keywords#cooldown), cheaper costs, more resource gained | **Filter Type** (all abilities, specific ones, a school, all but some), **Abilities**, **School**, **Ability Property** (cooldown, cost, gain, cast time, range), **Calculation Type** |
 | [**Calculation Modifier Effect**](/advanced/entity-stats/stat-effects/calculation-modifier-stat-effect) | Changes the damage or healing number in a [calculation](/basic/entity-stats/calculations): armor, attack power, a damage bonus | **Target Calculations**, **Calculation Type**, **Value Source**, **Required Trigger Tag**, **Damage Type**, **Points Ignored By Tag** |
-| [**Calculation Trigger Effect**](/advanced/entity-stats/stat-effects/calculation-trigger-stat-effect) | Rolls a chance each time a calculation runs and, when it hits, fires a **trigger tag**: a dodge, a block, a critical strike | **Target Calculations**, **Tag Definition**, **Trigger Kind**, **Special Animation**, **Special Message**, **Log Phrase**, **Damage Type** |
+| [**Calculation Trigger Effect**](/advanced/entity-stats/stat-effects/calculation-trigger-stat-effect) | Rolls a chance each time a calculation runs and, when it hits, fires a **trigger tag**: a dodge, a block, a critical strike | **Target Calculations**, **Tag Definition**, **Trigger Kind**, **Inverted** (a hit chance), **Special Animation**, **Special Message**, **Log Phrase**, **Damage Type** |
 | [**Pool Restoration Effect**](/advanced/entity-stats/stat-effects/pool-restoration-stat-effect) | Restores a pool when something happens: life steal, mana on hit, health on a kill | **Trigger Type** (damage dealt, damage taken, kill), **Target Pool**, **Scaling Type** (flat, percent of damage, percent of the pool maximum), **Damage Basis**, **Damage Type** |
 | [**Reactive Damage Effect**](/advanced/entity-stats/stat-effects/reactive-damage-stat-effect) | Damages the attacker back: damage reflection, retaliation | **Trigger Type** (damage taken, block, being hit), **Damage Scaling**, **Percent of Damage**, **Damage Basis**, **Damage Type**, **Can Be Avoided** |
-| [**Trigger Rule Effect**](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect) | Changes a trigger tag from the points of the stat: more critical strike damage, a chance bonus for every roll ("luck"), always or never | **Tag** (empty = every tag), **What It Does**: chance bonus, magnitude bonus, magnitude more (a percentage), always, never |
-| [**Gain Modifier Effect**](/advanced/entity-stats/stat-effects/gain-modifier-stat-effect) | Changes what the entity gains: experience, currency, loot quantity, loot rarity, [threat](/basic/keywords#threat), resources, status duration | **Channel**, **Calculation Type** |
+| [**Trigger Rule Effect**](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect) | Changes a trigger tag from the points of the stat: more critical strike damage, a chance bonus for every roll ("luck"), always or never | **Tag** (empty = every tag), **Tags of kind** (avoid, mitigate or boost, when no tag is chosen), **Changes the rolls of** (the owner, whoever acts on the owner, or whoever defends against the owner), **What It Does**: chance bonus, magnitude bonus, magnitude more (a percentage), always, never |
+| [**Gain Modifier Effect**](/advanced/entity-stats/stat-effects/gain-modifier-stat-effect) | Changes what the entity gains: experience, currency, loot quantity, loot rarity, [threat](/basic/keywords#threat), resources, status duration (tenacity), effect duration, shield strength, drain resistance | **Channel**, **Calculation Type** |
+
+#### Hit filters
+
+The effects that work on a hit or a heal (Calculation Trigger, Calculation Modifier and Trigger Rule) can be limited to some hits:
+
+| Filter | What it does |
+|---|---|
+| **Only these schools** | Only abilities and effects of these [schools](/basic/tags-and-groups/school-types). Empty = every school |
+| **Minimum distance (m)** | Only when the two are at least this far apart: ranged attacks |
+| **Maximum distance (m)** | Only when the two are at most this far apart: melee attacks |
+| **Direct or periodic** | Both, only direct hits, or only the ticks of damage or healing over time |
+
+With the damage type and the [conditions](/basic/shared-systems/conditions) they say exactly which hits an effect is about. A filter is ignored by an effect that is not about a hit.
 
 #### Calculation types
 
@@ -82,11 +95,14 @@ Several effects choose how their value changes a number:
 | **Stamina** that adds health | A Pool Modifier Effect on *Health*, property max value, Add, **Linear** `1` per point |
 | **Dodge** | A Calculation Trigger Effect on **Damage Taken** with Trigger Kind **Avoid**, a **Hyperbolic** formula for the chance (max `75`, K `300`) |
 | **Critical Strike Rating** | A Calculation Trigger Effect with a *Critical Strike* tag, a **Linear** chance of `0.05` per point behind a **Soft cap** of `400` points |
+| **A hit chance** | A Calculation Trigger Effect on Damage Done, Tag *Miss* (kind Avoid), **Inverted**, a Linear formula of `1`. See [Stat recipes](/basic/entity-stats/stat-recipes#hit-chance) |
+| **Expertise** | A Trigger Rule Effect that changes the rolls of *whoever defends against the owner*, for the tags of kind Avoid, Chance bonus, Linear `-0.25`. See [Stat recipes](/basic/entity-stats/stat-recipes#expertise) |
 | **Life steal** | A Pool Restoration Effect on *Health*, trigger **damage dealt**, scaling **percent of damage** |
 | **Damage against Undead** | A Calculation Modifier Effect with the Condition *opponent has the [entity tag](/basic/tags-and-groups/entity-tags) Undead* |
 
 ## See also
 
-- [Pool](/basic/entity-stats/pool), [Calculations](/basic/entity-stats/calculations)
+- [Pool](/basic/entity-stats/pool), [Calculations](/basic/entity-stats/calculations), [Proficiencies](/basic/entity-stats/proficiencies)
+- [Stat recipes](/basic/entity-stats/stat-recipes): hit chance, expertise, defense, resilience and the other usual stats
 - [Trigger Tags](/basic/tags-and-groups/trigger-tags), [Stat Groups](/basic/tags-and-groups/stat-groups)
 - [Stat effects: how they work](/advanced/entity-stats/stat-effects) (Advanced)

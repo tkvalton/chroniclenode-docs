@@ -4,7 +4,7 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-**Inherited by:** [RequirementEquipmentSlot](/advanced/shared-systems/requirements/requirement-equipment-slot), [RequirementFaction](/advanced/shared-systems/requirements/requirement-faction), [RequirementLevel](/advanced/shared-systems/requirements/requirement-level), [RequirementPlayerClassDefinition](/advanced/shared-systems/requirements/requirement-player-class-definition), [RequirementResponseSeen](/advanced/shared-systems/requirements/requirement-response-seen), [RequirementStat](/advanced/shared-systems/requirements/requirement-stat), [RequirementWeapon](/advanced/shared-systems/requirements/requirement-weapon)
+**Inherited by:** [RequirementEquipmentSlot](/advanced/shared-systems/requirements/requirement-equipment-slot), [RequirementFaction](/advanced/shared-systems/requirements/requirement-faction), [RequirementLevel](/advanced/shared-systems/requirements/requirement-level), [RequirementPlayerClassDefinition](/advanced/shared-systems/requirements/requirement-player-class-definition), [RequirementProficiency](/advanced/shared-systems/requirements/requirement-proficiency), [RequirementResponseSeen](/advanced/shared-systems/requirements/requirement-response-seen), [RequirementStat](/advanced/shared-systems/requirements/requirement-stat), [RequirementWeapon](/advanced/shared-systems/requirements/requirement-weapon)
 
 Base class for all requirement types in the game. Requirements determine whether an entity can use an item, ability, or access content. Pure validation logic - no side effects.
 

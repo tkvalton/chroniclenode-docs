@@ -16,6 +16,8 @@ One effect does one thing (`bonus_kind`); the number comes from the formula slot
 |---|---|---|
 | `TriggerTagDefinition` | [tag](#prop-tag) |  |
 | `BonusKind` | [bonus_kind](#prop-bonus-kind) | `BonusKind.MAGNITUDE_BONUS` |
+| `RuleSide` | [applies_to](#prop-applies-to) | `RuleSide.OWNER` |
+| `TagKindFilter` | [tag_kind](#prop-tag-kind) | `TagKindFilter.ANY` |
 
 ## Methods
 
@@ -24,12 +26,20 @@ One effect does one thing (`bonus_kind`); the number comes from the formula slot
 | `EffectType` | [get_effect_type](#method-get-effect-type)() |
 | `String` | [get_effect_category](#method-get-effect-category)() |
 | `void` | [add_to_rules](#method-add-to-rules)( `rules: TriggerRuleSet, stat_points: float, formula_context: FormulaContext = null` ) |
+| `int` | [get_kind_filter](#method-get-kind-filter)() |
 | `String` | [get_short_description](#method-get-short-description)() |
 | `Dictionary` | [get_preview_info](#method-get-preview-info)( `stat_points: float` ) |
 | `String` | [get_tooltip_text](#method-get-tooltip-text)( `stat_points: float` ) |
 | `Array[Dictionary]` | [validate](#method-validate)() |
 
 ## Enumerations
+
+### enum TagKindFilter {#enum-tagkindfilter}
+
+- **ANY** = `0` - Every tag
+- **AVOID** = `1` - Dodge, parry, miss ...
+- **MITIGATE** = `2` - Block ...
+- **BOOST** = `3` - Critical strike ...
 
 ### enum BonusKind {#enum-bonuskind}
 
@@ -38,6 +48,14 @@ One effect does one thing (`bonus_kind`); the number comes from the formula slot
 - **MAGNITUDE_MORE** = `2` - Multiplies the magnitude: the value is a percentage (25 = 25 % more)
 - **FORCE_ALWAYS** = `3` - While the stat has points the tag always fires (no number needed)
 - **FORCE_NEVER** = `4` - While the stat has points the tag never fires (no number needed)
+
+### enum RuleSide {#enum-ruleside}
+
+Whose rolls the rule changes
+
+- **OWNER** = `0` - The rolls of the entity that has the stat (its own critical strikes, its own dodges)
+- **OPPONENT_ACTING_ON_ME** = `1` - The rolls of whoever hits or heals the owner, in its own hit or heal phase: lower crit chance against me, a bigger chance to miss me (defense, resilience)
+- **OPPONENT_DEFENDING_AGAINST_ME** = `2` - The rolls of whoever the owner hits, in its defending phase: a smaller chance to dodge or block my hits (expertise)
 
 ## Property descriptions
 
@@ -50,6 +68,14 @@ The tag the rule is about. Empty = every tag (not allowed with FORCE_ALWAYS)
 ### BonusKind bonus_kind = BonusKind.MAGNITUDE_BONUS {#prop-bonus-kind}
 
 What the stat gives the tag: a chance bonus, a magnitude bonus, a magnitude multiplier, or forcing it always or never
+
+### RuleSide applies_to = RuleSide.OWNER {#prop-applies-to}
+
+Whose rolls it changes: the owner's own, or the opponent's (when it acts on the owner, or when it defends against the owner)
+
+### TagKindFilter tag_kind = TagKindFilter.ANY {#prop-tag-kind}
+
+With no tag chosen: only the tags of this kind (all avoid tags: dodge, parry, miss; all mitigate tags; all boost tags). Any = every tag
 
 ## Method descriptions
 
@@ -64,6 +90,10 @@ Override in child classes to return category *(from [StatEffect](/advanced/entit
 ### void add_to_rules( rules: TriggerRuleSet, stat_points: float, formula_context: FormulaContext = null ) {#method-add-to-rules}
 
 Adds what this effect gives for `stat_points` to the rule set of a phase
+
+### int get_kind_filter() {#method-get-kind-filter}
+
+The TriggerRecord.Kind the rule is limited to when it names no tag (-1 = every kind)
 
 ### String get_short_description() {#method-get-short-description}
 

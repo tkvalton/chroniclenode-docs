@@ -31,6 +31,8 @@ Lightweight runtime instance of an effect that references an EffectDefinition fo
 | `Variant` | [intended_target](#var-intended-target) | `null` |
 | `float` | [charge_fraction](#var-charge-fraction) | `1.0` |
 | `Array[Effect]` | [bonus_child_effects](#var-bonus-child-effects) | `[]` |
+| `EffectInstance:` | [parent_instance](#var-parent-instance) |  |
+| `CastRecord` | [cast_record](#var-cast-record) | `null` |
 | `Dictionary` | [stack_sources](#var-stack-sources) | `{}` |
 | `float` | [duration](#var-duration) | `0.0` |
 | `float` | [base_duration](#var-base-duration) | `0.0` |
@@ -55,6 +57,7 @@ Lightweight runtime instance of an effect that references an EffectDefinition fo
 | `bool` | [is_active](#method-is-active)() |
 | `Dictionary` | [to_save_data](#method-to-save-data)() |
 | `void` | [from_save_data](#method-from-save-data)( `save_data: Dictionary, system_hub: GameHost.SystemHub` ) |
+| `CastRecord` | [get_cast_record](#method-get-cast-record)() |
 | `void` | [reset](#method-reset)() |
 | `void` | [cleanup](#method-cleanup)() |
 | `void` | [remove_stacks_from](#method-remove-stacks-from)( `source_entity: Variant` ) |
@@ -176,6 +179,14 @@ How far the shot that caused this effect was drawn (0 to 1; 1 when it was not dr
 
 Effects a composite effect applies to its targets on top of its own children: the ammo of a shot (a poison arrow poisons whoever the arrow hits)
 
+### EffectInstance: parent_instance {#var-parent-instance}
+
+The effect that applied this one as one of its children (null for a root effect)
+
+### CastRecord cast_record = null {#var-cast-record}
+
+What the effects of this cast did so far (shared by every effect instance of the cast); see get_cast_record
+
 ### Dictionary stack_sources =  {#var-stack-sources}
 
 Who contributed the stacks of a shared effect (originator -&gt; stacks), so losing one source only takes away its own stacks
@@ -253,6 +264,10 @@ Save instance runtime state
 ### void from_save_data( save_data: Dictionary, system_hub: GameHost.SystemHub ) {#method-from-save-data}
 
 Load instance runtime state
+
+### CastRecord get_cast_record() {#method-get-cast-record}
+
+What the effects of this cast did so far. Made when first asked for; a child effect shares the record of its parent, and the effects an ability starts share one
 
 ### void reset() {#method-reset}
 

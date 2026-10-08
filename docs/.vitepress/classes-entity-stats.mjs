@@ -227,6 +227,12 @@ export const groups = [
         "file": "data_classes/stats/definitions/immunity_definition.gd"
       },
       {
+        "name": "ProficiencyDefinition",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\definitions\\proficiency_definition.gd",
+        "file": "data_classes/stats/definitions/proficiency_definition.gd"
+      },
+      {
         "name": "SchoolTypeDefinition",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\definitions\\school_type_definition.gd",
@@ -315,6 +321,12 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\components\\stats\\pool_instance.gd",
         "file": "runtime_classes/entity/components/stats/pool_instance.gd"
+      },
+      {
+        "name": "ProficiencyTracker",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\components\\stats\\proficiency_tracker.gd",
+        "file": "runtime_classes/entity/components/stats/proficiency_tracker.gd"
       },
       {
         "name": "StatInstance",

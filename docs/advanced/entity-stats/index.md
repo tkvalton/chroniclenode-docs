@@ -15,6 +15,7 @@ The [Entity Stats chapter](/basic/entity-stats/) is about what stats do. This se
 | One pool of one entity | Inside the component | [`PoolInstance`](/advanced/entity-stats/runtime/pool-instance) |
 | A hit, worked out | Made for every hit | [`DamageResult`](/advanced/entity-stats/combat/damage-result), [`HealingResult`](/advanced/entity-stats/combat/healing-result) |
 | The four calculations | Built once per game | [`CombatCalculations`](/advanced/entity-stats/calculations/combat-calculations) |
+| A skill of the player | The database (`proficiency`), levels in the player | [`ProficiencyDefinition`](/advanced/entity-stats/definitions/proficiency-definition), [`ProficiencyTracker`](/advanced/entity-stats/runtime/proficiency-tracker) |
 
 Everything the generated class pages list is in `addons/chroniclenode/data_classes/stats/` (data) and `runtime_classes/` (`entity/components/stats/` and `combat/`).
 
@@ -67,6 +68,7 @@ Details in [Growth, core stats and gain channels](/advanced/entity-stats/growth-
 | [Pools and damage layers](/advanced/entity-stats/pools) | Capacity, generation, overfill, damage layers, heal absorbs |
 | [Growth, core stats and gain channels](/advanced/entity-stats/growth-and-core-stats) | Level growth, overrides, the nine core stats, gain channels |
 | [Tags & Groups: how they are built](/advanced/entity-stats/tags-and-groups) | Damage types, schools, trigger tags, entity tags, immunities, stat groups |
+| [Proficiencies: how they are built](/advanced/entity-stats/proficiencies) | Levels, experience from use, the stat, requirement and reward |
 
 ## Signals
 

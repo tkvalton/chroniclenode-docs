@@ -319,6 +319,24 @@ export const groups = [
     ]
   },
   {
+    "text": "Effects: amount",
+    "slug": "effects-amount",
+    "classes": [
+      {
+        "name": "AmountSource",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\amount\\amount_source.gd",
+        "file": "data_classes/effects/amount/amount_source.gd"
+      },
+      {
+        "name": "EffectAmount",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\amount\\effect_amount.gd",
+        "file": "data_classes/effects/amount/effect_amount.gd"
+      }
+    ]
+  },
+  {
     "text": "Effects: composite",
     "slug": "effects-composite",
     "classes": [
@@ -831,6 +849,12 @@ export const groups = [
         "base": "Node3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\abilities\\effects\\projectiles\\base_projectile_instance.gd",
         "file": "runtime_classes/entity/abilities/effects/projectiles/base_projectile_instance.gd"
+      },
+      {
+        "name": "CastRecord",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\abilities\\effects\\cast_record.gd",
+        "file": "runtime_classes/entity/abilities/effects/cast_record.gd"
       },
       {
         "name": "EffectGroupRules",

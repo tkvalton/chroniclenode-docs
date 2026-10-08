@@ -102,6 +102,8 @@ An effect can end after a number of uses of abilities by the entity it is on. Th
 
 ## Settings of the damage and heal effects
 
+**Damage**, **Heal** and **Stat Modifier** effects have an **Amount** section: the base, a spread and the parts the number is built from. See [The amount of an effect](/basic/abilities-and-effects/effect-amount).
+
 **Damage** and **Heal** effects also have **Scaling rules** and **Trigger rules**. They change how much a hit or heal does and how critical strikes, dodges and multistrikes behave for it. See [Scaling and trigger rules](/basic/abilities-and-effects/scaling-and-trigger-rules). Other effect types do not have them.
 
 ## SFX and VFX

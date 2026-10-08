@@ -13,6 +13,7 @@ Effect that rolls a percentage chance to set trigger tags in calculations Exampl
 | `Array[CalculationBase.CalculationType]` | [target_calculations](#prop-target-calculations) | `[]` |
 | `TriggerTagDefinition` | [tag_definition](#prop-tag-definition) |  |
 | `String` | [trigger_tag](#prop-trigger-tag) | `""` |
+| `bool` | [inverted](#prop-inverted) | `false` |
 | `SpecialEffectAnimation` | [special_effect_animation](#prop-special-effect-animation) | `SpecialEffectAnimation.NONE` |
 | `String` | [special_effect_message](#prop-special-effect-message) | `""` |
 | `TriggerRecord.Kind` | [kind](#prop-kind) | `TriggerRecord.Kind.NONE` |
@@ -68,6 +69,10 @@ Optional: the tag this trigger rolls, as a definition (kind, animation, message,
 ### String trigger_tag = "" {#prop-trigger-tag}
 
 Tag to set in context (e.g., "critical_strike_triggered")
+
+### bool inverted = false {#prop-inverted}
+
+The value is the chance that the tag does NOT fire (a hit chance: 95 points = 5 % to miss). The chance of the tag is 100 minus the value
 
 *Special Effect*
 

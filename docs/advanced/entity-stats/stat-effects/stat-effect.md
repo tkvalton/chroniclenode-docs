@@ -15,6 +15,10 @@ Base class for all stat effects Effects are composable modifiers that can be att
 | `bool` | [effect_enabled](#prop-effect-enabled) | `true` |
 | `ActiveTriggerType` | [active_trigger_type](#prop-active-trigger-type) | `ActiveTriggerType.PERMANENT` |
 | `Array[Condition]` | [conditions](#prop-conditions) | `[]` |
+| `Array[int]` | [only_schools](#prop-only-schools) | `[]` |
+| `float` | [minimum_distance](#prop-minimum-distance) | `0.0` |
+| `float` | [maximum_distance](#prop-maximum-distance) | `0.0` |
+| `PeriodicFilter` | [periodic_filter](#prop-periodic-filter) | `PeriodicFilter.ANY` |
 | `CalculationFormula` | [formula](#prop-formula) |  |
 | `DiminishingReturns` | [returns](#prop-returns) |  |
 | `float` | [max_result](#prop-max-result) | `0.0` |
@@ -30,6 +34,8 @@ Base class for all stat effects Effects are composable modifiers that can be att
 | `bool` | [is_active](#method-is-active)( `context: Dictionary` ) |
 | `bool` | [has_conditions](#method-has-conditions)() |
 | `bool` | [applies_to_context](#method-applies-to-context)( `context: Dictionary` ) |
+| `bool` | [passes_hit_filters](#method-passes-hit-filters)( `context: Dictionary` ) |
+| `bool` | [has_hit_filters](#method-has-hit-filters)() |
 | `CalculationFormula` | [ensure_formula](#method-ensure-formula)() |
 | `float` | [evaluate_points](#method-evaluate-points)( `points: float, context: FormulaContext = null` ) |
 | `Array[String]` | [get_formula_warnings](#method-get-formula-warnings)() |
@@ -77,6 +83,14 @@ Base class for all stat effects Effects are composable modifiers that can be att
 - **PERMANENT** = `0`
 - **IN_COMBAT** = `1`
 
+### enum PeriodicFilter {#enum-periodicfilter}
+
+Which hits and heals a calculation effect is about, beyond the damage type: the school of the ability, how far apart the two are (melee, ranged), and whether it is a tick of a damage-over-time effect. Read from the context of the calculation; an effect that is not about a hit ignores them
+
+- **ANY** = `0` - Direct and periodic hits and heals
+- **ONLY_DIRECT** = `1` - Only direct ones
+- **ONLY_PERIODIC** = `2` - Only the ticks of damage or healing over time
+
 ## Property descriptions
 
 ### bool effect_enabled = true {#prop-effect-enabled}
@@ -92,6 +106,24 @@ When the effect is active: always, only in combat, or only out of combat
 ### Array[Condition] conditions = [] {#prop-conditions}
 
 All of these must be true for the effect to apply (on top of the active trigger above). Conditions see the entity that owns the stat and, during a hit, its opponent: "+30 % damage vs Undead" is the condition "opponent has tag Undead", "+20 % damage below 30 % health" is "owner health below 30". Use the target kind Argument Entity for the owner, Opponent for the other side
+
+*Hit Filters*
+
+### Array[int] only_schools = [] {#prop-only-schools}
+
+Only abilities and effects of these schools (empty = every school)
+
+### float minimum_distance = 0.0 {#prop-minimum-distance}
+
+Only when the two are at least this far apart, in metres (0 = no minimum): ranged hits
+
+### float maximum_distance = 0.0 {#prop-maximum-distance}
+
+Only when the two are at most this far apart, in metres (0 = no maximum): melee hits
+
+### PeriodicFilter periodic_filter = PeriodicFilter.ANY {#prop-periodic-filter}
+
+Only direct hits, or only ticks of damage or healing over time
 
 *Value*
 
@@ -136,6 +168,14 @@ Does this effect depend on the state of an entity (so it must be re-evaluated wh
 ### bool applies_to_context( context: Dictionary ) {#method-applies-to-context}
 
 Check if this effect applies to the given context
+
+### bool passes_hit_filters( context: Dictionary ) {#method-passes-hit-filters}
+
+Does the hit or heal of the context pass the school, distance and periodic filters? (A context without the information passes: nothing to filter by)
+
+### bool has_hit_filters() {#method-has-hit-filters}
+
+Does this effect filter hits by school, distance or ticks?
 
 ### CalculationFormula ensure_formula() {#method-ensure-formula}
 

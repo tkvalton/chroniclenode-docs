@@ -39,6 +39,7 @@ Look for a **Requirements** list in these editors:
 | [RequirementFaction](/advanced/shared-systems/requirements/requirement-faction) | Requires entity to have a minimum reputation with a faction |
 | [RequirementLevel](/advanced/shared-systems/requirements/requirement-level) | Requires the entity to be at or above a level, and optionally at or below another (a level range: a buff that only works up to level 60) |
 | [RequirementPlayerClassDefinition](/advanced/shared-systems/requirements/requirement-player-class-definition) | Requires entity to be one of the specified [player classes](/basic/entities/player-classes) |
+| [RequirementProficiency](/advanced/shared-systems/requirements/requirement-proficiency) | Requires a level in a proficiency (swords, heavy armor, lockpicking): "needs Plate 25 to wear this". |
 | [RequirementResponseSeen](/advanced/shared-systems/requirements/requirement-response-seen) | Requirement that checks if a player has seen/selected a specific response Useful for branching conversations based on player choices |
 | [RequirementStat](/advanced/shared-systems/requirements/requirement-stat) | Requires entity to have a minimum value in a specific stat |
 | [RequirementWeapon](/advanced/shared-systems/requirements/requirement-weapon) | Requires entity to have specific weapon types equipped |
@@ -54,6 +55,7 @@ The fields of each type:
 | **Faction** | **Faction**, **Minimum reputation**, **Standing name** | The entity's reputation with the faction is at least the minimum. With a **Standing name** ("Friendly", "Allied") it must be at that standing or a higher one |
 | **Equipment Slot** | **Required slot** | Something is equipped in the slot |
 | **Weapon** | **Requires any weapon**, **Required weapon types** | A weapon is equipped, or one of the listed types. An entity that is **disarmed** never meets it |
+| **Proficiency** | **Proficiency**, **Required level** | The player's level in the [proficiency](/basic/entity-stats/proficiencies) is at least the required level: "needs Plate 25" |
 | **Response Seen** | **Source type** (NPC or Interactable), the unique id of the NPC or object, **Response id**, **Must have seen** | The player has (or, with **Must have seen** off, has not) picked that answer in that conversation. For branching conversations |
 
 ::: tip Stat requirements and buffs

@@ -14,7 +14,7 @@ Every hit and every heal goes through the same steps. `CombatManager.apply_damag
 | `triggers_done`, `triggers_taken` | [`TriggerRecord`](/advanced/entity-stats/triggers/trigger-record)s that fired in each phase |
 | `steps_done`, `steps_taken` | The [`ModifierStep`](/advanced/entity-stats/triggers/modifier-step)s that changed the number, in order |
 | `redirected`, `absorbed`, `health_damage` | Where the number went |
-| `outcome` | `HIT`, `AVOIDED`, `IMMUNE`, `FULLY_REDIRECTED`, `TARGET_DEAD`, `FAILED` or `NEGATED` |
+| `outcome` | `HIT`, `AVOIDED`, `IMMUNE`, `FULLY_REDIRECTED`, `TARGET_DEAD`, `FAILED`, `NEGATED` or `MISSED` |
 | `chain_depth` | 0 for a normal hit, one more for damage caused by reacting to a hit |
 | `target_died` | The hit killed the target |
 
@@ -29,6 +29,7 @@ CombatManager.apply_damage(attacker, target, raw, damage_type, effect_instance, 
   1  validate the participants (both need a StatsComponent)
   2  make the DamageResult
   3  PHASE 1, attacker: DamageDoneCalculation.apply_to(attacker stats, result)    -> result.done
+       an avoid trigger that fired (a miss)?    MISSED: the hit ends here, the target is not touched
   4  target.take_damage(result)                                                   -> StatsComponent.take_damage
        a  already dead?                         TARGET_DEAD
        b  redirection effects (guardians): redirect a share, reduce by a percentage
@@ -67,6 +68,20 @@ The stat ids are sorted before every loop, so the result never depends on the or
 
 The **universal order** is built once by [`CombatCalculations`](/advanced/entity-stats/calculations/combat-calculations) from all the stats in the database, for each of the four calculations (`build_order`: priority, then stat id, then the position of the effect in the stat). It is a cache; the Calculations editor and any stat change invalidate it.
 
+### Rules
+
+`_collect_rules` builds the `TriggerRuleSet` of a phase from three places:
+
+1. the `trigger_rules` of the effect that causes the hit or heal,
+2. the `TriggerRuleStatEffect`s of the entity that runs the phase whose `applies_to` is `OWNER`,
+3. the `TriggerRuleStatEffect`s of its **opponent** (`context["opponent"]`) with `OPPONENT_ACTING_ON_ME` when the phase is a *done* phase (Damage Done, Healing Done) or `OPPONENT_DEFENDING_AGAINST_ME` when it is a *taken* phase. The conditions of those effects are checked with the roles swapped: the opponent is the owner.
+
+A rule that names no tag can name a **kind** (`TagKindFilter`): it then matches every tag of that kind (`TriggerRuleSet` takes the kind of the tag it is asked about). A rule that names a tag matches only that tag.
+
+### Misses
+
+An avoid trigger acts in Damage Taken (a dodge). It acts in **Damage Done** only when its `target_calculations` name Damage Done (a miss); an avoid trigger with no list stays a Damage Taken trigger. A trigger with `inverted` set rolls the chance `100 - value` and rolls even at 0 points, because 0 points of a hit chance is a certain miss. When the avoid fires in the done phase, `DamageDoneCalculation` calls `result.mark_missed(record)`, and `CombatManager.apply_damage` announces the result without calling `take_damage`. A hit with `can_be_avoided` off cannot be missed, and neither can a number measured without a target (`run_damage_done`). A preview of damage never rolls an avoid.
+
 ### Context and tags
 
 The context dictionary holds what the stat effects look at:
@@ -77,6 +92,9 @@ The context dictionary holds what the stat effects look at:
 | `calculation_target` | `"Damage Done"`, `"Damage Taken"`, ... |
 | `is_damage_calculation`, `can_be_avoided`, `in_combat` | The kind of hit and the combat state |
 | `owner`, `opponent` | The entity being calculated and the other side |
+| `school` | The school id of the ability (else of the effect) that causes the hit, 0 for none |
+| `distance` | The distance in metres between the two, when both are in the world |
+| `is_periodic` | True for a tick of a damage or healing over time (the effect instance has a tick interval) |
 | *the tag* | `true` when a trigger with this tag fired |
 | `"magnitude:" + tag` | The magnitude of the fired tag |
 

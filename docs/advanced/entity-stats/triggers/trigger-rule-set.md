@@ -11,12 +11,12 @@ The trigger rules in force for one calculation phase of one hit, from the effect
 | | |
 |---|---|
 | `void` | [add_rule](#method-add-rule)( `rule: TriggerRule` ) |
-| `void` | [add_values](#method-add-values)( `definition: TriggerTagDefinition, never: bool, always: bool, chance_bonus: float, magnitude_bonus: float, magnitude_multiplier: float` ) |
+| `void` | [add_values](#method-add-values)( `definition: TriggerTagDefinition, never: bool, always: bool, chance_bonus: float, magnitude_bonus: float, magnitude_multiplier: float, kind_filter: int = -1` ) |
 | `bool` | [is_empty](#method-is-empty)() |
-| `bool` | [is_never](#method-is-never)( `tag: String` ) |
-| `bool` | [is_always](#method-is-always)( `tag: String` ) |
-| `float` | [chance_bonus](#method-chance-bonus)( `tag: String` ) |
-| `float` | [magnitude](#method-magnitude)( `tag: String, base_magnitude: float` ) |
+| `bool` | [is_never](#method-is-never)( `tag: String, kind: int = -1` ) |
+| `bool` | [is_always](#method-is-always)( `tag: String, kind: int = -1` ) |
+| `float` | [chance_bonus](#method-chance-bonus)( `tag: String, kind: int = -1` ) |
+| `float` | [magnitude](#method-magnitude)( `tag: String, base_magnitude: float, kind: int = -1` ) |
 | `Array[TriggerTagDefinition]` | [forced_definitions](#method-forced-definitions)() |
 
 ## Method descriptions
@@ -25,7 +25,7 @@ The trigger rules in force for one calculation phase of one hit, from the effect
 
 Adds a TriggerRule (a rule on the effect)
 
-### void add_values( definition: TriggerTagDefinition, never: bool, always: bool, chance_bonus: float, magnitude_bonus: float, magnitude_multiplier: float ) {#method-add-values}
+### void add_values( definition: TriggerTagDefinition, never: bool, always: bool, chance_bonus: float, magnitude_bonus: float, magnitude_multiplier: float, kind_filter: int = -1 ) {#method-add-values}
 
 Adds raw values for a tag (null definition = every tag). Used by stat effects too
 
@@ -33,19 +33,19 @@ Adds raw values for a tag (null definition = every tag). Used by stat effects to
 
 *No description yet.*
 
-### bool is_never( tag: String ) {#method-is-never}
+### bool is_never( tag: String, kind: int = -1 ) {#method-is-never}
 
 Is the tag forbidden? ("never" beats "always")
 
-### bool is_always( tag: String ) {#method-is-always}
+### bool is_always( tag: String, kind: int = -1 ) {#method-is-always}
 
 Is the tag forced (and not forbidden)?
 
-### float chance_bonus( tag: String ) {#method-chance-bonus}
+### float chance_bonus( tag: String, kind: int = -1 ) {#method-chance-bonus}
 
 Percentage points added to the chance of the tag
 
-### float magnitude( tag: String, base_magnitude: float ) {#method-magnitude}
+### float magnitude( tag: String, base_magnitude: float, kind: int = -1 ) {#method-magnitude}
 
 The magnitude of the tag: (base + all bonuses) x all multipliers
 

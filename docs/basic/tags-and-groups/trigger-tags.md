@@ -4,14 +4,14 @@
 
 A **trigger tag** names something that *happened* during a hit or a heal: a dodge, a block, a critical strike, a multistrike, an armor penetration. A stat rolls the tag (a [Calculation Trigger Effect](/basic/entity-stats/stats#the-effect-types)), the tag is kept for the rest of the calculation, and anything that cares can react to it: a modifier ("block lowers damage by 30 %"), a [proc](/basic/abilities-and-effects/effect-types) ("when you crit, heal"), or an effect that forces it ("this attack always crits").
 
-The toolkit ships five: **Dodge**, **Block**, **Critical Strike**, **Multistrike** and **Armor Penetration**.
+The toolkit ships six: **Dodge**, **Block**, **Critical Strike**, **Multistrike**, **Armor Penetration** and **Miss** (the demo's hit chance).
 
 ## Tag
 
 | Field | What it does |
 |---|---|
 | **Tag** | The word modifiers and procs match on. Empty = the display name in lower case |
-| **Kind** | What the tag does by itself. **None**: it only marks the hit. **Avoid**: the hit is avoided completely (dodge, parry). **Mitigate**: the hit is reduced by modifiers that require the tag (block). **Boost**: the hit is increased (critical strike) |
+| **Kind** | What the tag does by itself. **None**: it only marks the hit. **Avoid**: the hit is avoided completely: a dodge or parry in Damage Taken, a **miss** in Damage Done. **Mitigate**: the hit is reduced by modifiers that require the tag (block). **Boost**: the hit is increased (critical strike) |
 
 ## Magnitude
 
@@ -47,6 +47,8 @@ A critical strike is *Percent Increase* with magnitude `100`: the tag alone does
 | You want | How |
 |---|---|
 | **Critical strikes** | A stat *Critical Strike Rating* with a Calculation Trigger Effect for the tag *Critical Strike*. The tag adds +100 % |
+| **A hit chance** | A stat with a Calculation Trigger Effect for the tag *Miss*, Damage Done, **Inverted**. See [Stat recipes](/basic/entity-stats/stat-recipes#hit-chance) |
+| **Expertise, defense** | A **Trigger Rule Effect** that changes the rolls of the opponent. Choose *every tag of kind* Avoid or Boost, or one tag. See [Stat recipes](/basic/entity-stats/stat-recipes) |
 | **Crit damage as its own stat** | A stat with a **Trigger Rule Effect** on the tag, *Magnitude bonus* |
 | **Luck** | A Trigger Rule Effect with no tag and *Chance bonus*: it adds to every roll |
 | **An attack that always crits** | A trigger rule on the effect: **Always** *Critical Strike* |

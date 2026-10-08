@@ -51,6 +51,7 @@ Runtime instance of an ability that references an AbilityDefinition for configur
 |---|---|
 | `int` | [get_ability_school](#method-get-ability-school)() |
 | `bool` | [get_on_global_cooldown](#method-get-on-global-cooldown)() |
+| `Array` | [get_stat_entries](#method-get-stat-entries)( `property_name: String` ) |
 | `float` | [get_cooldown_duration](#method-get-cooldown-duration)() |
 | `float` | [get_cost_amount](#method-get-cost-amount)() |
 | `float` | [get_gain_amount](#method-get-gain-amount)() |
@@ -204,6 +205,10 @@ Emitted when toggle state changes for any reason
 - **EXTERNAL** = `1`
 - **STATEFUL** = `2`
 
+## Constants
+
+- `Array[String]` **STAT_MODIFIED_PROPERTIES** = `["cooldown_duration", "cost_amount", "gain_amount", "cast_duration", "max_ran...` - The properties the stats of the user can change (AbilityModifierStatEffect): cooldown, cost, gain, and the cast time and range of the strategies
+
 ## Variable descriptions
 
 ### AbilityDefinition definition {#var-definition}
@@ -351,6 +356,10 @@ Get ability school (runtime override or definition)
 ### bool get_on_global_cooldown() {#method-get-on-global-cooldown}
 
 Get GCD setting (runtime override or definition)
+
+### Array get_stat_entries( property_name: String ) {#method-get-stat-entries}
+
+What the stats of the user change on a property of this ability: ability modifier stat effects, worked out when asked
 
 ### float get_cooldown_duration() {#method-get-cooldown-duration}
 

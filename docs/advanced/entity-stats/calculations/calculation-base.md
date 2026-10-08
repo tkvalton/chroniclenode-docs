@@ -25,6 +25,7 @@ A phase runs in two steps. Phase 1, triggers: every stat the entity has points i
 | | |
 |---|---|
 | `CalculationPhase` | [run_phase](#method-run-phase)( `stats_component: StatsComponent, start_value: float, context: Dictionary, formula_context: FormulaContext = null, effect_instance: EffectInstance = null` ) |
+| `void` | [add_hit_context](#method-add-hit-context)( `context: Dictionary, user: Variant, other: Variant, effect: EffectInstance` ) *static* |
 | `Array[Dictionary]` | [validate](#method-validate)() |
 | `Dictionary` | [get_debug_info](#method-get-debug-info)() |
 
@@ -60,6 +61,10 @@ A phase runs in two steps. Phase 1, triggers: every stat the entity has points i
 ### CalculationPhase run_phase( stats_component: StatsComponent, start_value: float, context: Dictionary, formula_context: FormulaContext = null, effect_instance: EffectInstance = null ) {#method-run-phase}
 
 Runs triggers then modifiers on `start_value`. `context` holds what the stat effects look at (damage type, in_combat, can_be_avoided, ...) as the dictionary they understand; the tags of fired triggers (and their magnitudes, under "magnitude:&lt;tag&gt;") are added to it. `effect_instance` is the effect that causes the hit or heal: its TriggerRules (always / never / bonuses) apply to this phase, together with the rules of the stats' own effects.
+
+### void add_hit_context( context: Dictionary, user: Variant, other: Variant, effect: EffectInstance ) {#method-add-hit-context}
+
+Adds what the stat effects can filter a hit by to the context: the school of the ability, how far apart the two are, and whether it is a tick of a damage-over-time effect. `user` is whoever acts (attacker, healer), `other` whoever it is done to
 
 ### Array[Dictionary] validate() {#method-validate}
 

@@ -88,6 +88,7 @@ func get_summary() -> String:
 | [FactionStandingReward](/advanced/shared-systems/rewards/faction-standing-reward) | Sets reputation to a specific standing level with a faction |
 | [ItemReward](/advanced/shared-systems/rewards/item-reward) | Grants items to the player's inventory. |
 | [LevelReward](/advanced/shared-systems/rewards/level-reward) | Container for rewards granted at a specific level |
+| [ProficiencyReward](/advanced/shared-systems/rewards/proficiency-reward) | Trains the player in a proficiency: experience towards the next level, or whole levels. |
 | [Reward](/advanced/shared-systems/rewards/reward) | Base class for all reward types |
 | [SkillPointReward](/advanced/shared-systems/rewards/skill-point-reward) | Grants skill points to a specific point pool |
 <!-- /classes -->

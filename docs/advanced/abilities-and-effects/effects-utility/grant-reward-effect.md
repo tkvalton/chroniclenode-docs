@@ -15,6 +15,7 @@ NOTE: QuestReward is not allowed as it cannot be reversed
 | | | |
 |---|---|---|
 | `Reward` | [reward](#prop-reward) |  |
+| `NoRoomRule` | [if_no_room](#prop-if-no-room) | `NoRoomRule.WAIT` |
 
 ## Methods
 
@@ -27,11 +28,22 @@ NOTE: QuestReward is not allowed as it cannot be reversed
 | `Array[Dictionary]` | [validate](#method-validate)() |
 | `bool` | [is_one_off_application](#method-is-one-off-application)() |
 
+## Enumerations
+
+### enum NoRoomRule {#enum-noroomrule}
+
+- **WAIT** = `0` - The reward waits and is given as soon as there is room (Player.grant_reward); a waiting reward is never reverted by this effect
+- **REFUSE** = `1` - Nothing is given and the effect fails with a warning to the player
+
 ## Property descriptions
 
 ### Reward reward {#prop-reward}
 
 The reward to grant
+
+### NoRoomRule if_no_room = NoRoomRule.WAIT {#prop-if-no-room}
+
+What happens when the reward needs room that the target has not got (items in a full bag). The reward is never lost or put over another item
 
 ## Method descriptions
 

@@ -14,6 +14,7 @@ The [basic page](/basic/entity-stats/stats#stat-effects) lists the nine types an
 | `active_trigger_type` | `PERMANENT`, `IN_COMBAT`, `OUT_OF_COMBAT`, checked against `context.in_combat` |
 | `conditions` | `Array[Condition]`: entity conditions that must all be true. Evaluated with the owner and the **opponent** in the context |
 | `formula`, `returns`, `max_result` | The **value**: the [formula](/advanced/shared-systems/formulas) that turns points into a number, optional [diminishing returns](/basic/keywords#diminishing-returns), a cap |
+| `only_schools`, `minimum_distance`, `maximum_distance`, `periodic_filter` | **Hit filters**: the effect only works for hits and heals of those schools, in that range of distances, direct or periodic. `passes_hit_filters(context)` checks them against the `school`, `distance` and `is_periodic` keys of the context (a context without a key passes); `applies_to_context` and the rule collection call it |
 | `evaluate_points(points, formula_context)` | The value of the effect for the points: formula, then returns, then the cap |
 | `is_active(context)` | Enabled, the trigger type fits the combat state, the conditions are met |
 | `validate()` | The problems the editor shows (a missing target, an empty list) |
@@ -35,13 +36,19 @@ The fields `value_per_point`, `use_scaling`, `scaling_mode`, `scaling_threshold`
 |---|---|---|
 | [`MultiplierStatEffect`](/advanced/entity-stats/stat-effects/multiplier-stat-effect) | `StatsComponent._apply_multiplier_effects` | When a stat changes. A cascade guard stops after 10 passes. Results are cached as bonuses and re-applied when a condition flips |
 | [`PoolModifierStatEffect`](/advanced/entity-stats/stat-effects/pool-modifier-stat-effect) | `StatsComponent._update_pool_effects` | When a stat changes and at the start and end of combat. Starts from the pool's own base each time, so it never compounds |
-| [`AbilityModifierStatEffect`](/advanced/entity-stats/stat-effects/ability-modifier-stat-effect) | `StatsComponent.get_ability_modifier_entries`, asked by the ability for its cooldown, cost or resource gain | Every time the ability property is read; nothing is stored, so nothing goes stale |
+| [`AbilityModifierStatEffect`](/advanced/entity-stats/stat-effects/ability-modifier-stat-effect) | `StatsComponent.get_ability_modifier_entries`, asked by the ability for its cooldown, cost or resource gain, and by its use and target strategies for the cast time (`cast_duration`) and the range (`max_range`): `apply_modifiers` of `UseStrategyInstance` and `TargetStrategyInstance` add the entries of the stats for the properties in `AbilityInstance.STAT_MODIFIED_PROPERTIES` | Every time the ability property is read; nothing is stored, so nothing goes stale |
 | [`CalculationModifierStatEffect`](/advanced/entity-stats/stat-effects/calculation-modifier-stat-effect) | `CalculationBase._run_modifiers` | Phase 2 of a [calculation](/advanced/entity-stats/pipeline) |
 | [`CalculationTriggerStatEffect`](/advanced/entity-stats/stat-effects/calculation-trigger-stat-effect) | `CalculationBase._roll_triggers` | Phase 1 of a calculation |
 | [`TriggerRuleStatEffect`](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect) | `CalculationBase._collect_rules` | Before the triggers roll |
 | [`PoolRestorationStatEffect`](/advanced/entity-stats/stat-effects/pool-restoration-stat-effect) | `StatsComponent` hit and kill handlers | After a resolved hit (leech, mana on hit, health on kill) |
 | [`ReactiveDamageStatEffect`](/advanced/entity-stats/stat-effects/reactive-damage-stat-effect) | `StatsComponent` through `CombatReactions` | After a resolved hit taken (damage reflection) |
 | [`GainModifierStatEffect`](/advanced/entity-stats/stat-effects/gain-modifier-stat-effect) | `StatsComponent.modify_gain(channel, amount)` | When the game gives the entity experience, gold, loot, threat or a resource |
+
+## Trigger effects and rules
+
+[`CalculationTriggerStatEffect`](/advanced/entity-stats/stat-effects/calculation-trigger-stat-effect) has `inverted`: the value of the formula is the chance that the tag does not fire (`get_effective_trigger_chance` returns `100 - value`). That is a hit chance.
+
+[`TriggerRuleStatEffect`](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect) has `applies_to` (`RuleSide`: `OWNER`, `OPPONENT_ACTING_ON_ME`, `OPPONENT_DEFENDING_AGAINST_ME`) and, when no tag is chosen, `tag_kind` (`TagKindFilter`: any, avoid, mitigate, boost). The two enums are in that class; `CalculationBase` uses plain numbers for the sides because the class needs `CalculationBase` and the compiler does not allow the cycle.
 
 ## Conditions, the opponent and the context
 

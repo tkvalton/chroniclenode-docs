@@ -15,7 +15,6 @@ StatModifierEffect modifies stats using the new stats system Can optionally tap 
 | `int` | [stat_group_id](#prop-stat-group-id) | `0` |
 | `Array[int]` | [excluded_stats](#prop-excluded-stats) | `[]` |
 | `CalculationType` | [calculation_type](#prop-calculation-type) | `CalculationType.ADD` |
-| `float` | [base_value](#prop-base-value) | `1.0` |
 | `CalculationPipeline` | [calculation_pipeline](#prop-calculation-pipeline) | `CalculationPipeline.NONE` |
 
 ## Methods
@@ -74,10 +73,6 @@ Stats of the group that are left out (group mode)
 
 The form of calcuation
 
-### float base_value = 1.0 {#prop-base-value}
-
-Base value to modifier by
-
 ### CalculationPipeline calculation_pipeline = CalculationPipeline.NONE {#prop-calculation-pipeline}
 
 Use a calculation pipeline for this effect
@@ -86,7 +81,7 @@ Use a calculation pipeline for this effect
 
 ### Array[int] resolve_stat_ids( target_entity: Variant ) {#method-resolve-stat-ids}
 
-The stats this effect changes on its target: the chosen stat, or the stats of the group the target has (without the excluded ones)
+*No description yet.*
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 

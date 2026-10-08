@@ -14,8 +14,8 @@ A type that changes something *for a while* has no **Immediate** time strategy, 
 
 | Type | What it does |
 |---|---|
-| [**Damage**](/advanced/abilities-and-effects/effects-damage-and-healing/damage-effect) (`DamageEffect`) | Damages the target. The damage goes through the [calculations](/basic/entity-stats/calculations) in *[Entity Stats](/basic/entity-stats/)*, so stats, critical strikes, dodges and armor all apply. It also has *Scales with charge*, [scaling rules](/basic/abilities-and-effects/scaling-and-trigger-rules) and trigger rules |
-| [**Heal**](/advanced/abilities-and-effects/effects-damage-and-healing/heal-effect) (`HealEffect`) | Heals the target, through the same calculations. It has scaling rules and trigger rules too |
+| [**Damage**](/advanced/abilities-and-effects/effects-damage-and-healing/damage-effect) (`DamageEffect`) | Damages the target. The damage goes through the [calculations](/basic/entity-stats/calculations) in *[Entity Stats](/basic/entity-stats/)*, so stats, critical strikes, dodges and armor all apply. Its number is an [Amount](/basic/abilities-and-effects/effect-amount). It also has *Scales with charge*, [scaling rules](/basic/abilities-and-effects/scaling-and-trigger-rules) and trigger rules |
+| [**Heal**](/advanced/abilities-and-effects/effects-damage-and-healing/heal-effect) (`HealEffect`) | Heals the target, through the same calculations. It has an [Amount](/basic/abilities-and-effects/effect-amount), scaling rules and trigger rules too |
 | [**Damage Reflect**](/advanced/abilities-and-effects/effects-damage-and-healing/damage-reflect-effect) (`DamageReflectEffect`) | Reflects a part of the damage the target takes back at the attacker |
 | [**Damage Redirection**](/advanced/abilities-and-effects/effects-damage-and-healing/damage-redirection-effect) (`DamageRedirectionEffect`) | The damage the target would take goes to the caster instead: a guardian or tank ability |
 | [**Heal Reflect**](/advanced/abilities-and-effects/effects-damage-and-healing/heal-reflect-effect) (`HealReflectEffect`) | Passes a share of the healing the target receives on to the caster or to the healer: a "Vampiric Embrace", a soul link. The healing counterpart of Damage Reflect |
@@ -26,7 +26,7 @@ A type that changes something *for a while* has no **Immediate** time strategy, 
 
 | Type | What it does |
 |---|---|
-| [**Stat Modifier**](/advanced/abilities-and-effects/effects-stats/stat-modifier-effect) (`StatModifierEffect`) | Changes a stat on the target, or every stat of a [stat group](/basic/tags-and-groups/stat-groups) at once ("all Primary stats +10 %"). It has scaling rules too: the value can depend on the situation when it is applied |
+| [**Stat Modifier**](/advanced/abilities-and-effects/effects-stats/stat-modifier-effect) (`StatModifierEffect`) | Changes a stat on the target, or every stat of a [stat group](/basic/tags-and-groups/stat-groups) at once ("all Primary stats +10 %"). Its value is an [Amount](/basic/abilities-and-effects/effect-amount), and it has scaling rules too: the value can depend on the situation when it is applied |
 | [**Set Stat Active State**](/advanced/abilities-and-effects/effects-stats/set-stat-active-state-effect) (`SetStatActiveStateEffect`) | Switches stats on or off: one stat, or a whole group (all Offensive stats off while disarmed). They come back when the effect ends |
 | [**Add Health Pool**](/advanced/abilities-and-effects/effects-stats/add-health-pool-effect) (`AddHealthPoolEffect`) | Adds a temporary health pool, such as an absorb shield. With no pool chosen it uses the built-in *Shield* pool, which soaks up damage before health does |
 | [**Add Resource Pool**](/advanced/abilities-and-effects/effects-stats/add-resource-pool-effect) (`AddResourcePoolEffect`) | Adds a temporary resource pool, such as bonus mana or rage, removed when the effect ends |

@@ -12,12 +12,6 @@ DamageEffect is a an effect that applies damage to the target entity.
 |---|---|---|
 | `int` | [damage_type](#prop-damage-type) | `0` |
 | `bool` | [use_weapon_damage_type](#prop-use-weapon-damage-type) | `false` |
-| `float` | [base_damage](#prop-base-damage) | `1.0` |
-| `int` | [stat_id](#prop-stat-id) | `0` |
-| `float` | [stat_multiplier](#prop-stat-multiplier) | `1.0` |
-| `float` | [damage_variance](#prop-damage-variance) | `0.0` |
-| `float` | [weapon_damage_percentage](#prop-weapon-damage-percentage) | `0.0` |
-| `float` | [total_health_percentage](#prop-total-health-percentage) | `0.0` |
 | `float` | [threat_multiplier](#prop-threat-multiplier) | `1.0` |
 | `float` | [protective_pool_multiplier](#prop-protective-pool-multiplier) | `1.0` |
 | `bool` | [scales_with_charge](#prop-scales-with-charge) | `false` |
@@ -47,30 +41,6 @@ Type of damage dealt (physical, fire, cold, poison, etc.)
 ### bool use_weapon_damage_type = false {#prop-use-weapon-damage-type}
 
 If true, uses equipped weapon's damage type instead of damage_type
-
-### float base_damage = 1.0 {#prop-base-damage}
-
-Fixed amount of damage to deal
-
-### int stat_id = 0 {#prop-stat-id}
-
-Base damaged based on stat value (Will be in addition to base damage)
-
-### float stat_multiplier = 1.0 {#prop-stat-multiplier}
-
-Multiplier applied to stat value before adding to base_damage
-
-### float damage_variance = 0.0 {#prop-damage-variance}
-
-Variance of base damage + stat value if stat_id
-
-### float weapon_damage_percentage = 0.0 {#prop-weapon-damage-percentage}
-
-Percentage of wielder's weapon damage to add
-
-### float total_health_percentage = 0.0 {#prop-total-health-percentage}
-
-Percentage of target's max health to deal as damage
 
 ### float threat_multiplier = 1.0 {#prop-threat-multiplier}
 
