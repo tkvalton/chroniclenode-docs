@@ -118,20 +118,7 @@ An area effect applies its child effects to everything inside a shape.
 | [**Area Randomize Target**](/advanced/abilities-and-effects/effects-area/area-randomize-target-effect) (`AreaRandomizeTargetEffect`) | Spreads its applications over random targets and points in the area, optionally over time |
 | **Equalize Damage / Healing / Health** ([`EqualizeDamageAreaEffect`](/advanced/abilities-and-effects/effects-area/equalize-damage-area-effect), [`EqualizeHealingAreaEffect`](/advanced/abilities-and-effects/effects-area/equalize-healing-area-effect), [`AreaEqualizeHealthEffect`](/advanced/abilities-and-effects/effects-area/area-equalize-health-effect)) | Shares damage, healing or health out evenly among all the targets in the area |
 
-### Settings the area effects share
-
-| Field | What it does |
-|---|---|
-| **Shape** | The shape of the area (Area effect only; the weapon collision uses the weapon's) |
-| **Affected Targets** | All, Enemies or Allies |
-| **Affects Neutrals** | Whether an Enemies area also hits neutral bystanders. Off by default |
-| **Gain On Enter / Remove On Exit** | With a duration, the area keeps checking: entities that walk in get the effect, and lose it again when they leave |
-| **Prevent Duplicate Hits** | The same entity is hit once per area. Leave it on unless the area is meant to hit the same entity again |
-| **Max Targets** | The most entities the area affects. `0` is unlimited |
-| **Target Priority** | Which entities count first when there are more than Max Targets: closest to the center, closest to the caster, random, lowest or highest health |
-| **Cap Rule** | For an area that lasts: **Concurrent** frees a slot when an entity leaves, **Total** closes for good once Max Targets have been hit |
-| **Follow Originator** | The area moves with the caster (and turns with them, with **Follow Originator Direction**) |
-| **Maximum applications** | On the Minimum Application types: the most times the child effects are applied in all, repeats included. It stops an area that repeats or keeps catching new entities after the count you want. The maximum wins when it is lower than the minimum |
+Every area effect shares the same settings (who it affects, how many targets, how it follows the caster). They are described on the class pages of the Advanced section, starting with [Collision effect](/advanced/abilities-and-effects/effects-base/collision-effect) and [Area effect](/advanced/abilities-and-effects/effects-area/area-effect).
 
 ## Movement
 

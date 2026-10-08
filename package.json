@@ -9,7 +9,8 @@
     "stubs": "node scripts/make-stubs.mjs",
     "links": "node scripts/docs-links.mjs",
     "classes": "node scripts/scan-classes.mjs",
-    "autolink": "node scripts/autolink.mjs"
+    "autolink": "node scripts/autolink.mjs",
+    "database": "node scripts/scan-database.mjs"
   },
   "devDependencies": {
     "vitepress": "^1.6.4"

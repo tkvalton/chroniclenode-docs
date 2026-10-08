@@ -46,6 +46,24 @@ const SYSTEMS = {
       },
     ],
   },
+  'data-and-database': {
+    title: 'Data and the Database',
+    groups: [
+      { text: 'The database', slug: 'database-classes', dirs: [['databases/database.gd', false], ['data_classes/database_resource/database_resource.gd', false]] },
+      {
+        text: 'Asset databases',
+        slug: 'asset-database-classes',
+        dirs: [
+          ['databases/animation_database.gd', false],
+          ['databases/audio_database.gd', false],
+          ['databases/icons_database.gd', false],
+          ['databases/mesh_database.gd', false],
+          ['databases/model_scene_database.gd', false],
+          ['databases/vfx_database.gd', false],
+        ],
+      },
+    ],
+  },
 }
 
 const kebab = name => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2').toLowerCase()

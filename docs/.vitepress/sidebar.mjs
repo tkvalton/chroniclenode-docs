@@ -7,6 +7,7 @@
 // and `view` is the name of the tab of the Database editor that the page belongs to (the "?" button opens it).
 
 import { groups as abilitiesAndEffectsClasses } from './classes-abilities-and-effects.mjs'
+import { groups as databaseClasses } from './classes-data-and-database.mjs'
 
 const page = (text, link, extra = {}) => ({ text, link, ...extra })
 const kebab = name => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2').toLowerCase()
@@ -186,6 +187,22 @@ function classSystem(text, slug, groups) {
   }
 }
 
+// Data and the Database: the overview, the generated table of types, the asset libraries, and a page for each class
+const dataAndDatabase = {
+  text: 'Data and the Database',
+  collapsed: true,
+  items: [
+    page('Overview', '/advanced/data-and-database/', { title: 'Data and the Database' }),
+    page('Database types', '/advanced/data-and-database/database-types'),
+    page('Asset databases', '/advanced/data-and-database/asset-databases'),
+    ...databaseClasses.map(group => ({
+      text: group.text,
+      collapsed: true,
+      items: group.classes.map(c => page(c.name, `/advanced/data-and-database/${group.slug}/${kebab(c.name)}`, { title: c.name })),
+    })),
+  ],
+}
+
 // World: the overview and the tools of the 3D viewport
 const worldAdvanced = {
   text: 'World',
@@ -228,6 +245,7 @@ export const sidebar = [
     items: [
       page('About the basic guide', '/basic/', { title: 'Basic' }),
       page('Keywords', '/basic/keywords'),
+      page('The Database', '/basic/database'),
       sharedSystems,
       { text: 'Systems', collapsed: false, items: basicSystems },
     ],
@@ -239,7 +257,7 @@ export const sidebar = [
       page('About the advanced section', '/advanced/', { title: 'Advanced' }),
       page('Architecture', '/advanced/architecture'),
       page('The game host and managers', '/advanced/game-host'),
-      page('Data and the Database', '/advanced/data-and-database'),
+      dataAndDatabase,
       page('Save and load', '/advanced/save-and-load'),
       page('Extending the toolkit', '/advanced/extending'),
       { text: 'Systems', collapsed: true, items: advancedSystems },

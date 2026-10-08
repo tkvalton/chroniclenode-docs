@@ -120,9 +120,9 @@ export function parseClass(file) {
       if (!m[1].startsWith('_')) info.constants.push({ name: m[1], type: (m[2] ?? '').trim(), value: m[3].trim(), doc })
     } else if ((m = line.match(/^@export(?:_[a-z_]+)?(\(.*?\))?\s+(?:static\s+)?var\s+(\w+)\s*(?::\s*([^=]+?))?\s*(?::?=\s*(.+))?$/)) || (m = line.match(/^@export(?:_[a-z_]+)?(\(.*?\))?\s+(?:static\s+)?var\s+(\w+)\s*(?::\s*([^=]+?))?\s*(?::?=\s*(.+))?$/))) {
       if (/^@export_storage/.test(line)) continue
-      if (!m[2].startsWith('_')) info.properties.push({ name: m[2], type: (m[3] ?? '').trim(), default: (m[4] ?? '').trim(), doc, group })
+      if (!m[2].startsWith('_')) info.properties.push({ name: m[2], type: (m[3] ?? '').trim(), default: shortValue((m[4] ?? '').trim()), doc, group })
     } else if ((m = line.match(/^(?:static\s+)?var\s+(\w+)\s*(?::\s*([^=]+?))?\s*(?::?=\s*(.+))?$/))) {
-      if (!m[1].startsWith('_')) info.variables.push({ name: m[1], type: (m[2] ?? '').trim(), default: (m[3] ?? '').trim(), doc })
+      if (!m[1].startsWith('_')) info.variables.push({ name: m[1], type: (m[2] ?? '').trim(), default: shortValue((m[3] ?? '').trim()), doc })
     } else if ((m = line.match(/^(static\s+)?func\s+(\w+)\s*\(/))) {
       if (m[2].startsWith('_')) continue
       const statement = readStatement(lines, i)
@@ -152,10 +152,11 @@ function clean(text) {
 }
 // inside a table cell
 const cell = text => clean(text).replace(/\|/g, '\\|').replace(/\n/g, ' ')
+const shortValue = v => (v === '{' ? '{ ... }' : v === '[' ? '[ ... ]' : v)
 const code = text => '`' + text.replace(/`/g, "'") + '`'
 const inlineCode = text => {
   // `x` spans stay code; the rest is escaped
-  return text.split(/(`[^`]*`)/).map((part, k) => k % 2 ? part.replace(/[<>]/g, c => (c === '<' ? '&lt;' : '&gt;')) : clean(part)).join('')
+  return text.split(/(`[^`]*`)/).map((part, k) => k % 2 ? part : clean(part)).join('')
 }
 
 function paragraphs(docLines) {
@@ -242,14 +243,14 @@ export function renderClass(info, ctx) {
     let lastGroup = null
     for (const p of info.properties) {
       if (p.group !== lastGroup && p.group) { out.push(`*${clean(p.group)}*`, ''); lastGroup = p.group }
-      out.push(`### ${p.type ? p.type + ' ' : ''}${p.name}${p.default ? ' = ' + clean(p.default.replace(/[{}]/g, '').slice(0, 60)) : ''} {#${anchor('prop-' + p.name)}}`, '')
+      out.push(`### ${p.type ? p.type + ' ' : ''}${p.name}${p.default && !p.default.includes('...') ? ' = ' + clean(p.default.replace(/[{}]/g, '').slice(0, 60)) : ''} {#${anchor('prop-' + p.name)}}`, '')
       out.push(p.doc.length ? paragraphs(p.doc) : '*No description yet.*', '')
     }
   }
   if (info.variables.length) {
     out.push('## Variable descriptions', '')
     for (const p of info.variables) {
-      out.push(`### ${p.type ? p.type + ' ' : ''}${p.name}${p.default ? ' = ' + clean(p.default.replace(/[{}]/g, '').slice(0, 60)) : ''} {#${anchor('var-' + p.name)}}`, '')
+      out.push(`### ${p.type ? p.type + ' ' : ''}${p.name}${p.default && !p.default.includes('...') ? ' = ' + clean(p.default.replace(/[{}]/g, '').slice(0, 60)) : ''} {#${anchor('var-' + p.name)}}`, '')
       out.push(p.doc.length ? paragraphs(p.doc) : '*No description yet.*', '')
     }
   }
