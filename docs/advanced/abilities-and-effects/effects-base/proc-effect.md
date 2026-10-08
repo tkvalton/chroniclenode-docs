@@ -4,7 +4,7 @@
 
 **Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-**Inherited by:** [AbilityProcEffect](/advanced/abilities-and-effects/effects-procs/ability-proc-effect), [CombatProcEffect](/advanced/abilities-and-effects/effects-procs/combat-proc-effect), [DeathProcEffect](/advanced/abilities-and-effects/effects-procs/death-proc-effect), [EffectEventProcEffect](/advanced/abilities-and-effects/effects-procs/effect-event-proc-effect), [HealthThresholdProcEffect](/advanced/abilities-and-effects/effects-procs/health-threshold-proc-effect), [ResourceThresholdProcEffect](/advanced/abilities-and-effects/effects-procs/resource-threshold-proc-effect)
+**Inherited by:** [AbilityProcEffect](/advanced/abilities-and-effects/effects-procs/ability-proc-effect), [CombatProcEffect](/advanced/abilities-and-effects/effects-procs/combat-proc-effect), [CombatStateProcEffect](/advanced/abilities-and-effects/effects-procs/combat-state-proc-effect), [DeathProcEffect](/advanced/abilities-and-effects/effects-procs/death-proc-effect), [EffectEventProcEffect](/advanced/abilities-and-effects/effects-procs/effect-event-proc-effect), [HealthThresholdProcEffect](/advanced/abilities-and-effects/effects-procs/health-threshold-proc-effect), [ResourceThresholdProcEffect](/advanced/abilities-and-effects/effects-procs/resource-threshold-proc-effect), [StatusProcEffect](/advanced/abilities-and-effects/effects-procs/status-proc-effect)
 
 Base class for all proc effects with shared RNG and consumption logic
 

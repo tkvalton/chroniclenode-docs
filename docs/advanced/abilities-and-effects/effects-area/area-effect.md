@@ -4,7 +4,7 @@
 
 **Inherits:** [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-**Inherited by:** [MinimumApplicationAreaEffect](/advanced/abilities-and-effects/effects-area/minimum-application-area-effect), [RevealEffect](/advanced/abilities-and-effects/effects-status-and-control/reveal-effect)
+**Inherited by:** [MinimumApplicationAreaEffect](/advanced/abilities-and-effects/effects-area/minimum-application-area-effect)
 
 AreaEffect for effects that use a custom-defined collision shape
 

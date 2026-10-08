@@ -28,7 +28,7 @@ const SYSTEMS = {
       { text: 'Effects: movement', slug: 'effects-movement', dirs: [['data_classes/effects/movement', true]] },
       { text: 'Effects: pets and summons', slug: 'effects-pets-and-summons', dirs: [['data_classes/effects/pets_and_summons', true]] },
       { text: 'Effects: procs', slug: 'effects-procs', dirs: [['data_classes/effects/proc_effects', true]] },
-      { text: 'Effects: projectiles', slug: 'effects-projectiles', dirs: [['data_classes/effects/projectiles', true]] },
+      { text: 'Effects: projectiles and shots', slug: 'effects-projectiles-and-shots', dirs: [['data_classes/effects/projectiles_and_shots', true]] },
       { text: 'Effects: stats', slug: 'effects-stats', dirs: [['data_classes/effects/stats', true]] },
       { text: 'Effects: status and control', slug: 'effects-status-and-control', dirs: [['data_classes/effects/status_and_control', true]] },
       { text: 'Effects: utility', slug: 'effects-utility', dirs: [['data_classes/effects/utility', true]] },

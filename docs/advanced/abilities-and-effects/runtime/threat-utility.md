@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-Threat (threat) in one place: who gets threat on whom, from damage, from healing and from effects, with the redirects (misdirection) applied.
+Threat in one place: who gets threat on whom, from damage, from healing and from effects, with the redirects (misdirection) applied.
 
 ## Methods
 

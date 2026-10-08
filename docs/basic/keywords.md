@@ -26,6 +26,8 @@ The number that decides who an enemy attacks. Every hostile non-player character
 - **Healing** makes threat too. The healer's threat is a share of the healing done, split between the enemies fighting the healed entity. The share is *Heal Threat Multiplier* in the [Gameplay Config](/basic/game-settings/gameplay-config).
 - Any other effect makes none by itself. To make threat with it, put a **Threat** effect beside it in the ability, with the mode **Add**.
 
+The whole system can be switched off in the [Gameplay Config](/basic/game-settings/gameplay-config) with **Use threat system**. Off, enemies attack the nearest of the entities that are fighting them, damage and healing make no threat to compare, and only a **Taunt** still forces a target. Turn it off for a game without tank and healer roles.
+
 Two [effect types](/basic/abilities-and-effects/effect-types) change threat directly:
 
 - **Taunt** ([`TauntEffect`](/advanced/abilities-and-effects/effects-status-and-control/taunt-effect)) makes an NPC attack the caster whatever its threat table says. When it ends, the caster's threat is put at the top so the NPC stays on them. A player or a companion gets the caster selected and locked on until the taunt ends. Give it a duration.

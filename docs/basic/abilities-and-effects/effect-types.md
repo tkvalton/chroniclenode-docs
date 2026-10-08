@@ -18,6 +18,8 @@ A type that changes something *for a while* has no **Immediate** time strategy, 
 | [**Heal**](/advanced/abilities-and-effects/effects-damage-and-healing/heal-effect) (`HealEffect`) | Heals the target, through the same calculations. It has scaling rules and trigger rules too |
 | [**Damage Reflect**](/advanced/abilities-and-effects/effects-damage-and-healing/damage-reflect-effect) (`DamageReflectEffect`) | Reflects a part of the damage the target takes back at the attacker |
 | [**Damage Redirection**](/advanced/abilities-and-effects/effects-damage-and-healing/damage-redirection-effect) (`DamageRedirectionEffect`) | The damage the target would take goes to the caster instead: a guardian or tank ability |
+| [**Heal Reflect**](/advanced/abilities-and-effects/effects-damage-and-healing/heal-reflect-effect) (`HealReflectEffect`) | Passes a share of the healing the target receives on to the caster or to the healer: a "Vampiric Embrace", a soul link. The healing counterpart of Damage Reflect |
+| [**Heal Absorb**](/advanced/abilities-and-effects/effects-damage-and-healing/heal-absorb-effect) (`HealAbsorbEffect`) | Soaks up the next amount of healing the target receives, so it does not reach its health: a curse on a healer's target. The opposite of a shield |
 | [**Equalize Health**](/advanced/abilities-and-effects/effects-damage-and-healing/equalize-health-effect) (`EqualizeHealthEffect`) | Evens out the health of the target and the caster |
 
 ## Stats
@@ -43,7 +45,7 @@ A type that changes something *for a while* has no **Immediate** time strategy, 
 | [**Immunity**](/advanced/abilities-and-effects/effects-status-and-control/immunity-effect) (`ImmunityEffect`) | Gives or removes an immunity to some kinds of effect or damage |
 | [**Clear**](/advanced/abilities-and-effects/effects-status-and-control/clear-effect) (`ClearEffect`) | Removes other effects from the target, by school or by effect |
 | [**Stealth**](/advanced/abilities-and-effects/effects-status-and-control/stealth-effect) (`StealthEffect`) | Makes the target stealthy or invisible |
-| [**Reveal**](/advanced/abilities-and-effects/effects-status-and-control/reveal-effect) (`RevealEffect`) | An area that reveals stealthed targets and stops new stealth inside it |
+| [**Reveal**](/advanced/abilities-and-effects/effects-status-and-control/reveal-effect) (`RevealEffect`) | Reveals the target and keeps it from hiding while the effect lasts. It is not an area: make it a child of an Area effect (with **Gain On Enter** and **Remove On Exit**) to reveal everything inside a shape, or use it alone on one target, like a hunter's mark |
 | [**Taunt**](/advanced/abilities-and-effects/effects-status-and-control/taunt-effect) (`TauntEffect`) | Forces the target to attack the caster for the duration (give it a duration). See [threat](/basic/keywords#threat) |
 | [**Threat**](/advanced/abilities-and-effects/effects-status-and-control/threat-effect) (`ThreatEffect`) | Adds, reduces, clears or redirects threat (misdirection). See [threat](/basic/keywords#threat) |
 | [**Resurrect**](/advanced/abilities-and-effects/effects-status-and-control/resurrect-effect) (`ResurrectEffect`) | Brings a dead entity back to life with a share of its maximum health |
@@ -83,24 +85,24 @@ A conditional effect applies its child effects only when a condition is true. Th
 
 | Type | What it does |
 |---|---|
-| [**Condition Conditional**](/advanced/abilities-and-effects/effects-conditional/condition-conditional-effect) (`ConditionConditionalEffect`) | Depends on a list of *Conditions*, all of them or any one, checked on the target or on the user. Any check of the Conditions system works here: a tag, a class, a level, an item, a variable. Use it for the checks the other three do not have |
+| [**Condition Conditional**](/advanced/abilities-and-effects/effects-conditional/condition-conditional-effect) (`ConditionConditionalEffect`) | Depends on a list of *Conditions*, all of them or any one, checked on the target or on the user. Any check of the Conditions system works here: a tag, a class, a level, an item, a variable, whether the entity is standing still or moving (**Movement State**). Use it for the checks the other three do not have |
 | [**Health Conditional**](/advanced/abilities-and-effects/effects-conditional/health-conditional-effect) (`HealthConditionalEffect`) | Depends on the health percentage of the target or the caster |
 | [**Distance Conditional**](/advanced/abilities-and-effects/effects-conditional/distance-conditional-effect) (`DistanceConditionalEffect`) | Depends on the distance between the caster and the target |
 | [**Effect Conditional**](/advanced/abilities-and-effects/effects-conditional/effect-conditional-effect) (`EffectConditionalEffect`) | Depends on whether an entity has an effect, lacks it, or has an exact number of its stacks |
 | [**Random Chance Conditional**](/advanced/abilities-and-effects/effects-conditional/random-chance-conditional-effect) (`RandomChanceConditionalEffect`) | Applies on a percentage chance, with optional modes that smooth out long streaks of bad luck |
 
-## Projectiles
+## Projectiles and shots
 
 A projectile effect launches something that flies, and applies its child effects when it arrives. The child effects are where the damage, healing or status goes.
 
 | Type | What it does |
 |---|---|
-| [**Direct Projectile**](/advanced/abilities-and-effects/effects-projectiles/direct-projectile-effect) (`DirectProjectileEffect`) | Flies in a straight line |
-| [**Homing Projectile**](/advanced/abilities-and-effects/effects-projectiles/homing-projectile-effect) (`HomingProjectileEffect`) | Follows its target, optionally along a curve |
-| [**Physics Projectile**](/advanced/abilities-and-effects/effects-projectiles/physics-projectile-effect) (`PhysicsProjectileEffect`) | Flies on a ballistic arc |
-| [**Chain Projectile**](/advanced/abilities-and-effects/effects-projectiles/chain-projectile-effect) (`ChainProjectileEffect`) | Bounces between several targets |
-| [**Boomerang Projectile**](/advanced/abilities-and-effects/effects-projectiles/boomerang-projectile-effect) (`BoomerangProjectileEffect`) | Travels to the target and returns to the caster |
-| [**Hitscan**](/advanced/abilities-and-effects/effects-projectiles/hitscan-effect) (`HitscanEffect`) | Not a projectile: an instant line from the muzzle towards the target or the aimed point, up to a maximum range. Its child effects apply to the first entity the line meets, or to several with **Pierce Count**. Walls stop it unless told not to. Nothing can be dodged |
+| [**Direct Projectile**](/advanced/abilities-and-effects/effects-projectiles-and-shots/direct-projectile-effect) (`DirectProjectileEffect`) | Flies in a straight line |
+| [**Homing Projectile**](/advanced/abilities-and-effects/effects-projectiles-and-shots/homing-projectile-effect) (`HomingProjectileEffect`) | Follows its target, optionally along a curve |
+| [**Physics Projectile**](/advanced/abilities-and-effects/effects-projectiles-and-shots/physics-projectile-effect) (`PhysicsProjectileEffect`) | Flies on a ballistic arc |
+| [**Chain Projectile**](/advanced/abilities-and-effects/effects-projectiles-and-shots/chain-projectile-effect) (`ChainProjectileEffect`) | Bounces between several targets |
+| [**Boomerang Projectile**](/advanced/abilities-and-effects/effects-projectiles-and-shots/boomerang-projectile-effect) (`BoomerangProjectileEffect`) | Travels to the target and returns to the caster |
+| [**Hitscan**](/advanced/abilities-and-effects/effects-projectiles-and-shots/hitscan-effect) (`HitscanEffect`) | Not a projectile: an instant line from the muzzle towards the target or the aimed point, up to a maximum range. Its child effects apply to the first entity the line meets, or to several with **Pierce Count**. Walls stop it unless told not to. Nothing can be dodged |
 
 The direct, physics and chain types choose what makes them apply: a **collision** with something, reaching their **destination**, or a **timer**. The boomerang only uses a collision. A projectile's **Charge Scales Speed** makes a drawn shot fly faster. See [Aiming](/basic/abilities-and-effects/aiming).
 
@@ -167,6 +169,8 @@ A proc effect waits for something to happen to its holder, and then applies its 
 | [**Combat Proc**](/advanced/abilities-and-effects/effects-procs/combat-proc-effect) (`CombatProcEffect`) | The hits its holder deals or receives, filtered by the [trigger tags](/basic/tags-and-groups/trigger-tags) that fired: critical strike, dodge, block |
 | [**Ability Proc**](/advanced/abilities-and-effects/effects-procs/ability-proc-effect) (`AbilityProcEffect`) | The use of abilities |
 | [**Death Proc**](/advanced/abilities-and-effects/effects-procs/death-proc-effect) (`DeathProcEffect`) | Death events |
+| [**Combat State Proc**](/advanced/abilities-and-effects/effects-procs/combat-state-proc-effect) (`CombatStateProcEffect`) | The holder entering or leaving combat |
+| [**Status Proc**](/advanced/abilities-and-effects/effects-procs/status-proc-effect) (`StatusProcEffect`) | A status (stun, root, silence ...) landing on the holder or ending, for any status, some base types or chosen definitions. Can apply its effects to whoever inflicted the status |
 | [**Effect Event Proc**](/advanced/abilities-and-effects/effects-procs/effect-event-proc-effect) (`EffectEventProcEffect`) | Effects being gained, updated or lost |
 | [**Health Threshold Proc**](/advanced/abilities-and-effects/effects-procs/health-threshold-proc-effect) (`HealthThresholdProcEffect`) | Health crossing a percentage, the caster's own or their target's |
 | [**Resource Threshold Proc**](/advanced/abilities-and-effects/effects-procs/resource-threshold-proc-effect) (`ResourceThresholdProcEffect`) | A pool crossing a value. It fires on the crossing, not on every tick |

@@ -353,9 +353,19 @@ export const groups = [
         "file": "data_classes/effects/damage_and_healing/effect_equalize_health.gd"
       },
       {
+        "name": "HealAbsorbEffect",
+        "base": "Effect",
+        "file": "data_classes/effects/damage_and_healing/effect_heal_absorb.gd"
+      },
+      {
         "name": "HealEffect",
         "base": "CombatResultEffect",
         "file": "data_classes/effects/damage_and_healing/effect_heal.gd"
+      },
+      {
+        "name": "HealReflectEffect",
+        "base": "Effect",
+        "file": "data_classes/effects/damage_and_healing/effect_heal_reflect.gd"
       }
     ]
   },
@@ -482,6 +492,11 @@ export const groups = [
         "file": "data_classes/effects/proc_effects/effect_procedure_combat.gd"
       },
       {
+        "name": "CombatStateProcEffect",
+        "base": "ProcEffect",
+        "file": "data_classes/effects/proc_effects/effect_procedure_combat_state.gd"
+      },
+      {
         "name": "DeathProcEffect",
         "base": "ProcEffect",
         "file": "data_classes/effects/proc_effects/effect_procedure_death.gd"
@@ -500,42 +515,47 @@ export const groups = [
         "name": "ResourceThresholdProcEffect",
         "base": "ProcEffect",
         "file": "data_classes/effects/proc_effects/effect_procedure_resource_threshold.gd"
+      },
+      {
+        "name": "StatusProcEffect",
+        "base": "ProcEffect",
+        "file": "data_classes/effects/proc_effects/effect_procedure_status.gd"
       }
     ]
   },
   {
-    "text": "Effects: projectiles",
-    "slug": "effects-projectiles",
+    "text": "Effects: projectiles and shots",
+    "slug": "effects-projectiles-and-shots",
     "classes": [
       {
         "name": "BoomerangProjectileEffect",
         "base": "BaseProjectileEffect",
-        "file": "data_classes/effects/projectiles/effect_projectile_boomerang.gd"
+        "file": "data_classes/effects/projectiles_and_shots/effect_projectile_boomerang.gd"
       },
       {
         "name": "ChainProjectileEffect",
         "base": "BaseProjectileEffect",
-        "file": "data_classes/effects/projectiles/effect_projectile_chain.gd"
+        "file": "data_classes/effects/projectiles_and_shots/effect_projectile_chain.gd"
       },
       {
         "name": "DirectProjectileEffect",
         "base": "BaseProjectileEffect",
-        "file": "data_classes/effects/projectiles/effect_projectile_direct.gd"
+        "file": "data_classes/effects/projectiles_and_shots/effect_projectile_direct.gd"
       },
       {
         "name": "HitscanEffect",
         "base": "CompositeEffect",
-        "file": "data_classes/effects/projectiles/effect_hitscan.gd"
+        "file": "data_classes/effects/projectiles_and_shots/effect_hitscan.gd"
       },
       {
         "name": "HomingProjectileEffect",
         "base": "BaseProjectileEffect",
-        "file": "data_classes/effects/projectiles/effect_projectile_homing.gd"
+        "file": "data_classes/effects/projectiles_and_shots/effect_projectile_homing.gd"
       },
       {
         "name": "PhysicsProjectileEffect",
         "base": "BaseProjectileEffect",
-        "file": "data_classes/effects/projectiles/effect_projectile_physics.gd"
+        "file": "data_classes/effects/projectiles_and_shots/effect_projectile_physics.gd"
       }
     ]
   },
@@ -616,7 +636,7 @@ export const groups = [
       },
       {
         "name": "RevealEffect",
-        "base": "AreaEffect",
+        "base": "Effect",
         "file": "data_classes/effects/status_and_control/effect_reveal.gd"
       },
       {

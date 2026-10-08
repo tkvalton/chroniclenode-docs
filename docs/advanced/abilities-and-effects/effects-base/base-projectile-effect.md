@@ -4,7 +4,7 @@
 
 **Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-**Inherited by:** [BoomerangProjectileEffect](/advanced/abilities-and-effects/effects-projectiles/boomerang-projectile-effect), [ChainProjectileEffect](/advanced/abilities-and-effects/effects-projectiles/chain-projectile-effect), [DirectProjectileEffect](/advanced/abilities-and-effects/effects-projectiles/direct-projectile-effect), [HomingProjectileEffect](/advanced/abilities-and-effects/effects-projectiles/homing-projectile-effect), [PhysicsProjectileEffect](/advanced/abilities-and-effects/effects-projectiles/physics-projectile-effect)
+**Inherited by:** [BoomerangProjectileEffect](/advanced/abilities-and-effects/effects-projectiles-and-shots/boomerang-projectile-effect), [ChainProjectileEffect](/advanced/abilities-and-effects/effects-projectiles-and-shots/chain-projectile-effect), [DirectProjectileEffect](/advanced/abilities-and-effects/effects-projectiles-and-shots/direct-projectile-effect), [HomingProjectileEffect](/advanced/abilities-and-effects/effects-projectiles-and-shots/homing-projectile-effect), [PhysicsProjectileEffect](/advanced/abilities-and-effects/effects-projectiles-and-shots/physics-projectile-effect)
 
 Base class for all projectile effects
 

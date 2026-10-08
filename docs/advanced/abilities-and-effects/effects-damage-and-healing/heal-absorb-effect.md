@@ -1,22 +1,22 @@
 <!-- generated from the code comments by scripts/scan-classes.mjs: change the comments in the code, not this page -->
 
-# RevealEffect
+# HealAbsorbEffect
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-RevealEffect reveals its target: a stealthed target becomes visible at once, and, with prevent_stealth and a duration, it cannot
+HealAbsorbEffect puts a "heal absorb" on its target: the next `absorb_amount` of healing the target receives is soaked up and does
 
 ## Description
 
-RevealEffect reveals its target: a stealthed target becomes visible at once, and, with prevent_stealth and a duration, it cannot go into stealth again while the effect lasts.
+HealAbsorbEffect puts a "heal absorb" on its target: the next `absorb_amount` of healing the target receives is soaked up and does not reach its health. When the amount is used up, or the duration ends, the effect ends.
 
-It is not an area. To reveal everything in a shape, make it a child effect of an Area effect (with gain_on_enter and remove_on_exit on the area, an entity is revealed while it is inside); to reveal one target (a hunter's mark), use it alone or in a projectile.
+It is the opposite of a shield (a shield soaks damage). Use it for a curse that stops a healer: "the next 500 healing on this target is lost". The soaked amount is shown in the combat log, and healing that was soaked makes no overheal. The absorb is kept by the target's StatsComponent (heal_absorbs); several absorbs on one target soak in the order they were applied.
 
 ## Properties
 
 | | | |
 |---|---|---|
-| `bool` | [prevent_stealth](#prop-prevent-stealth) | `true` |
+| `float` | [absorb_amount](#prop-absorb-amount) | `100.0` |
 
 ## Methods
 
@@ -29,17 +29,17 @@ It is not an area. To reveal everything in a shape, make it a child effect of an
 
 ## Property descriptions
 
-*Reveal Settings*
+*Heal Absorb*
 
-### bool prevent_stealth = true {#prop-prevent-stealth}
+### float absorb_amount = 100.0 {#prop-absorb-amount}
 
-Keep the target from going into stealth again while the effect lasts (needs a duration; an immediate reveal only reveals once)
+How much healing the effect soaks up before it is used up
 
 ## Method descriptions
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Reveals the target and, for a lasting effect, keeps it from hiding
+*No description yet.*
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
