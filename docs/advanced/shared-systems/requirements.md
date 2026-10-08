@@ -56,7 +56,7 @@ A type that wants this implements the two `connect_...` functions and emits the 
 
 ## Writing your own requirement
 
-1. Make a script that `extends Requirement`, with `@tool` and a `class_name`, in `res://addons/chroniclenode/data_classes/requirements/types/`. The editor's add dialog lists every script of that folder, and the name in the list is made from the file name.
+1. Make a script that `extends Requirement`, with `@tool` and a `class_name`, in your project folder `res://src/requirements/` (the addon's own `data_classes/requirements/types/` is found too, but an update of the addon replaces it). The editor's add dialog lists every script of both folders, and the name in the list is made from the file name.
 2. Add `@export` properties for its settings. They are the fields the dialog shows.
 3. Implement `check`, `get_failure_message` and `get_summary`.
 4. If the answer can change while the game runs, connect to the entity's signal in `connect_to_entity_signals` and emit `requirement_state_changed`.

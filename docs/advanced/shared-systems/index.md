@@ -20,14 +20,14 @@ Each family is found by **scanning a folder**, so a new type is a new script wit
 
 | System | Folder that is scanned | Who scans it |
 |---|---|---|
-| Requirements | `res://addons/chroniclenode/data_classes/requirements/types/` | The add dialog (`UnifiedResourceDialog`) |
-| Rewards | `res://addons/chroniclenode/data_classes/rewards/types/` | The same dialog |
-| Conditions | `.../data_classes/conditions/general/`, `entity/`, `encounter/` | The add-condition dialog (`ConditionalEditDialog`) |
-| Conditions on stat effects | the entity conditions folder and `res://src/stat_conditions/` | `StatClassScanner` |
+| Requirements | `res://addons/chroniclenode/data_classes/requirements/types/` and your own `res://src/requirements/` | The add dialog (`UnifiedResourceDialog`) |
+| Rewards | `res://addons/chroniclenode/data_classes/rewards/types/` and your own `res://src/rewards/` | The same dialog |
+| Conditions | `.../data_classes/conditions/general/`, `entity/`, `encounter/` and your own `res://src/conditions/` (the **Project** category) | The add-condition dialog (`ConditionalEditDialog`) |
+| Conditions on stat effects | the entity conditions folder, `res://src/conditions/` and `res://src/stat_conditions/` | `StatClassScanner` |
 | Formulas | the formulas folder and `res://src/stat_formulas/` | `StatClassScanner` |
 | Diminishing returns | the folder and `res://src/stat_diminishing_returns/` | `StatClassScanner` |
 
-The name in a list is made from the file name. Only the formula, diminishing returns and stat condition families have a folder in the **project**; for the others a new script has to sit in the addon folder to be listed.
+The name in a list is made from the file name. Every family has an addon folder (the types ChronicleNode ships) and a **project** folder (yours). Put your own types in the project folder: an update of the addon replaces its folders but never `res://src/`. A script placed in the addon folder is found too, but it is lost when the addon is updated. A project folder that does not exist yet is simply skipped.
 
 ## The classes
 

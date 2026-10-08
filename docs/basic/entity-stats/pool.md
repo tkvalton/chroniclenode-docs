@@ -4,7 +4,7 @@
 
 A **pool** is a number that goes up and down while the game is played: Health, Mana, Rage, Energy, a Shield. It has a *current* value and a *maximum*. A **stat** has points; a pool has a **level**, and damage, costs, regeneration and healing move it.
 
-ChronicleNode ships two pools: **Health** and a protective **Shield**. Make as many as the game needs.
+ChronicleNode ships **Health** and a protective **Shield**; the demo adds **Rage**, **Mana** and **Energy**. Make as many as the game needs.
 
 ## What a pool is used for
 
@@ -85,6 +85,8 @@ An effect can give **any** pool a temporary damage layer: the [Absorb With Pool]
 |---|---|
 | **Health** | Default max `100`, starts full, regen `0.5` ticks per second, `2` per tick, **Absorb Damage** on, priority `0`, not protective |
 | **Mana** | Default max `100`, starts full, regen `1` per second, **Absorbs Damage** off |
+| **Mana** (in the demo) | Default max `100`, starts full, regen `2` per tick, `1` tick per second, **Absorbs Damage** off |
+| **Energy** (in the demo) | Default max `100`, starts full, regen `5` per tick, `2` ticks per second, **Absorbs Damage** off |
 | **Rage** | Default max `100`, **Starts Empty**, **Decay** `1` per second (it fades when not fighting), **Absorbs Damage** off |
 | **Shield** | Default max `0`, starts empty, **Absorb Damage** on, priority `100`, **Protective**, **Receives Healing** off, can overfill |
 | **Fire barrier** | Absorbs Damage on, **Absorbs All Damage Types** off, the types *Fire* and *Frost* |

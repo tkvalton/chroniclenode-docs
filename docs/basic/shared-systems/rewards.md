@@ -57,6 +57,8 @@ The fields of each type:
 A reward that gives items needs room in the bag. If the **Item** reward cannot fit all its items, **nothing is given**, the player is warned, and the reward **waits**: it is given as soon as there is room (whenever the inventory changes). A quest with such a reward is not completed until it can be given. This waiting reward is called a [pending reward](/basic/keywords#pending-reward), and it is saved with the game.
 The other reward types never wait.
 
+Every way of giving a reward follows this rule: quests, level-ups, skill tree nodes, conversations, events and the **Grant Reward** effect. Nothing is lost and nothing is put over another item. The Grant Reward effect also has **If no room**: **Wait** (the default, as above) or **Refuse** (nothing is given, the player is warned and the effect fails). A reward that waited is not taken back when that effect ends.
+
 ## Level rewards
 
 A player class has a list of **level rewards**: for a level, a short description and a list of rewards ("Level 5: a new ability and 2 skill points"). They are given when the character reaches the level (the first entry of the list is level 1). If several levels are gained at once, the rewards of every level passed are given. A level reward holds any rewards, so a level can give several things at once.

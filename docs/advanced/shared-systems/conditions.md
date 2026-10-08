@@ -66,17 +66,17 @@ A stat effect evaluates its conditions with a `StatConditionContext` as the argu
 
 ## How the editors list them
 
-- The add-condition dialog (`ConditionalEditDialog`) has three categories, **General**, **Entity** and **Encounter**, and lists every script of the matching folder under `res://addons/chroniclenode/data_classes/conditions/` (`general/`, `entity/`, `encounter/`). The name in the list is the file name without `_condition`.
-- The list of a **stat effect** shows the entity conditions of `conditions/entity/` and of the project folder `res://src/stat_conditions/` (`StatClassScanner.find_conditions`), so a condition you write there is offered without touching the addon.
+- The add-condition dialog (`ConditionalEditDialog`) has four categories. **General**, **Entity** and **Encounter** list every script of the matching folder under `res://addons/chroniclenode/data_classes/conditions/` (`general/`, `entity/`, `encounter/`). **Project** lists every condition script in your own folder `res://src/conditions/`, of any kind. The name in the list is the file name without `_condition`.
+- The list of a **stat effect** shows the entity conditions of `conditions/entity/` and of the project folders `res://src/conditions/` and `res://src/stat_conditions/` (`StatClassScanner.find_conditions`), so a condition you write there is offered without touching the addon.
 - The event variable conditions in `conditions/event/` are made by the event editor, which is where those variables exist.
 
 ## Writing your own condition
 
-1. Make a script in the project (for entity conditions used by stat effects: `res://src/stat_conditions/`) that extends `EntityCondition`, with `@tool` and a `class_name`.
+1. Make a script in `res://src/conditions/` that extends `EntityCondition` (or `Condition`, or `EncounterCondition`), with `@tool` and a `class_name`.
 2. Add `@export` properties for its settings.
 3. Override `evaluate_entity(entity)`, and `get_entity_description()` for the text the editor shows.
 
-The list of a stat effect finds a script in `res://src/stat_conditions/` by itself. The add-condition dialog of the other editors (events, behaviors, encounters) only lists the folders of the addon, so a condition you write appears there only when its script is placed in one of those folders.
+The **Project** category of the add-condition dialog and the list of a stat effect (for entity conditions) find a script in `res://src/conditions/` by themselves. `res://src/stat_conditions/` still works for stat effects.
 
 ```gdscript
 @tool

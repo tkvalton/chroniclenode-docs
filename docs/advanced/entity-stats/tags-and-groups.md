@@ -15,7 +15,11 @@ The [Tags & Groups chapter](/basic/tags-and-groups/) lists the labels. In code e
 
 ## Damage and school types
 
-Both are bare labels: a name, a description, a color, an icon. They have no behavior of their own. Everything that matters is in the code that compares the id: a stat effect with `affects_damage_type`, a pool with `absorbs_damage_types`, an `ImmunityComponent` with its protected targets.
+Both are labels: a name, a description, a color, an icon. A school has no behavior of its own. Everything that matters is in the code that compares the id: a stat effect with `affects_damage_type`, a pool with `absorbs_damage_types`, an `ImmunityComponent` with its protected targets.
+
+### Effects applied by a damage type
+
+[`DamageTypeDefinition`](/advanced/entity-stats/definitions/damage-type-definition) has `applied_effects` (Effect ids), `apply_chance` and `apply_on_periodic_hits`. `CombatManager.apply_damage` calls `apply_hit_effects(combat_manager, result)` on the type of a complete, successful result, just before the result is announced. The effects are started on the target with the attacker as originator, and the `effect_owner` and `source` of the hit that caused them. Nothing is applied for a hit that is not a landed hit (avoided, immune, redirected, negated), that did no damage after the target's phase, or that killed the target. A hit whose effect is one of the applied effects, or inside one (the child of a burn), is skipped, and so is a ticking effect unless `apply_on_periodic_hits` is on.
 
 ## Trigger tags
 

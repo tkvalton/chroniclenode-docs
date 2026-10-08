@@ -44,7 +44,7 @@ Pending rewards are saved with the player (`pending_rewards` in the save data, u
 
 ## Writing your own reward
 
-1. Make a script that `extends Reward`, with `@tool` and a `class_name`, in `res://addons/chroniclenode/data_classes/rewards/types/`. The add dialog lists every script of that folder; the name in the list is made from the file name without `_reward`.
+1. Make a script that `extends Reward`, with `@tool` and a `class_name`, in your project folder `res://src/rewards/` (the addon's own `data_classes/rewards/types/` is found too, but an update of the addon replaces it). The add dialog lists every script of both folders; the name in the list is made from the file name without `_reward`.
 2. Add `@export` properties for its settings.
 3. Implement `apply_to_player` and `get_summary`. Return `{"success": false}` and `push_error` when it is set up wrongly.
 4. If it can be undone, override `supports_unapply` and `unapply_from_player`, and put what you need in the returned dictionary.
