@@ -10,9 +10,9 @@ This list is growing. Entries are added as the pages that use them are written.
 
 ## Global cooldown
 
-A short pause that is shared by abilities. When an ability that is *on the global cooldown* is used, it starts the global cooldown (1.5 seconds), and until it ends no other ability that is on the global cooldown can be used. Abilities that are *not* on it can still be used.
+A short pause that is shared by abilities. When an ability that is *on the global cooldown* is used, it starts the global cooldown, and until it ends no other ability that is on the global cooldown can be used. Abilities that are *not* on it can still be used.
 
-You choose per ability with **On global cooldown** in the [Abilities editor](/basic/abilities-and-effects/abilities#general-properties). It is separate from an ability's own [cooldown](#cooldown).
+Its length is the *Global Cooldown* core stat of the entity that used the ability: set it in **Entity Stats > Stats** (2 seconds in the demo), give a class or an NPC its own base value, and let stats such as haste shorten it. You choose per ability with **On global cooldown** in the [Abilities editor](/basic/abilities-and-effects/abilities#general-properties). It is separate from an ability's own [cooldown](#cooldown).
 
 ## Cooldown
 

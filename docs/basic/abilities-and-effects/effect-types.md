@@ -24,7 +24,7 @@ A type that changes something *for a while* has no **Immediate** time strategy, 
 
 | Type | What it does |
 |---|---|
-| **Stat Modifier** (`StatModifierEffect`) | Changes a stat on the target, or every stat of a stat group at once ("all Primary stats +10 %") |
+| **Stat Modifier** (`StatModifierEffect`) | Changes a stat on the target, or every stat of a stat group at once ("all Primary stats +10 %"). It has scaling rules too: the value can depend on the situation when it is applied |
 | **Set Stat Active State** (`SetStatActiveStateEffect`) | Switches stats on or off: one stat, or a whole group (all Offensive stats off while disarmed). They come back when the effect ends |
 | **Add Health Pool** (`AddHealthPoolEffect`) | Adds a temporary health pool, such as an absorb shield. With no pool chosen it uses the built-in *Shield* pool, which soaks up damage before health does |
 | **Add Resource Pool** (`AddResourcePoolEffect`) | Adds a temporary resource pool, such as bonus mana or rage, removed when the effect ends |

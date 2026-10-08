@@ -133,6 +133,11 @@ export const groups = [
         "file": "data_classes/effects/effect_collision.gd"
       },
       {
+        "name": "CombatResultEffect",
+        "base": "ScalingEffect",
+        "file": "data_classes/effects/effect_combat_result.gd"
+      },
+      {
         "name": "ConditionalEffect",
         "base": "CompositeEffect",
         "file": "data_classes/effects/effect_conditional.gd"
@@ -324,7 +329,7 @@ export const groups = [
     "classes": [
       {
         "name": "DamageEffect",
-        "base": "ScalingEffect",
+        "base": "CombatResultEffect",
         "file": "data_classes/effects/damage_and_healing/effect_damage.gd"
       },
       {
@@ -339,7 +344,7 @@ export const groups = [
       },
       {
         "name": "HealEffect",
-        "base": "ScalingEffect",
+        "base": "CombatResultEffect",
         "file": "data_classes/effects/damage_and_healing/effect_heal.gd"
       },
       {
@@ -565,7 +570,7 @@ export const groups = [
       },
       {
         "name": "StatModifierEffect",
-        "base": "Effect",
+        "base": "ScalingEffect",
         "file": "data_classes/effects/stats/effect_stat_modifier.gd"
       }
     ]

@@ -16,7 +16,7 @@ On the left is the list of abilities, with a **Filter files** box and the **Add*
 |---|---|
 | **Display name** | The name the player sees |
 | **ID** | The number the toolkit gave this ability. Other things refer to the ability by it. You never type it, and it does not change when you rename the ability |
-| **Description** | The text of the ability's tooltip. Write `<Effect1>`, `<Effect2>` and so on where you want the description of the ability's effects to appear, and the toolkit fills them in with the real numbers. The **Preview** under the field shows the result |
+| **Description** | The text of the ability's tooltip. Write `<Effect1>`, `<Effect2>` and so on where you want the text of the ability's effects to appear. `<Effect1>` is the text the effect type writes itself ("deals 10 damage"), so it follows the effect's numbers. If you want your own words for an effect, write them in that effect's Description and use `<EffectText1>` instead. The numbers count the on-use effects, then the passive effects, and the child effects of each. The **Preview** under the field shows the result |
 | **Icon** | The picture shown on the action bar and in the spellbook. The **X** button next to it removes the icon |
 
 ::: tip The description keeps itself right

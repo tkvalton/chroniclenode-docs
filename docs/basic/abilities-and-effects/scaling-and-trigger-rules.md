@@ -1,11 +1,11 @@
 # Scaling and trigger rules
 
-Two kinds of rules on a **Damage** or **Heal** effect change how a hit or heal turns out:
+Two kinds of rules change how much an effect does and how a hit or heal turns out:
 
-- **Scaling rules** make the damage or healing depend on the situation: a target low on health, a target with a shield, a target with many stacks of something.
-- **Trigger rules** change how special outcomes behave for this effect: a critical strike, a dodge, a multistrike.
+- **Scaling rules** (on **Damage**, **Heal** and **Stat Modifier** effects) make the number depend on the situation: a target low on health, a target with a shield, a target with many stacks of something.
+- **Trigger rules** (on **Damage** and **Heal** effects) change how special outcomes behave for this effect: a critical strike, a dodge, a multistrike.
 
-Both are lists on the effect. They are part of the damage and heal effect types only, because those are the effects that have a number to scale and a hit to roll: the other effect types do not show them. In the code they come from one shared base, `ScalingEffect`, so a new effect that does damage-like or heal-like work can have them too. You find them in the [Effects editor](/basic/abilities-and-effects/effects#settings-of-the-damage-and-heal-effects), under **Specific Properties**.
+Both are lists on the effect. Only the effect types that have a number to scale carry the scaling rules, and only the ones that cause a hit or a heal carry the trigger rules: the other effect types do not show them. In the code the scaling rules come from `ScalingEffect` (damage, heal and stat modifiers) and the trigger rules from `CombatResultEffect` (damage and heal), so a new effect of that kind can have them too. You find them in the [Effects editor](/basic/abilities-and-effects/effects#settings-of-the-damage-and-heal-effects), under **Specific Properties**.
 
 ## Scaling rules
 
@@ -13,7 +13,7 @@ Both are lists on the effect. They are part of the damage and heal effect types 
 
 A scaling rule measures something and gives a bonus in percent. The bonuses of all the rules on an effect add up into one multiplier: `1 + (the bonuses) / 100`. So one rule of +100 % doubles the damage, and two rules of +50 % each also double it.
 
-Scaling rules apply to **Damage** and **Heal** effects.
+Scaling rules apply to **Damage** and **Heal** effects (what they deal or heal) and to **Stat Modifier** effects (the value they apply, measured at the moment the effect is applied: a buff that is stronger the lower the user's health was when it was cast).
 
 | Field | What it does | Default |
 |---|---|---|

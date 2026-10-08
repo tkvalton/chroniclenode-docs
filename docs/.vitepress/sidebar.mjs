@@ -49,6 +49,7 @@ const abilitiesAndEffects = {
         page('Stacking and groups', '/basic/abilities-and-effects/stacking-and-groups'),
         page('Scaling and trigger rules', '/basic/abilities-and-effects/scaling-and-trigger-rules'),
         page('Crowd control', '/basic/abilities-and-effects/crowd-control'),
+        page('Child effects and auras', '/basic/abilities-and-effects/child-effects-and-auras'),
       ],
     },
     page('Skill Trees', '/basic/abilities-and-effects/skill-trees', { view: 'skill_trees' }),

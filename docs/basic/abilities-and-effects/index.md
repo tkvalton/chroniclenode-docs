@@ -18,6 +18,7 @@ You build both in the **Abilities & Effects** category of the editor. This page 
 | [Stacking and groups](/basic/abilities-and-effects/stacking-and-groups) | Stacking rules, and groups: exclusive effects, shared cooldowns, enchant slots |
 | [Scaling and trigger rules](/basic/abilities-and-effects/scaling-and-trigger-rules) | Execute and combo bonuses, always-crit and never-dodge rules |
 | [Crowd control](/basic/abilities-and-effects/crowd-control) | Stuns, roots and silences: status types, diminishing returns, immunity, breaking on damage |
+| [Child effects and auras](/basic/abilities-and-effects/child-effects-and-auras) | Chains of effects: which one the player sees, what ends them, and how their text is written |
 
 ## How the two fit together
 

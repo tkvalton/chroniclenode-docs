@@ -1,5 +1,94 @@
+<!-- generated from the code comments by scripts/scan-classes.mjs: change the comments in the code, not this page -->
+
 # ThreatEffect
 
-::: warning Work in progress
-This page is being written.
-:::
+**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+
+Changes threat: adds, reduces or clears the threat an entity has on hostile NPCs, puts it at the top of their lists, or (REDIRECT, with a duration) makes the threat
+
+## Properties
+
+| | | |
+|---|---|---|
+| `Mode` | [mode](#prop-mode) | `Mode.ADD` |
+| `float` | [value](#prop-value) | `100.0` |
+| `Whose` | [whose_threat](#prop-whose-threat) | `Whose.ORIGINATOR` |
+| `OnEnemies` | [on_enemies](#prop-on-enemies) | `OnEnemies.ALL_ENGAGED` |
+| `int` | [redirect_uses](#prop-redirect-uses) | `0` |
+| `float` | [redirect_percent](#prop-redirect-percent) | `100.0` |
+
+## Methods
+
+| | |
+|---|---|
+| `void` | [specific_effect_logic](#method-specific-effect-logic)( `effect_instance: EffectInstance` ) |
+| `String` | [get_effect_description](#method-get-effect-description)() |
+| `String` | [get_editor_description](#method-get-editor-description)() |
+| `bool` | [is_one_off_application](#method-is-one-off-application)() |
+
+## Enumerations
+
+### enum Mode {#enum-mode}
+
+- **ADD** = `0` - adds `value` threat
+- **REDUCE** = `1` - takes `value` threat away (never below 0)
+- **CLEAR** = `2` - takes all of the threat away (a vanish, a feign)
+- **SET_TO_TOP** = `3` - puts the threat `value` above the highest one on that NPC
+- **REDIRECT** = `4` - the threat the affected entity generates goes to the other party while the effect lasts (needs a duration)
+
+### enum Whose {#enum-whose}
+
+- **ORIGINATOR** = `0`
+- **TARGET** = `1`
+
+### enum OnEnemies {#enum-onenemies}
+
+- **TARGET_NPC** = `0`
+- **ALL_ENGAGED** = `1`
+
+## Property descriptions
+
+*Threat*
+
+### Mode mode = Mode.ADD {#prop-mode}
+
+*No description yet.*
+
+### float value = 100.0 {#prop-value}
+
+The amount (ADD, REDUCE) or the margin above the highest threat (SET_TO_TOP)
+
+### Whose whose_threat = Whose.ORIGINATOR {#prop-whose-threat}
+
+Whose threat changes (not for REDIRECT)
+
+### OnEnemies on_enemies = OnEnemies.ALL_ENGAGED {#prop-on-enemies}
+
+On which NPCs: the target of the effect, or every enemy fighting the entity whose threat changes (not for REDIRECT)
+
+### int redirect_uses = 0 {#prop-redirect-uses}
+
+REDIRECT: how many threat-making actions are redirected (0 = all of them while the effect lasts)
+
+### float redirect_percent = 100.0 {#prop-redirect-percent}
+
+REDIRECT: the share of the threat that goes to the other party, in percent (100 = all of it, a classic misdirection; 10 = a tenth of it goes, the rest stays)
+
+## Method descriptions
+
+### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
+
+*No description yet.*
+
+### String get_effect_description() {#method-get-effect-description}
+
+*No description yet.*
+
+### String get_editor_description() {#method-get-editor-description}
+
+*No description yet.*
+
+### bool is_one_off_application() {#method-is-one-off-application}
+
+Changing threat happens once; a redirect is a lasting state
+

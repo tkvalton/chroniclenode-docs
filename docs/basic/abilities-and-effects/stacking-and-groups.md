@@ -8,7 +8,7 @@ The stacking fields are in the [Effects editor](/basic/abilities-and-effects/eff
 
 | Stacking rule | What happens when the effect is applied again |
 |---|---|
-| **No limits** | Nothing is combined: each application is a new copy with its own timer, and the stack fields (**Max stacks** and the rest) do not apply. The same caster applying it twice gets two copies |
+| **Separate copies** | Nothing is combined: each application is a new copy with its own timer, and the stack fields (**Max stacks** and the rest) do not apply. The same caster applying it twice gets two copies |
 | **Per originator** | Each caster has one copy on the target. More applications by the same caster add stacks to that copy |
 | **Global** | The target has one copy, whoever applies it. Every application adds stacks to it |
 
@@ -24,7 +24,7 @@ With **Per originator**, each caster's copy is separate, so it ends with its own
 
 | You want | Use |
 |---|---|
-| Every application to be its own separate copy, such as several independent bleeds | **No limits** |
+| Every application to be its own separate copy, such as several independent bleeds | **Separate copies** |
 | Each caster's poison to build up as stacks on its own, without mixing with another caster's | **Per originator** |
 | One "Sunder Armor" on the target that everyone's attacks add to | **Global** |
 | A buff that only refreshes when applied again | **Global** with **Max stacks** `1` and **Refresh on stack** on |

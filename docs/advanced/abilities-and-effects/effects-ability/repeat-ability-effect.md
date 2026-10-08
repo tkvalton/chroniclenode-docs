@@ -1,5 +1,59 @@
+<!-- generated from the code comments by scripts/scan-classes.mjs: change the comments in the code, not this page -->
+
 # RepeatAbilityEffect
 
-::: warning Work in progress
-This page is being written.
-:::
+**Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < `DatabaseResource` < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+
+"Cast it again": applies the on-use effects of an ability again, to the same target, a number of times with a delay between them.
+
+## Properties
+
+| | | |
+|---|---|---|
+| `int` | [ability_id](#prop-ability-id) | `0` |
+| `int` | [repeat_count](#prop-repeat-count) | `1` |
+| `float` | [repeat_delay](#prop-repeat-delay) | `0.5` |
+
+## Methods
+
+| | |
+|---|---|
+| `void` | [specific_effect_logic](#method-specific-effect-logic)( `effect_instance: EffectInstance` ) |
+| `String` | [get_effect_description](#method-get-effect-description)() |
+| `String` | [get_editor_description](#method-get-editor-description)() |
+| `bool` | [is_one_off_application](#method-is-one-off-application)() |
+
+## Property descriptions
+
+*Repeat*
+
+### int ability_id = 0 {#prop-ability-id}
+
+The ability to repeat (0 = the ability this effect belongs to)
+
+### int repeat_count = 1 {#prop-repeat-count}
+
+How many extra times the ability's effects are applied
+
+### float repeat_delay = 0.5 {#prop-repeat-delay}
+
+Seconds before each repeat
+
+## Method descriptions
+
+### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
+
+*No description yet.*
+
+### String get_effect_description() {#method-get-effect-description}
+
+*No description yet.*
+
+### String get_editor_description() {#method-get-editor-description}
+
+*No description yet.*
+
+### bool is_one_off_application() {#method-is-one-off-application}
+
+What this effect does it does once, when it is applied: a loaded save does not do it again
+

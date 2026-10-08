@@ -16,7 +16,7 @@ The fields at the top are the same for every effect. At the bottom, **Specific P
 |---|---|
 | **Display name** | The name the player sees, for example on the buffs bar |
 | **ID** | The number the toolkit gave this effect. Other things refer to the effect by it, and it never changes |
-| **Description** | The text of the effect's tooltip |
+| **Description** | The text shown when the player points at the effect on the interface (a buff icon, a nameplate). Leave it empty to show the text the effect type writes itself, for example "deals 10 damage". In it, `<Effect1>`, `<Effect2>` and so on are replaced by the text of the effect's child effects. See [Child effects and auras](/basic/abilities-and-effects/child-effects-and-auras) |
 | **Icon** | The icon shown for this effect, for example on the buffs bar. The **X** button removes it |
 | **Effect school** | The kind of effect for dispels, purges and immunities: magic, poison, curse and so on. You define schools under *Tags & Groups > School Types*. An effect with no school cannot be removed by a dispel |
 | **Applies to** | Whether the effect lands on the **Target** or on the **Self** (the caster). A self-effect on an ability aimed at an ally is how a "Misdirection" effect puts something on the caster while the ally is the target |
@@ -54,7 +54,7 @@ When an effect is applied while the same effect is already running on the target
 
 | Field | What it does | Default |
 |---|---|---|
-| **Stacking rule** | How a new application meets one that is already on the target. See the table below | No limits |
+| **Stacking rule** | How a new application meets one that is already on the target. See the table below | Separate copies |
 | **Stacks per application** | How many stacks one application adds | `1` |
 | **Max stacks** | The most stacks allowed (for the two rules that stack) | `1` |
 | **Refresh on stack** | A new stack restarts the duration | off |
@@ -62,11 +62,11 @@ When an effect is applied while the same effect is already running on the target
 
 | Stacking rule | What happens when the effect is applied again | Same caster applies it twice | Two casters apply it |
 |---|---|---|---|
-| **No limits** | Nothing is combined. Every application is a new, separate copy with its own timer. **Max stacks** and the other stack fields do not apply | Two copies, both running | Two copies |
+| **Separate copies** | Nothing is combined. Every application is a new, separate copy with its own timer. **Max stacks** and the other stack fields do not apply | Two copies, both running | Two copies |
 | **Per originator** | A caster who already has the effect on the target adds a stack to *their* copy (up to **Max stacks**). Another caster gets their own copy | One copy with two stacks | Two copies, one each |
 | **Global** | The target has one copy, whoever applied it. Every application adds a stack to it (up to **Max stacks**) | One copy with two stacks | One copy with two stacks |
 
-The difference between **No limits** and **Per originator** is what happens when the *same* caster applies the effect again. With *No limits* they get a second, independent copy: the effect simply happens twice, and each copy ends on its own. With *Per originator* they get a stronger single copy, with a limit.
+The difference between **Separate copies** and **Per originator** is what happens when the *same* caster applies the effect again. With *Separate copies* they get a second, independent copy: the effect simply happens twice, and each copy ends on its own. With *Per originator* they get a stronger single copy, with a limit.
 
 ::: tip Stacking a damage-over-time effect
 For poison that gets stronger with each application, use **Per originator** or **Global** with a **Max stacks** above 1, and turn on **Refresh on stack** so every application restarts the timer.
@@ -74,12 +74,12 @@ For poison that gets stronger with each application, use **Per originator** or *
 
 Removing a stacked effect removes all its stacks, whoever applied them.
 
-## Aura
+## Buff and debuff display
 
 | Field | What it does |
 |---|---|
-| **Applies aura** | Shows the effect on the interface as a buff or a debuff: on the buff and debuff bars, nameplates and unit frames. It is a flag for the interface. It is also what a *Clear* effect that removes buffs or debuffs looks at: only effects marked as auras can be cleared that way |
-| **Aura classification** | Whether it is shown as a **Buff** (helpful) or a **Debuff** (harmful). It decides the border color on the interface and which kind of Clear effect removes it |
+| **Show as buff/debuff** | Shows the effect on the interface as a buff or a debuff: on the buff and debuff bars, nameplates and unit frames. It is a flag for the interface. It is also what a *Clear* effect that removes buffs or debuffs looks at: only effects marked as auras can be cleared that way |
+| **Buff or debuff** | Whether it is shown as a **Buff** (helpful) or a **Debuff** (harmful). It decides the border color on the interface and which kind of Clear effect removes it |
 
 ## Groups and requirements
 

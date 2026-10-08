@@ -6,6 +6,7 @@
 // Only abilities and effects so far: add a system to SYSTEMS to do the next one.
 import fs from 'node:fs'
 import path from 'node:path'
+import { parseClass, renderClass, MARKER } from './gdscript-doc.mjs'
 
 const ADDON = process.env.CHRONICLENODE_ADDON ?? 'C:/Users/Rhys/Documents/rpg-toolkit/addons/chroniclenode'
 
@@ -70,7 +71,8 @@ function classOf(file) {
   return null
 }
 
-let created = 0
+let written = 0
+let skipped = 0
 for (const [slug, system] of Object.entries(SYSTEMS)) {
   const out = []
   const seen = new Set()
@@ -91,15 +93,29 @@ for (const [slug, system] of Object.entries(SYSTEMS)) {
     `docs/.vitepress/classes-${slug}.mjs`,
     `// Written by scripts/scan-classes.mjs from the addon: the classes of the ${system.title} system.\nexport const groups = ${JSON.stringify(out, null, 2)}\n`,
   )
+  // every class of the addon, to follow the inheritance chain; the pages of this system, to link to
+  const all = new Map()
+  for (const file of gdFiles('.', true)) {
+    const c = classOf(file)
+    if (c) all.set(c.name, c)
+  }
+  const pages = new Map()
+  for (const group of out) for (const c of group.classes) pages.set(c.name, `/advanced/${slug}/${group.slug}/${kebab(c.name)}`)
+  const stub = name => `# ${name}\n\n::: warning Work in progress\nThis page is being written.\n:::\n`
   for (const group of out) {
     for (const c of group.classes) {
       const file = `docs/advanced/${slug}/${group.slug}/${kebab(c.name)}.md`
-      if (fs.existsSync(file)) continue
+      // a page written by hand is never touched: only a stub or a generated page is written again
+      if (fs.existsSync(file)) {
+        const current = fs.readFileSync(file, 'utf8')
+        if (!current.includes(MARKER) && current !== stub(c.name)) { skipped++; continue }
+      }
+      const info = parseClass(path.join(ADDON, c.file))
       fs.mkdirSync(path.dirname(file), { recursive: true })
-      fs.writeFileSync(file, `# ${c.name}\n\n::: warning Work in progress\nThis page is being written.\n:::\n`)
-      created++
+      fs.writeFileSync(file, info ? renderClass(info, { all, pages }) : stub(c.name))
+      written++
     }
   }
   console.log(slug, out.map(g => `${g.text}: ${g.classes.length}`).join(', '))
 }
-console.log(created, 'class pages created')
+console.log(written, 'class pages written,', skipped, 'written by hand and left alone')
