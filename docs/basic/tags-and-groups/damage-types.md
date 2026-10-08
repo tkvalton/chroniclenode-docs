@@ -18,7 +18,7 @@ A damage type can put [effects](/basic/abilities-and-effects/effects) on whoever
 
 The effects are applied only when the hit **landed** and did damage: a dodged, immune or redirected hit applies nothing, and neither does the hit that kills. A hit caused by one of the type's own effects (the burn itself) never applies them again, so a burn does not burn the burn.
 
-To make fire burn: make an effect *Burning* (a Damage effect of type *Fire* with a duration and a tick rate), make the damage type *Fire*, and tick *Burning* in its **Applied effects**. Every fire spell now sets the target alight, whichever ability it comes from. The demo does not use this.
+To make fire burn: make an effect *Burning* (a Damage effect of type *Fire* with a duration and a tick rate), make the damage type *Fire*, and add *Burning* to its **Applied effects** (the **Add...** button opens the catalog). Every fire spell now sets the target alight, whichever ability it comes from. The demo does not use this.
 
 ## Where a damage type is used
 

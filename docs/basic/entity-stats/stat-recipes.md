@@ -41,7 +41,7 @@ A hit that cannot be avoided cannot be missed.
 
 ## A mastery
 
-A mastery makes some abilities stronger, and gets better with a stat. Give a stat a **Calculation Modifier Effect** on Damage Done (or Healing Done), percentage increase, and tick the abilities in **Only these abilities** (or the effects in **Only these effects**). For a flat talent that does not grow with a stat, use the [Ability Boost](/basic/abilities-and-effects/effect-amount#boosting-some-abilities) effect in a passive ability.
+A mastery makes some abilities stronger, and gets better with a stat. Give a stat a **Calculation Modifier Effect** on Damage Done (or Healing Done), percentage increase, and choose the abilities in **Only these abilities** (or the effects in **Only these effects**) with the **Add...** button, which opens the catalog. For a flat talent that does not grow with a stat, use the [Ability Boost](/basic/abilities-and-effects/effect-amount#boosting-some-abilities) effect in a passive ability.
 
 ## Expertise
 
@@ -91,7 +91,7 @@ A *Trigger Rule Effect* that changes the rolls of the **owner** is for your own 
 
 ## Skills from proficiencies
 
-A [proficiency](/basic/entity-stats/proficiencies) gives points to a stat per level. The stat then has the effects: *Weapon Skill* is a Calculation Modifier Effect on Damage Done, percentage increase, `0.5` per point. Add [diminishing returns](/basic/shared-systems/formulas) such as a soft cap to make the first levels count more.
+A [proficiency](/basic/entity-stats/proficiencies) has stat effects of its own, and its level is their points: *One-Handed Weapons* has a Calculation Modifier Effect on Damage Done, percentage increase, `0.5` per level, and a Trigger Rule Effect that lowers the chance to miss. Add [diminishing returns](/basic/shared-systems/formulas) such as a soft cap to make the first levels count more. They only work while the gear of the skill is used.
 
 ## Other common stats
 

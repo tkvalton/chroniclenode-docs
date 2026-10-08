@@ -4,11 +4,11 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-The proficiency levels of one player: skill in weapon types, armor classes and schools, or any skill a game adds (lockpicking).
+The proficiency levels of one player: skill in weapon classes and types, armor classes, schools, or any skill a game adds (lockpicking).
 
 ## Description
 
-It listens to the player: a hit dealt with a weapon, a hit taken in armor and an ability used give experience to the proficiencies that name them (see ProficiencyDefinition). Levels give points to the proficiency's stat, so skill reaches everything a stat does. Rewards and scripts add experience or levels directly. The levels are saved with the player.
+It listens to the player: a hit dealt with a weapon, a hit taken in armor and an ability used give experience to the proficiencies that name them (see ProficiencyDefinition). The level of a proficiency is the points of its hidden stat (ProficiencyDefinition.get_virtual_stat), so the stat effects of the proficiency work from it; by default only while the player holds or wears what the proficiency is for. Rewards and scripts add experience or levels directly. The levels are saved with the player.
 
 ## Variables
 
@@ -29,6 +29,7 @@ It listens to the player: a hit dealt with a weapon, a hit taken in armor and an
 | `int` | [add_levels](#method-add-levels)( `proficiency_id: int, levels: int` ) |
 | `Array[int]` | [get_known_ids](#method-get-known-ids)() |
 | `void` | [sync_all_stats](#method-sync-all-stats)() |
+| `float` | [get_active_points](#method-get-active-points)( `proficiency_id: int` ) |
 | `Dictionary` | [to_save_data](#method-to-save-data)() |
 | `void` | [load_save_data](#method-load-save-data)( `saved: Dictionary` ) |
 
@@ -80,7 +81,11 @@ The proficiencies the player has trained or been given (those with a level above
 
 ### void sync_all_stats() {#method-sync-all-stats}
 
-Puts the points of every proficiency on its stat
+Puts the points of every proficiency on its hidden stat
+
+### float get_active_points( proficiency_id: int ) {#method-get-active-points}
+
+The points the proficiency gives now: its level while the player uses what it is for, else none
 
 ### Dictionary to_save_data() {#method-to-save-data}
 

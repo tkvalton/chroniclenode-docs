@@ -26,6 +26,7 @@
 
 | | |
 |---|---|
+| `bool` | [is_virtual](#method-is-virtual)() |
 | `bool` | [is_in_group](#method-is-in-group)( `group_id: int` ) |
 | `String` | [format_display_value](#method-format-display-value)( `raw_value: float` ) |
 | `float` | [validate_and_format_value](#method-validate-and-format-value)( `raw_value: float` ) |
@@ -41,6 +42,10 @@
 ### enum ValueType {#enum-valuetype}
 
 - **INTEGER** = `0`
+
+## Constants
+
+- `int` **VIRTUAL_ID_BASE** = `500000000` - The ids from here up belong to the hidden stats that carry the effects of proficiencies (ProficiencyDefinition.get_virtual_stat)
 
 ## Property descriptions
 
@@ -107,6 +112,10 @@ Ceiling on the total growth (0 = none)
 What the stat does: each effect turns the points of the stat into something (another stat, pool capacity, a damage change, a crit chance, leech ...)
 
 ## Method descriptions
+
+### bool is_virtual() {#method-is-virtual}
+
+Is this the hidden stat of a proficiency?
 
 ### bool is_in_group( group_id: int ) {#method-is-in-group}
 

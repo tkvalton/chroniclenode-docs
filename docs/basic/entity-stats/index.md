@@ -12,7 +12,7 @@ Every character, creature and destructible object in the game has numbers: how s
 | **Calculation** | The four moments a number is worked out: damage dealt, damage taken, healing done, healing taken. Stat effects plug into them | [Calculations](/basic/entity-stats/calculations) |
 | **Status effect definition** | A kind of control: a stun, a root, a silence, with [diminishing returns](/basic/keywords#diminishing-returns) | [Status Effects](/basic/abilities-and-effects/status-effects) |
 | **Tags and groups** | The labels the numbers use: [damage types](/basic/tags-and-groups/damage-types), schools, [trigger tags](/basic/tags-and-groups/trigger-tags), [entity tags](/basic/tags-and-groups/entity-tags), [stat groups](/basic/tags-and-groups/stat-groups), [immunities](/basic/tags-and-groups/immunities) | [Tags & Groups](/basic/tags-and-groups/) |
-| **Proficiency** | A skill the player gets better at by use or training: swords, heavy armor, lockpicking. Its level gives points to a stat | [Proficiencies](/basic/entity-stats/proficiencies) |
+| **Proficiency** | A skill the player gets better at by use or training: swords, heavy armor, lockpicking. Its level is the points of its own stat effects, and it can gate weapons and armor | [Proficiencies](/basic/entity-stats/proficiencies) |
 | **Formula** | How the points of a stat turn into a value: armor, crit chance, growth per level | [Formulas](/basic/shared-systems/formulas) |
 
 ## How a stat becomes a number

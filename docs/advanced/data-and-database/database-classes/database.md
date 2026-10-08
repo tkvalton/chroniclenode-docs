@@ -29,6 +29,7 @@ All the resources extend DatabaseResource. The database also makes the few resou
 | `SunConfig` | [get_default_sun_config](#method-get-default-sun-config)() *static* |
 | `SkyConfig` | [get_default_sky_config](#method-get-default-sky-config)() *static* |
 | `EnvironmentConfig` | [get_default_environment_config](#method-get-default-environment-config)() *static* |
+| `Array` | [get_all_stat_definitions](#method-get-all-stat-definitions)() *static* |
 | `Dictionary` | [get_cache](#method-get-cache)( `type: String` ) *static* |
 | `bool` | [resource_exists](#method-resource-exists)( `type: String, id: int` ) *static* |
 | `DatabaseResource` | [create_resource](#method-create-resource)( `type: String, res_name: String, type_override: GDScript = null` ) *static* |
@@ -110,6 +111,10 @@ Get default sky config
 ### EnvironmentConfig get_default_environment_config() {#method-get-default-environment-config}
 
 Get default environment config
+
+### Array get_all_stat_definitions() {#method-get-all-stat-definitions}
+
+Every stat definition the entities get: the stats of the project, and the hidden stat of each proficiency (it carries the effects of the proficiency, see ProficiencyDefinition.get_virtual_stat). Not saved anywhere: made when asked for
 
 ### Dictionary get_cache( type: String ) {#method-get-cache}
 
