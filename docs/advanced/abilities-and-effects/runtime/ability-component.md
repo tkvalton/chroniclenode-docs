@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-AbilityComponent orchestrates ability instances for an entity.
+AbilityComponent orchestrates ability instances for an entity. Manages collections, routes use attempts, and handles global cooldown. Passive effect application is fully owned by AbilityInstance - this component does not touch passive effect state directly.
 
 ## Variables
 

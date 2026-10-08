@@ -18,6 +18,7 @@ Requires entity to be one of the specified player classes
 | | |
 |---|---|
 | `bool` | [check](#method-check)( `entity: Entity` ) |
+| `Array[Dictionary]` | [validate](#method-validate)() |
 | `String` | [get_failure_message](#method-get-failure-message)( `entity: Entity` ) |
 | `String` | [get_summary](#method-get-summary)() |
 | `void` | [connect_to_entity_signals](#method-connect-to-entity-signals)( `entity: Entity` ) |
@@ -38,6 +39,10 @@ If true, entity must NOT be one of these classes
 ### bool check( entity: Entity ) {#method-check}
 
 Check if the entity meets this requirement Returns true if requirement is satisfied, false otherwise *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+
+### Array[Dictionary] validate() {#method-validate}
+
+An empty list of classes restricts nothing
 
 ### String get_failure_message( entity: Entity ) {#method-get-failure-message}
 

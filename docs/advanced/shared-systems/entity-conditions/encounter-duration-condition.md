@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if the current encounter has been running for a specific duration.
+Checks if the current encounter has been running for a specific duration. Useful for phase transitions or time-based AI behavior.
 
 ## Properties
 

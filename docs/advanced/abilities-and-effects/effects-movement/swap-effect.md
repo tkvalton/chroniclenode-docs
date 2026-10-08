@@ -4,11 +4,9 @@
 
 **Inherits:** [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-SwapEffect: Two entities instantly swap positions
+SwapEffect: Two entities instantly swap positions The originator teleports to the target's position and vice versa. Child effects can be applied to either or both entities on arrival.
 
 ## Description
-
-SwapEffect: Two entities instantly swap positions The originator teleports to the target's position and vice versa. Child effects can be applied to either or both entities on arrival.
 
 Perfect for support life-saving swaps, trickster position exchanges, chaos mage scrambles, and tactical repositioning abilities.
 

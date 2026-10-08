@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if the entity or target has a specific effect active.
+Checks if the entity or target has a specific effect active. Consolidates HasEffect and TargetHasEffect conditions.
 
 ## Properties
 

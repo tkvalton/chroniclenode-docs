@@ -4,7 +4,7 @@
 
 **Inherits:** [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-WeaponCollisionEffect for melee attacks that use the weapon's collision shape
+WeaponCollisionEffect for melee attacks that use the weapon's collision shape Automatically uses the collision shape from the user's equipped weapon in the specified slot
 
 ## Properties
 

@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if the target entity is a Player with a specific class ID.
+Checks if the target entity is a Player with a specific class ID. Uses EntityCondition targeting to determine which entity to check.
 
 ## Properties
 

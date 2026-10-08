@@ -4,7 +4,7 @@
 
 **Inherits:** [TargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/target-strategy-definition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Definition for self-targeting abilities (buffs, heals, transformations, etc.).
+Definition for self-targeting abilities (buffs, heals, transformations, etc.). Always targets the caster regardless of input or current target.
 
 ## Methods
 

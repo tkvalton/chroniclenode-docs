@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-Utility class for checking requirements and generating feedback
+Utility class for checking requirements and generating feedback Can be used as a static utility or instantiated for batch checking
 
 ## Methods
 

@@ -4,11 +4,9 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Applies a Reward to the target entity
+Applies a Reward to the target entity Works with the existing Reward system to grant abilities, items, currency, effects, etc. Supports reverting rewards when the effect ends (if the reward type supports unapply)
 
 ## Description
-
-Applies a Reward to the target entity Works with the existing Reward system to grant abilities, items, currency, effects, etc. Supports reverting rewards when the effect ends (if the reward type supports unapply)
 
 NOTE: QuestReward is not allowed as it cannot be reversed
 

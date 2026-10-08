@@ -6,7 +6,7 @@
 
 **Inherited by:** [CombatDurationCondition](/advanced/shared-systems/encounter-conditions/combat-duration-condition), [DistanceFromPositionCondition](/advanced/shared-systems/encounter-conditions/distance-from-position-condition), [EncounterActiveStateCondition](/advanced/shared-systems/encounter-conditions/encounter-active-state-condition), [EncounterCombatStateCondition](/advanced/shared-systems/encounter-conditions/encounter-combat-state-condition), [EncounterEntityCountCondition](/advanced/shared-systems/encounter-conditions/encounter-entity-count-condition), [GroupHealthPercentageCondition](/advanced/shared-systems/encounter-conditions/group-health-percentage-condition), [GroupMembersAliveCondition](/advanced/shared-systems/encounter-conditions/group-members-alive-condition), [PlayersInAreaCondition](/advanced/shared-systems/encounter-conditions/players-in-area-condition)
 
-Base class for conditions that evaluate encounter state.
+Base class for conditions that evaluate encounter state. Can target different encounters based on EncounterTarget enum or specific encounter ID.
 
 ## Properties
 

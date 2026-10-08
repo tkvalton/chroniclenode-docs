@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-What an ability spends besides its resource cost: ammo or reagents (ActiveAbilityDefinition.ammo_source). Checks that the user has them, takes them when the
+What an ability spends besides its resource cost: ammo or reagents (ActiveAbilityDefinition.ammo_source). Checks that the user has them, takes them when the ability is used, gives them back when the use is cancelled, and reports the ammo effects of the item that was spent (a poison arrow). Only players and companions pay: an NPC does not need arrows. See docs/systems/ability-mechanics-plan.md, section 5.
 
 ## Methods
 

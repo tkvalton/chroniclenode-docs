@@ -6,7 +6,7 @@
 
 **Inherited by:** [BoomerangProjectileEffect](/advanced/abilities-and-effects/effects-projectiles-and-shots/boomerang-projectile-effect), [ChainProjectileEffect](/advanced/abilities-and-effects/effects-projectiles-and-shots/chain-projectile-effect), [DirectProjectileEffect](/advanced/abilities-and-effects/effects-projectiles-and-shots/direct-projectile-effect), [HomingProjectileEffect](/advanced/abilities-and-effects/effects-projectiles-and-shots/homing-projectile-effect), [PhysicsProjectileEffect](/advanced/abilities-and-effects/effects-projectiles-and-shots/physics-projectile-effect)
 
-Base class for all projectile effects
+Base class for all projectile effects Handles shared functionality like spawn position, signals, and lifecycle
 
 ## Properties
 

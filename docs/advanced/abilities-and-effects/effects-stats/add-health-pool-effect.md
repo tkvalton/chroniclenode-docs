@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-"Absorb Shield": adds a temporary health pool (shield/barrier) to the target entity; with no pool chosen it is the built-in
+"Absorb Shield": adds a temporary health pool (shield/barrier) to the target entity; with no pool chosen it is the built-in Shield pool, which absorbs the first X damage of any hit before health does. The pool is removed when the effect ends. Value can be scaled through combat calculation pipelines (supports crits, bonuses, etc.)
 
 ## Properties
 

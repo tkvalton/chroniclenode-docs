@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-DamageRedirectionEffect redirects damage from the target to the originator.
+DamageRedirectionEffect redirects damage from the target to the originator. This creates "guardian" or "tank" mechanics where one entity takes damage for another.
 
 ## Properties
 

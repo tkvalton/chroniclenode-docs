@@ -4,7 +4,7 @@
 
 **Inherits:** [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-DashEffect: Distance-based movement (instant or smooth)
+DashEffect: Distance-based movement (instant or smooth) Combines instant teleportation and smooth dashing into one flexible effect Perfect for blink step, phase dash, precise repositioning, and gap closers
 
 ## Properties
 

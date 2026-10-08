@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-PetCommandAbilityEffect is a specialized effect that commands a specific pet
+PetCommandAbilityEffect is a specialized effect that commands a specific pet to use a specified ability. This effect allows for complex pet management and coordination between the player and their pets in combat or other scenarios.
 
 ## Properties
 

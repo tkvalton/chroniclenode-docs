@@ -8,8 +8,6 @@ Optional level dependence for a CalculationFormula or a DiminishingReturns.
 
 ## Description
 
-Optional level dependence for a CalculationFormula or a DiminishingReturns.
-
 Produces a factor from a level. The formula uses it to change how many points are needed: a Hyperbolic formula multiplies its K by the factor, a SoftCap multiplies its threshold, a Linear formula divides its value per point. So the same points are worth less at a higher level. A formula or curve with no LevelScaling ignores level.
 
 Default factor: start_factor at level 1, rising linearly to 1.0 at reference_level and continuing above it. (A plain level / reference_level would make the constants tiny at low levels.) Supply a Curve to override it. See docs/systems/entity-stats.md, section 18.2.

@@ -4,7 +4,7 @@
 
 **Inherits:** [UseStrategyDefinition](/advanced/abilities-and-effects/use-strategies/use-strategy-definition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Definition for abilities that execute over time with periodic or continuous effects.
+Definition for abilities that execute over time with periodic or continuous effects. Supports both tick-based channeling (periodic effects) and active channeling (continuous effects). Includes PowerUp ability support for progressive effects and completion-based tiers.
 
 ## Properties
 

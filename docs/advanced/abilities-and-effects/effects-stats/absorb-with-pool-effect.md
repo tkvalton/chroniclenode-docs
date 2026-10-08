@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-"Absorb Damage With Pool": for as long as the effect lasts, a pool the target already has (mana, rage ...) also takes part of
+"Absorb Damage With Pool": for as long as the effect lasts, a pool the target already has (mana, rage ...) also takes part of the damage it suffers. A mage's mana shield turns the mana bar into a second health bar: 50 % of every hit is paid for with mana, 2 damage per point. The pool is not created or removed, only given a damage layer (see DamageLayer); the layer goes away when the effect ends or, if wanted, when the pool runs empty. See docs/systems/entity-stats.md, section 26.
 
 ## Properties
 

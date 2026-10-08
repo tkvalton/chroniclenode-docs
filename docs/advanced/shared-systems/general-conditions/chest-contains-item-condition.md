@@ -4,7 +4,7 @@
 
 **Inherits:** [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Check if a container contains specific items
+Check if a container contains specific items Evaluates whether a chest/container has the required items and quantities
 
 ## Properties
 

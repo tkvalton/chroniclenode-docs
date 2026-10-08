@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Switches stats on or off on the target entity: one stat, or every stat of a stat group (all Offensive stats off while the target is disarmed).
+Switches stats on or off on the target entity: one stat, or every stat of a stat group (all Offensive stats off while the target is disarmed). What each stat was before is remembered and put back when the effect ends.
 
 ## Properties
 

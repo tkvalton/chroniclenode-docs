@@ -21,6 +21,7 @@ Requires entity to have a minimum value in a specific stat
 | `bool` | [check](#method-check)( `entity: Entity` ) |
 | `String` | [get_failure_message](#method-get-failure-message)( `entity: Entity` ) |
 | `String` | [get_summary](#method-get-summary)() |
+| `Array[Dictionary]` | [validate](#method-validate)() |
 | `void` | [connect_to_entity_signals](#method-connect-to-entity-signals)( `entity: Entity` ) |
 | `void` | [disconnect_from_entity_signals](#method-disconnect-from-entity-signals)( `entity: Entity` ) |
 
@@ -51,6 +52,10 @@ Get the failure message with entity-specific context *(from [Requirement](/advan
 ### String get_summary() {#method-get-summary}
 
 Get a summary of this requirement for tooltips/UI *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+
+### Array[Dictionary] validate() {#method-validate}
+
+No stat chosen means the requirement asks nothing
 
 ### void connect_to_entity_signals( entity: Entity ) {#method-connect-to-entity-signals}
 

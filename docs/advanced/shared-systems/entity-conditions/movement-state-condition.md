@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks whether the entity is standing still, moving, in the air or on the ground.
+Checks whether the entity is standing still, moving, in the air or on the ground. Use it for "heal 20 while not moving": a ticking Condition conditional effect (tick every second) with this condition and a heal as its child effect, or as a condition on a stat effect or a requirement. "Standing still" and "Moving" can ask for a minimum time.
 
 ## Properties
 

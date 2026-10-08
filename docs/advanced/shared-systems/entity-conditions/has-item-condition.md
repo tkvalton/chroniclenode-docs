@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Check if entity has specific items in their inventory
+Check if entity has specific items in their inventory Evaluates whether the entity has the required items and quantities
 
 ## Properties
 

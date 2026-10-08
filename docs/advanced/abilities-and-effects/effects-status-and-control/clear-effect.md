@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-ClearEffect removes other effects from the target entity
+ClearEffect removes other effects from the target entity Uses ID-based system for referencing schools and effects
 
 ## Properties
 

@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-Lightweight runtime instance of an effect that references an EffectDefinition for behavior
+Lightweight runtime instance of an effect that references an EffectDefinition for behavior Handles all runtime state while the definition provides immutable logic
 
 ## Variables
 

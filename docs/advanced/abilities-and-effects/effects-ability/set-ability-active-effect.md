@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Forces a specific ability into the READY state for the effect's duration.
+Forces a specific ability into the READY state for the effect's duration. When the effect ends the ability is set back to INACTIVE. Use case: temporary ability unlocks, timed power grants, conditional ability access. Note: Use AbilityCooldownEffect with cooldown_reset = true to clear an active cooldown instead.
 
 ## Properties
 

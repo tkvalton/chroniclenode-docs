@@ -19,6 +19,7 @@ Requires entity to have a minimum reputation with a faction
 | | |
 |---|---|
 | `bool` | [check](#method-check)( `entity: Entity` ) |
+| `Array[Dictionary]` | [validate](#method-validate)() |
 | `String` | [get_failure_message](#method-get-failure-message)( `entity: Entity` ) |
 | `String` | [get_summary](#method-get-summary)() |
 
@@ -41,6 +42,10 @@ Named reputation level (e.g., "Friendly", "Allied")
 ### bool check( entity: Entity ) {#method-check}
 
 Check if the entity meets this requirement Returns true if requirement is satisfied, false otherwise *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+
+### Array[Dictionary] validate() {#method-validate}
+
+No faction chosen means the requirement asks nothing
 
 ### String get_failure_message( entity: Entity ) {#method-get-failure-message}
 

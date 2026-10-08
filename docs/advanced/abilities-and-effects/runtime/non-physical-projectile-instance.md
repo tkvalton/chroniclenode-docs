@@ -4,7 +4,7 @@
 
 **Inherits:** [BaseProjectileInstance](/advanced/abilities-and-effects/runtime/base-projectile-instance) < [Node3D](https://docs.godotengine.org/en/stable/classes/class_node3d.html)
 
-Lightweight projectile with raycast-only collision detection
+Lightweight projectile with raycast-only collision detection Movement is handled entirely by movement strategies, this class only provides collision detection
 
 ## Variables
 

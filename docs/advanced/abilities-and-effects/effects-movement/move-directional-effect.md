@@ -6,7 +6,7 @@
 
 **Inherited by:** [AcceleratedMoveEffect](/advanced/abilities-and-effects/effects-movement/accelerated-move-effect), [ConstantMoveEffect](/advanced/abilities-and-effects/effects-movement/constant-move-effect), [DashEffect](/advanced/abilities-and-effects/effects-movement/dash-effect), [ImpulseEffect](/advanced/abilities-and-effects/effects-movement/impulse-effect), [PullEffect](/advanced/abilities-and-effects/effects-movement/pull-effect), [PushEffect](/advanced/abilities-and-effects/effects-movement/push-effect)
 
-MoveDirectionalEffect - Base class for all directional movement effects
+MoveDirectionalEffect - Base class for all directional movement effects Inherits from CompositeEffect to support child effects on collision and normal application
 
 ## Properties
 

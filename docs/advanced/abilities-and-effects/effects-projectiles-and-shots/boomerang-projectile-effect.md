@@ -4,7 +4,7 @@
 
 **Inherits:** [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Boomerang projectile effect - travels to target then returns to caster
+Boomerang projectile effect - travels to target then returns to caster Only supports collision triggers (destination/timer would break return mechanic)
 
 ## Properties
 

@@ -4,7 +4,7 @@
 
 **Inherits:** [Requirement](/advanced/shared-systems/requirements/requirement) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Requirement that checks if a player has seen/selected a specific response
+Requirement that checks if a player has seen/selected a specific response Useful for branching conversations based on player choices
 
 ## Properties
 

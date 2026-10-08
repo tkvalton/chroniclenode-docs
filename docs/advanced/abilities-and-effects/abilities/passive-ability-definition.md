@@ -6,11 +6,9 @@
 
 **Inherited by:** [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition)
 
-PassiveAbilityDefinition is the base for any ability that has persistent passive effects.
+PassiveAbilityDefinition is the base for any ability that has persistent passive effects. It holds passive_effects and owns the virtual logic for applying/removing them. ActiveAbilityDefinition extends this, inheriting passive effect support.
 
 ## Description
-
-PassiveAbilityDefinition is the base for any ability that has persistent passive effects. It holds passive_effects and owns the virtual logic for applying/removing them. ActiveAbilityDefinition extends this, inheriting passive effect support.
 
 As a standalone concrete resource it represents a pure passive ability - an always-on aura or buff that requires no player input to use.
 

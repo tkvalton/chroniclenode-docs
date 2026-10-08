@@ -8,8 +8,6 @@ The audio library of the project, read from the folders under `res://src/data/au
 
 ## Description
 
-The audio library of the project, read from the folders under `res://src/data/audio/`.
-
 SFX_CATEGORIES lists the categories (music, ambience, UI, voices, voicelines, footsteps, casting, impact, loops, environmental, interactables ...) with their folder, how the folder is organised and the file types. The class also keeps the albums: the built-in UI albums (main menu, character creation, pause menu, loading screen), custom UI albums and the world albums (AudioAlbum) that worlds use. The folders are scanned once on first use.
 
 ## Methods

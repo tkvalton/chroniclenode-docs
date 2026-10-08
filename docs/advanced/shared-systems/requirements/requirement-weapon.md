@@ -18,6 +18,7 @@ Requires entity to have specific weapon types equipped
 | | |
 |---|---|
 | `bool` | [check](#method-check)( `entity: Entity` ) |
+| `Array[Dictionary]` | [validate](#method-validate)() |
 | `String` | [get_failure_message](#method-get-failure-message)( `entity: Entity` ) |
 | `String` | [get_summary](#method-get-summary)() |
 | `void` | [connect_to_entity_signals](#method-connect-to-entity-signals)( `entity: Entity` ) |
@@ -38,6 +39,10 @@ Required weapon type IDs - entity must have one of these equipped
 ### bool check( entity: Entity ) {#method-check}
 
 Check if the entity meets this requirement Returns true if requirement is satisfied, false otherwise *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+
+### Array[Dictionary] validate() {#method-validate}
+
+Specific weapon types are required but none is listed
 
 ### String get_failure_message( entity: Entity ) {#method-get-failure-message}
 

@@ -10,8 +10,6 @@ Slot 2 of every per-point stat effect: turns (effective) stat points into the va
 
 ## Description
 
-Slot 2 of every per-point stat effect: turns (effective) stat points into the value the effect applies.
-
 Armor is a Hyperbolic formula, a flat damage bonus is a Linear one, a fixed crit bonus is a Flat one. To add your own, create a child class in your project folder (see docs/systems/entity-stats.md, section 18.2):
 
 @tool class_name MyArmorFormula extends CalculationFormula @export var k: float = 120.0 func evaluate(points: float, context: FormulaContext = null) -&gt; float: return 100.0 * points / (points + k)

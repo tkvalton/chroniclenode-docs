@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-Threat in one place: who gets threat on whom, from damage, from healing and from effects, with the redirects (misdirection) applied.
+Threat in one place: who gets threat on whom, from damage, from healing and from effects, with the redirects (misdirection) applied. An NPC keeps its threat in its threat table (ThreatTableComponent). Only NPCs have one; threat on anything else is ignored. See docs/systems/ability-mechanics-plan.md, section 6.
 
 ## Methods
 

@@ -6,11 +6,9 @@
 
 **Inherited by:** [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect), [ChainEffect](/advanced/abilities-and-effects/effects-composite/chain-effect), [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect), [ConditionalEffect](/advanced/abilities-and-effects/effects-base/conditional-effect), [ConsumeEffect](/advanced/abilities-and-effects/effects-composite/consume-effect), [DelayedEffect](/advanced/abilities-and-effects/effects-composite/delayed-effect), [HitscanEffect](/advanced/abilities-and-effects/effects-projectiles-and-shots/hitscan-effect), [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect), [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect), [ProcEffect](/advanced/abilities-and-effects/effects-base/proc-effect)
 
-CompositeEffect applies multiple child effects when triggered.
+CompositeEffect applies multiple child effects when triggered. The effects handle their own registration with EffectsComponent via EffectInstance.start_effect()
 
 ## Description
-
-CompositeEffect applies multiple child effects when triggered. The effects handle their own registration with EffectsComponent via EffectInstance.start_effect()
 
 Key features:
 

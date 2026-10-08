@@ -4,7 +4,7 @@
 
 **Inherits:** [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Homing projectile effect - tracks target with optional curve patterns
+Homing projectile effect - tracks target with optional curve patterns Uses steering behaviors to home in on moving or stationary targets
 
 ## Properties
 

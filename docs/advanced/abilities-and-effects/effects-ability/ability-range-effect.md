@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Modifies the targeting range of a specific ability.
+Modifies the targeting range of a specific ability. Writes directly to the target strategy's runtime_property_overrides. Examples: extend range on sniper shot, reduce range as a debuff, grant melee ability range boost.
 
 ## Properties
 

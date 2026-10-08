@@ -4,7 +4,7 @@
 
 **Inherits:** [UseStrategyDefinition](/advanced/abilities-and-effects/use-strategies/use-strategy-definition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Definition for abilities that require a casting time before execution.
+Definition for abilities that require a casting time before execution. Handles the complete cast timing pattern including preparation, casting state, and completion.
 
 ## Properties
 

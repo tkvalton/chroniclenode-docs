@@ -4,7 +4,7 @@
 
 **Inherits:** [TargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/target-strategy-definition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-The target is whatever the user is aiming at (Entity.get_aim: the crosshair or mouse pointer for the player, the target for an NPC).
+The target is whatever the user is aiming at (Entity.get_aim: the crosshair or mouse pointer for the player, the target for an NPC). Resolves to an entity when one is aimed at (the locked target, the entity under the aim, or the one closest to the aim line within the assist angle), otherwise to the point the aim hits, so a shot can fly where the player looks. For bows, guns and thrown things; a tab-target game keeps using Enemy.
 
 ## Properties
 

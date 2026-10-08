@@ -4,11 +4,9 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-Words in &lt;angle brackets&gt; that are filled in when text is shown: "Well met, &lt;player name&gt;!" or "Bring me &lt;target&gt; wolf pelts, &lt;player class&gt;".
+Words in &lt;angle brackets&gt; that are filled in when text is shown: "Well met, &lt;player name&gt;!" or "Bring me &lt;target&gt; wolf pelts, &lt;player class&gt;". Quest names and descriptions, objectives, hand-in text and conversation text can use them (the editor says which in the tooltips of those fields).
 
 ## Description
-
-Words in &lt;angle brackets&gt; that are filled in when text is shown: "Well met, &lt;player name&gt;!" or "Bring me &lt;target&gt; wolf pelts, &lt;player class&gt;". Quest names and descriptions, objectives, hand-in text and conversation text can use them (the editor says which in the tooltips of those fields).
 
 A token is a name in angle brackets. Capital letters, underscores and spaces do not matter (&lt;Player Name&gt; is &lt;player_name&gt;). Something in angle brackets that is not a token is left as it is. What a token says depends on what the text belongs to (the context): the player is the one in control unless a player is given, an NPC token needs the NPC the player talks to, and so on. A token that has nothing to say in the place it is shown gets a plain fallback ("Adventurer"), never an empty gap.
 

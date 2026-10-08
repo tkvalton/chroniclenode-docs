@@ -8,8 +8,6 @@ A group is a tag that effects, abilities and items can be in (several at once). 
 
 ## Description
 
-A group is a tag that effects, abilities and items can be in (several at once). The group decides how its members interact:
-
 - **Exclusive effects**: only `max_active` effects of the group can be active at the same time within the group's scope. A paladin's Seals
 
 (one per paladin), Blessings (one per paladin on each target), Well Fed (one per target), Battle and Guardian Elixir (one each). An effect in several groups needs a free slot in each of them, so a Flask that is in both elixir groups replaces either elixir.

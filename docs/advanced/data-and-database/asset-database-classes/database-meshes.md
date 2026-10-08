@@ -8,8 +8,6 @@ The mesh and material library of the project, read from the folders under `res:/
 
 ## Description
 
-The mesh and material library of the project, read from the folders under `res://src/data/meshes/`.
-
 It holds weapons (`equipment/weapons/<category>/`), the parts of modular characters (`equipment/body_parts/<tag>/<part>/`), attachments (`equipment/attachments/<tag>/<slot>/`), facial features (`facial/<skeleton tag>/<feature>/`) and materials (`materials/<category>/`). A mesh file may have a skin file next to it with the same name (`_mesh` replaced by `_skin`). The folders are scanned once on first use; call refresh_database after adding files.
 
 ## Methods

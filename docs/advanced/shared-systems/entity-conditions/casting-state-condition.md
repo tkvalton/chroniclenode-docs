@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if the entity or target is currently casting/not casting.
+Checks if the entity or target is currently casting/not casting. Consolidates IsCasting and TargetIsCasting conditions.
 
 ## Properties
 

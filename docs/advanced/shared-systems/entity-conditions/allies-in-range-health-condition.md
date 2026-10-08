@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if minimum number of allies in range are above/below health threshold
+Checks if minimum number of allies in range are above/below health threshold Consolidates HealthAbove and HealthBelow conditions with encounter support.
 
 ## Properties
 

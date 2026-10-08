@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Modifies cooldown properties on a specific ability.
+Modifies cooldown properties on a specific ability. Cooldown duration modifier reverts when the effect ends. Active timer reduction and cooldown reset are permanent (never reverted).
 
 ## Properties
 

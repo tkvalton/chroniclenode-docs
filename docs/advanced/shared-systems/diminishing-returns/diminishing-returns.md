@@ -6,11 +6,9 @@
 
 **Inherited by:** [DrawnCurveDiminishingReturns](/advanced/shared-systems/diminishing-returns/drawn-curve-diminishing-returns), [SoftCapDiminishingReturns](/advanced/shared-systems/diminishing-returns/soft-cap-diminishing-returns)
 
-Slot 1 of a per-point stat effect (optional, off by default): reshapes the stat points BEFORE the formula, so
+Slot 1 of a per-point stat effect (optional, off by default): reshapes the stat points BEFORE the formula, so points above a threshold are worth less. Crit rating is a Linear formula (0.05 % per point) behind a SoftCap (points above 400 count half). The result is "effective points", which the CalculationFormula then converts.
 
 ## Description
-
-Slot 1 of a per-point stat effect (optional, off by default): reshapes the stat points BEFORE the formula, so points above a threshold are worth less. Crit rating is a Linear formula (0.05 % per point) behind a SoftCap (points above 400 count half). The result is "effective points", which the CalculationFormula then converts.
 
 To add your own, create a child class in your project folder (see docs/systems/entity-stats.md, section 18.2):
 

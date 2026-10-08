@@ -8,8 +8,6 @@ The one place that turns stat points into an effect value, so every effect type 
 
 ## Description
 
-The one place that turns stat points into an effect value, so every effect type does it identically:
-
 points -&gt; [DiminishingReturns] (optional) -&gt; CalculationFormula -&gt; optional max result
 
 Also draws the sample points the editor graph and table use. See docs/systems/entity-stats.md, section 18.2.

@@ -4,11 +4,9 @@
 
 **Inherits:** [CalculationFormula](/advanced/shared-systems/formulas/calculation-formula) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-value = max_value x points / (points + k): the armor formula of League of Legends, WoW's avoidance and most
+value = max_value x points / (points + k): the armor formula of League of Legends, WoW's avoidance and most modern ARPGs. Never reaches max_value, so it needs no hard cap, and every point of armor adds the same amount of effective health. k is the number of points that gives half of max_value (k 100: 100 points = 50 %, 300 = 75 %).
 
 ## Description
-
-value = max_value x points / (points + k): the armor formula of League of Legends, WoW's avoidance and most modern ARPGs. Never reaches max_value, so it needs no hard cap, and every point of armor adds the same amount of effective health. k is the number of points that gives half of max_value (k 100: 100 points = 50 %, 300 = 75 %).
 
 With level scaling k is multiplied by the level factor (the same armor protects less against a higher-level attacker).
 

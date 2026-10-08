@@ -6,7 +6,7 @@
 
 **Inherited by:** [AbilityCooldownReadyCondition](/advanced/shared-systems/entity-conditions/ability-cooldown-ready-condition), [AlliesInRangeCondition](/advanced/shared-systems/entity-conditions/allies-in-range-condition), [AlliesInRangeHealthCondition](/advanced/shared-systems/entity-conditions/allies-in-range-health-condition), [AlliesInRangeWithEffectCondition](/advanced/shared-systems/entity-conditions/allies-in-range-with-effect-condition), [CastingStateCondition](/advanced/shared-systems/entity-conditions/casting-state-condition), [CombatStateCondition](/advanced/shared-systems/entity-conditions/combat-state-condition), [EncounterDurationCondition](/advanced/shared-systems/entity-conditions/encounter-duration-condition), [EncounterFactionBalanceCondition](/advanced/shared-systems/entity-conditions/encounter-faction-balance-condition), [EnemiesInRangeCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-condition), [EnemiesInRangeHealthCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-health-condition), [EnemiesInRangeWithEffectCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-with-effect-condition), [EntitiesInRangeHealthCondition](/advanced/shared-systems/entity-conditions/entities-in-range-health-condition), [EntitiesInRangeWithEffectCondition](/advanced/shared-systems/entity-conditions/entities-in-range-with-effect-condition), [EntityDistanceToEntityCondition](/advanced/shared-systems/entity-conditions/entity-distance-to-entity-condition), [EntityDistanceToInteractableCondition](/advanced/shared-systems/entity-conditions/entity-distance-to-interactable-condition), [EntityHasTagCondition](/advanced/shared-systems/entity-conditions/entity-has-tag-condition), [HasEffectCondition](/advanced/shared-systems/entity-conditions/has-effect-condition), [HasEquippedCondition](/advanced/shared-systems/entity-conditions/has-equipped-condition), [HasItemCondition](/advanced/shared-systems/entity-conditions/has-item-condition), [HasTargetCondition](/advanced/shared-systems/entity-conditions/has-target-condition), [HealthPercentCondition](/advanced/shared-systems/entity-conditions/health-percent-condition), [IsAliveCondition](/advanced/shared-systems/entity-conditions/is-alive-condition), [IsLevelCondition](/advanced/shared-systems/entity-conditions/is-level-condition), [IsPlayerClassCondition](/advanced/shared-systems/entity-conditions/is-player-class-condition), [MetadataCondition](/advanced/shared-systems/entity-conditions/metadata-condition), [MovementStateCondition](/advanced/shared-systems/entity-conditions/movement-state-condition), [QuestActiveEntityCondition](/advanced/shared-systems/general-conditions/quest-active-entity-condition), [QuestCompletedEntityCondition](/advanced/shared-systems/general-conditions/quest-completed-entity-condition), [RandomChanceCondition](/advanced/shared-systems/general-conditions/random-chance-condition), [SwitchStateCondition](/advanced/shared-systems/general-conditions/switch-state-condition), [TargetDistanceBetweenCondition](/advanced/shared-systems/entity-conditions/target-distance-between-condition), [TargetDistanceCondition](/advanced/shared-systems/entity-conditions/target-distance-condition), [TargetIsPlayerCondition](/advanced/shared-systems/entity-conditions/target-is-player-condition), [WorldPositionDistanceBetweenCondition](/advanced/shared-systems/entity-conditions/world-position-distance-between-condition), [WorldPositionDistanceCondition](/advanced/shared-systems/entity-conditions/world-position-distance-condition)
 
-Base class for conditions that evaluate entity state.
+Base class for conditions that evaluate entity state. Can target different entities based on EntityTarget enum or specific entity ID.
 
 ## Properties
 
@@ -22,6 +22,7 @@ Base class for conditions that evaluate entity state.
 | `Entity` | [get_target_entity](#method-get-target-entity)( `argument: Variant = null` ) |
 | `bool` | [evaluate_entity](#method-evaluate-entity)( `entity: Entity` ) |
 | `bool` | [evaluate](#method-evaluate)( `argument: Variant = null` ) |
+| `Array[Player]` | [get_party_members](#method-get-party-members)( `argument: Variant = null` ) |
 | `String` | [get_description](#method-get-description)() |
 | `String` | [get_entity_description](#method-get-entity-description)() |
 | `String` | [get_entity_function_description](#method-get-entity-function-description)() |
@@ -37,8 +38,8 @@ Base class for conditions that evaluate entity state.
 - **ARGUMENT_ENTITY** = `0` - Use the entity passed as argument
 - **ARGUMENT_ENTITY_TARGET** = `1` - Use the argument entity's target
 - **CURRENT_PLAYER** = `2` - Use the current active player
-- **ANY_PLAYER** = `3` - Check any players
-- **ALL_PLAYER** = `4` - Check all players
+- **ANY_PLAYER** = `3` - True when the condition holds for at least one member of the party
+- **ALL_PLAYER** = `4` - True when the condition holds for every member of the party
 - **SUMMONER** = `5` - Use the argument entity's owner
 - **UNIQUE_ID** = `6` - Use entity with specific unique_id
 - **OPPONENT** = `7` - The other side of the hit being calculated (only for conditions on stat effects, see StatConditionContext)
@@ -68,6 +69,10 @@ Override this in subclasses to implement entity-specific evaluation @param entit
 ### bool evaluate( argument: Variant = null ) {#method-evaluate}
 
 Final evaluate method that handles entity targeting and calls evaluate_entity Don't override this - override evaluate_entity instead
+
+### Array[Player] get_party_members( argument: Variant = null ) {#method-get-party-members}
+
+The members of the party the condition is asked about (empty when there is no party yet)
 
 ### String get_description() {#method-get-description}
 

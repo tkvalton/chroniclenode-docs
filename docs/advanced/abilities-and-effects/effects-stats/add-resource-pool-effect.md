@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Adds a temporary resource pool to the target entity.
+Adds a temporary resource pool to the target entity. Useful for granting bonus mana, rage, energy, or custom resources. The pool is removed when the effect ends.
 
 ## Properties
 

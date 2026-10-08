@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-What a CalculationFormula / DiminishingReturns can see when it is evaluated: who owns the stat, who is
+What a CalculationFormula / DiminishingReturns can see when it is evaluated: who owns the stat, who is attacking and defending, their levels, the damage type, the size of the incoming hit and the DamageResult being built. Outside combat (pool capacity from a stat, stat-to-stat effects, level growth) only the owner part is filled. See docs/systems/entity-stats.md, section 18.2.
 
 ## Variables
 

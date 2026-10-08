@@ -4,7 +4,7 @@
 
 **Inherits:** [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-TeleportToPointEffect: Instant teleportation to target position
+TeleportToPointEffect: Instant teleportation to target position Perfect for blink step, phase dash, and instant repositioning abilities
 
 ## Methods
 

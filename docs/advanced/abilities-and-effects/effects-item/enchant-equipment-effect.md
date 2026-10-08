@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Applies an enchant effect to equipment in a specific slot
+Applies an enchant effect to equipment in a specific slot Similar to ItemDefinitionEnchantScroll but works through the effect system
 
 ## Properties
 

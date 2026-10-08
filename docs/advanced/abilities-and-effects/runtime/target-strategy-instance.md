@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-Runtime instance of a targeting strategy that references a TargetStrategyDefinition for configuration.
+Runtime instance of a targeting strategy that references a TargetStrategyDefinition for configuration. Contains only runtime state and data - all logic is delegated to the definition. Follows the same pattern as AbilityInstance -&gt; AbilityDefinition relationship.
 
 ## Variables
 

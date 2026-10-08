@@ -6,7 +6,7 @@
 
 **Inherited by:** [ChargeStackActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/charge-stack-active-ability-definition), [ComboActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/combo-active-ability-definition), [PowerUpActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/power-up-active-ability-definition)
 
-ActiveAbilityDefinition with integrated Requirement system
+ActiveAbilityDefinition with integrated Requirement system Active abilities are player-triggered abilities that consume resources and have cooldowns They require targeting and use strategies to determine how they execute
 
 ## Properties
 

@@ -4,7 +4,7 @@
 
 **Inherits:** [TargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/target-strategy-definition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Definition for targeting allied entities (friendly factions, party members, self) and targetable objects.
+Definition for targeting allied entities (friendly factions, party members, self) and targetable objects. Validates targets based on faction relationships and alliance rules.
 
 ## Properties
 

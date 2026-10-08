@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-The modifiers on the properties of one ability, use strategy or targeting strategy (cooldown, cost, cast time, range ...).
+The modifiers on the properties of one ability, use strategy or targeting strategy (cooldown, cost, cast time, range ...). Each modifier remembers where it came from, so two sources stack and one of them can be taken away again without touching the other. The result is resolved in a fixed order, whatever order the modifiers arrived in: 1. flat: ADD and MINUS are summed and added to the base value 2. percent: PERCENTAGE_INCREASE and PERCENTAGE_DECREASE are summed (+20 and -20 cancel) and applied to that 3. MULTIPLY: the factors are multiplied in 4. SET_VALUE: if there is one, it wins (the newest one) See docs/systems/effects-and-abilities.md, section 3.
 
 ## Methods
 

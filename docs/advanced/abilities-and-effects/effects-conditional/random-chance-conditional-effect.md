@@ -4,7 +4,7 @@
 
 **Inherits:** [ConditionalEffect](/advanced/abilities-and-effects/effects-base/conditional-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Applies child effects based on a percentage chance, with optional advanced RNG modes
+Applies child effects based on a percentage chance, with optional advanced RNG modes to smooth out bad luck streaks.
 
 ## Properties
 

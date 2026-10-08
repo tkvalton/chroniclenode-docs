@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if the target entity is in combat or not.
+Checks if the target entity is in combat or not. Uses EntityCondition targeting to determine which entity to check.
 
 ## Properties
 

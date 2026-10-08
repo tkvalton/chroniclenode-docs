@@ -4,7 +4,7 @@
 
 **Inherits:** [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Chain projectile effect - bounces between multiple targets with selectable trigger
+Chain projectile effect - bounces between multiple targets with selectable trigger Can use collision, destination, or timer triggers for different behaviors
 
 ## Properties
 

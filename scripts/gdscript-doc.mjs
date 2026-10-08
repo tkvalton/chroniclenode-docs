@@ -209,14 +209,14 @@ export function renderClass(info, ctx) {
     b = ctx.all.get(b)?.base
   }
   const children = [...ctx.all.values()].filter(c => c.base === info.name && ctx.pages.has(c.name)).map(c => link(c.name)).sort()
-  const brief = info.doc.length ? paragraphs([info.doc.find(l => l.trim() !== '') ?? '']) : ''
+  // the first paragraph of the comment is the brief description; what follows it is the Description section
+  const docParagraphs = info.doc.length ? paragraphs(info.doc).split('\n\n') : []
+  const brief = docParagraphs[0] ?? ''
   const out = [MARKER, '', `# ${info.name}`, '']
   out.push(`**Inherits:** ${chain.join(' < ')}`, '')
   if (children.length) out.push(`**Inherited by:** ${children.join(', ')}`, '')
   if (brief) out.push(brief, '')
-  // (the first paragraph is the brief description above; the Description section is only for what comes after it)
-  const bodyParagraphs = info.doc.length ? paragraphs(info.doc).split('\n\n') : []
-  if (bodyParagraphs.length > 1) out.push('## Description', '', bodyParagraphs.join('\n\n'), '')
+  if (docParagraphs.length > 1) out.push('## Description', '', docParagraphs.slice(1).join('\n\n'), '')
   const typeText = t => (t ? code(t) : code('Variant'))
   if (info.properties.length) {
     out.push('## Properties', '', '| | | |', '|---|---|---|')
@@ -288,8 +288,11 @@ export function renderClass(info, ctx) {
   return out.join('\n').replace(/\n{3,}/g, '\n\n') + '\n'
 }
 
-/** The first line of the description of a class, ready for a table cell */
+/** The first paragraph of the description of a class, on one line, ready for a table cell */
 export function briefOf(info) {
-  const first = info.doc.find(l => l.trim() !== '')
-  return first ? inlineCode(first.trim()).replace(/\|/g, '\\|') : ''
+  const first = info.doc.length ? paragraphs(info.doc).split('\n\n')[0].replace(/\n/g, ' ') : ''
+  // a table cell takes the first sentence of the paragraph (the whole paragraph when it has one sentence)
+  const end = first.search(/[.!?](\s|$)/)
+  const sentence = end > 15 ? first.slice(0, end + 1) : first
+  return sentence.replace(/\|/g, '\\|')
 }

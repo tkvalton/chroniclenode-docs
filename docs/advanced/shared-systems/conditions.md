@@ -38,7 +38,7 @@ Do not override `evaluate` in an entity or encounter condition. The base class f
 | `SUMMONER` | `argument.summoner`, when the argument is a `Pet` |
 | `UNIQUE_ID` | The entity registered under `target_entity_id` in the object registry (needs the system hub) |
 | `OPPONENT` | The other side of the hit, for conditions on stat effects (see below) |
-| `ANY_PLAYER`, `ALL_PLAYER` | Declared but not resolved: the condition is `false` |
+| `ANY_PLAYER`, `ALL_PLAYER` | Not one entity but the whole party: `evaluate` asks every member of the party (`get_party_members`, from the system hub or the current player) and is true when at least one member passes (`ANY_PLAYER`) or every member passes (`ALL_PLAYER`). With no party it is `false` |
 
 `EncounterCondition.encounter_target` works the same way: `ARGUMENT_ENCOUNTER` (an `Encounter`, or the encounter of an `Entity`), `CURRENT_ACTIVE`, `NEAREST` and `UNIQUE_ID` (`encounter_id`).
 
@@ -111,23 +111,23 @@ func get_entity_description() -> String:
 |---|---|
 | [AbilityCooldownReadyCondition](/advanced/shared-systems/entity-conditions/ability-cooldown-ready-condition) | Checks if a specific ability is off cooldown and ready to use. |
 | [AlliesInRangeCondition](/advanced/shared-systems/entity-conditions/allies-in-range-condition) | Checks if a minimum number of allies are within a specified range. |
-| [AlliesInRangeHealthCondition](/advanced/shared-systems/entity-conditions/allies-in-range-health-condition) | Checks if minimum number of allies in range are above/below health threshold |
-| [AlliesInRangeWithEffectCondition](/advanced/shared-systems/entity-conditions/allies-in-range-with-effect-condition) | Checks if minimum number of allies in range have/don't have specific effect |
+| [AlliesInRangeHealthCondition](/advanced/shared-systems/entity-conditions/allies-in-range-health-condition) | Checks if minimum number of allies in range are above/below health threshold Consolidates HealthAbove and HealthBelow conditions with encounter support. |
+| [AlliesInRangeWithEffectCondition](/advanced/shared-systems/entity-conditions/allies-in-range-with-effect-condition) | Checks if minimum number of allies in range have/don't have specific effect Now supports encounter-aware searching and inverted logic. |
 | [CastingStateCondition](/advanced/shared-systems/entity-conditions/casting-state-condition) | Checks if the entity or target is currently casting/not casting. |
 | [CombatStateCondition](/advanced/shared-systems/entity-conditions/combat-state-condition) | Checks if the target entity is in combat or not. |
 | [EncounterDurationCondition](/advanced/shared-systems/entity-conditions/encounter-duration-condition) | Checks if the current encounter has been running for a specific duration. |
 | [EncounterFactionBalanceCondition](/advanced/shared-systems/entity-conditions/encounter-faction-balance-condition) | Checks the faction balance in the current encounter. |
 | [EnemiesInRangeCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-condition) | Checks if a minimum number of enemies are within a specified range. |
-| [EnemiesInRangeHealthCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-health-condition) | Checks if minimum number of enemies in range are above/below health threshold |
-| [EnemiesInRangeWithEffectCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-with-effect-condition) | Checks if minimum number of enemies in range have/don't have specific effect |
+| [EnemiesInRangeHealthCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-health-condition) | Checks if minimum number of enemies in range are above/below health threshold Consolidates HealthAbove and HealthBelow conditions with encounter support. |
+| [EnemiesInRangeWithEffectCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-with-effect-condition) | Checks if minimum number of enemies in range have/don't have specific effect Now supports encounter-aware searching and inverted logic. |
 | [EntitiesInRangeHealthCondition](/advanced/shared-systems/entity-conditions/entities-in-range-health-condition) | Checks if minimum number of entities in range are above/below health threshold |
 | [EntitiesInRangeWithEffectCondition](/advanced/shared-systems/entity-conditions/entities-in-range-with-effect-condition) | Checks if minimum number of entities in range have/don't have specific effect |
 | [EntityDistanceToEntityCondition](/advanced/shared-systems/entity-conditions/entity-distance-to-entity-condition) | Checks distance between the target entity and another specific entity. |
 | [EntityDistanceToInteractableCondition](/advanced/shared-systems/entity-conditions/entity-distance-to-interactable-condition) | Checks distance between the target entity and a specific interactable object. |
-| [EntityHasTagCondition](/advanced/shared-systems/entity-conditions/entity-has-tag-condition) | Checks the type tags of an entity ("Undead", "Beast" ...). With the target kind "opponent" on a stat effect this is the |
+| [EntityHasTagCondition](/advanced/shared-systems/entity-conditions/entity-has-tag-condition) | Checks the type tags of an entity ("Undead", "Beast" ...). |
 | [HasEffectCondition](/advanced/shared-systems/entity-conditions/has-effect-condition) | Checks if the entity or target has a specific effect active. |
-| [HasEquippedCondition](/advanced/shared-systems/entity-conditions/has-equipped-condition) | Check if entity has specific equipment items equipped |
-| [HasItemCondition](/advanced/shared-systems/entity-conditions/has-item-condition) | Check if entity has specific items in their inventory |
+| [HasEquippedCondition](/advanced/shared-systems/entity-conditions/has-equipped-condition) | Check if entity has specific equipment items equipped Evaluates whether the entity has the required equipment items currently equipped |
+| [HasItemCondition](/advanced/shared-systems/entity-conditions/has-item-condition) | Check if entity has specific items in their inventory Evaluates whether the entity has the required items and quantities |
 | [HasTargetCondition](/advanced/shared-systems/entity-conditions/has-target-condition) | Checks if the entity has a valid target. |
 | [HealthPercentCondition](/advanced/shared-systems/entity-conditions/health-percent-condition) | Checks if the entity's health is above/below a specified percentage. |
 | [IsAliveCondition](/advanced/shared-systems/entity-conditions/is-alive-condition) | Checks if the target entity is alive or dead. |
@@ -173,8 +173,8 @@ func get_entity_description() -> String:
 <!-- classes:shared-systems/general-conditions -->
 | Class | What it is |
 |---|---|
-| [ChestContainsItemCondition](/advanced/shared-systems/general-conditions/chest-contains-item-condition) | Check if a container contains specific items |
-| [DoorStateCondition](/advanced/shared-systems/general-conditions/door-state-condition) | Check door state and accessibility |
+| [ChestContainsItemCondition](/advanced/shared-systems/general-conditions/chest-contains-item-condition) | Check if a container contains specific items Evaluates whether a chest/container has the required items and quantities |
+| [DoorStateCondition](/advanced/shared-systems/general-conditions/door-state-condition) | Check door state and accessibility Evaluates door-specific conditions like open/closed state and lock status |
 | [EventActiveEntityCondition](/advanced/shared-systems/general-conditions/event-active-entity-condition) | Checks if a specific event is currently active |
 | [EventCompletedEntityCondition](/advanced/shared-systems/general-conditions/event-completed-entity-condition) | Checks if a specific event has been completed |
 | [GameTimeCondition](/advanced/shared-systems/general-conditions/game-time-condition) | Checks if the current game time meets specified criteria. |
@@ -188,5 +188,5 @@ func get_entity_description() -> String:
 | [QuestCompletedEntityCondition](/advanced/shared-systems/general-conditions/quest-completed-entity-condition) | Checks if a specific quest has been completed |
 | [RandomChanceCondition](/advanced/shared-systems/general-conditions/random-chance-condition) | Checks if a random roll succeeds based on percentage chance. |
 | [RegionPresenceCondition](/advanced/shared-systems/general-conditions/region-presence-condition) | Checks if entities are present in a specific region |
-| [SwitchStateCondition](/advanced/shared-systems/general-conditions/switch-state-condition) | Check if a switch is in the desired state |
+| [SwitchStateCondition](/advanced/shared-systems/general-conditions/switch-state-condition) | Check if a switch is in the desired state Evaluates switch-specific conditions like ON/OFF state |
 <!-- /classes -->

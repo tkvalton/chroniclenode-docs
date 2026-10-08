@@ -10,8 +10,6 @@ The base of the effects whose outcome is a combat result: damage and healing.
 
 ## Description
 
-The base of the effects whose outcome is a combat result: damage and healing.
-
 Such an effect goes through the calculation phases, where the tags of a hit (critical strike, dodge, block, multistrike ...) are rolled. **Trigger rules** on the effect change how those tags behave whenever this effect causes the hit or the heal, whatever the stats of the user say. Effects that are not a hit or a heal (a buff, a status, a movement) have nothing to roll, so they do not carry the list.
 
 ## Properties

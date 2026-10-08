@@ -6,7 +6,7 @@
 
 **Inherited by:** [CastUseStrategyDefinition](/advanced/abilities-and-effects/use-strategies/cast-use-strategy-definition), [ChannelUseStrategyDefinition](/advanced/abilities-and-effects/use-strategies/channel-use-strategy-definition), [InstantUseStrategyDefinition](/advanced/abilities-and-effects/use-strategies/instant-use-strategy-definition), [ToggleUseStrategyDefinition](/advanced/abilities-and-effects/use-strategies/toggle-use-strategy-definition)
 
-UseStrategyDefinition contains all logic for ability usage strategies.
+UseStrategyDefinition contains all logic for ability usage strategies. Subclasses implement specific timing patterns (instant, cast, channel, toggle). UseStrategyInstance holds only runtime state and delegates logic to this definition.
 
 ## Properties
 

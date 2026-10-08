@@ -6,7 +6,7 @@
 
 **Inherited by:** [NonPhysicalProjectileInstance](/advanced/abilities-and-effects/runtime/non-physical-projectile-instance), [PhysicalProjectileInstance](/advanced/abilities-and-effects/runtime/physical-projectile-instance)
 
-Base class for all projectile instances - handles VFX, signals, and basic lifecycle
+Base class for all projectile instances - handles VFX, signals, and basic lifecycle Follows the same pattern as Effect/EffectInstance with shared functionality
 
 ## Variables
 

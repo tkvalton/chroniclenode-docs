@@ -4,11 +4,9 @@
 
 **Inherits:** [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-ChargeToPointEffect: Straight-line ground charge to a target position or entity
+ChargeToPointEffect: Straight-line ground charge to a target position or entity Self-contained movement — drives the entity each physics tick via move_and_slide() for proper collision detection along the charge path. Duration is derived from distance/speed so the charge feels consistent regardless of range.
 
 ## Description
-
-ChargeToPointEffect: Straight-line ground charge to a target position or entity Self-contained movement — drives the entity each physics tick via move_and_slide() for proper collision detection along the charge path. Duration is derived from distance/speed so the charge feels consistent regardless of range.
 
 Perfect for warrior charges, bull rushes, tackles, and gap closers that need to collide with entities along the path.
 

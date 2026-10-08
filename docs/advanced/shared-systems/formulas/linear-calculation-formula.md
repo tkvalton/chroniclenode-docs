@@ -4,11 +4,9 @@
 
 **Inherits:** [CalculationFormula](/advanced/shared-systems/formulas/calculation-formula) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-value = points x value_per_point. The default formula, and what every effect did before formulas existed
+value = points x value_per_point. The default formula, and what every effect did before formulas existed (+2 attack power per Strength, 0.05 % crit chance per rating point).
 
 ## Description
-
-value = points x value_per_point. The default formula, and what every effect did before formulas existed (+2 attack power per Strength, 0.05 % crit chance per rating point).
 
 With level scaling the points needed per unit of value grow with level: value = points x value_per_point / factor.
 

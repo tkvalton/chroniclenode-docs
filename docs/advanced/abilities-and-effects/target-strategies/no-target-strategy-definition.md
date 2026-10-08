@@ -4,7 +4,7 @@
 
 **Inherits:** [TargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/target-strategy-definition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Definition for abilities that don't need specific targeting (AoE around user, global effects, buffs).
+Definition for abilities that don't need specific targeting (AoE around user, global effects, buffs). These abilities execute without requiring a target selection, typically affecting areas or global state.
 
 ## Methods
 

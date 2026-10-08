@@ -4,7 +4,7 @@
 
 **Inherits:** [ScalingEffect](/advanced/abilities-and-effects/effects-base/scaling-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-StatModifierEffect modifies stats using the new stats system
+StatModifierEffect modifies stats using the new stats system Can optionally tap into DamageDoneCalculation for enhanced effects It changes one stat, or every stat of a stat group at once ("all Primary stats +10 %"): see StatGroupDefinition
 
 ## Properties
 

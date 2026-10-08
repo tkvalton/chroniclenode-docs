@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks distance between the target entity and another specific entity.
+Checks distance between the target entity and another specific entity. Uses EntityCondition targeting to determine the first entity, then compares distance to a second entity by ID.
 
 ## Properties
 

@@ -4,7 +4,7 @@
 
 **Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-DelayedEffect applies child effects after a specified delay
+DelayedEffect applies child effects after a specified delay Can also be configured as a "trigger" effect that applies when cancelled
 
 ## Properties
 

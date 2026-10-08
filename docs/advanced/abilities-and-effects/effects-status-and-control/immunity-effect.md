@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-ImmunityEffect grants or removes immunity to certain types of effects or damage
+ImmunityEffect grants or removes immunity to certain types of effects or damage for the target entity. Duration is now handled by the effect's time strategy.
 
 ## Properties
 

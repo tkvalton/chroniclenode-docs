@@ -6,7 +6,7 @@
 
 **Inherited by:** [RequirementEquipmentSlot](/advanced/shared-systems/requirements/requirement-equipment-slot), [RequirementFaction](/advanced/shared-systems/requirements/requirement-faction), [RequirementLevel](/advanced/shared-systems/requirements/requirement-level), [RequirementPlayerClassDefinition](/advanced/shared-systems/requirements/requirement-player-class-definition), [RequirementResponseSeen](/advanced/shared-systems/requirements/requirement-response-seen), [RequirementStat](/advanced/shared-systems/requirements/requirement-stat), [RequirementWeapon](/advanced/shared-systems/requirements/requirement-weapon)
 
-Base class for all requirement types in the game.
+Base class for all requirement types in the game. Requirements determine whether an entity can use an item, ability, or access content. Pure validation logic - no side effects.
 
 ## Methods
 
@@ -15,6 +15,7 @@ Base class for all requirement types in the game.
 | `bool` | [check](#method-check)( `entity: Entity` ) |
 | `String` | [get_failure_message](#method-get-failure-message)( `entity: Entity` ) |
 | `String` | [get_summary](#method-get-summary)() |
+| `Array[Dictionary]` | [validate](#method-validate)() |
 | `void` | [connect_to_entity_signals](#method-connect-to-entity-signals)( `entity: Entity` ) |
 | `void` | [disconnect_from_entity_signals](#method-disconnect-from-entity-signals)( `entity: Entity` ) |
 
@@ -37,6 +38,10 @@ Get the failure message with entity-specific context
 ### String get_summary() {#method-get-summary}
 
 Get a summary of this requirement for tooltips/UI
+
+### Array[Dictionary] validate() {#method-validate}
+
+Configuration problems of this requirement, as a list of {"type", "message", "severity"} ("warning" or "error"). An empty list is fine. Types override it to point out settings that make them useless. RequirementChecker.validate_requirements collects them for the editor
 
 ### void connect_to_entity_signals( entity: Entity ) {#method-connect-to-entity-signals}
 

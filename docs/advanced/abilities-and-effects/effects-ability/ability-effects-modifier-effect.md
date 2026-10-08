@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-AbilityEffectsModifierEffect adds or removes effects from a target ability's
+AbilityEffectsModifierEffect adds or removes effects from a target ability's passive_effects or on_use_effects array at runtime.
 
 ## Properties
 

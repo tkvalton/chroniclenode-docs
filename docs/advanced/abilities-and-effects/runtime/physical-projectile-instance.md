@@ -4,7 +4,7 @@
 
 **Inherits:** [BaseProjectileInstance](/advanced/abilities-and-effects/runtime/base-projectile-instance) < [Node3D](https://docs.godotengine.org/en/stable/classes/class_node3d.html)
 
-Physics-based projectile with gravity, RigidBody3D physics, and raycast collision detection
+Physics-based projectile with gravity, RigidBody3D physics, and raycast collision detection Uses hybrid approach: RigidBody3D for realistic physics + raycast for reliable collision detection
 
 ## Variables
 

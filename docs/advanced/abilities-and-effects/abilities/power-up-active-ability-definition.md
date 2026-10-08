@@ -8,8 +8,6 @@ PowerUpActiveAbilityDefinition adapts its charging behaviour based on the UseStr
 
 ## Description
 
-PowerUpActiveAbilityDefinition adapts its charging behaviour based on the UseStrategyDefinition.
-
 Instant:  Resource-based charging (spend more resources = higher tier) Cast:     Cast time determines charge tier (longer cast = higher tier) Channel:  Progressive/accumulating effects during channel + final burst Toggle:   Charge builds while toggle is active (stance power-up over time)
 
 ## Properties

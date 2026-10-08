@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Forces the target to target the originator for the duration of the effect (give it a duration: an effect without one ends at once).
+Forces the target to target the originator for the duration of the effect (give it a duration: an effect without one ends at once). An NPC attacks the originator whatever its threat table says (and the originator's threat can be put at the top, so the NPC stays on him after the taunt); a player or a companion gets the originator selected and locked on. See docs/systems/ability-mechanics-plan.md, section 6.
 
 ## Properties
 

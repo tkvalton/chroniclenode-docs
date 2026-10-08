@@ -8,8 +8,6 @@ The database of the project: every resource you make in the editor (an ability, 
 
 ## Description
 
-The database of the project: every resource you make in the editor (an ability, an effect, an NPC, a quest ...) is a file, and this class finds, creates, saves and deletes them.
-
 The resources are grouped in TYPES. REGISTRY says, for each type, the folder under `res://src/data/` where its files live and the class the resources must be. A resource is the file `<id>.tres` in that folder, and everything else refers to it by its id: `Database.get_resource("effect", id)`. Each type is read from disk once, on first use, into a cache (a dictionary id -&gt; resource) that stays for the whole session.
 
 All the resources extend DatabaseResource. The database also makes the few resources every project needs (the Environmental and Player factions, the Health and Shield pools, the core stats, the default environment configs, the default popup). The asset libraries (animations, audio, VFX, meshes, model scenes, icons) are not in this registry: they have their own classes, see DatabaseAnimation, DatabaseAudio, DatabaseVFX, DatabaseMeshes, ModelSceneDatabase and DatabaseIcons.

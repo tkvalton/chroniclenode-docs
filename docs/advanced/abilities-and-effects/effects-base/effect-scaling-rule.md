@@ -4,7 +4,7 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-One rule that scales the damage or healing of an effect by something about the target (or the originator): more damage to a target that is nearly dead
+One rule that scales the damage or healing of an effect by something about the target (or the originator): more damage to a target that is nearly dead (execute), more for every point of missing health, more against a shielded target, more for every stack of an effect the target has (combo points as a stacking effect). The bonuses of all the rules of an effect add up to one multiplier: 1 + the bonuses / 100. See docs/systems/ability-mechanics-plan.md, section 7.
 
 ## Properties
 

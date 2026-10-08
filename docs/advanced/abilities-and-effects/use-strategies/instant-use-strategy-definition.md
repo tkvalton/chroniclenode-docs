@@ -4,7 +4,7 @@
 
 **Inherits:** [UseStrategyDefinition](/advanced/abilities-and-effects/use-strategies/use-strategy-definition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Definition for abilities that execute immediately with no timing delays.
+Definition for abilities that execute immediately with no timing delays. These abilities complete their effects instantly upon activation.
 
 ## Methods
 

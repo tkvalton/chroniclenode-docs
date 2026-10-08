@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-HealReflectEffect passes a share of the healing its bearer receives on to someone else: the caster of the effect, or whoever healed the bearer.
+HealReflectEffect passes a share of the healing its bearer receives on to someone else: the caster of the effect, or whoever healed the bearer. The healing counterpart of DamageReflectEffect: a "Vampiric Embrace" (heal the priest when the party is healed), a soul link, a healing mirror. The share is taken from the healing that actually landed (not the overheal) and goes through the normal healing pipeline, so the recipient's healing-done modifiers, the combat log and the result signals all apply.
 
 ## Properties
 

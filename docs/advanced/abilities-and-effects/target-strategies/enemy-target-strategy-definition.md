@@ -4,7 +4,7 @@
 
 **Inherits:** [TargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/target-strategy-definition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Definition for targeting enemy entities (hostile factions) and targetable destructible objects.
+Definition for targeting enemy entities (hostile factions) and targetable destructible objects. Validates targets based on faction relationships and hostility rules.
 
 ## Methods
 

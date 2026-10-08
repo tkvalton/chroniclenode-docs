@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks the faction balance in the current encounter.
+Checks the faction balance in the current encounter. Useful for surrender mechanics, calling for help, or escalation.
 
 ## Properties
 

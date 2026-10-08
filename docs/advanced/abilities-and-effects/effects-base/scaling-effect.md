@@ -10,8 +10,6 @@ The base of the effects that have a number which can depend on the situation: da
 
 ## Description
 
-The base of the effects that have a number which can depend on the situation: damage, healing and stat modifiers.
-
 It adds a list of **scaling rules**: each measures something about the target or the user (its health, a shield, the stacks of an effect, a tag ...) and gives a bonus in percent, and the bonuses add up to one factor on the number of the effect. A damage or heal effect scales what it deals or heals; a stat modifier scales the value it applies, measured when it is applied. A new effect that has such a number can extend this class to get the list.
 
 ## Properties

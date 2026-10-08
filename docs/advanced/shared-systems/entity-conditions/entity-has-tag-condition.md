@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks the type tags of an entity ("Undead", "Beast" ...). With the target kind "opponent" on a stat effect this is the
+Checks the type tags of an entity ("Undead", "Beast" ...). With the target kind "opponent" on a stat effect this is the condition behind "+30 % damage against Undead". See docs/systems/entity-stats.md, section 24.3.
 
 ## Properties
 

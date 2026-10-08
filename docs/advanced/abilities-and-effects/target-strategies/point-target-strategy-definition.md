@@ -4,7 +4,7 @@
 
 **Inherits:** [TargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/target-strategy-definition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Definition for targeting specific points in 3D space (ground-targeted AoE, teleportation, etc.).
+Definition for targeting specific points in 3D space (ground-targeted AoE, teleportation, etc.). Handles conversion between entities and positions, validates range, and supports fixed points.
 
 ## Properties
 

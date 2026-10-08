@@ -17,6 +17,7 @@ Requires entity to have equipment in specific slot
 | | |
 |---|---|
 | `bool` | [check](#method-check)( `entity: Entity` ) |
+| `Array[Dictionary]` | [validate](#method-validate)() |
 | `String` | [get_failure_message](#method-get-failure-message)( `entity: Entity` ) |
 | `String` | [get_summary](#method-get-summary)() |
 | `void` | [connect_to_entity_signals](#method-connect-to-entity-signals)( `entity: Entity` ) |
@@ -33,6 +34,10 @@ Slots that must have equipment
 ### bool check( entity: Entity ) {#method-check}
 
 Check if the entity meets this requirement Returns true if requirement is satisfied, false otherwise *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+
+### Array[Dictionary] validate() {#method-validate}
+
+No slot chosen means the requirement asks nothing
 
 ### String get_failure_message( entity: Entity ) {#method-get-failure-message}
 

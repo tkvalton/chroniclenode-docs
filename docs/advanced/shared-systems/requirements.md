@@ -13,6 +13,7 @@ A requirement is a small `Resource` stored **inside** the resource that uses it 
 | `get_summary() -> String` | A short description for tooltips: "Requires level 20" |
 | `connect_to_entity_signals(entity)` and `disconnect_from_entity_signals(entity)` | Connect to the signals of the entity that can change the answer (level up, stat change, equipment change, class change). Optional |
 | `signal requirement_state_changed(requirement, entity)` | Emitted by a type when the answer may have changed |
+| `validate() -> Array[Dictionary]` | Configuration problems as `{type, message, severity}` entries (`"warning"` or `"error"`); empty when it is fine. A type overrides it to point out settings that make it useless |
 
 ## Checking a list
 
@@ -24,6 +25,7 @@ A requirement is a small `Resource` stored **inside** the resource that uses it 
 | `meets_all_requirements(entity, requirements)` | `true` when every requirement passes (an empty list passes; a null entry is skipped) |
 | `get_failure_message(entity, requirements)` | The messages of the failed requirements, one per line, or an empty string |
 | `get_requirements_summary(requirements)` | The summaries, one per line, for a tooltip |
+| `validate_requirements(requirements)` | Every problem of the list, each with `requirement_index` and `requirement_type` added (a null entry gives a `NULL_REQUIREMENT` error with its `index`). For the editor's warnings |
 
 Every requirement in a list must pass. There is no "any": a different shape of rule is a [Condition](/advanced/shared-systems/conditions).
 
@@ -76,22 +78,18 @@ func get_summary() -> String:
     return "Requires %d kills" % minimum_kills
 ```
 
-::: warning Known gap
-`RequirementChecker.validate_requirements` calls `validate()` on each requirement, but the base class does not define it. Do not call it until it does.
-:::
-
 ## The classes
 
 <!-- classes:shared-systems/requirements -->
 | Class | What it is |
 |---|---|
 | [Requirement](/advanced/shared-systems/requirements/requirement) | Base class for all requirement types in the game. |
-| [RequirementChecker](/advanced/shared-systems/requirements/requirement-checker) | Utility class for checking requirements and generating feedback |
+| [RequirementChecker](/advanced/shared-systems/requirements/requirement-checker) | Utility class for checking requirements and generating feedback Can be used as a static utility or instantiated for batch checking |
 | [RequirementEquipmentSlot](/advanced/shared-systems/requirements/requirement-equipment-slot) | Requires entity to have equipment in specific slot |
 | [RequirementFaction](/advanced/shared-systems/requirements/requirement-faction) | Requires entity to have a minimum reputation with a faction |
 | [RequirementLevel](/advanced/shared-systems/requirements/requirement-level) | Requires the entity to be at or above a level, and optionally at or below another (a level range: a buff that only works up to level 60) |
 | [RequirementPlayerClassDefinition](/advanced/shared-systems/requirements/requirement-player-class-definition) | Requires entity to be one of the specified player classes |
-| [RequirementResponseSeen](/advanced/shared-systems/requirements/requirement-response-seen) | Requirement that checks if a player has seen/selected a specific response |
+| [RequirementResponseSeen](/advanced/shared-systems/requirements/requirement-response-seen) | Requirement that checks if a player has seen/selected a specific response Useful for branching conversations based on player choices |
 | [RequirementStat](/advanced/shared-systems/requirements/requirement-stat) | Requires entity to have a minimum value in a specific stat |
 | [RequirementWeapon](/advanced/shared-systems/requirements/requirement-weapon) | Requires entity to have specific weapon types equipped |
 <!-- /classes -->

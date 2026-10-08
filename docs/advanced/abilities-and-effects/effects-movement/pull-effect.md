@@ -4,7 +4,7 @@
 
 **Inherits:** [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-PullEffect: Physics impulse toward originator position
+PullEffect: Physics impulse toward originator position Perfect for force pull abilities, magnetic effects, and grappling hooks
 
 ## Properties
 

@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-SchoolLockEffect locks all abilities of a specific school on the target entity
+SchoolLockEffect locks all abilities of a specific school on the target entity Perfect for counter-spell abilities, school-specific silences, and tactical control. The lock is kept by the target's AbilityComponent (a count per school, so two locks of one school end independently) and checked when an ability is used: a locked ability refuses with SCHOOL_LOCKED, nothing about the ability itself changes.
 
 ## Properties
 

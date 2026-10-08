@@ -6,7 +6,7 @@
 
 **Inherited by:** [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition)
 
-AbilityDefinition is pure configuration data for abilities.
+AbilityDefinition is pure configuration data for abilities. Contains no runtime state - just the settings and effects that define what an ability does. Now includes virtual methods for ability-specific logic (following effects pattern)
 
 ## Properties
 

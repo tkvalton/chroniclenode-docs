@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Temporarily replaces an AbilityInstance's definition with another,
+Temporarily replaces an AbilityInstance's definition with another, morphing the ability in-place so the slot, UI, and entity references are preserved. The instance identity never changes — only the definition underneath it does.
 
 ## Properties
 

@@ -4,7 +4,7 @@
 
 **Inherits:** [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Check door state and accessibility
+Check door state and accessibility Evaluates door-specific conditions like open/closed state and lock status
 
 ## Properties
 

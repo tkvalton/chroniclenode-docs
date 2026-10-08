@@ -4,11 +4,9 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-HealAbsorbEffect puts a "heal absorb" on its target: the next `absorb_amount` of healing the target receives is soaked up and does
+HealAbsorbEffect puts a "heal absorb" on its target: the next `absorb_amount` of healing the target receives is soaked up and does not reach its health. When the amount is used up, or the duration ends, the effect ends.
 
 ## Description
-
-HealAbsorbEffect puts a "heal absorb" on its target: the next `absorb_amount` of healing the target receives is soaked up and does not reach its health. When the amount is used up, or the duration ends, the effect ends.
 
 It is the opposite of a shield (a shield soaks damage). Use it for a curse that stops a healer: "the next 500 healing on this target is lost". The soaked amount is shown in the combat log, and healing that was soaked makes no overheal. The absorb is kept by the target's StatsComponent (heal_absorbs); several absorbs on one target soak in the order they were applied.
 

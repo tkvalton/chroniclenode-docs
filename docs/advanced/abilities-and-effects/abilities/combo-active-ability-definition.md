@@ -4,7 +4,7 @@
 
 **Inherits:** [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition) < [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition) < [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-ComboActiveAbilityDefinition supports multi-step combo sequences.
+ComboActiveAbilityDefinition supports multi-step combo sequences. Step 0 uses the original on_use_effects and properties. Subsequent steps use the combo arrays, with null/empty values falling back to originals.
 
 ## Properties
 

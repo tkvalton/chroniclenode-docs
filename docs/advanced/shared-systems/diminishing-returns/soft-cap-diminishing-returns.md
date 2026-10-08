@@ -4,7 +4,7 @@
 
 **Inherits:** [DiminishingReturns](/advanced/shared-systems/diminishing-returns/diminishing-returns) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Full value up to a threshold; above it each point only counts as a share (rate) of a point.
+Full value up to a threshold; above it each point only counts as a share (rate) of a point. threshold 400, rate 0.5: 400 points -&gt; 400, 600 -&gt; 500, 1000 -&gt; 700. With level scaling the threshold is multiplied by the level factor (a higher level reaches the soft cap later).
 
 ## Properties
 

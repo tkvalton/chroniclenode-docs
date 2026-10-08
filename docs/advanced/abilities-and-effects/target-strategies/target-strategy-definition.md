@@ -6,7 +6,7 @@
 
 **Inherited by:** [AimedTargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/aimed-target-strategy-definition), [AllyTargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/ally-target-strategy-definition), [AnyEntityTargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/any-entity-target-strategy-definition), [EnemyTargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/enemy-target-strategy-definition), [MultiPointTargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/multi-point-target-strategy-definition), [NoTargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/no-target-strategy-definition), [PointTargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/point-target-strategy-definition), [SelfTargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/self-target-strategy-definition)
 
-TargetStrategyDefinition contains all logic for ability targeting strategies.
+TargetStrategyDefinition contains all logic for ability targeting strategies. Subclasses implement specific targeting patterns (self, enemy, ally, point, etc.). TargetStrategyInstance holds only runtime state and delegates logic to this definition.
 
 ## Properties
 

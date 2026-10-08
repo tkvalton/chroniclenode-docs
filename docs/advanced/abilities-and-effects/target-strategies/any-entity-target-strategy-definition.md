@@ -4,7 +4,7 @@
 
 **Inherits:** [TargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/target-strategy-definition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Definition for targeting any entity or targetable object in the game world.
+Definition for targeting any entity or targetable object in the game world. Accepts both friendly and hostile entities, as well as targetable InteractableObjects. Does not perform faction relationship validation.
 
 ## Methods
 

@@ -8,8 +8,6 @@ The animation library of the project, read from the folders under `res://src/dat
 
 ## Description
 
-The animation library of the project, read from the folders under `res://src/data/animations/`.
-
 The first folder level is an ENTITY TYPE (humanoid, monster ...). Inside it are the animation PACKAGES that ANIMATION_PACKAGES lists (ability animations, core, social, status effects), each with categories and subcategories. An entity type can name a parent package in its `animation_map.tres` (made automatically), and the animations it does not have are taken from its parent. The folders are scanned once on first use; call refresh_database after adding files.
 
 ## Methods

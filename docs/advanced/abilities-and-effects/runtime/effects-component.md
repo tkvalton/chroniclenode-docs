@@ -4,11 +4,9 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-EffectsComponent manages all active effects on an entity. It handles the
+EffectsComponent manages all active effects on an entity. It handles the addition, removal, and tracking of various effects that can be applied to entities in the game.
 
 ## Description
-
-EffectsComponent manages all active effects on an entity. It handles the addition, removal, and tracking of various effects that can be applied to entities in the game.
 
 Key features:
 

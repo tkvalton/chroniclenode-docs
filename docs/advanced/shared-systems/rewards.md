@@ -86,7 +86,7 @@ func get_summary() -> String:
 | [ExperienceReward](/advanced/shared-systems/rewards/experience-reward) | Grants experience points to the player |
 | [FactionReputationReward](/advanced/shared-systems/rewards/faction-reputation-reward) | Grants or removes reputation with a faction |
 | [FactionStandingReward](/advanced/shared-systems/rewards/faction-standing-reward) | Sets reputation to a specific standing level with a faction |
-| [ItemReward](/advanced/shared-systems/rewards/item-reward) | Grants items to the player's inventory. With no room for all of them nothing is given: the reward is blocked (see Reward.get_block_reason), |
+| [ItemReward](/advanced/shared-systems/rewards/item-reward) | Grants items to the player's inventory. |
 | [LevelReward](/advanced/shared-systems/rewards/level-reward) | Container for rewards granted at a specific level |
 | [Reward](/advanced/shared-systems/rewards/reward) | Base class for all reward types |
 | [SkillPointReward](/advanced/shared-systems/rewards/skill-point-reward) | Grants skill points to a specific point pool |

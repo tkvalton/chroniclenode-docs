@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-Runtime instance of an ability that references an AbilityDefinition for configuration
+Runtime instance of an ability that references an AbilityDefinition for configuration Handles execution state, cooldowns, and effect application with definition-based logic delegation Now follows the effects architecture pattern - definitions contain logic, instances contain runtime state
 
 ## Variables
 

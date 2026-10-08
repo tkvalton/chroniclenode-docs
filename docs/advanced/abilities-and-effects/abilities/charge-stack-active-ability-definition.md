@@ -8,8 +8,6 @@ Charge-based ability system with configurable regeneration modes.
 
 ## Description
 
-Charge-based ability system with configurable regeneration modes.
-
 SHARED mode (default): Sequential charge regeneration like most games. INDEPENDENT mode: Parallel charge regeneration for burst abilities.
 
 ## Properties

@@ -4,7 +4,7 @@
 
 **Inherits:** [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if a destructible interactable's health meets certain criteria.
+Checks if a destructible interactable's health meets certain criteria. Uses ObjectRegistry to find the target interactable by unique ID.
 
 ## Properties
 

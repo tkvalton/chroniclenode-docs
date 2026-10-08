@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if the target is closer/farther than a specified range.
+Checks if the target is closer/farther than a specified range. Consolidates various distance conditions.
 
 ## Properties
 

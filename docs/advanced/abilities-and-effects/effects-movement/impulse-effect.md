@@ -4,7 +4,7 @@
 
 **Inherits:** [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-ImpulseEffect: Initial velocity burst with natural decay
+ImpulseEffect: Initial velocity burst with natural decay Perfect for dashes, dodge rolls, knockbacks, and explosive movement
 
 ## Properties
 

@@ -4,7 +4,7 @@ A formula is a `Resource` that maps a number to a number. Two small families do 
 
 ## The pipeline
 
-[FormulaPipeline](/advanced/shared-systems/formulas/formula-pipeline) is the one place where points become a value, so every effect type does it the same way:
+[FormulaPipeline](/advanced/shared-systems/formula-support/formula-pipeline) is the one place where points become a value, so every effect type does it the same way:
 
 ```
 points  ->  DiminishingReturns.apply  ->  CalculationFormula.evaluate  ->  cap at max_result
@@ -52,10 +52,10 @@ The shipped formulas:
 
 ## LevelScaling and FormulaContext
 
-[LevelScaling](/advanced/shared-systems/formulas/level-scaling) turns a level into a factor. By default it rises in a line from `start_factor` (default 0.25) at level 1 to 1.0 at `reference_level` (default 60) and continues above it:
+[LevelScaling](/advanced/shared-systems/formula-support/level-scaling) turns a level into a factor. By default it rises in a line from `start_factor` (default 0.25) at level 1 to 1.0 at `reference_level` (default 60) and continues above it:
 `factor = start_factor + (1 − start_factor) × (level − 1) / (reference_level − 1)`. A `curve` (x = level / `curve_max_level`) replaces the line. `source` chooses whose level is read.
 
-[FormulaContext](/advanced/shared-systems/formulas/formula-context) is what a formula can see: the `owner` of the stat and its level, and in a hit the `attacker` and `defender` with their levels, the `damage_type`, the `incoming_amount` and the `DamageResult` being built.
+[FormulaContext](/advanced/shared-systems/formula-support/formula-context) is what a formula can see: the `owner` of the stat and its level, and in a hit the `attacker` and `defender` with their levels, the `damage_type`, the `incoming_amount` and the `DamageResult` being built.
 Outside combat (pool capacity from a stat, stat-to-stat effects, level growth) only the owner part is filled. `LevelSource` is `OWNER`, `ATTACKER` or `DEFENDER`. Build one with `FormulaContext.for_owner(entity)` or `for_hit(entity, result, incoming)`.
 
 ## Where they are used
@@ -98,12 +98,19 @@ The editor lists every script of those folders that extends the base class (`Sta
 | Class | What it is |
 |---|---|
 | [CalculationFormula](/advanced/shared-systems/formulas/calculation-formula) | Slot 2 of every per-point stat effect: turns (effective) stat points into the value the effect applies. |
-| [FlatCalculationFormula](/advanced/shared-systems/formulas/flat-calculation-formula) | A fixed value that does not depend on the stat points (the effect applies as soon as the entity has any of the |
-| [FormulaContext](/advanced/shared-systems/formulas/formula-context) | What a CalculationFormula / DiminishingReturns can see when it is evaluated: who owns the stat, who is |
-| [FormulaPipeline](/advanced/shared-systems/formulas/formula-pipeline) | The one place that turns stat points into an effect value, so every effect type does it identically: |
-| [HyperbolicCalculationFormula](/advanced/shared-systems/formulas/hyperbolic-calculation-formula) | value = max_value x points / (points + k): the armor formula of League of Legends, WoW's avoidance and most |
-| [LevelScaling](/advanced/shared-systems/formulas/level-scaling) | Optional level dependence for a CalculationFormula or a DiminishingReturns. |
-| [LinearCalculationFormula](/advanced/shared-systems/formulas/linear-calculation-formula) | value = points x value_per_point. The default formula, and what every effect did before formulas existed |
+| [FlatCalculationFormula](/advanced/shared-systems/formulas/flat-calculation-formula) | A fixed value that does not depend on the stat points (the effect applies as soon as the entity has any of the stat). |
+| [HyperbolicCalculationFormula](/advanced/shared-systems/formulas/hyperbolic-calculation-formula) | value = max_value x points / (points + k): the armor formula of League of Legends, WoW's avoidance and most modern ARPGs. |
+| [LinearCalculationFormula](/advanced/shared-systems/formulas/linear-calculation-formula) | value = points x value_per_point. |
+<!-- /classes -->
+
+### Pipeline, context and level scaling
+
+<!-- classes:shared-systems/formula-support -->
+| Class | What it is |
+|---|---|
+| [FormulaContext](/advanced/shared-systems/formula-support/formula-context) | What a CalculationFormula / DiminishingReturns can see when it is evaluated: who owns the stat, who is attacking and defending, their levels, the damage type, the size of the incoming hit and the DamageResult being built. |
+| [FormulaPipeline](/advanced/shared-systems/formula-support/formula-pipeline) | The one place that turns stat points into an effect value, so every effect type does it identically: |
+| [LevelScaling](/advanced/shared-systems/formula-support/level-scaling) | Optional level dependence for a CalculationFormula or a DiminishingReturns. |
 <!-- /classes -->
 
 ### Diminishing returns
@@ -111,7 +118,7 @@ The editor lists every script of those folders that extends the base class (`Sta
 <!-- classes:shared-systems/diminishing-returns -->
 | Class | What it is |
 |---|---|
-| [DiminishingReturns](/advanced/shared-systems/diminishing-returns/diminishing-returns) | Slot 1 of a per-point stat effect (optional, off by default): reshapes the stat points BEFORE the formula, so |
-| [DrawnCurveDiminishingReturns](/advanced/shared-systems/diminishing-returns/drawn-curve-diminishing-returns) | A hand-drawn efficiency curve (the Dark Souls style table). X is points / max_input (0 to 1), Y is the efficiency: |
+| [DiminishingReturns](/advanced/shared-systems/diminishing-returns/diminishing-returns) | Slot 1 of a per-point stat effect (optional, off by default): reshapes the stat points BEFORE the formula, so points above a threshold are worth less. |
+| [DrawnCurveDiminishingReturns](/advanced/shared-systems/diminishing-returns/drawn-curve-diminishing-returns) | A hand-drawn efficiency curve (the Dark Souls style table). |
 | [SoftCapDiminishingReturns](/advanced/shared-systems/diminishing-returns/soft-cap-diminishing-returns) | Full value up to a threshold; above it each point only counts as a share (rate) of a point. |
 <!-- /classes -->

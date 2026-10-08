@@ -4,7 +4,7 @@
 
 **Inherits:** [DiminishingReturns](/advanced/shared-systems/diminishing-returns/diminishing-returns) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-A hand-drawn efficiency curve (the Dark Souls style table). X is points / max_input (0 to 1), Y is the efficiency:
+A hand-drawn efficiency curve (the Dark Souls style table). X is points / max_input (0 to 1), Y is the efficiency: the share of the points that counts at that many points (1.0 = all of them, 0.5 = half). Effective points = points x efficiency. Past max_input the efficiency at the end of the curve is kept and each extra point counts only `beyond_rate` of that. This is the old "custom curve" scaling of stat effects, now usable on any effect. With level scaling max_input is multiplied by the level factor.
 
 ## Properties
 

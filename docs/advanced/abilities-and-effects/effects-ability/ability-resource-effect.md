@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Modifies the resource cost and/or gain amounts on a specific ability.
+Modifies the resource cost and/or gain amounts on a specific ability. Examples: reduce mana cost by 50%, make ability free, increase rage generation. Reverts to original values when effect ends.
 
 ## Properties
 

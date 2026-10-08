@@ -4,7 +4,7 @@
 
 **Inherits:** [UseStrategyDefinition](/advanced/abilities-and-effects/use-strategies/use-strategy-definition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Definition for abilities that can be turned on and off (stance abilities, auras, etc.).
+Definition for abilities that can be turned on and off (stance abilities, auras, etc.). Handles activation/deactivation logic, resource draining, and toggle group management.
 
 ## Properties
 

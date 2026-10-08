@@ -4,7 +4,7 @@
 
 **Inherits:** [ProcEffect](/advanced/abilities-and-effects/effects-base/proc-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Proc effect that responds to the resolved hits of its holder (offensive: hits dealt, defensive: hits received).
+Proc effect that responds to the resolved hits of its holder (offensive: hits dealt, defensive: hits received). Reads the typed DamageResult and filters by the trigger tags that fired (e.g. "critical strike", "dodge", "block")
 
 ## Properties
 

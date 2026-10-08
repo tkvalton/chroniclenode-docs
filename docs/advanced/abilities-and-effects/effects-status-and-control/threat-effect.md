@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Changes threat: adds, reduces or clears the threat an entity has on hostile NPCs, puts it at the top of their lists, or (REDIRECT, with a duration) makes the threat
+Changes threat: adds, reduces or clears the threat an entity has on hostile NPCs, puts it at the top of their lists, or (REDIRECT, with a duration) makes the threat an entity generates go to someone else for a while: misdirection. For ADD / REDUCE / CLEAR / SET_TO_TOP choose whose threat changes (the originator or the target) and on which enemies (the target NPC, or every enemy fighting that entity). For REDIRECT the entity the effect is on (set "applies to" to the originator for a misdirection the caster puts on himself) gives its threat to the other one of the originator and the target. See docs/systems/ability-mechanics-plan.md, section 6.
 
 ## Properties
 

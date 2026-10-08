@@ -4,7 +4,7 @@
 
 **Inherits:** [EncounterCondition](/advanced/shared-systems/condition-bases/encounter-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if an encounter is in a specific combat state.
+Checks if an encounter is in a specific combat state. Uses EncounterCondition targeting to determine which encounter to check. Updated to work with new EncounterState enum system.
 
 ## Properties
 

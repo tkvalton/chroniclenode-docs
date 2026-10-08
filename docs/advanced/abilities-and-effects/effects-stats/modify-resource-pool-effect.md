@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Modifies an existing resource pool's values or generation properties.
+Modifies an existing resource pool's values or generation properties. Does NOT add or remove pools — use AddResourcePoolEffect for that. Examples: drain mana, reduce max energy, increase regen rate, refill resource on kill.
 
 ## Properties
 

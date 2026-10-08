@@ -49,5 +49,5 @@ Ammo and reagent costs name a group (`AmmoCost`): an item is accepted when the g
 <!-- classes:shared-systems/groups -->
 | Class | What it is |
 |---|---|
-| [GroupDefinition](/advanced/shared-systems/groups/group-definition) | A group is a tag that effects, abilities and items can be in (several at once). The group decides how its members interact: |
+| [GroupDefinition](/advanced/shared-systems/groups/group-definition) | A group is a tag that effects, abilities and items can be in (several at once). |
 <!-- /classes -->

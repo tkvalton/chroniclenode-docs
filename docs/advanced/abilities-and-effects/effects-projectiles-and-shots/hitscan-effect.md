@@ -4,7 +4,7 @@
 
 **Inherits:** [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-An instant shot: a line from the muzzle of the originator towards the target (an entity, or the point the user aims at) as far as `max_range`,
+An instant shot: a line from the muzzle of the originator towards the target (an entity, or the point the user aims at) as far as `max_range`, and the child effects are applied to the first entity it meets (or to several, with `pierce_count`). No flight time, nothing to dodge, no projectile that can miss a thin target: for guns and beams. Bows and thrown things are projectile effects. See docs/systems/ability-mechanics-plan.md, section 4.
 
 ## Properties
 

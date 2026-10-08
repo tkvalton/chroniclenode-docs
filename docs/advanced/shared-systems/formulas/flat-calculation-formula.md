@@ -4,7 +4,7 @@
 
 **Inherits:** [CalculationFormula](/advanced/shared-systems/formulas/calculation-formula) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-A fixed value that does not depend on the stat points (the effect applies as soon as the entity has any of the
+A fixed value that does not depend on the stat points (the effect applies as soon as the entity has any of the stat). Used for a crit damage bonus of +100 % or "when blocking, take 30 % less". Replaces the old "scales with stat = off". Level scaling does not apply.
 
 ## Properties
 

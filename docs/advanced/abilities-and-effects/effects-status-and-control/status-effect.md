@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-StatusEffect applies a status condition (stun, root, silence, disarm, cripple ...) to the target entity.
+StatusEffect applies a status condition (stun, root, silence, disarm, cripple ...) to the target entity. The condition itself is a StatusEffectDefinition (database "status_effect"): its type decides what the entity cannot do, its diminishing returns shorten repeated applications, its immunity settings can end them for a while, and it can break when a hit is big enough. While this effect is active the target's EffectsComponent counts the status type, which is what Entity.is_incapacitated() / is_silenced() / is_rooted() ... answer from, so ability checks, movement and the entity states work from the same source.
 
 ## Properties
 

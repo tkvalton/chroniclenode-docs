@@ -8,8 +8,6 @@ The library of model scenes, read from `res://src/data/meshes/skeletons/` (the s
 
 ## Description
 
-The library of model scenes, read from `res://src/data/meshes/skeletons/` (the scenes of characters and creatures) and `res://src/data/meshes/interactable_models/` (the scenes of interactable objects).
-
 Every `.tscn` file in those folders is an entry, named by its file name. For a skeleton scene the database instantiates it once to find out what kind of skeleton it holds (GeneralSkeleton or ModularSkeleton). The folders are scanned once on first use; call refresh_database after adding scenes.
 
 ## Methods

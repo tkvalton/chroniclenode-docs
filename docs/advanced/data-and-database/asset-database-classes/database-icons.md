@@ -8,8 +8,6 @@ The icon library of the project, read from the folders under `res://src/data/ico
 
 ## Description
 
-The icon library of the project, read from the folders under `res://src/data/icons/`.
-
 A folder is a CATEGORY, and an icon is an image file named by its number (`12.png`): the number is its id. get_icon_by_id finds the file in any category, and import_icons_to_category moves a folder of images in and numbers them from the first free id.
 
 ## Methods

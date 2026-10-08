@@ -76,8 +76,85 @@ const SYSTEMS = {
       { text: 'Conditions: general', slug: 'general-conditions', dirs: [['data_classes/conditions/general', true]] },
       { text: 'Groups', slug: 'groups', dirs: [['data_classes/groups', true]] },
       { text: 'Text tokens', slug: 'text-tokens', dirs: [['runtime_classes/utility/text_tokens.gd', false], ['runtime_classes/utility/effect_text_util.gd', false]] },
-      { text: 'Formulas', slug: 'formulas', dirs: [['data_classes/stats/formulas', true], ['data_classes/stats/formula_context.gd', false]] },
+      {
+        text: 'Formulas',
+        slug: 'formulas',
+        dirs: [
+          ['data_classes/stats/formulas/calculation_formula.gd', false],
+          ['data_classes/stats/formulas/linear_calculation_formula.gd', false],
+          ['data_classes/stats/formulas/hyperbolic_calculation_formula.gd', false],
+          ['data_classes/stats/formulas/flat_calculation_formula.gd', false],
+        ],
+      },
+      {
+        text: 'Pipeline, context and level scaling',
+        slug: 'formula-support',
+        dirs: [
+          ['data_classes/stats/formulas/formula_pipeline.gd', false],
+          ['data_classes/stats/formula_context.gd', false],
+          ['data_classes/stats/formulas/level_scaling.gd', false],
+        ],
+      },
       { text: 'Diminishing returns', slug: 'diminishing-returns', dirs: [['data_classes/stats/diminishing_returns', true]] },
+    ],
+  },
+  'entity-stats': {
+    title: 'Entity Stats',
+    groups: [
+      {
+        text: 'Stats and pools',
+        slug: 'stats-and-pools',
+        dirs: [
+          ['data_classes/stats/definitions/stat_definition.gd', false],
+          ['data_classes/stats/definitions/pool_stat_definition.gd', false],
+          ['data_classes/stats/stats_data.gd', false],
+          ['data_classes/stats/growth_override.gd', false],
+          ['data_classes/stats/core_stat_defaults.gd', false],
+          ['data_classes/stats/gain_channels.gd', false],
+          ['data_classes/stats/stat_condition_context.gd', false],
+          ['runtime_classes/utility/stat_group_utility.gd', false],
+        ],
+      },
+      { text: 'Stat effects', slug: 'stat-effects', dirs: [['data_classes/stats/definitions/stat_effect', true]] },
+      {
+        text: 'Calculations',
+        slug: 'calculations',
+        dirs: [['data_classes/stats/combat_calculations.gd', false], ['data_classes/stats/calculations', true]],
+      },
+      {
+        text: 'Trigger tags and rules',
+        slug: 'triggers',
+        dirs: [
+          ['data_classes/stats/definitions/trigger_tag_definition.gd', false],
+          ['data_classes/stats/trigger_rules', true],
+          ['runtime_classes/combat/trigger_record.gd', false],
+          ['runtime_classes/combat/modifier_step.gd', false],
+        ],
+      },
+      {
+        text: 'Definitions',
+        slug: 'definitions',
+        dirs: [
+          ['data_classes/stats/definitions/damage_type_definition.gd', false],
+          ['data_classes/stats/definitions/school_type_definition.gd', false],
+          ['data_classes/stats/definitions/entity_tag_definition.gd', false],
+          ['data_classes/stats/definitions/immunity_definition.gd', false],
+          ['data_classes/stats/definitions/stat_group_definition.gd', false],
+          ['data_classes/stats/definitions/status_effect_definition.gd', false],
+        ],
+      },
+      {
+        text: 'The combat pipeline',
+        slug: 'combat',
+        dirs: [
+          ['runtime_classes/combat/damage_result.gd', false],
+          ['runtime_classes/combat/healing_result.gd', false],
+          ['runtime_classes/combat/combat_options.gd', false],
+          ['runtime_classes/combat/combat_reactions.gd', false],
+          ['runtime_classes/combat/combat_manager.gd', false],
+        ],
+      },
+      { text: 'Runtime', slug: 'runtime', dirs: [['runtime_classes/entity/components/stats', false]] },
     ],
   },
 }

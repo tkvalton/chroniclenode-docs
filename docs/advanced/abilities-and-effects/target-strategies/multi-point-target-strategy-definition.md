@@ -4,7 +4,7 @@
 
 **Inherits:** [TargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/target-strategy-definition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Definition for selecting multiple points in the game world (multi-stage spells, line attacks, etc.).
+Definition for selecting multiple points in the game world (multi-stage spells, line attacks, etc.). Handles accumulation of points, validation of point sequences, and supports pre-defined fixed points.
 
 ## Properties
 

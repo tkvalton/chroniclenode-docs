@@ -4,7 +4,7 @@
 
 **Inherits:** [Node3D](https://docs.godotengine.org/en/stable/classes/class_node3d.html)
 
-EnvironmentalEffects serves as a universal originator for world effects spawned by the environment.
+EnvironmentalEffects serves as a universal originator for world effects spawned by the environment. This class provides all the necessary components and interfaces required by the effect system while representing neutral environmental sources like traps, magical phenomena, etc.
 
 ## Variables
 

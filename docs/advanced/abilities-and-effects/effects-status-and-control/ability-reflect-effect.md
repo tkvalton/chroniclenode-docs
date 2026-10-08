@@ -8,8 +8,6 @@ A reflective ward: abilities that other entities target at the holder can be sen
 
 ## Description
 
-A reflective ward: abilities that other entities target at the holder can be sent back at their caster.
-
 It is an interception, not a reaction: when an ability is about to apply its effects to the holder, `AbilityInstance.apply_ability_effects` asks the holder's active reflect effects (`try_reflect`); a reflected ability applies all its effects to its own caster instead. Only abilities aimed at the holder as a target are reflected (enemy, ally and any-entity targeting): area and point abilities, abilities the holder casts itself and abilities from allies (when *Only Hostile* is on) pass through. See docs/systems/effects-and-abilities.md, section 10.
 
 ## Properties

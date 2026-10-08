@@ -4,7 +4,7 @@
 
 **Inherits:** [ProcEffect](/advanced/abilities-and-effects/effects-base/proc-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Proc effect that triggers when health crosses a percentage threshold.
+Proc effect that triggers when health crosses a percentage threshold. Supports monitoring the caster's own health or their current target's health.
 
 ## Properties
 

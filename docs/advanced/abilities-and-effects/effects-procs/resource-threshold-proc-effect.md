@@ -4,7 +4,7 @@
 
 **Inherits:** [ProcEffect](/advanced/abilities-and-effects/effects-base/proc-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Proc effect that triggers when a resource pool crosses a specific value threshold.
+Proc effect that triggers when a resource pool crosses a specific value threshold. Uses edge-detection (old vs new value) so it only fires on the crossing, not every tick.
 
 ## Properties
 

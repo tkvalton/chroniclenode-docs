@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if the entity's health is above/below a specified percentage.
+Checks if the entity's health is above/below a specified percentage. Consolidates HealthAbove and HealthBelow conditions.
 
 ## Properties
 

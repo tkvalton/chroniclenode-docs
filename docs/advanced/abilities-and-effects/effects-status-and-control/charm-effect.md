@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Temporarily changes the target's faction to match the originator's faction
+Temporarily changes the target's faction to match the originator's faction Stores the original faction in runtime data for restoration when effect ends TODO: Not fully implemented, need to do some work on StateLogic &amp; Nameplates to change colour
 
 ## Methods
 

@@ -4,7 +4,7 @@
 
 **Inherits:** [Reward](/advanced/shared-systems/rewards/reward) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Grants items to the player's inventory. With no room for all of them nothing is given: the reward is blocked (see Reward.get_block_reason),
+Grants items to the player's inventory. With no room for all of them nothing is given: the reward is blocked (see Reward.get_block_reason), and whoever grants it keeps it until there is room (Player.grant_reward, quests)
 
 ## Properties
 

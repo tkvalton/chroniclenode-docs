@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Modifies the target's master health pool values or generation.
+Modifies the target's master health pool values or generation. Always targets the master pool — use DamageEffect/HealEffect for combat-pipeline damage/healing. Examples: reduce max health by 20%, set health to 1, apply a regen over time, curse that halves max health, execute effects, resurrection with partial health.
 
 ## Properties
 

@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Modifies the gravity applied to the target entity
+Modifies the gravity applied to the target entity Can be used for low gravity, high gravity, anti-gravity, or zero gravity effects
 
 ## Properties
 

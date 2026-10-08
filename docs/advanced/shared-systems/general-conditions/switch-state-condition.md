@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Check if a switch is in the desired state
+Check if a switch is in the desired state Evaluates switch-specific conditions like ON/OFF state
 
 ## Properties
 

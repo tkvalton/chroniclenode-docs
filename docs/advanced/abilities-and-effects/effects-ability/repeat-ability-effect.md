@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-"Cast it again": applies the on-use effects of an ability again, to the same target, a number of times with a delay between them.
+"Cast it again": applies the on-use effects of an ability again, to the same target, a number of times with a delay between them. The repeats are free (no cost, cooldown or resource gain: they are part of the one use) and never repeat themselves. With no ability chosen it repeats the ability that carries this effect. Stops when the target is gone or dead, or the caster dies. This is the "recast" of the effect system; a chain of different abilities is a combo, and extra hits of one damage effect are multistrike. See docs/systems/effects-and-abilities.md, section 10.
 
 ## Properties
 

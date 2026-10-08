@@ -4,7 +4,7 @@
 
 **Inherits:** [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if the current game time meets specified criteria.
+Checks if the current game time meets specified criteria. Works with ChronoManager's 24-hour game time system.
 
 ## Properties
 

@@ -4,11 +4,9 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Modifies cast or channel timing properties on a specific ability via runtime overrides.
+Modifies cast or channel timing properties on a specific ability via runtime overrides. Works by writing to UseStrategyInstance.runtime_property_overrides — no strategy swap needed. Reverts all overrides cleanly when the effect ends.
 
 ## Description
-
-Modifies cast or channel timing properties on a specific ability via runtime overrides. Works by writing to UseStrategyInstance.runtime_property_overrides — no strategy swap needed. Reverts all overrides cleanly when the effect ends.
 
 Common uses:
 

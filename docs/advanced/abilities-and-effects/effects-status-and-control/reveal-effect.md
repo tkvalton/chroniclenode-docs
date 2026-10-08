@@ -4,11 +4,9 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-RevealEffect reveals its target: a stealthed target becomes visible at once, and, with prevent_stealth and a duration, it cannot
+RevealEffect reveals its target: a stealthed target becomes visible at once, and, with prevent_stealth and a duration, it cannot go into stealth again while the effect lasts.
 
 ## Description
-
-RevealEffect reveals its target: a stealthed target becomes visible at once, and, with prevent_stealth and a duration, it cannot go into stealth again while the effect lasts.
 
 It is not an area. To reveal everything in a shape, make it a child effect of an Area effect (with gain_on_enter and remove_on_exit on the area, an entity is revealed while it is inside); to reveal one target (a hunter's mark), use it alone or in a projectile.
 

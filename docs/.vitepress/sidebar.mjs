@@ -9,6 +9,7 @@
 import { groups as abilitiesAndEffectsClasses } from './classes-abilities-and-effects.mjs'
 import { groups as databaseClasses } from './classes-data-and-database.mjs'
 import { groups as sharedClasses } from './classes-shared-systems.mjs'
+import { groups as statClasses } from './classes-entity-stats.mjs'
 
 const page = (text, link, extra = {}) => ({ text, link, ...extra })
 const kebab = name => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2').toLowerCase()
@@ -231,7 +232,26 @@ const advancedShared = {
     sharedSystem('Rewards', 'rewards', ['rewards']),
     sharedSystem('Groups', 'groups', ['groups']),
     sharedSystem('Text tokens', 'text-tokens', ['text-tokens']),
-    sharedSystem('Formulas', 'formulas', ['formulas', 'diminishing-returns']),
+    sharedSystem('Formulas', 'formulas', ['formulas', 'formula-support', 'diminishing-returns']),
+  ],
+}
+
+// Entity Stats (advanced): the hand-written pages, then a page for each class
+const advancedEntityStats = {
+  text: 'Entity Stats',
+  collapsed: true,
+  items: [
+    page('Overview', '/advanced/entity-stats/', { title: 'Entity Stats: how they are built' }),
+    page('Stat effects', '/advanced/entity-stats/stat-effects', { title: 'Stat effects: how they work' }),
+    page('The hit and heal pipeline', '/advanced/entity-stats/pipeline', { title: 'The hit and heal pipeline' }),
+    page('Pools and damage layers', '/advanced/entity-stats/pools', { title: 'Pools and damage layers' }),
+    page('Growth, core stats and gain channels', '/advanced/entity-stats/growth-and-core-stats', { title: 'Growth, core stats and gain channels' }),
+    page('Tags & Groups', '/advanced/entity-stats/tags-and-groups', { title: 'Tags & Groups: how they are built' }),
+    ...statClasses.map(group => ({
+      text: group.text,
+      collapsed: true,
+      items: group.classes.map(c => page(c.name, `/advanced/entity-stats/${group.slug}/${kebab(c.name)}`, { title: c.name })),
+    })),
   ],
 }
 
@@ -257,6 +277,8 @@ const advancedSystems = [
   ? classSystem(text, slug, abilitiesAndEffectsClasses)
   : slug === 'world'
   ? worldAdvanced
+  : slug === 'entity-stats'
+  ? advancedEntityStats
   : page(text, `/advanced/${slug}/`, { title: `${text}: how it is built` }))
 
 export const sidebar = [

@@ -6,11 +6,9 @@
 
 **Inherited by:** [AreaRandomizeTargetEffect](/advanced/abilities-and-effects/effects-area/area-randomize-target-effect), [EqualizeAreaEffect](/advanced/abilities-and-effects/effects-area/equalize-area-effect)
 
-AreaEffect with a guaranteed minimum number of effect applications.
+AreaEffect with a guaranteed minimum number of effect applications. When fewer valid targets exist than minimum_applications, the effect wraps back through already-hit targets until the minimum is met.
 
 ## Description
-
-AreaEffect with a guaranteed minimum number of effect applications. When fewer valid targets exist than minimum_applications, the effect wraps back through already-hit targets until the minimum is met.
 
 Useful for abilities that must always fire N times — e.g. a 3-bounce lightning that chains back on itself with only 1 target, or a heal that always builds N stacks even on a single target. Also works naturally with stacking effects. Subclasses (EqualizeAreaEffect, AreaRandomizeTargetEffect) honour this minimum via their own application loops, calling _fill_minimum_applications after the main pass.
 

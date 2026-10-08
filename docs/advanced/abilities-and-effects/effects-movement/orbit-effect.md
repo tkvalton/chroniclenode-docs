@@ -4,11 +4,9 @@
 
 **Inherits:** [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-OrbitEffect: Entity orbits around a target entity or position
+OrbitEffect: Entity orbits around a target entity or position Uses velocity-based movement updated each frame to trace a circular path around the target. Supports configurable radius, speed, and direction.
 
 ## Description
-
-OrbitEffect: Entity orbits around a target entity or position Uses velocity-based movement updated each frame to trace a circular path around the target. Supports configurable radius, speed, and direction.
 
 Perfect for whirlwind attacks circling an enemy, satellite guard abilities, spirit wolves closing in, or channeled abilities with orbital movement.
 

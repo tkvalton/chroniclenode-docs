@@ -4,7 +4,7 @@
 
 **Inherits:** [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition) < [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if a random roll succeeds based on percentage chance.
+Checks if a random roll succeeds based on percentage chance. Supports multiple RNG modes including pity timers for bad luck protection.
 
 ## Properties
 

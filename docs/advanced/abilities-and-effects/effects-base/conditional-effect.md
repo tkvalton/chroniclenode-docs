@@ -6,11 +6,9 @@
 
 **Inherited by:** [ConditionConditionalEffect](/advanced/abilities-and-effects/effects-conditional/condition-conditional-effect), [DistanceConditionalEffect](/advanced/abilities-and-effects/effects-conditional/distance-conditional-effect), [EffectConditionalEffect](/advanced/abilities-and-effects/effects-conditional/effect-conditional-effect), [HealthConditionalEffect](/advanced/abilities-and-effects/effects-conditional/health-conditional-effect), [RandomChanceConditionalEffect](/advanced/abilities-and-effects/effects-conditional/random-chance-conditional-effect)
 
-Base class for all conditional effects.
+Base class for all conditional effects. Subclasses implement _evaluate_condition() and call _check_and_apply_condition() from their specific_effect_logic().
 
 ## Description
-
-Base class for all conditional effects. Subclasses implement _evaluate_condition() and call _check_and_apply_condition() from their specific_effect_logic().
 
 The condition is checked once, when the effect is applied. When it is met the child effects are applied; when it is not met the else effects are applied instead (if there are any).
 

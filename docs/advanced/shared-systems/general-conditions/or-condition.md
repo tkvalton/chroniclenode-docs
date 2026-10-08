@@ -4,11 +4,9 @@
 
 **Inherits:** [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-A composite condition that passes if a specified number of its child conditions pass.
+A composite condition that passes if a specified number of its child conditions pass. This allows for flexible "N out of M" condition checking, including traditional OR logic.
 
 ## Description
-
-A composite condition that passes if a specified number of its child conditions pass. This allows for flexible "N out of M" condition checking, including traditional OR logic.
 
 For example, with 3 conditions and min_required = 1, this behaves like a standard OR. With 3 conditions and min_required = 3, this behaves like a standard AND. With 3 conditions and min_required = 2, this passes if at least 2 conditions pass.
 

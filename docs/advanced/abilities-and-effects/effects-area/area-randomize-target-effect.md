@@ -4,7 +4,7 @@
 
 **Inherits:** [MinimumApplicationAreaEffect](/advanced/abilities-and-effects/effects-area/minimum-application-area-effect) < [AreaEffect](/advanced/abilities-and-effects/effects-area/area-effect) < [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect) < [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect) < [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-AreaRandomizeTargetEffect with pure raycast collision detection
+AreaRandomizeTargetEffect with pure raycast collision detection Supports entity targeting, position targeting, and temporal distribution
 
 ## Properties
 

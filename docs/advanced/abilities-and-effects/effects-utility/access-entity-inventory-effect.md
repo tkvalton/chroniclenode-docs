@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Opens the inventory of the target entity (if they are an Entity)
+Opens the inventory of the target entity (if they are an Entity) Similar to LootInteraction but applied through the effect system
 
 ## Properties
 

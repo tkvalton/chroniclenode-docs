@@ -4,7 +4,7 @@
 
 **Inherits:** [Effect](/advanced/abilities-and-effects/effects-base/effect) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Attempts to unlock a locked InteractableObject
+Attempts to unlock a locked InteractableObject Can use a base success chance modified by a stat from the originator
 
 ## Properties
 

@@ -6,7 +6,7 @@
 
 **Inherited by:** [ChargeToPointEffect](/advanced/abilities-and-effects/effects-movement/charge-to-point-effect), [JumpToPointEffect](/advanced/abilities-and-effects/effects-movement/jump-to-point-effect), [OrbitEffect](/advanced/abilities-and-effects/effects-movement/orbit-effect), [SwapEffect](/advanced/abilities-and-effects/effects-movement/swap-effect), [TeleportToPointEffect](/advanced/abilities-and-effects/effects-movement/teleport-to-point-effect)
 
-MoveToPointEffect - Base class for point-based movement effects
+MoveToPointEffect - Base class for point-based movement effects Handles target position calculation and child effect application Uses tween-based movement (no physics collisions)
 
 ## Properties
 

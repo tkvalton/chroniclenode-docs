@@ -587,6 +587,24 @@ export const groups = [
         "file": "data_classes/stats/formulas/flat_calculation_formula.gd"
       },
       {
+        "name": "HyperbolicCalculationFormula",
+        "base": "CalculationFormula",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\formulas\\hyperbolic_calculation_formula.gd",
+        "file": "data_classes/stats/formulas/hyperbolic_calculation_formula.gd"
+      },
+      {
+        "name": "LinearCalculationFormula",
+        "base": "CalculationFormula",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\formulas\\linear_calculation_formula.gd",
+        "file": "data_classes/stats/formulas/linear_calculation_formula.gd"
+      }
+    ]
+  },
+  {
+    "text": "Pipeline, context and level scaling",
+    "slug": "formula-support",
+    "classes": [
+      {
         "name": "FormulaContext",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\formula_context.gd",
@@ -599,22 +617,10 @@ export const groups = [
         "file": "data_classes/stats/formulas/formula_pipeline.gd"
       },
       {
-        "name": "HyperbolicCalculationFormula",
-        "base": "CalculationFormula",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\formulas\\hyperbolic_calculation_formula.gd",
-        "file": "data_classes/stats/formulas/hyperbolic_calculation_formula.gd"
-      },
-      {
         "name": "LevelScaling",
         "base": "Resource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\formulas\\level_scaling.gd",
         "file": "data_classes/stats/formulas/level_scaling.gd"
-      },
-      {
-        "name": "LinearCalculationFormula",
-        "base": "CalculationFormula",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\formulas\\linear_calculation_formula.gd",
-        "file": "data_classes/stats/formulas/linear_calculation_formula.gd"
       }
     ]
   },

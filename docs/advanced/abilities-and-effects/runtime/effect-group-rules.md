@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-The rules of exclusive effect groups (see GroupDefinition): which effects an effect that is about to start would replace, or whether a group
+The rules of exclusive effect groups (see GroupDefinition): which effects an effect that is about to start would replace, or whether a group refuses it. `EffectInstance.start_effect` applies them; items and abilities can ask `preview` first so nothing is spent on a refused effect and the UI can say "replaces Elixir of X".
 
 ## Methods
 

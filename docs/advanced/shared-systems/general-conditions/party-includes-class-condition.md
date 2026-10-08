@@ -4,7 +4,7 @@
 
 **Inherits:** [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if the party includes a specific character class.
+Checks if the party includes a specific character class. Simplified to check for a single class ID instead of an array.
 
 ## Properties
 

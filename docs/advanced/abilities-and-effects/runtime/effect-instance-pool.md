@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-Global pool manager for EffectInstance objects and Projectile instances
+Global pool manager for EffectInstance objects and Projectile instances Handles creation, pooling, and recycling of both EffectInstance and BaseProjectileInstance objects This is an autoload singleton - add to Project Settings &gt; Autoload as "EffectInstancePool"
 
 ## Variables
 
