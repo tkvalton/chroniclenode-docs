@@ -1,11 +1,13 @@
 {
-  "name": "rpg-toolkit-docs",
+  "name": "chroniclenode-docs",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "preview": "vitepress preview docs"
+    "preview": "vitepress preview docs",
+    "stubs": "node scripts/make-stubs.mjs",
+    "links": "node scripts/docs-links.mjs"
   },
   "devDependencies": {
     "vitepress": "^1.6.4"

@@ -10,14 +10,13 @@ On the left is the list of abilities, with a **Filter files** box and the **Add*
 
 ## Basic properties
 
-<Shot name="abilities-basic-properties" caption="Basic properties: name, description and its preview, color and icon." />
+<Shot name="abilities-basic-properties" caption="Basic properties: name, description and its preview, and icon." />
 
 | Field | What it does |
 |---|---|
 | **Display name** | The name the player sees |
 | **ID** | The number the toolkit gave this ability. Other things refer to the ability by it. You never type it, and it does not change when you rename the ability |
 | **Description** | The text of the ability's tooltip. Write `<Effect1>`, `<Effect2>` and so on where you want the description of the ability's effects to appear, and the toolkit fills them in with the real numbers. The **Preview** under the field shows the result |
-| **Color** | The color used for this ability in the interface |
 | **Icon** | The picture shown on the action bar and in the spellbook. The **X** button next to it removes the icon |
 
 ::: tip The description keeps itself right
@@ -43,7 +42,7 @@ These fields belong to every kind of active ability.
 | Field | What it does | Default |
 |---|---|---|
 | **Ability school** | The school the ability belongs to (fire, healing, physical and so on). Immunities and dispels use it. You define schools under *Tags & Groups > School Types* | none |
-| **On global cooldown** | Using this ability starts the **global cooldown**, a short pause during which other abilities on the global cooldown cannot be used | on |
+| **On global cooldown** | Using this ability starts the [**global cooldown**](/basic/keywords#global-cooldown), a short pause during which other abilities on it cannot be used | on |
 | **Use weapon speed as cooldown** | The cooldown is the equipped weapon's attack speed instead of **Cooldown duration**. Use it for basic attacks | off |
 | **Cooldown duration** | Seconds before the ability can be used again. `0` means no cooldown | `0` |
 | **On-use application delay** | Seconds to wait after the ability fires before its on-use effects apply. Use it to line up the effect with an animation, for example a swing that visibly lands 0.3 seconds after it starts | `0` |

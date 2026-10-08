@@ -1,0 +1,5 @@
+# Entity Stats
+
+::: warning Work in progress
+This page is being written.
+:::

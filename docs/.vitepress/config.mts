@@ -1,45 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { PRODUCT_NAME, DOCS_BASE, DOCS_HOSTNAME } from './site'
-
-// The pages of one system in the basic guide. The tree is: section > system > pages (and tutorials).
-const abilitiesAndEffects = {
-  text: 'Abilities & Effects',
-  collapsed: true,
-  items: [
-    { text: 'Overview', link: '/basic/abilities-and-effects/' },
-    {
-      text: 'Abilities',
-      collapsed: true,
-      items: [
-        { text: 'The Abilities editor', link: '/basic/abilities-and-effects/abilities' },
-        { text: 'Using an ability', link: '/basic/abilities-and-effects/using-an-ability' },
-        { text: 'Targeting', link: '/basic/abilities-and-effects/targeting' },
-        { text: 'Aiming', link: '/basic/abilities-and-effects/aiming' },
-      ],
-    },
-    {
-      text: 'Effects',
-      collapsed: true,
-      items: [
-        { text: 'The Effects editor', link: '/basic/abilities-and-effects/effects' },
-        { text: 'Effect types', link: '/basic/abilities-and-effects/effect-types' },
-        { text: 'Stacking and groups', link: '/basic/abilities-and-effects/stacking-and-groups' },
-        { text: 'Scaling and trigger rules', link: '/basic/abilities-and-effects/scaling-and-trigger-rules' },
-        { text: 'Crowd control', link: '/basic/abilities-and-effects/crowd-control' },
-      ],
-    },
-    {
-      text: 'Tutorials',
-      collapsed: true,
-      items: [
-        { text: 'About the tutorials', link: '/basic/abilities-and-effects/tutorials/' },
-        { text: '1. A damage attack', link: '/basic/abilities-and-effects/tutorials/first-damage-attack' },
-        { text: '2. A cost and a cooldown', link: '/basic/abilities-and-effects/tutorials/cost-and-cooldown' },
-        { text: '3. Cast time and interrupts', link: '/basic/abilities-and-effects/tutorials/cast-time-and-interrupts' },
-      ],
-    },
-  ],
-}
+import { sidebar } from './sidebar.mjs'
 
 export default defineConfig({
   title: PRODUCT_NAME,
@@ -59,26 +20,8 @@ export default defineConfig({
       { text: 'Basic', link: '/basic/', activeMatch: '^/basic/' },
       { text: 'Advanced', link: '/advanced/', activeMatch: '^/advanced/' },
     ],
-    // One menu for each section; the tree inside it goes system > pages
-    sidebar: {
-      '/general/': [
-        {
-          text: 'General',
-          items: [
-            { text: 'Introduction', link: '/general/' },
-            { text: 'Using the template project', link: '/general/template' },
-            { text: 'Adding the addon to your project', link: '/general/adding-the-addon' },
-            { text: 'The editor at a glance', link: '/general/editor-tour' },
-          ],
-        },
-      ],
-      '/basic/': [
-        { text: 'Basic', items: [{ text: 'About the basic guide', link: '/basic/' }] },
-        { text: 'Systems', items: [abilitiesAndEffects] },
-      ],
-      '/advanced/': [
-        { text: 'Advanced', items: [{ text: 'About the advanced section', link: '/advanced/' }] },
-      ],
-    },
+    // One menu on every page, with the three sections in it. The tree inside a section goes system > pages.
+    // The pages themselves are listed in sidebar.mjs
+    sidebar,
   },
 })

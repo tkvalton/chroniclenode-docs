@@ -1,6 +1,5 @@
 ---
 layout: doc
-sidebar: false
 aside: false
 ---
 
@@ -20,4 +19,4 @@ New here? Start with [General](/general/): it installs the addon and walks you t
 | [Basic](/basic/) | Anyone building a game | One chapter for each system: what it is, every field of its editors, how it behaves in the game, and tutorials that build something step by step |
 | [Advanced](/advanced/) | Developers who write scripts | How the toolkit is built, and how to extend it with your own code |
 
-Each section has its own menu on the left. Inside it, the menu is a tree: the systems first, then the pages of each system.
+The menu on the left holds all three sections, on every page. Open a section to see its tree: the systems first, then the pages of each system.

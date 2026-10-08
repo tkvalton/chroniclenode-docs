@@ -17,7 +17,6 @@ The fields at the top are the same for every effect. At the bottom, **Specific P
 | **Display name** | The name the player sees, for example on the buffs bar |
 | **ID** | The number the toolkit gave this effect. Other things refer to the effect by it, and it never changes |
 | **Description** | The text of the effect's tooltip |
-| **Color** | The color used for this effect in the interface |
 | **Icon** | The icon shown for this effect, for example on the buffs bar. The **X** button removes it |
 | **Effect school** | The kind of effect for dispels, purges and immunities: magic, poison, curse and so on. You define schools under *Tags & Groups > School Types*. An effect with no school cannot be removed by a dispel |
 | **Applies to** | Whether the effect lands on the **Target** or on the **Self** (the caster). A self-effect on an ability aimed at an ally is how a "Misdirection" effect puts something on the caster while the ally is the target |
@@ -30,16 +29,18 @@ An effect has a **time strategy**. It decides how long the effect exists and whe
 
 | Time strategy | What it does | Example |
 |---|---|---|
-| **Immediate** | Happens once and is over. It is never added to the target's effect list | A hit, a heal |
-| **Persistent** | Applies and stays until something removes it. It has no timer | An aura, a passive bonus |
-| **Persistent ticking** | Stays, and repeats every **Tick rate** seconds | A constant drain |
+| **Immediate** | Happens once and is over. It is never added to the target's effect list. It has no duration and no tick rate | A hit, a heal |
+| **Persistent** | Applies and stays until something removes it. It has no timer, so no duration | A passive bonus, an aura that lasts |
+| **Persistent ticking** | Stays until something removes it, and repeats every **Tick rate** seconds | A constant drain |
 | **Temporary** | Lasts for its **Duration**, then ends | A buff, a stun |
 | **Temporary ticking** | Lasts for its **Duration** and repeats every **Tick rate** seconds | Poison, regeneration, burning |
 
-| Field | What it does |
-|---|---|
-| **Duration** | Seconds the effect lasts. `0` means permanent. The shortest duration is 0.1 seconds |
-| **Tick rate** | Seconds between repeats. `0` means it does not repeat |
+| Field | Shown for | What it does |
+|---|---|---|
+| **Duration** | Temporary, Temporary ticking | Seconds the effect lasts. The shortest is **0.1**: a smaller value is raised to 0.1 |
+| **Tick rate** | Persistent ticking, Temporary ticking | Seconds between repeats |
+
+The editor only shows a field for the strategies that use it. **Duration** is not a way to make an effect permanent: a duration of `0` on a temporary effect still ends after 0.1 seconds. An effect that never ends, until something removes it, uses the **Persistent** strategy. An effect that happens once and is gone is **Immediate**.
 
 The first application counts as the first tick. A 10-second poison with a tick rate of 2 hits at once, then every 2 seconds.
 
@@ -53,11 +54,19 @@ When an effect is applied while the same effect is already running on the target
 
 | Field | What it does | Default |
 |---|---|---|
-| **Stacking rule** | **No limits**: every application is a separate copy. **Per originator**: each caster has one copy on the target, and more applications by the same caster add stacks to it. **Global**: one copy on the target whoever applies it, and every application adds stacks to it | No limits |
+| **Stacking rule** | How a new application meets one that is already on the target. See the table below | No limits |
 | **Stacks per application** | How many stacks one application adds | `1` |
 | **Max stacks** | The most stacks allowed (for the two rules that stack) | `1` |
 | **Refresh on stack** | A new stack restarts the duration | off |
 | **Reapply on stack** | A new stack runs the effect's logic again. Use it for instant damage, healing and projectiles. A stat modifier does not need it | off |
+
+| Stacking rule | What happens when the effect is applied again | Same caster applies it twice | Two casters apply it |
+|---|---|---|---|
+| **No limits** | Nothing is combined. Every application is a new, separate copy with its own timer. **Max stacks** and the other stack fields do not apply | Two copies, both running | Two copies |
+| **Per originator** | A caster who already has the effect on the target adds a stack to *their* copy (up to **Max stacks**). Another caster gets their own copy | One copy with two stacks | Two copies, one each |
+| **Global** | The target has one copy, whoever applied it. Every application adds a stack to it (up to **Max stacks**) | One copy with two stacks | One copy with two stacks |
+
+The difference between **No limits** and **Per originator** is what happens when the *same* caster applies the effect again. With *No limits* they get a second, independent copy: the effect simply happens twice, and each copy ends on its own. With *Per originator* they get a stronger single copy, with a limit.
 
 ::: tip Stacking a damage-over-time effect
 For poison that gets stronger with each application, use **Per originator** or **Global** with a **Max stacks** above 1, and turn on **Refresh on stack** so every application restarts the timer.
@@ -69,8 +78,8 @@ Removing a stacked effect removes all its stacks, whoever applied them.
 
 | Field | What it does |
 |---|---|
-| **Applies aura** | The effect creates an aura around its target |
-| **Aura classification** | Whether the aura is a **Buff** or a **Debuff**, which decides how it is shown and what can dispel it |
+| **Applies aura** | Shows the effect on the interface as a buff or a debuff: on the buff and debuff bars, nameplates and unit frames. It is a flag for the interface. It is also what a *Clear* effect that removes buffs or debuffs looks at: only effects marked as auras can be cleared that way |
+| **Aura classification** | Whether it is shown as a **Buff** (helpful) or a **Debuff** (harmful). It decides the border color on the interface and which kind of Clear effect removes it |
 
 ## Groups and requirements
 
