@@ -1,6 +1,6 @@
 # Immunities
 
-<Shot name="immunities-editor" caption="The Immunities editor (Tags & Groups > Immunities)." />
+<Shot name="immunities-editor" caption="The Immunities editor (Abilities & Effects > Immunities)." />
 
 An **immunity** is protection against a group of things: all fire damage, all stuns, all Arcane abilities. The toolkit ships **True Immunity**. Make the ones your game needs, then give them to entities or switch them on with an effect.
 
@@ -10,7 +10,7 @@ An **immunity** is protection against a group of things: all fire damage, all st
 |---|---|
 | **Display name**, **Description**, **Color**, **Icon** | What the interface shows |
 | **Immunity type** | What it protects against: **Damage Type**, **Status Effect** or **School Type** |
-| **Protection targets** | The specific [damage types](/basic/tags-and-groups/damage-types), [status effects](/basic/abilities-and-effects/status-effects) or [schools](/basic/tags-and-groups/school-types) to protect against. **Add Protection** adds one and clicking an entry removes it |
+| **Protection targets** | The specific [damage types](/basic/types-and-groups/damage-types), [status effects](/basic/abilities-and-effects/status-effects) or [schools](/basic/types-and-groups/school-types) to protect against. **Add Protection** adds one and clicking an entry removes it |
 
 An immunity needs at least one target. It can also list **exclusions**: things left out of the protection. An item cannot be both a target and an exclusion.
 

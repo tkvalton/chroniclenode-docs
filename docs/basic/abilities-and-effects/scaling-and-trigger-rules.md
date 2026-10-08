@@ -18,7 +18,7 @@ Scaling rules apply to **Damage** and **Heal** effects (what they deal or heal) 
 | Field | What it does | Default |
 |---|---|---|
 | **Source** | What is measured (see the table below) | Target health % |
-| **Pool**, **Effect**, **Tag** | The pool, effect or [entity tag](/basic/tags-and-groups/entity-tags) the source needs, for the sources that use one | none |
+| **Pool**, **Effect**, **Tag** | The pool, effect or [entity type](/basic/types-and-groups/entity-types) the source needs, for the sources that use one | none |
 | **Only own stacks** | For the stacks source: count only the stacks the caster put there | on |
 | **Applies when** | **Always**, only **Below** the threshold, or only **Above** it | Always |
 | **Threshold** | The value the measured number is compared with (`20` for "below 20 % health") | `0` |
@@ -35,7 +35,7 @@ Scaling rules apply to **Damage** and **Heal** effects (what they deal or heal) 
 | **Target pool %** | How full one of the target's pools is, as a percentage |
 | **Target has a shield** | 1 when a shield with something left protects the target, otherwise 0 |
 | **Target effect stacks** | The stacks of an effect on the target: combo points as a stacking effect |
-| **Target has tag** | 1 when the target has an entity tag (Undead, Beast), otherwise 0 |
+| **Target has tag** | 1 when the target has an entity type (Undead, Beast), otherwise 0 |
 | **Originator health %** | The caster's own health |
 | **Originator pool %** | How full one of the caster's pools is |
 
@@ -47,7 +47,7 @@ Scaling rules apply to **Damage** and **Heal** effects (what they deal or heal) 
 | **+2 % damage for every 1 % of missing health** | Source *Target missing health %*, **Per unit** on, **Bonus** `2` |
 | **+300 % against a shielded target** | Source *Target has a shield*, **Bonus** `300` |
 | **Combo points**: +25 % per stack | Source *Target effect stacks*, choose the combo-point effect, **Per unit** on, **Bonus** `25`. The finishing move can consume the stacks with a *Consume* effect |
-| **Extra damage to undead** | Source *Target has tag*, choose the entity tag |
+| **Extra damage to undead** | Source *Target has tag*, choose the entity type |
 
 ### Damage to shields
 
@@ -57,13 +57,13 @@ A **Damage** effect also has **Protective pool multiplier** (default `1`). A shi
 
 <Shot name="effects-trigger-rules" caption="A trigger rule on an effect." />
 
-Some outcomes of a hit are decided by chance and by stats: a critical strike, a dodge, a block, a multistrike. In ChronicleNode each is a **trigger tag**, which you define in **Tags & Groups > Trigger Tags**. A stat on the entity usually rolls the tag.
+Some outcomes of a hit are decided by chance and by stats: a critical strike, a dodge, a block, a multistrike. In ChronicleNode each is a **trigger tag**, which you define in **Entity Stats > Trigger Tags**. A stat on the entity usually rolls the tag.
 
 A **trigger rule** on an effect overrides that for hits and heals *caused by this effect*, whatever the stats say.
 
 | Field | What it does | Default |
 |---|---|---|
-| **Tag** | The [trigger tag](/basic/tags-and-groups/trigger-tags) the rule is about. Empty means every tag (a "luck" bonus to all chances) | none |
+| **Tag** | The [trigger tag](/basic/entity-stats/trigger-tags) the rule is about. Empty means every tag (a "luck" bonus to all chances) | none |
 | **Force** | **Normal**: roll as usual, only the bonuses apply. **Always**: the tag always fires, with no roll, even for an entity with no stat that rolls it. **Never**: the tag never fires. *Never* beats *Always* | Normal |
 | **Chance bonus** | Added to the chance, in percentage points (`30` is 30 more percent) | `0` |
 | **Magnitude bonus** | Added to the tag's magnitude. A critical strike with `+50` is a +150 % crit instead of +100 % | `0` |

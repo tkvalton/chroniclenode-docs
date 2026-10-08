@@ -1,6 +1,6 @@
 # Stat recipes
 
-Most of the stats an RPG has are a few [stat effects](/basic/entity-stats/stats#stat-effects) on a stat. This page shows how to build the usual ones. The demo has several of them (Hit Chance, Expertise, Defense, Resilience, Bonus Damage, Healing Power, Weapon Skill, Armor Skill) so you can open them in the Stats editor.
+Most of the stats an RPG has are a few [stat effects](/basic/entity-stats/stats#stat-effects) on a stat. This page shows how to build the usual ones. The demo has several of them (Defense, Expertise, Resilience, Bonus Damage, Healing Power and the proficiencies, which carry the accuracy of weapon skill) so you can open them in the Stats editor.
 
 ## What a stat can change
 
@@ -10,34 +10,40 @@ Most of the stats an RPG has are a few [stat effects](/basic/entity-stats/stats#
 | A pool | Pool Modifier | Stamina gives health; regeneration |
 | An ability | Ability Modifier | [Cooldown](/basic/keywords#cooldown) reduction, cost reduction, resource gain, **cast time**, **range** |
 | A damage or healing number | Calculation Modifier | Armor, attack power, bonus damage, healing power, resilience to damage over time |
-| A chance of something happening | Calculation Trigger | Critical strike, dodge, block, **hit chance** |
+| A chance of something happening | Calculation Trigger | Critical strike, dodge, block |
+| The chance to hit | Hit Chance | **Accuracy**, **evasion** |
 | The rules of a chance | Trigger Rule | Crit damage, luck, **expertise**, **defense** |
 | A pool, after a hit | Pool Restoration | Life steal, mana on hit |
 | The attacker, after a hit | Reactive Damage | Damage reflection |
 | What the entity is given | Gain Modifier | Experience, gold, loot, [threat](/basic/keywords#threat), resource, tenacity, **effect duration**, **shield strength**, **drain resistance** |
 
-Every effect has [conditions](/basic/shared-systems/conditions) (against Undead, below 30 % health), an [active trigger](/basic/entity-stats/stats#stat-effects) (in combat only) and a [formula](/basic/shared-systems/formulas). The effects that work on a hit also have **Hit filters**: the schools of the ability, a minimum and maximum distance between the two (melee and ranged), and direct hits or ticks over time.
+Every effect has [conditions](/basic/shared-systems/conditions) (against Undead, below 30 % health), an [active trigger](/basic/entity-stats/stats#stat-effects) (in combat only) and a [formula](/basic/shared-systems/formulas). The effects that work on a hit also have **Hit filters**: the schools of the ability, the abilities and effects it comes from, melee or ranged attacks, and direct hits or ticks over time.
 
 ## Hit chance
 
-Whether attacks can miss at all is a rule of your game: **Gameplay Config > Combat > [Hit Rules](/basic/game-settings/gameplay-config#hit-rules)** has **Misses enabled**, a **Base miss chance** for everyone and a **Guaranteed hit chance**. A game with no misses switches it off and builds none of the stats below.
+Whether attacks can miss at all is a rule of your game: **Gameplay Config > Combat > [Hit Rules](/basic/game-settings/gameplay-config#hit-rules)** has the switch, the base chances for melee and ranged attacks, the limits, the level gap and glancing hits. This page is about the **stats** that change that chance. A game with no misses switches the system off and builds none of them.
 
-A hit chance is the chance that an attack *reaches* its target. Every hit that does not is a **miss**: the target is not touched and the attacker sees "Miss".
+The chance to hit is the base chance, **plus the accuracy of the attacker, minus the evasion of the target**, plus the level gap, kept between the minimum and the maximum. Accuracy and evasion are one stat effect, the **Hit Chance Effect**, with a **Side**:
 
-1. Make a [trigger tag](/basic/tags-and-groups/trigger-tags) *Miss* with kind **Avoid** and **Calculations** set to *Damage Done*. The demo has it.
-2. Make a stat *Hit Chance* with the **default value 100**.
-3. Add a **Calculation Trigger Effect**: *Target Calculations* = Damage Done, *Tag Definition* = Miss, **Inverted** on, a **Linear** formula of `1` per point.
+| Stat | Effect |
+|---|---|
+| **Accuracy** | A **Hit Chance Effect**, Side *Accuracy*, Linear `0.1` per point: every point is a tenth of a percent more chance to hit |
+| **Evasion** | A **Hit Chance Effect**, Side *Evasion*, Linear `0.1` per point: every point is a tenth of a percent less chance for attackers to hit you |
+| **Defense** (the demo) | Dodge and block chances, an *Evasion* effect and a lower chance to be critically hit, all in one stat |
 
-**Inverted** means the value is the chance that the tag does *not* happen. 100 points is a 0 % chance to miss, 95 points is 5 %, 0 points is a certain miss. Points above 100 do nothing: the chance never goes below 0, and the rules of the target (Defense) are added after it.
+The value is a number of **points of hit chance**, so the formulas are the same as everywhere else: a Linear formula, a soft cap with [diminishing returns](/basic/shared-systems/formulas), a maximum.
 
 | Variation | How |
 |---|---|
-| **Different chances for melee, ranged and spells** | One stat for each, with **Hit filters**. *Melee Hit*: maximum distance 4 m. *Ranged Hit*: minimum distance 4 m. *Spell Hit*: only the schools of your spells. Only the stat that matches the attack rolls |
-| **The levels decide, as in World of Warcraft** | Give the formula **Level scaling** so the chance depends on the levels of the attacker and the target (see [Formulas](/basic/shared-systems/formulas)) |
-| **A flat 5 % miss for everyone** | Do not use a stat: give every class a *Hit Chance* of 95 |
-| **An attack that never misses** | A [trigger rule](/basic/tags-and-groups/trigger-tags) on the effect: **Never** *Miss*. Or tick *Can be avoided* off on the Damage effect |
+| **Different accuracy for melee and ranged** | Two stats (or two effects on one stat), each with the **Hit filters** field *Melee or ranged*. *Melee accuracy*: only melee attacks. *Ranged accuracy*: only ranged attacks |
+| **Spell hit rating** | An Accuracy effect with **Hit filters: Only these schools** set to your spell schools |
+| **Accuracy against bosses only** | An Accuracy effect with a [condition](/basic/shared-systems/conditions) on the opponent |
+| **Weapon skill raises the chance to hit** | An Accuracy effect on a [proficiency](/basic/entity-stats/proficiencies). The level of the skill is its points, and it only works while the weapon is held |
+| **The levels decide, as in World of Warcraft** | Not a stat: the **Level gap mode** of the Hit Rules |
+| **A flat 5 % miss for everyone** | Not a stat: the base chances are `95` |
+| **An attack that never misses** | **Hit rule: Always hits** on the [ability](/basic/abilities-and-effects/abilities#hit-roll) |
 
-A hit that cannot be avoided cannot be missed.
+An accuracy above what the chance needs does nothing: the chance never goes above the **maximum hit chance** of the Hit Rules.
 
 ## A mastery
 
@@ -62,13 +68,13 @@ Each point takes a quarter of a percent off every avoid chance of whoever you hi
 
 ## Defense
 
-Defense makes you harder to hit and to hurt: more dodge and block, and attackers miss you and crit you less.
+Defense makes you harder to hit and to hurt: more dodge and block, a lower chance for attackers to hit you, and a lower chance to be critically hit.
 
 | Effect | Settings |
 |---|---|
 | A **Calculation Trigger Effect** | Target Calculations *Damage Taken*, Tag *Dodge*, Linear `0.1` per point |
 | A **Calculation Trigger Effect** | Target Calculations *Damage Taken*, Tag *Block*, Linear `0.1` per point |
-| A **Trigger Rule Effect** | Tags of kind *Avoid*, Changes the rolls of **Whoever acts on the owner**, Chance bonus, Linear `0.1`: attackers miss you more |
+| A **Hit Chance Effect** | Side *Evasion*, Linear `0.1`: attackers hit you less often (only when the [hit system](/basic/game-settings/gameplay-config#hit-rules) is on) |
 | A **Trigger Rule Effect** | Tags of kind *Boost*, Changes the rolls of **Whoever acts on the owner**, Chance bonus, Linear `-0.1`: attackers crit you less |
 
 A *Trigger Rule Effect* that changes the rolls of the **owner** is for your own rolls (your crit chance). One that changes the rolls of **whoever acts on the owner** is for the attackers and healers that target you. One that changes the rolls of **whoever defends against the owner** is for the targets of your attacks (expertise).
@@ -91,13 +97,13 @@ A *Trigger Rule Effect* that changes the rolls of the **owner** is for your own 
 
 ## Skills from proficiencies
 
-A [proficiency](/basic/entity-stats/proficiencies) has stat effects of its own, and its level is their points: *One-Handed Weapons* has a Calculation Modifier Effect on Damage Done, percentage increase, `0.5` per level, and a Trigger Rule Effect that lowers the chance to miss. Add [diminishing returns](/basic/shared-systems/formulas) such as a soft cap to make the first levels count more. They only work while the gear of the skill is used.
+A [proficiency](/basic/entity-stats/proficiencies) has stat effects of its own, and its level is their points: *One-Handed Weapons* has a Calculation Modifier Effect on Damage Done, percentage increase, `0.5` per level, and a Hit Chance Effect (accuracy) that raises the chance to hit. Add [diminishing returns](/basic/shared-systems/formulas) such as a soft cap to make the first levels count more. They only work while the gear of the skill is used.
 
 ## Other common stats
 
 | Stat | Effect |
 |---|---|
-| **Armor** | Calculation Modifier on Damage Taken, Percentage decrease, [Damage Type](/basic/tags-and-groups/damage-types) *Physical*, **Hyperbolic** formula |
+| **Armor** | Calculation Modifier on Damage Taken, Percentage decrease, [Damage Type](/basic/types-and-groups/damage-types) *Physical*, **Hyperbolic** formula |
 | **Life steal** | Pool Restoration Effect on Health, trigger *damage dealt*, scaling *percent of damage* |
 | **Cooldown reduction** | Ability Modifier Effect, property *Cooldown*, Percentage decrease |
 | **Haste** | The core stats *Attack Speed* and *Cast Speed*, or an Ability Modifier Effect on *Cast time* |
@@ -115,5 +121,5 @@ The cast time and range of an ability can be changed by a stat, but not its othe
 
 ## See also
 
-- [Stats](/basic/entity-stats/stats), [Calculations](/basic/entity-stats/calculations), [Trigger tags](/basic/tags-and-groups/trigger-tags)
+- [Stats](/basic/entity-stats/stats), [Calculations](/basic/entity-stats/calculations), [Trigger tags](/basic/entity-stats/trigger-tags)
 - [Proficiencies](/basic/entity-stats/proficiencies)

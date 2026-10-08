@@ -28,6 +28,7 @@ Created by CombatManager.apply_damage, completed by each phase (attacker's calcu
 | `float` | [absorbed](#var-absorbed) | `0.0` |
 | `float` | [health_damage](#var-health-damage) | `0.0` |
 | `Outcome` | [outcome](#var-outcome) | `Outcome.HIT` |
+| `bool` | [glancing](#var-glancing) | `false` |
 | `String` | [avoid_kind](#var-avoid-kind) | `""` |
 | `bool` | [target_died](#var-target-died) | `false` |
 | `bool` | [target_was_dead](#var-target-was-dead) | `false` |
@@ -152,6 +153,10 @@ What actually reached health
 ### Outcome outcome = Outcome.HIT {#var-outcome}
 
 *No description yet.*
+
+### bool glancing = false {#var-glancing}
+
+The hit was a glancing one (see HitRules): it landed, but weaker. Set when the result is made, from the effect that causes it
 
 ### String avoid_kind = "" {#var-avoid-kind}
 

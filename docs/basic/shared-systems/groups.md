@@ -1,8 +1,8 @@
 # Groups
 
-<Shot name="groups-editor" caption="The Groups editor (Tags & Groups > Groups)." />
+<Shot name="groups-editor" caption="The Groups editor (Types & Groups > Groups)." />
 
-A **group** is a label that effects, abilities and items can be part of, several at once. You make groups in **Tags & Groups > [Groups](/basic/tags-and-groups/groups)**, and then put things in them with the **Groups** field of the [Effects](/basic/abilities-and-effects/effects#groups-and-requirements) editor,
+A **group** is a label that effects, abilities and items can be part of, several at once. You make groups in **Types & Groups > [Groups](/basic/types-and-groups/groups)**, and then put things in them with the **Groups** field of the [Effects](/basic/abilities-and-effects/effects#groups-and-requirements) editor,
 the [Abilities](/basic/abilities-and-effects/abilities#groups) editor and the Items editor. A group does up to four jobs, and you switch on the ones you need.
 
 ## Exclusive effects

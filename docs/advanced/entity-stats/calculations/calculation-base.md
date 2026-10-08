@@ -64,7 +64,7 @@ Runs triggers then modifiers on `start_value`. `context` holds what the stat eff
 
 ### void add_hit_context( context: Dictionary, user: Variant, other: Variant, effect: EffectInstance ) {#method-add-hit-context}
 
-Adds what the stat effects can filter a hit by to the context: the school of the ability, how far apart the two are, and whether it is a tick of a damage-over-time effect. `user` is whoever acts (attacker, healer), `other` whoever it is done to
+Adds what the stat effects can filter a hit by to the context: the school of the ability, whether it is melee or ranged, which ability and effects cause it, and whether it is a tick of a damage-over-time effect. `user` is whoever acts (attacker, healer), `other` whoever it is done to
 
 ### Array[Dictionary] validate() {#method-validate}
 

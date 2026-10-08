@@ -1,6 +1,6 @@
 # Damage Types
 
-<Shot name="damage-types-editor" caption="The Damage Types editor (Tags & Groups > Damage Types)." />
+<Shot name="damage-types-editor" caption="The Damage Types editor (Types & Groups > Damage Types)." />
 
 A **damage type** says what kind of damage a hit is: Physical, Fire, Frost, Poison, Holy. The toolkit ships one, **Physical**. Add the rest your game has.
 
@@ -28,7 +28,7 @@ To make fire burn: make an effect *Burning* (a Damage effect of type *Fire* with
 | **Stat effects** | **Damage Type** on a Calculation Modifier Effect limits it to one kind: Armor works against *Physical*, Fire Resistance against *Fire*. Leave it empty and the effect applies to all damage |
 | **Stat effects, procs** | A life steal or damage reflection can be limited to one type |
 | **[Pools](/basic/entity-stats/pool#damage-types)** | A pool absorbs only the damage types in its list |
-| **[Immunities](/basic/tags-and-groups/immunities)** | An immunity to *Fire* stops all fire damage |
+| **[Immunities](/basic/abilities-and-effects/immunities)** | An immunity to *Fire* stops all fire damage |
 
 ## Examples
 
@@ -39,4 +39,4 @@ To make fire burn: make an effect *Burning* (a Damage effect of type *Fire* with
 | **True damage** that ignores armor | A damage type nothing resists, such as *True* |
 | **Fire that burns** | Applied effects: *Burning*, apply chance `100` |
 | **Poison that sometimes weakens** | Applied effects: *Weakened*, apply chance `25` |
-| **Fire immunity for a lava golem** | An [immunity](/basic/tags-and-groups/immunities) to the damage type *Fire* in the golem's stats data |
+| **Fire immunity for a lava golem** | An [immunity](/basic/abilities-and-effects/immunities) to the damage type *Fire* in the golem's stats data |

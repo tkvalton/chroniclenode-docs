@@ -41,7 +41,7 @@ These fields belong to every kind of active ability.
 
 | Field | What it does | Default |
 |---|---|---|
-| **Ability school** | The school the ability belongs to (fire, healing, physical and so on). [Immunities](/basic/tags-and-groups/immunities) and dispels use it. You define schools under *Tags & Groups > [School Types](/basic/tags-and-groups/school-types)* | none |
+| **Ability school** | The school the ability belongs to (fire, healing, physical and so on). [Immunities](/basic/abilities-and-effects/immunities) and dispels use it. You define schools under *Types & Groups > [School Types](/basic/types-and-groups/school-types)* | none |
 | **On global cooldown** | Using this ability starts the [**global cooldown**](/basic/keywords#global-cooldown), a short pause during which other abilities on it cannot be used | on |
 | **Use weapon speed as cooldown** | The [cooldown](/basic/keywords#cooldown) is the equipped weapon's attack speed instead of **Cooldown duration**. Use it for basic attacks | off |
 | **Cooldown duration** | Seconds before the ability can be used again. `0` means no cooldown | `0` |
@@ -79,6 +79,17 @@ An ability can also use up items or money each time it is used.
 
 **Ammo amount** is how many pieces each use takes. Depending on the source you also pick the item, the item group or the currency.
 
+## Hit roll
+
+Active abilities have a **Hit roll** box with two fields. They only matter when your game has [misses](/basic/game-settings/gameplay-config#hit-rules).
+
+| Field | What it does | Default |
+|---|---|---|
+| **Hit rule** | **Project default**: the ability can miss when **Use hit system** is on in the [Gameplay Config](/basic/game-settings/gameplay-config). **Always hits**: it never misses (a spell that cannot be dodged, a trap). **Can miss**: it rolls to hit even when the project does not use the hit system | Project default |
+| **Attack style** | **Automatic**: melee when the range is at most the **Melee range** of the Gameplay Config, otherwise ranged. **Melee** or **Ranged** to decide yourself. The style picks the base chance to hit and which [accuracy and evasion](/basic/game-settings/gameplay-config#accuracy-and-evasion) effects count | Automatic |
+
+The ability rolls **once per use and enemy**, before any of its effects apply: a miss stops everything the ability would have done to that enemy. The editor shows what the ability does with the current settings. The full rules, the [formula](/basic/shared-systems/formulas) and examples are on the [Gameplay Config](/basic/game-settings/gameplay-config#hit-rules) page.
+
 ## Requirements
 
 <Shot name="abilities-requirements" caption="The requirements list, with Add Requirement." />
@@ -87,7 +98,7 @@ An ability can also use up items or money each time it is used.
 
 ## Groups
 
-**Groups** put the ability in one or more groups (defined in *Tags & Groups > Groups*). Abilities and consumables in a group that shares its cooldown go on cooldown together, which is how potions share a cooldown.
+**Groups** put the ability in one or more groups (defined in *Types & Groups > Groups*). Abilities and consumables in a group that shares its cooldown go on cooldown together, which is how potions share a cooldown.
 
 ## Targeting and use style
 

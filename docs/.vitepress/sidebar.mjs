@@ -50,6 +50,7 @@ const abilitiesAndEffects = {
         page('The Effects editor', '/basic/abilities-and-effects/effects', { view: 'effects' }),
         page('Effect types', '/basic/abilities-and-effects/effect-types'),
         page('Status Effects', '/basic/abilities-and-effects/status-effects', { view: 'status_effects' }),
+        page('Immunities', '/basic/abilities-and-effects/immunities', { view: 'immunities' }),
         page('Stacking and groups', '/basic/abilities-and-effects/stacking-and-groups'),
         page('The amount of an effect', '/basic/abilities-and-effects/effect-amount'),
         page('Scaling and trigger rules', '/basic/abilities-and-effects/scaling-and-trigger-rules'),
@@ -115,17 +116,16 @@ const basicSystems = [
     ['Pool', 'pool', 'pool_stats'],
     ['Calculations', 'calculations', 'calculations'],
     ['Proficiencies', 'proficiencies', 'proficiencies'],
+    ['Trigger Tags', 'trigger-tags', 'trigger_tags'],
+    ['Stat Groups', 'stat-groups', 'stat_groups'],
   ], {
     after: [page('Stat recipes', '/basic/entity-stats/stat-recipes')],
   }),
-  system('Tags & Groups', 'tags-and-groups', [
+  system('Types & Groups', 'types-and-groups', [
     ['Damage Types', 'damage-types', 'damage_types'],
     ['School Types', 'school-types', 'school_types'],
-    ['Trigger Tags', 'trigger-tags', 'trigger_tags'],
-    ['Entity Tags', 'entity-tags', 'entity_tags'],
+    ['Entity Types', 'entity-types', 'entity_tags'],
     ['Groups', 'groups', 'groups'],
-    ['Stat Groups', 'stat-groups', 'stat_groups'],
-    ['Immunities', 'immunities', 'immunities'],
   ]),
   system('Items', 'items', [
     ['Items', 'items', 'items'],
@@ -255,7 +255,7 @@ const advancedEntityStats = {
     page('The hit and heal pipeline', '/advanced/entity-stats/pipeline', { title: 'The hit and heal pipeline' }),
     page('Pools and damage layers', '/advanced/entity-stats/pools', { title: 'Pools and damage layers' }),
     page('Growth, core stats and gain channels', '/advanced/entity-stats/growth-and-core-stats', { title: 'Growth, core stats and gain channels' }),
-    page('Tags & Groups', '/advanced/entity-stats/tags-and-groups', { title: 'Tags & Groups: how they are built' }),
+    page('Types & Groups', '/advanced/entity-stats/tags-and-groups', { title: 'Types & Groups: how they are built' }),
     page('Proficiencies', '/advanced/entity-stats/proficiencies', { title: 'Proficiencies: how they are built' }),
     ...statClasses.map(group => ({
       text: group.text,
@@ -281,7 +281,7 @@ const worldAdvanced = {
 // The same systems in the advanced section: how they are built
 const advancedSystems = [
   ['World', 'world'], ['Events & Quests', 'events-and-quests'], ['Entities', 'entities'], ['Abilities & Effects', 'abilities-and-effects'],
-  ['Behaviors', 'behaviors'], ['Entity Stats', 'entity-stats'], ['Tags & Groups', 'tags-and-groups'], ['Items', 'items'],
+  ['Behaviors', 'behaviors'], ['Entity Stats', 'entity-stats'], ['Types & Groups', 'types-and-groups'], ['Items', 'items'],
   ['Equipment Definitions', 'equipment-definitions'], ['Assets', 'assets'], ['Game Settings', 'game-settings'],
 ].map(([text, slug]) => slug === 'abilities-and-effects'
   ? withPages(classSystem(text, slug, abilitiesAndEffectsClasses), [page('The effect amount', '/advanced/abilities-and-effects/effect-amount', { title: 'The effect amount: how it is built' })])

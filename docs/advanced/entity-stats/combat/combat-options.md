@@ -23,9 +23,7 @@ The project's combat result options (GameplayConfig, Combat category, "Damage Re
 | `float` | [damage_threat_multiplier](#method-damage-threat-multiplier)() *static* |
 | `int` | [max_reflect_chain](#method-max-reflect-chain)() *static* |
 | `bool` | [zero_damage_counts_as_hit](#method-zero-damage-counts-as-hit)() *static* |
-| `bool` | [misses_enabled](#method-misses-enabled)() *static* |
-| `float` | [base_miss_chance](#method-base-miss-chance)() *static* |
-| `float` | [guaranteed_hit_chance](#method-guaranteed-hit-chance)() *static* |
+| `GameplayConfig` | [hit_config](#method-hit-config)() *static* |
 | `float` | [minimum_damage](#method-minimum-damage)() *static* |
 | `bool` | [round_damage](#method-round-damage)() *static* |
 | `GameplayConfig.CapacityRule` | [capacity_change_rule](#method-capacity-change-rule)() *static* |
@@ -87,17 +85,9 @@ How many reactions deep a hit may be and still be reflected
 
 *No description yet.*
 
-### bool misses_enabled() {#method-misses-enabled}
+### GameplayConfig hit_config() {#method-hit-config}
 
-Can attacks miss at all? (Game settings, Combat, Hit Rules)
-
-### float base_miss_chance() {#method-base-miss-chance}
-
-The flat chance (percent) that every attack misses
-
-### float guaranteed_hit_chance() {#method-guaranteed-hit-chance}
-
-The share (percent) of attacks that always hit
+The project's settings (Game settings, Combat, Hit Rules read from it by HitRules)
 
 ### float minimum_damage() {#method-minimum-damage}
 

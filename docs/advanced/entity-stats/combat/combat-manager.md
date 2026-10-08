@@ -63,6 +63,7 @@ Complete combat orchestration system that handles damage calculations, effect po
 | `int` | [clear_world_effects_by_originator](#method-clear-world-effects-by-originator)( `originator: Entity` ) |
 | `void` | [clear_world_effects](#method-clear-world-effects)() |
 | `DamageResult` | [apply_damage](#method-apply-damage)( `attacker: Variant, target: Variant, raw_damage: float, damage_type: int, effect_instance: EffectInstance, can_be_avoided: bool = true, chain_depth: int = 0` ) |
+| `void` | [announce_miss](#method-announce-miss)( `attacker: Entity, target: Entity, effect_instance: EffectInstance` ) |
 | `DamageResult` | [run_damage_done](#method-run-damage-done)( `attacker: Variant, raw_damage: float, damage_type: int, effect_instance: EffectInstance = null` ) |
 | `HealingResult` | [apply_healing](#method-apply-healing)( `healer_entity: Variant, target_entity: Variant, raw_healing: float, effect_instance: EffectInstance, chain_depth: int = 0, only_pool_id: int = 0` ) |
 | `HealingResult` | [run_healing_done](#method-run-healing-done)( `healer: Variant, raw_healing: float, effect_instance: EffectInstance = null` ) |
@@ -288,6 +289,10 @@ Remove all world effects (useful for scene transitions)
 ### DamageResult apply_damage( attacker: Variant, target: Variant, raw_damage: float, damage_type: int, effect_instance: EffectInstance, can_be_avoided: bool = true, chain_depth: int = 0 ) {#method-apply-damage}
 
 Resolves one hit from start to finish and returns the DamageResult every consumer reads. Phase 1: the attacker's calculation (crits, attack power ...) fills `done`. Phase 2: the target completes the result (redirection, immunity, dodge / block / armor, shields, health, death). A script error inside the target's processing returns null from `take_damage`; it is turned into a FAILED result here, so a crash can never be mistaken for a hit. `chain_depth` is 0 for a normal hit and result.next_chain_depth() for damage caused by reacting to a hit (damage reflection, reactive damage).
+
+### void announce_miss( attacker: Entity, target: Entity, effect_instance: EffectInstance ) {#method-announce-miss}
+
+Tells everyone that an attack missed (the outcome of a failed hit roll)
 
 ### DamageResult run_damage_done( attacker: Variant, raw_damage: float, damage_type: int, effect_instance: EffectInstance = null ) {#method-run-damage-done}
 

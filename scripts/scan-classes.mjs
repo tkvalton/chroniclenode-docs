@@ -152,6 +152,7 @@ const SYSTEMS = {
           ['runtime_classes/combat/damage_result.gd', false],
           ['runtime_classes/combat/healing_result.gd', false],
           ['runtime_classes/combat/combat_options.gd', false],
+          ['runtime_classes/combat/hit_rules.gd', false],
           ['runtime_classes/combat/combat_reactions.gd', false],
           ['runtime_classes/combat/combat_manager.gd', false],
         ],

@@ -62,7 +62,7 @@ A *Health Regeneration* stat can add to these numbers: the [Pool Modifier Effect
 
 ## Damage types
 
-**Absorbs All Damage Types** is on by default. Turn it off and **Add Type** to list the [damage types](/basic/tags-and-groups/damage-types) the pool takes: a magic barrier that only stops fire and frost. Everything else passes through to the next pool.
+**Absorbs All Damage Types** is on by default. Turn it off and **Add Type** to list the [damage types](/basic/types-and-groups/damage-types) the pool takes: a magic barrier that only stops fire and frost. Everything else passes through to the next pool.
 
 ## Damage layer
 

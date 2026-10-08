@@ -38,7 +38,7 @@ One rule that scales the damage or healing of an effect by something about the t
 - **TARGET_POOL_PERCENT** = `3` - the fill of one of the target's pools, as a percentage
 - **TARGET_HAS_PROTECTIVE_POOL** = `4` - 1 when a shield (a protective pool with something left) protects the target, else 0
 - **TARGET_EFFECT_STACKS** = `5` - the stacks of an effect on the target (combo points as a stacking aura)
-- **TARGET_HAS_TAG** = `6` - 1 when the target has an entity tag (Undead ...), else 0
+- **TARGET_HAS_TAG** = `6` - 1 when the target has an entity type (Undead ...), else 0
 - **ORIGINATOR_HEALTH_PERCENT** = `7` - the originator's health as a percentage
 - **ORIGINATOR_POOL_PERCENT** = `8` - the fill of one of the originator's pools, as a percentage
 
@@ -68,7 +68,7 @@ Count only the stacks the originator put there (stack source)
 
 ### int tag_id = 0 {#prop-tag-id}
 
-The entity tag looked for (tag source)
+The entity type looked for (tag source)
 
 ### Applies applies_when = Applies.ALWAYS {#prop-applies-when}
 

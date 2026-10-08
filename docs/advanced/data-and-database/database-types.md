@@ -38,15 +38,15 @@ The rows are in the order of the REGISTRY, grouped like the editor's categories.
 | `combat_script` | `ModularCombatScript` | `src/data/behaviors/combat_scripts/` | [Combat Scripts](/basic/behaviors/combat-scripts) |
 | `behavior_script` | `ModularBehaviorScript` | `src/data/behaviors/behavior_scripts/` | [Behavior Scripts](/basic/behaviors/behavior-scripts) |
 | **Entity Stats Definitions** | | | |
-| `damage_type` | `DamageTypeDefinition` | `src/data/stats/damage_types/` | [Damage Types](/basic/tags-and-groups/damage-types) |
-| `school_type` | `SchoolTypeDefinition` | `src/data/stats/school_types/` | [School Types](/basic/tags-and-groups/school-types) |
-| `immunity` | `ImmunityDefinition` | `src/data/stats/immunities/` | [Immunities](/basic/tags-and-groups/immunities) |
-| `trigger_tag` | `TriggerTagDefinition` | `src/data/stats/trigger_tags/` | [Trigger Tags](/basic/tags-and-groups/trigger-tags) |
-| `entity_tag` | `EntityTagDefinition` | `src/data/entity_tags/` | [Entity Tags](/basic/tags-and-groups/entity-tags) |
-| `group` | `GroupDefinition` | `src/data/groups/` | [Groups](/basic/tags-and-groups/groups) |
+| `damage_type` | `DamageTypeDefinition` | `src/data/stats/damage_types/` | [Damage Types](/basic/types-and-groups/damage-types) |
+| `school_type` | `SchoolTypeDefinition` | `src/data/stats/school_types/` | [School Types](/basic/types-and-groups/school-types) |
+| `immunity` | `ImmunityDefinition` | `src/data/stats/immunities/` | [Immunities](/basic/abilities-and-effects/immunities) |
+| `trigger_tag` | `TriggerTagDefinition` | `src/data/stats/trigger_tags/` | [Trigger Tags](/basic/entity-stats/trigger-tags) |
+| `entity_tag` | `EntityTagDefinition` | `src/data/entity_tags/` | [Entity Types](/basic/types-and-groups/entity-types) |
+| `group` | `GroupDefinition` | `src/data/groups/` | [Groups](/basic/types-and-groups/groups) |
 | `status_effect` | `StatusEffectDefinition` | `src/data/stats/status_effects/` | [Status Effects](/basic/abilities-and-effects/status-effects) |
 | `stat` | `StatDefinition` | `src/data/stats/` | [Stats](/basic/entity-stats/stats) |
-| `stat_group` | `StatGroupDefinition` | `src/data/stats/stat_groups/` | [Stat Groups](/basic/tags-and-groups/stat-groups) |
+| `stat_group` | `StatGroupDefinition` | `src/data/stats/stat_groups/` | [Stat Groups](/basic/entity-stats/stat-groups) |
 | `proficiency` | `ProficiencyDefinition` | `src/data/stats/proficiencies/` |  |
 | `pool` | `PoolDefinition` | `src/data/stats/pools/` | [Pool](/basic/entity-stats/pool) |
 | **Items** | | | |

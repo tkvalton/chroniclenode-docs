@@ -50,7 +50,7 @@ The effects of one ability use share a record of what they did: the damage dealt
 Two rules to remember:
 
 - An effect only sees what effects **before** it did. Put the effect that reacts after the one it listens to in the list of [child effects](/basic/abilities-and-effects/child-effects-and-auras).
-- Misses, dodges and [immunities](/basic/tags-and-groups/immunities) deal no damage, so a part that listens to them adds `0`.
+- Misses, dodges and [immunities](/basic/abilities-and-effects/immunities) deal no damage, so a part that listens to them adds `0`.
 
 This is different from [leech](/basic/entity-stats/stats#the-effect-types), which is a share of one hit that is healed to the attacker through the healing [calculations](/basic/entity-stats/calculations). Use leech for "life steal"; use a part when you need a different effect, a different target or a different number.
 

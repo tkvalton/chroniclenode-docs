@@ -18,7 +18,7 @@ The fields at the top are the same for every effect. At the bottom, **Specific P
 | **ID** | The number the toolkit gave this effect. Other things refer to the effect by it, and it never changes |
 | **Description** | The text shown when the player points at the effect on the interface (a buff icon, a nameplate). Leave it empty to show the text the effect type writes itself, for example "deals 10 damage". In it, `<Effect1>`, `<Effect2>` and so on are replaced by the text of the effect's child effects. See [Child effects and auras](/basic/abilities-and-effects/child-effects-and-auras) |
 | **Icon** | The icon shown for this effect, for example on the buffs bar. The **X** button removes it |
-| **Effect school** | The kind of effect for dispels, purges and [immunities](/basic/tags-and-groups/immunities): magic, poison, curse and so on. You define schools under *Tags & Groups > [School Types](/basic/tags-and-groups/school-types)*. An effect with no school cannot be removed by a dispel |
+| **Effect school** | The kind of effect for dispels, purges and [immunities](/basic/abilities-and-effects/immunities): magic, poison, curse and so on. You define schools under *Types & Groups > [School Types](/basic/types-and-groups/school-types)*. An effect with no school cannot be removed by a dispel |
 | **Applies to** | Whether the effect lands on the **Target** or on the **Self** (the caster). A self-effect on an ability aimed at an ally is how a "Misdirection" effect puts something on the caster while the ally is the target |
 
 ## How long it lasts
@@ -87,7 +87,7 @@ An effect that is shown to the player this way is called an [aura](/basic/keywor
 
 | Field | What it does |
 |---|---|
-| **Groups** | The [groups](/basic/shared-systems/groups) this effect is in (a Seal, a Well Fed, a Battle Elixir). A group can limit how many of its effects can be active at once, so a second Seal replaces the first. You define groups under *Tags & Groups > Groups* |
+| **Groups** | The [groups](/basic/shared-systems/groups) this effect is in (a Seal, a Well Fed, a Battle Elixir). A group can limit how many of its effects can be active at once, so a second Seal replaces the first. You define groups under *Types & Groups > Groups* |
 | **Requirements** | What the entity the effect lands on must meet at that moment: a level range, a class, a weapon. An effect that fails is rejected |
 
 ## Limited uses

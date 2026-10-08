@@ -26,7 +26,7 @@ A type that changes something *for a while* has no **Immediate** time strategy, 
 
 | Type | What it does |
 |---|---|
-| [**Stat Modifier**](/advanced/abilities-and-effects/effects-stats/stat-modifier-effect) (`StatModifierEffect`) | Changes a stat on the target, or every stat of a [stat group](/basic/tags-and-groups/stat-groups) at once ("all Primary stats +10 %"). Its value is an [Amount](/basic/abilities-and-effects/effect-amount), and it has scaling rules too: the value can depend on the situation when it is applied |
+| [**Stat Modifier**](/advanced/abilities-and-effects/effects-stats/stat-modifier-effect) (`StatModifierEffect`) | Changes a stat on the target, or every stat of a [stat group](/basic/entity-stats/stat-groups) at once ("all Primary stats +10 %"). Its value is an [Amount](/basic/abilities-and-effects/effect-amount), and it has scaling rules too: the value can depend on the situation when it is applied |
 | [**Set Stat Active State**](/advanced/abilities-and-effects/effects-stats/set-stat-active-state-effect) (`SetStatActiveStateEffect`) | Switches stats on or off: one stat, or a whole group (all Offensive stats off while disarmed). They come back when the effect ends |
 | [**Add Health Pool**](/advanced/abilities-and-effects/effects-stats/add-health-pool-effect) (`AddHealthPoolEffect`) | Adds a temporary health pool, such as an absorb shield. With no pool chosen it uses the built-in *Shield* pool, which soaks up damage before health does |
 | [**Add Resource Pool**](/advanced/abilities-and-effects/effects-stats/add-resource-pool-effect) (`AddResourcePoolEffect`) | Adds a temporary resource pool, such as bonus mana or rage, removed when the effect ends |
@@ -40,7 +40,7 @@ A type that changes something *for a while* has no **Immediate** time strategy, 
 
 | Type | What it does |
 |---|---|
-| [**Status**](/advanced/abilities-and-effects/effects-status-and-control/status-effect) (`StatusEffect`) | Puts a status condition on the target: stun, root, silence, disarm, cripple. The condition itself is a *[Status Effect](/basic/abilities-and-effects/status-effects)* you define in *Entity Stats*, with its own [diminishing returns](/basic/keywords#diminishing-returns) and [immunity](/basic/tags-and-groups/immunities) |
+| [**Status**](/advanced/abilities-and-effects/effects-status-and-control/status-effect) (`StatusEffect`) | Puts a status condition on the target: stun, root, silence, disarm, cripple. The condition itself is a *[Status Effect](/basic/abilities-and-effects/status-effects)* you define in *Entity Stats*, with its own [diminishing returns](/basic/keywords#diminishing-returns) and [immunity](/basic/abilities-and-effects/immunities) |
 | [**Interrupt**](/advanced/abilities-and-effects/effects-status-and-control/interrupt-effect) (`InterruptEffect`) | Interrupts the target's current cast or channel |
 | [**School Lock**](/advanced/abilities-and-effects/effects-status-and-control/school-lock-effect) (`SchoolLockEffect`) | Locks all of one school's abilities on the target: a counterspell, a school-specific silence |
 | [**Ability Reflect**](/advanced/abilities-and-effects/effects-status-and-control/ability-reflect-effect) (`AbilityReflectEffect`) | A ward that sends abilities aimed at its holder back at their caster |
@@ -155,7 +155,7 @@ A proc effect waits for something to happen to its holder, and then applies its 
 
 | Type | What it triggers on |
 |---|---|
-| [**Combat Proc**](/advanced/abilities-and-effects/effects-procs/combat-proc-effect) (`CombatProcEffect`) | The hits its holder deals or receives, filtered by the [trigger tags](/basic/tags-and-groups/trigger-tags) that fired: critical strike, dodge, block |
+| [**Combat Proc**](/advanced/abilities-and-effects/effects-procs/combat-proc-effect) (`CombatProcEffect`) | The hits its holder deals or receives, filtered by the [trigger tags](/basic/entity-stats/trigger-tags) that fired: critical strike, dodge, block |
 | [**Ability Proc**](/advanced/abilities-and-effects/effects-procs/ability-proc-effect) (`AbilityProcEffect`) | The use of abilities |
 | [**Death Proc**](/advanced/abilities-and-effects/effects-procs/death-proc-effect) (`DeathProcEffect`) | Death events |
 | [**Combat State Proc**](/advanced/abilities-and-effects/effects-procs/combat-state-proc-effect) (`CombatStateProcEffect`) | The holder entering or leaving combat |

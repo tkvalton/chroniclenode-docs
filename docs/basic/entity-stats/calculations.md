@@ -19,8 +19,10 @@ Every damaging effect runs *Damage Done* for the attacker and then *Damage Taken
 
 Each calculation has two phases:
 
-1. **Triggers.** Stats with a [Calculation Trigger Effect](/basic/entity-stats/stats#the-effect-types) roll their chance. **Avoid** triggers go first. In **Damage Taken** an avoid trigger is a dodge or parry; in **Damage Done** it is a **miss** (a trigger that names Damage Done). When one fires, the number becomes 0 and the calculation ends. A miss ends the whole hit: the target is not touched. Other triggers (critical strike, block) set a [trigger tag](/basic/tags-and-groups/trigger-tags) and carry on.
+1. **Triggers.** Stats with a [Calculation Trigger Effect](/basic/entity-stats/stats#the-effect-types) roll their chance. **Avoid** triggers go first: in **Damage Taken** an avoid trigger is a dodge or a parry. When one fires, the number becomes 0 and the calculation ends. Other triggers (critical strike, block) set a [trigger tag](/basic/entity-stats/trigger-tags) and carry on.
 2. **Modifiers.** Every Calculation Modifier Effect changes the number, one at a time, in the order of the list below. After the modifiers, the **damage done** and **healing done** calculations apply the [Ability Boost](/basic/abilities-and-effects/effect-amount#boosting-some-abilities) effects of the doer, as steps of their own. A modifier that **requires a trigger tag** only runs when that tag fired: "block lowers the damage by 30 %" needs the *block* tag.
+
+A **miss** is not part of a calculation. Whether an attack reaches its target is decided before, by the [hit roll](/basic/game-settings/gameplay-config#hit-rules) of the ability; the calculations only run for an attack that landed.
 
 A trigger tag can also change the number by itself: a *critical strike* adds +100 % when it fires, without any modifier.
 
@@ -28,11 +30,11 @@ The number cannot go below 0.
 
 ## Rules from the other side
 
-The chance of a trigger is changed by [trigger rules](/basic/tags-and-groups/trigger-tags). Besides the rules of the entity itself, a calculation also takes the rules of its **opponent**, when the stat says so:
+The chance of a trigger is changed by [trigger rules](/basic/entity-stats/trigger-tags). Besides the rules of the entity itself, a calculation also takes the rules of its **opponent**, when the stat says so:
 
 | In the calculation of | The rules that apply | Example |
 |---|---|---|
-| The attacker (Damage Done, Healing Done) | Its own, and those of the target that change the rolls of *whoever acts on it* | The target's Defense lowers your crit chance and raises your chance to miss |
+| The attacker (Damage Done, Healing Done) | Its own, and those of the target that change the rolls of *whoever acts on it* | The target's Defense lowers your crit chance |
 | The target (Damage Taken, Healing Taken) | Its own, and those of the attacker that change the rolls of *whoever defends against it* | Your Expertise lowers the target's chance to dodge |
 
 ## The editor
@@ -74,7 +76,7 @@ Effects with the **same priority** are fine. They run by stat id, then in the or
 | Goal | How |
 |---|---|
 | **Flat armor** | Damage Taken, Subtraction, priority `100`. Armor removes points before any percentages run |
-| **Percentage armor** | Damage Taken, Percentage Decrease, [Damage Type](/basic/tags-and-groups/damage-types) *Physical*, a **Hyperbolic** [formula](/basic/shared-systems/formulas) so it never reaches 100 % |
+| **Percentage armor** | Damage Taken, Percentage Decrease, [Damage Type](/basic/types-and-groups/damage-types) *Physical*, a **Hyperbolic** [formula](/basic/shared-systems/formulas) so it never reaches 100 % |
 | **Critical hits** | A Calculation Trigger Effect with the tag *Critical Strike* (kind **Boost**) in Damage Done. The tag adds its magnitude |
 | **Dodge** | A Calculation Trigger Effect with kind **Avoid** in Damage Taken. A dodged hit does 0 |
 | **Block** | A trigger with kind **Mitigate** and a modifier in Damage Taken that requires the *block* tag |
@@ -82,5 +84,5 @@ Effects with the **same priority** are fine. They run by stat id, then in the or
 
 ## See also
 
-- [Stats](/basic/entity-stats/stats), [Trigger Tags](/basic/tags-and-groups/trigger-tags)
+- [Stats](/basic/entity-stats/stats), [Trigger Tags](/basic/entity-stats/trigger-tags)
 - [The hit and heal pipeline](/advanced/entity-stats/pipeline) (Advanced)

@@ -16,6 +16,8 @@ ActiveAbilityDefinition with integrated Requirement system Active abilities are 
 | `UseStrategyDefinition` | [use_strategy_definition](#prop-use-strategy-definition) |  |
 | `Array[int]` | [on_use_effects](#prop-on-use-effects) | `[]` |
 | `int` | [ability_school](#prop-ability-school) | `0` |
+| `HitRule` | [hit_rule](#prop-hit-rule) | `HitRule.PROJECT_DEFAULT` |
+| `AttackStyle` | [attack_style](#prop-attack-style) | `AttackStyle.AUTOMATIC` |
 | `bool` | [on_global_cooldown](#prop-on-global-cooldown) | `true` |
 | `float` | [cooldown_duration](#prop-cooldown-duration) | `0.0` |
 | `bool` | [use_weapon_speed_as_cooldown](#prop-use-weapon-speed-as-cooldown) | `false` |
@@ -56,6 +58,22 @@ ActiveAbilityDefinition with integrated Requirement system Active abilities are 
 
 ## Enumerations
 
+### enum HitRule {#enum-hitrule}
+
+Whether an ability makes a hit roll against the enemies it reaches (see GameplayConfig, Hit Rules)
+
+- **PROJECT_DEFAULT** = `0` - Follows the game settings: it can miss when the project uses the hit system
+- **ALWAYS_HITS** = `1` - Never misses, whatever the project says (a spell that cannot be dodged, a sure strike)
+- **CAN_MISS** = `2` - Can miss even when the project does not use the hit system: only some abilities of the game roll to hit
+
+### enum AttackStyle {#enum-attackstyle}
+
+Whether an attack is melee or ranged: it picks the base chance to hit and the stat effects that apply
+
+- **AUTOMATIC** = `0` - Melee when the range of the ability is at most the melee range of the game settings, ranged beyond
+- **MELEE** = `1`
+- **RANGED** = `2`
+
 ### enum AmmoSource {#enum-ammosource}
 
 - **NONE** = `0` - no ammo or reagent is spent
@@ -87,6 +105,14 @@ Effects applied to the target when this ability is activated.
 ### int ability_school = 0 {#prop-ability-school}
 
 School/category of this ability for dispel/immunity purposes (fire, healing, physical, etc.) References a SchoolTypeDefinition resource by ID
+
+### HitRule hit_rule = HitRule.PROJECT_DEFAULT {#prop-hit-rule}
+
+Can this ability miss? Project default: it can when the game settings use the hit system; Can miss makes it roll even when they do not, Always hits never. The hit roll is made once per use against each enemy it reaches
+
+### AttackStyle attack_style = AttackStyle.AUTOMATIC {#prop-attack-style}
+
+Melee or ranged (Automatic: by its range). The base chance to hit and the accuracy and evasion effects can differ for each
 
 ### bool on_global_cooldown = true {#prop-on-global-cooldown}
 

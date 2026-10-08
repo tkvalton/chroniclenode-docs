@@ -6,7 +6,7 @@ Crowd control stops an entity from doing something for a while: it cannot move, 
 
 | Piece | Where | What it is |
 |---|---|---|
-| **Status effect definition** | *Abilities & Effects > [Status Effects](/basic/abilities-and-effects/status-effects)* | The condition itself: which kind it is, its [diminishing returns](/basic/keywords#diminishing-returns), its [immunity](/basic/tags-and-groups/immunities) and whether damage breaks it |
+| **Status effect definition** | *Abilities & Effects > [Status Effects](/basic/abilities-and-effects/status-effects)* | The condition itself: which kind it is, its [diminishing returns](/basic/keywords#diminishing-returns), its [immunity](/basic/abilities-and-effects/immunities) and whether damage breaks it |
 | **Status effect** | *Abilities & Effects > Effects*, type **Status** | An effect that puts a status definition on a target, for a duration |
 | **Interrupt** | *Effects*, type **Interrupt** | Stops the cast or channel in progress. It applies no lasting status |
 | **School lock** | *Effects*, type **School Lock** | Locks all abilities of one school, such as a counterspell |

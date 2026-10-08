@@ -84,6 +84,8 @@ Runtime instance of an ability that references an AbilityDefinition for configur
 | `AbilityDefinition` | [swap_definition](#method-swap-definition)( `new_definition: AbilityDefinition` ) |
 | `String` | [get_display_name](#method-get-display-name)() |
 | `String` | [get_description](#method-get-description)() |
+| `bool` | [can_miss](#method-can-miss)() |
+| `bool` | [is_ranged_attack](#method-is-ranged-attack)() |
 | `float` | [get_max_range](#method-get-max-range)() |
 | `float` | [get_ai_range](#method-get-ai-range)() |
 | `Texture2D` | [get_icon](#method-get-icon)() |
@@ -488,6 +490,14 @@ Get the display name (dynamic or from definition)
 ### String get_description() {#method-get-description}
 
 Get the description (dynamic or from definition)
+
+### bool can_miss() {#method-can-miss}
+
+Can this use of the ability miss? Its Hit rule, or the project's choice when it follows the default. Only active abilities roll to hit
+
+### bool is_ranged_attack() {#method-is-ranged-attack}
+
+Is this a ranged attack? Its Attack style, or for Automatic the range of the ability against the melee range of the game settings (no range limit counts as melee)
 
 ### float get_max_range() {#method-get-max-range}
 

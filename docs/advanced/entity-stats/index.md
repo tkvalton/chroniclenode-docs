@@ -67,7 +67,7 @@ Details in [Growth, core stats and gain channels](/advanced/entity-stats/growth-
 | [The hit and heal pipeline](/advanced/entity-stats/pipeline) | From `CombatManager.apply_damage` to the pools, phase by phase |
 | [Pools and damage layers](/advanced/entity-stats/pools) | Capacity, generation, overfill, damage layers, heal absorbs |
 | [Growth, core stats and gain channels](/advanced/entity-stats/growth-and-core-stats) | Level growth, overrides, the nine core stats, gain channels |
-| [Tags & Groups: how they are built](/advanced/entity-stats/tags-and-groups) | Damage types, schools, trigger tags, entity tags, immunities, stat groups |
+| [Types & Groups: how they are built](/advanced/entity-stats/tags-and-groups) | Damage types, schools, trigger tags, entity types, immunities, stat groups |
 | [Proficiencies: how they are built](/advanced/entity-stats/proficiencies) | Levels, experience from use, the stat, requirement and reward |
 
 ## Signals

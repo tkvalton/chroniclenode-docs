@@ -17,7 +17,7 @@ You build both in the **Abilities & Effects** category of the editor. This page 
 | [Effect types](/basic/abilities-and-effects/effect-types) | Every effect type by category: damage, stats, status, movement, projectiles, procs and more |
 | [Stacking and groups](/basic/abilities-and-effects/stacking-and-groups) | Stacking rules, and groups: exclusive effects, shared [cooldowns](/basic/keywords#cooldown), enchant slots |
 | [Scaling and trigger rules](/basic/abilities-and-effects/scaling-and-trigger-rules) | Execute and combo bonuses, always-crit and never-dodge rules |
-| [Crowd control](/basic/abilities-and-effects/crowd-control) | Stuns, roots and silences: status types, [diminishing returns](/basic/keywords#diminishing-returns), [immunity](/basic/tags-and-groups/immunities), breaking on damage |
+| [Crowd control](/basic/abilities-and-effects/crowd-control) | Stuns, roots and silences: status types, [diminishing returns](/basic/keywords#diminishing-returns), [immunity](/basic/abilities-and-effects/immunities), breaking on damage |
 | [Child effects and auras](/basic/abilities-and-effects/child-effects-and-auras) | Chains of effects: which one the player sees, what ends them, and how their text is written |
 
 ## How the two fit together
@@ -71,5 +71,5 @@ An effect that is applied again while it is still running can **stack**, so a se
 
 - **Cost and resources** use the **pools** you define in *[Entity Stats](/basic/entity-stats/)*.
 - **Damage and healing** go through the [calculations](/basic/entity-stats/calculations) in *Entity Stats*, so stats, critical strikes, dodges and armor apply to every ability.
-- **Tags & Groups** label damage and abilities by kind, make abilities share a cooldown, and decide which effects exclude each other.
+- **Types & Groups** label damage and abilities by kind, make abilities share a cooldown, and decide which effects exclude each other.
 - **Skill Trees** are how players unlock abilities.

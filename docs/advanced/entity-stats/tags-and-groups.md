@@ -1,6 +1,6 @@
-# Tags & Groups: how they are built
+# Types & Groups: how they are built
 
-The [Tags & Groups chapter](/basic/tags-and-groups/) lists the labels. In code each is a `DatabaseResource` with an id, saved in its own folder under `res://src/data/stats/`. Other resources hold the **id** (an `int`), never the resource.
+The [Types & Groups chapter](/basic/types-and-groups/) lists the labels. In code each is a `DatabaseResource` with an id, saved in its own folder under `res://src/data/stats/`. Other resources hold the **id** (an `int`), never the resource.
 
 | Label | Class | Folder | Referenced as |
 |---|---|---|---|

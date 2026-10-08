@@ -11,7 +11,9 @@ Every character, creature and destructible object in the game has numbers: how s
 | **Pool** | A number that goes up and down: Health, Mana, Rage, a Shield. The pool that runs out kills the entity | [Pool](/basic/entity-stats/pool) |
 | **Calculation** | The four moments a number is worked out: damage dealt, damage taken, healing done, healing taken. Stat effects plug into them | [Calculations](/basic/entity-stats/calculations) |
 | **Status effect definition** | A kind of control: a stun, a root, a silence, with [diminishing returns](/basic/keywords#diminishing-returns) | [Status Effects](/basic/abilities-and-effects/status-effects) |
-| **Tags and groups** | The labels the numbers use: [damage types](/basic/tags-and-groups/damage-types), schools, [trigger tags](/basic/tags-and-groups/trigger-tags), [entity tags](/basic/tags-and-groups/entity-tags), [stat groups](/basic/tags-and-groups/stat-groups), [immunities](/basic/tags-and-groups/immunities) | [Tags & Groups](/basic/tags-and-groups/) |
+| **Trigger tag** | Something that happened during a hit: a dodge, a block, a critical strike. Stats roll them and calculations react to them | [Trigger Tags](/basic/entity-stats/trigger-tags) |
+| **Stat group** | The section of the character sheet a stat is shown in: Primary, Offensive, Defensive | [Stat Groups](/basic/entity-stats/stat-groups) |
+| **Types and groups** | The other labels the numbers use: [damage types](/basic/types-and-groups/damage-types), [schools](/basic/types-and-groups/school-types), [entity types](/basic/types-and-groups/entity-types) | [Types & Groups](/basic/types-and-groups/) |
 | **Proficiency** | A skill the player gets better at by use or training: swords, heavy armor, lockpicking. Its level is the points of its own stat effects, and it can gate weapons and armor | [Proficiencies](/basic/entity-stats/proficiencies) |
 | **Formula** | How the points of a stat turn into a value: armor, crit chance, growth per level | [Formulas](/basic/shared-systems/formulas) |
 
@@ -36,7 +38,8 @@ The result is kept between the stat's **Min value** and **Max value** and rounde
 
 When something damages an entity, the number goes through a fixed set of steps. The Calculations page and the stat effects fill the steps in:
 
-1. The attacker's **damage done** is worked out: triggers roll (a **miss** ends the hit here, a critical strike?) and modifiers run (attack power).
+0. Before any of it, the ability has made its [hit roll](/basic/game-settings/gameplay-config#hit-rules) (if your game has misses): a miss ends the attack before it gets here.
+1. The attacker's **damage done** is worked out: triggers roll (a critical strike?) and modifiers run (attack power).
 2. A guardian effect may take part of the damage, and an **immunity** may stop it.
 3. The target's **damage taken** is worked out: triggers roll (a dodge ends the hit, a block softens it) and modifiers run (armor).
 4. What is left goes through the target's **pools** in order: a shield first, then health.
@@ -46,7 +49,7 @@ Healing goes the same way with the **healing done** and **healing taken** calcul
 
 ## Where an entity gets its stats
 
-Every entity has an instance of **every** stat in the database. What differs between a Warrior and a Mage, or a wolf and a boss, is the starting values: each class, NPC and destructible has a *stats data* section in its editor (in [Entities](/basic/entities/)) that sets the base value of stats, the core stat overrides, which pools it has and how they start, permanent immunities, and *level growth overrides* (a warrior's Strength grows faster than a mage's).
+Every entity has an instance of **every** stat in the database. What differs between a Warrior and a Mage, or a wolf and a boss, is the starting values: each class, NPC and destructible has a *stats data* section in its editor (in [Entities](/basic/entities/)) that sets the base value of stats, the core stat overrides, which pools it has and how they start, permanent [immunities](/basic/abilities-and-effects/immunities), and *level growth overrides* (a warrior's Strength grows faster than a mage's).
 
 ## The core stats
 
@@ -67,5 +70,5 @@ Nine stats are ChronicleNode's own. The toolkit makes them for you the first tim
 ## See also
 
 - [Stats](/basic/entity-stats/stats), [Pool](/basic/entity-stats/pool), [Calculations](/basic/entity-stats/calculations)
-- [Tags & Groups](/basic/tags-and-groups/), [Proficiencies](/basic/entity-stats/proficiencies), [Stat recipes](/basic/entity-stats/stat-recipes)
+- [Types & Groups](/basic/types-and-groups/), [Proficiencies](/basic/entity-stats/proficiencies), [Stat recipes](/basic/entity-stats/stat-recipes)
 - [Entity Stats: how they are built](/advanced/entity-stats/) (Advanced)

@@ -83,6 +83,12 @@ export const groups = [
         "file": "data_classes/stats/definitions/stat_effect/gain_modifier_stat_effect.gd"
       },
       {
+        "name": "HitChanceStatEffect",
+        "base": "StatEffect",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\definitions\\stat_effect\\hit_chance_stat_effect.gd",
+        "file": "data_classes/stats/definitions/stat_effect/hit_chance_stat_effect.gd"
+      },
+      {
         "name": "MultiplierStatEffect",
         "base": "StatEffect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\definitions\\stat_effect\\multiplier_stat_effect.gd",
@@ -285,6 +291,12 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\combat\\healing_result.gd",
         "file": "runtime_classes/combat/healing_result.gd"
+      },
+      {
+        "name": "HitRules",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\combat\\hit_rules.gd",
+        "file": "runtime_classes/combat/hit_rules.gd"
       }
     ]
   },

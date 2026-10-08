@@ -8,7 +8,7 @@ A **proficiency** is a skill the player gets better at: swords, heavy armor, fir
 - the **equipment it gates**: items of its weapon classes, weapon types and armor classes can need a level to be equipped;
 - **requirements** you put elsewhere ("needs Plate 25 to use this ability").
 
-The demo has two: **One-Handed Weapons** (grows when you hit with one; while you hold one, every level makes your hits half a percent stronger and takes a tenth of a percent off your chance to miss) and **Heavy Armor** (grows when you are hit in plate or mail; while you wear them, every level lowers the damage you take by a fifth of a percent).
+The demo has two: **One-Handed Weapons** (grows when you hit with one; while you hold one, every level makes your hits half a percent stronger and adds a tenth of a percent to your chance to hit) and **Heavy Armor** (grows when you are hit in plate or mail; while you wear them, every level lowers the damage you take by a fifth of a percent).
 
 ## The editor
 
@@ -30,7 +30,7 @@ These lists use **your own** weapon classes, weapon types and armor classes (the
 |---|---|
 | **Weapon classes**, **Weapon types** | Hitting an enemy with a weapon of one of them trains the skill, the effects work while one is held, and they can be gated |
 | **Armor classes** | Being hit while wearing one trains the skill, the effects work while one is worn, and they can be gated |
-| **Schools** | Using an ability of one of these [schools](/basic/tags-and-groups/school-types) trains the skill |
+| **Schools** | Using an ability of one of these [schools](/basic/types-and-groups/school-types) trains the skill |
 
 A long list (weapon classes, abilities) opens the catalog from an **Add...** button; a short one is a row of tick boxes.
 
@@ -55,13 +55,13 @@ For most games this replaces "an ability requirement" on a weapon class or armor
 |---|---|---|
 | **Only while using its gear** | On: the effects only work while the player holds one of the listed weapons or wears a piece of the listed armor. Off: they always work. A skill with no weapon and no armor (a school, lockpicking) always works | on |
 
-The **stat effects** of the skill are in the right column: **Add stat effect** and choose a type, exactly like in the [Stats editor](/basic/entity-stats/stats#stat-effects). The **level of the proficiency is their points**: a Calculation Modifier Effect on Damage Done with a Linear formula of `0.5` is half a percent for every level. The same [hit filters](/basic/entity-stats/stats#the-effect-types), conditions and formulas work, with one exception: a hit chance (an *inverted* trigger) belongs on a stat every entity has, not here.
+The **stat effects** of the skill are in the right column: **Add stat effect** and choose a type, exactly like in the [Stats editor](/basic/entity-stats/stats#stat-effects). The **level of the proficiency is their points**: a Calculation Modifier Effect on Damage Done with a Linear formula of `0.5` is half a percent for every level. The same [hit filters](/basic/entity-stats/stats#the-effect-types), conditions and formulas work. A **Hit Chance Effect** (accuracy) works here too: the skill with a weapon is what makes you hit with it.
 
 ## What trains a proficiency
 
 | Source | When |
 |---|---|
-| **Weapon classes and types** | A hit lands with a weapon attack: a [Damage effect](/basic/abilities-and-effects/effect-types) that uses the weapon (a share of the weapon damage, or the weapon's [damage type](/basic/tags-and-groups/damage-types)) while the player holds a weapon of the class or type. A spell does not train swords |
+| **Weapon classes and types** | A hit lands with a weapon attack: a [Damage effect](/basic/abilities-and-effects/effect-types) that uses the weapon (a share of the weapon damage, or the weapon's [damage type](/basic/types-and-groups/damage-types)) while the player holds a weapon of the class or type. A spell does not train swords |
 | **Armor classes** | The player is hit and takes damage while wearing equipment of the class |
 | **Schools** | The player uses an ability of the school |
 | **Reward** | A **Proficiency reward** gives experience or levels. Use it for trainers, quests and books |
@@ -72,13 +72,13 @@ The **stat effects** of the skill are in the right column: **Add stat effect** a
 | You want | Setup |
 |---|---|
 | **Swords that hit harder** | A proficiency *Swords*: weapon class Sword. One Calculation Modifier Effect on Damage Done, percentage increase, Linear `0.5` |
-| **Better hit chance with a weapon** | A Trigger Rule Effect: *Tags of kind* Avoid, *Works in* Damage Done, *Changes the rolls of* the owner, *Chance bonus* Linear `-0.1`. Lowering your chance to miss is raising your chance to hit |
+| **Better hit chance with a weapon** | A **Hit Chance Effect**, Side *Accuracy*, Linear `0.1`: a tenth of a percent more chance to hit for every level |
 | **Plate that hurts less once you are used to it** | A proficiency *Heavy Armor*: armor classes Plate and Mail. A Calculation Modifier Effect on Damage Taken, percentage decrease, Linear `0.2` |
 | **Heavy armor only for the trained** | *Level needed to equip* `10` on Heavy Armor. Warriors get a Proficiency reward of 10 levels at level 1; a mage has to train |
 | **Lockpicking** | A proficiency with no weapon, armor or school. A reward or an interaction gives it experience; a [requirement](/basic/shared-systems/requirements) on a lock asks for the level |
 | **A slower climb at the top** | An experience formula such as a Linear formula of `25` per level |
 
-If your game has no misses ([Gameplay Config > Hit Rules](/basic/game-settings/gameplay-config#hit-rules)), leave the hit chance effect out.
+If your game has no misses ([Gameplay Config > Hit Rules](/basic/game-settings/gameplay-config#hit-rules)), leave the accuracy effect out: it does nothing while the hit system is off.
 
 ## The requirement and the reward
 

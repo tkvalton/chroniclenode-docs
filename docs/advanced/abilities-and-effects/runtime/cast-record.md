@@ -13,6 +13,9 @@ What the effects of one cast (one use of an ability, or one root effect) did so 
 | `void` | [add](#method-add)( `kind: Kind, effect_id: int, amount: float` ) |
 | `void` | [add_damage_result](#method-add-damage-result)( `effect_id: int, result: DamageResult` ) |
 | `void` | [add_healing_result](#method-add-healing-result)( `effect_id: int, result: HealingResult` ) |
+| `bool` | [has_hit_outcome](#method-has-hit-outcome)( `target: Object` ) |
+| `int` | [get_hit_outcome](#method-get-hit-outcome)( `target: Object` ) |
+| `void` | [set_hit_outcome](#method-set-hit-outcome)( `target: Object, outcome: int` ) |
 | `float` | [get_total](#method-get-total)( `kind: Kind, effect_id: int = 0` ) |
 
 ## Enumerations
@@ -38,6 +41,18 @@ Keeps the outcome of a damage hit: the damage taken and the damage the shields a
 ### void add_healing_result( effect_id: int, result: HealingResult ) {#method-add-healing-result}
 
 Keeps the outcome of a heal: the healing that was applied
+
+### bool has_hit_outcome( target: Object ) {#method-has-hit-outcome}
+
+*No description yet.*
+
+### int get_hit_outcome( target: Object ) {#method-get-hit-outcome}
+
+*No description yet.*
+
+### void set_hit_outcome( target: Object, outcome: int ) {#method-set-hit-outcome}
+
+*No description yet.*
 
 ### float get_total( kind: Kind, effect_id: int = 0 ) {#method-get-total}
 

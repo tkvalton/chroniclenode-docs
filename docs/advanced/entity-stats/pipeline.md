@@ -29,7 +29,6 @@ CombatManager.apply_damage(attacker, target, raw, damage_type, effect_instance, 
   1  validate the participants (both need a StatsComponent)
   2  make the DamageResult
   3  PHASE 1, attacker: DamageDoneCalculation.apply_to(attacker stats, result)    -> result.done
-       an avoid trigger that fired (a miss)?    MISSED: the hit ends here, the target is not touched
   4  target.take_damage(result)                                                   -> StatsComponent.take_damage
        a  already dead?                         TARGET_DEAD
        b  redirection effects (guardians): redirect a share, reduce by a percentage
@@ -68,9 +67,8 @@ The stat ids are sorted before every loop, so the result never depends on the or
 
 The **universal order** is built once by [`CombatCalculations`](/advanced/entity-stats/calculations/combat-calculations) from all the stats in the database, for each of the four calculations (`build_order`: priority, then stat id, then the position of the effect in the stat). It is a cache; the Calculations editor and any stat change invalidate it.
 
-### Hit rules and boosts
+### Boosts
 
-`DamageDoneCalculation.apply_to` reads the project rules from `CombatOptions` before the phase: `misses_enabled` (off: the done phase cannot roll an avoid), `guaranteed_hit_chance` (a random share of the attacks cannot be missed) and, after the phase, `base_miss_chance` (a flat roll for a miss with a synthetic `miss` record, when no stat missed already). The previews never roll a miss.
 
 After its modifiers, a done calculation (damage done, healing done) calls `StatsComponent.apply_done_boosts`: for every active [`AbilityBoostEffect`](/advanced/abilities-and-effects/effects-stats/ability-boost-effect) instance on the doer whose lists match the `ability_id` and `effect_ids` of the context, the number becomes `(number + flat x stacks) x (1 + percent x stacks / 100)` and a `ModifierStep` named after the effect is recorded.
 
@@ -84,9 +82,17 @@ After its modifiers, a done calculation (damage done, healing done) calls `Stats
 
 A rule that names no tag can name a **kind** (`TagKindFilter`): it then matches every tag of that kind (`TriggerRuleSet` takes the kind of the tag it is asked about). A rule that names a tag matches only that tag.
 
-### Misses
+### The hit roll
 
-An avoid trigger acts in Damage Taken (a dodge). It acts in **Damage Done** only when its `target_calculations` name Damage Done (a miss); an avoid trigger with no list stays a Damage Taken trigger. A trigger with `inverted` set rolls the chance `100 - value` and rolls even at 0 points, because 0 points of a hit chance is a certain miss. When the avoid fires in the done phase, `DamageDoneCalculation` calls `result.mark_missed(record)`, and `CombatManager.apply_damage` announces the result without calling `take_damage`. A hit with `can_be_avoided` off cannot be missed, and neither can a number measured without a target (`run_damage_done`). A preview of damage never rolls an avoid.
+A miss is not part of the hit. Before the pipeline above, an ability that can miss makes a **hit roll** (`HitRules`), once per use and enemy. `EffectInstance.start_effect` asks `HitRules.needs_roll(instance)`, which is true for an effect of an ability (`effect_owner.can_miss()`) that is not a composite, not applied to the user, and aimed at an `Entity` that is hostile or neutral to the originator. `HitRules.outcome_for` then rolls the first time and keeps the outcome in the shared [`CastRecord`](/advanced/abilities-and-effects/runtime/cast-record) under the id of the target, so every effect of the use (the children of a composite included) gets the same answer.
+
+| Outcome | Result |
+|---|---|
+| `HIT` | The effect goes on |
+| `GLANCING` | The effect goes on with `hit_multiplier` set to the glancing multiplier (`1 - reduction / 100`). `DamageEffect` and `HealEffect` multiply their raw number by it. With `glancing_other_effects_apply` off, effects that are not damage or healing are rejected ("Glancing hit") |
+| `MISS` | The instance is rejected ("Missed") and cleaned up, and `CombatManager.announce_miss` emits a `DamageResult` with outcome `MISSED` so the floating text, the log and the signals work as for any other result |
+
+The chance is `HitRules.get_chance(attacker, target, ranged, effect_instance)`: the base chance of `GameplayConfig` for melee or ranged, plus the `HitChanceStatEffect`s of the attacker with side `ACCURACY`, minus those of the target with side `EVASION` (the stat effect filters and conditions are checked with the context of the hit), plus `get_level_gap_change`, clamped to the minimum and maximum. `ranged` comes from `AbilityInstance.is_ranged_attack()`. `GameplayConfig.level_gap_mode` is `NONE`, `PER_LEVEL`, `TABLE` (the row with the largest key not above the gap) or `FORMULA` (a `CalculationFormula` that gets the gap). Dodge, parry and block stay in the damage taken calculation. See the [Gameplay Config](/basic/game-settings/gameplay-config#hit-rules) page for the settings.
 
 ### Context and tags
 
@@ -99,7 +105,7 @@ The context dictionary holds what the stat effects look at:
 | `is_damage_calculation`, `can_be_avoided`, `in_combat` | The kind of hit and the combat state |
 | `owner`, `opponent` | The entity being calculated and the other side |
 | `school` | The school id of the ability (else of the effect) that causes the hit, 0 for none |
-| `distance` | The distance in metres between the two, when both are in the world |
+| `is_ranged` | True when the ability that causes the hit is a ranged attack (see `HitRules`) |
 | `ability_id` | The id of the ability that causes the hit (the effect owner, when it is an ability), else 0 |
 | `effect_ids` | The id of the effect that causes the hit and of every effect around it (`parent_instance` chain, at most 16) |
 | `is_periodic` | True for a tick of a damage or healing over time (the effect instance has a tick interval) |
@@ -136,4 +142,4 @@ A reaction hit has `chain_depth + 1`. The game settings set the longest chain (`
 
 ## Immunities and statuses
 
-A damage immunity is checked before the defender's phase. Status effects go through `StatsComponent.apply_status_effect`, which asks for immunity, tenacity (the *status duration* gain channel) and diminishing returns, and answers `{can_apply, effective_duration, ...}`. School immunities are checked when an effect is started on a target (`EffectInstance.start_effect`). See [Tags & Groups: how they are built](/advanced/entity-stats/tags-and-groups).
+A damage immunity is checked before the defender's phase. Status effects go through `StatsComponent.apply_status_effect`, which asks for immunity, tenacity (the *status duration* gain channel) and diminishing returns, and answers `{can_apply, effective_duration, ...}`. School immunities are checked when an effect is started on a target (`EffectInstance.start_effect`). See [Types & Groups: how they are built](/advanced/entity-stats/tags-and-groups).

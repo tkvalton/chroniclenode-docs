@@ -49,7 +49,7 @@ After several applications a target can become immune for a while.
 | **Grants temporary immunity** | The target becomes immune after enough applications | off |
 | **Immunity threshold** | How many applications before it | `3` |
 | **Immunity duration** | Seconds the immunity lasts | `10` |
-| **Triggered immunity** | Which immunity (from *Tags & Groups > [Immunities](/basic/tags-and-groups/immunities)*) is switched on | none |
+| **Triggered immunity** | Which immunity (from *[Immunities](/basic/abilities-and-effects/immunities)*) is switched on | none |
 
 A target that is immune is *rejected*: the status effect never starts. The target's tenacity and any immunities it already has are checked first.
 
@@ -75,4 +75,4 @@ The hit is measured after the target's own reductions and before its shields.
 
 - [Crowd control](/basic/abilities-and-effects/crowd-control)
 - [Effect types](/basic/abilities-and-effects/effect-types)
-- [Immunities](/basic/tags-and-groups/immunities)
+- [Immunities](/basic/abilities-and-effects/immunities)

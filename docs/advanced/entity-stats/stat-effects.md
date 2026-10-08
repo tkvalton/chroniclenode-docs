@@ -14,7 +14,7 @@ The [basic page](/basic/entity-stats/stats#stat-effects) lists the nine types an
 | `active_trigger_type` | `PERMANENT`, `IN_COMBAT`, `OUT_OF_COMBAT`, checked against `context.in_combat` |
 | `conditions` | `Array[Condition]`: entity conditions that must all be true. Evaluated with the owner and the **opponent** in the context |
 | `formula`, `returns`, `max_result` | The **value**: the [formula](/advanced/shared-systems/formulas) that turns points into a number, optional [diminishing returns](/basic/keywords#diminishing-returns), a cap |
-| `only_schools`, `only_abilities`, `only_effects`, `minimum_distance`, `maximum_distance`, `periodic_filter` | **Hit filters**: the effect only works for hits and heals of those schools, in that range of distances, direct or periodic. `passes_hit_filters(context)` checks them against the `school`, `ability_id`, `effect_ids`, `distance` and `is_periodic` keys of the context (a context without a key passes); `applies_to_context` and the rule collection call it |
+| `only_schools`, `only_abilities`, `only_effects`, `attack_style_filter`, `periodic_filter` | **Hit filters**: the effect only works for hits and heals of those schools, abilities and effects, melee or ranged attacks, direct or periodic. `passes_hit_filters(context)` checks them against the `school`, `ability_id`, `effect_ids`, `is_ranged` and `is_periodic` keys of the context (a context without a key passes); `applies_to_context` and the rule collection call it |
 | `evaluate_points(points, formula_context)` | The value of the effect for the points: formula, then returns, then the cap |
 | `is_active(context)` | Enabled, the trigger type fits the combat state, the conditions are met |
 | `validate()` | The problems the editor shows (a missing target, an empty list) |
@@ -42,11 +42,12 @@ The fields `value_per_point`, `use_scaling`, `scaling_mode`, `scaling_threshold`
 | [`TriggerRuleStatEffect`](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect) | `CalculationBase._collect_rules` | Before the triggers roll |
 | [`PoolRestorationStatEffect`](/advanced/entity-stats/stat-effects/pool-restoration-stat-effect) | `StatsComponent` hit and kill handlers | After a resolved hit (leech, mana on hit, health on kill) |
 | [`ReactiveDamageStatEffect`](/advanced/entity-stats/stat-effects/reactive-damage-stat-effect) | `StatsComponent` through `CombatReactions` | After a resolved hit taken (damage reflection) |
+| [`HitChanceStatEffect`](/advanced/entity-stats/stat-effects/hit-chance-stat-effect) | `HitRules.get_chance` through `get_accuracy` and `get_evasion` | When an ability that can miss rolls its [hit roll](/advanced/entity-stats/pipeline#the-hit-roll) |
 | [`GainModifierStatEffect`](/advanced/entity-stats/stat-effects/gain-modifier-stat-effect) | `StatsComponent.modify_gain(channel, amount)` | When the game gives the entity experience, gold, loot, threat or a resource |
 
 ## Trigger effects and rules
 
-[`CalculationTriggerStatEffect`](/advanced/entity-stats/stat-effects/calculation-trigger-stat-effect) has `inverted`: the value of the formula is the chance that the tag does not fire (`get_effective_trigger_chance` returns `100 - value`). That is a hit chance.
+[`CalculationTriggerStatEffect`](/advanced/entity-stats/stat-effects/calculation-trigger-stat-effect) rolls its tag with the value of the formula as the chance in percent (`get_effective_trigger_chance`, kept between 0 and 100).
 
 [`TriggerRuleStatEffect`](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect) has `applies_to` (`RuleSide`: `OWNER`, `OPPONENT_ACTING_ON_ME`, `OPPONENT_DEFENDING_AGAINST_ME`) `target_calculations` (the calculations the rule works in, as numbers; empty = all) and, when no tag is chosen, `tag_kind` (`TagKindFilter`: any, avoid, mitigate, boost). The two enums are in that class; `CalculationBase` uses plain numbers for the sides because the class needs `CalculationBase` and the compiler does not allow the cycle.
 

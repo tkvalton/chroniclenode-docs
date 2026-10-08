@@ -33,6 +33,8 @@ Lightweight runtime instance of an effect that references an EffectDefinition fo
 | `Array[Effect]` | [bonus_child_effects](#var-bonus-child-effects) | `[]` |
 | `EffectInstance:` | [parent_instance](#var-parent-instance) |  |
 | `CastRecord` | [cast_record](#var-cast-record) | `null` |
+| `float` | [hit_multiplier](#var-hit-multiplier) | `1.0` |
+| `int` | [hit_outcome](#var-hit-outcome) | `0` |
 | `Dictionary` | [stack_sources](#var-stack-sources) | `{}` |
 | `float` | [duration](#var-duration) | `0.0` |
 | `float` | [base_duration](#var-base-duration) | `0.0` |
@@ -186,6 +188,14 @@ The effect that applied this one as one of its children (null for a root effect)
 ### CastRecord cast_record = null {#var-cast-record}
 
 What the effects of this cast did so far (shared by every effect instance of the cast); see get_cast_record
+
+### float hit_multiplier = 1.0 {#var-hit-multiplier}
+
+How much of its damage and healing the effect keeps: 1 normally, less after a glancing hit (see HitRules). Set when the effect starts
+
+### int hit_outcome = 0 {#var-hit-outcome}
+
+The outcome of the hit roll this effect took part in (HitRules.Outcome.HIT when it did not roll)
 
 ### Dictionary stack_sources =  {#var-stack-sources}
 

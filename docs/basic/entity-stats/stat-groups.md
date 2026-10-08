@@ -1,6 +1,6 @@
 # Stat Groups
 
-<Shot name="stat-groups-editor" caption="The Stat Groups editor (Tags & Groups > Stat Groups)." />
+<Shot name="stat-groups-editor" caption="The Stat Groups editor (Entity Stats > Stat Groups)." />
 
 A **stat group** is a section for [stats](/basic/entity-stats/stats): Primary, Secondary, Offensive, Defensive, Utility. A new project starts with these seven:
 
@@ -32,4 +32,4 @@ The editor also lists **Stats in this group**. A stat joins a group in the [Stat
 
 A group changes nothing about how a stat is calculated.
 
-Stat groups are not the same as [Groups](/basic/tags-and-groups/groups), which label effects, abilities and items.
+Stat groups are not the same as [Groups](/basic/types-and-groups/groups), which label effects, abilities and items.

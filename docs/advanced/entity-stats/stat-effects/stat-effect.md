@@ -4,7 +4,7 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-**Inherited by:** [AbilityModifierStatEffect](/advanced/entity-stats/stat-effects/ability-modifier-stat-effect), [CalculationModifierStatEffect](/advanced/entity-stats/stat-effects/calculation-modifier-stat-effect), [CalculationTriggerStatEffect](/advanced/entity-stats/stat-effects/calculation-trigger-stat-effect), [GainModifierStatEffect](/advanced/entity-stats/stat-effects/gain-modifier-stat-effect), [MultiplierStatEffect](/advanced/entity-stats/stat-effects/multiplier-stat-effect), [PoolModifierStatEffect](/advanced/entity-stats/stat-effects/pool-modifier-stat-effect), [PoolRestorationStatEffect](/advanced/entity-stats/stat-effects/pool-restoration-stat-effect), [ReactiveDamageStatEffect](/advanced/entity-stats/stat-effects/reactive-damage-stat-effect), [TriggerRuleStatEffect](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect)
+**Inherited by:** [AbilityModifierStatEffect](/advanced/entity-stats/stat-effects/ability-modifier-stat-effect), [CalculationModifierStatEffect](/advanced/entity-stats/stat-effects/calculation-modifier-stat-effect), [CalculationTriggerStatEffect](/advanced/entity-stats/stat-effects/calculation-trigger-stat-effect), [GainModifierStatEffect](/advanced/entity-stats/stat-effects/gain-modifier-stat-effect), [HitChanceStatEffect](/advanced/entity-stats/stat-effects/hit-chance-stat-effect), [MultiplierStatEffect](/advanced/entity-stats/stat-effects/multiplier-stat-effect), [PoolModifierStatEffect](/advanced/entity-stats/stat-effects/pool-modifier-stat-effect), [PoolRestorationStatEffect](/advanced/entity-stats/stat-effects/pool-restoration-stat-effect), [ReactiveDamageStatEffect](/advanced/entity-stats/stat-effects/reactive-damage-stat-effect), [TriggerRuleStatEffect](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect)
 
 Base class for all stat effects Effects are composable modifiers that can be attached to StatDefinitions
 
@@ -16,8 +16,7 @@ Base class for all stat effects Effects are composable modifiers that can be att
 | `ActiveTriggerType` | [active_trigger_type](#prop-active-trigger-type) | `ActiveTriggerType.PERMANENT` |
 | `Array[Condition]` | [conditions](#prop-conditions) | `[]` |
 | `Array[int]` | [only_schools](#prop-only-schools) | `[]` |
-| `float` | [minimum_distance](#prop-minimum-distance) | `0.0` |
-| `float` | [maximum_distance](#prop-maximum-distance) | `0.0` |
+| `AttackStyleFilter` | [attack_style_filter](#prop-attack-style-filter) | `AttackStyleFilter.ANY` |
 | `PeriodicFilter` | [periodic_filter](#prop-periodic-filter) | `PeriodicFilter.ANY` |
 | `Array[int]` | [only_abilities](#prop-only-abilities) | `[]` |
 | `Array[int]` | [only_effects](#prop-only-effects) | `[]` |
@@ -64,6 +63,7 @@ Base class for all stat effects Effects are composable modifiers that can be att
 - **CUSTOM** = `7`
 - **TRIGGER_RULE** = `8`
 - **GAIN_MODIFIER** = `9`
+- **HIT_CHANCE** = `10`
 
 ### enum CalculationType {#enum-calculationtype}
 
@@ -85,9 +85,15 @@ Base class for all stat effects Effects are composable modifiers that can be att
 - **PERMANENT** = `0`
 - **IN_COMBAT** = `1`
 
-### enum PeriodicFilter {#enum-periodicfilter}
+### enum AttackStyleFilter {#enum-attackstylefilter}
 
 Which hits and heals a calculation effect is about, beyond the damage type: the school of the ability, how far apart the two are (melee, ranged), and whether it is a tick of a damage-over-time effect. Read from the context of the calculation; an effect that is not about a hit ignores them
+
+- **ANY** = `0` - Melee and ranged attacks
+- **MELEE** = `1` - Only melee attacks
+- **RANGED** = `2` - Only ranged attacks
+
+### enum PeriodicFilter {#enum-periodicfilter}
 
 - **ANY** = `0` - Direct and periodic hits and heals
 - **ONLY_DIRECT** = `1` - Only direct ones
@@ -115,13 +121,9 @@ All of these must be true for the effect to apply (on top of the active trigger 
 
 Only abilities and effects of these schools (empty = every school)
 
-### float minimum_distance = 0.0 {#prop-minimum-distance}
+### AttackStyleFilter attack_style_filter = AttackStyleFilter.ANY {#prop-attack-style-filter}
 
-Only when the two are at least this far apart, in metres (0 = no minimum): ranged hits
-
-### float maximum_distance = 0.0 {#prop-maximum-distance}
-
-Only when the two are at most this far apart, in metres (0 = no maximum): melee hits
+Only melee attacks, only ranged attacks, or both (see Attack style on the ability)
 
 ### PeriodicFilter periodic_filter = PeriodicFilter.ANY {#prop-periodic-filter}
 
@@ -181,11 +183,11 @@ Check if this effect applies to the given context
 
 ### bool passes_hit_filters( context: Dictionary ) {#method-passes-hit-filters}
 
-Does the hit or heal of the context pass the school, distance and periodic filters? (A context without the information passes: nothing to filter by)
+Does the hit or heal of the context pass the school, attack style and periodic filters? (A context without the information passes: nothing to filter by)
 
 ### bool has_hit_filters() {#method-has-hit-filters}
 
-Does this effect filter hits by school, distance or ticks?
+Does this effect filter hits by school, attack style or ticks?
 
 ### CalculationFormula ensure_formula() {#method-ensure-formula}
 
