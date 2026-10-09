@@ -47,19 +47,23 @@ The editor lists, in yellow, what is wrong: a parent that no longer exists, a pa
 - **For every NPC**: Gameplay Config > Party Management > NPC Level Scaling > **Default NPC growth profile**. The toolkit makes a profile called *Default* for every project; it has no entries, so a new project grows as its stats say until you fill it in.
 - **On one placed NPC**: a [unique NPC](/basic/world/uniques) copies the stats of its definition and can change the profile or add overrides for itself.
 
-## Example: a family of profiles
+## The demo's profiles
 
-Your game has Strength, Intellect and Stamina stats, a Health pool, and a Mana pool. You want:
+The demo project comes with a family of seven. They build on the *Default* profile and list only what differs:
 
-| Profile | Builds on | Entries |
+| Profile | Builds on | Entries (per level) |
 |---|---|---|
-| **Default** | | Health pool: `+10` per level. Weapon Damage: `+1` per level |
-| **Heavy** | Default | Stamina: `+4` per level. Strength: `+3` per level. Health pool: `+16` per level |
-| **Caster** | Default | Intellect: `+4` per level. Mana pool: `+8` per level. Health pool: no formula (a caster does not gain health from the pool, only what Stamina gives) |
-| **Minion** | Default | Health pool: `+3` per level. Weapon Damage: `+0.5` per level |
-| **Elite** | Heavy | Health pool: `+22` per level. Weapon Damage: `+2` per level |
+| **Default** | | Health pool `+8`, Mana pool `+5`, Weapon Damage `+1` |
+| **Heavy** | Default | Strength `+3`, Stamina `+4`, Health pool `+14`, Weapon Damage `+1.5` |
+| **Caster** | Default | Health pool `+5`, Mana pool `+12`, Stamina `+1.5` |
+| **Minion** | Default | Strength, Stamina and Agility: no growth (an entry with no formula), Health pool `+3`, Weapon Damage `+0.5` |
+| **Elite** | Heavy | Health pool `+22`, Weapon Damage `+2` (everything else is the Heavy's) |
+| **Ranger** | Default | Agility `+3`, Health pool `+7`, Weapon Damage `+1.5` |
+| **Assassin** | Default | Agility `+4`, Health pool `+5`, Weapon Damage `+2.5` |
 
-A rat uses the *Default* (no profile chosen). A bear uses *Heavy*, a cultist uses *Caster*, a skeleton uses *Minion*, a bear champion uses *Elite*, which gets everything of *Heavy* and only changes health and weapon damage. If you later decide all NPCs should gain `+12` health instead of `+10`, you change one entry in *Default*.
+A rat uses *Default* (no profile chosen). A bear uses *Heavy*, a cultist *Caster*, a skeleton *Minion*, a champion bear *Elite*. If you later decide every NPC should gain `+10` health instead of `+8`, you change one entry in *Default*, and every profile that does not list Health follows.
+
+Read the numbers as a starting point: they are plain Linear [formulas](/basic/shared-systems/formulas), and the editor shows the curve of each.
 
 Profiles and [ranks](/basic/types-and-groups/entity-types#npc-level-and-experience) go together well: the rank (Elite, Boss) changes the level and the experience, and a profile of the same name changes how hard it hits.
 

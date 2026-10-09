@@ -1,0 +1,72 @@
+<!-- generated from the code comments by scripts/scan-classes.mjs: change the comments in the code, not this page -->
+
+# PlayerStatChangedTrigger
+
+**Inherits:** [PlayerEventTrigger](/advanced/events-and-quests/bases/player-event-trigger) < [EventTrigger](/advanced/events-and-quests/bases/event-trigger) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
+
+Triggers when target player(s) stat changes
+
+## Properties
+
+| | | |
+|---|---|---|
+| `int` | [stat_id](#prop-stat-id) | `0` |
+| `Condition.CheckLogic` | [stat_check_logic](#prop-stat-check-logic) | `Condition.CheckLogic.EQUAL` |
+| `float` | [target_stat_value](#prop-target-stat-value) | `0.0` |
+
+## Methods
+
+| | |
+|---|---|
+| `String` | [get_display_name](#method-get-display-name)() |
+| `String` | [get_function_description](#method-get-function-description)() |
+| `void` | [setup_player_connection](#method-setup-player-connection)( `player: Player` ) |
+| `void` | [cleanup_player_connection](#method-cleanup-player-connection)( `player: Player` ) |
+| `bool` | [meets_stat_condition](#method-meets-stat-condition)( `current_value: float` ) |
+| `bool` | [is_triggered](#method-is-triggered)( `event_data: Dictionary` ) |
+| `String` | [generate_objective_description](#method-generate-objective-description)() |
+
+## Property descriptions
+
+### int stat_id = 0 {#prop-stat-id}
+
+*No description yet.*
+
+### Condition.CheckLogic stat_check_logic = Condition.CheckLogic.EQUAL {#prop-stat-check-logic}
+
+*No description yet.*
+
+### float target_stat_value = 0.0 {#prop-target-stat-value}
+
+*No description yet.*
+
+## Method descriptions
+
+### String get_display_name() {#method-get-display-name}
+
+Return the display name of this Trigger *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+
+### String get_function_description() {#method-get-function-description}
+
+Return a description of this trigger with parameter placeholders *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+
+### void setup_player_connection( player: Player ) {#method-setup-player-connection}
+
+Override this in child classes to set up signal connections for a player *(from [PlayerEventTrigger](/advanced/events-and-quests/bases/player-event-trigger))*
+
+### void cleanup_player_connection( player: Player ) {#method-cleanup-player-connection}
+
+Override this in child classes to clean up signal connections for a player *(from [PlayerEventTrigger](/advanced/events-and-quests/bases/player-event-trigger))*
+
+### bool meets_stat_condition( current_value: float ) {#method-meets-stat-condition}
+
+*No description yet.*
+
+### bool is_triggered( event_data: Dictionary ) {#method-is-triggered}
+
+Check if this trigger is currently active *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+
+### String generate_objective_description() {#method-generate-objective-description}
+
+Generate quest objective description *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+

@@ -10,7 +10,8 @@
     "links": "node scripts/docs-links.mjs",
     "classes": "node scripts/scan-classes.mjs",
     "autolink": "node scripts/autolink.mjs",
-    "database": "node scripts/scan-database.mjs"
+    "database": "node scripts/scan-database.mjs",
+    "events": "node scripts/event-lists.mjs"
   },
   "devDependencies": {
     "vitepress": "^1.6.4"

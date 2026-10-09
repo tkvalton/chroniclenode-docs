@@ -13,6 +13,8 @@ import { groups as statClasses } from './classes-entity-stats.mjs'
 import { groups as itemClasses } from './classes-items.mjs'
 import { groups as equipmentClasses } from './classes-equipment-definitions.mjs'
 import { groups as entityClasses } from './classes-entities.mjs'
+import { groups as worldClasses } from './classes-world.mjs'
+import { groups as eventClasses } from './classes-events-and-quests.mjs'
 import { groups as behaviorClasses } from './classes-behaviors.mjs'
 
 const page = (text, link, extra = {}) => ({ text, link, ...extra })
@@ -101,7 +103,9 @@ const basicSystems = [
     ['Quest Lines', 'quest-lines', 'questlines'],
     ['Global Variables', 'global-variables', 'global_variables'],
     ['Popups', 'popups', 'popups'],
-  ]),
+  ], {
+    after: [page('Event triggers', '/basic/events-and-quests/event-triggers'), page('Event actions', '/basic/events-and-quests/event-actions')],
+  }),
   system('Entities', 'entities', [
     ['Playable Character', 'playable-character', 'character_editor'],
     ['Player Classes', 'player-classes', 'player_classes'],
@@ -291,7 +295,9 @@ const advancedSystems = [
 ].map(([text, slug]) => slug === 'abilities-and-effects'
   ? withPages(classSystem(text, slug, abilitiesAndEffectsClasses), [page('The effect amount', '/advanced/abilities-and-effects/effect-amount', { title: 'The effect amount: how it is built' }), page('Immunities', '/advanced/abilities-and-effects/immunities', { title: 'Immunities: how they are built' }), page('Skill trees', '/advanced/abilities-and-effects/skill-trees', { title: 'Skill trees: how they are built' })])
   : slug === 'world'
-  ? worldAdvanced
+  ? { ...worldAdvanced, items: [...worldAdvanced.items, ...classSystem(text, slug, worldClasses).items.slice(1)] }
+  : slug === 'events-and-quests'
+  ? classSystem(text, slug, eventClasses)
   : slug === 'entity-stats'
   ? advancedEntityStats
   : slug === 'items'
