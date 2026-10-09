@@ -76,10 +76,6 @@ An ability is used, its targeting is validated, the cost is paid, its use strate
 - **Entity facing goes through the `Entity` API,** never a write to `rotation.y`.
 - **An action that cannot do its job fails** (and its event with it); it never waits for ever.
 
-## Tests
-
-There is no test framework. The scripts in `tests/` run headless against the real demo project (`godot --headless --path . -s res://tests/<name>.gd`): unit tests of the pure helpers (`run_tests.gd`), end-to-end runs (`integration_look.gd`, `transition_flow.gd`), and one audit script for each system (`stats_audit.gd`, `abilities_audit.gd`, `effects_audit.gd`, `effect_types_audit.gd`, `entity_audit.gd`, `items_audit.gd`, `interactables_audit.gd`, `world_audit.gd`, `events_audit.gd`) plus checks of the editors (`editor_tabs_check.gd`, `quest_editor_check.gd`, `popup_editor_check.gd`, `docs_links_check.gd`, `fresh_install_check.gd`). Each audit passes when every check holds; read the printed lines, not only the exit code.
-
 ## Where to go next
 
 | I want to... | Open |
