@@ -49,7 +49,7 @@ Healing goes the same way with the **healing done** and **healing taken** calcul
 
 ## Where an entity gets its stats
 
-Every entity has an instance of **every** stat in the database. What differs between a Warrior and a Mage, or a wolf and a boss, is the starting values: each class, NPC and destructible has a *stats data* section in its editor (in [Entities](/basic/entities/)) that sets the base value of stats, the core stat overrides, which pools it has and how they start, permanent [immunities](/basic/abilities-and-effects/immunities), and *level growth overrides* (a warrior's Strength grows faster than a mage's).
+Every entity has an instance of **every** stat in the database. What differs between a Warrior and a Mage, or a wolf and a boss, is the starting values: each class, NPC and destructible has a *stats data* section in its editor (in [Entities](/basic/entities/)) that sets the base value of stats, the core stat overrides, which pools it has and how they start, permanent [immunities](/basic/abilities-and-effects/immunities), and *level growth overrides* (a warrior's Strength grows faster than a mage's). Growth shared by a kind of NPC (heavy, caster, minion) is a [growth profile](/basic/entity-stats/growth-profiles).
 
 ## The core stats
 

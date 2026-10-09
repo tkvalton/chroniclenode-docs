@@ -177,6 +177,7 @@ const SYSTEMS = {
           ['data_classes/stats/definitions/pool_stat_definition.gd', false],
           ['data_classes/stats/stats_data.gd', false],
           ['data_classes/stats/growth_override.gd', false],
+          ['data_classes/stats/growth_profile.gd', false],
           ['data_classes/stats/core_stat_defaults.gd', false],
           ['data_classes/stats/gain_channels.gd', false],
           ['data_classes/stats/stat_condition_context.gd', false],

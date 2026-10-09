@@ -27,6 +27,7 @@ The project's combat result options (GameplayConfig, Combat category, "Damage Re
 | `float` | [minimum_damage](#method-minimum-damage)() *static* |
 | `bool` | [round_damage](#method-round-damage)() *static* |
 | `GameplayConfig.CapacityRule` | [capacity_change_rule](#method-capacity-change-rule)() *static* |
+| `int` | [default_npc_growth_profile_id](#method-default-npc-growth-profile-id)() *static* |
 | `GameplayConfig.CapacityRule` | [level_up_capacity_rule](#method-level-up-capacity-rule)() *static* |
 
 ## Enumerations
@@ -100,6 +101,10 @@ The project's settings (Game settings, Combat, Hit Rules read from it by HitRule
 ### GameplayConfig.CapacityRule capacity_change_rule() {#method-capacity-change-rule}
 
 What happens to a pool's current value when its maximum changes (equipment, buffs, stats)
+
+### int default_npc_growth_profile_id() {#method-default-npc-growth-profile-id}
+
+The growth profile that closes the chain of every NPC (a GrowthProfile id, 0 = none)
 
 ### GameplayConfig.CapacityRule level_up_capacity_rule() {#method-level-up-capacity-rule}
 

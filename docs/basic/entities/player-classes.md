@@ -23,6 +23,7 @@ The **Stats** section is the *stats data* of the class. It sets what every chara
 | **Core stats** | Overrides of the speeds and ranges that every entity has (below) |
 | **Stats** | The base value of each [stat](/basic/entity-stats/stats). Right-click a stat to **Change Base Value**, or **Toggle Active** to switch the stat off for this class (an inactive stat does nothing). A stat with no value starts at its default |
 | **Immunities** (*Add Immunity*) | Permanent [immunities](/basic/abilities-and-effects/immunities): this class cannot be stunned, or takes no fire damage |
+| **Growth profile** | A [growth profile](/basic/entity-stats/growth-profiles) for the class. *Default* means none for a player class (only the project default profile of NPCs is automatic) |
 | **Level growth overrides** (*Add Override*) | A different [growth per level](/basic/entity-stats/stats#level-growth) for one stat or pool, for this class only. A warrior's Strength grows faster than a mage's. An override with no [formula](/basic/shared-systems/formulas) means no growth |
 
 Core stats are overrides: leave one at `0` and the entity uses the default of the [Stats tab](/basic/entity-stats/stats).

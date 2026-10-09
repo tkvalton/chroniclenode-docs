@@ -16,13 +16,33 @@ A stat or pool grows with the level of its entity through three fields (the same
 
 The value of the stat is `(base + growth + bonus) x multiplier`, and the growth of a pool is added to its capacity.
 
-### Overrides
+### The layers
 
-`StatsData.growth_overrides` holds a `GrowthOverride` per stat or pool id. `StatsComponent.growth_of(definition, context)` is the one place that decides: the entity's override if it has one (**even an empty one, which stops the stat from growing for that entity**), else the definition's. `StatsData.remove_growth_override` goes back to the definition.
+`StatsComponent.growth_of(definition, context)` is the one place that decides the growth of a stat or pool. It tries four layers and the **first with an answer wins**:
+
+| # | Layer | Held by |
+|---|---|---|
+| 1 | The entity's own override | `StatsData.growth_overrides`, a `GrowthOverride` per stat or pool id |
+| 2 | The entity's growth profile and its parents | [`GrowthProfile`](/advanced/entity-stats/stats-and-pools/growth-profile), chosen by `StatsData.growth_profile_id` |
+| 3 | The project's default profile | `GameplayConfig.default_npc_growth_profile_id`, read through `CombatOptions.default_npc_growth_profile_id()` |
+| 4 | The definition | `StatDefinition.calculate_growth` / `PoolDefinition.calculate_growth` |
+
+An entry **replaces** the layers below, **even an empty one, which stops the stat from growing for that entity**. `StatsData.remove_growth_override` goes back to the layers below.
+
+`GrowthProfile` is a database resource of type `growth_profile` (`src/data/stats/growth_profiles/`) with `parent_profile_id` and `growth_overrides` (the same `get_growth_override` / `set_growth_override` / `remove_growth_override` calls as `StatsData`, so one editor serves both). `get_chain()` returns the profile, its parent, the parent's parent... stopping at a missing parent, a loop and `MAX_CHAIN` (8); `GrowthProfile.build_chain(profile_id, default_profile_id)` adds the default; `find_entry(chain, target_id)` gives the nearest entry; `validate()` lists the problems the editor shows in yellow. The toolkit makes an empty profile `GrowthProfile.ID_DEFAULT` for every project (`Database._ensure_default_growth_profile`).
+
+**Who gets the default.** The chain is built in `StatsComponent.setup_from_stats_data` from `stats_data.growth_profile_id` and `StatsComponent.default_growth_profile_id`. `EntityComponentRegistry` sets the second one before the setup, for an entity whose definition is an `NPCDefinition`; a player's component keeps `0`, so only the profile its class names (if any) applies. A `UniqueEntityData` with a stats override duplicates the whole `StatsData`, so the profile carries over.
+
+**Weapon damage.** The core stat Weapon Damage can have an entry like any stat. `growth_of` returns `0` for it while the entity's own base weapon damage is `0`, so a profile cannot give a weaponless NPC a weapon.
 
 ### When the level changes
 
-`StatsComponent.set_level(new_level)` recomputes the growth and applies the `level_up_capacity_rule` of the game settings to the pools whose maximum grew. See [Pools and damage layers](/advanced/entity-stats/pools#when-the-maximum-changes).
+`StatsComponent.set_level(new_level)` recomputes the growth of every stat, then the stat effects that depend on the level, then the capacity of every pool. The rule for the current value of a pool whose maximum changed is chosen by `_level_change_capacity_rule()`:
+
+- an **NPC** (an entity whose definition is an `NPCDefinition`) always uses **keep percentage**: 65 % of the old maximum is 65 % of the new one, up or down, whatever the project settings say;
+- everyone else uses the `level_up_capacity_rule` of the game settings.
+
+See [Pools and damage layers](/advanced/entity-stats/pools#when-the-maximum-changes).
 
 ## Core stats
 

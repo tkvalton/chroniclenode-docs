@@ -33,7 +33,9 @@ Tick the [stat groups](/basic/entity-stats/stat-groups) the stat is in (Primary,
 
 A stat can grow as the entity levels up. **Growth formula** turns the *levels gained* (level - 1) into a value, so level 1 has none: a Linear formula of `2` is "+2 per level". Add **Diminishing returns** to make growth slow down (after level 40, say), and **Max growth** to cap the total. Without a formula the stat does not grow. See [Formulas](/basic/shared-systems/formulas).
 
-The value of the stat is `(base + growth + bonus) x multiplier`, so growth comes on top of the base. A single class or NPC can replace the growth of a stat for itself (a warrior's Strength grows faster than a mage's) with *level growth overrides* in its stats data.
+The value of the stat is `(base + growth + bonus) x multiplier`, so growth comes on top of the base. A kind of NPC can replace the growth of a stat with a [growth profile](/basic/entity-stats/growth-profiles) (a Heavy grows Strength faster than a Caster), and a single class or NPC with *level growth overrides* in its stats data.
+
+When a stat has no growth formula the editor shows a yellow note. It is only a note: most stats should not grow, and a stat can still grow for some NPCs through a profile.
 
 ## Stat effects
 

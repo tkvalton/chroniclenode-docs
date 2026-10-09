@@ -23,6 +23,12 @@ export const groups = [
         "file": "data_classes/stats/growth_override.gd"
       },
       {
+        "name": "GrowthProfile",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\growth_profile.gd",
+        "file": "data_classes/stats/growth_profile.gd"
+      },
+      {
         "name": "PoolDefinition",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\definitions\\pool_stat_definition.gd",

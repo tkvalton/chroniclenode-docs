@@ -52,6 +52,13 @@ The **Stats** section is the same *stats data* a [player class](/basic/entities/
 
 An NPC levels with its **level**: its stats grow with it by their *level growth*, so a level 20 wolf is a stronger wolf than a level 5 one without a second definition.
 
+| Field | What it does | Default |
+|---|---|---|
+| **Growth profile** | The [growth profile](/basic/entity-stats/growth-profiles) of this kind of NPC (Heavy, Caster, Minion...): which stats and pools grow, and how fast. *Default* is the profile the Gameplay Config names for every NPC | Default |
+| **Level growth overrides** (*Add Override*) | A growth for one stat or pool of this NPC only. It wins over the profile | none |
+
+A pool and the stats that feed it all grow with the level, and the **weapon damage** of an NPC that has some can grow too (a profile entry for *Weapon Damage*). When the level changes (a respawn, level scaling) the NPC keeps its share of health. See [Growth Profiles](/basic/entity-stats/growth-profiles#what-happens-when-an-npc-changes-level).
+
 ## Abilities
 
 The same three lists as a class: the **auto attack ability**, the **active** abilities it uses and the **passive** abilities that apply to it. An NPC with no abilities of its own and a weapon-less definition attacks with its basic attack.

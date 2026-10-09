@@ -18,6 +18,7 @@ StatsData resource that defines the initial stats and pools for an Entity/Object
 | `Array[int]` | [resource_pool_definitions](#prop-resource-pool-definitions) | `[]` |
 | `Dictionary` | [health_pool_base_values](#prop-health-pool-base-values) | `{}` |
 | `Dictionary` | [resource_pool_base_values](#prop-resource-pool-base-values) | `{}` |
+| `int` | [growth_profile_id](#prop-growth-profile-id) | `0` |
 | `Array[GrowthOverride]` | [growth_overrides](#prop-growth-overrides) | `[]` |
 | `float` | [movement_speed_base](#prop-movement-speed-base) | `0.0` |
 | `float` | [attack_speed_base](#prop-attack-speed-base) | `0.0` |
@@ -125,6 +126,10 @@ Pool base values (auto-populated when adding definitions)
 Key: pool_id (int), Value: {"current": float, "max": float}
 
 *Level Growth Overrides*
+
+### int growth_profile_id = 0 {#prop-growth-profile-id}
+
+The growth profile of this entity (a GrowthProfile id): a shared list of growth entries for a kind of entity (heavy, caster, minion). 0 = none for a player class; an NPC with 0 uses the project's default profile (Gameplay Config, NPC Level Scaling). The entries below win over the profile
 
 ### Array[GrowthOverride] growth_overrides = [] {#prop-growth-overrides}
 

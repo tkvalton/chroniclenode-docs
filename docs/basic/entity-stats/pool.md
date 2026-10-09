@@ -33,7 +33,7 @@ Which pools an entity has, and with what starting values, is set in the *stats d
 
 ## Level growth
 
-**Growth formula**, **Diminishing returns** and **Max growth** work as they do for a [stat](/basic/entity-stats/stats#level-growth): the levels gained (level - 1) go in, and the result is added to the *maximum* of the pool. "+10 health per level" is a Linear [formula](/basic/shared-systems/formulas) of `10`.
+**Growth formula**, **Diminishing returns** and **Max growth** work as they do for a [stat](/basic/entity-stats/stats#level-growth): the levels gained (level - 1) go in, and the result is added to the *maximum* of the pool. "+10 health per level" is a Linear [formula](/basic/shared-systems/formulas) of `10`. A pool with no growth shows a yellow note; it is allowed (the health can still come from a stat that feeds it), and a [growth profile](/basic/entity-stats/growth-profiles) can give it growth for a kind of NPC. When the maximum grows because an NPC changed level, the NPC keeps its share of health; for a player character the *Level up capacity rule* of the [Gameplay Config](/basic/game-settings/gameplay-config#pools) decides.
 
 ## Generation and decay
 

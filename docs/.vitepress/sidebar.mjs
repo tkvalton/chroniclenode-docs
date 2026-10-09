@@ -120,6 +120,7 @@ const basicSystems = [
     ['Pool', 'pool', 'pool_stats'],
     ['Calculations', 'calculations', 'calculations'],
     ['Proficiencies', 'proficiencies', 'proficiencies'],
+    ['Growth Profiles', 'growth-profiles', 'growth_profiles'],
     ['Trigger Tags', 'trigger-tags', 'trigger_tags'],
     ['Stat Groups', 'stat-groups', 'stat_groups'],
   ], {

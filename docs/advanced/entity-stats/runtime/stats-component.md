@@ -30,6 +30,7 @@ Every Entity owns one (`entity.components.stats()`), built from a StatsData. It 
 | `int` | [level](#var-level) | `1` |
 | `Array[int]` | [multiplier_stats](#var-multiplier-stats) | `[]  # Cache of multiplier stat names` |
 | `Dictionary` | [multiplier_bonuses](#var-multiplier-bonuses) | `{}  # Track which stats have multiplier bonuses applied` |
+| `int` | [default_growth_profile_id](#var-default-growth-profile-id) | `0` |
 | `Array[DamageLayer]` | [damage_layers](#var-damage-layers) | `[]` |
 | `Array[Dictionary]` | [heal_absorbs](#var-heal-absorbs) | `[]` |
 | `Array[EffectInstance]` | [done_boosts](#var-done-boosts) | `[]` |
@@ -243,6 +244,10 @@ The level growth and level-scaled formulas read (set by set_level; level 1 until
 
 *No description yet.*
 
+### int default_growth_profile_id = 0 {#var-default-growth-profile-id}
+
+The profile that closes the chain of this entity (a GrowthProfile id, 0 = none). The NPCs get the project's default (Gameplay Config), set before setup_from_stats_data
+
 ### Array[DamageLayer] damage_layers = [] {#var-damage-layers}
 
 The pools that take damage, with the order they take it in. Health and shields have a permanent layer from their definition; an effect can give any pool a temporary one (a mana shield). Damage goes to the layers by priority (highest first, equal priorities newest first); what no layer takes is overkill.
@@ -267,7 +272,7 @@ Tells the stats the entity's level (Entity.current_level calls this whenever it 
 
 ### float growth_of( definition: Resource, context: FormulaContext = null ) {#method-growth-of}
 
-The level growth of a stat or pool at the current level: the entity's own override when it has one, else the definition's
+The level growth of a stat or pool at the current level, from the first layer that has an answer: the entity's own override, the growth profiles (its own, the parents, the project default), then the stat's or pool's definition. The weapon damage of an entity without an intrinsic weapon does not grow
 
 ### void refresh_conditional_effects() {#method-refresh-conditional-effects}
 

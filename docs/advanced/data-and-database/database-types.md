@@ -2,7 +2,7 @@
 
 # Database types
 
-The [Database](/advanced/data-and-database/database-classes/database) knows 53 types of resource. Each row says the **type name** you pass to the database (`Database.get_resource("effect", id)`), the **class** every resource of the type must be,
+The [Database](/advanced/data-and-database/database-classes/database) knows 54 types of resource. Each row says the **type name** you pass to the database (`Database.get_resource("effect", id)`), the **class** every resource of the type must be,
 the **folder** its files are saved in (one `<id>.tres` file per resource) and the **editor tab** you make them in. Every class in the table extends [DatabaseResource](/advanced/data-and-database/database-classes/database-resource).
 
 The rows are in the order of the REGISTRY, grouped like the editor's categories. The type `enviroment` is spelled that way in the code.
@@ -49,6 +49,7 @@ The rows are in the order of the REGISTRY, grouped like the editor's categories.
 | `stat_group` | `StatGroupDefinition` | `src/data/stats/stat_groups/` | [Stat Groups](/basic/entity-stats/stat-groups) |
 | `proficiency` | `ProficiencyDefinition` | `src/data/stats/proficiencies/` |  |
 | `pool` | `PoolDefinition` | `src/data/stats/pools/` | [Pool](/basic/entity-stats/pool) |
+| `growth_profile` | `GrowthProfile` | `src/data/stats/growth_profiles/` |  |
 | **Items** | | | |
 | `item` | `ItemDefinition` | `src/data/items/` | [Items](/basic/items/items) |
 | `currency` | `CurrencyDefinition` | `src/data/items/currencies/` | [Currency](/basic/items/currency) |
