@@ -18,7 +18,6 @@ WeaponClassDefinition defines weapon classes and their properties. Handles both 
 | `String` | [reload_tag](#prop-reload-tag) | `""` |
 | `int` | [basic_attack_ability_id](#prop-basic-attack-ability-id) | `0` |
 | `int` | [ammo_group](#prop-ammo-group) | `0` |
-| `Array[int]` | [required_passive_abilities](#prop-required-passive-abilities) | `[]` |
 
 ## Methods
 
@@ -36,8 +35,6 @@ WeaponClassDefinition defines weapon classes and their properties. Handles both 
 | `Array[Dictionary]` | [validate](#method-validate)() |
 | `bool` | [blocks_equipment_slot](#method-blocks-equipment-slot)( `slot: EquipmentSlotDefinition` ) |
 | `bool` | [has_slot_conflicts](#method-has-slot-conflicts)() |
-| `Dictionary` | [can_be_used_by_entity](#method-can-be-used-by-entity)( `entity: Entity` ) |
-| `bool` | [has_requirements](#method-has-requirements)() |
 | `String` | [get_weapon_type_name](#method-get-weapon-type-name)() |
 
 ## Property descriptions
@@ -81,12 +78,6 @@ The ability this weapon makes the wielder's basic attack (a bow shoots, a wand z
 ### int ammo_group = 0 {#prop-ammo-group}
 
 The ammo group this weapon shoots (the group of the arrows, bolts or bullets: see GroupDefinition). 0 = any ammo works, or the weapon needs none
-
-*Requirements*
-
-### Array[int] required_passive_abilities = [] {#prop-required-passive-abilities}
-
-Passive ability IDs required to use this weapon class
 
 ## Method descriptions
 
@@ -137,14 +128,6 @@ Check if this weapon type blocks a specific equipment slot
 ### bool has_slot_conflicts() {#method-has-slot-conflicts}
 
 Check if this weapon type has any slot conflicts
-
-### Dictionary can_be_used_by_entity( entity: Entity ) {#method-can-be-used-by-entity}
-
-*No description yet.*
-
-### bool has_requirements() {#method-has-requirements}
-
-*No description yet.*
 
 ### String get_weapon_type_name() {#method-get-weapon-type-name}
 

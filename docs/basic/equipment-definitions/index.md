@@ -10,14 +10,14 @@ These are the rules that [equipment](/basic/items/items#equipment) is built from
 | [**Weapon Class**](/basic/equipment-definitions/weapon-class) | The kind of weapon: its animations, its basic attack and the ammo it shoots | Sword, Bow, Staff, Dagger |
 | [**Quality**](/basic/equipment-definitions/quality) | How rare an item is, with a color | Poor, Common, Rare, Epic |
 | [**Set Bonus**](/basic/equipment-definitions/set-bonus) | The bonuses of wearing several pieces of a set | 2 pieces: +10 armor. 4 pieces: a proc |
-| [**Socket**](/basic/equipment-definitions/socket) | The colors of the sockets of equipment, and of the gems that fit them | Red, Blue, Green, White |
+| [**Socket**](/basic/equipment-definitions/socket) | The kinds of socket equipment has, and of the mods that fit them (gems, runes, attachments ...) | Red, Blue, Rune, Scope |
 
 ## How an item gets into a slot
 
 1. The item names an **equipment type** (and, for a weapon, a **weapon class**, which has a **weapon type**).
 2. A **slot** lists the equipment types it accepts. The item can go into any free slot that accepts its type.
 3. A **weapon type** can also **block** other slots: a two-handed weapon blocks the off hand, so equipping one puts the off-hand item back in the bag.
-4. The [requirements](/basic/shared-systems/requirements) of the item must be met (a level, a class, a [proficiency](/basic/entity-stats/proficiencies)). Armor classes and weapon classes can add requirements of their own.
+4. The [requirements](/basic/shared-systems/requirements) of the item must be met (a level, a class, a [proficiency](/basic/entity-stats/proficiencies)). A [proficiency](/basic/entity-stats/proficiencies) can also gate a whole armor class, weapon class or weapon type with its *Level needed to equip*.
 
 ```text
 Item: "Iron Longsword"

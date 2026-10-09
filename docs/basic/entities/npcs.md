@@ -86,7 +86,7 @@ A [placed NPC](/basic/world/uniques) can override the worth, and has a multiplie
 
 ## Level
 
-The **Default level** is the level the NPC has when it is made. If the project uses [NPC level scaling](/basic/game-settings/gameplay-config#npc-level-scaling) the level is then moved towards the level of the party, and the stats grow with the level it ends up with. A placed NPC can override the level. An NPC with the entity type *Boss* or *Elite* can follow its own [scaling rule](/basic/abilities-and-effects/scaling-and-trigger-rules).
+The **Default level** is the level the NPC has when it is made. If the project uses [NPC level scaling](/basic/game-settings/gameplay-config#npc-level-scaling) the level is then moved towards the level of the party, and the stats grow with the level it ends up with. A placed NPC can override the level. The scaled level is not fixed for ever: with the [rescale options](/basic/game-settings/gameplay-config#npc-level-scaling) on, an NPC takes a new level when it respawns and when the party levels up. An NPC with the entity type *Boss* or *Elite* can follow its own [scaling rule](/basic/abilities-and-effects/scaling-and-trigger-rules).
 
 ## How an NPC behaves in a fight
 

@@ -75,14 +75,14 @@ Conditions that compare a number offer the same choices: **equal**, **greater**,
 <!-- classes:shared-systems/entity-conditions -->
 | Class | What it is |
 |---|---|
-| [AbilityCooldownReadyCondition](/advanced/shared-systems/entity-conditions/ability-cooldown-ready-condition) | Checks if a specific ability is off cooldown and ready to use. |
+| [AbilityCooldownReadyCondition](/advanced/shared-systems/entity-conditions/ability-cooldown-ready-condition) | Checks if a specific ability is off [cooldown](/basic/keywords#cooldown) and ready to use. |
 | [AlliesInRangeCondition](/advanced/shared-systems/entity-conditions/allies-in-range-condition) | Checks if a minimum number of allies are within a specified range. |
 | [AlliesInRangeHealthCondition](/advanced/shared-systems/entity-conditions/allies-in-range-health-condition) | Checks if minimum number of allies in range are above/below health threshold Consolidates HealthAbove and HealthBelow conditions with encounter support. |
 | [AlliesInRangeWithEffectCondition](/advanced/shared-systems/entity-conditions/allies-in-range-with-effect-condition) | Checks if minimum number of allies in range have/don't have specific effect Now supports encounter-aware searching and inverted logic. |
 | [CastingStateCondition](/advanced/shared-systems/entity-conditions/casting-state-condition) | Checks if the entity or target is currently casting/not casting. |
 | [CombatStateCondition](/advanced/shared-systems/entity-conditions/combat-state-condition) | Checks if the target entity is in combat or not. |
 | [EncounterDurationCondition](/advanced/shared-systems/entity-conditions/encounter-duration-condition) | Checks if the current encounter has been running for a specific duration. |
-| [EncounterFactionBalanceCondition](/advanced/shared-systems/entity-conditions/encounter-faction-balance-condition) | Checks the faction balance in the current encounter. |
+| [EncounterFactionBalanceCondition](/advanced/shared-systems/entity-conditions/encounter-faction-balance-condition) | Checks the [faction](/basic/behaviors/factions) balance in the current encounter. |
 | [EnemiesInRangeCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-condition) | Checks if a minimum number of enemies are within a specified range. |
 | [EnemiesInRangeHealthCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-health-condition) | Checks if minimum number of enemies in range are above/below health threshold Consolidates HealthAbove and HealthBelow conditions with encounter support. |
 | [EnemiesInRangeWithEffectCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-with-effect-condition) | Checks if minimum number of enemies in range have/don't have specific effect Now supports encounter-aware searching and inverted logic. |

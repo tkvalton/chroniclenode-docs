@@ -92,6 +92,23 @@ Examples:
 | 12 | Table with rows 1: 10, 10: 100, 20: 400 | the row for level 10 | 100 |
 | 12, worth 500 on the NPC | Table | `500` (its own worth) | 500 |
 
+#### Experience falloff
+
+An NPC far below the party is not much of a fight, so it can give less experience. Turn **Experience falls off for NPCs under the party** on and draw the curve.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Free levels** | The levels under the party that cost nothing. `3`: an NPC up to 3 levels under still gives everything | `0` |
+| **Curve** | A [formula](/basic/shared-systems/formulas) that gets the number of levels the NPC is under the party (after the free ones) and returns the **percent of the experience that is lost**, from 0 (all kept) to 100 (nothing). A *Linear* formula of `10` loses ten percent for every level and gives nothing from 10 levels down. A *Hyperbolic* one loses a lot at first and then flattens | none (no falloff) |
+
+"Under the party" means under the **Scaling reference** (the party average, the highest member or the character in control), whether or not level scaling is on. An NPC at or above the reference never loses anything. The falloff multiplies with the other multipliers. The editor shows the share kept for 1, 3, 5, 8, 10 and 15 levels under.
+
+| You want | Settings |
+|---|---|
+| **Grey enemies give nothing** | Free levels `5`, Curve: Linear `20` (nothing from 5 levels past the free ones) |
+| **A soft fade** | Free levels `2`, Curve: Hyperbolic, max `90` |
+| **No falloff** | Off (default) |
+
 ### NPC level scaling
 
 By default an NPC has the level you gave it: a level 4 wolf is a level 4 wolf, however strong the player is. **Level scaling** moves the level of an NPC towards the level of the party when it is made, so the world stays a challenge (or a hand-made level curve stays safe). It is a decision of your game, so it is a set of choices, and **Off** keeps things as they were.
@@ -102,6 +119,8 @@ By default an NPC has the level you gave it: a level 4 wolf is a level 4 wolf, h
 | **Scaling reference** | Whose level NPCs follow: the **party average** (rounded), the **highest** level in the party, or the **character the player controls** | Party average |
 | **Scale up within levels** | A weak NPC is raised until it is this many levels **under** the reference. `0` raises it to the reference | `3` |
 | **Scale down within levels** | A strong NPC is lowered until it is this many levels **over** the reference. `0` lowers it to the reference | `3` |
+| **Rescale NPCs on respawn** | An NPC that respawns takes the level the party needs **now**, not the one it was made with | on |
+| **Rescale NPCs on party change** | Living NPCs take the new level when the party levels up, a member joins or leaves, or the player switches character (when the reference is the character in control). An NPC in a fight keeps its level and takes the new one when the fight ends | on |
 
 An NPC that is already inside the band is not touched. With the reference at 13 and both distances at 3, the band is levels 10 to 16:
 
@@ -113,7 +132,17 @@ An NPC that is already inside the band is not touched. With the reference at 13 
 | 16 | 16 | inside the band, unchanged |
 | 22 | 16 | 9 levels over: lowered by 6, to 3 levels over |
 
-**When it happens.** An NPC takes its scaled level **when it is made** (when the world loads it, an event spawns it, or it respawns as a new NPC). It does not change while it lives, when the player levels up or when the player switches character, and a saved NPC keeps the level it was saved with. If the party does not exist yet when an NPC is made, the NPC keeps its own level. The level is also kept between 1 and **Max level**.
+**When it happens.**
+
+| Moment | What happens |
+|---|---|
+| **The NPC is made** (the world loads it, an event or an encounter spawns it) | It takes the scaled level. If the party does not exist yet, it keeps its own level |
+| **The NPC respawns** | With *Rescale NPCs on respawn* on, it takes the level the party needs now |
+| **The party changes** (a member levels up, joins or leaves, or the player switches to a character of another level) | With *Rescale NPCs on party change* on, every living NPC is given its level again, from the level of its definition. The world does this once for the whole world, and only if the level the NPCs scale to really changed |
+| **An NPC is in a fight** | It waits: it keeps its level for the fight and takes the new one when it ends |
+| **A game is loaded** | A saved NPC keeps the level it was saved with; the next party change adjusts it |
+
+A rescaled NPC keeps its share of health (an NPC at half health stays at half health). The level always stays between 1 and **Max level**. Turn both rescale options off for a game where an NPC keeps the level it was made with.
 
 **The stats follow.** An NPC's [stats and pools grow with its level](/basic/entity-stats/stats#level-growth), so a raised NPC is really stronger, not just labelled differently.
 

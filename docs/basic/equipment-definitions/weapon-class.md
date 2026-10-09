@@ -35,9 +35,9 @@ The wielder plays animations by **tag**. Each tag is chosen from the animation l
 |---|---|---|
 | **Ammo group** | The [group](/basic/shared-systems/groups) of the ammo this weapon shoots. The arrows are in the group; an ability that spends *equipped ammo* takes from the matching ammo in the quiver. `0` = any ammo works, or the weapon needs none | none |
 
-### Requirements
+### Who may wield it
 
-**Add Requirement** adds passive [abilities](/basic/abilities-and-effects/abilities) the wielder must have to use the class. As with [armor classes](/basic/equipment-definitions/armor-class#ability-requirements-or-proficiencies), a [proficiency](/basic/entity-stats/proficiencies) with *Level needed to equip* is the way to gate a class by a trained level.
+A class does not say who may use it. Gate it with a [proficiency](/basic/entity-stats/proficiencies) that lists the class and has a **Level needed to equip** (see [Armor Class](/basic/equipment-definitions/armor-class#who-may-wear-it)).
 
 ## What reads a weapon class
 

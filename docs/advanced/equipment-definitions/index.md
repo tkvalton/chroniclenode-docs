@@ -24,7 +24,7 @@ The [Equipment Definitions chapter](/basic/equipment-definitions/) explains the 
 - A weapon class points to a weapon type (`get_weapon_type_definition()`); `get_blocked_equipment_slots()` returns the slots of that type's `blocks_equipment_slots`. `ItemDefinitionEquipmentWeapon.get_weapon_hand_requirement()` is `2` when there are any, else `1`.
 - A weapon type has `body_parts_affected` and `attachment_points_used` (from `EquipmentTypeDefinition`) and a `mesh_slot` (`GeneralSkeleton.WeaponSlot`: `MAIN_HAND` or `OFF_HAND`) used to draw the weapon.
 - `WeaponClassDefinition.get_animation_tag_for_category("attack"|"stance"|"aim"|"reload")` gives the tag; the entity rig appends `_r` or `_l`. `basic_attack_ability_id` replaces the wielder's basic attack while the weapon is held (`EquipmentInventoryComponent._refresh_weapon_basic_attack`). `ammo_group` is matched against the `groups` of the ammo items.
-- `WeaponClassDefinition.can_be_used_by_entity(entity)` checks `required_passive_abilities`, the older way to gate a class (see [Proficiencies](/advanced/entity-stats/proficiencies) for the level based way: `ProficiencyDefinition.requirements_for_item(item)`).
+- A class has no requirements of its own. Gating a class by a trained level is a proficiency: `ProficiencyDefinition.requirements_for_item(item)` (see [Proficiencies](/advanced/entity-stats/proficiencies)).
 
 ## Sets
 

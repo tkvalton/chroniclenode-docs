@@ -39,6 +39,7 @@ Runtime Mode:
 | `Timer` | [respawn_timer](#var-respawn-timer) | `null` |
 | `Timer` | [despawn_timer](#var-despawn-timer) | `null` |
 | `bool` | [is_waiting_to_spawn](#var-is-waiting-to-spawn) | `false      # During spawn_delay` |
+| `bool` | [rescale_pending](#var-rescale-pending) | `false` |
 | `bool` | [is_respawning](#var-is-respawning) | `false            # During respawn_timer` |
 | `float` | [respawn_time_remaining](#var-respawn-time-remaining) | `0.0    # For save/load` |
 
@@ -51,6 +52,7 @@ Runtime Mode:
 | `bool` | [save_unique_entity_data](#method-save-unique-entity-data)( `data: UniqueEntityData` ) |
 | `void` | [sync_to_unique_data](#method-sync-to-unique-data)() |
 | `int` | [get_experience_worth](#method-get-experience-worth)() |
+| `bool` | [rescale_level](#method-rescale-level)() |
 | `int` | [get_fixed_experience_worth](#method-get-fixed-experience-worth)() |
 | `ThreatTableComponent` | [get_threat_table](#method-get-threat-table)() |
 | `Vector3` | [get_spawn_position](#method-get-spawn-position)() |
@@ -62,6 +64,12 @@ Runtime Mode:
 | `Dictionary` | [get_animation_tags](#method-get-animation-tags)() |
 | `Dictionary` | [to_save_data](#method-to-save-data)() |
 | `void` | [from_save_data](#method-from-save-data)( `save_data: Dictionary, system_hub: GameHost.SystemHub` ) |
+
+## Signals
+
+### level_rescaled( old_level: int, new_level: int ) {#signal-level-rescaled}
+
+The level of the NPC changed because the party changed (old level, new level)
 
 ## Property descriptions
 
@@ -103,6 +111,10 @@ Spawn/Respawn/Despawn Timers (managed via ChronoManager)
 
 Respawn State Tracking
 
+### bool rescale_pending = false {#var-rescale-pending}
+
+The party changed while the NPC was in a fight: it takes the new level when the fight ends
+
 ### bool is_respawning = false            # During respawn_timer {#var-is-respawning}
 
 *No description yet.*
@@ -132,6 +144,10 @@ Syncs current entity state to its UniqueEntityData
 ### int get_experience_worth() {#method-get-experience-worth}
 
 The experience this NPC gives when it is defeated: the amount of the project's Kill Experience settings for its level, times its multipliers (see NpcLevels)
+
+### bool rescale_level() {#method-rescale-level}
+
+Gives the NPC the level the party needs now (see NpcLevels.rescale)
 
 ### int get_fixed_experience_worth() {#method-get-fixed-experience-worth}
 

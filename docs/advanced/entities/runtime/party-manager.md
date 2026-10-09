@@ -110,6 +110,10 @@ Signal emitted when the player could not switch to a member (the reason is a sho
 
 Signal emitted when a member enters or leaves the reserve
 
+### party_levels_changed() {#signal-party-levels-changed}
+
+Signal emitted when a member of the party levels up (the level the NPCs scale to may have changed)
+
 ### game_over_triggered( death_behavior: GameplayConfig.DeathBehavior, dead_player: Player ) {#signal-game-over-triggered}
 
 Death System Signals Signal emitted when game over is triggered (for UI to respond)

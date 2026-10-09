@@ -23,6 +23,9 @@ its entity types (kill_experience). See section 7 of the entity document in docs
 | `int` | [reference_level](#method-reference-level)( `party_manager: PartyManager, config: GameplayConfig = null` ) *static* |
 | `Array` | [entity_types_of](#method-entity-types-of)( `entity: Entity` ) *static* |
 | `int` | [scaled_level](#method-scaled-level)( `npc: Entity, base_level: int, party_manager: PartyManager` ) *static* |
+| `PartyManager` | [party_manager_of](#method-party-manager-of)( `npc: Entity` ) *static* |
+| `int` | [base_level_of](#method-base-level-of)( `npc: NPC` ) *static* |
+| `bool` | [rescale](#method-rescale)( `npc: NPC, party_manager: PartyManager` ) *static* |
 | `float` | [experience_multiplier](#method-experience-multiplier)( `npc: NPC` ) *static* |
 | `int` | [kill_experience](#method-kill-experience)( `npc: NPC` ) *static* |
 
@@ -39,6 +42,18 @@ The entity types (EntityTagDefinition) of an entity, in the order of its list
 ### int scaled_level( npc: Entity, base_level: int, party_manager: PartyManager ) {#method-scaled-level}
 
 The level an NPC takes when it is made: base_level (its definition or its placed NPC) moved by the scaling settings of the project
+
+### PartyManager party_manager_of( npc: Entity ) {#method-party-manager-of}
+
+The party manager an NPC can reach (null when it has no world yet)
+
+### int base_level_of( npc: NPC ) {#method-base-level-of}
+
+The level the NPC has by its definition or its placed NPC, before any scaling
+
+### bool rescale( npc: NPC, party_manager: PartyManager ) {#method-rescale}
+
+Gives a living NPC the level the party needs now (after a respawn, a level-up of the party ...). An NPC in a fight waits for the fight to end. Returns true when the level changed
 
 ### float experience_multiplier( npc: NPC ) {#method-experience-multiplier}
 

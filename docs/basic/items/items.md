@@ -18,7 +18,7 @@ An **item** definition says what a thing in the bag is: a sword, a potion, a let
 | **Enchant Scroll** | Puts an [effect](/basic/abilities-and-effects/effects) on a piece of equipment, for a while or for good | [Enchant scroll](#enchant-scroll) |
 | **On-Use Item** | Runs an [ability](/basic/abilities-and-effects/abilities) and has charges (a wand, a scroll, a rod) | [On-use item](#on-use-item) |
 | **Readable** | Opens a panel of text pages: a letter, a book | [Readable](#readable) |
-| **Socketable** | A gem that goes into the sockets of equipment | [Socketable](#socketable) |
+| **Socketable** | A mod that goes into the sockets of equipment: a gem, a rune, a scope, a chip | [Socketable](#socketable) |
 
 ## Basic properties
 
@@ -60,8 +60,8 @@ Equipment is worn in a slot of the [equipment slots](/basic/equipment-definition
 | **Effect stat bonus** | **Add Stat Bonus**: a stat and a number. While the item is worn the number is added to the stat, and taken away again when the item is taken off |
 | **Equipment effects** | [Effects](/basic/abilities-and-effects/effects) that are applied while the item is worn: a glow, an aura, a proc |
 | **On-use ability** | An [ability](/basic/abilities-and-effects/abilities) the wearer can activate while it is worn (a trinket you click) |
-| **Sockets** | **Add Socket**: a [socket](/basic/equipment-definitions/socket) type. Each one takes a [socketable](#socketable) gem of that type. The gems work only while the item is worn |
-| **Full sockets effect** | An effect that is added when **every** socket of the item holds a gem |
+| **Sockets** | **Add Socket**: a [socket](/basic/equipment-definitions/socket) type. Each one takes a [socketable](#socketable) mod of that type. The mods work only while the item is worn |
+| **Full sockets effect** | An effect that is added when **every** socket of the item is filled |
 | **Set bonus** | The [set](/basic/equipment-definitions/set-bonus) the item belongs to |
 
 The visual side of equipment is the **Equipment mesh** section: the body part and attachment meshes the item shows on a character's [model scene](/basic/assets/model-scenes).
@@ -154,10 +154,10 @@ Using the item opens the readable panel at the first page.
 
 | Field | What it does |
 |---|---|
-| **Effect** | The [effect](/basic/abilities-and-effects/effects) the gem gives to whoever wears the item it is socketed in |
+| **Effect** | The [effect](/basic/abilities-and-effects/effects) the mod gives to whoever wears the item it is socketed in |
 | **Allowed sockets** | **Add Allowed Socket**: the [socket](/basic/equipment-definitions/socket) types it fits |
 
-A gem cannot be used by itself. Taking a gem out of a worn item takes its effect with it; when an item is displaced its gems and enchantments go with it.
+A socketable is the **mod** of a socket system, and gems are only the familiar example: the same item can be a rune, a scope, an armor plate or a chip, whatever the sockets of your equipment take (see [Socket](/basic/equipment-definitions/socket#what-you-can-build-with-it)). It cannot be used by itself. Taking a mod out of a worn item takes its effect with it; when an item is displaced its mods and enchantments go with it.
 
 ## See also
 
