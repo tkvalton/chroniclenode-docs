@@ -12,6 +12,7 @@ NPCDefinition extends EntityDefinition with combat stats, AI behavior, and loot 
 |---|---|---|
 | `int` | [default_level](#prop-default-level) | `1` |
 | `int` | [experience_worth](#prop-experience-worth) | `0` |
+| `float` | [experience_multiplier](#prop-experience-multiplier) | `1.0` |
 | `int` | [faction](#prop-faction) | `0` |
 | `StatsData` | [stats_data](#prop-stats-data) | `StatsData.new()` |
 | `LootTableLogic` | [loot_table_logic](#prop-loot-table-logic) | `LootTableLogic.NONE` |
@@ -112,7 +113,11 @@ Default level when NPC is spawned
 
 ### int experience_worth = 0 {#prop-experience-worth}
 
-Experiance granted to player on death
+Experiance granted to player on death. With Kill Experience on Fixed (Gameplay Config) this is the amount; with a table or a formula it replaces the amount of the level when above 0
+
+### float experience_multiplier = 1.0 {#prop-experience-multiplier}
+
+Multiplies the experience this NPC gives (1 = as the settings say, 2 = double, 0 = none). A placed NPC and the entity types of the NPC have multipliers too, and all of them multiply
 
 *Faction &amp; Alignment*
 

@@ -75,7 +75,18 @@ When an NPC dies it becomes a **corpse** that can be looted, if it has anything.
 
 ## Experience
 
-An NPC gives the player **experience** when it dies. The amount is *Experience worth* on the definition. The NPC editor does not show that field yet: set it on the placed NPC (**Experience worth override**), or in a script. The experience goes to the party, and the reserve gets its [share](/basic/game-settings/gameplay-config#party-management).
+An NPC gives the party **experience** when it dies. How much is decided by the [Kill Experience](/basic/game-settings/gameplay-config#kill-experience) settings of the project: a fixed amount, a table by the NPC's level, or a [formula](/basic/shared-systems/formulas) of its level.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Experience worth** | With *Fixed* kill experience, the amount the NPC gives. With a table or a formula, a worth above `0` replaces the amount of the NPC's level | `0` |
+| **Experience multiplier** | Multiplies the result: `2` is double, `0` is none | `1` |
+
+A [placed NPC](/basic/world/uniques) can override the worth, and has a multiplier of its own that multiplies on top. The entity types of the NPC multiply too (an *Elite* type that is worth 3 times as much). The experience goes to the party, and the reserve gets its [share](/basic/game-settings/gameplay-config#party-management).
+
+## Level
+
+The **Default level** is the level the NPC has when it is made. If the project uses [NPC level scaling](/basic/game-settings/gameplay-config#npc-level-scaling) the level is then moved towards the level of the party, and the stats grow with the level it ends up with. A placed NPC can override the level. An NPC with the entity type *Boss* or *Elite* can follow its own [scaling rule](/basic/abilities-and-effects/scaling-and-trigger-rules).
 
 ## How an NPC behaves in a fight
 

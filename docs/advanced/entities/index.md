@@ -23,6 +23,13 @@ A definition is a `DatabaseResource` and is never changed while the game runs. A
 
 An NPC with a **spawn delay** is hidden and out of the physics world until the delay is over; its components are built then.
 
+## NPC levels and experience
+
+`NpcLevels` ([`runtime_classes/entity/npc_levels.gd`](/advanced/entities/runtime/npc-levels)) decides the level of an NPC and what it is worth.
+
+- **Level.** `Entity.initialize_entity` takes the level of the definition (or the `level_override` of the placed NPC) and passes it to `NpcLevels.scaled_level(npc, base_level, party_manager)`. That calls `GameplayConfig.get_scaled_npc_level(base_level, reference_level, rank_types)`: with `npc_level_scaling` off, or no party (reference 0), the level is unchanged; an `EntityTagDefinition` with `FIXED_OFFSET` gives `reference + level_offset` (the first one in the NPC's type list), `NEVER_SCALES` keeps the level, otherwise the level is raised to `reference - scale_up_within_levels` if lower (scale up) or lowered to `reference + scale_down_within_levels` if higher (scale down). The result is clamped to `1..max_level` and set once; `StatsComponent.set_level` then applies the growth. A saved NPC loads its saved `current_level`. `NpcLevels.reference_level` is the average (rounded), the highest or the current player's level, by `scaling_reference`.
+- **Experience.** `NPC.get_experience_worth()` is `NpcLevels.kill_experience(npc)`: `GameplayConfig.get_kill_experience(level, fixed_worth)` (the worth of the NPC itself in `FIXED` mode, or when above 0 in the other modes; else the `kill_experience_table` row with the largest level not above the NPC's, or the `kill_experience_formula` evaluated at the level) times `NPCDefinition.experience_multiplier`, `UniqueEntityData.experience_multiplier` and the `experience_multiplier` of each entity type, rounded. `CombatManager` emits `experience_grant_requested` with it when the last enemy of a fight that included a player dies; `PartyManager.grant_party_experience` gives it to the party and the reserve share to the reserve. `NPC.get_fixed_experience_worth()` is the raw worth (the override of the placed NPC, else the definition).
+
 ## Components
 
 Reached through `entity.components`: `stats()`, `effects()`, `abilities()`, `equipment()`, `inventory()`, `audio()`, `rig()`, `animation()`, `states()`, `pets()`, `mediator()`.
@@ -71,6 +78,8 @@ A `Pet` is an NPC with a `summoner`. It is registered in the summoner's `PetMana
 | `set_current_player(player)` | Control passes to a member; every other member gets the state of a companion (`refresh_control_state`) |
 | `try_switch_to(player)` | Switch, or refuse with a reason (`switch_denied`: not allowed, dead, in combat); `switch_to_next(±1)` cycles |
 | `recruit_player`, `move_to_reserve`, `move_to_party`, `swap_with_reserve`, `remove_player`, `set_max_party_size` | Party management; a recruit goes into the party, else the reserve, else is refused. The reserve is saved |
+
+With **Has main character** off (and character switching allowed) `get_main_character()` returns `null`: slot 0 can be moved to the reserve and only a party wipe ends the game. `GameplayConfig.main_character_exists()` is `has_main_character or not allow_character_switching`.
 
 A companion follows with `FollowingState` at `companion_follow_distance`, joins a fight within `companion_assist_range`, attacks with the basic attack and (`CompanionAttackLogic`) its abilities: an enemy-targeting ability on the target, an ally-targeting ability on the most hurt member under 70 %. The main character's death (or the whole party's) ends the game under *Game over* and *Permadeath*; a companion's death does not.
 
@@ -147,6 +156,7 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 | [FormationSystem](/advanced/entities/runtime/formation-system) |  |
 | [InteractableObject](/advanced/entities/runtime/interactable-object) | Unified interactable object class - uses InteractableDefinition + Interactions All specialized logic is now in Interaction subclasses |
 | [NPC](/advanced/entities/runtime/npc) | NPC represents a non-player character in the game. |
+| [NpcLevels](/advanced/entities/runtime/npc-levels) | The level of an NPC and the experience it gives, by the settings of the project (Gameplay Config: NPC Level Scaling and Kill Experience). |
 | [PartyManager](/advanced/entities/runtime/party-manager) | PartyManager manages the physical containers and setup for the player party system. |
 | [Pet](/advanced/entities/runtime/pet) |  |
 | [PetManagerComponent](/advanced/entities/runtime/pet-manager-component) | PetManagerComponent manages the pets owned by an entity. |

@@ -140,6 +140,7 @@ const SYSTEMS = {
           ['runtime_classes/entity/entity.gd', false],
           ['runtime_classes/entity/player.gd', false],
           ['runtime_classes/entity/npc.gd', false],
+          ['runtime_classes/entity/npc_levels.gd', false],
           ['runtime_classes/entity/pet.gd', false],
           ['runtime_classes/entity/interactable_object.gd', false],
           ['runtime_classes/entity/components/entity_component_registry.gd', false],

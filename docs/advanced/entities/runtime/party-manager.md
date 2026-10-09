@@ -290,7 +290,7 @@ Ends the game now (a quest that ends the game when it fails, an event): the game
 
 ### Player get_main_character() {#method-get-main-character}
 
-The main character: the member in slot 0 of the party (its death ends the game with the game over and permadeath behaviours; it cannot be put in the reserve)
+The main character: the member in slot 0 of the party (its death ends the game with the game over and permadeath behaviours; it cannot be put in the reserve). null when the project has no main character (Gameplay Config: Has main character off, with character switching allowed): any member can wait in the reserve and only the death of the whole party ends the game
 
 ### void respawn_player( player: Player, respawn_point: Marker3D ) {#method-respawn-player}
 

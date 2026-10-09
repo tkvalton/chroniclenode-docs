@@ -51,6 +51,7 @@ Runtime Mode:
 | `bool` | [save_unique_entity_data](#method-save-unique-entity-data)( `data: UniqueEntityData` ) |
 | `void` | [sync_to_unique_data](#method-sync-to-unique-data)() |
 | `int` | [get_experience_worth](#method-get-experience-worth)() |
+| `int` | [get_fixed_experience_worth](#method-get-fixed-experience-worth)() |
 | `ThreatTableComponent` | [get_threat_table](#method-get-threat-table)() |
 | `Vector3` | [get_spawn_position](#method-get-spawn-position)() |
 | `void` | [reset_to_spawn](#method-reset-to-spawn)() |
@@ -130,7 +131,11 @@ Syncs current entity state to its UniqueEntityData
 
 ### int get_experience_worth() {#method-get-experience-worth}
 
-What this NPC is worth in experience: the override of a placed NPC, else its definition
+The experience this NPC gives when it is defeated: the amount of the project's Kill Experience settings for its level, times its multipliers (see NpcLevels)
+
+### int get_fixed_experience_worth() {#method-get-fixed-experience-worth}
+
+The Experience worth set on this NPC itself: the override of a placed NPC, else its definition (0 = none). The project may use it as the amount, or ignore it for a table or a formula of the level
 
 ### ThreatTableComponent get_threat_table() {#method-get-threat-table}
 

@@ -39,15 +39,21 @@ By default an object is scenery. These switches make it a thing that can be atta
 | **Targetable directly** | Single-target [abilities](/basic/abilities-and-effects/abilities) can pick it: a spell on a barrel, a heal on a destructible wall | off |
 | **Targetable by AoE** | Area abilities hit it: a fireball breaks the crates | off |
 | **Object has stats** | Turns on automatically when either switch above is on. The object gets a **stats data** (the same section as a [class](/basic/entities/player-classes#stats)): a health pool, defenses, [immunities](/basic/abilities-and-effects/immunities) | off |
-| **Damage threshold** | The share of health under which the object counts as **damaged** (`0.7` = below 70 % health). A door reads it: *Can open when damaged* off keeps a damaged door shut | `0.7` |
+| **Damage threshold** | The share of health under which the object counts as **damaged** (`0.7` = below 70 % health). It plays the *damaged* sound once, and a door reads it: *Can open when damaged* off keeps a damaged door shut | `0.7` |
 
-When the master pool of an object empties, it is **destroyed**: it plays its `destroyed` animation (if the scene has one), stops being a target, and refuses to be used.
+When the master pool of an object empties, it is **destroyed**: it plays its `destroyed` animation (if the scene has one), its destroyed sound and its destruction VFX, stops being a target, and refuses to be used.
 
 ## Sound and visuals
 
-| Field | Status |
+| Field | When it plays |
 |---|---|
-| **Interaction SFX**, **Hit sound**, **Damaged sound**, **Destroyed sound**, **Destruction VFX** | Stored with the definition for your game's use. The toolkit does not play them by itself yet. The interactions have sounds of their own (the door and container sounds below) |
+| **Interaction SFX** | The object is used (after the interaction starts) |
+| **Hit sound** | The object takes damage (when it has stats) |
+| **Damaged sound** | Once, when the object first falls under the **damage threshold** (it is still standing) |
+| **Destroyed sound** | The object is destroyed |
+| **Destruction VFX** | A [visual effect](/basic/assets/vfx) that plays on the object when it is destroyed |
+
+The sounds play on the audio component of the object, from the object, so they are heard from where it stands. The interactions have sounds of their own too (the door and container sounds below).
 
 ## Interaction types
 

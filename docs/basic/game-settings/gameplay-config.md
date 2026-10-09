@@ -10,7 +10,7 @@ The **Gameplay Config** holds the rules of your game that are not about one thin
 |---|---|
 | **General** | Items & Inventory, [Quests](/basic/events-and-quests/quests), Fog of War, Save/Load Rules |
 | **Visuals** | Rig Markers, Outline Materials, Targeting Visuals, Tactical View Visuals, Target Textures |
-| **Party Management** | New Game Rules, Leveling, Controller Logic, Input |
+| **Party Management** | Party and companions, New Game Rules, Leveling, **Kill Experience**, **NPC Level Scaling**, Controller Logic, Input |
 | **Combat** | Death & Revival, Threat, Damage Results, Pools, **Hit Rules** |
 | **NPC LOD System** | LOD distance thresholds, update intervals, batch processing |
 
@@ -28,8 +28,9 @@ The rules for the party of player characters. See [Playable Character](/basic/en
 | **Reserve experience percentage** | The share of every experience grant the reserve gets (`0.5` = half) | `0.5` |
 | **Allow character switching** | The player may take over any living party member. Off: the player only ever controls the first member, and the others are companions (when that member falls, control still passes to a living one) | on |
 | **Allow switching in combat** | The player may switch characters while the party is fighting | on |
+| **Has main character** | On: the first member of the party is the **main character**. It cannot wait in the reserve, and its death ends the game under *Game over* and *Permadeath*. Off: there is **no main character**: any member, the first included, can be put in the reserve and swapped out, and the game ends only when the **whole party** is down. Needs *Allow character switching*: when the player cannot take over the others, the first member is the only one the player controls, so it is always the main character (the switch is greyed out in the editor) | on |
 
-The first member of the party is the **main character**. It cannot be put in the reserve, and its death ends the game when the death behavior is *Game over* or *Permadeath*.
+With **Has main character** on, the first member of the party is the **main character**: it cannot be put in the reserve, and its death ends the game when the death behavior is *Game over* or *Permadeath* (a companion that falls does not end it). With it off, nobody is special: the party can rotate its first member into the reserve, and only a party wipe ends the game. Use it for a game of a band of equals, where the player picks a squad from a roster.
 
 ### Companions
 
@@ -51,8 +52,95 @@ The first member of the party is the **main character**. It cannot be put in the
 
 | Field | What it does | Default |
 |---|---|---|
-| **Max level** | The highest level a player can reach | `50` |
+| **Max level** | The highest level a player can reach. Entities, including NPCs, are never above it | `50` |
 | **Experience per level** | The experience each level needs, as a table you edit. Levels you leave out use the default: `100 x (level - 1)` experience to go from the level before | table empty |
+
+### Kill experience
+
+How much experience the party gets when it defeats an NPC. It depends on the **level of the NPC**, so a level 30 wolf is worth more than a level 3 one, and you can shape the whole curve from here. The result is then multiplied (see below).
+
+| Field | What it does | Default |
+|---|---|---|
+| **Kill experience mode** | **Fixed**, **Table** or **Formula**, below. Its own fields appear under it | Fixed |
+
+| Mode | The amount before the multipliers | Fields |
+|---|---|---|
+| **Fixed** | The **Experience worth** of the NPC itself, whatever its level. This is how earlier versions worked | none |
+| **Table** | A row for each level you choose: *from level N the NPC gives X experience*. A level uses the row with the largest level that is not above it, so a row for level 10 covers level 10 up to the next row. An NPC under the first row gives nothing from the table | The rows (*Add a row*) |
+| **Formula** | A [formula](/basic/shared-systems/formulas) that gets the **level of the NPC** and returns the experience. A *Linear* formula of `10` gives 10 experience at level 1 and 100 at level 10. A *Hyperbolic* or soft-capped one makes the late levels worth less and less extra, which is the curve most games want | A formula (any formula; its own fields appear under it) |
+
+A **table** is a curve you draw by hand; a **formula** is a curve you describe. They give the same kind of result, so choose whichever is easier to tune: a table when you want exact numbers for a few key levels, a formula when you want a smooth curve over all of them. The editor shows a small table of the result for the levels 1, 5, 10, 20, 30 and 50, so you can see the curve without playing.
+
+**The level that counts is the level the NPC really has**, after [scaling](#npc-level-scaling): if a level 4 NPC was raised to level 17 to meet a level 20 player, it gives the experience of level 17.
+
+**Multipliers.** The amount is multiplied by all of these (1 = no change, 0 = no experience):
+
+| Multiplier | Where |
+|---|---|
+| **Experience multiplier** of the NPC | The [NPC definition](/basic/entities/npcs#experience) |
+| **Experience multiplier** of the placed NPC | The [placed NPC](/basic/world/uniques), on top of its definition: a rare version of a common creature is `3` |
+| **Experience multiplier** of each entity type of the NPC | The [entity type](/basic/types-and-groups/entity-types#npc-level-and-experience): an Elite gives 3 times as much |
+
+**A worth on the NPC itself.** In *Table* and *Formula* mode, an NPC whose **Experience worth** is above 0 gives that instead of the amount of its level (the multipliers still apply). Use it for a quest boss whose [reward](/basic/shared-systems/rewards) you want to set by hand.
+
+Examples:
+
+| Level of the NPC | Mode | Calculation | Experience |
+|---|---|---|---|
+| 12 | Formula, Linear `10` | `10 x 12` | 120 |
+| 12, an Elite (x3), a rare placed version (x2) | Formula, Linear `10` | `120 x 3 x 2` | 720 |
+| 12 | Table with rows 1: 10, 10: 100, 20: 400 | the row for level 10 | 100 |
+| 12, worth 500 on the NPC | Table | `500` (its own worth) | 500 |
+
+### NPC level scaling
+
+By default an NPC has the level you gave it: a level 4 wolf is a level 4 wolf, however strong the player is. **Level scaling** moves the level of an NPC towards the level of the party when it is made, so the world stays a challenge (or a hand-made level curve stays safe). It is a decision of your game, so it is a set of choices, and **Off** keeps things as they were.
+
+| Field | What it does | Default |
+|---|---|---|
+| **NPC level scaling** | **Off**: NPCs keep their level. **Scale up**: NPCs weaker than the player are raised. **Scale down**: NPCs stronger than the player are lowered. **Both** | Off |
+| **Scaling reference** | Whose level NPCs follow: the **party average** (rounded), the **highest** level in the party, or the **character the player controls** | Party average |
+| **Scale up within levels** | A weak NPC is raised until it is this many levels **under** the reference. `0` raises it to the reference | `3` |
+| **Scale down within levels** | A strong NPC is lowered until it is this many levels **over** the reference. `0` lowers it to the reference | `3` |
+
+An NPC that is already inside the band is not touched. With the reference at 13 and both distances at 3, the band is levels 10 to 16:
+
+| NPC level | Result | Why |
+|---|---|---|
+| 4 | 10 | 9 levels under: raised by 6, to 3 levels under |
+| 7 | 10 | 6 levels under: raised by 3, to 3 levels under |
+| 12 | 12 | inside the band, unchanged |
+| 16 | 16 | inside the band, unchanged |
+| 22 | 16 | 9 levels over: lowered by 6, to 3 levels over |
+
+**When it happens.** An NPC takes its scaled level **when it is made** (when the world loads it, an event spawns it, or it respawns as a new NPC). It does not change while it lives, when the player levels up or when the player switches character, and a saved NPC keeps the level it was saved with. If the party does not exist yet when an NPC is made, the NPC keeps its own level. The level is also kept between 1 and **Max level**.
+
+**The stats follow.** An NPC's [stats and pools grow with its level](/basic/entity-stats/stats#level-growth), so a raised NPC is really stronger, not just labelled differently.
+
+#### Ranks: elite, rare, boss
+
+Some NPCs should not follow the rules: a boss that is always dangerous, a rare that is always worth a trip. Those are **ranks**, and a rank is an [Entity Type](/basic/types-and-groups/entity-types): make the types *Elite*, *Rare* and *Boss* and give them to the NPCs. Each type has its own scaling choice:
+
+| Level scaling of the type | What it does |
+|---|---|
+| **Follow game** | Like every NPC |
+| **Never scales** | The NPC keeps the level of its definition, whatever the player's level. A level 60 dragon in a starting zone |
+| **Fixed offset** | The NPC is always a number of levels above (or, negative, under) the **reference**: `3` is a boss that is always 3 levels above you |
+
+If an NPC has several types, *Fixed offset* wins over *Never scales*, and the first Fixed offset type in its list is used.
+
+**A rank only changes levels when scaling is on.** With **NPC level scaling** Off, a rank is just a label: the NPC keeps the level of its definition, and the rank is there for your interface (a gold border on elites) and for [conditions](/basic/shared-systems/conditions) ("+20 % damage against Bosses"). The type's **experience multiplier** works either way.
+
+#### Recipes
+
+| You want | Settings |
+|---|---|
+| **A hand-made world, no scaling** | Scaling Off. Set the level of every NPC yourself. Make the types Elite, Boss and Rare for the interface only |
+| **An open world where nothing is ever trivial or hopeless** | Scale **Both**, within `3`, reference *Party average*. Bosses: *Fixed offset* `+3` |
+| **Zones with a level range, but low level enemies catch up** | Scale **Up** only, within `0`: nothing is below the player |
+| **Players who out-level a zone get an easy time, but not a deadly one** | Scale **Down** only: strong NPCs are lowered to near the player, weak ones keep their level |
+| **Boss rush** | Everything *Fixed offset* `+5` |
+| **A dragon in the starting zone** | *Never scales* on its type, or scaling Off |
 
 ### Controller logic and input
 

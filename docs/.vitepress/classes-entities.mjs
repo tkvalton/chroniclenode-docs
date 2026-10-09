@@ -209,6 +209,12 @@ export const groups = [
         "file": "runtime_classes/entity/npc.gd"
       },
       {
+        "name": "NpcLevels",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\npc_levels.gd",
+        "file": "runtime_classes/entity/npc_levels.gd"
+      },
+      {
         "name": "PartyManager",
         "base": "Node3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\player\\party_manager.gd",

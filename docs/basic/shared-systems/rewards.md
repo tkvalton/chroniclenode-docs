@@ -29,7 +29,7 @@ Click the add button next to the list, choose the **type** of reward in the dial
 | [CurrencyReward](/advanced/shared-systems/rewards/currency-reward) | Grants currency to the player's inventory |
 | [EquipmentSlotUnlockReward](/advanced/shared-systems/rewards/equipment-slot-unlock-reward) | Unlocks a single equipment slot for use |
 | [ExperienceReward](/advanced/shared-systems/rewards/experience-reward) | Grants experience points to the player |
-| [FactionReputationReward](/advanced/shared-systems/rewards/faction-reputation-reward) | Grants or removes reputation with a [faction](/basic/behaviors/factions) |
+| [FactionReputationReward](/advanced/shared-systems/rewards/faction-reputation-reward) | Grants or removes reputation with a faction |
 | [FactionStandingReward](/advanced/shared-systems/rewards/faction-standing-reward) | Sets reputation to a specific standing level with a faction |
 | [ItemReward](/advanced/shared-systems/rewards/item-reward) | Grants items to the player's inventory. |
 | [LevelReward](/advanced/shared-systems/rewards/level-reward) | Container for rewards granted at a specific level |
