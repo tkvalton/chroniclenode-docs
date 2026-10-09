@@ -288,7 +288,7 @@ const advancedSystems = [
   ['Behaviors', 'behaviors'], ['Entity Stats', 'entity-stats'], ['Types & Groups', 'types-and-groups'], ['Items', 'items'],
   ['Equipment Definitions', 'equipment-definitions'], ['Assets', 'assets'], ['Game Settings', 'game-settings'],
 ].map(([text, slug]) => slug === 'abilities-and-effects'
-  ? withPages(classSystem(text, slug, abilitiesAndEffectsClasses), [page('The effect amount', '/advanced/abilities-and-effects/effect-amount', { title: 'The effect amount: how it is built' }), page('Immunities', '/advanced/abilities-and-effects/immunities', { title: 'Immunities: how they are built' })])
+  ? withPages(classSystem(text, slug, abilitiesAndEffectsClasses), [page('The effect amount', '/advanced/abilities-and-effects/effect-amount', { title: 'The effect amount: how it is built' }), page('Immunities', '/advanced/abilities-and-effects/immunities', { title: 'Immunities: how they are built' }), page('Skill trees', '/advanced/abilities-and-effects/skill-trees', { title: 'Skill trees: how they are built' })])
   : slug === 'world'
   ? worldAdvanced
   : slug === 'entity-stats'
@@ -332,6 +332,8 @@ export const sidebar = [
     items: [
       page('About the advanced section', '/advanced/', { title: 'Advanced' }),
       page('Architecture', '/advanced/architecture'),
+      page('Definitions and instances', '/advanced/definitions-and-instances', { title: 'Definitions and instances' }),
+      page('Pooling', '/advanced/pooling', { title: 'Pooling' }),
       page('The game host and managers', '/advanced/game-host'),
       dataAndDatabase,
       page('Save and load', '/advanced/save-and-load'),

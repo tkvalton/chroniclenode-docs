@@ -835,6 +835,60 @@ export const groups = [
     ]
   },
   {
+    "text": "Skill trees",
+    "slug": "skill-trees",
+    "classes": [
+      {
+        "name": "ChoiceSkillNode",
+        "base": "SkillNode",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\skill_tree\\choice_skill_node.gd",
+        "file": "data_classes/skill_tree/choice_skill_node.gd"
+      },
+      {
+        "name": "RankedSkillNode",
+        "base": "SkillNode",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\skill_tree\\ranked_skill_node.gd",
+        "file": "data_classes/skill_tree/ranked_skill_node.gd"
+      },
+      {
+        "name": "SkillConnection",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\skill_tree\\skill_connection.gd",
+        "file": "data_classes/skill_tree/skill_connection.gd"
+      },
+      {
+        "name": "SkillNode",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\skill_tree\\skill_node.gd",
+        "file": "data_classes/skill_tree/skill_node.gd"
+      },
+      {
+        "name": "SkillPointPool",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\skill_tree\\skill_point_pool.gd",
+        "file": "data_classes/skill_tree/skill_point_pool.gd"
+      },
+      {
+        "name": "SkillPointPoolInstance",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\player\\skill_tree\\skill_point_instance.gd",
+        "file": "runtime_classes/player/skill_tree/skill_point_instance.gd"
+      },
+      {
+        "name": "SkillTree",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\skill_tree\\skill_tree.gd",
+        "file": "data_classes/skill_tree/skill_tree.gd"
+      },
+      {
+        "name": "SkillTreeInstance",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\player\\skill_tree\\skill_tree_instance.gd",
+        "file": "runtime_classes/player/skill_tree/skill_tree_instance.gd"
+      }
+    ]
+  },
+  {
     "text": "Runtime",
     "slug": "runtime",
     "classes": [

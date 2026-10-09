@@ -33,6 +33,7 @@ const SYSTEMS = {
       { text: 'Effects: stats', slug: 'effects-stats', dirs: [['data_classes/effects/stats', true]] },
       { text: 'Effects: status and control', slug: 'effects-status-and-control', dirs: [['data_classes/effects/status_and_control', true]] },
       { text: 'Effects: utility', slug: 'effects-utility', dirs: [['data_classes/effects/utility', true]] },
+      { text: 'Skill trees', slug: 'skill-trees', dirs: [['data_classes/skill_tree', false], ['runtime_classes/player/skill_tree', true]] },
       {
         text: 'Runtime',
         slug: 'runtime',
