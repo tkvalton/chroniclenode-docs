@@ -1028,7 +1028,7 @@ Performs a jump if the entity is on the floor Uses the exported jump_velocity va
 
 *No description yet.*
 
-### void request_action_state_change( state_name: ModularCombatScript.ActionStateName, data: Dictionary = {} ) {#method-request-action-state-change}
+### void request_action_state_change( state_name: ModularCombatScript.ActionStateName, data: Dictionary = &#123;&#125; ) {#method-request-action-state-change}
 
 *No description yet.*
 
@@ -1118,7 +1118,7 @@ Completes the HealingResult for a heal on this entity (see StatsComponent.take_h
 
 ### Dictionary apply_status_effect( status_effect: int, base_duration: float, source_entity: Variant = null, effect: EffectInstance = null ) {#method-apply-status-effect}
 
-Asks the stat system whether a status lands and for how long (immunity, tenacity, diminishing returns): {can_apply, effective_duration, ...}
+Asks the stat system whether a status lands and for how long (immunity, tenacity, diminishing returns): &#123;can_apply, effective_duration, ...&#125;
 
 ### bool is_immune_to_status_effect( status_effect_id: int ) {#method-is-immune-to-status-effect}
 

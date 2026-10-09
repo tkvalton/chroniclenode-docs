@@ -54,7 +54,7 @@ Apply this reward to a player - override in child classes Returns a Dictionary w
 - "success": bool - whether the application succeeded
 - Additional tracking data needed for unapply (e.g., instance IDs, amounts)
 
-Example: {"success": true, "ability_instance_id": 12345, "ability_definition_id": 42} *(from [Reward](/advanced/shared-systems/rewards/reward))*
+Example: &#123;"success": true, "ability_instance_id": 12345, "ability_definition_id": 42&#125; *(from [Reward](/advanced/shared-systems/rewards/reward))*
 
 ### Dictionary to_pending_data() {#method-to-pending-data}
 

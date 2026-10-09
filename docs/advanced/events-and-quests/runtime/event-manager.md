@@ -241,7 +241,7 @@ Returns an array of all tracked quests
 
 Manually trigger an event (bypasses conditions)
 
-### bool try_trigger_event( event_id: int, event_data: Dictionary = {} ) {#method-try-trigger-event}
+### bool try_trigger_event( event_id: int, event_data: Dictionary = &#123;&#125; ) {#method-try-trigger-event}
 
 Manually trigger an event with condition checking
 

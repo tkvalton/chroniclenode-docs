@@ -41,7 +41,7 @@ Get a summary of this requirement for tooltips/UI
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Configuration problems of this requirement, as a list of {"type", "message", "severity"} ("warning" or "error"). An empty list is fine. Types override it to point out settings that make them useless. RequirementChecker.validate_requirements collects them for the editor
+Configuration problems of this requirement, as a list of &#123;"type", "message", "severity"&#125; ("warning" or "error"). An empty list is fine. Types override it to point out settings that make them useless. RequirementChecker.validate_requirements collects them for the editor
 
 ### void connect_to_entity_signals( entity: Entity ) {#method-connect-to-entity-signals}
 

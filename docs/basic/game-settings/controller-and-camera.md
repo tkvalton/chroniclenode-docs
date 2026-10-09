@@ -75,7 +75,7 @@ Not every pair works equally. The Gameplay Config shows **warnings** under the t
 | Third person or top-down with **WASD** | Fine |
 | Third person with **RTS** | Warns: the camera's left-drag orbit is ignored (the RTS controller owns the left button) |
 | Third person with **point-and-click single** | Warns: right-drag only tilts the view |
-| A camera-relative controller with a custom camera that does not use the input manager | Warns: nothing will orbit |
+| A camera-relative controller with a custom camera that does not use the [input manager](/advanced/game-settings/camera-and-controller/input-manager) | Warns: nothing will orbit |
 
 The warnings are advice, not a lock: the controller wins any conflict.
 

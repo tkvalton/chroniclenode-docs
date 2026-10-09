@@ -1,11 +1,11 @@
 # Game host
 
-`GameHost` is the one node the game runs from. The project's main scene is `addons/chroniclenode/runtime_classes/main/GameHost.tscn`, whose script is `game_host.gd`. **There are no autoloads.** Everything else is reached through a `SystemHub` that `GameHost` builds and hands around.
+[`GameHost`](/advanced/managers/game-host/game-host) is the one node the game runs from. The project's main scene is `addons/chroniclenode/runtime_classes/main/GameHost.tscn`, whose script is `game_host.gd`. **There are no autoloads.** Everything else is reached through a `SystemHub` that `GameHost` builds and hands around.
 
 It does three jobs:
 
 1. It **builds the managers** and the permanent containers, once, at start-up.
-2. It **starts the game**: it asks the `TransitionManager` to go to the main menu (or straight into a world, for the editor's "play this world").
+2. It **starts the game**: it asks the [`TransitionManager`](/advanced/managers/game-host/transition-manager) to go to the main menu (or straight into a world, for the editor's "play this world").
 3. It **owns the pause key**.
 
 Everything that changes the *state* of the game afterwards is the job of `TransitionManager`, which is a `RefCounted`, not a node.
@@ -24,24 +24,24 @@ A plain object (an inner class of `GameHost`) holding what systems need, so clas
 | Reference | Class | Role |
 |---|---|---|
 | `transition_manager` | `TransitionManager` | The state machine, setup steps, world swap, cleanup |
-| `settings_manager` | `SettingsManager` | The player's settings ([Game settings](/advanced/game-settings/)) |
-| `ui_manager` | `UIManager` | The current whole-screen UI, the loading screen, fades, tooltips, messages, popups |
-| `audio_manager` | `AudioManager` | Music, ambience, sound effects, UI sounds, the pooled players ([Pooling](/advanced/pooling#audio-players)) |
-| `chrono_manager` | `ChronoManager` | The game clock and the timer pool |
-| `event_manager` | `EventManager` | Events, quests, global variables ([Events & Quests](/advanced/events-and-quests/)). Made on the first game |
-| `faction_manager` | `FactionManager` | Factions and reputation |
-| `vfx_manager` | `VFXManager` | Plays visual effects. A child of the combat manager, made on the first game |
-| `combat_manager` | `CombatManager` | Combat sessions, the combat log, world effects, experience |
-| `party_manager` | `PartyManager` | The party, the player in control; owns the `PlayerController` and the `CameraController` |
-| `world_container` | `WorldContainer` | The loaded world ([World](/advanced/world/)) |
-| `input_manager` | `InputManager` | Gameplay input ([Camera, controller and input](/advanced/game-settings/#camera-controller-and-input)) |
-| `world_environment`, `world_sun` | `WorldSkyEnvironment`, `WorldSun` | The sky, the environment and the sun |
+| `settings_manager` | [`SettingsManager`](/advanced/game-settings/settings-runtime/settings-manager) | The player's settings ([Game settings](/advanced/game-settings/)) |
+| `ui_manager` | [`UIManager`](/advanced/managers/game-host/ui-manager) | The current whole-screen UI, the loading screen, fades, tooltips, messages, popups |
+| `audio_manager` | [`AudioManager`](/advanced/managers/managers/audio-manager) | Music, ambience, sound effects, UI sounds, the pooled players ([Pooling](/advanced/pooling#audio-players)) |
+| `chrono_manager` | [`ChronoManager`](/advanced/managers/managers/chrono-manager) | The game clock and the timer pool |
+| `event_manager` | [`EventManager`](/advanced/events-and-quests/runtime/event-manager) | Events, quests, global variables ([Events & Quests](/advanced/events-and-quests/)). Made on the first game |
+| `faction_manager` | [`FactionManager`](/advanced/managers/managers/faction-manager) | Factions and reputation |
+| `vfx_manager` | [`VFXManager`](/advanced/assets/vfx/vfx-manager) | Plays visual effects. A child of the combat manager, made on the first game |
+| `combat_manager` | [`CombatManager`](/advanced/entity-stats/combat/combat-manager) | Combat sessions, the combat log, world effects, experience |
+| `party_manager` | [`PartyManager`](/advanced/entities/runtime/party-manager) | The party, the player in control; owns the [`PlayerController`](/advanced/game-settings/camera-and-controller/player-controller) and the [`CameraController`](/advanced/game-settings/camera-and-controller/camera-controller) |
+| `world_container` | [`WorldContainer`](/advanced/world/runtime/world-container) | The loaded world ([World](/advanced/world/)) |
+| `input_manager` | [`InputManager`](/advanced/game-settings/camera-and-controller/input-manager) | Gameplay input ([Camera, controller and input](/advanced/game-settings/#camera-controller-and-input)) |
+| `world_environment`, `world_sun` | [`WorldSkyEnvironment`](/advanced/world/runtime/world-sky-environment), [`WorldSun`](/advanced/world/runtime/world-sun) | The sky, the environment and the sun |
 
 `vfx_manager` and `event_manager` are `null` in the main menu.
 
 **State:** `current_pause_type` (`NONE`, `MENU_PAUSE`, `POPUP`), `ui_menu_open` (a window panel is open; it does **not** mean input is blocked), `popup_blocking_input`, `loading_save_game` and `current_save_game_name` (set while a save loads), `pending_spawn_override` (consumed by the next world load) and `debug_mode`.
 
-**Helpers:** `save_game(name)`, `load_game(name)` (a raw `SaveLoadUtil` call with the loading signals; the UI path is `TransitionManager.load_saved_game`), `auto_save()` (skipped while the party is in combat), `enter_menu_pause()`, `enter_popup_pause()` / `exit_popup_pause()`, `exit_pause()`, `apply_environment_configs(...)`.
+**Helpers:** `save_game(name)`, `load_game(name)` (a raw [`SaveLoadUtil`](/advanced/managers/save-and-load/save-load-util) call with the loading signals; the UI path is `TransitionManager.load_saved_game`), `auto_save()` (skipped while the party is in combat), `enter_menu_pause()`, `enter_popup_pause()` / `exit_popup_pause()`, `exit_pause()`, `apply_environment_configs(...)`.
 
 **Signals:** `paused_changed`, `game_state_changed`, `loading_started`, `loading_finished`, `map_transition_started`, `map_transition_finished`, `debug_toggled`.
 
@@ -49,8 +49,8 @@ A plain object (an inner class of `GameHost`) holding what systems need, so clas
 
 `GameHost._ready`:
 
-1. `AudioBusUtility.ensure_buses()` (a project the toolkit was just added to may not have the buses).
-2. `_initialize_core_systems()`: `_initialize_global_managers` (the hub, the transition manager, the chrono manager, the audio manager, the combat manager, the static helpers `CollisionLayerUtility`, `InstanceUtility`, `RangeQueryUtil`, `Database.ensure_initialized()`, the default time config), then `_create_core_containers` (the sky and the sun, the settings manager, the faction manager, the party manager with its controllers, the input manager, the world container, the UI manager with the loading screen and the fade).
+1. [`AudioBusUtility.ensure_buses()`](/advanced/game-settings/helpers/audio-bus-utility) (a project the toolkit was just added to may not have the buses).
+2. `_initialize_core_systems()`: `_initialize_global_managers` (the hub, the transition manager, the chrono manager, the audio manager, the combat manager, the static helpers [`CollisionLayerUtility`](/advanced/game-settings/collision/collision-layer-utility), [`InstanceUtility`](/advanced/managers/utilities/instance-utility), [`RangeQueryUtil`](/advanced/managers/utilities/range-query-util), [`Database.ensure_initialized()`](/advanced/data-and-database/database-classes/database), the default time config), then `_create_core_containers` (the sky and the sun, the settings manager, the faction manager, the party manager with its controllers, the input manager, the world container, the UI manager with the loading screen and the fade).
 3. The mouse cursor.
 4. `_check_for_editor_test()`. If `user://.chroniclenode_world_test.tres` exists, the editor asked for **Play Test World**: the file's `test_world_id` is read, the file is **deleted**, and `_setup_editor_world_test` skips the splash and the menu and starts a new game in that world with the debug tools on (`EDITOR_WORLD_TEST` mode).
 5. Otherwise `_setup_normal_game`: `TransitionManager.initialize_to_main_menu(splash_screen)`, which loads the menu UI behind the splash, waits for the splash, and fades the menu in.
@@ -106,7 +106,7 @@ A **new game** runs `INITIALIZE_CORE_SYSTEMS`, `INITIALIZE_WORLD`, `SETUP_NEW_GA
 
 ### Cleanup
 
-`perform_full_cleanup()` (return to menu, and before a load): unload the world (which captures what it remembers) and clear the party; reset the event manager, the factions, the VFX, crafting, the object registry and the world container's session caches, and the clock (`_reset_all_game_systems`); disconnect the objective signals and clean up the combat manager. What lives for the whole session: the managers and containers, `VFXManager`, `EventManager`, the audio caches and the settings.
+`perform_full_cleanup()` (return to menu, and before a load): unload the world (which captures what it remembers) and clear the party; reset the event manager, the factions, the VFX, crafting, the [object registry](/advanced/world/runtime/object-registry) and the world container's session caches, and the clock (`_reset_all_game_systems`); disconnect the objective signals and clean up the combat manager. What lives for the whole session: the managers and containers, `VFXManager`, `EventManager`, the audio caches and the settings.
 
 ## Pause
 

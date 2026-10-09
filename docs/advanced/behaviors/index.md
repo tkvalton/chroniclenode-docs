@@ -4,14 +4,14 @@ The [Behaviors chapter](/basic/behaviors/) explains the editors. Everything here
 
 | Resource | Database type | Held by |
 |---|---|---|
-| [`FactionDefinition`](/advanced/behaviors/factions/faction-definition) | `faction` | `NPCDefinition.faction`, `UniqueEntityData.faction_id` |
+| [`FactionDefinition`](/advanced/behaviors/factions/faction-definition) | `faction` | [`NPCDefinition.faction`](/advanced/entities/definitions/npc-definition), [`UniqueEntityData.faction_id`](/advanced/world/world-data/unique-entity-data) |
 | [`ModularBehaviorScript`](/advanced/behaviors/behavior-scripts/modular-behavior-script) | `behavior_script` | NPC and class definitions, unique data |
 | [`ModularCombatScript`](/advanced/behaviors/combat-scripts/modular-combat-script) | `combat_script` | NPC and class definitions, unique data |
-| [`Conversation`](/advanced/behaviors/conversations/conversation) | `conversation` | `ConversationInteraction.conversation_id` |
+| [`Conversation`](/advanced/behaviors/conversations/conversation) | `conversation` | [`ConversationInteraction.conversation_id`](/advanced/entities/interactions/conversation-interaction) |
 
 ## Factions
 
-`FactionDefinition` holds `reputation_levels` (sorted by `min_reputation`), `faction_relationships` (faction id -> a standing name, "Hostile", "Friendly" or "Neutral") and, at runtime, `runtime_reputation` (faction id -> a number). The built-in ids are `Database.ID_ENVIRONMENTAL_FACTION` (1000001) and the Player faction (1000002).
+`FactionDefinition` holds `reputation_levels` (sorted by `min_reputation`), `faction_relationships` (faction id -> a standing name, "Hostile", "Friendly" or "Neutral") and, at runtime, `runtime_reputation` (faction id -> a number). The built-in ids are [`Database.ID_ENVIRONMENTAL_FACTION`](/advanced/data-and-database/database-classes/database) (1000001) and the Player faction (1000002).
 
 | Method | Rule |
 |---|---|
@@ -47,7 +47,7 @@ The action state is one of `ModularCombatScript.ActionStateName`: `INACTIVE`, `T
 | `ChasingState` | Line-of-sight aware navigation; computes the attack range from the abilities; repositions when stuck |
 | `AttackingState` | Updates every 0.5 s; handles transitions and the facing of the target; the **attack logic** of the script uses abilities |
 | `FollowingState` | Follows an entity or a position at a distance, walking or running; the formation system for pets |
-| `FleeState`, `DisorientedState`, `IncapacitatedState` | Entered by crowd control effects, left when the effect ends (`EffectsComponent`) |
+| `FleeState`, `DisorientedState`, `IncapacitatedState` | Entered by crowd control effects, left when the effect ends ([`EffectsComponent`](/advanced/abilities-and-effects/runtime/effects-component)) |
 | `PlayerCommandState` | Navigates to a commanded point and returns |
 | `DeadState` | Death visuals and physics; revival goes through `resurrect()` |
 
@@ -55,7 +55,7 @@ The `uses_*` flags of the script say which states it enters. `refresh_control_st
 
 ### Attack logic
 
-`AttackStateLogic` is the base: the `AttackingState` asks it to act. `SimpleAttackLogic` builds a `UseAbilityAction` for each active ability by itself and cycles; `PriorityAttackLogic` evaluates its `actions` by `priority` and runs the first whose conditions hold and that is off cooldown; `TimelineAttackLogic` runs `timeline_actions` at `action_times`; `TacticalAttackLogic` chooses by distance (`melee_actions`, `ranged_actions`, `repositioning_actions`); `CompanionAttackLogic` is the party member AI. A `PhaseSystem` swaps the logic per `BossPhase`; a `PhaseTransition` combines `EntityCondition`s with AND or OR.
+`AttackStateLogic` is the base: the `AttackingState` asks it to act. `SimpleAttackLogic` builds a `UseAbilityAction` for each active ability by itself and cycles; `PriorityAttackLogic` evaluates its `actions` by `priority` and runs the first whose conditions hold and that is off cooldown; `TimelineAttackLogic` runs `timeline_actions` at `action_times`; `TacticalAttackLogic` chooses by distance (`melee_actions`, `ranged_actions`, `repositioning_actions`); `CompanionAttackLogic` is the party member AI. A `PhaseSystem` swaps the logic per `BossPhase`; a `PhaseTransition` combines [`EntityCondition`](/advanced/shared-systems/condition-bases/entity-condition)s with AND or OR.
 
 A `CombatAction` has `priority`, `conditions`, `action_cooldown` and `interrupt_casting`, and implements an execute step; `ComboAction` holds a sequence of actions. A `CombatReaction` listens to one `TriggerEvent` on the entity (or, for ally and enemy deaths, on the encounter) and runs its `reaction_actions`.
 

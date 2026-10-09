@@ -122,7 +122,7 @@ True while the entity cannot use all of its abilities (silence, disarm, incapaci
 
 ### Dictionary get_status_effects_detail() {#method-get-status-effects-detail}
 
-Every active status effect: id -&gt; {name, type, count, time_remaining (the longest of them)}
+Every active status effect: id -&gt; &#123;name, type, count, time_remaining (the longest of them)&#125;
 
 ### EffectInstance find_existing_effect_by_stacking_rule( new_effect: Effect, originator: Variant ) {#method-find-existing-effect-by-stacking-rule}
 

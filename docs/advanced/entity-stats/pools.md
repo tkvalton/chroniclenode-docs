@@ -17,7 +17,7 @@ A [`PoolDefinition`](/advanced/entity-stats/stats-and-pools/pool-definition) is 
 
 ### When the maximum changes
 
-`StatsComponent._update_pool_effects(pool_id)` works out everything the stats do to one pool. It starts from the pool's own base each time, so it can run any number of times (a stat changed, combat started) without compounding. Pool modifier effects whose active trigger does not fit the combat state are skipped.
+[`StatsComponent._update_pool_effects(pool_id)`](/advanced/entity-stats/runtime/stats-component) works out everything the stats do to one pool. It starts from the pool's own base each time, so it can run any number of times (a stat changed, combat started) without compounding. Pool modifier effects whose active trigger does not fit the combat state are skipped.
 
 What happens to the **current** value when the maximum changes is a project setting, in the *Pools* group of the game settings:
 
@@ -28,11 +28,11 @@ What happens to the **current** value when the maximum changes is a project sett
 
 ### Generation, decay and timers
 
-Regeneration (`REGEN`) fills the pool up to its maximum, decay (`DECAY`) drains it down to 0, both by `gen_value` per tick and `gen_rate` ticks per second. Overfill has its own decay. They run on timers borrowed from the `ChronoManager` pool (300 timers), one per pool that regenerates or decays. `get_timer` returns `null` when none is free.
+Regeneration (`REGEN`) fills the pool up to its maximum, decay (`DECAY`) drains it down to 0, both by `gen_value` per tick and `gen_rate` ticks per second. Overfill has its own decay. They run on timers borrowed from the [`ChronoManager`](/advanced/managers/managers/chrono-manager) pool (300 timers), one per pool that regenerates or decays. `get_timer` returns `null` when none is free.
 
 ### Death
 
-`StatsComponent._check_death_status` marks `is_dead` when the master pool is empty (or the entity has no pool), emits `master_pool_depleted`, and the mediator then calls `entity.entity_death()`. Any heal can revive: `take_healing` checks again after the pools are filled. `Entity.is_dead` and `StatsComponent.is_dead` are two flags.
+`StatsComponent._check_death_status` marks `is_dead` when the master pool is empty (or the entity has no pool), emits `master_pool_depleted`, and the mediator then calls `entity.entity_death()`. Any heal can revive: `take_healing` checks again after the pools are filled. [`Entity.is_dead`](/advanced/entities/runtime/entity) and `StatsComponent.is_dead` are two flags.
 
 The master pool is `StatsData.master_pool_id`; with none set it is the first health pool, and with no health pool the built-in Health. Use `StatsComponent.get_master_pool()` where code wants "the main health".
 
@@ -54,7 +54,7 @@ Whether a pool takes damage is not decided by which list it is in. A pool takes 
 
 **Permanent layers** come from the definition. `PoolDefinition` has a *Damage Layer* group (`absorbs_damage`, `absorption_priority`, `is_protective_pool`, `receives_healing`), and a pool added to an entity gets its layer from them. Removing the pool removes its layers.
 
-**Temporary layers** come from effects. `AbsorbWithPoolEffect` gives a pool the target already has a layer while it lasts: a mana shield. Its settings are the pool, `percent`, damage per point, per-hit cap, damage types, counts as mitigation, priority (default 50: after shields, before health) and *ends when empty*. The pool itself is never created or removed. `AddHealthPoolEffect` ("Absorb Shield") adds a whole pool (the built-in Shield when none is chosen) and removes *its own* pool instance when it ends.
+**Temporary layers** come from effects. [`AbsorbWithPoolEffect`](/advanced/abilities-and-effects/effects-stats/absorb-with-pool-effect) gives a pool the target already has a layer while it lasts: a mana shield. Its settings are the pool, `percent`, damage per point, per-hit cap, damage types, counts as mitigation, priority (default 50: after shields, before health) and *ends when empty*. The pool itself is never created or removed. [`AddHealthPoolEffect`](/advanced/abilities-and-effects/effects-stats/add-health-pool-effect) ("Absorb Shield") adds a whole pool (the built-in Shield when none is chosen) and removes *its own* pool instance when it ends.
 
 ### Applying a hit
 
@@ -73,7 +73,7 @@ A damage effect can hit protective pools harder with `protective_pool_multiplier
 
 ## The built-in pools
 
-`Database` creates the pools it needs when a project has none (like the core stats). The built-in **Health** has `Database.ID_HEALTH_POOL`, the built-in **Shield** `Database.ID_SHIELD_POOL` (1000002): protective, priority 100, starts empty, does not receive healing.
+[`Database`](/advanced/data-and-database/database-classes/database) creates the pools it needs when a project has none (like the core stats). The built-in **Health** has `Database.ID_HEALTH_POOL`, the built-in **Shield** `Database.ID_SHIELD_POOL` (1000002): protective, priority 100, starts empty, does not receive healing.
 
 ## Not saved
 

@@ -156,7 +156,7 @@ Inventory component signals - relayed to Entity
 
 *No description yet.*
 
-### void emit_event( event_name: String, event_data: Dictionary = {} ) {#method-emit-event}
+### void emit_event( event_name: String, event_data: Dictionary = &#123;&#125; ) {#method-emit-event}
 
 *No description yet.*
 

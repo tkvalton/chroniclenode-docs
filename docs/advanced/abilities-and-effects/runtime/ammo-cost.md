@@ -26,7 +26,7 @@ Does this ability spend ammo or a reagent at all?
 
 ### Dictionary check( ability: AbilityInstance ) {#method-check}
 
-Can the user pay? {"ok": bool, "message": String}: the message is what to tell the player ("Out of ammo!")
+Can the user pay? &#123;"ok": bool, "message": String&#125;: the message is what to tell the player ("Out of ammo!")
 
 ### Array[Effect] pay( ability: AbilityInstance ) {#method-pay}
 

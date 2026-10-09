@@ -27,7 +27,7 @@ A world is a [definition and an instance](/advanced/definitions-and-instances) i
 5. Restores what the world remembered, if the party is arriving by a swap (a loaded game restores in phase 4 of the load instead).
 6. Sets up the **fog of war** for the world and restores its explored image.
 7. Positions the party (`_position_party_at_spawn`), by priority: the pending **spawn override** (a rabbit hole id, or an exact position and rotation), else the `party_spawn` marker.
-8. Applies the **environment**: time, sun, sky and environment configs (the override of the world, else the project default), through `SystemHub.apply_environment_configs`. The running game clock is not set back; only a *different* time config moves the time of day. A new game sets the clock itself.
+8. Applies the **environment**: time, sun, sky and environment configs (the override of the world, else the project default), through [`SystemHub.apply_environment_configs`](/advanced/managers/game-host/game-host). The running game clock is not set back; only a *different* time config moves the time of day. A new game sets the clock itself.
 9. Starts the **default weather** (`WeatherSystem.start_world_weather`) and activates the NPC behaviors if the party exists.
 10. Emits `world_loading_finished`.
 
@@ -44,7 +44,7 @@ The spawn override is a dictionary: `{"type": "rabbit_hole", "id": <unique id of
 | `TIMED_RESET` | kept with an `exit_timestamp`; forgotten when `total_game_hours - exit_timestamp` in seconds reaches `reset_duration` | yes |
 | `SESSION_ONLY` | kept in `session_worlds_cache` | no |
 
-`_get_saved_world_state` decides on return; with `allow_partial_persistence` the world's interactables are kept in the cases where the rest starts over. The clock is `ChronoManager.total_game_hours`, the running hours that never wrap. `to_save_data` always saves the world the party is **in**, exactly as it is, whatever its logic. `reset_session_state()` (called by the new-game cleanup of the `TransitionManager`) empties the caches and the fog cache.
+`_get_saved_world_state` decides on return; with `allow_partial_persistence` the world's interactables are kept in the cases where the rest starts over. The clock is [`ChronoManager.total_game_hours`](/advanced/managers/managers/chrono-manager), the running hours that never wrap. `to_save_data` always saves the world the party is **in**, exactly as it is, whatever its logic. `reset_session_state()` (called by the new-game cleanup of the [`TransitionManager`](/advanced/managers/game-host/transition-manager)) empties the caches and the fog cache.
 
 ## The registry
 
@@ -57,7 +57,7 @@ The spawn override is a dictionary: `{"type": "rabbit_hole", "id": <unique id of
 
 Encounters and regions are registered for lookup (`get_encounter`, `get_region`). An encounter saves its state and whether it is active (`placed_encounters`); its members are NPCs and are saved as NPCs. A region has nothing to save.
 
-The registry hooks the party for the [NPC level scaling](/advanced/entities/) rules: when the party's levels change, living NPCs rescale (see `NpcLevels`).
+The registry hooks the party for the [NPC level scaling](/advanced/entities/) rules: when the party's levels change, living NPCs rescale (see [`NpcLevels`](/advanced/entities/runtime/npc-levels)).
 
 ## Extending
 

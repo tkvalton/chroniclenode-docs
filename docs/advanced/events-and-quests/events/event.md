@@ -165,7 +165,7 @@ Reset the event to its initial state
 
 Manually trigger this event (bypasses conditions)
 
-### bool try_trigger( event_data: Dictionary = {} ) {#method-try-trigger}
+### bool try_trigger( event_data: Dictionary = &#123;&#125; ) {#method-try-trigger}
 
 Manually trigger this event with condition checking
 

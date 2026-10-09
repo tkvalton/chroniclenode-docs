@@ -1,6 +1,6 @@
 # The hit and heal pipeline
 
-Every hit and every heal goes through the same steps. `CombatManager.apply_damage` and `apply_healing` are the entry points; everything that damages or heals, from an ability to a damage reflection, ends there. They return a typed result, never a loose dictionary.
+Every hit and every heal goes through the same steps. [`CombatManager.apply_damage`](/advanced/entity-stats/combat/combat-manager) and `apply_healing` are the entry points; everything that damages or heals, from an ability to a damage reflection, ends there. They return a typed result, never a loose dictionary.
 
 ## The result
 
@@ -70,29 +70,29 @@ The **universal order** is built once by [`CombatCalculations`](/advanced/entity
 ### Boosts
 
 
-After its modifiers, a done calculation (damage done, healing done) calls `StatsComponent.apply_done_boosts`: for every active [`AbilityBoostEffect`](/advanced/abilities-and-effects/effects-stats/ability-boost-effect) instance on the doer whose lists match the `ability_id` and `effect_ids` of the context, the number becomes `(number + flat x stacks) x (1 + percent x stacks / 100)` and a `ModifierStep` named after the effect is recorded.
+After its modifiers, a done calculation (damage done, healing done) calls [`StatsComponent.apply_done_boosts`](/advanced/entity-stats/runtime/stats-component): for every active [`AbilityBoostEffect`](/advanced/abilities-and-effects/effects-stats/ability-boost-effect) instance on the doer whose lists match the `ability_id` and `effect_ids` of the context, the number becomes `(number + flat x stacks) x (1 + percent x stacks / 100)` and a `ModifierStep` named after the effect is recorded.
 
 ### Rules
 
-`_collect_rules` builds the `TriggerRuleSet` of a phase from three places:
+`_collect_rules` builds the [`TriggerRuleSet`](/advanced/entity-stats/triggers/trigger-rule-set) of a phase from three places:
 
 1. the `trigger_rules` of the effect that causes the hit or heal,
-2. the `TriggerRuleStatEffect`s of the entity that runs the phase whose `applies_to` is `OWNER`,
+2. the [`TriggerRuleStatEffect`](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect)s of the entity that runs the phase whose `applies_to` is `OWNER`,
 3. the `TriggerRuleStatEffect`s of its **opponent** (`context["opponent"]`) with `OPPONENT_ACTING_ON_ME` when the phase is a *done* phase (Damage Done, Healing Done) or `OPPONENT_DEFENDING_AGAINST_ME` when it is a *taken* phase. The conditions of those effects are checked with the roles swapped: the opponent is the owner.
 
 A rule that names no tag can name a **kind** (`TagKindFilter`): it then matches every tag of that kind (`TriggerRuleSet` takes the kind of the tag it is asked about). A rule that names a tag matches only that tag.
 
 ### The hit roll
 
-A miss is not part of the hit. Before the pipeline above, an ability that can miss makes a **hit roll** (`HitRules`), once per use and enemy. `EffectInstance.start_effect` asks `HitRules.needs_roll(instance)`, which is true for an effect of an ability (`effect_owner.can_miss()`) that is not a composite, not applied to the user, and aimed at an `Entity` that is hostile or neutral to the originator. `HitRules.outcome_for` then rolls the first time and keeps the outcome in the shared [`CastRecord`](/advanced/abilities-and-effects/runtime/cast-record) under the id of the target, so every effect of the use (the children of a composite included) gets the same answer.
+A miss is not part of the hit. Before the pipeline above, an ability that can miss makes a **hit roll** ([`HitRules`](/advanced/entity-stats/combat/hit-rules)), once per use and enemy. [`EffectInstance.start_effect`](/advanced/abilities-and-effects/runtime/effect-instance) asks `HitRules.needs_roll(instance)`, which is true for an effect of an ability (`effect_owner.can_miss()`) that is not a composite, not applied to the user, and aimed at an [`Entity`](/advanced/entities/runtime/entity) that is hostile or neutral to the originator. `HitRules.outcome_for` then rolls the first time and keeps the outcome in the shared [`CastRecord`](/advanced/abilities-and-effects/runtime/cast-record) under the id of the target, so every effect of the use (the children of a composite included) gets the same answer.
 
 | Outcome | Result |
 |---|---|
 | `HIT` | The effect goes on |
-| `GLANCING` | The effect goes on with `hit_multiplier` set to the glancing multiplier (`1 - reduction / 100`). `DamageEffect` and `HealEffect` multiply their raw number by it. With `glancing_other_effects_apply` off, effects that are not damage or healing are rejected ("Glancing hit") |
+| `GLANCING` | The effect goes on with `hit_multiplier` set to the glancing multiplier (`1 - reduction / 100`). [`DamageEffect`](/advanced/abilities-and-effects/effects-damage-and-healing/damage-effect) and [`HealEffect`](/advanced/abilities-and-effects/effects-damage-and-healing/heal-effect) multiply their raw number by it. With `glancing_other_effects_apply` off, effects that are not damage or healing are rejected ("Glancing hit") |
 | `MISS` | The instance is rejected ("Missed") and cleaned up, and `CombatManager.announce_miss` emits a `DamageResult` with outcome `MISSED` so the floating text, the log and the signals work as for any other result |
 
-The chance is `HitRules.get_chance(attacker, target, ranged, effect_instance)`: the base chance of `GameplayConfig` for melee or ranged, plus the `HitChanceStatEffect`s of the attacker with side `ACCURACY`, minus those of the target with side `EVASION` (the stat effect filters and conditions are checked with the context of the hit), plus `get_level_gap_change`, clamped to the minimum and maximum. `ranged` comes from `AbilityInstance.is_ranged_attack()`. `GameplayConfig.level_gap_mode` is `NONE`, `PER_LEVEL`, `TABLE` (the row with the largest key not above the gap) or `FORMULA` (a `CalculationFormula` that gets the gap). Dodge, parry and block stay in the damage taken calculation. See the [Gameplay Config](/basic/game-settings/gameplay-config#hit-rules) page for the settings.
+The chance is `HitRules.get_chance(attacker, target, ranged, effect_instance)`: the base chance of [`GameplayConfig`](/advanced/game-settings/config/gameplay-config) for melee or ranged, plus the [`HitChanceStatEffect`](/advanced/entity-stats/stat-effects/hit-chance-stat-effect)s of the attacker with side `ACCURACY`, minus those of the target with side `EVASION` (the stat effect filters and conditions are checked with the context of the hit), plus `get_level_gap_change`, clamped to the minimum and maximum. `ranged` comes from [`AbilityInstance.is_ranged_attack()`](/advanced/abilities-and-effects/runtime/ability-instance). `GameplayConfig.level_gap_mode` is `NONE`, `PER_LEVEL`, `TABLE` (the row with the largest key not above the gap) or `FORMULA` (a [`CalculationFormula`](/advanced/shared-systems/formulas/calculation-formula) that gets the gap). Dodge, parry and block stay in the damage taken calculation. See the [Gameplay Config](/basic/game-settings/gameplay-config#hit-rules) page for the settings.
 
 ### Context and tags
 

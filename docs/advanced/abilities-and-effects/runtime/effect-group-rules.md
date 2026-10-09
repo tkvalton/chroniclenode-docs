@@ -18,7 +18,7 @@ The rules of exclusive effect groups (see GroupDefinition): which effects an eff
 
 ### Dictionary preview( effect: Effect, originator: Variant, entity: Variant, ignore: EffectInstance = null ) {#method-preview}
 
-What applying `effect` to `entity` (from `originator`) would do: {"refused": bool, "refused_by": GroupDefinition, "replaces": Array[EffectInstance]}. `ignore` is an instance that is starting right now (it does not count against itself)
+What applying `effect` to `entity` (from `originator`) would do: &#123;"refused": bool, "refused_by": GroupDefinition, "replaces": Array[EffectInstance]&#125;. `ignore` is an instance that is starting right now (it does not count against itself)
 
 ### Array[EffectInstance] get_group_members( group: GroupDefinition, originator: Variant, entity: Variant, ignore: EffectInstance = null ) {#method-get-group-members}
 

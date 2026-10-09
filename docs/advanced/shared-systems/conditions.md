@@ -8,7 +8,7 @@ A condition is a `Resource` with one job: answer `true` or `false` for some part
 
 | Member | What it does |
 |---|---|
-| `evaluate(argument: Variant = null) -> bool` | The question. `argument` is what the caller offers: usually an `Entity`, an `Encounter`, or a `StatConditionContext` |
+| `evaluate(argument: Variant = null) -> bool` | The question. `argument` is what the caller offers: usually an [`Entity`](/advanced/entities/runtime/entity), an [`Encounter`](/advanced/world/runtime/encounter), or a [`StatConditionContext`](/advanced/entity-stats/stats-and-pools/stat-condition-context) |
 | `get_description() -> String` | A readable description for the editor and for debugging |
 | `get_function_description() -> String` | The same with `{field}` placeholders, used by the dialogs that edit a condition inline |
 | `is_valid() -> bool` | Is it configured well enough to run? |
@@ -34,9 +34,9 @@ Do not override `evaluate` in an entity or encounter condition. The base class f
 |---|---|
 | `ARGUMENT_ENTITY` | The argument itself, when it is an `Entity` |
 | `ARGUMENT_ENTITY_TARGET` | `argument.target` |
-| `CURRENT_PLAYER` | `PlayerUtility.get_current_player()` |
-| `SUMMONER` | `argument.summoner`, when the argument is a `Pet` |
-| `UNIQUE_ID` | The entity registered under `target_entity_id` in the object registry (needs the system hub) |
+| `CURRENT_PLAYER` | [`PlayerUtility.get_current_player()`](/advanced/managers/utilities/player-utility) |
+| `SUMMONER` | `argument.summoner`, when the argument is a [`Pet`](/advanced/entities/runtime/pet) |
+| `UNIQUE_ID` | The entity registered under `target_entity_id` in the [object registry](/advanced/world/runtime/object-registry) (needs the [system hub](/advanced/managers/game-host/game-host)) |
 | `OPPONENT` | The other side of the hit, for conditions on stat effects (see below) |
 | `ANY_PLAYER`, `ALL_PLAYER` | Not one entity but the whole party: `evaluate` asks every member of the party (`get_party_members`, from the system hub or the current player) and is true when at least one member passes (`ANY_PLAYER`) or every member passes (`ALL_PLAYER`). With no party it is `false` |
 
@@ -55,19 +55,19 @@ A stat effect evaluates its conditions with a `StatConditionContext` as the argu
 
 | Owner | Property | Type |
 |---|---|---|
-| `Event` | `conditions` | `Array[Condition]`: all must be true. `get_failed_conditions` lists the failed ones |
-| `IfAction` (event action) | `conditions` | `Array[Condition]` |
-| `StatEffect` | `conditions` | `Array[Condition]`: all must be true, on top of the active trigger. Evaluated with a `StatConditionContext` |
-| `ConditionConditionalEffect` | `conditions`, `logic`, `check_on` | `Array[Condition]`, all or any, on the target or the originator. The effect instance gives them the system hub |
-| `CombatAction`, `BehaviorReaction`, `CombatReaction`, `PhaseTransition` | `conditions` | `Array[EntityCondition]` |
-| `TaskSchedule` | `activation_conditions` | `Array[EntityCondition]` |
-| `BehaviorTask` | `execution_conditions` | `Array[EntityCondition]` |
-| `EncounterReaction`, `EncounterAction` | `conditions` | `Array[EncounterCondition]` |
+| [`Event`](/advanced/events-and-quests/events/event) | `conditions` | `Array[Condition]`: all must be true. `get_failed_conditions` lists the failed ones |
+| [`IfAction`](/advanced/events-and-quests/actions-general/if-action) (event action) | `conditions` | `Array[Condition]` |
+| [`StatEffect`](/advanced/entity-stats/stat-effects/stat-effect) | `conditions` | `Array[Condition]`: all must be true, on top of the active trigger. Evaluated with a `StatConditionContext` |
+| [`ConditionConditionalEffect`](/advanced/abilities-and-effects/effects-conditional/condition-conditional-effect) | `conditions`, `logic`, `check_on` | `Array[Condition]`, all or any, on the target or the originator. The effect instance gives them the system hub |
+| [`CombatAction`](/advanced/behaviors/combat-actions/combat-action), [`BehaviorReaction`](/advanced/behaviors/behavior-scripts/behavior-reaction), [`CombatReaction`](/advanced/behaviors/combat-scripts/combat-reaction), [`PhaseTransition`](/advanced/behaviors/combat-scripts/phase-transition) | `conditions` | `Array[EntityCondition]` |
+| [`TaskSchedule`](/advanced/behaviors/behavior-scripts/task-schedule) | `activation_conditions` | `Array[EntityCondition]` |
+| [`BehaviorTask`](/advanced/behaviors/tasks/behavior-task) | `execution_conditions` | `Array[EntityCondition]` |
+| [`EncounterReaction`](/advanced/world/encounters/encounter-reaction), [`EncounterAction`](/advanced/world/encounters/encounter-action) | `conditions` | `Array[EncounterCondition]` |
 
 ## How the editors list them
 
-- The add-condition dialog (`ConditionalEditDialog`) has four categories. **General**, **Entity** and **Encounter** list every script of the matching folder under `res://addons/chroniclenode/data_classes/conditions/` (`general/`, `entity/`, `encounter/`). **Project** lists every condition script in your own folder `res://src/conditions/`, of any kind. The name in the list is the file name without `_condition`.
-- The list of a **stat effect** shows the entity conditions of `conditions/entity/` and of the project folders `res://src/conditions/` and `res://src/stat_conditions/` (`StatClassScanner.find_conditions`), so a condition you write there is offered without touching the addon.
+- The add-condition dialog ([`ConditionalEditDialog`](/advanced/editor/dialogs/conditional-edit-dialog)) has four categories. **General**, **Entity** and **Encounter** list every script of the matching folder under `res://addons/chroniclenode/data_classes/conditions/` (`general/`, `entity/`, `encounter/`). **Project** lists every condition script in your own folder `res://src/conditions/`, of any kind. The name in the list is the file name without `_condition`.
+- The list of a **stat effect** shows the entity conditions of `conditions/entity/` and of the project folders `res://src/conditions/` and `res://src/stat_conditions/` ([`StatClassScanner.find_conditions`](/advanced/editor/stats/stat-class-scanner)), so a condition you write there is offered without touching the addon.
 - The event variable conditions in `conditions/event/` are made by the event editor, which is where those variables exist.
 
 ## Writing your own condition

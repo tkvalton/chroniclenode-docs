@@ -15,6 +15,10 @@ import { groups as equipmentClasses } from './classes-equipment-definitions.mjs'
 import { groups as entityClasses } from './classes-entities.mjs'
 import { groups as worldClasses } from './classes-world.mjs'
 import { groups as eventClasses } from './classes-events-and-quests.mjs'
+import { groups as gameSettingsClasses } from './classes-game-settings.mjs'
+import { groups as assetClasses } from './classes-assets.mjs'
+import { groups as managerClasses } from './classes-managers.mjs'
+import { groups as editorClasses } from './classes-editor.mjs'
 import { groups as behaviorClasses } from './classes-behaviors.mjs'
 
 const page = (text, link, extra = {}) => ({ text, link, ...extra })
@@ -292,6 +296,7 @@ const advancedSystems = [
   ['World', 'world'], ['Events & Quests', 'events-and-quests'], ['Entities', 'entities'], ['Abilities & Effects', 'abilities-and-effects'],
   ['Behaviors', 'behaviors'], ['Entity Stats', 'entity-stats'], ['Types & Groups', 'types-and-groups'], ['Items', 'items'],
   ['Equipment Definitions', 'equipment-definitions'], ['Assets', 'assets'], ['Game Settings', 'game-settings'],
+  ['Managers', 'managers'], ['Editor', 'editor'],
 ].map(([text, slug]) => slug === 'abilities-and-effects'
   ? withPages(classSystem(text, slug, abilitiesAndEffectsClasses), [page('The effect amount', '/advanced/abilities-and-effects/effect-amount', { title: 'The effect amount: how it is built' }), page('Immunities', '/advanced/abilities-and-effects/immunities', { title: 'Immunities: how they are built' }), page('Skill trees', '/advanced/abilities-and-effects/skill-trees', { title: 'Skill trees: how they are built' })])
   : slug === 'world'
@@ -308,6 +313,14 @@ const advancedSystems = [
   ? classSystem(text, slug, behaviorClasses)
   : slug === 'equipment-definitions'
   ? classSystem(text, slug, equipmentClasses)
+  : slug === 'assets'
+  ? classSystem(text, slug, assetClasses)
+  : slug === 'game-settings'
+  ? classSystem(text, slug, gameSettingsClasses)
+  : slug === 'managers'
+  ? classSystem(text, slug, managerClasses)
+  : slug === 'editor'
+  ? classSystem(text, slug, editorClasses)
   : page(text, `/advanced/${slug}/`, { title: `${text}: how it is built` }))
 
 export const sidebar = [

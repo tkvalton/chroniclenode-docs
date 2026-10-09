@@ -20,9 +20,9 @@ AbilityDefinition ──► AbilityInstance (on one entity, in its AbilityCompon
 | Layer | Definition (a resource) | Instance (runtime) | Owner |
 |---|---|---|---|
 | Ability | [`AbilityDefinition`](/advanced/abilities-and-effects/abilities/ability-definition), [`PassiveAbilityDefinition`](/advanced/abilities-and-effects/abilities/passive-ability-definition), [`ActiveAbilityDefinition`](/advanced/abilities-and-effects/abilities/active-ability-definition) and the charge, combo and power-up kinds | [`AbilityInstance`](/advanced/abilities-and-effects/runtime/ability-instance) | [`AbilityComponent`](/advanced/abilities-and-effects/runtime/ability-component) of the entity |
-| Targeting | `TargetStrategyDefinition` and its types | [`TargetStrategyInstance`](/advanced/abilities-and-effects/runtime/target-strategy-instance) | The ability instance |
-| Use | `UseStrategyDefinition`: instant, cast, channel, toggle | [`UseStrategyInstance`](/advanced/abilities-and-effects/runtime/use-strategy-instance) | The ability instance |
-| Effect | [`Effect`](/advanced/abilities-and-effects/effects-base/effect) and its 80-odd types | [`EffectInstance`](/advanced/abilities-and-effects/runtime/effect-instance), made by the [`EffectInstancePool`](/advanced/abilities-and-effects/runtime/effect-instance-pool) | [`EffectsComponent`](/advanced/abilities-and-effects/runtime/effects-component) of the target, or the `CombatManager` for world effects |
+| Targeting | [`TargetStrategyDefinition`](/advanced/abilities-and-effects/target-strategies/target-strategy-definition) and its types | [`TargetStrategyInstance`](/advanced/abilities-and-effects/runtime/target-strategy-instance) | The ability instance |
+| Use | [`UseStrategyDefinition`](/advanced/abilities-and-effects/use-strategies/use-strategy-definition): instant, cast, channel, toggle | [`UseStrategyInstance`](/advanced/abilities-and-effects/runtime/use-strategy-instance) | The ability instance |
+| Effect | [`Effect`](/advanced/abilities-and-effects/effects-base/effect) and its 80-odd types | [`EffectInstance`](/advanced/abilities-and-effects/runtime/effect-instance), made by the [`EffectInstancePool`](/advanced/abilities-and-effects/runtime/effect-instance-pool) | [`EffectsComponent`](/advanced/abilities-and-effects/runtime/effects-component) of the target, or the [`CombatManager`](/advanced/entity-stats/combat/combat-manager) for world effects |
 
 ## What happens when an ability is used
 
@@ -35,7 +35,7 @@ AbilityDefinition ──► AbilityInstance (on one entity, in its AbilityCompon
 
 Passive abilities apply their `passive_effects` when their requirements become true, and remove them when they stop being true.
 
-Costs, cooldowns, gains, cast time and range can be changed by stats: the five `STAT_MODIFIED_PROPERTIES` of `AbilityInstance` are asked through `StatsComponent.get_ability_modifier_entries`, and the strategy instances apply them.
+Costs, cooldowns, gains, cast time and range can be changed by stats: the five `STAT_MODIFIED_PROPERTIES` of `AbilityInstance` are asked through [`StatsComponent.get_ability_modifier_entries`](/advanced/entity-stats/runtime/stats-component), and the strategy instances apply them.
 
 ## What happens when an effect runs
 
@@ -56,7 +56,7 @@ Costs, cooldowns, gains, cast time and range can be changed by stats: the five `
 | Group | Folder of the addon | Page |
 |---|---|---|
 | Abilities and strategies | `data_classes/abilities/` | The class groups on the left |
-| Effect base classes | `data_classes/effects/` | `Effect`, `CombatResultEffect` (damage and healing), `CollisionEffect`, `ProcEffect`, `ScalingEffect` ... |
+| Effect base classes | `data_classes/effects/` | `Effect`, [`CombatResultEffect`](/advanced/abilities-and-effects/effects-base/combat-result-effect) (damage and healing), [`CollisionEffect`](/advanced/abilities-and-effects/effects-base/collision-effect), [`ProcEffect`](/advanced/abilities-and-effects/effects-base/proc-effect), [`ScalingEffect`](/advanced/abilities-and-effects/effects-base/scaling-effect) ... |
 | Effect types | `data_classes/effects/<category>/` | One group each: ability, area, amount, composite, conditional, damage and healing, item, movement, pets and summons, procs, projectiles and shots, stats, status and control, utility |
 | Runtime | `runtime_classes/entity/abilities/`, `.../components/ability_component.gd`, `effects_component.gd` | The *Runtime* group |
 | Combat | `runtime_classes/combat/` | See [Entity Stats: the pipeline](/advanced/entity-stats/pipeline) |
@@ -66,9 +66,9 @@ Costs, cooldowns, gains, cast time and range can be changed by stats: the five `
 
 | Page | What it covers |
 |---|---|
-| [The effect amount](/advanced/abilities-and-effects/effect-amount) | `EffectAmount`, `AmountSource` and the `CastRecord` |
+| [The effect amount](/advanced/abilities-and-effects/effect-amount) | [`EffectAmount`](/advanced/abilities-and-effects/effects-amount/effect-amount), [`AmountSource`](/advanced/abilities-and-effects/effects-amount/amount-source) and the `CastRecord` |
 | [Immunities](/advanced/abilities-and-effects/immunities) | Immunities and the status effect definitions |
-| [Skill trees](/advanced/abilities-and-effects/skill-trees) | `SkillTree` and `SkillTreeInstance` |
+| [Skill trees](/advanced/abilities-and-effects/skill-trees) | [`SkillTree`](/advanced/abilities-and-effects/skill-trees/skill-tree) and [`SkillTreeInstance`](/advanced/abilities-and-effects/skill-trees/skill-tree-instance) |
 | [Definitions and instances](/advanced/definitions-and-instances) | The idea behind the Definition / Instance classes |
 | [Pooling](/advanced/pooling) | How effects, projectiles, VFX, timers and sounds are reused |
 | [Entity Stats: the hit and heal pipeline](/advanced/entity-stats/pipeline) | What a damage or heal effect does after it starts |
@@ -78,7 +78,7 @@ Costs, cooldowns, gains, cast time and range can be changed by stats: the five `
 | You want | Do |
 |---|---|
 | **A new effect type** | A script that `extends Effect` (or `CombatResultEffect`, `ScalingEffect`, `CollisionEffect` for the matching families). Override `specific_effect_logic(instance)`, and `on_apply_finished` / `_on_apply_cancelled` if it must undo something. Put it in the folder of its category in `data_classes/effects/`; the effect editor finds it by scanning that folder, and its `@export` variables become its fields |
-| **Fields with a picker** | Name an integer `ability_id`, `effect_id`, `item_id`, `stat_id`, `proficiency_id` ... : `PropertySelectorRegistry` maps the name to a database, and the editor shows a picker. Lists of ids named `ability_ids`, `effect_ids` and so on get the checklist |
+| **Fields with a picker** | Name an integer `ability_id`, `effect_id`, `item_id`, `stat_id`, `proficiency_id` ... : [`PropertySelectorRegistry`](/advanced/editor/tools/property-selector-registry) maps the name to a database, and the editor shows a picker. Lists of ids named `ability_ids`, `effect_ids` and so on get the checklist |
 | **A new use strategy or target strategy** | Extend `UseStrategyDefinition` / `TargetStrategyDefinition`; the instance class holds the runtime state |
 | **A new ability kind** | Extend `ActiveAbilityDefinition` (see the charge, combo and power-up kinds) and add a matching `AbilityInstance` branch if it needs state |
 | **Something to happen when an effect runs, without an effect type** | A [proc](/basic/abilities-and-effects/effect-types) effect on the entity, or connect to the signals of the entity (`effect_gained`, `entity_ability_cast`, ...) |

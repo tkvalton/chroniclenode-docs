@@ -165,7 +165,8 @@ function clean(text) {
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
-    .replace(/\{\{/g, '&#123;&#123;')
+    .replace(/\{/g, '&#123;')
+    .replace(/\}/g, '&#125;')
     .replace(/&lt;/g, '&lt;')
 }
 // inside a table cell

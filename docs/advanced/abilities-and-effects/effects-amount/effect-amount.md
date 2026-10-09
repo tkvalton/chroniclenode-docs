@@ -45,7 +45,7 @@ The parts that are read when the effect runs
 
 ## Method descriptions
 
-### float evaluate( effect_instance: EffectInstance, overrides: Dictionary = {} ) {#method-evaluate}
+### float evaluate( effect_instance: EffectInstance, overrides: Dictionary = &#123;&#125; ) {#method-evaluate}
 
 The amount for an effect that runs now (before stacks, scaling rules and charge, which belong to the effect)
 

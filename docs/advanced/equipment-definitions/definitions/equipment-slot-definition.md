@@ -77,7 +77,7 @@ Whether this slot is for weapons
 
 ### GeneralSkeleton.WeaponSlot mesh_slot = GeneralSkeleton.WeaponSlot.MAIN_HAND {#prop-mesh-slot}
 
-Equipment Type ID -&gt; WeaponSlot mapping for contextual placement (e.g., {12345: MAIN_HAND, 67890: OFF_HAND})
+Equipment Type ID -&gt; WeaponSlot mapping for contextual placement (e.g., &#123;12345: MAIN_HAND, 67890: OFF_HAND&#125;)
 
 ## Method descriptions
 

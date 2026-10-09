@@ -298,7 +298,7 @@ One combat log line for the hit, built from the trigger phrases and the amounts
 
 ### String format_phrase( template: String ) {#method-format-phrase}
 
-Fills {attacker} {target} {ability} {damage} in a phrase template
+Fills &#123;attacker&#125; &#123;target&#125; &#123;ability&#125; &#123;damage&#125; in a phrase template
 
 ### String name_of( unit: Variant ) {#method-name-of}
 

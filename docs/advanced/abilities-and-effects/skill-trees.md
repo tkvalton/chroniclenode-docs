@@ -26,7 +26,7 @@ A `SkillConnection` has `from_node_id`, `to_node_id`, `connection_type` (`PREREQ
 
 ## The instance
 
-`Player._initialize_skill_trees` makes a `SkillTreeInstance` for each tree of the player's class (`SkillTreeInstance.create_from_definition`), and a `SkillPointPoolInstance` for every `skill_pool` in the database. Reach them with `player.get_skill_tree_instance(tree_id)` and `player.get_skill_point_pool_instance(pool_id)`.
+[`Player._initialize_skill_trees`](/advanced/entities/runtime/player) makes a `SkillTreeInstance` for each tree of the player's class (`SkillTreeInstance.create_from_definition`), and a `SkillPointPoolInstance` for every `skill_pool` in the database. Reach them with `player.get_skill_tree_instance(tree_id)` and `player.get_skill_point_pool_instance(pool_id)`.
 
 `SkillTreeInstance` keeps `node_states: Dictionary` (node id -> `NodeUnlockState`). A state holds `current_rank`, `choice_index` (for a choice node) and `applied_rewards_by_rank`: for every rank, the reward records (`reward`, `reward_index`, `tracking_data`, `applied_at`) so that a refund can undo exactly what was given.
 
@@ -43,7 +43,7 @@ Use the `Player` wrappers; they do the checks the tree instance leaves to its ca
 | `player.refund_skill_node(tree_id, node_id, full_refund = false)` | `refund_node_rank`: unapplies the rewards of the rank (last applied, first removed), lowers the rank, gives the points back. Check `can_refund_node(node_id)` first: it refuses a node with `can_refund` off or one that an unlocked node depends on |
 | `player.reset_skill_tree(tree_id)` | `reset_all_nodes`: refunds everything, per pool |
 | `player.has_skill_node_unlocked`, `get_skill_node_rank` | Reads |
-| `player.add_skill_points_to_pool(pool_id, n)`, `remove_skill_points_from_pool`, `get_available_skill_points` | The points; `SkillPointReward` calls the first |
+| `player.add_skill_points_to_pool(pool_id, n)`, `remove_skill_points_from_pool`, `get_available_skill_points` | The points; [`SkillPointReward`](/advanced/shared-systems/rewards/skill-point-reward) calls the first |
 | `SkillTreeInstance.change_choice_node_selection(node_id, index, player)` | Unapplies the old option, applies the new, rolls back on failure |
 | `SkillTreeInstance.can_respec_node(node_id)` | Lists the applied rewards that do not support `unapply` |
 | `SkillTreeInstance.get_available_nodes(player)` | The nodes that can be unlocked now |
@@ -56,7 +56,7 @@ Rewards are given with `player.grant_reward(reward)`, the same call quests use, 
 
 ## Extending
 
-- A new reward type (give a stat, unlock a mount) is a `Reward`: implement `apply_to_player` returning tracking data, and `supports_unapply` and `unapply_from_player` if it can be undone. It appears in the node's reward list.
+- A new reward type (give a stat, unlock a mount) is a [`Reward`](/advanced/shared-systems/rewards/reward): implement `apply_to_player` returning tracking data, and `supports_unapply` and `unapply_from_player` if it can be undone. It appears in the node's reward list.
 - A new kind of node extends `SkillNode`: override the max rank, the cost and `get_rewards_for_rank`. The editor offers only the two built-in kinds; add yours to the node type list in `skill_node_properties_editor.gd`.
 
 ## The classes

@@ -31,11 +31,11 @@ The **key** is the name you use everywhere; keep it short and without spaces (`k
 | **Actions** | *Set Global Variable* sets a value. *Modify Global Variable* changes it: add, subtract, multiply or divide a number, append to text, or toggle a bool |
 | **Conditions** | *Global Variable* is true when the variable compares the way you say with a value (equal, more than, less than...). The comparison fits the type |
 | **Triggers** | *Global Variable* fires on any change, when the variable reaches a value, when it leaves a value, or when it crosses a number going up or down |
-| **Code** | `EventManager` holds them; see [How events are built](/advanced/events-and-quests/) |
+| **Code** | [`EventManager`](/advanced/events-and-quests/runtime/event-manager) holds them; see [How events are built](/advanced/events-and-quests/) |
 
 ## The starting value and the saved value
 
-What you edit here is the **starting value**: a new game begins with it. While the game runs, the changes are made to a working copy and saved with the game; the file in the project is never changed. A new game starts from the starting values again. The **type is saved** with the value, so an int stays an int after a save and load.
+What you edit here is the **starting value**: a new game begins with it. While the game runs, the changes are made to a working copy and saved with the game; the file in the project is never changed. A new game starts from the starting values again. The **type is saved** with the value, so an int stays an int after a [save and load](/advanced/save-and-load).
 
 ## Event local variables
 

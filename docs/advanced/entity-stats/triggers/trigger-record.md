@@ -71,7 +71,7 @@ Floating text authored on the trigger
 
 ### String phrase = "" {#var-phrase}
 
-Combat log phrase template ({attacker} {target} {ability} {damage}); empty = the default for the kind
+Combat log phrase template (&#123;attacker&#125; &#123;target&#125; &#123;ability&#125; &#123;damage&#125;); empty = the default for the kind
 
 ### float magnitude = 0.0 {#var-magnitude}
 

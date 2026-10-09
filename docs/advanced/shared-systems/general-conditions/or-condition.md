@@ -56,7 +56,7 @@ Get a human-readable description of this condition (for editor/debugging) Overri
 
 ### String get_function_description() {#method-get-function-description}
 
-Get function description with placeholders for EventTypeSelectionDialog inline editing Override in subclasses to provide template with {parameter_name} placeholders Falls back to get_description() if not overridden *(from [Condition](/advanced/shared-systems/condition-bases/condition))*
+Get function description with placeholders for EventTypeSelectionDialog inline editing Override in subclasses to provide template with &#123;parameter_name&#125; placeholders Falls back to get_description() if not overridden *(from [Condition](/advanced/shared-systems/condition-bases/condition))*
 
 ### bool is_valid() {#method-is-valid}
 

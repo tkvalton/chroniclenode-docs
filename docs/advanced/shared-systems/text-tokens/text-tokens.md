@@ -49,7 +49,7 @@ All tokens with what they say (for the tooltips of the editor)
 
 The text of a tooltip that lists the tokens: put it on a text field that can use them
 
-### String format( text: String, context: Dictionary = {} ) {#method-format}
+### String format( text: String, context: Dictionary = &#123;&#125; ) {#method-format}
 
 The text with every token filled in. Context: "player" (an Entity; the one in control when not given), "npc" (an Entity), "quest" (a Quest), "objective" (a QuestObjective)
 

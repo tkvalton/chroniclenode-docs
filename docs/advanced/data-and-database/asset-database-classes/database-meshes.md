@@ -141,7 +141,7 @@ The names of the parts of a body part type, for one tag or (with an empty tag) f
 
 ### Dictionary get_body_part_mesh_and_skin( body_part_type: String, name: String, tag: String = "" ) {#method-get-body-part-mesh-and-skin}
 
-The mesh and the skin of a body part as {mesh, skin}. The skin is the file with the same name and `_skin` instead of `_mesh`; either is null when missing.
+The mesh and the skin of a body part as &#123;mesh, skin&#125;. The skin is the file with the same name and `_skin` instead of `_mesh`; either is null when missing.
 
 ### Mesh get_body_part_mesh( body_part_type: String, name: String, tag: String = "" ) {#method-get-body-part-mesh}
 
@@ -169,7 +169,7 @@ The mesh of an attachment, or null.
 
 ### Dictionary get_attachment_mesh_and_skin( attachment_type: String, name: String, tag: String = "" ) {#method-get-attachment-mesh-and-skin}
 
-The mesh and the skin of an attachment as {mesh, skin}.
+The mesh and the skin of an attachment as &#123;mesh, skin&#125;.
 
 ### Dictionary get_attachment_data( attachment_type: String, name: String, tag: String = "" ) {#method-get-attachment-data}
 
@@ -201,7 +201,7 @@ A copy of what the database knows about a facial mesh, or an empty dictionary.
 
 ### Dictionary get_facial_mesh_and_skin( tag: String, feature: GeneralSkeleton.FacialFeature, name: String ) {#method-get-facial-mesh-and-skin}
 
-The mesh and the skin of a facial feature of a skeleton tag as {mesh, skin, materials}.
+The mesh and the skin of a facial feature of a skeleton tag as &#123;mesh, skin, materials&#125;.
 
 ### Array[String] get_options_for_skeleton( tag: String, feature: GeneralSkeleton.FacialFeature ) {#method-get-options-for-skeleton}
 
@@ -261,7 +261,7 @@ How many of everything the database found: weapons, body parts, attachments, fac
 
 ### Array[Dictionary] validate_database() {#method-validate-database}
 
-Checks that the files the database found still exist. Returns a list of {type, message, category, item_name, severity}; empty when everything is fine.
+Checks that the files the database found still exist. Returns a list of &#123;type, message, category, item_name, severity&#125;; empty when everything is fine.
 
 ### bool is_database_empty() {#method-is-database-empty}
 

@@ -18,20 +18,20 @@ The node's own exports are `region_data` and `area_name`. `display_name` (a prop
 
 A region registers with the registry (`register_region`, found by `get_region(id)`) when its world loads, and unregisters itself when it leaves the tree.
 
-**It sleeps until watched.** `set_active(false)` sets `monitoring` and `monitorable` off, so an unwatched region costs nothing. Watchers call `add_reference()` (the first one calls `set_active(true)`) and `remove_reference()` (the last one calls `set_active(false)`). The four **region triggers** of the events (`RegionDetectionAnyEntityTrigger`, `RegionDetectionPlayerTrigger`, `RegionDetectionFactionTrigger`, `RegionDetectionUniqueEntityTrigger`) add a reference when their event is armed and remove it when it ends or is disarmed. Two watchers keep it awake until both are gone.
+**It sleeps until watched.** `set_active(false)` sets `monitoring` and `monitorable` off, so an unwatched region costs nothing. Watchers call `add_reference()` (the first one calls `set_active(true)`) and `remove_reference()` (the last one calls `set_active(false)`). The four **region triggers** of the events ([`RegionDetectionAnyEntityTrigger`](/advanced/events-and-quests/triggers-region/region-detection-any-entity-trigger), [`RegionDetectionPlayerTrigger`](/advanced/events-and-quests/triggers-region/region-detection-player-trigger), [`RegionDetectionFactionTrigger`](/advanced/events-and-quests/triggers-region/region-detection-faction-trigger), [`RegionDetectionUniqueEntityTrigger`](/advanced/events-and-quests/triggers-region/region-detection-unique-entity-trigger)) add a reference when their event is armed and remove it when it ends or is disarmed. Two watchers keep it awake until both are gone.
 
-**Asking without watching.** `get_bodies_inside() -> Array[Node3D]` asks the physics space with the shapes of the region: for each *direct* `CollisionShape3D` child that is enabled and has a shape, it runs `intersect_shape` with the region's collision mask (bodies only, up to 64 per shape). It works whether or not the region is awake, so the two conditions (`PlayerRegionPresenceCondition`, `RegionPresenceCondition`) can ask any region at any time. A shape that is not a direct child of the region is not seen.
+**Asking without watching.** `get_bodies_inside() -> Array[Node3D]` asks the physics space with the shapes of the region: for each *direct* `CollisionShape3D` child that is enabled and has a shape, it runs `intersect_shape` with the region's collision mask (bodies only, up to 64 per shape). It works whether or not the region is awake, so the two conditions ([`PlayerRegionPresenceCondition`](/advanced/shared-systems/general-conditions/player-region-presence-condition), [`RegionPresenceCondition`](/advanced/shared-systems/general-conditions/region-presence-condition)) can ask any region at any time. A shape that is not a direct child of the region is not seen.
 
-`PlayerRegionPresenceCondition.player_slot` is a `PlayerEventAction.PlayerTarget`: `ANY_PLAYER`, `ALL_PLAYERS`, `CURRENT_PLAYER`, `PLAYER_1...`. `RegionPresenceCondition` takes a `region_id`, an optional placed NPC (`entity_unique_id`) and an optional faction.
+`PlayerRegionPresenceCondition.player_slot` is a [`PlayerEventAction.PlayerTarget`](/advanced/events-and-quests/bases/player-event-action): `ANY_PLAYER`, `ALL_PLAYERS`, `CURRENT_PLAYER`, `PLAYER_1...`. `RegionPresenceCondition` takes a `region_id`, an optional placed NPC (`entity_unique_id`) and an optional faction.
 
 ## Layers
 
-`Region._init` sets what a region **built in code** feels: it sits on the `REGIONS` layer (`CollisionLayerUtility.CollisionLayer`) and its mask has `PLAYER_CHARACTERS`, `ALL_NPCS` and `PLAYER_PETS`. A region saved in a scene keeps the layers it was saved with.
+`Region._init` sets what a region **built in code** feels: it sits on the `REGIONS` layer ([`CollisionLayerUtility.CollisionLayer`](/advanced/game-settings/collision/collision-layer-utility)) and its mask has `PLAYER_CHARACTERS`, `ALL_NPCS` and `PLAYER_PETS`. A region saved in a scene keeps the layers it was saved with.
 
 ## Extending
 
-- **A new trigger on regions:** extend `EventTrigger`, call `add_reference()` on the region when armed, connect to `body_entered` / `body_exited`, `remove_reference()` when done (see the existing four).
-- **A new presence rule:** extend `Condition`, ask `region.get_bodies_inside()` and filter the bodies.
+- **A new trigger on regions:** extend [`EventTrigger`](/advanced/events-and-quests/bases/event-trigger), call `add_reference()` on the region when armed, connect to `body_entered` / `body_exited`, `remove_reference()` when done (see the existing four).
+- **A new presence rule:** extend [`Condition`](/advanced/shared-systems/condition-bases/condition), ask `region.get_bodies_inside()` and filter the bodies.
 
 ## See also
 

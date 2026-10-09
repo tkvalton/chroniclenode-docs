@@ -45,7 +45,7 @@ The amount of the effect: its own, or the one the older fields describe
 
 Gives the effect its own amount (made from the older fields) so it can be edited
 
-### float calculate_amount( effect_instance: EffectInstance, overrides: Dictionary = {} ) {#method-calculate-amount}
+### float calculate_amount( effect_instance: EffectInstance, overrides: Dictionary = &#123;&#125; ) {#method-calculate-amount}
 
 The amount for an effect that runs now, before stacks, scaling rules and charge
 

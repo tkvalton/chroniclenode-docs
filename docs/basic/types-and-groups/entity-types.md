@@ -27,7 +27,7 @@ Level scaling only does something when the project turns on [NPC level scaling](
 
 ## Giving a type to an entity
 
-Open the [character](/basic/entities/) or the NPC and tick its types in the **Entity Types** field. An entity can have any number: a lich is Undead, Humanoid and Elite. Scripts can add and remove types while the game runs (`Entity.add_entity_tag` and `remove_entity_tag`); the level of an NPC is decided when it is made, from the types it starts with.
+Open the [character](/basic/entities/) or the NPC and tick its types in the **Entity Types** field. An entity can have any number: a lich is Undead, Humanoid and Elite. Scripts can add and remove types while the game runs ([`Entity.add_entity_tag`](/advanced/entities/runtime/entity) and `remove_entity_tag`); the level of an NPC is decided when it is made, from the types it starts with.
 
 ## Where an entity type is used
 

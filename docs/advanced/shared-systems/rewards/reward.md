@@ -29,7 +29,7 @@ Why this reward cannot be given right now ("" = it can). A reward that needs roo
 
 ### Dictionary to_pending_data() {#method-to-pending-data}
 
-What a reward that waits for room needs to be saved ({} = this kind of reward never waits). Player.pending_rewards
+What a reward that waits for room needs to be saved (&#123;&#125; = this kind of reward never waits). Player.pending_rewards
 
 ### Dictionary apply_to_player( player: Player ) {#method-apply-to-player}
 
@@ -38,7 +38,7 @@ Apply this reward to a player - override in child classes Returns a Dictionary w
 - "success": bool - whether the application succeeded
 - Additional tracking data needed for unapply (e.g., instance IDs, amounts)
 
-Example: {"success": true, "ability_instance_id": 12345, "ability_definition_id": 42}
+Example: &#123;"success": true, "ability_instance_id": 12345, "ability_definition_id": 42&#125;
 
 ### bool unapply_from_player( player: Player, tracking_data: Dictionary ) {#method-unapply-from-player}
 

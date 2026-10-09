@@ -6,9 +6,9 @@ The [Items chapter](/basic/items/) explains the editors. This page explains the 
 
 | | Definition | Instance |
 |---|---|---|
-| What | A shared `DatabaseResource` in `res://src/data/items/`. Never changed while the game runs | An `ItemInstance`, a `RefCounted` made when an item enters a bag, a shop or a chest |
+| What | A shared [`DatabaseResource`](/advanced/data-and-database/database-classes/database-resource) in `res://src/data/items/`. Never changed while the game runs | An `ItemInstance`, a `RefCounted` made when an item enters a bag, a shop or a chest |
 | Holds | The kind, the stack size, the stat bonuses, the effect, the value | The stack count, the charges, the cooldown, the sockets and their gems, the enchantments with their timers, `runtime_data` overrides |
-| Made by | The Items editor | `InstanceUtility` |
+| Made by | The Items editor | [`InstanceUtility`](/advanced/managers/utilities/instance-utility) |
 
 Always ask the **instance** for a value that can change (`get_max_stack_size()`, `get_vendor_value()`), not the definition: an instance may override it.
 
@@ -41,19 +41,19 @@ Always ask the **instance** for a value that can change (`get_max_stack_size()`,
 
 ## Crafting
 
-`CraftingManager` (on the party manager) holds one [`CraftSchoolInstance`](/advanced/items/crafting/craft-school-instance) for each [`CraftSchoolDefinition`](/advanced/items/crafting/craft-school-definition). A school keeps the skill level and experience, the learned recipe ids, a queue of [`CraftingJob`](/advanced/items/crafting/crafting-job)s with one timer each, and the finished items that wait for room. `start_craft` checks the recipe (`CraftingRecipeDefinition.can_craft`), takes the materials, checks the room for the result (and gives the materials back if there is none), and queues a job for each piece. Crafts in progress are saved with who started them and restored on load.
+`CraftingManager` (on the [party manager](/advanced/entities/runtime/party-manager)) holds one [`CraftSchoolInstance`](/advanced/items/crafting/craft-school-instance) for each [`CraftSchoolDefinition`](/advanced/items/crafting/craft-school-definition). A school keeps the skill level and experience, the learned recipe ids, a queue of [`CraftingJob`](/advanced/items/crafting/crafting-job)s with one timer each, and the finished items that wait for room. `start_craft` checks the recipe (`CraftingRecipeDefinition.can_craft`), takes the materials, checks the room for the result (and gives the materials back if there is none), and queues a job for each piece. Crafts in progress are saved with who started them and restored on load.
 
 ## Loot
 
-`LootTable.generate_loot(looter)` returns `{item_id: quantity}`: the guaranteed entries first, then `randi_range(min_items, max_items)` weighted picks. An entry that cannot duplicate is excluded after it has dropped. The looter's `loot_rarity` gain channel raises the weight of the entries that are lighter than the average; the `loot_quantity` channel raises the stack sizes. `Entity` calls it with the entity that dealt the last damage as the looter, once when the NPC spawns or dies (`LootTableLogic`); a container calls it with no looter.
+`LootTable.generate_loot(looter)` returns `{item_id: quantity}`: the guaranteed entries first, then `randi_range(min_items, max_items)` weighted picks. An entry that cannot duplicate is excluded after it has dropped. The looter's `loot_rarity` gain channel raises the weight of the entries that are lighter than the average; the `loot_quantity` channel raises the stack sizes. [`Entity`](/advanced/entities/runtime/entity) calls it with the entity that dealt the last damage as the looter, once when the NPC spawns or dies (`LootTableLogic`); a container calls it with no looter.
 
 ## Vendors
 
-[`VendorItemStock.calculate_sell_price`](/advanced/items/vendors/vendor-item-stock) is `base_value x sell_value_multiplier x weight x item_price_modifier`, rounded down and at least 1. `VendorInventoryComponent.calculate_sell_price(item_instance)` is what the vendor pays: `vendor_value x buy_value_multiplier`, at least 1, `0` when the vendor cannot afford it. `sell_item_to_player` and `buy_item_from_player` return a dictionary with `success`, a `message`, the `payment` and the `currency_id`. Restocking uses `ChronoManager.total_game_hours`, one timer per stocked item (`item_restock_times`), and starts the wait again whenever a restock is due.
+[`VendorItemStock.calculate_sell_price`](/advanced/items/vendors/vendor-item-stock) is `base_value x sell_value_multiplier x weight x item_price_modifier`, rounded down and at least 1. `VendorInventoryComponent.calculate_sell_price(item_instance)` is what the vendor pays: `vendor_value x buy_value_multiplier`, at least 1, `0` when the vendor cannot afford it. `sell_item_to_player` and `buy_item_from_player` return a dictionary with `success`, a `message`, the `payment` and the `currency_id`. Restocking uses [`ChronoManager.total_game_hours`](/advanced/managers/managers/chrono-manager), one timer per stocked item (`item_restock_times`), and starts the wait again whenever a restock is due.
 
 ## Rewards and room
 
-Every [`Reward`](/advanced/shared-systems/rewards) has `get_block_reason(player)`. `Player.grant_reward` keeps a blocked reward in `pending_rewards` (saved), warns through `InstanceUtility.warn_player`, and gives it when the bag has room (`reward_blocked`, `reward_given`). `Quest.complete()` returns `false` while a reward does not fit.
+Every [`Reward`](/advanced/shared-systems/rewards) has `get_block_reason(player)`. [`Player.grant_reward`](/advanced/entities/runtime/player) keeps a blocked reward in `pending_rewards` (saved), warns through `InstanceUtility.warn_player`, and gives it when the bag has room (`reward_blocked`, `reward_given`). [`Quest.complete()`](/advanced/events-and-quests/events/quest) returns `false` while a reward does not fit.
 
 ## Saving
 

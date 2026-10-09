@@ -26,7 +26,7 @@ They are what you manage in the **Assets** category of the editor: [Model Scenes
 - The first level is an **entity type** (humanoid, monster ...), one folder each.
 - Inside it are **packages**. Only the packages listed in `ANIMATION_PACKAGES` are read: *ability_animations* (casting, special_attack, spell_cast, weapon, aim, reload), *core* (movement, combat_system, death, interact), *social* (actions, emotes, random) and *status_effects*.
 - A package is laid out in one of a few **structures**: `flat` (one folder of animation files), `categorized` (category folders with subcategory folders), `flat_categorized` (category folders that hold several animations, one of which is chosen at random), `three_phase` (a start, a loop and an end) or `mixed` (each category has its own structure).
-- Each entity type has an **`animation_map.tres`** (an `AnimationCoreMap`, made automatically when it is missing). It can name a **parent package**, and an entity type that does not have an animation takes it from its parent: `get_animations` and `get_flat_category_animations` fall back to the parent, `get_inheritance_chain` returns the whole chain,
+- Each entity type has an **`animation_map.tres`** (an [`AnimationCoreMap`](/advanced/assets/albums/animation-core-map), made automatically when it is missing). It can name a **parent package**, and an entity type that does not have an animation takes it from its parent: `get_animations` and `get_flat_category_animations` fall back to the parent, `get_inheritance_chain` returns the whole chain,
   and `build_library_for_entity` builds an `AnimationLibrary` that holds the animations of the entity and of its parents.
 
 ## Audio and albums
@@ -45,7 +45,7 @@ The same class keeps the **albums**, which are resources (not part of the regist
 
 - The four **built-in UI albums**: main menu, character creation, pause menu and loading screen. They are made when missing (`get_ui_album`).
 - **Custom UI albums** (`create_custom_ui_album`, `save_ui_album`, `delete_custom_ui_album`).
-- **World albums** (`AudioAlbum`) in `world_albums/`, with create, save, delete, duplicate and validate functions (`create_world_album`, `save_world_album`, `delete_world_album`, `duplicate_world_album`, `validate_all_world_albums`).
+- **World albums** ([`AudioAlbum`](/advanced/assets/albums/audio-album)) in `world_albums/`, with create, save, delete, duplicate and validate functions (`create_world_album`, `save_world_album`, `delete_world_album`, `duplicate_world_album`, `validate_all_world_albums`).
 
 ## Visual effects
 
@@ -53,13 +53,13 @@ The same class keeps the **albums**, which are resources (not part of the regist
 
 | Type folder | Class | Files |
 |---|---|---|
-| `oneshot` | `VFXOneShot` | `.tscn` |
-| `loop` | `VFXLoop` | `.tscn` |
-| `beam` | `VFXPointToPointBeam` | `.tscn` |
-| `path` | `VFXPointToPointPath` | `.tscn` |
-| `weather` | `VFXWeather` | `.tscn` |
-| `telegraph` | `VFXTelegraph` | `.tres`, `.res`, images |
-| `material` | `VFXMaterial` | `.tres`, `.res` |
+| `oneshot` | [`VFXOneShot`](/advanced/assets/vfx/vfx-one-shot) | `.tscn` |
+| `loop` | [`VFXLoop`](/advanced/assets/vfx/vfx-loop) | `.tscn` |
+| `beam` | [`VFXPointToPointBeam`](/advanced/assets/vfx/vfx-point-to-point-beam) | `.tscn` |
+| `path` | [`VFXPointToPointPath`](/advanced/assets/vfx/vfx-point-to-point-path) | `.tscn` |
+| `weather` | [`VFXWeather`](/advanced/assets/vfx/vfx-weather) | `.tscn` |
+| `telegraph` | [`VFXTelegraph`](/advanced/assets/vfx/vfx-telegraph) | `.tres`, `.res`, images |
+| `material` | [`VFXMaterial`](/advanced/assets/vfx/vfx-material) | `.tres`, `.res` |
 
 A folder with another name is reported as an unknown type and skipped. `get_vfx_scene`, `get_vfx_material` and `get_vfx_resource` load an entry by type and name; `get_random_vfx` picks one of a type.
 
@@ -81,7 +81,7 @@ A **tag** groups the parts that belong together. A mesh file can have a **skin**
 ## Model scenes
 
 `ModelSceneDatabase` reads two folders of `.tscn` scenes: `src/data/meshes/skeletons/` (the scenes of characters and creatures) and `src/data/meshes/interactable_models/` (the scenes of interactable objects). The **file name** is the entry.
-For a skeleton scene the database instantiates it once to find out the kind of skeleton it holds (`GeneralSkeleton` or `ModularSkeleton`) and remembers it. It also remembers which skeleton types a mesh supports
+For a skeleton scene the database instantiates it once to find out the kind of skeleton it holds ([`GeneralSkeleton`](/advanced/assets/rig/general-skeleton) or [`ModularSkeleton`](/advanced/assets/rig/modular-skeleton)) and remembers it. It also remembers which skeleton types a mesh supports
 (`set_mesh_skeleton_types`, `does_mesh_support_skeleton_type`, `get_meshes_for_skeleton_type`). `instantiate_skeleton` and `instantiate_interactable_model` return a ready node.
 
 ## Icons

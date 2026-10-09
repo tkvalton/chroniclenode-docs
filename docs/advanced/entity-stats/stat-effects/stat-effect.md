@@ -225,7 +225,7 @@ Apply the calculation type to modify the current value
 
 Get human-readable description of calculation type
 
-### Dictionary apply_effect( stats_component: StatsComponent, stat_points: float, context: Dictionary = {} ) {#method-apply-effect}
+### Dictionary apply_effect( stats_component: StatsComponent, stat_points: float, context: Dictionary = &#123;&#125; ) {#method-apply-effect}
 
 Main method to apply this effect - OVERRIDE IN CHILD CLASSES Returns dictionary with effect results
 

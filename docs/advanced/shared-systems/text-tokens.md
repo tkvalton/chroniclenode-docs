@@ -17,10 +17,10 @@ A dictionary with what the text belongs to:
 
 | Key | Type | Used by |
 |---|---|---|
-| `"player"` | `Entity` | `player name`, `player class`, `player level`, `party size`, `world name`. When not given, the current player (`PlayerUtility.get_current_player()`) |
+| `"player"` | [`Entity`](/advanced/entities/runtime/entity) | `player name`, `player class`, `player level`, `party size`, `world name`. When not given, the current player ([`PlayerUtility.get_current_player()`](/advanced/managers/utilities/player-utility)) |
 | `"npc"` | `Entity` | `npc name` |
-| `"quest"` | `Quest` | `quest name`, `quest level` (empty when the quest has no level) |
-| `"objective"` | `QuestObjective` | `progress` (`current_progress`) and `target` (`target_progress`) |
+| `"quest"` | [`Quest`](/advanced/events-and-quests/events/quest) | `quest name`, `quest level` (empty when the quest has no level) |
+| `"objective"` | [`QuestObjective`](/advanced/events-and-quests/events/quest-objective) | `progress` (`current_progress`) and `target` (`target_progress`) |
 
 A token that resolves to an empty string gets its entry of `FALLBACKS` ("Adventurer", "this land", "someone" ...), so a gap never shows.
 

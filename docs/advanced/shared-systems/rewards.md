@@ -17,7 +17,7 @@ A reward is a `Resource` stored inside the resource that grants it (a quest, a q
 | `to_pending_data() -> Dictionary` | What a reward that waits needs to be saved (`{}` = it never waits) |
 | `validate() -> Array[Dictionary]` | Configuration problems for the editor |
 
-[LevelReward](/advanced/shared-systems/rewards/level-reward) is not a reward but a container: a `description` and an `Array[Reward]`. `apply_to_player` grants each one through `Player.grant_reward` and counts a reward that waits as given.
+[LevelReward](/advanced/shared-systems/rewards/level-reward) is not a reward but a container: a `description` and an `Array[Reward]`. `apply_to_player` grants each one through [`Player.grant_reward`](/advanced/entities/runtime/player) and counts a reward that waits as given.
 
 ## Giving a reward
 
@@ -27,7 +27,7 @@ Always go through `Player.grant_reward(reward)`, not `apply_to_player` directly:
 2. Otherwise it calls `apply_to_player`, and on success emits `reward_given(reward)`.
 3. Whenever the inventory changes the player tries the pending rewards again (`_deliver_pending_rewards`), and gives those that now fit.
 
-The `GrantRewardEffect` is the exception: it works on a `Player` target only and calls `apply_to_player` itself, so an item reward that does not fit is not queued there.
+The [`GrantRewardEffect`](/advanced/abilities-and-effects/effects-utility/grant-reward-effect) is the exception: it works on a `Player` target only and calls `apply_to_player` itself, so an item reward that does not fit is not queued there.
 
 Pending rewards are saved with the player (`pending_rewards` in the save data, using `to_pending_data`) and restored on load. In the shipped types only `ItemReward` waits: it blocks when the bag cannot hold all of `quantity` items. A quest with a blocked reward does not complete until it can be given.
 
@@ -35,11 +35,11 @@ Pending rewards are saved with the player (`pending_rewards` in the save data, u
 
 | Owner | Property |
 |---|---|
-| `Quest` | `rewards: Array[Reward]` (signal `reward_applied`) |
-| `QuestLine` | `completion_rewards: Array[Reward]` |
-| `PlayerClassDefinition` | `level_rewards: Array[LevelReward]`, index = level − 1; every level from the old level + 1 to the new one is applied when the level rises |
-| `RankedSkillNode` | rewards for each rank |
-| `ConversationGrantReward` (conversation action), `GrantRewardAction` (event action) | `reward: Reward` |
+| [`Quest`](/advanced/events-and-quests/events/quest) | `rewards: Array[Reward]` (signal `reward_applied`) |
+| [`QuestLine`](/advanced/events-and-quests/events/quest-line) | `completion_rewards: Array[Reward]` |
+| [`PlayerClassDefinition`](/advanced/entities/definitions/player-class-definition) | `level_rewards: Array[LevelReward]`, index = level − 1; every level from the old level + 1 to the new one is applied when the level rises |
+| [`RankedSkillNode`](/advanced/abilities-and-effects/skill-trees/ranked-skill-node) | rewards for each rank |
+| `ConversationGrantReward` (conversation action), [`GrantRewardAction`](/advanced/events-and-quests/actions-general/grant-reward-action) (event action) | `reward: Reward` |
 | `GrantRewardEffect` | `reward: Reward`, taken back when the effect ends if the type supports it |
 
 ## Writing your own reward

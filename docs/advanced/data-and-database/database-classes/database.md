@@ -178,7 +178,7 @@ Get a global variable by its key
 
 ### Dictionary get_all_global_variables_as_dict() {#method-get-all-global-variables-as-dict}
 
-Get all global variables as a dictionary {key: value}
+Get all global variables as a dictionary &#123;key: value&#125;
 
 ### bool has_global_variable( variable_key: String ) {#method-has-global-variable}
 
@@ -186,7 +186,7 @@ Check if a global variable exists
 
 ### Array[Dictionary] get_list_for_ui( type: String ) {#method-get-list-for-ui}
 
-The resources of a type as a list of {id, name, description}, sorted by name, for the pickers of the editor.
+The resources of a type as a list of &#123;id, name, description&#125;, sorted by name, for the pickers of the editor.
 
 ### Array[Dictionary] get_all_equipment_types_for_ui() {#method-get-all-equipment-types-for-ui}
 

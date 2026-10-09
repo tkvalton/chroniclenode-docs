@@ -87,7 +87,7 @@ What this trigger IS. AVOID (dodge, parry): when it fires the hit does nothing a
 
 ### String log_phrase = "" {#prop-log-phrase}
 
-Combat log phrase when this trigger fires. Placeholders: {attacker} {target} {ability} {damage}. Example for Dodge: "{target} dodged {attacker}'s {ability}". Empty = the default for the kind
+Combat log phrase when this trigger fires. Placeholders: &#123;attacker&#125; &#123;target&#125; &#123;ability&#125; &#123;damage&#125;. Example for Dodge: "&#123;target&#125; dodged &#123;attacker&#125;'s &#123;ability&#125;". Empty = the default for the kind
 
 *Damage Type Restrictions*
 
@@ -133,7 +133,7 @@ Check if this effect applies to the given context *(from [StatEffect](/advanced/
 
 *No description yet.*
 
-### Dictionary apply_to_calculation( current_value: float, stat_points: float, context: Dictionary = {}, formula_context: FormulaContext = null, rules: TriggerRuleSet = null ) {#method-apply-to-calculation}
+### Dictionary apply_to_calculation( current_value: float, stat_points: float, context: Dictionary = &#123;&#125;, formula_context: FormulaContext = null, rules: TriggerRuleSet = null ) {#method-apply-to-calculation}
 
 *No description yet.*
 

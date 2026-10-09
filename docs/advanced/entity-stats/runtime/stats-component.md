@@ -254,7 +254,7 @@ The pools that take damage, with the order they take it in. Health and shields h
 
 ### Array[Dictionary] heal_absorbs = [] {#var-heal-absorbs}
 
-The heal absorbs on this entity (HealAbsorbEffect), oldest first: {"instance": EffectInstance, "remaining": float}
+The heal absorbs on this entity (HealAbsorbEffect), oldest first: &#123;"instance": EffectInstance, "remaining": float&#125;
 
 ### Array[EffectInstance] done_boosts = [] {#var-done-boosts}
 

@@ -77,7 +77,7 @@ When damage hits an entity it goes through the pools that take damage, one after
 | **Protective (counts as mitigation)** | What the pool absorbs counts as *blocked* damage, not as damage the entity took. A shield is protective; health is not |
 | **Receives Healing** | Heals fill the pool. Turn it off for a shield, otherwise over-healing would fill it |
 
-An effect can give **any** pool a temporary damage layer: the [Absorb With Pool](/basic/abilities-and-effects/effect-types) (`AbsorbWithPoolEffect`) effect turns mana into a shield that takes 50 % of the damage and spends 1 mana for 2 damage.
+An effect can give **any** pool a temporary damage layer: the [Absorb With Pool](/basic/abilities-and-effects/effect-types) ([`AbsorbWithPoolEffect`](/advanced/abilities-and-effects/effects-stats/absorb-with-pool-effect)) effect turns mana into a shield that takes 50 % of the damage and spends 1 mana for 2 damage.
 
 ## Examples
 

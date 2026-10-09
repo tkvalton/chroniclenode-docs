@@ -295,7 +295,7 @@ True from the end of the use strategy until the delayed effects have been applie
 
 ### Dictionary last_cost_paid =  {#var-last-cost-paid}
 
-What the last use paid, for a refund: {"pool_id": int, "amount": float}
+What the last use paid, for a refund: &#123;"pool_id": int, "amount": float&#125;
 
 ### float use_charge_fraction = 1.0 {#var-use-charge-fraction}
 

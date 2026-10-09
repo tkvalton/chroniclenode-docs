@@ -103,7 +103,7 @@ Weather system
 
 ## Method descriptions
 
-### void load_world( system_hub: GameHost.SystemHub, world_data: WorldData, pending_spawn_override: Dictionary = {}, loading_screen: LoadingScreen = null ) {#method-load-world}
+### void load_world( system_hub: GameHost.SystemHub, world_data: WorldData, pending_spawn_override: Dictionary = &#123;&#125;, loading_screen: LoadingScreen = null ) {#method-load-world}
 
 Load a world using WorldData
 

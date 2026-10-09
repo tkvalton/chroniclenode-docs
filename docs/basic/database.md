@@ -31,7 +31,7 @@ Whatever its kind, every resource in the database has the same four fields, so e
 | **Icon** | The picture shown in the interface |
 | **Description** | Free text; many systems show it to the player as a tooltip |
 
-Everything else in an editor is specific to the kind of resource. Technically all of them are built on one base class, `DatabaseResource`; the [Advanced section](/advanced/data-and-database/) describes it.
+Everything else in an editor is specific to the kind of resource. Technically all of them are built on one base class, [`DatabaseResource`](/advanced/data-and-database/database-classes/database-resource); the [Advanced section](/advanced/data-and-database/) describes it.
 
 ## Things refer to each other by ID
 

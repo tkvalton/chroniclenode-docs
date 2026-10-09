@@ -31,7 +31,7 @@ Every requirement in a list must pass. There is no "any": a different shape of r
 
 ## Reactive requirements
 
-An ability that has requirements watches them. When the ability is set up (`AbilityInstance.setup_requirement_monitoring`) each requirement connects itself to the signals of the user, and the ability listens to `requirement_state_changed`.
+An ability that has requirements watches them. When the ability is set up ([`AbilityInstance.setup_requirement_monitoring`](/advanced/abilities-and-effects/runtime/ability-instance)) each requirement connects itself to the signals of the user, and the ability listens to `requirement_state_changed`.
 The answer is re-checked then (`check_and_update_requirement_state`): an ability whose requirements stop holding goes `INACTIVE`, and goes back to `READY` (or `ON_COOLDOWN`) when they hold again. A passive ability also removes its passive effects while it is inactive, and applies them again when it is active.
 A type that wants this implements the two `connect_...` functions and emits the signal; the shipped ones do:
 
@@ -46,13 +46,13 @@ A type that wants this implements the two `connect_...` functions and emits the 
 
 | Owner | Property | Checked by |
 |---|---|---|
-| `AbilityDefinition` | `requirements` | `ActiveAbilityDefinition` (through `RequirementChecker`) and the ability instance (reactive) |
-| `Effect` | `requirements` | `Effect.check_requirements(entity)`: the first failed one rejects the effect and gives its message |
-| `ItemDefinition` | `requirements` | `check_requirements`, `meets_requirements`, `get_requirement_failure_message` |
-| `Quest` | `requirements` | `can_accept`, `get_failed_requirements`, `get_requirement_failure_messages` |
-| `CraftingRecipeDefinition` | `requirements` | its craft check, which lists the failure messages of the unmet ones |
-| `CraftSchoolDefinition` | `learning_requirements` | the check for learning the school |
-| `ConversationResponse` | `response_requirements` | `ConversationInstance`, which offers only the responses that pass |
+| [`AbilityDefinition`](/advanced/abilities-and-effects/abilities/ability-definition) | `requirements` | [`ActiveAbilityDefinition`](/advanced/abilities-and-effects/abilities/active-ability-definition) (through `RequirementChecker`) and the ability instance (reactive) |
+| [`Effect`](/advanced/abilities-and-effects/effects-base/effect) | `requirements` | `Effect.check_requirements(entity)`: the first failed one rejects the effect and gives its message |
+| [`ItemDefinition`](/advanced/items/item-definitions/item-definition) | `requirements` | `check_requirements`, `meets_requirements`, `get_requirement_failure_message` |
+| [`Quest`](/advanced/events-and-quests/events/quest) | `requirements` | `can_accept`, `get_failed_requirements`, `get_requirement_failure_messages` |
+| [`CraftingRecipeDefinition`](/advanced/items/crafting/crafting-recipe-definition) | `requirements` | its craft check, which lists the failure messages of the unmet ones |
+| [`CraftSchoolDefinition`](/advanced/items/crafting/craft-school-definition) | `learning_requirements` | the check for learning the school |
+| [`ConversationResponse`](/advanced/behaviors/conversations/conversation-response) | `response_requirements` | [`ConversationInstance`](/advanced/behaviors/conversations/conversation-instance), which offers only the responses that pass |
 
 ## Writing your own requirement
 

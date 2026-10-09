@@ -15,10 +15,10 @@
 
 | Menu item | Code | Result |
 |---|---|---|
-| Add NPC | opens the `ListCatalog` on `"entities"`; `_on_entity_selected(id)` | `NPC.new()` with `definition` = `Database.get_resource("npc", id)`, a child of the `Entities` container |
-| Add Interactable | the catalog on `"interactables"`; `_on_interactable_selected(id)` | `InteractableObject.new()` with its definition, in `Interactables` |
-| Add Region | `_create_region_directly()` | `Region.new()` in `Regions` |
-| Add Encounter | `_create_encounter_directly()` | `Encounter.new()` in `Entities` |
+| Add NPC | opens the [`ListCatalog`](/advanced/editor/catalogs/list-catalog) on `"entities"`; `_on_entity_selected(id)` | [`NPC.new()`](/advanced/entities/runtime/npc) with `definition` = [`Database.get_resource("npc", id)`](/advanced/data-and-database/database-classes/database), a child of the `Entities` container |
+| Add Interactable | the catalog on `"interactables"`; `_on_interactable_selected(id)` | [`InteractableObject.new()`](/advanced/entities/runtime/interactable-object) with its definition, in `Interactables` |
+| Add Region | `_create_region_directly()` | [`Region.new()`](/advanced/world/runtime/region) in `Regions` |
+| Add Encounter | `_create_encounter_directly()` | [`Encounter.new()`](/advanced/world/runtime/encounter) in `Entities` |
 
 `_get_or_create_container(name)` finds a `Node3D` child of the world scene with that name or makes it. Every node is given `owner = current_world_scene` (so it is saved with the scene), named `<display name>_<unix time>`, placed at the origin, and selected.
 
@@ -26,8 +26,8 @@
 
 The manager does not create database resources. The **node** does, when it enters a world scene in the editor:
 
-- `NPC` / `InteractableObject` create their `UniqueEntityData` / `UniqueInteractableData` in `_enter_tree` if they have none, with the id of the world from `WorldScene.world_data`.
-- `Region` (`_check_and_create_region_data`) and `Encounter` (`_check_and_create_unique_data`) do the same for `RegionData` and `UniqueEncounterData`.
+- `NPC` / `InteractableObject` create their [`UniqueEntityData`](/advanced/world/world-data/unique-entity-data) / [`UniqueInteractableData`](/advanced/world/world-data/unique-interactable-data) in `_enter_tree` if they have none, with the id of the world from [`WorldScene.world_data`](/advanced/world/runtime/world-scene).
+- `Region` (`_check_and_create_region_data`) and `Encounter` (`_check_and_create_unique_data`) do the same for [`RegionData`](/advanced/world/world-data/region-data) and [`UniqueEncounterData`](/advanced/world/world-data/unique-encounter-data).
 - On `scene_pre_save` each node writes its position and rotation into its data (`update_position_from_node`, `_sync_position_to_data`).
 - Deleting the node runs its `_on_*_deleted` cleanup, which deletes the data from the database. A node that is only reparented is not deleted (`_check_if_really_deleted` waits a frame and checks it is still out of the tree).
 
@@ -35,7 +35,7 @@ Because the nodes manage themselves, a scene edited by hand, copied, or built by
 
 ## Extending
 
-To add a fifth kind, give your node the same four duties (create its data when it enters a world scene, sync on save, clean up on delete, register in `ObjectRegistry`), add an entry to `MenuItems` and `_on_menu_item_selected`, and a creation function like `_create_region_directly`.
+To add a fifth kind, give your node the same four duties (create its data when it enters a world scene, sync on save, clean up on delete, register in [`ObjectRegistry`](/advanced/world/runtime/object-registry)), add an entry to `MenuItems` and `_on_menu_item_selected`, and a creation function like `_create_region_directly`.
 
 ## See also
 

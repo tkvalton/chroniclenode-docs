@@ -319,6 +319,74 @@ const SYSTEMS = {
       { text: 'Runtime', slug: 'runtime', dirs: [['runtime_classes/entity/components/stats', false]] },
     ],
   },
+  'game-settings': {
+    title: 'Game Settings',
+    groups: [
+      { text: 'Configuration', slug: 'config', dirs: [['data_classes/settings', false], ['editor_settings.gd', false]] },
+      { text: 'Settings (runtime)', slug: 'settings-runtime', dirs: [['runtime_classes/settings', true]] },
+      {
+        text: 'Camera, controller and input',
+        slug: 'camera-and-controller',
+        dirs: [
+          ['data_classes/controller_logic', true],
+          ['runtime_classes/player/camera', true],
+          ['runtime_classes/player/controller', true],
+          ['runtime_classes/system_managers/input_manager.gd', false],
+          ['runtime_classes/utility/look_binding.gd', false],
+          ['runtime_classes/utility/look_gesture_tracker.gd', false],
+          ['runtime_classes/utility/facing_math.gd', false],
+          ['runtime_classes/utility/mouse_utility.gd', false],
+          ['runtime_classes/entity/aim_provider.gd', false],
+          ['runtime_classes/entity/camera_aim_provider.gd', false],
+        ],
+      },
+      { text: 'Collision', slug: 'collision', dirs: [['runtime_classes/utility/collision_layer_utility.gd', false], ['runtime_classes/utility/weapon_collision_utility.gd', false], ['runtime_classes/utility/line_of_sight_utility.gd', false]] },
+      { text: 'Helpers', slug: 'helpers', dirs: [['runtime_classes/utility/property_category_util.gd', false], ['runtime_classes/utility/audio_bus_utility.gd', false]] },
+    ],
+  },
+  'assets': {
+    title: 'Assets',
+    groups: [
+      { text: 'Selections: animation', slug: 'selections-animation', dirs: [['data_classes/selections/animation', true]] },
+      { text: 'Selections: sound effects', slug: 'selections-sfx', dirs: [['data_classes/selections/sfx', true]] },
+      { text: 'Selections: VFX', slug: 'selections-vfx', dirs: [['data_classes/selections/vfx', true]] },
+      { text: 'Albums and animation map', slug: 'albums', dirs: [['data_classes/albums', true], ['data_classes/entity/animations', true]] },
+      { text: 'VFX (runtime)', slug: 'vfx', dirs: [['runtime_classes/vfx', true]] },
+      { text: 'Rig and bodies', slug: 'rig', dirs: [['runtime_classes/entity/components/rig', true], ['runtime_classes/entity/components/audio_component.gd', false], ['runtime_classes/entity/components/animation_resolver.gd', false], ['runtime_classes/utility/extended_skin_service.gd', false]] },
+    ],
+  },
+  'managers': {
+    title: 'Managers',
+    groups: [
+      { text: 'Game host', slug: 'game-host', dirs: [['runtime_classes/main/game_host.gd', false], ['runtime_classes/system_managers/transition_manager.gd', false], ['runtime_classes/system_managers/ui_manager.gd', false], ['runtime_classes/utility/debug_menu_factory.gd', false]] },
+      { text: 'Managers', slug: 'managers', dirs: [['runtime_classes/system_managers', false]] },
+      { text: 'Save and load', slug: 'save-and-load', dirs: [['runtime_classes/utility/save_load_util.gd', false]] },
+      { text: 'Utilities', slug: 'utilities', dirs: [['runtime_classes/utility', false]] },
+      { text: 'Combat sessions', slug: 'combat', dirs: [['runtime_classes/combat', false]] },
+      { text: 'Cutscenes', slug: 'cutscenes', dirs: [['runtime_classes/cutscenes', true]] },
+    ],
+  },
+  'editor': {
+    title: 'Editor',
+    groups: [
+      { text: 'Editor base', slug: 'base', dirs: [['editor_components/editors/resource_editor.gd', false], ['editor_components/editors/editor_files_list.gd', false], ['editor_components/main', false], ['plugin.gd', false]] },
+      { text: 'Ability and effect editors', slug: 'abilities', dirs: [['editor_components/editors/abilities', true]] },
+      { text: 'Asset editors', slug: 'assets', dirs: [['editor_components/editors/assets', true]] },
+      { text: 'Behavior editors', slug: 'behavior', dirs: [['editor_components/editors/behavior', true]] },
+      { text: 'Entity editors', slug: 'entities', dirs: [['editor_components/editors/entities', true], ['editor_components/editors/interactions', true]] },
+      { text: 'Equipment definition editors', slug: 'equipment-definitions', dirs: [['editor_components/editors/equipment_definitions', true]] },
+      { text: 'Event and quest editors', slug: 'events', dirs: [['editor_components/editors/events', true]] },
+      { text: 'Item editors', slug: 'items', dirs: [['editor_components/editors/items', true]] },
+      { text: 'Settings editors', slug: 'settings', dirs: [['editor_components/editors/settings', true]] },
+      { text: 'Stat editors', slug: 'stats', dirs: [['editor_components/editors/stats', true]] },
+      { text: 'World editors', slug: 'world', dirs: [['editor_components/editors/world', true]] },
+      { text: 'Viewport tools', slug: 'viewport-tools', dirs: [['editor_components/3d_scene_tools', false], ['editor_components/inspector_plugins', false]] },
+      { text: 'Catalogs', slug: 'catalogs', dirs: [['editor_components/catalogs', true]] },
+      { text: 'Dialogs', slug: 'dialogs', dirs: [['editor_components/dialogs', true]] },
+      { text: 'Property controls', slug: 'factory', dirs: [['editor_components/factory', true], ['editor_components/curve_editor', true]] },
+      { text: 'Managers and utilities', slug: 'tools', dirs: [['editor_components/managers', true], ['editor_components/utility', true]] },
+    ],
+  },
 }
 
 const kebab = name => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2').toLowerCase()
@@ -377,7 +445,7 @@ for (const [slug, system] of Object.entries(SYSTEMS)) {
     for (const [dir, recursive] of group.dirs) {
       for (const file of gdFiles(dir, recursive)) {
         const c = classOf(file)
-        if (!c || seen.has(c.name)) continue
+        if (!c || seen.has(c.name) || pages.has(c.name)) continue
         seen.add(c.name)
         classes.push({ ...c, file: path.relative(ADDON, file).split(path.sep).join('/') })
       }

@@ -8,7 +8,7 @@ Shows the popups of the game (scenes built on PopupUI, kept as PopupData in the 
 
 ## Description
 
-Use: ui_manager.popups.show_popup(popup_id, {"title": "...", "text": "..."}). The data is given to the scene's setup().
+Use: ui_manager.popups.show_popup(popup_id, &#123;"title": "...", "text": "..."&#125;). The data is given to the scene's setup().
 
 ## Variables
 
@@ -47,7 +47,7 @@ A popup was closed (by the player, by ESC, by itself, by the game)
 
 ## Method descriptions
 
-### PopupUI show_popup( popup_id: int, arguments: Dictionary = {} ) {#method-show-popup}
+### PopupUI show_popup( popup_id: int, arguments: Dictionary = &#123;&#125; ) {#method-show-popup}
 
 Show a popup. The popup's own data decides what happens when others are open (it may wait: nothing is returned then), and a popup that is shown once is not shown a second time. Returns the popup that was put on the screen, or null
 

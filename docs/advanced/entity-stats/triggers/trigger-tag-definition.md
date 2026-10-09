@@ -82,7 +82,7 @@ Floating text when it fires
 
 ### String log_phrase = "" {#prop-log-phrase}
 
-Combat log phrase when it fires. Placeholders: {attacker} {target} {ability} {damage}. Empty = the default for the kind
+Combat log phrase when it fires. Placeholders: &#123;attacker&#125; &#123;target&#125; &#123;ability&#125; &#123;damage&#125;. Empty = the default for the kind
 
 *Forcing*
 

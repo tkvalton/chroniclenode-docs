@@ -72,7 +72,7 @@ Only the effect with this id counts (cast kinds). 0 = every effect of the cast
 
 ## Method descriptions
 
-### float evaluate( effect_instance: EffectInstance, overrides: Dictionary = {} ) {#method-evaluate}
+### float evaluate( effect_instance: EffectInstance, overrides: Dictionary = &#123;&#125; ) {#method-evaluate}
 
 The value of this part for an effect that runs now. `overrides` can name a number the effect knows better: "target_max_health" (a heal limited to one pool uses the maximum of that pool)
 

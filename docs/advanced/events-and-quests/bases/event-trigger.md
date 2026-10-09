@@ -60,7 +60,7 @@ Set up any listeners or connections needed by this trigger
 
 Clean up any listeners or connections
 
-### void emit_triggered( event_data: Dictionary = {} ) {#method-emit-triggered}
+### void emit_triggered( event_data: Dictionary = &#123;&#125; ) {#method-emit-triggered}
 
 Emit the triggered signal with event data
 

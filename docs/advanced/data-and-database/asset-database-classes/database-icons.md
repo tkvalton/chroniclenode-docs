@@ -57,7 +57,7 @@ Get all icons from all categories
 
 ### String get_icon_by_id( icon_id: int ) {#method-get-icon-by-id}
 
-Get icon by ID (finds the file named {id}.png/jpg/etc in any category)
+Get icon by ID (finds the file named &#123;id&#125;.png/jpg/etc in any category)
 
 ### String get_icon_category( icon_id: int ) {#method-get-icon-category}
 

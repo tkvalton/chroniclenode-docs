@@ -46,7 +46,7 @@ Clean set bonus system with ID-based lazy loading to prevent circular dependenci
 
 ### Dictionary set_bonus_effects =  {#prop-set-bonus-effects}
 
-Dictionary mapping piece count to effect IDs: {2: 12345, 4: 67890, 6: 54321}
+Dictionary mapping piece count to effect IDs: &#123;2: 12345, 4: 67890, 6: 54321&#125;
 
 *Set Composition*
 

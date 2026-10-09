@@ -1,6 +1,6 @@
 # Stat effects: how they work
 
-A **stat effect** is a `Resource` in the `stat_effects` array of a [`StatDefinition`](/advanced/entity-stats/stats-and-pools/stat-definition). The entity's `StatInstance` for the stat keeps the effects, and the system that consumes each type asks it for the effects of that type (`get_effects_by_type`). A stat only takes part when the entity has points in it (`get_total() != 0`) and the stat is active.
+A **stat effect** is a `Resource` in the `stat_effects` array of a [`StatDefinition`](/advanced/entity-stats/stats-and-pools/stat-definition). The entity's [`StatInstance`](/advanced/entity-stats/runtime/stat-instance) for the stat keeps the effects, and the system that consumes each type asks it for the effects of that type (`get_effects_by_type`). A stat only takes part when the entity has points in it (`get_total() != 0`) and the stat is active.
 
 The [basic page](/basic/entity-stats/stats#stat-effects) lists the nine types and their fields. This page is about how they are read.
 
@@ -34,15 +34,15 @@ The fields `value_per_point`, `use_scaling`, `scaling_mode`, `scaling_threshold`
 
 | Type | Consumed by | When |
 |---|---|---|
-| [`MultiplierStatEffect`](/advanced/entity-stats/stat-effects/multiplier-stat-effect) | `StatsComponent._apply_multiplier_effects` | When a stat changes. A cascade guard stops after 10 passes. Results are cached as bonuses and re-applied when a condition flips |
+| [`MultiplierStatEffect`](/advanced/entity-stats/stat-effects/multiplier-stat-effect) | [`StatsComponent._apply_multiplier_effects`](/advanced/entity-stats/runtime/stats-component) | When a stat changes. A cascade guard stops after 10 passes. Results are cached as bonuses and re-applied when a condition flips |
 | [`PoolModifierStatEffect`](/advanced/entity-stats/stat-effects/pool-modifier-stat-effect) | `StatsComponent._update_pool_effects` | When a stat changes and at the start and end of combat. Starts from the pool's own base each time, so it never compounds |
-| [`AbilityModifierStatEffect`](/advanced/entity-stats/stat-effects/ability-modifier-stat-effect) | `StatsComponent.get_ability_modifier_entries`, asked by the ability for its cooldown, cost or resource gain, and by its use and target strategies for the cast time (`cast_duration`) and the range (`max_range`): `apply_modifiers` of `UseStrategyInstance` and `TargetStrategyInstance` add the entries of the stats for the properties in `AbilityInstance.STAT_MODIFIED_PROPERTIES` | Every time the ability property is read; nothing is stored, so nothing goes stale |
-| [`CalculationModifierStatEffect`](/advanced/entity-stats/stat-effects/calculation-modifier-stat-effect) | `CalculationBase._run_modifiers` | Phase 2 of a [calculation](/advanced/entity-stats/pipeline) |
+| [`AbilityModifierStatEffect`](/advanced/entity-stats/stat-effects/ability-modifier-stat-effect) | `StatsComponent.get_ability_modifier_entries`, asked by the ability for its cooldown, cost or resource gain, and by its use and target strategies for the cast time (`cast_duration`) and the range (`max_range`): `apply_modifiers` of [`UseStrategyInstance`](/advanced/abilities-and-effects/runtime/use-strategy-instance) and [`TargetStrategyInstance`](/advanced/abilities-and-effects/runtime/target-strategy-instance) add the entries of the stats for the properties in [`AbilityInstance.STAT_MODIFIED_PROPERTIES`](/advanced/abilities-and-effects/runtime/ability-instance) | Every time the ability property is read; nothing is stored, so nothing goes stale |
+| [`CalculationModifierStatEffect`](/advanced/entity-stats/stat-effects/calculation-modifier-stat-effect) | [`CalculationBase._run_modifiers`](/advanced/entity-stats/calculations/calculation-base) | Phase 2 of a [calculation](/advanced/entity-stats/pipeline) |
 | [`CalculationTriggerStatEffect`](/advanced/entity-stats/stat-effects/calculation-trigger-stat-effect) | `CalculationBase._roll_triggers` | Phase 1 of a calculation |
 | [`TriggerRuleStatEffect`](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect) | `CalculationBase._collect_rules` | Before the triggers roll |
 | [`PoolRestorationStatEffect`](/advanced/entity-stats/stat-effects/pool-restoration-stat-effect) | `StatsComponent` hit and kill handlers | After a resolved hit (leech, mana on hit, health on kill) |
-| [`ReactiveDamageStatEffect`](/advanced/entity-stats/stat-effects/reactive-damage-stat-effect) | `StatsComponent` through `CombatReactions` | After a resolved hit taken (damage reflection) |
-| [`HitChanceStatEffect`](/advanced/entity-stats/stat-effects/hit-chance-stat-effect) | `HitRules.get_chance` through `get_accuracy` and `get_evasion` | When an ability that can miss rolls its [hit roll](/advanced/entity-stats/pipeline#the-hit-roll) |
+| [`ReactiveDamageStatEffect`](/advanced/entity-stats/stat-effects/reactive-damage-stat-effect) | `StatsComponent` through [`CombatReactions`](/advanced/entity-stats/combat/combat-reactions) | After a resolved hit taken (damage reflection) |
+| [`HitChanceStatEffect`](/advanced/entity-stats/stat-effects/hit-chance-stat-effect) | [`HitRules.get_chance`](/advanced/entity-stats/combat/hit-rules) through `get_accuracy` and `get_evasion` | When an ability that can miss rolls its [hit roll](/advanced/entity-stats/pipeline#the-hit-roll) |
 | [`GainModifierStatEffect`](/advanced/entity-stats/stat-effects/gain-modifier-stat-effect) | `StatsComponent.modify_gain(channel, amount)` | When the game gives the entity experience, gold, loot, threat or a resource |
 
 ## Trigger effects and rules
@@ -63,17 +63,17 @@ A condition on a stat effect is an [`EntityCondition`](/advanced/shared-systems/
 | `damage_type`, `calculation_target`, `is_damage_calculation`, `can_be_avoided` | Added by the calculations |
 | the tag of a fired trigger, and `"magnitude:<tag>"` | Added when a trigger fires, so later modifiers can require it |
 
-The target kind of an entity condition picks who it asks: **Argument Entity** is the owner and **Opponent** the opponent. This is how "+30 % damage against Undead" works: the condition `EntityHasTagCondition` is asked about the opponent.
+The target kind of an entity condition picks who it asks: **Argument Entity** is the owner and **Opponent** the opponent. This is how "+30 % damage against Undead" works: the condition [`EntityHasTagCondition`](/advanced/shared-systems/entity-conditions/entity-has-tag-condition) is asked about the opponent.
 
 Effects that are cached as bonuses (multiplier, pool modifier) cannot ask the opponent. `StatsComponent` remembers whether each conditional effect was active at the last check (`_condition_snapshot`) and re-applies them only when one flipped: at the start and end of combat and when the master pool changes.
 
 ## Writing a new type
 
 1. Extend `StatEffect` in a script and return your own `EffectType` (add it after the last value) from `get_effect_type()`.
-2. Add it to the **Add Stat Effect** dialog: the type list and the `match` in `StatEditor._create_new_stat_effect` (addon code, so this one is a change to the addon). `StatEffectPropertyEditor` draws the fields of each type, so give a new type its own section there.
+2. Add it to the **Add Stat Effect** dialog: the type list and the `match` in [`StatEditor._create_new_stat_effect`](/advanced/editor/stats/stat-editor) (addon code, so this one is a change to the addon). [`StatEffectPropertyEditor`](/advanced/editor/stats/stat-effect-property-editor) draws the fields of each type, so give a new type its own section there.
 3. Write the consumer: the place in your game that calls `stat_instance.get_effects_by_type(...)` and applies them.
 
-For a new **formula**, **diminishing returns** or **condition** nothing needs registering. Put the script in the project folder (`res://src/stat_formulas/`, `res://src/stat_diminishing_returns/`, `res://src/stat_conditions/`) and the editor finds it with `StatClassScanner`. The addon folder is overwritten by updates, so keep your own classes in the project.
+For a new **formula**, **diminishing returns** or **condition** nothing needs registering. Put the script in the project folder (`res://src/stat_formulas/`, `res://src/stat_diminishing_returns/`, `res://src/stat_conditions/`) and the editor finds it with [`StatClassScanner`](/advanced/editor/stats/stat-class-scanner). The addon folder is overwritten by updates, so keep your own classes in the project.
 
 ## Class pages
 

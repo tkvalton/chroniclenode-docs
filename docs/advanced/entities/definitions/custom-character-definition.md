@@ -102,19 +102,19 @@ The skeleton tag this character customization is designed for (e.g., "humanoid")
 
 ### Dictionary facial_mesh_config =  {#prop-facial-mesh-config}
 
-Facial mesh configuration: { FacialFeature (int) : mesh_name (String) } Maps GeneralSkeleton.FacialFeature enum values to selected mesh names Example: { 0: "default_eyes", 9: "aquiline_nose" }
+Facial mesh configuration: &#123; FacialFeature (int) : mesh_name (String) &#125; Maps GeneralSkeleton.FacialFeature enum values to selected mesh names Example: &#123; 0: "default_eyes", 9: "aquiline_nose" &#125;
 
 *Color Customization*
 
 ### Dictionary color_config =  {#prop-color-config}
 
-Color configuration: { shader_param_name (String) : color (Color) } Maps shader parameter names to their color values Example: { "skin_color": Color(0.9, 0.7, 0.6), "eye_color": Color(0.2, 0.5, 0.8) }
+Color configuration: &#123; shader_param_name (String) : color (Color) &#125; Maps shader parameter names to their color values Example: &#123; "skin_color": Color(0.9, 0.7, 0.6), "eye_color": Color(0.2, 0.5, 0.8) &#125;
 
 *Blend Shape Customization*
 
 ### Dictionary blend_shape_config =  {#prop-blend-shape-config}
 
-Blend shape configuration: { shape_key (String) : weight (float) } Maps blend shape/morph target names to their weight values (typically 0.0 - 1.0) Example: { "brow_height": 0.5, "jaw_width": 0.3, "nose_length": -0.2 }
+Blend shape configuration: &#123; shape_key (String) : weight (float) &#125; Maps blend shape/morph target names to their weight values (typically 0.0 - 1.0) Example: &#123; "brow_height": 0.5, "jaw_width": 0.3, "nose_length": -0.2 &#125;
 
 ## Method descriptions
 

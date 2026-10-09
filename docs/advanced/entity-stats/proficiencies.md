@@ -4,8 +4,8 @@ The [basic page](/basic/entity-stats/proficiencies) is about using them. This pa
 
 | Class | What it is |
 |---|---|
-| [`ProficiencyDefinition`](/advanced/entity-stats/definitions/proficiency-definition) | A `DatabaseResource` in the type `proficiency`, saved in `res://src/data/stats/proficiencies/` |
-| [`ProficiencyTracker`](/advanced/entity-stats/runtime/proficiency-tracker) | A `RefCounted` that belongs to a `Player` (`player.proficiencies`) and holds its levels |
+| [`ProficiencyDefinition`](/advanced/entity-stats/definitions/proficiency-definition) | A [`DatabaseResource`](/advanced/data-and-database/database-classes/database-resource) in the type `proficiency`, saved in `res://src/data/stats/proficiencies/` |
+| [`ProficiencyTracker`](/advanced/entity-stats/runtime/proficiency-tracker) | A `RefCounted` that belongs to a [`Player`](/advanced/entities/runtime/player) (`player.proficiencies`) and holds its levels |
 | [`RequirementProficiency`](/advanced/shared-systems/requirements/requirement-proficiency) | A requirement: a level in a proficiency |
 | [`ProficiencyReward`](/advanced/shared-systems/rewards/proficiency-reward) | A reward: experience or levels |
 
@@ -17,11 +17,11 @@ The settings, the same as in the editor: `max_level`, `starting_level`, `experie
 
 ### The hidden stat
 
-The effects of a proficiency are the **effects of a hidden stat**. `get_virtual_stat()` makes a `StatDefinition` whose `stat_effects` is the same array as the proficiency's, whose group is Hidden and whose id is `StatDefinition.VIRTUAL_ID_BASE + id` (500 million and up, so it never meets a stat of the project). It is not saved and not in the cache `stat`. `Database.get_all_stat_definitions()` returns the stats and these hidden stats, and the places that build or read every stat use it: `StatsComponent._initialize_all_stat_instances` (every entity gets an instance, with 0 points), `CombatCalculations.build_universal_effect_orders` (so the modifiers of a proficiency take their place in the order of the [calculations](/advanced/entity-stats/pipeline)) and the Calculations editor (where their priority can be set, and saved with the proficiency). So every effect type, every filter and every condition works on a proficiency without a second implementation.
+The effects of a proficiency are the **effects of a hidden stat**. `get_virtual_stat()` makes a [`StatDefinition`](/advanced/entity-stats/stats-and-pools/stat-definition) whose `stat_effects` is the same array as the proficiency's, whose group is Hidden and whose id is `StatDefinition.VIRTUAL_ID_BASE + id` (500 million and up, so it never meets a stat of the project). It is not saved and not in the cache `stat`. [`Database.get_all_stat_definitions()`](/advanced/data-and-database/database-classes/database) returns the stats and these hidden stats, and the places that build or read every stat use it: [`StatsComponent._initialize_all_stat_instances`](/advanced/entity-stats/runtime/stats-component) (every entity gets an instance, with 0 points), [`CombatCalculations.build_universal_effect_orders`](/advanced/entity-stats/calculations/combat-calculations) (so the modifiers of a proficiency take their place in the order of the [calculations](/advanced/entity-stats/pipeline)) and the Calculations editor (where their priority can be set, and saved with the proficiency). So every effect type, every filter and every condition works on a proficiency without a second implementation.
 
 ### Gating equipment
 
-`ProficiencyDefinition.requirements_for_item(item)` returns a `RequirementProficiency` for every proficiency with `level_needed_to_equip > 0` that lists the weapon class or weapon type of a weapon, or the armor class of an armor piece. `ItemDefinition._get_combined_requirements` appends them to the requirements of the item, so equipping (`EquipmentInventoryComponent.equip_item_to_slot`), tooltips and the failure message all see them. Only players are checked.
+`ProficiencyDefinition.requirements_for_item(item)` returns a `RequirementProficiency` for every proficiency with `level_needed_to_equip > 0` that lists the weapon class or weapon type of a weapon, or the armor class of an armor piece. [`ItemDefinition._get_combined_requirements`](/advanced/items/item-definitions/item-definition) appends them to the requirements of the item, so equipping ([`EquipmentInventoryComponent.equip_item_to_slot`](/advanced/items/runtime/equipment-inventory-component)), tooltips and the failure message all see them. Only players are checked.
 
 ## The tracker
 
@@ -52,19 +52,19 @@ Each use calls `_gain_from_use`, which honors `minimum_seconds_between_gains` (t
 
 ## The requirement, the reward, the effect and the condition
 
-`Entity.get_proficiency_level(id)` answers the starting level of the proficiency; `Player` overrides it with `get_proficiencies().get_level(id)`. `RequirementProficiency.check` and `ProficiencyCondition.evaluate_entity` both call it, so any entity can be asked.
+[`Entity.get_proficiency_level(id)`](/advanced/entities/runtime/entity) answers the starting level of the proficiency; `Player` overrides it with `get_proficiencies().get_level(id)`. `RequirementProficiency.check` and [`ProficiencyCondition.evaluate_entity`](/advanced/shared-systems/entity-conditions/proficiency-condition) both call it, so any entity can be asked.
 
-`ProficiencyEffect` (`data_classes/effects/stats/`) has `Action`: `ADD_LEVELS` (`add_levels`, may be negative), `ADD_EXPERIENCE`, `SET_LEVEL` and `BOOST_LEVELS`. The three permanent actions are `is_one_off_application`: a loaded save does not do them again. A boost calls `ProficiencyTracker.add_bonus_levels(id, n)` and remembers `n` in `custom_effect_data["proficiency_boost"]`; `on_apply_finished` and `_on_apply_cancelled` call it again with `-n`. The tracker keeps boosts in `_bonus` (never saved) beside `_levels` (the trained level, saved); `get_level` is `clamp(base + bonus, 0, max_level)`, `get_base_level` is the trained level, `level_changed` is emitted for the effective level. Experience and `set_level` work on the trained level.
+[`ProficiencyEffect`](/advanced/abilities-and-effects/effects-stats/proficiency-effect) (`data_classes/effects/stats/`) has `Action`: `ADD_LEVELS` (`add_levels`, may be negative), `ADD_EXPERIENCE`, `SET_LEVEL` and `BOOST_LEVELS`. The three permanent actions are `is_one_off_application`: a loaded save does not do them again. A boost calls `ProficiencyTracker.add_bonus_levels(id, n)` and remembers `n` in `custom_effect_data["proficiency_boost"]`; `on_apply_finished` and `_on_apply_cancelled` call it again with `-n`. The tracker keeps boosts in `_bonus` (never saved) beside `_levels` (the trained level, saved); `get_level` is `clamp(base + bonus, 0, max_level)`, `get_base_level` is the trained level, `level_changed` is emitted for the effective level. Experience and `set_level` work on the trained level.
 
 `RequirementProficiency` connects to `level_changed` in `connect_to_entity_signals` and emits `requirement_state_changed` so passive abilities and effects are asked again. `ProficiencyReward.apply_to_player` calls `add_experience` or `add_levels` and returns `{"success": true, "levels_gained": n}`. It cannot be undone.
 
-The add dialogs of requirements, rewards and conditions show a picker for `proficiency_id` (`PROPERTY_SELECTORS` in `UnifiedResourceDialog`), and so does the effect editor (`PropertySelectorRegistry`).
+The add dialogs of requirements, rewards and conditions show a picker for `proficiency_id` (`PROPERTY_SELECTORS` in [`UnifiedResourceDialog`](/advanced/editor/dialogs/unified-resource-dialog)), and so does the effect editor ([`PropertySelectorRegistry`](/advanced/editor/tools/property-selector-registry)).
 
 ## The editor
 
-`ProficienciesEditor` builds its two columns in code under the base editor of a database resource: sections at the left (`StatPropertyFields` rows, the shared formula picker, id lists), the stat effects at the right as `StatEffectPropertyEditor` panels with the shared "add stat effect" dialog (`StatPropertyFields.show_add_stat_effect_dialog`, also used by the Stats editor).
+[`ProficienciesEditor`](/advanced/editor/stats/proficiencies-editor) builds its two columns in code under the base editor of a database resource: sections at the left ([`StatPropertyFields`](/advanced/editor/stats/stat-property-fields) rows, the shared formula picker, id lists), the stat effects at the right as [`StatEffectPropertyEditor`](/advanced/editor/stats/stat-effect-property-editor) panels with the shared "add stat effect" dialog (`StatPropertyFields.show_add_stat_effect_dialog`, also used by the Stats editor).
 
-Long lists of ids (abilities, effects, weapon classes) are picked from the catalog: `StatPropertyFields.add_id_checklist` turns into `add_id_picker` for the databases in `CATALOG_TYPES` and for any database with more than `CATALOG_FROM_ENTRIES` entries, using `ListCatalog.open_for(type)`; the game editor gives it the dialog manager once (`StatPropertyFields.dialog_manager`).
+Long lists of ids (abilities, effects, weapon classes) are picked from the catalog: `StatPropertyFields.add_id_checklist` turns into `add_id_picker` for the databases in `CATALOG_TYPES` and for any database with more than `CATALOG_FROM_ENTRIES` entries, using [`ListCatalog.open_for(type)`](/advanced/editor/catalogs/list-catalog); the game editor gives it the dialog manager once (`StatPropertyFields.dialog_manager`).
 
 ## Adding a source of experience
 

@@ -36,5 +36,5 @@ The ids of the stats (of the whole project) in a group
 
 ### Array[Dictionary] layout( stats: Array ) {#method-layout}
 
-Lays stats out under group headings: [{"group": StatGroupDefinition or null, "stats": Array[StatDefinition]}], the groups in heading order and the stats without a group last (group null). Hidden stats are left out. A stat is listed once, under its first group
+Lays stats out under group headings: [&#123;"group": StatGroupDefinition or null, "stats": Array[StatDefinition]&#125;], the groups in heading order and the stats without a group last (group null). Hidden stats are left out. A stat is listed once, under its first group
 

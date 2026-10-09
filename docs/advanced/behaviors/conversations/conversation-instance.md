@@ -306,11 +306,11 @@ Proceed to a new chat
 
 ### Array[Dictionary] get_response_data_for_current_chat() {#method-get-response-data-for-current-chat}
 
-Get response data for the current chat with requirement status Returns Array[Dictionary] with format: {"response": ConversationResponse, "requirements_met": bool}
+Get response data for the current chat with requirement status Returns Array[Dictionary] with format: &#123;"response": ConversationResponse, "requirements_met": bool&#125;
 
 ### Array[Dictionary] get_response_data_for_chat( chat: ConversationChat, player: Entity ) {#method-get-response-data-for-chat}
 
-Get response data for a specific chat with requirement status Returns Array[Dictionary] with format: {"response": ConversationResponse, "requirements_met": bool} Skips responses where runtime state is inactive
+Get response data for a specific chat with requirement status Returns Array[Dictionary] with format: &#123;"response": ConversationResponse, "requirements_met": bool&#125; Skips responses where runtime state is inactive
 
 ### Array[ConversationResponse] get_available_responses_for_current_chat() {#method-get-available-responses-for-current-chat}
 

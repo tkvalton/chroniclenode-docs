@@ -5,7 +5,7 @@ Two kinds of rules change how much an effect does and how a hit or heal turns ou
 - **Scaling rules** (on **Damage**, **Heal** and **Stat Modifier** effects) make the number depend on the situation: a target low on health, a target with a shield, a target with many [stacks](/basic/keywords#stacks) of something.
 - **Trigger rules** (on **Damage** and **Heal** effects) change how special outcomes behave for this effect: a critical strike, a dodge, a multistrike.
 
-Both are lists on the effect. Only the effect types that have a number to scale carry the scaling rules, and only the ones that cause a hit or a heal carry the trigger rules: the other effect types do not show them. In the code the scaling rules come from `ScalingEffect` (damage, heal and stat modifiers) and the trigger rules from `CombatResultEffect` (damage and heal), so a new effect of that kind can have them too. You find them in the [Effects editor](/basic/abilities-and-effects/effects#settings-of-the-damage-and-heal-effects), under **Specific Properties**.
+Both are lists on the effect. Only the effect types that have a number to scale carry the scaling rules, and only the ones that cause a hit or a heal carry the trigger rules: the other effect types do not show them. In the code the scaling rules come from [`ScalingEffect`](/advanced/abilities-and-effects/effects-base/scaling-effect) (damage, heal and stat modifiers) and the trigger rules from [`CombatResultEffect`](/advanced/abilities-and-effects/effects-base/combat-result-effect) (damage and heal), so a new effect of that kind can have them too. You find them in the [Effects editor](/basic/abilities-and-effects/effects#settings-of-the-damage-and-heal-effects), under **Specific Properties**.
 
 ## Scaling rules
 

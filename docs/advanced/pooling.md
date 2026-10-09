@@ -6,11 +6,11 @@ A pool works on [instances](/advanced/definitions-and-instances), never on defin
 
 | Pool | Holds | Where | Size |
 |---|---|---|---|
-| [Effect instances](#effect-instances) | `EffectInstance` objects | `EffectInstancePool` | 50 made at start, up to 500 kept |
-| [Projectiles](#projectiles) | `PhysicalProjectileInstance`, `NonPhysicalProjectileInstance` | `EffectInstancePool` | up to 400 of each kind kept |
-| [VFX](#vfx) | `VFX` scenes, one pool for every effect in the VFX library | `VFXManager` | Every VFX made once at loading, up to 500 kept |
-| [Timers](#timers) | `Timer` nodes | `ChronoManager` | 300 made at start, grows by 100 |
-| [Audio players](#audio-players) | `AudioStreamPlayer3D`, `AudioStreamPlayer` | `AudioManager` | 50 3D, 20 2D, 5 for the interface |
+| [Effect instances](#effect-instances) | [`EffectInstance`](/advanced/abilities-and-effects/runtime/effect-instance) objects | [`EffectInstancePool`](/advanced/abilities-and-effects/runtime/effect-instance-pool) | 50 made at start, up to 500 kept |
+| [Projectiles](#projectiles) | [`PhysicalProjectileInstance`](/advanced/abilities-and-effects/runtime/physical-projectile-instance), [`NonPhysicalProjectileInstance`](/advanced/abilities-and-effects/runtime/non-physical-projectile-instance) | `EffectInstancePool` | up to 400 of each kind kept |
+| [VFX](#vfx) | [`VFX`](/advanced/assets/vfx/vfx) scenes, one pool for every effect in the VFX library | [`VFXManager`](/advanced/assets/vfx/vfx-manager) | Every VFX made once at loading, up to 500 kept |
+| [Timers](#timers) | `Timer` nodes | [`ChronoManager`](/advanced/managers/managers/chrono-manager) | 300 made at start, grows by 100 |
+| [Audio players](#audio-players) | `AudioStreamPlayer3D`, `AudioStreamPlayer` | [`AudioManager`](/advanced/managers/managers/audio-manager) | 50 3D, 20 2D, 5 for the interface |
 
 ## The pattern
 
@@ -44,7 +44,7 @@ When you write code that creates effects, use the pool to make them, not `Effect
 
 ## Projectiles
 
-`get_physical_projectile()` and `get_non_physical_projectile()` return projectiles that are Node3Ds parked in the world container. A projectile knows how to give itself back: the pool sets a **return callback** on every projectile it makes (`set_pool_return_callback`), and the projectile calls it when it hits, expires or is cancelled. Returning resets it (`reset_projectile`), hides it, stops its processing and parks it. If 400 are already parked, it is freed. `get_*` brings it back, shows it, starts its processing and makes sure it is in the world container.
+`get_physical_projectile()` and `get_non_physical_projectile()` return projectiles that are Node3Ds parked in the [world container](/advanced/world/runtime/world-container). A projectile knows how to give itself back: the pool sets a **return callback** on every projectile it makes (`set_pool_return_callback`), and the projectile calls it when it hits, expires or is cancelled. Returning resets it (`reset_projectile`), hides it, stops its processing and parks it. If 400 are already parked, it is freed. `get_*` brings it back, shows it, starts its processing and makes sure it is in the world container.
 
 ## VFX
 
@@ -76,7 +76,7 @@ chrono_manager.return_timer(timer)
 
 ## Audio players
 
-`AudioManager` makes 50 `AudioStreamPlayer3D` for positional sound, 20 `AudioStreamPlayer` for global sound and 5 for the interface. A request (`request_3d_audio_player` with an `AudioPlayerRequest`, or `AudioComponent.play_effect` / `play_sfx_selection` for entities) takes a free player, plays it, and the `finished` signal returns it. **When there is no free player the sound is skipped**: audio does not grow its pool, because a missing footstep is better than a hitch. An entity's `AudioComponent` tracks the requests it made so it can stop them (`stop_all_audio`) when the entity goes.
+`AudioManager` makes 50 `AudioStreamPlayer3D` for positional sound, 20 `AudioStreamPlayer` for global sound and 5 for the interface. A request (`request_3d_audio_player` with an `AudioPlayerRequest`, or [`AudioComponent.play_effect`](/advanced/assets/rig/audio-component) / `play_sfx_selection` for entities) takes a free player, plays it, and the `finished` signal returns it. **When there is no free player the sound is skipped**: audio does not grow its pool, because a missing footstep is better than a hitch. An entity's `AudioComponent` tracks the requests it made so it can stop them (`stop_all_audio`) when the entity goes.
 
 ## Writing code that works with the pools
 

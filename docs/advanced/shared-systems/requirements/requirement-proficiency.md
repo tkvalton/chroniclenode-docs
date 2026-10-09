@@ -58,5 +58,5 @@ Stop listening to the proficiencies of the entity
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Configuration problems of this requirement, as a list of {"type", "message", "severity"} ("warning" or "error"). An empty list is fine. Types override it to point out settings that make them useless. RequirementChecker.validate_requirements collects them for the editor *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+Configuration problems of this requirement, as a list of &#123;"type", "message", "severity"&#125; ("warning" or "error"). An empty list is fine. Types override it to point out settings that make them useless. RequirementChecker.validate_requirements collects them for the editor *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
 

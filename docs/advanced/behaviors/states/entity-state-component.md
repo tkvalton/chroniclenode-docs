@@ -233,7 +233,7 @@ Handle the entity entering combat
 
 Handle the entity exiting combat
 
-### bool request_combat_state_change( state_name: ModularCombatScript.ActionStateName, data: Dictionary = {} ) {#method-request-combat-state-change}
+### bool request_combat_state_change( state_name: ModularCombatScript.ActionStateName, data: Dictionary = &#123;&#125; ) {#method-request-combat-state-change}
 
 Request combat state change
 

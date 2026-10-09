@@ -72,7 +72,7 @@ A resource that needs another one stores its **id** in an `int` property, or in 
 and looks it up when it needs it: `Database.get_resource("effect", child_effect_id)`. This keeps resources independent files (a saved game, a copied file and a merge all work on ids), and means a reference can break:
 **deleting a resource does not change the resources that point at it**. A lookup of a deleted id returns `null`, and the code that uses ids checks for that. The editors show a warning for a reference that no longer exists (for example an invalid child effect id).
 
-The editor draws the picker of an id property by the **name of the property**. `PropertySelectorRegistry.PROPERTY_SELECTORS` maps names such as `faction_id`, `effect_id`, `quest_id` or `stat_id` to the type they point at, and the generic property panels (the effect editor, the Unique Object tool) show a picker for the right type without any code of their own.
+The editor draws the picker of an id property by the **name of the property**. [`PropertySelectorRegistry.PROPERTY_SELECTORS`](/advanced/editor/tools/property-selector-registry) maps names such as `faction_id`, `effect_id`, `quest_id` or `stat_id` to the type they point at, and the generic property panels (the effect editor, the Unique Object tool) show a picker for the right type without any code of their own.
 A new id property is picked up automatically if its name is in that table.
 
 ## Built-in resources
@@ -87,8 +87,8 @@ Some resources must exist in every project. The database makes them when they ar
 | The *Shield* pool (absorbs damage before health, never healed) | `pool` | 1000002 |
 | The default time, sun, sky and environment configs | `time`, `sun`, `sky`, `enviroment` | 1000001 |
 | The default popup (title, text, icon, button) | `popup` | 1000001 |
-| The stat groups *Core* and *Hidden*, and a starting set (Primary, Secondary, Offensive, Defensive, Utility) when the project has none | `stat_group` | see `StatGroupDefinition.DEFAULTS` |
-| Every core stat (movement speed, attack speed and the rest) | `stat` | see `CoreStatDefaults.DEFINITIONS` |
+| The stat groups *Core* and *Hidden*, and a starting set (Primary, Secondary, Offensive, Defensive, Utility) when the project has none | `stat_group` | see [`StatGroupDefinition.DEFAULTS`](/advanced/entity-stats/definitions/stat-group-definition) |
+| Every core stat (movement speed, attack speed and the rest) | `stat` | see [`CoreStatDefaults.DEFINITIONS`](/advanced/entity-stats/stats-and-pools/core-stat-defaults) |
 
 Each is made and saved as a normal file, so it is the project's afterwards and can be edited. When the file cannot be written (an exported game) the stat groups, the core stats and the Shield pool still exist in the cache for the session.
 The ids are constants of `Database` (`ID_ENVIRONMENTAL_FACTION`, `ID_PLAYER_FACTION`, `ID_HEALTH_POOL`, `ID_SHIELD_POOL`, `ID_DEFAULT_POPUP` ...).

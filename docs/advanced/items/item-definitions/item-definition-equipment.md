@@ -84,7 +84,7 @@ Equipment items that can be worn by characters to provide stat bonuses and visua
 
 ### Dictionary stat_bonuses =  {#prop-stat-bonuses}
 
-Unified stat bonuses - Dictionary mapping stat_id (int) to bonus value (float) Example: {1: 10.0, 5: 5.5} means stat ID 1 gets +10, stat ID 5 gets +5.5
+Unified stat bonuses - Dictionary mapping stat_id (int) to bonus value (float) Example: &#123;1: 10.0, 5: 5.5&#125; means stat ID 1 gets +10, stat ID 5 gets +5.5
 
 *Equipment Properties*
 
@@ -100,7 +100,7 @@ Armor classification: "Plate", "Leather", "Cloth"
 
 ### Dictionary modular_mesh_data =  {#prop-modular-mesh-data}
 
-Nested mesh data structure keyed by modular equipment type tag Structure: modular_mesh_data[tag_string] = { "body_part_meshes": {}, "attachment_meshes": {} }
+Nested mesh data structure keyed by modular equipment type tag Structure: modular_mesh_data[tag_string] = &#123; "body_part_meshes": &#123;&#125;, "attachment_meshes": &#123;&#125; &#125;
 
 *Effects and Abilities*
 

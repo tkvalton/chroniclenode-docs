@@ -104,7 +104,7 @@ Check if this effect applies to the given context *(from [StatEffect](/advanced/
 
 *No description yet.*
 
-### Dictionary apply_to_calculation( current_value: float, stat_points: float, context: Dictionary = {}, formula_context: FormulaContext = null ) {#method-apply-to-calculation}
+### Dictionary apply_to_calculation( current_value: float, stat_points: float, context: Dictionary = &#123;&#125;, formula_context: FormulaContext = null ) {#method-apply-to-calculation}
 
 *No description yet.*
 

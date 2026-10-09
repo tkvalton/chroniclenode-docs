@@ -12,7 +12,7 @@ A stat or pool grows with the level of its entity through three fields (the same
 | `growth_returns` | Optional [`DiminishingReturns`](/advanced/shared-systems/formulas) on the levels gained |
 | `growth_max` | A ceiling on the total growth (0 = none) |
 
-`calculate_growth(level, context)` returns `FormulaPipeline.growth_at(level, formula, returns, context, growth_max)`. The result is 0 without a formula.
+`calculate_growth(level, context)` returns [`FormulaPipeline.growth_at(level, formula, returns, context, growth_max)`](/advanced/shared-systems/formula-support/formula-pipeline). The result is 0 without a formula.
 
 The value of the stat is `(base + growth + bonus) x multiplier`, and the growth of a pool is added to its capacity.
 
@@ -24,14 +24,14 @@ The value of the stat is `(base + growth + bonus) x multiplier`, and the growth 
 |---|---|---|
 | 1 | The entity's own override | `StatsData.growth_overrides`, a `GrowthOverride` per stat or pool id |
 | 2 | The entity's growth profile and its parents | [`GrowthProfile`](/advanced/entity-stats/stats-and-pools/growth-profile), chosen by `StatsData.growth_profile_id` |
-| 3 | The project's default profile | `GameplayConfig.default_npc_growth_profile_id`, read through `CombatOptions.default_npc_growth_profile_id()` |
+| 3 | The project's default profile | [`GameplayConfig.default_npc_growth_profile_id`](/advanced/game-settings/config/gameplay-config), read through [`CombatOptions.default_npc_growth_profile_id()`](/advanced/entity-stats/combat/combat-options) |
 | 4 | The definition | `StatDefinition.calculate_growth` / `PoolDefinition.calculate_growth` |
 
 An entry **replaces** the layers below, **even an empty one, which stops the stat from growing for that entity**. `StatsData.remove_growth_override` goes back to the layers below.
 
-`GrowthProfile` is a database resource of type `growth_profile` (`src/data/stats/growth_profiles/`) with `parent_profile_id` and `growth_overrides` (the same `get_growth_override` / `set_growth_override` / `remove_growth_override` calls as `StatsData`, so one editor serves both). `get_chain()` returns the profile, its parent, the parent's parent... stopping at a missing parent, a loop and `MAX_CHAIN` (8); `GrowthProfile.build_chain(profile_id, default_profile_id)` adds the default; `find_entry(chain, target_id)` gives the nearest entry; `validate()` lists the problems the editor shows in yellow. The toolkit makes an empty profile `GrowthProfile.ID_DEFAULT` for every project (`Database._ensure_default_growth_profile`).
+`GrowthProfile` is a database resource of type `growth_profile` (`src/data/stats/growth_profiles/`) with `parent_profile_id` and `growth_overrides` (the same `get_growth_override` / `set_growth_override` / `remove_growth_override` calls as `StatsData`, so one editor serves both). `get_chain()` returns the profile, its parent, the parent's parent... stopping at a missing parent, a loop and `MAX_CHAIN` (8); `GrowthProfile.build_chain(profile_id, default_profile_id)` adds the default; `find_entry(chain, target_id)` gives the nearest entry; `validate()` lists the problems the editor shows in yellow. The toolkit makes an empty profile `GrowthProfile.ID_DEFAULT` for every project ([`Database._ensure_default_growth_profile`](/advanced/data-and-database/database-classes/database)).
 
-**Who gets the default.** The chain is built in `StatsComponent.setup_from_stats_data` from `stats_data.growth_profile_id` and `StatsComponent.default_growth_profile_id`. `EntityComponentRegistry` sets the second one before the setup, for an entity whose definition is an `NPCDefinition`; a player's component keeps `0`, so only the profile its class names (if any) applies. A `UniqueEntityData` with a stats override duplicates the whole `StatsData`, so the profile carries over.
+**Who gets the default.** The chain is built in `StatsComponent.setup_from_stats_data` from `stats_data.growth_profile_id` and `StatsComponent.default_growth_profile_id`. [`EntityComponentRegistry`](/advanced/entities/runtime/entity-component-registry) sets the second one before the setup, for an entity whose definition is an [`NPCDefinition`](/advanced/entities/definitions/npc-definition); a player's component keeps `0`, so only the profile its class names (if any) applies. A [`UniqueEntityData`](/advanced/world/world-data/unique-entity-data) with a stats override duplicates the whole `StatsData`, so the profile carries over.
 
 **Weapon damage.** The core stat Weapon Damage can have an entry like any stat. `growth_of` returns `0` for it while the entity's own base weapon damage is `0`, so a profile cannot give a weaponless NPC a weapon.
 
@@ -81,9 +81,9 @@ A **gain channel** is a name for something an entity is given. [`GainChannels`](
 | `threat` | The threat a hit generates |
 | `resource` | The resource an ability gains for its user (Rage, Combo ...) |
 | `status_duration` | The duration of a status effect put on the entity: tenacity |
-| `effect_duration` | The duration of the timed effects the entity applies, to others or to itself (`EffectInstance.initialize`, after the time strategy is set up; never below the minimum duration) |
-| `shield_strength` | The size of the shield an `AddHealthPoolEffect` puts up, for its originator |
-| `resource_drain_taken` | What another entity drains from a resource pool (`ModifyResourcePoolEffect`, calculation type *Add* with a negative value): the victim's channel shortens it |
+| `effect_duration` | The duration of the timed effects the entity applies, to others or to itself ([`EffectInstance.initialize`](/advanced/abilities-and-effects/runtime/effect-instance), after the time strategy is set up; never below the minimum duration) |
+| `shield_strength` | The size of the shield an [`AddHealthPoolEffect`](/advanced/abilities-and-effects/effects-stats/add-health-pool-effect) puts up, for its originator |
+| `resource_drain_taken` | What another entity drains from a resource pool ([`ModifyResourcePoolEffect`](/advanced/abilities-and-effects/effects-stats/modify-resource-pool-effect), calculation type *Add* with a negative value): the victim's channel shortens it |
 
 A project can use any other name from its own code.
 

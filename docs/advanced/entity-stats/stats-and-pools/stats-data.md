@@ -123,7 +123,7 @@ Pool base values (auto-populated when adding definitions)
 
 ### Dictionary resource_pool_base_values =  {#prop-resource-pool-base-values}
 
-Key: pool_id (int), Value: {"current": float, "max": float}
+Key: pool_id (int), Value: &#123;"current": float, "max": float&#125;
 
 *Level Growth Overrides*
 

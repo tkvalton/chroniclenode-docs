@@ -55,17 +55,17 @@ The shipped formulas:
 [LevelScaling](/advanced/shared-systems/formula-support/level-scaling) turns a level into a factor. By default it rises in a line from `start_factor` (default 0.25) at level 1 to 1.0 at `reference_level` (default 60) and continues above it:
 `factor = start_factor + (1 − start_factor) × (level − 1) / (reference_level − 1)`. A `curve` (x = level / `curve_max_level`) replaces the line. `source` chooses whose level is read.
 
-[FormulaContext](/advanced/shared-systems/formula-support/formula-context) is what a formula can see: the `owner` of the stat and its level, and in a hit the `attacker` and `defender` with their levels, the `damage_type`, the `incoming_amount` and the `DamageResult` being built.
+[FormulaContext](/advanced/shared-systems/formula-support/formula-context) is what a formula can see: the `owner` of the stat and its level, and in a hit the `attacker` and `defender` with their levels, the `damage_type`, the `incoming_amount` and the [`DamageResult`](/advanced/entity-stats/combat/damage-result) being built.
 Outside combat (pool capacity from a stat, stat-to-stat effects, level growth) only the owner part is filled. `LevelSource` is `OWNER`, `ATTACKER` or `DEFENDER`. Build one with `FormulaContext.for_owner(entity)` or `for_hit(entity, result, incoming)`.
 
 ## Where they are used
 
 | Owner | Properties |
 |---|---|
-| Every stat effect that turns points into a value (`StatEffect` and its types) | `formula`, `returns`, `max_result` |
-| `StatDefinition` | `growth_formula`, `growth_returns`, `growth_max`: growth per level |
-| `PoolDefinition` | the same three, for the growth of a pool |
-| `GrowthOverride` (in `StatsData.growth_overrides`) | the same three, for one kind of entity: a warrior's Strength grows faster than a mage's |
+| Every stat effect that turns points into a value ([`StatEffect`](/advanced/entity-stats/stat-effects/stat-effect) and its types) | `formula`, `returns`, `max_result` |
+| [`StatDefinition`](/advanced/entity-stats/stats-and-pools/stat-definition) | `growth_formula`, `growth_returns`, `growth_max`: growth per level |
+| [`PoolDefinition`](/advanced/entity-stats/stats-and-pools/pool-definition) | the same three, for the growth of a pool |
+| [`GrowthOverride`](/advanced/entity-stats/stats-and-pools/growth-override) (in [`StatsData.growth_overrides`](/advanced/entity-stats/stats-and-pools/stats-data)) | the same three, for one kind of entity: a warrior's Strength grows faster than a mage's |
 
 ## Writing your own formula
 
@@ -88,7 +88,7 @@ func get_label() -> String:
     return "Square root"
 ```
 
-The editor lists every script of those folders that extends the base class (`StatClassScanner`), together with the shipped ones. They live in the project, so updating the addon never overwrites them.
+The editor lists every script of those folders that extends the base class ([`StatClassScanner`](/advanced/editor/stats/stat-class-scanner)), together with the shipped ones. They live in the project, so updating the addon never overwrites them.
 
 ## The classes
 

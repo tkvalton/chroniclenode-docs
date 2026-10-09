@@ -74,7 +74,7 @@ Container interaction - manages inventory storage in world objects Uses Interact
 
 ### Dictionary inventory {#prop-inventory}
 
-Dictionary of inventory items and currency for this container Format: { "items": { item_id: quantity }, "currency": { currency_name: amount } }
+Dictionary of inventory items and currency for this container Format: &#123; "items": &#123; item_id: quantity &#125;, "currency": &#123; currency_name: amount &#125; &#125;
 
 ### int max_slots = 20 {#prop-max-slots}
 

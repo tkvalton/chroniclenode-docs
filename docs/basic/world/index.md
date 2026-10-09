@@ -3,7 +3,7 @@
 A **world** is one place the party can be: a town, a forest, a dungeon. In ChronicleNode a world is two things that belong together:
 
 - a **scene** (`.tscn`) where you build the place in the 3D viewport: terrain, buildings, lights, and the things that live there;
-- a **world record** (`WorldData`) in the database, which says what the world is called, how it sounds and looks, and what it remembers when the party leaves.
+- a **world record** ([`WorldData`](/advanced/world/world-data/world-data)) in the database, which says what the world is called, how it sounds and looks, and what it remembers when the party leaves.
 
 Everything the party meets in a world is placed in the scene and stored as a **unique**: this particular wolf at this spot, this chest by that door, this area by the bridge, this ambush on the road. The definitions (what a wolf *is*) live in [Entities](/basic/entities/); a unique says *where* it stands and what is different about it.
 

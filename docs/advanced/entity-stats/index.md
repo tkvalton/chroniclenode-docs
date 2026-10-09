@@ -6,7 +6,7 @@ The [Entity Stats chapter](/basic/entity-stats/) is about what stats do. This se
 
 | Piece | Where it lives | Class |
 |---|---|---|
-| A stat | The **database** (`DatabaseResource`, `stat`) | [`StatDefinition`](/advanced/entity-stats/stats-and-pools/stat-definition) |
+| A stat | The **database** ([`DatabaseResource`](/advanced/data-and-database/database-classes/database-resource), `stat`) | [`StatDefinition`](/advanced/entity-stats/stats-and-pools/stat-definition) |
 | A pool | The database (`pool`) | [`PoolDefinition`](/advanced/entity-stats/stats-and-pools/pool-definition) |
 | What a stat does | The `stat_effects` array of a stat | A child of [`StatEffect`](/advanced/entity-stats/stat-effects/stat-effect) |
 | What an entity starts with | `StatsData` of a class, NPC or destructible | [`StatsData`](/advanced/entity-stats/stats-and-pools/stats-data) |
@@ -33,14 +33,14 @@ StatsData       (starting values of one class or NPC; read, never changed, share
 
 `StatsComponent.setup_from_stats_data(data)` runs once when the entity starts. The data comes from the placed entity's own `stats_override`, else the NPC definition, else the player's class.
 
-1. The `ImmunityComponent` and `StatusEffectComponent` are made and their signals connected.
+1. The [`ImmunityComponent`](/advanced/entity-stats/runtime/immunity-component) and [`StatusEffectComponent`](/advanced/entity-stats/runtime/status-effect-component) are made and their signals connected.
 2. **Pools.** The master pool id, then one `PoolInstance` for each health pool and resource pool, with the base values from the `StatsData`.
 3. **One `StatInstance` for every stat in the database**, whether the entity "uses" it or not. A stat with 0 points does nothing.
 4. The `StatsData` is applied: the base value and active flag of each stat, the weapon stats, the core stat overrides, the growth overrides.
 5. Permanent immunities are switched on.
 6. Pool capacity and regeneration are worked out from the stat effects, and the cached multiplier effects are applied.
 
-`EnvironmentalEffects` builds a component with `setup_from_stats_data(null)`: no pools and the default core stats.
+[`EnvironmentalEffects`](/advanced/abilities-and-effects/runtime/environmental-effects) builds a component with `setup_from_stats_data(null)`: no pools and the default core stats.
 
 ## The value of a stat
 
@@ -64,7 +64,7 @@ Details in [Growth, core stats and gain channels](/advanced/entity-stats/growth-
 | Page | Contents |
 |---|---|
 | [Stat effects: how they work](/advanced/entity-stats/stat-effects) | The base class, the nine types, how each is consumed, and how to write your own |
-| [The hit and heal pipeline](/advanced/entity-stats/pipeline) | From `CombatManager.apply_damage` to the pools, phase by phase |
+| [The hit and heal pipeline](/advanced/entity-stats/pipeline) | From [`CombatManager.apply_damage`](/advanced/entity-stats/combat/combat-manager) to the pools, phase by phase |
 | [Pools and damage layers](/advanced/entity-stats/pools) | Capacity, generation, overfill, damage layers, heal absorbs |
 | [Growth, core stats and gain channels](/advanced/entity-stats/growth-and-core-stats) | Level growth, overrides, the nine core stats, gain channels |
 | [Trigger tags and stat groups: how they are built](/advanced/entity-stats/trigger-tags-and-stat-groups) | Trigger tags and stat groups. The other labels are in [Types & Groups](/advanced/types-and-groups/) and [Immunities](/advanced/abilities-and-effects/immunities) |
