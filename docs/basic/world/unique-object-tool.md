@@ -1,12 +1,12 @@
 # The Unique Object tool
 
-The **Unique Object** panel is at the bottom of the editor (next to Output and Debugger). It shows the unique of whatever you select in a world scene, and edits it. Select an NPC, an interactable or an encounter in the scene tree or the 3D viewport and the panel opens by itself. Select anything else and it empties. (A region is edited in Godot's own inspector: see below.)
+The **Unique Object** panel is at the bottom of the editor (next to Output and Debugger). It shows the unique of whatever you select in a world scene, and edits it. Select an NPC, an interactable, a region or an encounter in the scene tree or the 3D viewport and the panel opens by itself. Select anything else and it empties.
 
 It is how you say "this one is different": the same *Goblin* definition, but this goblin is level 8, hostile to the town [faction](/basic/behaviors/factions), and guards a chest.
 
 ## The panel
 
-The header has the **name** of the object, a row of **group buttons** (one per section), and, at the right, the **type** (NPC, Interactable, Encounter) and the **id**. Click a group button to show its fields; sections have columns for their sub-groups.
+The header has the **name** of the object, a row of **group buttons** (one per section), and, at the right, the **type** (NPC, Interactable, Region, Encounter) and the **id**. Click a group button to show its fields; sections have columns for their sub-groups.
 
 Changes are saved as you make them. A field left at its empty value (`0`, empty, `-1`) uses the definition; only what you fill in overrides it.
 
@@ -31,7 +31,7 @@ Changes are saved as you make them. A field left at its empty value (`0`, empty,
 
 ### Region
 
-A region is not in this panel. Select the Region node and set its **Area Name** in Godot's inspector. See [Regions](/basic/world/regions).
+The **Area Name** of the region (what [quests](/basic/events-and-quests/quests) and triggers call it), and, for your information, the world it is in and its position. The area itself is the collision shape under the Region node. See [Regions](/basic/world/regions).
 
 ### Encounter
 

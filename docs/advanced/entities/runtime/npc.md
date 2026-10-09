@@ -49,6 +49,7 @@ Runtime Mode:
 |---|---|
 | `void` | [initialize_entity](#method-initialize-entity)( `system_hub: GameHost.SystemHub` ) |
 | `void` | [entity_death](#method-entity-death)( `announce: bool = true` ) |
+| `void` | [respawn_now](#method-respawn-now)() |
 | `bool` | [save_unique_entity_data](#method-save-unique-entity-data)( `data: UniqueEntityData` ) |
 | `void` | [sync_to_unique_data](#method-sync-to-unique-data)() |
 | `int` | [get_experience_worth](#method-get-experience-worth)() |
@@ -132,6 +133,10 @@ Override initialize_entity to add NPC-specific setup ## Regsitry should initiali
 ### void entity_death( announce: bool = true ) {#method-entity-death}
 
 `announce` false puts a saved corpse back (loading): the entity becomes a corpse but nobody is told it died *(from [Entity](/advanced/entities/runtime/entity))*
+
+### void respawn_now() {#method-respawn-now}
+
+Brings the NPC back now, at its start, as if its respawn timer had run out (an encounter that respawns uses this)
 
 ### bool save_unique_entity_data( data: UniqueEntityData ) {#method-save-unique-entity-data}
 

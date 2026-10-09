@@ -7,7 +7,7 @@ A **region** is an area of a world that the game can *watch*: the old mill, the 
 1. Open the world scene, **Add Object > Add Region**. A region node appears in the *Regions* container and is selected.
 2. Give it a shape: add a `CollisionShape3D` as a child of the region, choose a box, a sphere or a capsule, and size and move it over the area. (The node shows a warning until it has a shape.)
 3. Move the region node to the place. Moving the node moves the shape with it.
-4. Set its **Area Name** in Godot's inspector (the Unique Object panel does not show regions): *The Old Mill*. Triggers and quest texts show this name ("Reach The Old Mill").
+4. Set its **Area Name** in the [Unique Object panel](/basic/world/unique-object-tool) (or in Godot's inspector): *The Old Mill*. Triggers and quest texts show this name ("Reach The Old Mill").
 
 The region gets an id and a record in the database (`RegionData`: its world, position and rotation, and its name) as soon as it is in a world scene, like every other [unique](/basic/world/uniques).
 

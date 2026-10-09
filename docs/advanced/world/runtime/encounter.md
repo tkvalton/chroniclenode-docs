@@ -20,6 +20,7 @@ Encounter is a designer-placeable node that coordinates group combat behavior. A
 | `EncounterState` | [encounter_state](#var-encounter-state) | `EncounterState.OUT_OF_COMBAT` |
 | `CombatSession` | [encounter_instance](#var-encounter-instance) | `null` |
 | `Timer` | [spacing_check_timer](#var-spacing-check-timer) | `null` |
+| `Timer` | [respawn_timer](#var-respawn-timer) | `null` |
 | `float` | [group_combat_start_time](#var-group-combat-start-time) | `0.0` |
 | `Array[Entity]` | [forced_combat_entities](#var-forced-combat-entities) | `[]` |
 | `Array[Entity]` | [current_attackers](#var-current-attackers) | `[]` |
@@ -51,6 +52,7 @@ Encounter is a designer-placeable node that coordinates group combat behavior. A
 | `bool` | [is_defeated](#method-is-defeated)() |
 | `bool` | [can_start_combat](#method-can-start-combat)() |
 | `void` | [set_active_state](#method-set-active-state)( `system_hub: GameHost.SystemHub, set_active: bool` ) |
+| `void` | [respawn_group](#method-respawn-group)() |
 | `bool` | [is_entity_allowed_to_attack](#method-is-entity-allowed-to-attack)( `entity: Entity` ) |
 | `void` | [on_behavior_changed](#method-on-behavior-changed)() |
 | `Dictionary` | [to_save_data](#method-to-save-data)() |
@@ -69,6 +71,10 @@ Signals for encounter events
 ### encounter_phase_changed( encounter: Encounter, phase_index: int ) {#signal-encounter-phase-changed}
 
 ### group_behavior_changed( encounter: Encounter, new_behavior: UniqueEncounterData.GroupBehavior ) {#signal-group-behavior-changed}
+
+### encounter_respawned( encounter: Encounter ) {#signal-encounter-respawned}
+
+The defeated group came back (its respawn timer ran out)
 
 ## Enumerations
 
@@ -104,6 +110,10 @@ Reference to the runtime encounter instance (created when combat starts)
 ### Timer spacing_check_timer = null {#var-spacing-check-timer}
 
 Timer for spacing checks using ChronoManager
+
+### Timer respawn_timer = null {#var-respawn-timer}
+
+Counts down to the return of a defeated group (UniqueEncounterData.respawns)
 
 ### float group_combat_start_time = 0.0 {#var-group-combat-start-time}
 
@@ -210,6 +220,10 @@ Check if encounter can start combat
 ### void set_active_state( system_hub: GameHost.SystemHub, set_active: bool ) {#method-set-active-state}
 
 Sets the active state of the encounter and all its entities
+
+### void respawn_group() {#method-respawn-group}
+
+The group comes back: every member that is dead stands up at its start (members with a respawn timer of their own that is still running, and NPCs that can only be killed once, are left alone), and the encounter is ready to fight again with its reactions as new
 
 ### bool is_entity_allowed_to_attack( entity: Entity ) {#method-is-entity-allowed-to-attack}
 

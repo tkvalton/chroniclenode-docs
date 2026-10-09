@@ -35,7 +35,7 @@ When you create a quest while a step is open, the new quest goes into that step.
 ## Things to know
 
 - **A quest of a step does not have to be offered by an NPC.** The line starts the quests of the step for you. Give the quest a hand-in or objectives that the player can do, or use an *Activate Quest* action in an event, if you want the quest handed out some other way: the quest line starts it either way.
-- **A failed quest does not fail the line.** If a quest of the current step fails for good, the step never completes and the line waits. If a failure should end the story, add an event that reacts to the failed quest (a *Quest State Change* trigger) with a *Fail Quest* action for a quest that the line also needs, or a *Game Over*.
+- **A quest that fails for good fails the line.** When a quest of the line fails and its *When it fails* is **Final** (or the project default is final), the quest line fails: it can no longer be finished. A quest that **can be retried** keeps the line waiting; the step continues when the quest is completed after all.
 - **Quests that must be done in order** belong in different steps. **Quests that can be done in any order** belong in the same step.
 - A quest line is a **definition**: the game works on a copy, and the state is saved with the game.
 

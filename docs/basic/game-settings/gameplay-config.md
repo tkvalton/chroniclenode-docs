@@ -437,6 +437,80 @@ var outcome: HitRules.Outcome = HitRules.roll(attacker, target, ranged)   # HIT,
 
 An ability instance answers `can_miss()` and `is_ranged_attack()`. See [Advanced > Entity Stats > the hit and heal pipeline](/advanced/entity-stats/pipeline).
 
+## General
+
+### Fog of war
+
+Fog of war hides the parts of the world the party has not seen. Unexplored ground is covered by a **shroud**; ground that was seen but is out of sight is dimmed (**explored**); what is in sight is clear. Entities in the fog are hidden. The fog is drawn by a GPU effect, so it cannot be seen in the editor's headless tests; try it in the game.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Fog of war enabled** | The whole system on or off | on |
+| **Fog layers** | `1` = only the shroud; `2` = shroud and a dimmed "explored" layer | `2` |
+| **Fog persist exploration** | What was explored stays explored (kept per world, and saved with the game) | on |
+| **Fog shroud color** | The colour of unexplored ground; the alpha is its strength | black |
+| **Fog explored color** | The colour of explored ground out of sight | black, 60 % |
+| **Fog edge quality** | How smooth the edge of the fog is: sharp, low, medium, high, ultra (costlier) | Medium |
+| **Fog edge softness**, **Fog blur radius** | How gradual the edge is, and how blurred | `0.3`, `1` |
+| **Fog pixels per unit** | Detail of the fog image, `1` to `6` (more is sharper and uses more memory) | `4` |
+| **Fog update interval** | Seconds between updates of the vision circles | `0.1` |
+| **Fog entity hide mode** | How an entity in the fog is hidden: **hide the rig** (fast, collision stays), **fade with a shader** (smooth, costlier) or **hide the whole entity** (may change collision) | Hide the rig |
+| **Fog fade duration** | Seconds of the fade, for the shader mode | `0.3` |
+| **Fog keep collision active** | An entity hidden in the fog still collides | on |
+| **Fog hide nameplates**, **Fog hide map markers** | Nameplates and map markers of entities in the fog are hidden too | on |
+
+### Quests
+
+The quest settings are on the [Quests page](/basic/events-and-quests/quests#the-quest-settings): **max active quests** (`20`), **quest markers**, **default quest failure**, **allow quest abandon**, **show quest levels**, the four **quest level gaps**, and **auto track quest objectives**.
+
+### Items and inventory
+
+| Field | What it does | Default |
+|---|---|---|
+| **Dropped items enabled**, **visual style** (mesh or sprite), **pickup rule** (interact, walk over, both), **saved to map** | Dropped items in the world | on, mesh, both, off |
+| **Item weight enabled** | Items have weight and characters can be over-encumbered | off |
+| **Item durability enabled** | Items wear out | off |
+
+*These items settings are not used yet: they are stored, but nothing reads them. Weight and durability exist as stats and item fields, and dropped items are made by loot, but the switches above do not turn them on or off.*
+
+### Save/Load rules
+
+| Field | What it does | Default |
+|---|---|---|
+| **Allow manual save** | Players can save when they like | on |
+| **Allow save during combat** | Saving while the party is in combat | off |
+| **Max save slots** | `0` = unlimited | `10` |
+| **Save directory** | Where the saves go | `user://saves/` |
+| **Save on area transition** | Save automatically when the party changes world | off |
+
+*These five are not used yet: they are stored, but nothing reads them. The game saves into `user://saves/` whatever the setting says, and autosaves when the player leaves to the menu or quits (and not while the party is in combat). See [Save and load](/advanced/save-and-load).*
+
+## Visuals
+
+The pictures and materials the game uses to show targeting, selection and the tactical view. Leave a field empty to use no picture.
+
+| Group | Fields | Used by |
+|---|---|---|
+| **Rig markers** | **Hitbox outline texture**, **Selection marker texture**, **Target marker texture** | The marks drawn under or around an entity |
+| **Outline materials** | **Hover outline material** (the entity under the mouse), **Selection outline material** (the selected entity) | The outline of a highlighted entity |
+| **Targeting visuals** | **Max distance circle marker** (the range of an ability), **Attack ribbon material** (the line from the user to the mouse) | Aiming an ability. *The range circle is not used yet* |
+| **Tactical view visuals** | **Path material**, **Destination material** | The line and the marker of a click-to-move path. *Not used yet* |
+| **Target textures** | **Ability target textures**: the pictures an ability can choose for its targeting marker | The ability's targeting marker |
+
+## NPC LOD system
+
+The **level of detail** system keeps a big world fast: NPCs far from the party think less often. Every second or so the game puts each NPC into one of five levels by its distance from the party.
+
+| Field | What it does | Default |
+|---|---|---|
+| **NPC LOD enabled** | The system on or off. Off: every NPC thinks every frame | on |
+| **LOD distance high / medium / low / minimal** | The distance (metres) where each level starts: up to *high* is full detail; beyond *minimal* an NPC is paused (culled) | 30 / 100 / 250 / 400 |
+| **LOD interval high / medium / low / minimal** | Seconds between updates of an NPC at each level | 0.1 / 0.5 / 1 / 2 |
+| **LOD optimization interval** | Seconds between runs of the checker | `1` |
+| **LOD controllers per batch** | How many NPCs are checked per run, so a world with hundreds of NPCs does not stall | `10` |
+
+A good setting is the one you cannot notice: raise the distances if NPCs seem to freeze when you look back at them, lower them if a big world stutters.
+
 ## See also
 
 - [Stat recipes](/basic/entity-stats/stat-recipes), [Calculations](/basic/entity-stats/calculations)

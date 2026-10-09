@@ -21,6 +21,7 @@ The list on the left has every event. **Add** makes a new one. The right side ha
 |---|---|---|
 | **Name**, **Description**, **Icon** | For you. The name shows in the list and in the debug tools | |
 | **Enabled** | An event that is not enabled never starts | on |
+| **Run once** | After the event has completed, its triggers no longer start it | off |
 | **Local variables** | Named values that belong to this event only (see below) | none |
 | **Triggers**, **Conditions**, **Actions** | The tree: right-click a heading to **Add** one; right-click an entry to **Edit**, **Duplicate** or delete it | none |
 
@@ -43,11 +44,13 @@ The actions run **in order, one after another**: each one finishes before the ne
 - **If** and **Switch** actions branch: they hold conditions and their own lists of actions. An *If* has a "true" list and a "false" list; a *Switch* has a list for each case and a default.
 - An action that **cannot do its job fails**: a quest that cannot start, an object that does not exist, an NPC that is not there. The event fails with it. The rest of its actions do not run.
 
-## An event runs every time
+## How often an event runs
 
-When the event finishes, it is ready again. The next time one of its triggers fires (and the conditions hold) it runs again from its first action. An event does not run while it is already running.
+By default an event runs **every time**: when it finishes, it is ready again, and the next time one of its triggers fires (and the conditions hold) it runs again from its first action. An event does not run while it is already running.
 
-To make an event happen **once**, make one of its conditions fail afterwards: a *Global Variable* condition with a flag that one of the actions sets (*Set Global Variable: mill_haunted = true*), or a *Quest completed* condition. A *Game Start* trigger is the exception: it fires once per game on its own.
+Tick **Run once** to make it happen one time only. Once the event has **completed**, its triggers no longer start it. An event that *failed* is not used up and can still run. The state is saved with the game, so a loaded game remembers that it is done, and a new game starts it fresh.
+
+An event that is not "run once" can still be made to happen once by a condition that its own actions turn false: a *Global Variable* condition with a flag that one of the actions sets (*Set Global Variable: mill_haunted = true*). A *Game Start* trigger fires once per game on its own.
 
 ## Local variables
 

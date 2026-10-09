@@ -16,7 +16,11 @@ Only an `OUT_OF_COMBAT` encounter starts group combat (`can_start_combat`). Memb
 
 `set_active_state(system_hub, active)` shows or hides the encounter and every participant and switches processing; `encounter_activated` is emitted. Events and quests use it.
 
-The encounter is not saved by the registry: its members are NPCs and are saved as NPCs. `UniqueEncounterData.is_defeated`, `last_defeated_time`, `can_respawn()` and `reset_state()` exist, and `respawn_delay` is exported, but nothing in the game reads them yet.
+The registry saves each placed encounter (`Encounter.to_save_data`: `unique_id`, `encounter_state`, `is_active`) next to the NPCs, which are saved as NPCs, and `_restore_encounters` puts the state back. A defeated encounter that respawns starts its timer again from the beginning after a load (the time already waited is not saved).
+
+### Respawn
+
+`UniqueEncounterData.respawns` and `respawn_delay` (seconds). The encounter becomes `DEFEATED` in two places: `_end_group_combat` (see above) and `_on_member_died`, which listens to `entity_died` of every original member and defeats the group when the last one dies outside a fight. Both call `_start_respawn_timer()`, which takes a timer from the `ChronoManager` pool when `respawns` is on. When it runs out, `respawn_group()` calls `NPC.respawn_now()` on every member that is dead, is not already respawning on its own timer and is not `is_unique_encounter`, sets the state to `OUT_OF_COMBAT`, resets the reactions and `UniqueEncounterData.reset_state()`, and emits `encounter_respawned`. `_exit_tree` returns the timer.
 
 ## Formation, spacing, attackers
 

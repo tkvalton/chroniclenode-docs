@@ -11,6 +11,7 @@ Self-managing event that handles its own trigger evaluation and condition checki
 | | | |
 |---|---|---|
 | `bool` | [enabled](#prop-enabled) | `true` |
+| `bool` | [run_once](#prop-run-once) | `false` |
 | `Array[EventTrigger]` | [triggers](#prop-triggers) | `[]` |
 | `Array[Condition]` | [conditions](#prop-conditions) | `[]` |
 | `Array[EventAction]` | [actions](#prop-actions) | `[]` |
@@ -91,6 +92,10 @@ Self-managing event that handles its own trigger evaluation and condition checki
 ### bool enabled = true {#prop-enabled}
 
 *No description yet.*
+
+### bool run_once = false {#prop-run-once}
+
+Runs only once: after the event has completed, its triggers no longer start it (a new game starts it fresh again). Off: it runs every time a trigger fires
 
 ### Array[EventTrigger] triggers = [] {#prop-triggers}
 

@@ -14,7 +14,7 @@ You do not make uniques here. You place objects with [Add Object](/basic/world/a
 | **Refresh** | Reads the list again |
 | The count | How many are shown |
 
-Each line shows the object, its definition and the world it is in. The list is for looking: to change a unique, open its world scene, select the node, and use the Unique Object panel.
+Each line shows the object, its definition and the world it is in. **Select a line** to see its details under the list: what it is and its id, the definition it uses, the **world** it is in and its **position**, and its main settings (an NPC's level and respawn, an encounter's behavior and formation and whether it respawns). The list is for looking: to change a unique, open its world scene, select the node, and use the Unique Object panel.
 
 ## Definition and unique
 

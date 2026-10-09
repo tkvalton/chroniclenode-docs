@@ -40,7 +40,7 @@ The demo has three: *Test Dungeon*, *Test World* and *Tutorial*.
 | Field | What it does |
 |---|---|
 | **World Album** | The [audio album](/basic/assets/audio) of the world: its music, combat and ambient tracks. *Clear Selection* removes it |
-| **Default music**, **Default ambient** | The tracks of the album that play when the party enters. *No Default* plays none |
+| **Default music**, **Default ambient** | A track of the album for each. Saved with the world and checked by *Validate*, but the music player does not use them yet: it picks a random track of the album | none |
 
 ### Loading screen
 

@@ -55,7 +55,7 @@ The spawn override is a dictionary: `{"type": "rabbit_hole", "id": <unique id of
 - spawns (`spawn_npc`, `spawn_pet`, `spawn_interactable`, `spawn_dynamic_entity`);
 - saves (`to_save_data`: placed objects by unique id with their state, dynamic ones with their definition id and position) and restores (`from_save_data`). A placed NPC that is not in the save is removed from the scene; a dynamic one is made again from its definition.
 
-Encounters and regions are registered for lookup (`get_encounter`, `get_region`) but not saved: an encounter's members are NPCs and are saved as NPCs.
+Encounters and regions are registered for lookup (`get_encounter`, `get_region`). An encounter saves its state and whether it is active (`placed_encounters`); its members are NPCs and are saved as NPCs. A region has nothing to save.
 
 The registry hooks the party for the [NPC level scaling](/advanced/entities/) rules: when the party's levels change, living NPCs rescale (see `NpcLevels`).
 

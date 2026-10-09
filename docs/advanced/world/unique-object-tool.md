@@ -4,7 +4,7 @@ The panel is a [`UniqueObjectInspector`](/advanced/world/editor-tools/unique-obj
 
 ## Showing and hiding
 
-`plugin.gd` listens to the editor's selection (`_on_selection_changed`). With one selected node that `_is_unique_object_node` (an `NPC`, an `InteractableObject` or an `Encounter`, tested by class and by the file name of the script), it calls `unique_object_inspector.load_node(node)` and brings the panel to the front. Any other selection calls `clear_inspector()`. A `Region` is not handled: it keeps its data in `region_data`, edited through the node's own exports (`area_name`).
+`plugin.gd` listens to the editor's selection (`_on_selection_changed`). With one selected node that `_is_unique_object_node` (an `NPC`, an `InteractableObject`, a `Region` or an `Encounter`, tested by class and by the file name of the script), it calls `unique_object_inspector.load_node(node)` and brings the panel to the front. Any other selection calls `clear_inspector()`. A `Region` keeps its record in `region_data` and has one setting, so it gets a small panel of its own (`_populate_region`): the area name, written through the node's `area_name` (which saves the record), and the world and position.
 
 `load_node(node)` reads the node's `unique_data`, keeps it, and builds the controls ("No unique data available for this node" if there is none).
 

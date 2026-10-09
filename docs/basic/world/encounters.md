@@ -19,7 +19,8 @@ The members are counted when the world loads. An NPC that joins later (reinforce
 | **Encounter name** | A name for you and the debug tools | *Unnamed Encounter* |
 | **Auto join combat** | When one member enters combat, all the others are forced into it too | on |
 | **Auto join radius** | The members farther than this from the encounter's centre (meters) do not join | `25` |
-| **Respawn delay** | Not used yet: the field is saved but nothing reads it. A group comes back through the **Respawn timer** of its NPCs (see [the Unique Object tool](/basic/world/unique-object-tool)) | `0` |
+| **Respawns** | The group comes back after it is defeated (see *Respawning* below) | off |
+| **Respawn delay** | Seconds between the defeat of the whole group and its return. Only used when *Respawns* is on | `60` |
 
 ## Formation and spacing
 
@@ -95,7 +96,17 @@ A camp of four bandits and a leader, as an encounter:
 
 ## States
 
-An encounter is **out of combat**, **in combat** or **defeated** (the fight ended and every original member is dead). Its members are NPCs like any other: whether a dead member stays dead, or comes back after a time, is the **Respawn timer** of that NPC, and whether it is dead when you return to the world follows the world's [persistence](/basic/world/worlds#persistence).
+An encounter is **out of combat**, **in combat** or **defeated** (every original member is dead). It is defeated at the end of the fight when nobody is left alive, and also when its last member is killed some other way (an event, a trap). A group that merely drove the party off is not defeated: it is ready to fight again.
+
+## Respawning
+
+With **Respawns** on, a defeated encounter starts a timer of **Respawn delay** seconds. When it runs out, every member that is dead stands up again at its starting place with full health, at the level the party needs now ([level scaling](/basic/game-settings/gameplay-config#npc-level-scaling)), and the encounter is ready to fight again with its reactions as new.
+
+Things to know:
+
+- A member with a **Respawn timer** of its own that is still counting is left alone: it comes back by itself. Use one or the other.
+- An NPC marked **killable once** (*Is unique encounter*) never comes back.
+- With *Respawns* off the group stays defeated, and what happens when you come back to the world follows its [persistence](/basic/world/worlds#persistence).
 
 ## See also
 
