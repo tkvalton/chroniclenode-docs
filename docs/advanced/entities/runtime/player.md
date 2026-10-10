@@ -57,7 +57,7 @@ Key features:
 | `int` | [get_proficiency_level](#method-get-proficiency-level)( `proficiency_id: int` ) |
 | `ProficiencyTracker` | [get_proficiencies](#method-get-proficiencies)() |
 | `void` | [set_reserved](#method-set-reserved)( `value: bool` ) |
-| `Dictionary` | [grant_reward](#method-grant-reward)( `reward: Reward` ) |
+| `Dictionary` | [grant_reward](#method-grant-reward)( `reward: Reward, for_good: bool = false` ) |
 | `bool` | [is_companion](#method-is-companion)() |
 | `void` | [initialize_entity](#method-initialize-entity)( `system_hub: GameHost.SystemHub` ) |
 | `void` | [equip_starting_gear](#method-equip-starting-gear)() |
@@ -230,9 +230,9 @@ The proficiency tracker. It exists before the player is set up when something ne
 
 A companion in the reserve leaves the world: hidden, not processed, not detected, and it detects nothing. Joining the party undoes it
 
-### Dictionary grant_reward( reward: Reward ) {#method-grant-reward}
+### Dictionary grant_reward( reward: Reward, for_good: bool = false ) {#method-grant-reward}
 
-Give a reward. One that cannot be given right now (no room for its items) waits instead of being lost: the player is warned and it is given when there is room. The answer has `pending` set then
+Give a reward. One that cannot be given right now (no room for its items) waits instead of being lost: the player is warned and it is given when there is room. The answer has `pending` set then. `for_good`: the reward is the player's from now on (a quest, a conversation, an event, a trainer): an ability or a rank it gives is saved with the player. Left off, the caller keeps the reward itself and gives it again after a load (a skill tree, the levels of a class)
 
 ### bool is_companion() {#method-is-companion}
 
