@@ -15,11 +15,14 @@ Base class for all item definitions with integrated Requirement system
 | `Mesh` | [item_model](#prop-item-model) | `null` |
 | `Array[Material]` | [item_material_override](#prop-item-material-override) | `[]` |
 | `int` | [quality_id](#prop-quality-id) | `0` |
+| `bool` | [randomize_quality](#prop-randomize-quality) | `false` |
+| `Array[int]` | [rollable_quality_ids](#prop-rollable-quality-ids) | `[]` |
 | `bool` | [stackable](#prop-stackable) | `false` |
 | `int` | [max_stack_size](#prop-max-stack-size) | `1` |
 | `int` | [vendor_value](#prop-vendor-value) | `0` |
 | `bool` | [is_key_item](#prop-is-key-item) | `false` |
 | `int` | [item_level](#prop-item-level) | `1` |
+| `bool` | [scales_with_item_level](#prop-scales-with-item-level) | `false` |
 | `Array[int]` | [groups](#prop-groups) | `[]` |
 | `Array[Requirement]` | [requirements](#prop-requirements) | `[]` |
 
@@ -27,10 +30,11 @@ Base class for all item definitions with integrated Requirement system
 
 | | |
 |---|---|
-| `Dictionary` | [check_requirements](#method-check-requirements)( `user: Entity` ) |
-| `bool` | [meets_requirements](#method-meets-requirements)( `user: Entity` ) |
-| `String` | [get_requirement_failure_message](#method-get-requirement-failure-message)( `user: Entity` ) |
-| `String` | [get_requirements_summary](#method-get-requirements-summary)() |
+| `Dictionary` | [check_requirements](#method-check-requirements)( `user: Entity, item_instance: ItemInstance = null` ) |
+| `bool` | [meets_requirements](#method-meets-requirements)( `user: Entity, item_instance: ItemInstance = null` ) |
+| `String` | [get_requirement_failure_message](#method-get-requirement-failure-message)( `user: Entity, item_instance: ItemInstance = null` ) |
+| `String` | [get_requirements_summary](#method-get-requirements-summary)( `item_instance: ItemInstance = null` ) |
+| `bool` | [needs_generation](#method-needs-generation)() |
 | `Quality` | [get_quality](#method-get-quality)() |
 | `Color` | [get_quality_color](#method-get-quality-color)() |
 | `String` | [get_quality_name](#method-get-quality-name)() |
@@ -53,6 +57,14 @@ Material overrides applied to the item model
 ### int quality_id = 0 {#prop-quality-id}
 
 Quality ID that determines rarity and color coding (0 = no quality)
+
+### bool randomize_quality = false {#prop-randomize-quality}
+
+Pick the quality when the item is generated (loot, rewards, vendors) from the qualities below, instead of using the quality above. The chance of each is its drop weight
+
+### Array[int] rollable_quality_ids = [] {#prop-rollable-quality-ids}
+
+The qualities the item can roll (Quality ids). Empty with the box ticked = it keeps the quality above
 
 *Stack Settings*
 
@@ -78,7 +90,11 @@ Whether this item cannot be discarded or sold
 
 ### int item_level = 1 {#prop-item-level}
 
-Required character level to use this item
+The item level: how powerful the item is. It sets the stat budget of a generated item and which affixes can roll. This is not a level requirement: use a Level requirement in Requirements for that (it can follow the item level). For an item that scales with its item level this is the level its values are written for
+
+### bool scales_with_item_level = false {#prop-scales-with-item-level}
+
+The item scales with the item level it is generated at: its stats (and weapon damage) grow with the level of the budget, so one authored item can be a reward at every stage of the game. Needs a level when it is given (loot table, reward, vendor)
 
 *Groups*
 
@@ -94,21 +110,25 @@ Array of requirements that must be met to use/equip this item
 
 ## Method descriptions
 
-### Dictionary check_requirements( user: Entity ) {#method-check-requirements}
+### Dictionary check_requirements( user: Entity, item_instance: ItemInstance = null ) {#method-check-requirements}
 
 Check if user meets all requirements to use this item
 
-### bool meets_requirements( user: Entity ) {#method-meets-requirements}
+### bool meets_requirements( user: Entity, item_instance: ItemInstance = null ) {#method-meets-requirements}
 
 Quick check: can this item be used?
 
-### String get_requirement_failure_message( user: Entity ) {#method-get-requirement-failure-message}
+### String get_requirement_failure_message( user: Entity, item_instance: ItemInstance = null ) {#method-get-requirement-failure-message}
 
 Get failure message for why requirements aren't met
 
-### String get_requirements_summary() {#method-get-requirements-summary}
+### String get_requirements_summary( item_instance: ItemInstance = null ) {#method-get-requirements-summary}
 
 Get requirements summary for tooltip display
+
+### bool needs_generation() {#method-needs-generation}
+
+Is the item generated when it is given (loot, reward, vendor) rather than copied as it is? It is when it rolls its quality or scales with its item level; equipment also when it rolls stats or effects. See ItemGenerator
 
 ### Quality get_quality() {#method-get-quality}
 

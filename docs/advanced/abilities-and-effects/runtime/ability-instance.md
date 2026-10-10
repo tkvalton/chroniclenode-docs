@@ -44,6 +44,7 @@ Runtime instance of an ability that references an AbilityDefinition for configur
 | `String` | [current_description](#var-current-description) | `""` |
 | `Dictionary` | [runtime_property_overrides](#var-runtime-property-overrides) | `{}` |
 | `PropertyModifierSet` | [modifiers](#var-modifiers) | `PropertyModifierSet.new()` |
+| `int` | [trained_rank](#var-trained-rank) | `1` |
 
 ## Methods
 
@@ -52,6 +53,14 @@ Runtime instance of an ability that references an AbilityDefinition for configur
 | `int` | [get_ability_school](#method-get-ability-school)() |
 | `bool` | [get_on_global_cooldown](#method-get-on-global-cooldown)() |
 | `Array` | [get_stat_entries](#method-get-stat-entries)( `property_name: String` ) |
+| `int` | [get_max_rank](#method-get-max-rank)() |
+| `int` | [get_rank](#method-get-rank)() |
+| `int` | [get_rank_bonus](#method-get-rank-bonus)() |
+| `bool` | [can_rank_up](#method-can-rank-up)() |
+| `bool` | [set_rank](#method-set-rank)( `new_rank: int` ) |
+| `bool` | [rank_up](#method-rank-up)( `by: int = 1` ) |
+| `void` | [notify_rank_bonus_changed](#method-notify-rank-bonus-changed)( `old_bonus: int` ) |
+| `Array` | [get_rank_entries](#method-get-rank-entries)( `property_name: String` ) |
 | `float` | [get_cooldown_duration](#method-get-cooldown-duration)() |
 | `float` | [get_cost_amount](#method-get-cost-amount)() |
 | `float` | [get_gain_amount](#method-get-gain-amount)() |
@@ -132,6 +141,10 @@ Emitted when ability state changes (ready, cooldown, etc.)
 ### ability_appearance_changed( ability_instance: AbilityInstance ) {#signal-ability-appearance-changed}
 
 Emitted when ability properties are dynamically changed (icon, name, description)
+
+### rank_changed( ability_instance: AbilityInstance, old_rank: int, new_rank: int ) {#signal-rank-changed}
+
+Emitted when the rank of the ability changes (trained or given by gear or an effect)
 
 ### cooldown_started( ability_instance: AbilityInstance, duration: float ) {#signal-cooldown-started}
 
@@ -349,6 +362,10 @@ Runtime overrides for definition properties (only set when modified by effects)
 
 Modifiers from abilities, effects and stats (cooldown, cost, gain ...): they stack and can be taken away by their source
 
+### int trained_rank = 1 {#var-trained-rank}
+
+The rank the ability was trained to (1 = the first rank). The rank that counts is get_rank(): this plus the ranks gear or an effect add
+
 ## Method descriptions
 
 ### int get_ability_school() {#method-get-ability-school}
@@ -362,6 +379,38 @@ Get GCD setting (runtime override or definition)
 ### Array get_stat_entries( property_name: String ) {#method-get-stat-entries}
 
 What the stats of the user change on a property of this ability: ability modifier stat effects, worked out when asked
+
+### int get_max_rank() {#method-get-max-rank}
+
+The highest rank the ability can be trained to
+
+### int get_rank() {#method-get-rank}
+
+The rank of the ability now: what it was trained to, plus the ranks that gear and effects add (+1 to all fire spells; these can go over the highest trained rank)
+
+### int get_rank_bonus() {#method-get-rank-bonus}
+
+The ranks that gear, auras and other effects of the user add to this ability
+
+### bool can_rank_up() {#method-can-rank-up}
+
+Can the ability be trained one more rank?
+
+### bool set_rank( new_rank: int ) {#method-set-rank}
+
+Trains the ability to a rank (between 1 and its highest). True when the rank changed
+
+### bool rank_up( by: int = 1 ) {#method-rank-up}
+
+Trains the ability one or more ranks. False when it is at its highest rank already
+
+### void notify_rank_bonus_changed( old_bonus: int ) {#method-notify-rank-bonus-changed}
+
+Tells the ability that a bonus to its rank changed (gear on or off): its numbers are read live, so only the announcement is needed
+
+### Array get_rank_entries( property_name: String ) {#method-get-rank-entries}
+
+What the rank of this ability changes on a property: the rank properties of the definition at the current rank (nothing for an ability without ranks)
 
 ### float get_cooldown_duration() {#method-get-cooldown-duration}
 

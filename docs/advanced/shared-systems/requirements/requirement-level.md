@@ -12,11 +12,17 @@ Requires the entity to be at or above a level, and optionally at or below anothe
 |---|---|---|
 | `int` | [required_level](#prop-required-level) | `1` |
 | `int` | [max_level](#prop-max-level) | `0` |
+| `bool` | [follow_item_level](#prop-follow-item-level) | `false` |
+| `int` | [item_level_offset](#prop-item-level-offset) | `0` |
 
 ## Methods
 
 | | |
 |---|---|
+| `int` | [required_for](#method-required-for)( `context: Dictionary` ) |
+| `bool` | [check_in_context](#method-check-in-context)( `entity: Entity, context: Dictionary` ) |
+| `String` | [get_failure_message_in_context](#method-get-failure-message-in-context)( `entity: Entity, context: Dictionary` ) |
+| `String` | [get_summary_in_context](#method-get-summary-in-context)( `context: Dictionary` ) |
 | `bool` | [check](#method-check)( `entity: Entity` ) |
 | `String` | [get_failure_message](#method-get-failure-message)( `entity: Entity` ) |
 | `String` | [get_summary](#method-get-summary)() |
@@ -34,7 +40,31 @@ Minimum level required
 
 Maximum level (0 = no limit)
 
+### bool follow_item_level = false {#prop-follow-item-level}
+
+On an item: the level needed is the item level of the item (an item generated at level 30 needs level 30) instead of the number above. Does nothing on other things
+
+### int item_level_offset = 0 {#prop-item-level-offset}
+
+With "follow item level": how many levels under the item level the entity may be (2: an item of level 30 needs level 28). 0 = the item level itself
+
 ## Method descriptions
+
+### int required_for( context: Dictionary ) {#method-required-for}
+
+The level this requirement asks for, given what it guards (&#123;"item_level": int&#125; on an item)
+
+### bool check_in_context( entity: Entity, context: Dictionary ) {#method-check-in-context}
+
+The same checks with extra facts about what the requirement guards: &#123;"item_level": int&#125; for an item. Most requirements do not need them and give the plain answer *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+
+### String get_failure_message_in_context( entity: Entity, context: Dictionary ) {#method-get-failure-message-in-context}
+
+*Overrides this function of [Requirement](/advanced/shared-systems/requirements/requirement).*
+
+### String get_summary_in_context( context: Dictionary ) {#method-get-summary-in-context}
+
+*Overrides this function of [Requirement](/advanced/shared-systems/requirements/requirement).*
 
 ### bool check( entity: Entity ) {#method-check}
 

@@ -39,6 +39,9 @@ One part of an EffectAmount: a number that is read from the situation when the e
 - **CAST_DAMAGE** = `5` - The damage the effects of this cast have dealt so far x multiplier
 - **CAST_HEALING** = `6` - The healing the effects of this cast have done so far x multiplier
 - **CAST_ABSORBED** = `7` - The damage the shields of the targets absorbed from this cast so far x multiplier
+- **ABILITY_RANK** = `8` - The ranks of the ability above the first x multiplier: "+10 per rank" (rank 1 adds nothing, rank 3 adds 20). Needs an effect of an ability
+- **USER_LEVEL** = `9` - The level of the user x multiplier: "+2 per level"
+- **SOURCE_ITEM_LEVEL** = `10` - The item level of the item whose effect this is x multiplier. Needs an effect of an item (equipment, a potion, a gem)
 
 ## Property descriptions
 

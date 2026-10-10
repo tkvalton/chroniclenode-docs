@@ -11,6 +11,12 @@ export const groups = [
         "file": "data_classes/abilities/ability_definition.gd"
       },
       {
+        "name": "AbilityRankProperty",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\abilities\\ability_rank_property.gd",
+        "file": "data_classes/abilities/ability_rank_property.gd"
+      },
+      {
         "name": "ActiveAbilityDefinition",
         "base": "PassiveAbilityDefinition",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\abilities\\active_ability_definition.gd",
@@ -237,6 +243,12 @@ export const groups = [
         "base": "Effect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\ability\\effect_ability_range.gd",
         "file": "data_classes/effects/ability/effect_ability_range.gd"
+      },
+      {
+        "name": "AbilityRankEffect",
+        "base": "Effect",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\ability\\effect_ability_rank.gd",
+        "file": "data_classes/effects/ability/effect_ability_rank.gd"
       },
       {
         "name": "AbilityResourceEffect",

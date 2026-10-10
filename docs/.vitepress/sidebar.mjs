@@ -51,6 +51,7 @@ const abilitiesAndEffects = {
         page('Using an ability', '/basic/abilities-and-effects/using-an-ability'),
         page('Targeting', '/basic/abilities-and-effects/targeting'),
         page('Aiming', '/basic/abilities-and-effects/aiming'),
+        page('Ability ranks', '/basic/abilities-and-effects/ability-ranks'),
       ],
     },
     {
@@ -144,10 +145,13 @@ const basicSystems = [
     ['Items', 'items', 'items'],
     ['Currency', 'currency', 'currency'],
     ['Loot Tables', 'loot-tables', 'loot_tables'],
+    ['Affixes', 'affixes', 'affixes'],
     ['Craft Recipes', 'craft-recipes', 'craft_recipes'],
     ['Craft Schools', 'craft-schools', 'craft_schools'],
     ['Vendors', 'vendors', 'vendors'],
-  ]),
+  ], {
+    after: [page('Generated items', '/basic/items/item-generation'), page('Loot rules', '/basic/items/loot-rules')],
+  }),
   system('Equipment Definitions', 'equipment-definitions', [
     ['Armor Class', 'armor-class', 'armor_class'],
     ['Weapon Class', 'weapon-class', 'weapon_class'],
@@ -298,7 +302,7 @@ const advancedSystems = [
   ['Equipment Definitions', 'equipment-definitions'], ['Assets', 'assets'], ['Game Settings', 'game-settings'],
   ['Managers', 'managers'], ['Editor', 'editor'],
 ].map(([text, slug]) => slug === 'abilities-and-effects'
-  ? withPages(classSystem(text, slug, abilitiesAndEffectsClasses), [page('The effect amount', '/advanced/abilities-and-effects/effect-amount', { title: 'The effect amount: how it is built' }), page('Immunities', '/advanced/abilities-and-effects/immunities', { title: 'Immunities: how they are built' }), page('Skill trees', '/advanced/abilities-and-effects/skill-trees', { title: 'Skill trees: how they are built' })])
+  ? withPages(classSystem(text, slug, abilitiesAndEffectsClasses), [page('Ability ranks', '/advanced/abilities-and-effects/ranks', { title: 'Ability ranks: how they are built' }), page('The effect amount', '/advanced/abilities-and-effects/effect-amount', { title: 'The effect amount: how it is built' }),page('Immunities', '/advanced/abilities-and-effects/immunities', { title: 'Immunities: how they are built' }), page('Skill trees', '/advanced/abilities-and-effects/skill-trees', { title: 'Skill trees: how they are built' })])
   : slug === 'world'
   ? { ...worldAdvanced, items: [...worldAdvanced.items, ...classSystem(text, slug, worldClasses).items.slice(1)] }
   : slug === 'events-and-quests'
@@ -306,7 +310,7 @@ const advancedSystems = [
   : slug === 'entity-stats'
   ? advancedEntityStats
   : slug === 'items'
-  ? classSystem(text, slug, itemClasses)
+  ? withPages(classSystem(text, slug, itemClasses), [page('Generated items', '/advanced/items/generation', { title: 'Generated items: how they are built' }), page('Loot', '/advanced/items/loot', { title: 'Loot: how it is built' })])
   : slug === 'entities'
   ? classSystem(text, slug, entityClasses)
   : slug === 'behaviors'

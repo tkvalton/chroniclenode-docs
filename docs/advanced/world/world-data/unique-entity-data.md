@@ -22,6 +22,7 @@
 | `float` | [experience_multiplier](#prop-experience-multiplier) | `1.0` |
 | `int` | [behavior_script_id](#prop-behavior-script-id) | `0` |
 | `int` | [combat_script_id](#prop-combat-script-id) | `0` |
+| `Array[LootRule]` | [loot_rules_override](#prop-loot-rules-override) | `[]` |
 | `int` | [loot_table_override](#prop-loot-table-override) | `0` |
 | `Dictionary` | [inventory_override](#prop-inventory-override) |  |
 | `StatsData` | [stats_override](#prop-stats-override) |  |
@@ -51,6 +52,8 @@
 | `void` | [clear_stats_override](#method-clear-stats-override)() |
 | `LootTable` | [get_effective_loot_table](#method-get-effective-loot-table)( `definition: EntityDefinition = null` ) |
 | `bool` | [has_loot_table_override](#method-has-loot-table-override)() |
+| `bool` | [has_loot_rules_override](#method-has-loot-rules-override)() |
+| `Array[LootRule]` | [get_effective_loot_rules](#method-get-effective-loot-rules)( `definition: EntityDefinition = null` ) |
 | `Dictionary` | [get_effective_inventory](#method-get-effective-inventory)( `definition: EntityDefinition = null` ) |
 | `bool` | [has_inventory_override](#method-has-inventory-override)() |
 | `int` | [get_effective_experiance](#method-get-effective-experiance)( `definition: EntityDefinition = null` ) |
@@ -124,13 +127,17 @@ Multiplies the experience this NPC gives, on top of the multiplier of its defini
 
 *Loot &amp; Inventory*
 
+### Array[LootRule] loot_rules_override = [] {#prop-loot-rules-override}
+
+Loot rules of this placed NPC: when it has any they REPLACE the loot rules of its definition (a unique boss with its own table)
+
 ### int loot_table_override = 0 {#prop-loot-table-override}
 
-Override for the loot table - if null, uses EntityDefinition.loot_table
+Older override for the loot table - if 0, uses the loot table of the definition
 
 ### Dictionary inventory_override {#prop-inventory-override}
 
-Override for starting inventory - if empty, uses EntityDefinition.inventory
+Older override for starting inventory - if empty, uses EntityDefinition.inventory
 
 *Stats Overrides*
 
@@ -225,6 +232,14 @@ Clear stats override
 ### bool has_loot_table_override() {#method-has-loot-table-override}
 
 *No description yet.*
+
+### bool has_loot_rules_override() {#method-has-loot-rules-override}
+
+*No description yet.*
+
+### Array[LootRule] get_effective_loot_rules( definition: EntityDefinition = null ) {#method-get-effective-loot-rules}
+
+The loot rules of this placed NPC: its own when it has any, else the ones of its definition (with the older table and inventory overrides applied)
 
 ### Dictionary get_effective_inventory( definition: EntityDefinition = null ) {#method-get-effective-inventory}
 

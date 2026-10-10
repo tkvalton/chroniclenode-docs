@@ -13,6 +13,7 @@ Finds the classes that can fill a slot of a stat effect: the formulas, the dimin
 | `Array[Dictionary]` | [find_formulas](#method-find-formulas)() *static* |
 | `Array[Dictionary]` | [find_diminishing_returns](#method-find-diminishing-returns)() *static* |
 | `Array[Dictionary]` | [find_conditions](#method-find-conditions)() *static* |
+| `Array[Dictionary]` | [find_quality_rules](#method-find-quality-rules)() *static* |
 | `Array[Dictionary]` | [scan](#method-scan)( `directories: Array[String], base_path: String` ) *static* |
 | `bool` | [extends_script](#method-extends-script)( `script: Script, base_path: String` ) *static* |
 | `String` | [label_of](#method-label-of)( `script: Script, file_name: String` ) *static* |
@@ -25,6 +26,8 @@ Finds the classes that can fill a slot of a stat effect: the formulas, the dimin
 - `String` **RETURNS_BASE** = `"res://addons/chroniclenode/data_classes/stats/diminishing_returns/diminishin...`
 - `Array[String]` **CONDITION_DIRS** = `[` - Conditions that make sense on a stat effect: the ones about an entity (its health, level, tags, effects ...)
 - `String` **CONDITION_BASE** = `"res://addons/chroniclenode/data_classes/conditions/entity_condition.gd"`
+- `Array[String]` **QUALITY_RULE_DIRS** = `[` - Custom rules of a quality (a class that extends QualityRule): the project's own folder
+- `String` **QUALITY_RULE_BASE** = `"res://addons/chroniclenode/data_classes/items/definitions/quality_rule.gd"`
 
 ## Method descriptions
 
@@ -37,6 +40,10 @@ Every formula class found, as &#123;label, script, path&#125;
 *No description yet.*
 
 ### Array[Dictionary] find_conditions() {#method-find-conditions}
+
+*No description yet.*
+
+### Array[Dictionary] find_quality_rules() {#method-find-quality-rules}
 
 *No description yet.*
 

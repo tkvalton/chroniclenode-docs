@@ -39,6 +39,7 @@ The [Equipment Definitions chapter](/basic/equipment-definitions/) explains the 
 | [EquipmentSlotDefinition](/advanced/equipment-definitions/definitions/equipment-slot-definition) |  |
 | [EquipmentTypeDefinition](/advanced/equipment-definitions/definitions/equipment-type-definition) | EquipmentTypeDefinition defines a category of equipment and what mesh slots it affects. |
 | [Quality](/advanced/equipment-definitions/definitions/quality) | Defines item quality/rarity with display properties Create instances as .tres files for each quality tier |
+| [QualityRule](/advanced/equipment-definitions/definitions/quality-rule) | A custom rule of a Quality, for what its fields do not cover: "a legendary always has a socket", "an epic gets +1 ability rank". |
 | [SetBonusDefinition](/advanced/equipment-definitions/definitions/set-bonus-definition) | Clean set bonus system with ID-based lazy loading to prevent circular dependencies |
 | [SocketDefinition](/advanced/equipment-definitions/definitions/socket-definition) | Custom border colour for ItemSlotUI |
 | [WeaponClassDefinition](/advanced/equipment-definitions/definitions/weapon-class-definition) | WeaponClassDefinition defines weapon classes and their properties. |

@@ -15,6 +15,7 @@ Item Equipment Editor - handles ItemDefinitionEquipment specific properties Enha
 | `ResourceManager` | [resource_manager](#var-resource-manager) |  |
 | `bool` | [is_loading](#var-is-loading) | `false` |
 | `Array` | [available_stats](#var-available-stats) | `[]` |
+| `EquipmentGenerationFields` | [generation_fields](#var-generation-fields) |  |
 | `Array[Dictionary]` | [stat_bonus_controls](#var-stat-bonus-controls) | `[]` |
 | `Array[Dictionary]` | [equipment_effect_controls](#var-equipment-effect-controls) | `[]` |
 | `Array[Dictionary]` | [socket_definition_controls](#var-socket-definition-controls) | `[]` |
@@ -53,6 +54,10 @@ Item Equipment Editor - handles ItemDefinitionEquipment specific properties Enha
 ### Array available_stats = [] {#var-available-stats}
 
 *No description yet.*
+
+### EquipmentGenerationFields generation_fields {#var-generation-fields}
+
+What the item rolls when it is generated (randomized stats and effects, the budget check): built in code at the end of the editor
 
 ### Array[Dictionary] stat_bonus_controls = [] {#var-stat-bonus-controls}
 

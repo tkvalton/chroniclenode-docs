@@ -18,6 +18,7 @@
 | `bool` | [object_targetable_directly](#prop-object-targetable-directly) | `false` |
 | `bool` | [object_targetable_by_aoe](#prop-object-targetable-by-aoe) | `false` |
 | `StatsData` | [stats_override](#prop-stats-override) |  |
+| `Array[LootRule]` | [loot_rules_override](#prop-loot-rules-override) | `[]` |
 | `Interaction` | [interaction](#prop-interaction) | `null` |
 | `Vector3` | [world_position](#prop-world-position) | `Vector3.ZERO` |
 | `Vector3` | [world_rotation](#prop-world-rotation) | `Vector3.ZERO` |
@@ -30,6 +31,7 @@
 | `float` | [get_effective_cooldown_duration](#method-get-effective-cooldown-duration)( `definition: InteractableDefinition = null` ) |
 | `String` | [get_effective_display_name](#method-get-effective-display-name)( `definition: InteractableDefinition = null` ) |
 | `int` | [get_effective_faction](#method-get-effective-faction)() |
+| `bool` | [has_loot_rules_override](#method-has-loot-rules-override)() |
 | `bool` | [has_interaction](#method-has-interaction)() |
 | `bool` | [has_stats_override](#method-has-stats-override)() |
 | `StatsData` | [get_effective_stats](#method-get-effective-stats)( `definition: InteractableDefinition = null` ) |
@@ -90,6 +92,12 @@ Can this object be hit by area-of-effect abilities?
 
 Stats configuration for objects with combat capabilities Only shown and used if object_targetable_directly or object_targetable_by_aoe is true
 
+*Loot*
+
+### Array[LootRule] loot_rules_override = [] {#prop-loot-rules-override}
+
+Loot rules of this placed object: when it has any they REPLACE the loot rules of its definition (a chest with its own table)
+
 *Interactions*
 
 ### Interaction interaction = null {#prop-interaction}
@@ -119,6 +127,10 @@ The wait between two uses: the override of this object, else the one of its defi
 *No description yet.*
 
 ### int get_effective_faction() {#method-get-effective-faction}
+
+*No description yet.*
+
+### bool has_loot_rules_override() {#method-has-loot-rules-override}
 
 *No description yet.*
 

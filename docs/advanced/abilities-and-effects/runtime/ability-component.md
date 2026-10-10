@@ -26,6 +26,10 @@ AbilityComponent orchestrates ability instances for an entity. Manages collectio
 
 | | |
 |---|---|
+| `void` | [refresh_npc_ranks](#method-refresh-npc-ranks)() |
+| `void` | [add_rank_bonus](#method-add-rank-bonus)( `source: Variant, bonus: int, ability_ids: Array, group_ids: Array, school_ids: Array, all: bool = false` ) |
+| `void` | [remove_rank_bonus](#method-remove-rank-bonus)( `source: Variant` ) |
+| `int` | [get_rank_bonus_for](#method-get-rank-bonus-for)( `ability_def: AbilityDefinition` ) |
 | `void` | [setup_starting_abilites](#method-setup-starting-abilites)() |
 | `bool` | [add_basic_attack_instance](#method-add-basic-attack-instance)( `ability_instance: AbilityInstance` ) |
 | `bool` | [swap_basic_attack](#method-swap-basic-attack)( `ability_instance: AbilityInstance` ) |
@@ -125,6 +129,22 @@ Schools whose abilities cannot be used (a counterspell, a school-specific silenc
 The basic attack a wielded weapon class provides (WeaponClassDefinition.basic_attack_ability_id): it replaces the basic attack of the entity while the weapon is wielded, and the original comes back when it is not. 0 puts the original back
 
 ## Method descriptions
+
+### void refresh_npc_ranks() {#method-refresh-npc-ranks}
+
+An NPC's abilities take the rank its definition says at its level (called when the NPC is made and whenever its level changes)
+
+### void add_rank_bonus( source: Variant, bonus: int, ability_ids: Array, group_ids: Array, school_ids: Array, all: bool = false ) {#method-add-rank-bonus}
+
+An effect (or anything else with an identity) gives ranks to the abilities it names. Empty lists with `all` false give nothing
+
+### void remove_rank_bonus( source: Variant ) {#method-remove-rank-bonus}
+
+Takes away what a source gave
+
+### int get_rank_bonus_for( ability_def: AbilityDefinition ) {#method-get-rank-bonus-for}
+
+The ranks that all the sources together add to an ability
 
 ### void setup_starting_abilites() {#method-setup-starting-abilites}
 

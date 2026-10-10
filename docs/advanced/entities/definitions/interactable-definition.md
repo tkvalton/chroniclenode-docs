@@ -22,6 +22,7 @@ Core data definition for interactable objects. This is the "NPCDefinition" equiv
 | `bool` | [consume_key_on_unlock](#prop-consume-key-on-unlock) | `false` |
 | `float` | [interaction_cooldown_duration](#prop-interaction-cooldown-duration) | `0.5` |
 | `Interaction` | [interaction](#prop-interaction) | `null` |
+| `Array[LootRule]` | [loot_rules](#prop-loot-rules) | `[]` |
 | `SFXSelection` | [interaction_sfx](#prop-interaction-sfx) |  |
 | `SFXSelection` | [hit_sound](#prop-hit-sound) |  |
 | `SFXSelection` | [damaged_sound](#prop-damaged-sound) |  |
@@ -107,6 +108,12 @@ Seconds an object waits after it was used before it can be used again (0 = no wa
 ### Interaction interaction = null {#prop-interaction}
 
 The interaction of this object (what happens when it is used) Examples: ContainerInteraction, DoorInteraction, TrapInteraction An object has one interaction (several on one object is a possible future option)
+
+*Loot*
+
+### Array[LootRule] loot_rules = [] {#prop-loot-rules}
+
+What this object hands out and when: each rule is a loot table with a trigger (when the object is set up, the first time it is opened, when it is destroyed) and a source for the item level of what drops (see LootRule). A destroyed object that has loot stays lootable, like a corpse. A placed object can replace the rules
 
 *Audio*
 

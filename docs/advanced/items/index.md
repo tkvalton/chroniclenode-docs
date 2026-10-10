@@ -12,6 +12,10 @@ The [Items chapter](/basic/items/) explains the editors. This page explains the 
 
 Always ask the **instance** for a value that can change (`get_max_stack_size()`, `get_vendor_value()`), not the definition: an instance may override it.
 
+## Generated items and loot
+
+An item can be made with a roll: its quality, its affixes (and so its stats and effects), its item level, its name and its sockets are rolled by [`ItemGenerator`](/advanced/items/generation-runtime/item-generator)from a stat budget ([`ItemBudget`](/advanced/items/item-definitions/item-budget)), and kept in the instance. Loot is handed out by the [loot rules](/advanced/items/loot) of an NPC or an object. See [Generated items: how they are built](/advanced/items/generation) and [Loot: how it is built](/advanced/items/loot).
+
 ## The kinds of item
 
 `ItemDefinition` is the base. Every kind is a subclass; the Items editor offers them in its **Add** dialog.
@@ -66,6 +70,7 @@ Instances save the stack, charges, cooldowns, enchantments with their remaining 
 <!-- classes:items/item-definitions -->
 | Class | What it is |
 |---|---|
+| [ItemBudget](/advanced/items/item-definitions/item-budget) | The stat budget of an item: a pool of points that the bonuses of a generated item spend. |
 | [ItemDefinition](/advanced/items/item-definitions/item-definition) | Base class for all item definitions with integrated Requirement system |
 | [ItemDefinitionAmmo](/advanced/items/item-definitions/item-definition-ammo) | Ammunition: arrows, bolts, bullets, and anything else an ability spends a piece of per use. |
 | [ItemDefinitionConsumable](/advanced/items/item-definitions/item-definition-consumable) | Consumable items that provide immediate effects when used (potions, food, scrolls, etc.) Uses the effect system for all functionality - effects, validation, and state management |
@@ -77,7 +82,9 @@ Instances save the stack, charges, cooldowns, enchantments with their remaining 
 | [ItemDefinitionQuest](/advanced/items/item-definitions/item-definition-quest) | Quest-related items that trigger quests or serve as quest objectives. |
 | [ItemDefinitionReadable](/advanced/items/item-definitions/item-definition-readable) | Readable items that display text content in a UI panel when used Supports multi-page documents like books, scrolls, letters, and lore texts |
 | [ItemDefinitionSocketable](/advanced/items/item-definitions/item-definition-socketable) | Socketable items that can be inserted into socket slots on equipment to provide additional effects The entity that owns the socketed equipment receives the socketable's effect |
-| [LootEntry](/advanced/items/item-definitions/loot-entry) | Represents a single item entry in a loot table |
+| [LootEntry](/advanced/items/item-definitions/loot-entry) | One line of a loot table: an item, an amount of a currency, or another loot table. |
+| [LootLevelSource](/advanced/items/item-definitions/loot-level-source) | Where the item level of a generated item comes from: loot of an NPC or object, a reward, a vendor. |
+| [LootRule](/advanced/items/item-definitions/loot-rule) | One rule of what a holder (an NPC, a chest, a crate) hands out and when: a loot table, a trigger, and where the item level of the drops comes from. |
 | [LootTable](/advanced/items/item-definitions/loot-table) | A shareable resource for randomizing loot drops Can be used by entities, containers, chests, etc. |
 <!-- /classes -->
 

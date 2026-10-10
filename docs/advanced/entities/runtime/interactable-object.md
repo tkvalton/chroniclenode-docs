@@ -39,6 +39,7 @@ Unified interactable object class - uses InteractableDefinition + Interactions A
 | `bool` | [is_on_interaction_cooldown](#var-is-on-interaction-cooldown) | `false` |
 | `Interaction` | [interaction](#var-interaction) | `null` |
 | `ChronoManager` | [chrono_manager](#var-chrono-manager) |  |
+| `Array` | [loot_rolled](#var-loot-rolled) | `[]` |
 | `ComponentsManager` | [components](#var-components) |  |
 
 ## Methods
@@ -50,6 +51,10 @@ Unified interactable object class - uses InteractableDefinition + Interactions A
 | `void` | [hide_interact_prompt](#method-hide-interact-prompt)() |
 | `void` | [handle_destruction](#method-handle-destruction)() |
 | `bool` | [is_destroyed](#method-is-destroyed)() |
+| `Array[LootRule]` | [get_loot_rules](#method-get-loot-rules)() |
+| `int` | [run_loot_rules](#method-run-loot-rules)( `trigger: LootRule.Trigger, receiver: Entity = null` ) |
+| `bool` | [has_pending_loot](#method-has-pending-loot)() |
+| `bool` | [has_lootable_remains](#method-has-lootable-remains)() |
 | `void` | [process_interaction](#method-process-interaction)( `entity: Entity` ) |
 | `bool` | [is_locked](#method-is-locked)() |
 | `Interaction` | [get_interaction_by_type](#method-get-interaction-by-type)( `type_name: String` ) |
@@ -224,6 +229,10 @@ Interactions
 
 SystemRefs
 
+### Array loot_rolled = [] {#var-loot-rolled}
+
+The numbers of the loot rules that have rolled (a rule on Initialize or First Access rolls once). Saved with the object
+
 ### ComponentsManager components {#var-components}
 
 *No description yet.*
@@ -249,6 +258,22 @@ SystemRefs
 ### bool is_destroyed() {#method-is-destroyed}
 
 *No description yet.*
+
+### Array[LootRule] get_loot_rules() {#method-get-loot-rules}
+
+The loot rules of this object: the ones of the placed object when it has its own, else the ones of its definition, plus those of the older settings of its container (its fixed contents and its loot table)
+
+### int run_loot_rules( trigger: LootRule.Trigger, receiver: Entity = null ) {#method-run-loot-rules}
+
+Rolls the loot rules of a trigger into the inventory of this object (see LootDispatcher). `receiver` is whoever gets the loot (the one who opens a chest): it changes the amount and the quality by its loot gains and can give the item level. Returns how many rules rolled
+
+### bool has_pending_loot() {#method-has-pending-loot}
+
+Is there a rule that rolls the first time the object is opened and has not rolled yet?
+
+### bool has_lootable_remains() {#method-has-lootable-remains}
+
+Does a destroyed object still hold something to take (loot in its inventory, or a rule that rolls when it is opened)?
 
 ### void process_interaction( entity: Entity ) {#method-process-interaction}
 

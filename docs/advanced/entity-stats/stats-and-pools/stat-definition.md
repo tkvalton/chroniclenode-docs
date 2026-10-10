@@ -20,6 +20,7 @@
 | `CalculationFormula` | [growth_formula](#prop-growth-formula) |  |
 | `DiminishingReturns` | [growth_returns](#prop-growth-returns) |  |
 | `float` | [growth_max](#prop-growth-max) | `0.0` |
+| `float` | [budget_cost](#prop-budget-cost) | `1.0` |
 | `Array[StatEffect]` | [stat_effects](#prop-stat-effects) | `[]  # Composable effects` |
 
 ## Methods
@@ -104,6 +105,12 @@ Optional diminishing returns on the levels gained (growth that slows after level
 ### float growth_max = 0.0 {#prop-growth-max}
 
 Ceiling on the total growth (0 = none)
+
+*Item Budget*
+
+### float budget_cost = 1.0 {#prop-budget-cost}
+
+What one point of this stat costs in the budget of a generated item (see ItemBudget). 1 = a point of this stat costs as much as a point of Strength, 2 = it costs double, so an item can hold half as many points of it. Only used for items that are generated or scale with their item level
 
 *Stat Effects*
 

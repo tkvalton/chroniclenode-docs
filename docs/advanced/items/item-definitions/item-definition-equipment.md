@@ -21,11 +21,20 @@ Equipment items that can be worn by characters to provide stat bonuses and visua
 | `Array[int]` | [socket_definitions](#prop-socket-definitions) | `[]` |
 | `int` | [full_sockets_effect](#prop-full-sockets-effect) | `0` |
 | `int` | [set_bonus_definition](#prop-set-bonus-definition) | `0` |
+| `float` | [budget_multiplier](#prop-budget-multiplier) | `1.0` |
+| `bool` | [randomize_stats](#prop-randomize-stats) | `false` |
+| `AffixPoolMode` | [stat_affix_mode](#prop-stat-affix-mode) | `AffixPoolMode.ANY_THAT_FIT` |
+| `Array[int]` | [stat_affix_ids](#prop-stat-affix-ids) | `[]` |
+| `bool` | [randomize_effects](#prop-randomize-effects) | `false` |
+| `AffixPoolMode` | [effect_affix_mode](#prop-effect-affix-mode) | `AffixPoolMode.ANY_THAT_FIT` |
+| `Array[int]` | [effect_affix_ids](#prop-effect-affix-ids) | `[]` |
+| `Dictionary` | [equipment_effect_costs](#prop-equipment-effect-costs) | `{}` |
 
 ## Methods
 
 | | |
 |---|---|
+| `bool` | [needs_generation](#method-needs-generation)() |
 | `Array[int]` | [get_socket_definitions](#method-get-socket-definitions)() |
 | `int` | [get_socket_count](#method-get-socket-count)() |
 | `bool` | [has_sockets](#method-has-sockets)() |
@@ -78,6 +87,15 @@ Equipment items that can be worn by characters to provide stat bonuses and visua
 | `Array[int]` | [would_complete_set_bonus](#method-would-complete-set-bonus)( `entity: Entity` ) |
 | `Array[int]` | [would_break_set_bonus](#method-would-break-set-bonus)( `entity: Entity` ) |
 
+## Enumerations
+
+### enum AffixPoolMode {#enum-affixpoolmode}
+
+Which affixes a randomized list of the item can pick from
+
+- **ANY_THAT_FIT** = `0` - Every affix whose conditions the item meets (equipment type, item level, quality)
+- **ONLY_THESE** = `1` - Only the affixes listed on the item
+
 ## Property descriptions
 
 *Stat Modifications*
@@ -128,7 +146,45 @@ Bonus effect when all sockets are filled
 
 Set this equipment belongs to
 
+*Generation*
+
+### float budget_multiplier = 1.0 {#prop-budget-multiplier}
+
+Multiplies the stat budget of this item (a two-handed axe 1.5). The stats and effects written on the item are paid from the budget first
+
+### bool randomize_stats = false {#prop-randomize-stats}
+
+Bonus stats are rolled when the item is generated: affixes are picked from the pool below, how many by its quality. The stats above stay (they count toward the budget)
+
+### AffixPoolMode stat_affix_mode = AffixPoolMode.ANY_THAT_FIT {#prop-stat-affix-mode}
+
+Where the stat affixes come from
+
+### Array[int] stat_affix_ids = [] {#prop-stat-affix-ids}
+
+ONLY_THESE: the stat affixes (Affix ids) this item can roll
+
+### bool randomize_effects = false {#prop-randomize-effects}
+
+Effects are rolled when the item is generated: effect affixes are picked from the pool below, how many by its quality. The effects above stay
+
+### AffixPoolMode effect_affix_mode = AffixPoolMode.ANY_THAT_FIT {#prop-effect-affix-mode}
+
+Where the effect affixes come from
+
+### Array[int] effect_affix_ids = [] {#prop-effect-affix-ids}
+
+ONLY_THESE: the effect affixes (Affix ids) this item can roll
+
+### Dictionary equipment_effect_costs =  {#prop-equipment-effect-costs}
+
+What each authored effect costs from the budget: effect id -&gt; cost (an effect without an entry is free)
+
 ## Method descriptions
+
+### bool needs_generation() {#method-needs-generation}
+
+Is the item generated when it is given (it rolls something or scales with its item level)?
 
 ### Array[int] get_socket_definitions() {#method-get-socket-definitions}
 

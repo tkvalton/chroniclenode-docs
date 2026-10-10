@@ -23,6 +23,7 @@ Click the add button next to the list, choose the **type** of reward in the dial
 <!-- classes:shared-systems/rewards -->
 | Class | What it is |
 |---|---|
+| [AbilityRankReward](/advanced/shared-systems/rewards/ability-rank-reward) | Trains an ability of the player one or more ranks: a skill tree node that raises Fireball, a level that gives rank 3 of an ability, a quest that teaches a new rank. |
 | [AbilityReward](/advanced/shared-systems/rewards/ability-reward) | Grants an ability to the player |
 | [CraftingRecipeReward](/advanced/shared-systems/rewards/crafting-recipe-reward) | Teaches a crafting recipe to the player via the CraftingManager |
 | [CraftingSkillPointReward](/advanced/shared-systems/rewards/crafting-skill-point-reward) | Grants skill levels to a crafting school via the CraftingManager of the party |
@@ -44,8 +45,9 @@ The fields of each type:
 |---|---|---|
 | **Experience** | **Experience amount** | Experience points. They can lead to a level-up |
 | **Currency** | **Currency**, **Amount** | Money of one currency, into the inventory |
-| **Item** | **Item**, **Quantity**, **Auto equip** | Items into the inventory, and equips them with **Auto equip**. See [pending rewards](#when-there-is-no-room) |
-| **Ability** | **Ability**, **Ability destination** | An ability: it replaces the basic attack, or is added to the active abilities, or to the passive ones |
+| **Item** | **Item**, **Quantity**, **Auto equip**, **Level from**, **Fixed item level**, **Item level offset** | Items into the inventory, and equips them with **Auto equip**. See [pending rewards](#when-there-is-no-room) and [Item reward](#item-reward) |
+| **Ability** | **Ability**, **Ability destination**, **Initial rank** | An ability: it replaces the basic attack, or is added to the active abilities, or to the passive ones. **Initial rank** starts it at a higher [rank](/basic/abilities-and-effects/ability-ranks) |
+| **Ability Rank** | **Ability**, **Ranks**, **Grant if missing** | Trains an [ability](/basic/abilities-and-effects/ability-ranks#giving-ranks) of the player one or more ranks (up to its highest rank). Put it on a rank of a skill tree node, on a class level or on a quest. It gives the ability first when the player has not got it (**Grant if missing**) |
 | **Skill Point** | **Skill pool**, **Skill points granted** | Points to spend in a [skill tree](/basic/abilities-and-effects/skill-trees) pool |
 | **Crafting Recipe** | **Recipe** | Teaches a crafting recipe |
 | **Crafting Skill Point** | **Craft school**, **Skill points** | Levels in a crafting school |
@@ -53,6 +55,12 @@ The fields of each type:
 | **Faction Reputation** | **Faction**, **Reputation amount** | Reputation with a faction. A negative amount takes reputation away |
 | **Proficiency** | **Proficiency**, **Mode** (experience or levels), **Amount** | Trains the player in a [proficiency](/basic/entity-stats/proficiencies) |
 | **Faction Standing** | **Faction**, **Standing name** | Sets reputation to a named standing ("Friendly") with a faction |
+
+### Item reward
+
+An **Item** reward of an item that is [generated](/basic/items/item-generation) (it rolls its quality, stats or effects, or it scales with its item level) makes the item **at an item level**, with its own roll for each piece. **Level from** says where the level comes from: the **receiver** (the level of the player, the default), a **fixed** level (**Fixed item level**), the **party**, or the **world** ([Worlds](/basic/world/worlds#loot)); **Item level offset** is added (a reward a few levels above the player: `3`). An item that is not generated is given as it is, and the level fields do nothing.
+
+This is how one authored item becomes a reward for every stage of the game: tick **Scales with item level** on the item and give it with the level of the player.
 
 ## When there is no room
 

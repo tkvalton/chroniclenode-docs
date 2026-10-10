@@ -463,6 +463,17 @@ Fog of war hides the parts of the world the party has not seen. Unexplored groun
 
 The quest settings are on the [Quests page](/basic/events-and-quests/quests#the-quest-settings): **max active quests** (`20`), **quest markers**, **default quest failure**, **allow quest abandon**, **show quest levels**, the four **quest level gaps**, and **auto track quest objectives**.
 
+### Item generation
+
+How [generated items](/basic/items/item-generation) are made and what level their loot has.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Item budget formula** | Turns the item level into the **stat budget** of an item of that level, before the slot weight, the multiplier of the item and the budget multiplier of its quality. A [formula](/basic/shared-systems/formulas): *Linear 20* gives 20 at level 1 and 400 at level 20; a curve (hyperbolic, a soft cap) makes the high levels give less and less extra. Below the formula a table shows the budget at a few levels | empty (Linear 20) |
+| **Default NPC loot level** | Where the item level of NPC loot comes from when neither the loot table nor the [loot rule](/basic/items/loot-rules#where-the-item-level-comes-from) says: **Holder level** (the NPC's own), Receiver level, Party level or World level | Holder level |
+| **Default object loot level** | The same for chests, crates and other objects. An object has no level of its own, so *Holder level* falls back to the party's | Party level |
+| **Fallback item level** | The item level used when a source cannot give one (no party yet, a world with no level) | `1` |
+
 ### Items and inventory
 
 | Field | What it does | Default |

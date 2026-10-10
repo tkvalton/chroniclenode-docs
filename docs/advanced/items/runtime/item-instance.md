@@ -48,6 +48,14 @@ Runtime instance of an item that references an ItemDefinition for configuration 
 | `int` | [get_vendor_value](#method-get-vendor-value)() |
 | `int` | [get_max_stack_size](#method-get-max-stack-size)() |
 | `int` | [get_item_level](#method-get-item-level)() |
+| `Dictionary` | [get_generated](#method-get-generated)() |
+| `bool` | [is_generated](#method-is-generated)() |
+| `float` | [get_scale_factor](#method-get-scale-factor)() |
+| `Quality` | [get_quality](#method-get-quality)() |
+| `Color` | [get_quality_color](#method-get-quality-color)() |
+| `String` | [get_quality_name](#method-get-quality-name)() |
+| `int` | [get_quality_tier](#method-get-quality-tier)() |
+| `void` | [apply_generated](#method-apply-generated)( `data: Dictionary` ) |
 | `bool` | [equip](#method-equip)( `user: Entity` ) |
 | `bool` | [unequip](#method-unequip)() |
 | `bool` | [use](#method-use)( `user: Entity` ) |
@@ -249,7 +257,7 @@ Get all socketed items
 
 ### String get_display_name() {#method-get-display-name}
 
-Get display name from definition
+Get display name from definition (a generated item: with the names of its affixes, as its quality says)
 
 ### String get_description() {#method-get-description}
 
@@ -261,7 +269,7 @@ Get icon from definition
 
 ### int get_vendor_value() {#method-get-vendor-value}
 
-Get vendor value from definition
+Get vendor value from definition (a generated item: times the value multiplier of its quality and the growth of an item that scales)
 
 ### int get_max_stack_size() {#method-get-max-stack-size}
 
@@ -269,7 +277,39 @@ Get max stack size from definition
 
 ### int get_item_level() {#method-get-item-level}
 
-Get item level from definition
+The item level (a generated item: the level it was generated at)
+
+### Dictionary get_generated() {#method-get-generated}
+
+What was rolled for this item (empty for an item that was not generated)
+
+### bool is_generated() {#method-is-generated}
+
+*No description yet.*
+
+### float get_scale_factor() {#method-get-scale-factor}
+
+How much the written stats grow for an item that scales with its item level (1 for any other item)
+
+### Quality get_quality() {#method-get-quality}
+
+The quality of the item: the one that was rolled for a generated item, else the one of the definition
+
+### Color get_quality_color() {#method-get-quality-color}
+
+*No description yet.*
+
+### String get_quality_name() {#method-get-quality-name}
+
+*No description yet.*
+
+### int get_quality_tier() {#method-get-quality-tier}
+
+*No description yet.*
+
+### void apply_generated( data: Dictionary ) {#method-apply-generated}
+
+Puts the rolled data on the item: the extra sockets it has, and the data itself (what ItemGenerator made; also what a save gives back)
 
 ### bool equip( user: Entity ) {#method-equip}
 

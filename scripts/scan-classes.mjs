@@ -104,6 +104,8 @@ const SYSTEMS = {
     title: 'Items',
     groups: [
       { text: 'Item definitions', slug: 'item-definitions', dirs: [['data_classes/items', false]] },
+      { text: 'Affixes', slug: 'affixes', dirs: [['data_classes/items/affixes', true]] },
+      { text: 'Generation and loot (runtime)', slug: 'generation-runtime', dirs: [['runtime_classes/utility/item_generator.gd', false], ['runtime_classes/utility/loot_level.gd', false], ['runtime_classes/utility/loot_dispatcher.gd', false]] },
       { text: 'Currency', slug: 'currency', dirs: [['data_classes/items/definitions/currency_definition.gd', false]] },
       { text: 'Crafting', slug: 'crafting', dirs: [['data_classes/crafting', true], ['runtime_classes/player/crafting', true], ['runtime_classes/player/crafting_manager.gd', false]] },
       { text: 'Vendors', slug: 'vendors', dirs: [['data_classes/vendor', true]] },
@@ -121,6 +123,7 @@ const SYSTEMS = {
           ['data_classes/items/definitions/equipment_slot_definition.gd', false],
           ['data_classes/items/definitions/equipment_type_definition.gd', false],
           ['data_classes/items/definitions/quality_definition.gd', false],
+          ['data_classes/items/definitions/quality_rule.gd', false],
           ['data_classes/items/definitions/set_bonus_definition.gd', false],
           ['data_classes/items/definitions/socketable_slot_definition.gd', false],
           ['data_classes/items/definitions/weapon_class_definition.gd', false],

@@ -13,6 +13,9 @@ Grants items to the player's inventory. With no room for all of them nothing is 
 | `int` | [item_id](#prop-item-id) | `0` |
 | `int` | [quantity](#prop-quantity) | `1` |
 | `bool` | [auto_equip](#prop-auto-equip) | `false` |
+| `LootLevel.Choice` | [level_from](#prop-level-from) | `LootLevel.Choice.RECEIVER` |
+| `int` | [fixed_item_level](#prop-fixed-item-level) | `1` |
+| `int` | [item_level_offset](#prop-item-level-offset) | `0` |
 
 ## Methods
 
@@ -40,6 +43,20 @@ How many of the item to grant
 ### bool auto_equip = false {#prop-auto-equip}
 
 Equip the item when it is given
+
+*Item Level*
+
+### LootLevel.Choice level_from = LootLevel.Choice.RECEIVER {#prop-level-from}
+
+For an item that is generated (it rolls its quality, stats or effects, or scales with its item level): where the item level comes from
+
+### int fixed_item_level = 1 {#prop-fixed-item-level}
+
+FIXED: the item level
+
+### int item_level_offset = 0 {#prop-item-level-offset}
+
+Added to the item level (a reward a few levels above the player: +3)
 
 ## Method descriptions
 

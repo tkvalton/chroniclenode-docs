@@ -5,6 +5,12 @@ export const groups = [
     "slug": "item-definitions",
     "classes": [
       {
+        "name": "ItemBudget",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\item_budget.gd",
+        "file": "data_classes/items/item_budget.gd"
+      },
+      {
         "name": "ItemDefinition",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\item_definition.gd",
@@ -77,10 +83,70 @@ export const groups = [
         "file": "data_classes/items/loot_entry.gd"
       },
       {
+        "name": "LootLevelSource",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\loot_level_source.gd",
+        "file": "data_classes/items/loot_level_source.gd"
+      },
+      {
+        "name": "LootRule",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\loot_rule.gd",
+        "file": "data_classes/items/loot_rule.gd"
+      },
+      {
         "name": "LootTable",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\loot_table.gd",
         "file": "data_classes/items/loot_table.gd"
+      }
+    ]
+  },
+  {
+    "text": "Affixes",
+    "slug": "affixes",
+    "classes": [
+      {
+        "name": "Affix",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\affixes\\affix.gd",
+        "file": "data_classes/items/affixes/affix.gd"
+      },
+      {
+        "name": "AffixEffectGrant",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\affixes\\affix_effect_grant.gd",
+        "file": "data_classes/items/affixes/affix_effect_grant.gd"
+      },
+      {
+        "name": "AffixStatGrant",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\affixes\\affix_stat_grant.gd",
+        "file": "data_classes/items/affixes/affix_stat_grant.gd"
+      }
+    ]
+  },
+  {
+    "text": "Generation and loot (runtime)",
+    "slug": "generation-runtime",
+    "classes": [
+      {
+        "name": "ItemGenerator",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\item_generator.gd",
+        "file": "runtime_classes/utility/item_generator.gd"
+      },
+      {
+        "name": "LootDispatcher",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\loot_dispatcher.gd",
+        "file": "runtime_classes/utility/loot_dispatcher.gd"
+      },
+      {
+        "name": "LootLevel",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\loot_level.gd",
+        "file": "runtime_classes/utility/loot_level.gd"
       }
     ]
   },

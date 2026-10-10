@@ -12,6 +12,7 @@ Grants an ability to the player
 |---|---|---|
 | `int` | [granted_ability_id](#prop-granted-ability-id) | `0` |
 | `AbilityDestination` | [ability_destination](#prop-ability-destination) | `AbilityDestination.ADD_ACTIVE` |
+| `int` | [initial_rank](#prop-initial-rank) | `1` |
 
 ## Methods
 
@@ -40,6 +41,10 @@ The ability to grant
 ### AbilityDestination ability_destination = AbilityDestination.ADD_ACTIVE {#prop-ability-destination}
 
 Where the ability goes: it replaces the basic attack, or is added to the active or to the passive abilities
+
+### int initial_rank = 1 {#prop-initial-rank}
+
+The rank the ability starts at (1 = the first; the ability's highest rank is its limit). Later ranks come from Ability Rank rewards
 
 ## Method descriptions
 

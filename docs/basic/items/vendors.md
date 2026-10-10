@@ -47,8 +47,13 @@ A **vendor** is a shop. It has a list of items it **stocks**, a purse of its own
 | **Custom restock hours** | A restock interval for this item. `0` = the vendor's | `0` |
 | **Currency override** | Another currency for this item | the vendor's |
 | **Value override** | A price base for this item instead of its vendor value. `0` = the item's own | `0` |
+| **Item level** | For an item that is [generated](/basic/items/item-generation) (it rolls or scales): the item level of what is bought. `0` = the level of the buyer. See [Generated items](#generated-items) | `0` |
 | **Override vendor value weight**, **Value weight** | A further multiplier for this item, on top of the vendor's sell value multiplier (`2` doubles it) | off, `1` |
 | **Item price modifier** | A last markup or discount for this item only: `1.5` = 50 % dearer | `1` |
+
+## Generated items
+
+A stock line can be an item that rolls or scales with its item level. It is made **when it is bought**, at the **Item level** of the line (the buyer's level when it says `0`), each one with its own roll. The shop shows the item as it is written; the player sees what they got in the bag. The price comes from the item's value (a generated item's value is multiplied by its quality's **vendor value multiplier** and by how much it scales).
 
 ## Prices
 

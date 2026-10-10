@@ -13,6 +13,7 @@ Action to add items to a container's inventory
 | `int` | [interactable_unique_id](#prop-interactable-unique-id) | `0` |
 | `int` | [item_id](#prop-item-id) | `0` |
 | `int` | [quantity](#prop-quantity) | `1` |
+| `int` | [item_level](#prop-item-level) | `0` |
 
 ## Variables
 
@@ -42,6 +43,10 @@ Item ID to add
 ### int quantity = 1 {#prop-quantity}
 
 Quantity to add
+
+### int item_level = 0 {#prop-item-level}
+
+For an item that is generated (it rolls or scales): its item level. 0 = the level of the party
 
 ## Variable descriptions
 

@@ -50,7 +50,7 @@ Choose the **node type** when you add a node.
 
 | Type | What it is |
 |---|---|
-| **Ranked node** | A node that can be taken more than once. *Max ranks* `1` is a plain talent; `5` is "+2 % damage, five ranks". Each rank has its own point cost and its own rewards |
+| **Ranked node** | A node that can be taken more than once. *Max ranks* `1` is a plain talent; `5` is "+2 % damage, five ranks". Each rank has its own point cost and its own rewards. To train an **ability** with the ranks of a node (rank 1 gives Fireball, ranks 2 and 3 make it stronger) give rank 1 an **Ability** reward and the next ranks an **Ability Rank** reward: see [Ability Ranks](/basic/abilities-and-effects/ability-ranks#where-ranks-come-from) |
 | **Choice node** | A node where the player picks **one of several options** when they unlock it: *Fireball becomes Frostbolt or Firebolt*. One cost, and each option has its own rewards. The player can change the choice later |
 
 Fields of every node:

@@ -37,12 +37,14 @@ Container interaction - manages inventory storage in world objects Uses Interact
 |---|---|
 | `bool` | [requires_inventory_component](#method-requires-inventory-component)() |
 | `void` | [setup_for_interactable_objects](#method-setup-for-interactable-objects)( `interactable: InteractableObject` ) |
+| `Array[LootRule]` | [get_legacy_loot_rules](#method-get-legacy-loot-rules)() |
 | `bool` | [can_interact](#method-can-interact)( `player: Player` ) |
 | `void` | [start_interaction](#method-start-interaction)( `player: Player` ) |
 | `void` | [end_interaction](#method-end-interaction)() |
 | `String` | [get_interaction_prompt](#method-get-interaction-prompt)() |
 | `void` | [change_container_state](#method-change-container-state)( `new_state: ContainerState, interacting_entity: Entity = null` ) |
 | `void` | [on_object_destroyed](#method-on-object-destroyed)() |
+| `void` | [refresh_after_load](#method-refresh-after-load)() |
 | `void` | [on_unlocked](#method-on-unlocked)() |
 | `void` | [on_locked_reaction](#method-on-locked-reaction)() |
 | `InventoryComponent` | [get_inventory](#method-get-inventory)() |
@@ -152,6 +154,10 @@ Tell InteractableObject we need an InventoryComponent
 
 *Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
 
+### Array[LootRule] get_legacy_loot_rules() {#method-get-legacy-loot-rules}
+
+The loot rules the older settings of this container make: its fixed contents and its loot table, both rolled when the container is set up
+
 ### bool can_interact( player: Player ) {#method-can-interact}
 
 *Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
@@ -175,6 +181,10 @@ End the current interaction *(from [Interaction](/advanced/entities/interactions
 ### void on_object_destroyed() {#method-on-object-destroyed}
 
 *No description yet.*
+
+### void refresh_after_load() {#method-refresh-after-load}
+
+After a load: a destroyed container with loot is lootable, an empty one is destroyed for good
 
 ### void on_unlocked() {#method-on-unlocked}
 

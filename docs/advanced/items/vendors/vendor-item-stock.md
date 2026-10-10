@@ -13,6 +13,7 @@ Defines how a vendor stocks a specific item (template for runtime inventory)
 | `int` | [item_id](#prop-item-id) | `0` |
 | `int` | [start_quantity](#prop-start-quantity) | `1` |
 | `int` | [max_quantity](#prop-max-quantity) | `10` |
+| `int` | [item_level](#prop-item-level) | `0` |
 | `bool` | [can_restock](#prop-can-restock) | `true` |
 | `int` | [restock_quantity](#prop-restock-quantity) | `1` |
 | `float` | [custom_restock_hours](#prop-custom-restock-hours) | `0.0` |
@@ -46,6 +47,10 @@ The starting quantity when vendor is first created/restocked. Set to -1 for unli
 ### int max_quantity = 10 {#prop-max-quantity}
 
 The maximum quantity this vendor will stock (0 = unlimited)
+
+### int item_level = 0 {#prop-item-level}
+
+For an item that is generated (it rolls or scales with its item level): the item level of what is bought. 0 = the level of the buyer
 
 ### bool can_restock = true {#prop-can-restock}
 

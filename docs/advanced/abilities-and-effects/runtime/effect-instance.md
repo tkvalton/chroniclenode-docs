@@ -52,6 +52,7 @@ Lightweight runtime instance of an effect that references an EffectDefinition fo
 | | |
 |---|---|
 | `void` | [initialize](#method-initialize)( `system_hub: GameHost.SystemHub, effect_def: Effect, new_originator: Variant = null, new_target: Variant = null` ) |
+| `Dictionary` | [get_requirement_context](#method-get-requirement-context)() |
 | `void` | [start_effect](#method-start-effect)() |
 | `void` | [update_duration](#method-update-duration)( `new_duration: float` ) |
 | `void` | [remove_effect](#method-remove-effect)() |
@@ -246,6 +247,10 @@ Array of connected signal connections for cleanup
 ### void initialize( system_hub: GameHost.SystemHub, effect_def: Effect, new_originator: Variant = null, new_target: Variant = null ) {#method-initialize}
 
 Initialize the effect instance with definition and basic setup
+
+### Dictionary get_requirement_context() {#method-get-requirement-context}
+
+What the requirements of the effect may ask about what it belongs to: the rank of its ability, the item level of its item
 
 ### void start_effect() {#method-start-effect}
 

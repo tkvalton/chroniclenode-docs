@@ -11,6 +11,12 @@ export const groups = [
         "file": "data_classes/requirements/requirement.gd"
       },
       {
+        "name": "RequirementAbilityRank",
+        "base": "Requirement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\requirements\\types\\requirement_ability_rank.gd",
+        "file": "data_classes/requirements/types/requirement_ability_rank.gd"
+      },
+      {
         "name": "RequirementChecker",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\requirement_checker.gd",
@@ -70,6 +76,12 @@ export const groups = [
     "text": "Rewards",
     "slug": "rewards",
     "classes": [
+      {
+        "name": "AbilityRankReward",
+        "base": "Reward",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\rewards\\types\\ability_rank_reward.gd",
+        "file": "data_classes/rewards/types/ability_rank_reward.gd"
+      },
       {
         "name": "AbilityReward",
         "base": "Reward",

@@ -78,6 +78,7 @@ func get_summary() -> String:
 <!-- classes:shared-systems/rewards -->
 | Class | What it is |
 |---|---|
+| [AbilityRankReward](/advanced/shared-systems/rewards/ability-rank-reward) | Trains an ability of the player one or more ranks: a skill tree node that raises Fireball, a level that gives rank 3 of an ability, a quest that teaches a new rank. |
 | [AbilityReward](/advanced/shared-systems/rewards/ability-reward) | Grants an ability to the player |
 | [CraftingRecipeReward](/advanced/shared-systems/rewards/crafting-recipe-reward) | Teaches a crafting recipe to the player via the CraftingManager |
 | [CraftingSkillPointReward](/advanced/shared-systems/rewards/crafting-skill-point-reward) | Grants skill levels to a crafting school via the CraftingManager of the party |

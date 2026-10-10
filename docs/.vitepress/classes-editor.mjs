@@ -41,6 +41,12 @@ export const groups = [
         "file": "editor_components/editors/abilities/ability_editor.gd"
       },
       {
+        "name": "AbilityRankFields",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\abilities\\ability_rank_fields.gd",
+        "file": "editor_components/editors/abilities/ability_rank_fields.gd"
+      },
+      {
         "name": "ComboStepsEditor",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\abilities\\ability_properties\\combo_steps_editor.gd",
@@ -425,6 +431,12 @@ export const groups = [
         "file": "editor_components/editors/equipment_definitions/quality_editor.gd"
       },
       {
+        "name": "QualityGenerationFields",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\equipment_definitions\\quality_generation_fields.gd",
+        "file": "editor_components/editors/equipment_definitions/quality_generation_fields.gd"
+      },
+      {
         "name": "SetBonusDefinitionEditor",
         "base": "ResourceEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\equipment_definitions\\set_bonus_editor.gd",
@@ -521,6 +533,12 @@ export const groups = [
     "slug": "items",
     "classes": [
       {
+        "name": "AffixesEditor",
+        "base": "ResourceEditor",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\items\\affixes_editor.gd",
+        "file": "editor_components/editors/items/affixes_editor.gd"
+      },
+      {
         "name": "CraftingRecipeEditor",
         "base": "ResourceEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\items\\crafting_recipe_editor.gd",
@@ -537,6 +555,12 @@ export const groups = [
         "base": "ResourceEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\items\\currency_definition_editor.gd",
         "file": "editor_components/editors/items/currency_definition_editor.gd"
+      },
+      {
+        "name": "EquipmentGenerationFields",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\items\\item_properties\\equipment_generation_fields.gd",
+        "file": "editor_components/editors/items/item_properties/equipment_generation_fields.gd"
       },
       {
         "name": "ItemConsumableEditor",
@@ -605,10 +629,28 @@ export const groups = [
         "file": "editor_components/editors/items/item_properties/item_weapon_editor.gd"
       },
       {
+        "name": "LootLevelSourceFields",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\items\\loot_level_source_fields.gd",
+        "file": "editor_components/editors/items/loot_level_source_fields.gd"
+      },
+      {
+        "name": "LootRulesFields",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\items\\loot_rules_fields.gd",
+        "file": "editor_components/editors/items/loot_rules_fields.gd"
+      },
+      {
         "name": "LootTableEditor",
         "base": "ResourceEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\items\\loot_table_editor.gd",
         "file": "editor_components/editors/items/loot_table_editor.gd"
+      },
+      {
+        "name": "LootTableInlineFields",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\items\\loot_table_inline_fields.gd",
+        "file": "editor_components/editors/items/loot_table_inline_fields.gd"
       },
       {
         "name": "VendorEditor",
@@ -651,6 +693,12 @@ export const groups = [
         "base": "ConfigEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\gameplay_config_editor.gd",
         "file": "editor_components/editors/settings/gameplay_config_editor.gd"
+      },
+      {
+        "name": "ItemBudgetEditor",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\item_budget_editor.gd",
+        "file": "editor_components/editors/settings/item_budget_editor.gd"
       },
       {
         "name": "KillExperienceEditor",

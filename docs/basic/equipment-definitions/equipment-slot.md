@@ -16,6 +16,12 @@ An **equipment slot** is a place on a character that holds one piece of equipmen
 | **Is weapon slot** | The slot holds weapons. It must accept at least one weapon type, and should use the Weapon category | off |
 | **Mesh slot** | For a weapon slot, which hand the weapon is drawn in: main hand or off hand | main hand |
 
+## Item budget
+
+| Field | What it does | Default |
+|---|---|---|
+| **Budget weight** | How much of the stat budget an item in this slot gets compared with the items of other slots: chest `1.5`, head `1`, ring `0.5`, the slot of a two-handed weapon `2`. The budget is what the rolled bonuses of a [generated item](/basic/items/item-generation#the-budget) share. An item that fits several slots uses the highest weight | `1` |
+
 ## How an item finds a slot
 
 Equipping an item (by double-click or by a reward) looks for a slot that accepts the type of the item and is not blocked by a wielded weapon:

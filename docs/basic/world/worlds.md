@@ -76,6 +76,12 @@ Two things are true whatever you choose:
 - **Saving the game saves the world the party is in, exactly as it is.** The setting only says what is remembered when the party *leaves*. Saving in an instance dungeon with a chest open, then loading, gives you the open chest.
 - **A new game forgets every remembered world** and the exploration of the fog of war.
 
+### Loot
+
+| Setting | What it does | Default |
+|---|---|---|
+| **Item level of the loot** | The item level of the loot of this world when a [loot rule](/basic/items/loot-rules#where-the-item-level-comes-from) or loot table says **World level**, whatever the level of the player. A starting zone can be level 5 and a late dungeon level 40. `0` = none: the loot falls back to the party level | `0` |
+
 ## Validation
 
 **Validate** (and *Validate All Maps*) warns about: a missing name or category, a missing or non-existing scene file, a unique that the world lists but the database does not have, a default music or ambient track that is not in the album, an album with no tracks, and a default weather with no effect chosen. A world with warnings is counted at the bottom of the list.

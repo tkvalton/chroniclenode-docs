@@ -13,6 +13,7 @@ Creates items and adds them to target entity's inventory or drops them in the wo
 | `int` | [item_id](#prop-item-id) | `0` |
 | `int` | [quantity](#prop-quantity) | `1` |
 | `bool` | [validate_item_exists](#prop-validate-item-exists) | `true` |
+| `int` | [item_level](#prop-item-level) | `0` |
 
 ## Methods
 
@@ -44,6 +45,10 @@ Quantity to create (must be positive)
 ### bool validate_item_exists = true {#prop-validate-item-exists}
 
 Whether to validate that the item ID exists in the database
+
+### int item_level = 0 {#prop-item-level}
+
+For an item that is generated (it rolls or scales): its item level. 0 = the level of the entity that gets it
 
 ## Method descriptions
 

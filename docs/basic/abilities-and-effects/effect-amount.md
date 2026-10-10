@@ -33,6 +33,9 @@ Then the effect applies what is its own: its [stacks](/basic/keywords#stacks), i
 | **Damage dealt so far in this cast** | A share of the damage the earlier effects of this ability dealt, after armor and shields |
 | **Healing done so far in this cast** | A share of the healing the earlier effects did |
 | **Damage absorbed so far in this cast** | A share of the damage the targets' shields absorbed from this cast |
+| **Ranks of the ability above the first** | The ranks of the ability that uses the effect above the first, times a number: "+10 per rank" (rank 1 adds nothing, rank 3 adds 20). Gear that adds ranks counts. Needs an effect that an [ability](/basic/abilities-and-effects/ability-ranks#ranks-in-effects) uses: elsewhere it adds nothing |
+| **Level of the user** | The level of the user times a number: "+2 per level" |
+| **Item level of the item of the effect** | The item level of the item whose effect this is, times a number. Needs an effect of an item (an equipment effect, a potion, a gem): a weapon effect that grows with the level of the weapon |
 
 Every part has **Most this part adds** (`0` = no limit). The three "so far in this cast" parts also have **Only this effect**: listen to one effect of the cast instead of all of them.
 

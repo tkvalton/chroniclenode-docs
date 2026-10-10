@@ -16,6 +16,10 @@ Configuration for gameplay rules and mechanics
 | `bool` | [droped_items_saved_to_map](#prop-droped-items-saved-to-map) | `false` |
 | `bool` | [item_weight_enabled](#prop-item-weight-enabled) | `false` |
 | `bool` | [item_durability_enabled](#prop-item-durability-enabled) | `false` |
+| `CalculationFormula` | [item_budget_formula](#prop-item-budget-formula) |  |
+| `LootLevelSource.Source` | [default_npc_loot_level](#prop-default-npc-loot-level) | `LootLevelSource.Source.HOLDER` |
+| `LootLevelSource.Source` | [default_object_loot_level](#prop-default-object-loot-level) | `LootLevelSource.Source.PARTY` |
+| `int` | [fallback_item_level](#prop-fallback-item-level) | `1` |
 | `int` | [max_active_quests](#prop-max-active-quests) | `20` |
 | `bool` | [quest_markers_enabled](#prop-quest-markers-enabled) | `true` |
 | `QuestFailureRule` | [default_quest_failure](#prop-default-quest-failure) | `QuestFailureRule.RETRY` |
@@ -136,6 +140,7 @@ Configuration for gameplay rules and mechanics
 | `bool` | [main_character_exists](#method-main-character-exists)() |
 | `float` | [get_kill_experience](#method-get-kill-experience)( `npc_level: int, fixed_worth: int = 0` ) |
 | `float` | [get_kill_experience_falloff_factor](#method-get-kill-experience-falloff-factor)( `levels_below: int` ) |
+| `float` | [get_item_budget](#method-get-item-budget)( `item_level: int` ) |
 | `int` | [get_scaled_npc_level](#method-get-scaled-npc-level)( `base_level: int, reference_level: int, rank_types: Array = []` ) |
 | `int` | [get_experience_for_level](#method-get-experience-for-level)( `level: int` ) |
 | `int` | [get_total_experience_for_level](#method-get-total-experience-for-level)( `level: int` ) |
@@ -267,6 +272,7 @@ Fog edge quality - controls smoothness of fog boundaries
 ## Constants
 
 - `const` **CONFIG_PATH** = `"res://src/data/config_data/gameplay_config.tres"`
+- `float` **DEFAULT_BUDGET_PER_LEVEL** = `20.0` - The budget per item level when the project has no formula of its own
 - `Dictionary` **SETTING_DESCRIPTIONS** = `{` - Dictionary of setting descriptions for tooltips and help text
 
 ## Property descriptions
@@ -296,6 +302,24 @@ Items have weight/encumbrance
 ### bool item_durability_enabled = false {#prop-item-durability-enabled}
 
 Items can break/degrade over time
+
+*Item Generation*
+
+### CalculationFormula item_budget_formula {#prop-item-budget-formula}
+
+Turns the item level into the stat budget of a generated item (see ItemBudget): "Linear 20" gives 20 points of budget at level 1, 400 at level 20. A curve (hyperbolic, a soft cap) makes the high levels give less and less extra. Empty = Linear 20
+
+### LootLevelSource.Source default_npc_loot_level = LootLevelSource.Source.HOLDER {#prop-default-npc-loot-level}
+
+Where the item level of generated loot comes from when neither the loot table nor the rule of an NPC says (Holder = the level of the NPC)
+
+### LootLevelSource.Source default_object_loot_level = LootLevelSource.Source.PARTY {#prop-default-object-loot-level}
+
+The same for chests, crates and other objects (an object has no level of its own, so Holder falls back to the party)
+
+### int fallback_item_level = 1 {#prop-fallback-item-level}
+
+The item level used when a source cannot give one (no party yet, no world level)
 
 *Quests*
 
@@ -808,6 +832,10 @@ The experience an NPC of this level gives by the settings (before the multiplier
 ### float get_kill_experience_falloff_factor( levels_below: int ) {#method-get-kill-experience-falloff-factor}
 
 The share of the experience that is kept for an NPC this many levels under the reference level (1 = all of it)
+
+### float get_item_budget( item_level: int ) {#method-get-item-budget}
+
+The stat budget of an item of this item level, before the slot, item and quality multipliers (see ItemBudget). Linear 20 per level when the formula is empty
 
 ### int get_scaled_npc_level( base_level: int, reference_level: int, rank_types: Array = [] ) {#method-get-scaled-npc-level}
 

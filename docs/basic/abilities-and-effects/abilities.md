@@ -96,9 +96,13 @@ The ability rolls **once per use and enemy**, before any of its effects apply: a
 
 **Requirements** are conditions that must be true before the ability can be used, or, for a passive ability, for its effects to apply: a weapon type, a level, a stat value, a class. Press **Add Requirement** to add one; right-click one to edit or remove it.
 
+## Ranks
+
+**Highest rank** makes the ability one that can be trained: its cooldown, cost, range and other numbers can change with every rank, and so can the amounts of its effects. `1` (the default) means it has no ranks. See [Ability Ranks](/basic/abilities-and-effects/ability-ranks).
+
 ## Groups
 
-**Groups** put the ability in one or more groups (defined in *Types & Groups > Groups*). Abilities and consumables in a group that shares its cooldown go on cooldown together, which is how potions share a cooldown.
+**Groups** put the ability in one or more groups(defined in *Types & Groups > Groups*). Abilities and consumables in a group that shares its cooldown go on cooldown together, which is how potions share a cooldown.
 
 ## Targeting and use style
 

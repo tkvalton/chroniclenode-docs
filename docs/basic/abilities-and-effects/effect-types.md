@@ -63,7 +63,8 @@ These effects change abilities themselves.
 | [**Ability**](/advanced/abilities-and-effects/effects-ability/ability-effect) (`AbilityEffect`) | Adds or removes abilities from the target's abilities |
 | [**Basic Attack Swap**](/advanced/abilities-and-effects/effects-ability/basic-attack-swap-effect) (`BasicAttackSwapEffect`) | Replaces the target's basic attack with another |
 | [**Ability Cast Modifier**](/advanced/abilities-and-effects/effects-ability/ability-cast-modifier-effect) (`AbilityCastModifierEffect`) | Changes the cast or channel time of one ability while the effect lasts: the next spell is instant |
-| [**Ability Cooldown**](/advanced/abilities-and-effects/effects-ability/ability-cooldown-effect) (`AbilityCooldownEffect`) | Changes an ability's [cooldown](/basic/keywords#cooldown), shortens a running one, or resets it |
+| [**Ability Rank**](/advanced/abilities-and-effects/effects-ability/ability-rank-effect) (`AbilityRankEffect`) | Adds ranks to abilities while it lasts: "+1 to all fire abilities" on a staff, "+2 to Fireball" from an aura. Choose all abilities, some by name, a group, or a school, and the **Bonus ranks** (negative for a curse). The ranks can go over the highest rank the ability can be trained to, and go away with the effect. See [Ability Ranks](/basic/abilities-and-effects/ability-ranks) |
+| [**Ability Cooldown**](/advanced/abilities-and-effects/effects-ability/ability-cooldown-effect) (`AbilityCooldownEffect`)| Changes an ability's [cooldown](/basic/keywords#cooldown), shortens a running one, or resets it |
 | [**Ability Resource**](/advanced/abilities-and-effects/effects-ability/ability-resource-effect) (`AbilityResourceEffect`) | Changes the cost and the resource gain of an ability: half the mana cost, free, more rage |
 | [**Ability Range**](/advanced/abilities-and-effects/effects-ability/ability-range-effect) (`AbilityRangeEffect`) | Changes the range of an ability: longer for a sniper shot, shorter as a debuff |
 | [**Ability Effects Modifier**](/advanced/abilities-and-effects/effects-ability/ability-effects-modifier-effect) (`AbilityEffectsModifierEffect`) | Adds or removes effects from an ability's passive or on-use effects while it lasts |
@@ -169,7 +170,7 @@ A proc effect waits for something to happen to its holder, and then applies its 
 
 | Type | What it does |
 |---|---|
-| [**Create Item**](/advanced/abilities-and-effects/effects-item/create-item-effect) (`CreateItemEffect`) | Creates items and puts them in the target's inventory, or drops them in the world |
+| [**Create Item**](/advanced/abilities-and-effects/effects-item/create-item-effect) (`CreateItemEffect`) | Creates items and puts them in the target's inventory, or drops them in the world. An item that is [generated](/basic/items/item-generation) is made with its own roll at the **Item level** of the effect (`0` = the level of the one who gets it) |
 | [**Enchant Equipment**](/advanced/abilities-and-effects/effects-item/enchant-equipment-effect) (`EnchantEquipmentEffect`) | Puts an enchant on the equipment in a slot, like an enchant scroll |
 
 ## Utility
@@ -177,7 +178,7 @@ A proc effect waits for something to happen to its holder, and then applies its 
 | Type | What it does |
 |---|---|
 | [**Grant Reward**](/advanced/abilities-and-effects/effects-utility/grant-reward-effect) (`GrantRewardEffect`) | Gives the target a *Reward*: abilities, items, currency, effects. Can take it back when the effect ends |
-| [**Access Entity Inventory**](/advanced/abilities-and-effects/effects-utility/access-entity-inventory-effect) (`AccessEntityInventoryEffect`) | Opens the inventory of the target, like looting it |
+| [**Access Entity Inventory**](/advanced/abilities-and-effects/effects-utility/access-entity-inventory-effect) (`AccessEntityInventoryEffect`) | Opens the inventory of the target, like looting it: the pickpocket. It first rolls the [**On First Access** loot rules](/basic/items/loot-rules#pickpocketing) of the target, so an NPC that is made to be robbed always has something to steal |
 | [**Unlock Interactable**](/advanced/abilities-and-effects/effects-utility/effect-unlock-interactable) (`EffectUnlockInteractable`) | Tries to unlock a locked object, with a base chance that a stat of the caster can raise |
 
 ## See also

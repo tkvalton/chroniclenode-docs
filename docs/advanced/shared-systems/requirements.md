@@ -84,6 +84,7 @@ func get_summary() -> String:
 | Class | What it is |
 |---|---|
 | [Requirement](/advanced/shared-systems/requirements/requirement) | Base class for all requirement types in the game. |
+| [RequirementAbilityRank](/advanced/shared-systems/requirements/requirement-ability-rank) | Needs the ability that uses the effect to be at a rank: put it on an effect of an ability so that rank 3 adds the burn and rank 5 the second projectile. |
 | [RequirementChecker](/advanced/shared-systems/requirements/requirement-checker) | Utility class for checking requirements and generating feedback Can be used as a static utility or instantiated for batch checking |
 | [RequirementEquipmentSlot](/advanced/shared-systems/requirements/requirement-equipment-slot) | Requires entity to have equipment in specific slot |
 | [RequirementFaction](/advanced/shared-systems/requirements/requirement-faction) | Requires entity to have a minimum reputation with a faction |

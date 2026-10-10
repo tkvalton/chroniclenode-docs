@@ -63,6 +63,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `Array[int]` | [runtime_entity_tags](#var-runtime-entity-tags) | `[]` |
 | `Array[int]` | [suppressed_entity_tags](#var-suppressed-entity-tags) | `[]` |
 | `AimProvider` | [aim_provider](#var-aim-provider) | `null` |
+| `Array` | [loot_rolled](#var-loot-rolled) | `[]` |
 
 ## Methods
 
@@ -234,6 +235,9 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `Dictionary` | [get_animation_tags](#method-get-animation-tags)() |
 | `String` | [get_stance_tag](#method-get-stance-tag)() |
 | `String` | [get_attack_tag](#method-get-attack-tag)() |
+| `Array[LootRule]` | [get_loot_rules](#method-get-loot-rules)() |
+| `int` | [run_loot_rules](#method-run-loot-rules)( `trigger: LootRule.Trigger, receiver: Entity = null` ) |
+| `bool` | [has_pending_loot](#method-has-pending-loot)() |
 | `void` | [entity_death](#method-entity-death)( `announce: bool = true` ) |
 | `void` | [resurrect](#method-resurrect)() |
 | `void` | [set_current_target_hover](#method-set-current-target-hover)() |
@@ -621,6 +625,10 @@ Tags removed while the game runs even though the definition has them
 ### AimProvider aim_provider = null {#var-aim-provider}
 
 Where this entity is aiming (see AimProvider). The controller of the player in control sets a CameraAimProvider; null = aim at the target
+
+### Array loot_rolled = [] {#var-loot-rolled}
+
+The numbers of the loot rules that have rolled (a rule on Initialize or First Access rolls once). Saved with the NPC
 
 ## Method descriptions
 
@@ -1287,6 +1295,18 @@ Get the stance tag for combat idle animations Virtual method - override in subcl
 ### String get_attack_tag() {#method-get-attack-tag}
 
 Get the attack tag for weapon animations Virtual method - override in subclasses for different sources
+
+### Array[LootRule] get_loot_rules() {#method-get-loot-rules}
+
+The loot rules of this NPC: the ones of the placed NPC when it has its own, else the ones of its definition
+
+### int run_loot_rules( trigger: LootRule.Trigger, receiver: Entity = null ) {#method-run-loot-rules}
+
+Rolls the loot rules of a trigger into the inventory of this NPC (see LootDispatcher). `receiver` is whoever gets the loot: it changes the amount and the quality by its loot gains and can give the item level. Returns how many rules rolled. Players and pets have no loot rules
+
+### bool has_pending_loot() {#method-has-pending-loot}
+
+Is there a loot rule of this NPC that rolls the first time its inventory is opened (a pocket picked, a body looted) and has not rolled yet?
 
 ### void entity_death( announce: bool = true ) {#method-entity-death}
 

@@ -15,12 +15,15 @@ NPCDefinition extends EntityDefinition with combat stats, AI behavior, and loot 
 | `float` | [experience_multiplier](#prop-experience-multiplier) | `1.0` |
 | `int` | [faction](#prop-faction) | `0` |
 | `StatsData` | [stats_data](#prop-stats-data) | `StatsData.new()` |
+| `Array[LootRule]` | [loot_rules](#prop-loot-rules) | `[]` |
 | `LootTableLogic` | [loot_table_logic](#prop-loot-table-logic) | `LootTableLogic.NONE` |
 | `int` | [loot_table](#prop-loot-table) | `0` |
 | `Dictionary` | [inventory](#prop-inventory) | `{ ... }` |
 | `int` | [basic_attack_data](#prop-basic-attack-data) | `0` |
 | `Array[int]` | [active_abilities_data](#prop-active-abilities-data) | `[]` |
 | `Array[int]` | [passive_abilities_data](#prop-passive-abilities-data) | `[]` |
+| `Dictionary` | [ability_ranks](#prop-ability-ranks) | `{}` |
+| `CalculationFormula` | [ability_rank_formula](#prop-ability-rank-formula) |  |
 | `int` | [behavior_script](#prop-behavior-script) | `0` |
 | `int` | [combat_script](#prop-combat-script) | `0` |
 | `String` | [attack_tag](#prop-attack-tag) | `""` |
@@ -33,6 +36,10 @@ NPCDefinition extends EntityDefinition with combat stats, AI behavior, and loot 
 
 | | |
 |---|---|
+| `Array[LootRule]` | [get_loot_rules](#method-get-loot-rules)( `table_override: int = 0, inventory_override: Dictionary = {}` ) |
+| `Array[LootRule]` | [get_legacy_loot_rules](#method-get-legacy-loot-rules)( `table_override: int = 0, inventory_override: Dictionary = {}` ) |
+| `void` | [convert_legacy_loot](#method-convert-legacy-loot)() |
+| `int` | [get_ability_rank](#method-get-ability-rank)( `ability_id: int, level: int` ) |
 | `void` | [set_faction](#method-set-faction)( `faction_id: int` ) |
 | `FactionDefinition` | [get_faction](#method-get-faction)() |
 | `int` | [get_faction_id](#method-get-faction-id)() |
@@ -133,19 +140,23 @@ Stats configuration including health, resources, and combat stats
 
 *Loot Configuration*
 
+### Array[LootRule] loot_rules = [] {#prop-loot-rules}
+
+What this NPC hands out and when: each rule is a loot table with a trigger (when it is made, when it dies, the first time someone opens its pockets) and a source for the item level of what drops (see LootRule). A placed NPC can replace the rules
+
 ### LootTableLogic loot_table_logic = LootTableLogic.NONE {#prop-loot-table-logic}
 
-When to generate and add loot from the loot table
+Older setting, used together with the loot rules: when to generate and add loot from the loot table
 
 ### int loot_table = 0 {#prop-loot-table}
 
-Loot table defining what this entity drops when defeated
+Older setting, used together with the loot rules: loot table defining what this entity drops when defeated
 
 *Inventory*
 
 ### Dictionary inventory {#prop-inventory}
 
-Entity Inventory - starting items &amp; currency for this NPC
+Older setting: the fixed starting items and currency of this NPC. They are still given (as a loot rule with a table of its own, when the NPC is made); new NPCs use loot rules, where a table with only guaranteed entries does the same
 
 *Ability Definitions*
 
@@ -160,6 +171,14 @@ Collection of active ability definitions this entity can use
 ### Array[int] passive_abilities_data = [] {#prop-passive-abilities-data}
 
 Collection of passive ability definitions that affect this entity
+
+### Dictionary ability_ranks =  {#prop-ability-ranks}
+
+The rank of its abilities: ability id -&gt; rank (abilities with ranks only; an ability that is not listed is rank 1, or what the formula below says)
+
+### CalculationFormula ability_rank_formula {#prop-ability-rank-formula}
+
+The rank of its abilities by its level: the levels above the first go in (level 11 gives 10), the ranks above the first come out (rounded down). Linear 0.1: rank 2 at level 11, rank 3 at level 21. Used for the abilities that are not listed above. Empty = rank 1
 
 *AI Scripts*
 
@@ -194,6 +213,22 @@ Aim animation name for ranged NPCs (e.g., "idle_bow_aim")
 Reload animation name for ranged NPCs (e.g., "shoot_bow_reload")
 
 ## Method descriptions
+
+### Array[LootRule] get_loot_rules( table_override: int = 0, inventory_override: Dictionary = &#123;&#125; ) {#method-get-loot-rules}
+
+The loot rules of this NPC: its own, plus the ones its older loot table and inventory settings make (a placed NPC passes its own table and inventory to replace those)
+
+### Array[LootRule] get_legacy_loot_rules( table_override: int = 0, inventory_override: Dictionary = &#123;&#125; ) {#method-get-legacy-loot-rules}
+
+The rules the older settings make (the loot table with its logic, the fixed inventory): what an NPC made before loot rules still gives
+
+### void convert_legacy_loot() {#method-convert-legacy-loot}
+
+Moves the older loot table and fixed inventory into the loot rules of the NPC (and clears the older settings), so the editor can edit them
+
+### int get_ability_rank( ability_id: int, level: int ) {#method-get-ability-rank}
+
+The rank an ability of this NPC has at a level
 
 ### void set_faction( faction_id: int ) {#method-set-faction}
 

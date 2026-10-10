@@ -43,6 +43,12 @@ By default an object is scenery. These switches make it a thing that can be atta
 
 When the master pool of an object empties, it is **destroyed**: it plays its `destroyed` animation (if the scene has one), its destroyed sound and its destruction VFX, stops being a target, and refuses to be used.
 
+## Loot
+
+Under the interaction. Any interactable can have [loot rules](/basic/items/loot-rules), not only containers: each is a [loot table](/basic/items/loot-tables) with a trigger. **On Initialize**: the object holds it from the start. **On First Access**: it is rolled the first time the object is opened (a chest), at the item level you choose. **On Destroyed**: it is rolled when the object is destroyed (it needs an object that [can be targeted](#targeting-and-stats), so it has health). What a destroyed object leaves is lootable like a corpse: a destroyed chest can still be opened, and a plain crate with no interaction becomes openable like a container. See [Loot Rules](/basic/items/loot-rules).
+
+A [placed object](/basic/world/uniques) can replace the rules of its definition.
+
 ## Sound and visuals
 
 | Field | When it plays |
@@ -83,13 +89,15 @@ A chest, a crate, a corpse-less loot pile.
 
 | Field | What it does | Default |
 |---|---|---|
-| **Inventory** | The [items](/basic/items/items) and [currency](/basic/items/currency) in it | empty |
+| **Inventory** | An older setting: [items](/basic/items/items) and [currency](/basic/items/currency) in it from the start. It keeps working (as a [loot rule](/basic/items/loot-rules) on Initialize); new containers use loot rules | empty |
 | **Max slots** | How many slots it has | `20` |
-| **Loot table** | A [loot table](/basic/items/loot-tables) rolled into the container when it is created | none |
+| **Loot table** | An older setting: a [loot table](/basic/items/loot-tables) rolled into the container when it is created. Use a [loot rule](/basic/items/loot-rules) instead: it can roll when the chest is **first opened**, at the level of the one who opens it | none |
 | **Auto close**, **Auto close distance** | The container closes when the player walks this many metres away (`2` to `10`) | on, `4` |
 | **Animations**, **Sounds** | Closed, locked, open; open, close, locked | |
 
 A container can be locked with the object's key. Using the key opens the lock and the chest in one go.
+
+A destroyed container that still holds something stays **lootable**, like a corpse; a broken lock does not hold. See [Loot](#loot).
 
 ### Switch and Light
 

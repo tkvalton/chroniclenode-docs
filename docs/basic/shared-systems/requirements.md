@@ -34,6 +34,7 @@ Look for a **Requirements** list in these editors:
 | Class | What it is |
 |---|---|
 | [Requirement](/advanced/shared-systems/requirements/requirement) | Base class for all requirement types in the game. |
+| [RequirementAbilityRank](/advanced/shared-systems/requirements/requirement-ability-rank) | Needs the ability that uses the effect to be at a rank: put it on an effect of an ability so that rank 3 adds the burn and rank 5 the second projectile. |
 | [RequirementChecker](/advanced/shared-systems/requirements/requirement-checker) | Utility class for checking requirements and generating feedback Can be used as a static utility or instantiated for batch checking |
 | [RequirementEquipmentSlot](/advanced/shared-systems/requirements/requirement-equipment-slot) | Requires entity to have equipment in specific slot |
 | [RequirementFaction](/advanced/shared-systems/requirements/requirement-faction) | Requires entity to have a minimum reputation with a faction |
@@ -49,7 +50,8 @@ The fields of each type:
 
 | Type | Fields | Met when |
 |---|---|---|
-| **Level** | **Required level** (default `1`), **Max level** (`0` = no limit) | The entity's level is at least the required level, and at most the max level when there is one. A max level makes "only works up to level 60" |
+| **Level** | **Required level** (default `1`), **Max level** (`0` = no limit), **Follow item level**, **Item level offset** | The entity's level is at least the required level, and at most the max level when there is one. A max level makes "only works up to level 60". See [Level](#level) |
+| **Ability Rank** | **Min rank** (default `2`), **Max rank** (`0` = no limit) | On an [effect](/basic/abilities-and-effects/effects) that an ability uses: the ability is at least at the min rank (and at most the max rank). Anywhere else the requirement is met. See [Ability ranks](/basic/abilities-and-effects/ability-ranks#ranks-in-effects) |
 | **Stat** | **Stat**, **Minimum value**, **Check base stat** | The stat's value is at least the minimum. With **Check base stat** off it counts the value with bonuses and buffs; on, only the base |
 | **Player Class** | **Allowed classes**, **Exclusion mode** | The player's class is in the list. With **Exclusion mode** on it is the other way round: the class must *not* be in the list. Entities that are not players always pass |
 | **Faction** | **Faction**, **Minimum reputation**, **Standing name** | The entity's reputation with the faction is at least the minimum. With a **Standing name** ("Friendly", "Allied") it must be at that standing or a higher one |
@@ -57,6 +59,12 @@ The fields of each type:
 | **Weapon** | **Requires any weapon**, **Required weapon types** | A weapon is equipped, or one of the listed types. An entity that is **disarmed** never meets it |
 | **Proficiency** | **Proficiency**, **Required level** | The player's level in the [proficiency](/basic/entity-stats/proficiencies) is at least the required level: "needs Plate 25" |
 | **Response Seen** | **Source type** (NPC or Interactable), the unique id of the NPC or object, **Response id**, **Must have seen** | The player has (or, with **Must have seen** off, has not) picked that answer in that conversation. For branching conversations |
+
+### Level
+
+The **Level** requirement asks for a level between a minimum and a maximum. On an **item** it can instead **follow the item level**: tick **Follow item level** and the level needed is the item level of **that item**, minus the **Item level offset**. An item [generated](/basic/items/item-generation) at level 30 with an offset of `2` asks for a level 28 player; an item that is not generated follows the item level written on it. Use it on items that are generated or scale, so the level needed grows with the level of the drop.
+
+The old "required level" idea of an item is this requirement: the **Item level** field of an item is only how powerful it is.
 
 ::: tip Stat requirements and buffs
 A requirement on a stat that a buff raises is met only while the buff lasts. An ability that needs 50 Strength becomes unusable again when the buff ends. Turn on **Check base stat** to ignore buffs.

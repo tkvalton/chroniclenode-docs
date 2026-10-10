@@ -12,6 +12,7 @@
 | `int` | [sort_order](#prop-sort-order) | `0` |
 | `Array[int]` | [allowed_equipment_types](#prop-allowed-equipment-types) | `[]` |
 | `int` | [slot_instances](#prop-slot-instances) | `1` |
+| `float` | [budget_weight](#prop-budget-weight) | `1.0` |
 | `bool` | [is_weapon_slot](#prop-is-weapon-slot) | `false` |
 | `GeneralSkeleton.WeaponSlot` | [mesh_slot](#prop-mesh-slot) | `GeneralSkeleton.WeaponSlot.MAIN_HAND` |
 
@@ -68,6 +69,12 @@ Which equipment types can be equipped in this slot
 ### int slot_instances = 1 {#prop-slot-instances}
 
 How many instances of this slot type should exist (e.g., 2 for ring slots)
+
+*Item Budget*
+
+### float budget_weight = 1.0 {#prop-budget-weight}
+
+How much of the item budget an item in this slot gets compared with other slots (head 1, ring 0.5, a two-handed weapon slot 2). See ItemBudget
 
 *Weapon Support*
 

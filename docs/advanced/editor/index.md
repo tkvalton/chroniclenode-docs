@@ -54,6 +54,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | Class | What it is |
 |---|---|
 | [AbilityEditor](/advanced/editor/abilities/ability-editor) | Ability Editor for managing ability resources - refactored to use ResourceEditor base |
+| [AbilityRankFields](/advanced/editor/abilities/ability-rank-fields) | The "Ranks" section of the ability editor: the highest rank of the ability and what each rank above the first changes on its numbers (cooldown, cost, cast time, range ...). |
 | [ComboStepsEditor](/advanced/editor/abilities/combo-steps-editor) |  |
 | [CompositeEffectProperties](/advanced/editor/abilities/composite-effect-properties) | Property panel for CompositeEffect - handles child effects management |
 | [ConnectionCreationDialog](/advanced/editor/abilities/connection-creation-dialog) | Dialog for creating new skill node connections with advanced options and pre-selection support |
@@ -142,6 +143,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [EquipmentSlotDefinitionEditor](/advanced/editor/equipment-definitions/equipment-slot-definition-editor) | Equipment Slot Definition Editor for managing equipment slot definitions |
 | [EquipmentTypeDefinitionEditor](/advanced/editor/equipment-definitions/equipment-type-definition-editor) | Equipment Type Definition Editor for managing equipment and weapon type definitions |
 | [QualityEditor](/advanced/editor/equipment-definitions/quality-editor) | Quality Editor - handles quality definitions using the unified ResourceEditor base |
+| [QualityGenerationFields](/advanced/editor/equipment-definitions/quality-generation-fields) | The sections of the Quality editor that say what a quality does to a generated item: how often it is rolled, how much stat budget it gives, how many affixes it rolls, its sockets, its value and its name, and custom rules. |
 | [SetBonusDefinitionEditor](/advanced/editor/equipment-definitions/set-bonus-definition-editor) | Set Bonus Definition Editor for managing equipment set bonus definitions |
 | [SocketDefinitionEditor](/advanced/editor/equipment-definitions/socket-definition-editor) | Socket Definition Editor for managing socket type definitions |
 | [WeaponClassDefinitionEditor](/advanced/editor/equipment-definitions/weapon-class-definition-editor) | Weapon Class Definition Editor for managing weapon class definitions |
@@ -170,9 +172,11 @@ Many editors build their controls **in code** by reflecting over the resource's 
 <!-- classes:editor/items -->
 | Class | What it is |
 |---|---|
+| [AffixesEditor](/advanced/editor/items/affixes-editor) | Affixes Editor: the bonuses an item can roll ("Heavy", "of the Monkey", a silent +Crit). |
 | [CraftingRecipeEditor](/advanced/editor/items/crafting-recipe-editor) | CraftingRecipe Editor - handles crafting recipe definitions using the unified ResourceEditor base |
 | [CraftSchoolEditor](/advanced/editor/items/craft-school-editor) | CraftSchool Editor - handles craft school definitions using the unified ResourceEditor base |
 | [CurrencyDefinitionEditor](/advanced/editor/items/currency-definition-editor) | Currency Definition Editor for managing currency definitions |
+| [EquipmentGenerationFields](/advanced/editor/items/equipment-generation-fields) | The "Generation" section of the equipment editor: what an item rolls when it is generated (loot, rewards, vendors). |
 | [ItemConsumableEditor](/advanced/editor/items/item-consumable-editor) | Item Consumable Editor - handles ItemDefinitionConsumable specific properties Updated for Effect-based system |
 | [ItemEditor](/advanced/editor/items/item-editor) | Base Item Data Editor for managing basic item properties with sub-editors |
 | [ItemEnchantScrollEditor](/advanced/editor/items/item-enchant-scroll-editor) | Item Enchant Scroll Editor - handles ItemDefinitionEnchantScroll specific properties Single enchant system with duration control and equipment targeting |
@@ -184,7 +188,10 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [ItemReadableEditor](/advanced/editor/items/item-readable-editor) | Item Readable Editor - handles ItemDefinitionReadable specific properties For items that display text content when used (books, scrolls, letters, lore) |
 | [ItemSocketableEditor](/advanced/editor/items/item-socketable-editor) | Item Socketable Editor - handles ItemDefinitionSocketable specific properties |
 | [ItemWeaponEditor](/advanced/editor/items/item-weapon-editor) | Item Weapon Editor - handles ItemDefinitionEquipmentWeapon specific properties Updated with weapon damage type support |
+| [LootLevelSourceFields](/advanced/editor/items/loot-level-source-fields) | The rows that edit a LootLevelSource slot of a resource (a loot table, a loot rule): where the item level of drops comes from, with an offset and a lowest and highest level. |
+| [LootRulesFields](/advanced/editor/items/loot-rules-fields) | The editor of the loot rules of an NPC, an object or a placed one: for each rule the trigger (when it rolls), the loot table (a shared one, or one of its own that is edited here), where the item level of the drops comes from, and whether the one who gets the loot changes it. |
 | [LootTableEditor](/advanced/editor/items/loot-table-editor) | LootTable Editor - handles loot table definitions using the unified ResourceEditor base |
+| [LootTableInlineFields](/advanced/editor/items/loot-table-inline-fields) | A compact editor of one loot table, for the table a loot rule has of its own ("this guard carries the key"): the entries as rows (an item, a currency or another table, with its quantity, weight and chance), what always drops, what is rolled, and the number of rolls. |
 | [VendorEditor](/advanced/editor/items/vendor-editor) | Vendor Editor - handles vendor definitions using the unified ResourceEditor base |
 <!-- /classes -->
 
@@ -198,6 +205,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [ConfigEditor](/advanced/editor/settings/config-editor) | Base class for configuration editors that dynamically build UI from exported properties Provides common functionality for GameplayConfigEditor and SettingsEditor |
 | [ControllerLogicEditor](/advanced/editor/settings/controller-logic-editor) | Editor for creating, loading, and editing controller logic resources (Camera &amp; Player) Allows switching between different logic types and editing their properties Resources are saved to disk for reuse across projects |
 | [GameplayConfigEditor](/advanced/editor/settings/gameplay-config-editor) | Editor for GameplayConfig resource with tab-based UI |
+| [ItemBudgetEditor](/advanced/editor/settings/item-budget-editor) | The editor of "Item Budget Formula" in the Gameplay Config (General &gt; Item Generation): the formula that turns the item level into the stat budget of a generated item. |
 | [KillExperienceEditor](/advanced/editor/settings/kill-experience-editor) | The editor of "Kill Experience Mode" in the Gameplay Config (Leveling): how much experience a defeated NPC gives. |
 | [KillFalloffEditor](/advanced/editor/settings/kill-falloff-editor) | The editor of "Kill Experience Falloff" in the Gameplay Config (Leveling): an NPC under the level of the party gives less experience. |
 | [LevelGapEditor](/advanced/editor/settings/level-gap-editor) | The editor of "Level Gap Mode" in the Gameplay Config (Hit Rules): how the levels of the attacker and the target change the chance to hit. |

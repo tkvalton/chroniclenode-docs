@@ -29,6 +29,12 @@ export const groups = [
         "file": "data_classes/items/definitions/quality_definition.gd"
       },
       {
+        "name": "QualityRule",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\definitions\\quality_rule.gd",
+        "file": "data_classes/items/definitions/quality_rule.gd"
+      },
+      {
         "name": "SetBonusDefinition",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\definitions\\set_bonus_definition.gd",

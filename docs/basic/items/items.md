@@ -30,11 +30,12 @@ Every item has these.
 | **Color** | A color for the item in the editor lists | white |
 | **Item model** | The 3D mesh that shows the item in the world | none |
 | **Material override** | Materials that replace the ones of the model | none |
-| **Quality** | The [quality](/basic/equipment-definitions/quality) of the item (common, rare, epic). The interface uses it for the color of the item's border and name. `None` = no quality | none |
+| **Quality** | The [quality](/basic/equipment-definitions/quality) of the item (common, rare, epic). The interface uses it for the color of the item's border and name. `None` = no quality. **Randomize** next to it makes a [generated item](/basic/items/item-generation) pick its quality from the qualities you tick below it (the chance of each is its drop weight) | none |
 | **Stackable**, **Max stack size** | Whether several of the item share one slot in the bag, and how many. Consumables and materials start with a maximum of `99` | not stackable, `1` |
 | **Vendor value** | What the item is worth, in the currency of the vendor. A vendor pays a share of it and sells at a multiple of it (see [Vendors](/basic/items/vendors#prices)). An item with a value is always worth at least `1` | `0` |
 | **Is key item** | The item cannot be sold to a vendor or discarded. Use it for quest and story items | off |
-| **Item level** | Nothing reads it yet. It is kept for the loot generation that is planned: the level of a generated item will be its stat budget. Items you make by hand can ignore it | `1` |
+| **Item level** | How powerful the item is. A [generated item](/basic/items/item-generation) takes its stat budget from it, and [affixes](/basic/items/affixes) can limit themselves by it. The tooltip shows "Item Level N". It is **not** a level the player needs: use a [level requirement](/basic/shared-systems/requirements#level) for that (it can follow the item level). An item that **scales with its item level** reads it as **Authored at level**: the level its written numbers are for | `1` |
+| **Scales with item level** (equipment) | The item is [generated](/basic/items/item-generation#2-one-reward-that-fits-every-stage-of-the-game) at the item level it is given at, and its written stats and weapon damage grow with it. One reward item for every stage of the game | off |
 | **Groups** | The [groups](/basic/shared-systems/groups) the item is in. Consumables of a group that shares a [cooldown](/basic/keywords#cooldown) go on cooldown together (all potions share one), and an ability's ammo or reagent cost can name a group | none |
 | **Requirements** | What a player needs to use or equip the item: a level, a class, a [proficiency](/basic/entity-stats/proficiencies), a quest. See [Requirements](/basic/shared-systems/requirements). They are checked when a player puts the item on or uses it; NPCs, starting gear, rewards and loading a save skip them | none |
 
@@ -57,8 +58,8 @@ Equipment is worn in a slot of the [equipment slots](/basic/equipment-definition
 |---|---|
 | **Equipment type** | The [equipment type](/basic/equipment-definitions/equipment-type) of the item: helmet, chest, ring, one-handed weapon. A slot takes the item when the slot lists this type. For a weapon, the type is its **weapon type** |
 | **Class** | The [armor class](/basic/equipment-definitions/armor-class) of an armor piece: plate, leather, cloth. [Proficiencies](/basic/entity-stats/proficiencies) and the [Wearing Armor Class](/basic/shared-systems/conditions) condition read it |
-| **Effect stat bonus** | **Add Stat Bonus**: a stat and a number. While the item is worn the number is added to the stat, and taken away again when the item is taken off |
-| **Equipment effects** | [Effects](/basic/abilities-and-effects/effects) that are applied while the item is worn: a glow, an aura, a proc |
+| **Effect stat bonus** | **Add Stat Bonus**: a stat and a number. While the item is worn the number is added to the stat, and taken away again when the item is taken off. Next to it the editor shows what the bonus costs in the [budget](/basic/items/item-generation#the-budget) of a generated item (the points × the cost of the stat) |
+| **Equipment effects** | [Effects](/basic/abilities-and-effects/effects) that are applied while the item is worn: a glow, an aura, a proc. Each has a **cost** field: what it costs from the budget of a generated item (`0` = free) |
 | **On-use ability** | An [ability](/basic/abilities-and-effects/abilities) the wearer can activate while it is worn (a trinket you click) |
 | **Sockets** | **Add Socket**: a [socket](/basic/equipment-definitions/socket) type. Each one takes a [socketable](#socketable) mod of that type. The mods work only while the item is worn |
 | **Full sockets effect** | An effect that is added when **every** socket of the item is filled |
@@ -68,13 +69,27 @@ The visual side of equipment is the **Equipment mesh** section: the body part an
 
 When a player equips an item it leaves the bag. If a worn item is in the way it is displaced into the bag, and with a full bag the swap still works. An item that does not meet its requirements is refused with a message. A two-handed weapon empties the slots its weapon type blocks.
 
+### Generation
+
+At the bottom of the equipment section. These settings make an equipment item **generated**: it rolls bonuses when it is given. Read [Generated Items](/basic/items/item-generation) first.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Budget multiplier** | Multiplies the stat budget of this item (a two-handed axe `1.5`). The stats and effects written on the item are paid from the budget first | `1` |
+| **Randomize stats** | The item rolls stat affixes: as many as its quality says, picked from the pool below, valued from the budget. The stats written on the item stay | off |
+| **Stat affixes from** | **Any that fit**: every [affix](/basic/items/affixes) whose conditions the item meets (equipment type, item level, quality). **Only these**: the affixes you list for this item (a Great Axe takes its own) | any that fit |
+| **Randomize effects** | The item rolls effect affixes, as many as its quality says. The effects written on the item stay | off |
+| **Effect affixes from** | The same two choices for effect affixes | any that fit |
+
+**Budget check.** Pick an **item level** and a **quality** and the editor tells you the budget, what the stats and effects written on the item spend, and what is left to roll: green (room), amber (nearly all of it used), red (the written part costs more than the whole budget: no affix rolls). It also warns when nothing would roll: the item has no quality, or its quality has no slots for the kind of affix you ticked. It is a guide: nothing is blocked.
+
 ## Weapon
 
 | Field | What it does | Default |
 |---|---|---|
 | **Weapon class** | The [weapon class](/basic/equipment-definitions/weapon-class): sword, bow, staff. It decides the animations, whether the weapon is ranged, which slots it blocks and what ammo it uses | |
 | **No damage** | A cosmetic or utility weapon: it adds no damage | off |
-| **Weapon damage min / max** | A hit with the weapon does a number in this range. If the maximum is `0` or below the minimum, the minimum is used | `10` / `15` |
+| **Weapon damage min / max** | A hit with the weapon does a number in this range. If the maximum is `0` or below the minimum, the minimum is used. A weapon that scales with its item level hits harder at a higher level (its speed does not change) | `10` / `15` |
 | **Weapon speed** | Seconds between swings. Lower is faster | `2.4` |
 | **Weapon damage type** | The [damage type](/basic/types-and-groups/damage-types) the weapon deals. Resistances, [immunities](/basic/abilities-and-effects/immunities) and [proficiencies](/basic/entity-stats/proficiencies) read it | Physical |
 | **Weapon scale** | The size of the model when it is held (`1` = as modeled) | `1` |
@@ -161,6 +176,7 @@ A socketable is the **mod** of a socket system, and gems are only the familiar e
 
 ## See also
 
-- [Equipment Definitions](/basic/equipment-definitions/), [Loot Tables](/basic/items/loot-tables), [Vendors](/basic/items/vendors)
+- [Generated Items](/basic/items/item-generation), [Affixes](/basic/items/affixes), [Quality](/basic/equipment-definitions/quality)
+- [Equipment Definitions](/basic/equipment-definitions/), [Loot Tables](/basic/items/loot-tables), [Loot Rules](/basic/items/loot-rules), [Vendors](/basic/items/vendors)
 - [Requirements](/basic/shared-systems/requirements), [Rewards](/basic/shared-systems/rewards), [Groups](/basic/shared-systems/groups)
 - [Items: how they are built](/advanced/items/) (Advanced)

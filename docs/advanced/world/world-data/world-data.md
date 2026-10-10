@@ -15,6 +15,7 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `PersistanceLogic` | [persistance_logic](#prop-persistance-logic) | `PersistanceLogic.PERSISTANT` |
 | `float` | [reset_duration](#prop-reset-duration) | `3600.0` |
 | `bool` | [allow_partial_persistence](#prop-allow-partial-persistence) | `false` |
+| `int` | [item_level](#prop-item-level) | `0` |
 | `Array[int]` | [unique_entities](#prop-unique-entities) | `[]` |
 | `Array[int]` | [unique_interactables](#prop-unique-interactables) | `[]` |
 | `Array[int]` | [regions](#prop-regions) | `[]` |
@@ -96,6 +97,10 @@ Time in seconds (in-game) before a TIMED_RESET world reverts to default
 ### bool allow_partial_persistence = false {#prop-allow-partial-persistence}
 
 If true, specific objects like chests remain saved even if enemies/entities reset
+
+### int item_level = 0 {#prop-item-level}
+
+The item level of the loot of this world when a loot rule or table says "World level" (0 = none: the loot falls back to the party level). A starting zone can be level 5, a late dungeon level 40, whatever the level of the player
 
 ### Array[int] unique_entities = [] {#prop-unique-entities}
 

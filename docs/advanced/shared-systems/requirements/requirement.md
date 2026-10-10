@@ -4,7 +4,7 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-**Inherited by:** [RequirementEquipmentSlot](/advanced/shared-systems/requirements/requirement-equipment-slot), [RequirementFaction](/advanced/shared-systems/requirements/requirement-faction), [RequirementLevel](/advanced/shared-systems/requirements/requirement-level), [RequirementPlayerClassDefinition](/advanced/shared-systems/requirements/requirement-player-class-definition), [RequirementProficiency](/advanced/shared-systems/requirements/requirement-proficiency), [RequirementResponseSeen](/advanced/shared-systems/requirements/requirement-response-seen), [RequirementStat](/advanced/shared-systems/requirements/requirement-stat), [RequirementWeapon](/advanced/shared-systems/requirements/requirement-weapon)
+**Inherited by:** [RequirementAbilityRank](/advanced/shared-systems/requirements/requirement-ability-rank), [RequirementEquipmentSlot](/advanced/shared-systems/requirements/requirement-equipment-slot), [RequirementFaction](/advanced/shared-systems/requirements/requirement-faction), [RequirementLevel](/advanced/shared-systems/requirements/requirement-level), [RequirementPlayerClassDefinition](/advanced/shared-systems/requirements/requirement-player-class-definition), [RequirementProficiency](/advanced/shared-systems/requirements/requirement-proficiency), [RequirementResponseSeen](/advanced/shared-systems/requirements/requirement-response-seen), [RequirementStat](/advanced/shared-systems/requirements/requirement-stat), [RequirementWeapon](/advanced/shared-systems/requirements/requirement-weapon)
 
 Base class for all requirement types in the game. Requirements determine whether an entity can use an item, ability, or access content. Pure validation logic - no side effects.
 
@@ -13,6 +13,9 @@ Base class for all requirement types in the game. Requirements determine whether
 | | |
 |---|---|
 | `bool` | [check](#method-check)( `entity: Entity` ) |
+| `bool` | [check_in_context](#method-check-in-context)( `entity: Entity, _context: Dictionary` ) |
+| `String` | [get_failure_message_in_context](#method-get-failure-message-in-context)( `entity: Entity, _context: Dictionary` ) |
+| `String` | [get_summary_in_context](#method-get-summary-in-context)( `_context: Dictionary` ) |
 | `String` | [get_failure_message](#method-get-failure-message)( `entity: Entity` ) |
 | `String` | [get_summary](#method-get-summary)() |
 | `Array[Dictionary]` | [validate](#method-validate)() |
@@ -30,6 +33,18 @@ Signal emitted when the requirement's state may have changed for an entity Passi
 ### bool check( entity: Entity ) {#method-check}
 
 Check if the entity meets this requirement Returns true if requirement is satisfied, false otherwise
+
+### bool check_in_context( entity: Entity, _context: Dictionary ) {#method-check-in-context}
+
+The same checks with extra facts about what the requirement guards: &#123;"item_level": int&#125; for an item. Most requirements do not need them and give the plain answer
+
+### String get_failure_message_in_context( entity: Entity, _context: Dictionary ) {#method-get-failure-message-in-context}
+
+*No description yet.*
+
+### String get_summary_in_context( _context: Dictionary ) {#method-get-summary-in-context}
+
+*No description yet.*
 
 ### String get_failure_message( entity: Entity ) {#method-get-failure-message}
 

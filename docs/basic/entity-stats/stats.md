@@ -25,6 +25,14 @@ A **stat** is a number every entity has: Strength, Armor, Critical Strike Rating
 | **Display suffix** | Text after the value: `%`, `sec`, `pts` | none |
 | **Allow negative values** | Lets the value go below zero, for debuffs and penalties | off |
 
+## Item budget
+
+| Field | What it does | Default |
+|---|---|---|
+| **Budget cost per point** | What one point of the stat costs in the stat budget of a [generated item](/basic/items/item-generation#the-budget). `1` = a point costs as much as a point of Strength. `2` = it costs double, so the same budget buys half as many points. Crit rating can cost 2 and Dodge 3. A stat that is never on gear can stay at `1` | `1` |
+
+The editor of an item shows the cost of each written bonus next to it ("= 240 budget"). The value of a rolled stat is rounded to whole points for an integer stat and to its decimals for a decimal stat.
+
 ## Stat groups
 
 Tick the [stat groups](/basic/entity-stats/stat-groups) the stat is in (Primary, Offensive, Defensive ...). A group sections the character sheet and tooltips, and one effect (a **Stat Modifier**) can change a whole group at once. A stat in several groups is listed once, under its first group. A stat in no group is listed last, under "Other".

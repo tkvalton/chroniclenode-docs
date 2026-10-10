@@ -70,15 +70,27 @@ The same three lists as a class: the **auto attack ability**, the **active** abi
 | **Behavior script** | What it does when nothing is happening: wander, patrol, follow a daily schedule. See [Behavior Scripts](/basic/behaviors/behavior-scripts) |
 | **Combat script** | How it fights: what it does when it sees an enemy and in the fight. See [Combat Scripts](/basic/behaviors/combat-scripts). With none, it fights simply: it uses its abilities in turn |
 
-## Loot and inventory
+## Loot
 
-| Field | What it does | Default |
-|---|---|---|
-| **Loot table logic** | **None**: no loot from a table. **On initialize**: the loot is in its bag when it spawns. **On death**: it is rolled when it dies | None |
-| **Loot table** | The [loot table](/basic/items/loot-tables) to roll | none |
-| **Inventory & currency** | [Items](/basic/items/items) and [currency](/basic/items/currency) it always has. Right-click to add or remove | empty |
+What the NPC hands out is a list of [loot rules](/basic/items/loot-rules): each is a [loot table](/basic/items/loot-tables), a **trigger** (**On Initialize**: it carries it from the start, **On Death**: it is on the body, **On First Access**: the first time its pockets are opened, by a pickpocket or when the body is looted) and where the **item level** of generated items comes from (the NPC's own level by default). Add a rule with a shared table, or with a table of its own that you edit right there ("this guard carries the key"). A fixed starting inventory is just a rule on Initialize with a table of guaranteed entries.
 
-When an NPC dies it becomes a **corpse** that can be looted, if it has anything. After the last item the corpse has nothing to loot. A placed NPC with a respawn timer comes back; one with *despawn on death* vanishes.
+| Field | What it does |
+|---|---|
+| **Rules** | **Add a rule (shared table)** or **(its own table)**. Each rule has *When*, the table, *Item level* and *The receiver changes it* |
+| **Move the older settings into loot rules** | Shown when the NPC still has the older **Loot table** / **logic** and fixed **Inventory**. They keep working, and this turns them into rules you can edit |
+
+When an NPC dies it becomes a **corpse** that can be looted, if it has anything (or a rule still waits for the first time it is looted). After the last item the corpse has nothing to loot. A placed NPC with a respawn timer comes back; one with *despawn on death* vanishes. A [placed NPC](/basic/world/uniques) can replace the rules of its definition.
+
+## Ability ranks
+
+An NPC can use [abilities that have ranks](/basic/abilities-and-effects/ability-ranks). The **Ability ranks** section of the NPC editor lists its abilities that have ranks:
+
+| Field | What it does |
+|---|---|
+| **A number for each ability** | The rank that ability has (`1` to its highest). `0` = not set |
+| **Rank by level** | A [formula](/basic/shared-systems/formulas) for the abilities that have no number: the levels above the first go in (level 11 gives 10), the ranks above the first come out, rounded down. Linear `0.1`: rank 2 at level 11, rank 3 at level 21, rank 4 at level 31 |
+
+An ability that has neither is rank 1. The ranks follow the NPC's level whenever it changes (a rescale, a respawn).
 
 ## Experience
 
