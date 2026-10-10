@@ -76,6 +76,7 @@ UI behavior and context are handled by the UI layer, not here. For specialized t
 | `bool` | [discard_item](#method-discard-item)( `item_instance: ItemInstance, quantity: int = -1` ) |
 | `int` | [remove_completed_quest_items](#method-remove-completed-quest-items)() |
 | `int` | [remove_quest_items_for_quest](#method-remove-quest-items-for-quest)( `quest_id: int` ) |
+| `int` | [remove_quest_items_on_end](#method-remove-quest-items-on-end)( `quest_id: int, completed: bool` ) |
 | `int` | [remove_quest_items_on_completion](#method-remove-quest-items-on-completion)( `quest_id: int` ) |
 | `bool` | [has_quest_items_for_quest](#method-has-quest-items-for-quest)( `quest_id: int` ) |
 | `Array[ItemInstance]` | [get_all_quest_items](#method-get-all-quest-items)() |
@@ -309,9 +310,13 @@ Remove all quest items that should be auto-removed (quest completed) Call this w
 
 Remove all quest items for a specific quest ID Useful when you want to remove items for a specific quest Returns the number of item stacks removed
 
+### int remove_quest_items_on_end( quest_id: int, completed: bool ) {#method-remove-quest-items-on-end}
+
+Remove the items of a quest that stopped running: the ones that only exist while it runs, and (when it completed) the ones made to leave with it (`remove_on_quest_complete`). Returns the number of stacks removed
+
 ### int remove_quest_items_on_completion( quest_id: int ) {#method-remove-quest-items-on-completion}
 
-Remove the items of a completed quest that are made to leave with it (`remove_on_quest_complete`). Returns the number of stacks removed
+Remove the items of a completed quest that are made to leave with it (kept for scripts; see remove_quest_items_on_end)
 
 ### bool has_quest_items_for_quest( quest_id: int ) {#method-has-quest-items-for-quest}
 

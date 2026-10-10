@@ -366,6 +366,19 @@ export const sidebar = [
       { text: 'Systems', collapsed: true, items: advancedSystems },
     ],
   },
+  {
+    text: 'Planned',
+    collapsed: true,
+    items: [
+      page('About the planned features', '/planned/', { title: 'Planned features' }),
+      page('Dropped items', '/planned/dropped-items'),
+      page('Water and swimming', '/planned/water-and-swimming'),
+      page('Flying', '/planned/flying'),
+      page('Mounts', '/planned/mounts'),
+      page('The World Builder', '/planned/world-builder'),
+      page('The NPC behaviour tool', '/planned/npc-behaviour-tool'),
+    ],
+  },
 ]
 
 // Every page with its link, for the scripts

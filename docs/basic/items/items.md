@@ -113,6 +113,22 @@ Ammo is equipment worn in the ammo slot. Which ammo a bow can shoot is decided b
 | **Auto use on pickup** | The item is used as soon as a player picks it up | off |
 | **Triggers quest** | Using the item starts the quest | off |
 | **Remove on quest complete** | The item leaves the bag of every party member when the quest completes | on |
+| **Availability** | When the item can drop and how long it may exist: see [below](#quest-item-availability) | Always drops |
+
+### Quest item availability
+
+A quest item can be made to follow its quest:
+
+| Availability | Loot | In the bag |
+|---|---|---|
+| **Always drops** | A [loot table](/basic/items/loot-tables) gives it whenever it rolls it | It stays until it is used, or until the quest completes (*Remove on quest complete*) |
+| **Drops only while the quest is active** | Loot gives it only while the quest is running. The corpses and chests of a quest you do not have hold nothing | Once it is in the bag it stays, as above |
+| **Exists only while the quest is active** | The same as the one above | It is **taken out of every party bag** when the quest completes, fails or is given up. It is also taken out again at once if it reaches a bag while the quest is not running (from a vendor, a reward or an event) |
+
+- *Running* means the quest is accepted, or finished and waiting to be handed in. A quest that gives its own item in its *On Start Actions* counts as running while they run, so the item stays.
+- Only **loot** is held back. An item that a quest, a vendor or an event gives straight to the player is not, except that the third availability will not stay in a bag while its quest is not running.
+- Put the same quest item in the loot tables of every place it could come from: the availability decides when it really drops, so you do not need a different table for "before" and "after".
+- An item with an availability and no quest set is flagged by the editor: it has nothing to follow.
 
 ## Material
 

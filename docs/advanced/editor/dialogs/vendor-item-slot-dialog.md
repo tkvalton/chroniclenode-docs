@@ -17,6 +17,7 @@ Dialog for configuring VendorItemStock entries
 | `CheckBox` | [can_restock_check_box](#var-can-restock-check-box) |  |
 | `SpinBox` | [restock_quantity_spin_box](#var-restock-quantity-spin-box) |  |
 | `SpinBox` | [custom_restock_hours_spin_box](#var-custom-restock-hours-spin-box) |  |
+| `SpinBox` | [item_level_spin_box](#var-item-level-spin-box) |  |
 | `OptionButton` | [currency_override_option_button](#var-currency-override-option-button) |  |
 | `SpinBox` | [value_override_spin_box](#var-value-override-spin-box) |  |
 | `CheckBox` | [value_weight_override_check_box](#var-value-weight-override-check-box) |  |
@@ -65,6 +66,10 @@ Dialog for configuring VendorItemStock entries
 *No description yet.*
 
 ### SpinBox custom_restock_hours_spin_box {#var-custom-restock-hours-spin-box}
+
+*No description yet.*
+
+### SpinBox item_level_spin_box {#var-item-level-spin-box}
 
 *No description yet.*
 

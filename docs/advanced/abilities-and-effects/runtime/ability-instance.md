@@ -45,6 +45,7 @@ Runtime instance of an ability that references an AbilityDefinition for configur
 | `Dictionary` | [runtime_property_overrides](#var-runtime-property-overrides) | `{}` |
 | `PropertyModifierSet` | [modifiers](#var-modifiers) | `PropertyModifierSet.new()` |
 | `int` | [trained_rank](#var-trained-rank) | `1` |
+| `int` | [rewarded_ranks](#var-rewarded-ranks) | `0` |
 
 ## Methods
 
@@ -365,6 +366,10 @@ Modifiers from abilities, effects and stats (cooldown, cost, gain ...): they sta
 ### int trained_rank = 1 {#var-trained-rank}
 
 The rank the ability was trained to (1 = the first rank). The rank that counts is get_rank(): this plus the ranks gear or an effect add
+
+### int rewarded_ranks = 0 {#var-rewarded-ranks}
+
+The part of trained_rank that rewards give again on every load (the ranks of a skill tree node: the tree applies its rewards again after a load). A save keeps trained_rank minus this, so a rank is never counted twice
 
 ## Method descriptions
 

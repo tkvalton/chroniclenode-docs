@@ -44,7 +44,7 @@ A rank at 1 adds no entries at all, so an ability that has no ranks pays nothing
 
 ## Skill trees
 
-A ranked node gives rewards per rank. `AbilityRankReward.apply_to_player` finds the ability (or grants it at rank 1 when *Grant if missing*), calls `rank_up(ranks)` and returns `{ability_instance, ranks_added, granted}`; `unapply_from_player` lowers the rank by what was added (or removes an ability it granted). `should_apply_on_load()` is true: the skill tree applies its rewards again after a load, because the abilities it grants are `STATEFUL` and made again at rank 1. Do not put a rank reward on an ability that is saved with its own rank (`PERSISTENT`, from a quest) **and** in a tree: it would count twice.
+A ranked node gives rewards per rank. `AbilityRankReward.apply_to_player` finds the ability (or grants it at rank 1 when *Grant if missing*), calls `rank_up(ranks)` and returns `{ability_instance, ranks_added, granted}`; `unapply_from_player` lowers the rank by what was added (or removes an ability it granted). `should_apply_on_load()` is true: the skill tree applies its rewards again after a load, because the abilities it grants are `STATEFUL` and made again at rank 1. The ranks a reward gives again on load are tracked in `AbilityInstance.rewarded_ranks` and left out of the ability's save (`rank` = trained rank minus rewarded ranks), so an ability that is also trained by a quest (saved) and by a skill tree (worked out again) never counts a rank twice, whichever of the two loads first.
 
 ## Tooltip
 

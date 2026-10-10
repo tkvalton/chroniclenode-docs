@@ -14,6 +14,8 @@ Item Quest Editor - handles ItemDefinitionQuest specific properties Designed to 
 | `ResourceManager` | [resource_manager](#var-resource-manager) |  |
 | `bool` | [is_loading](#var-is-loading) | `false` |
 | `Array[Quest]` | [available_quests](#var-available-quests) | `[]` |
+| `CheckBox` | [remove_on_complete_check_box](#var-remove-on-complete-check-box) |  |
+| `OptionButton` | [availability_option](#var-availability-option) |  |
 
 ## Methods
 
@@ -52,6 +54,14 @@ Item Quest Editor - handles ItemDefinitionQuest specific properties Designed to 
 *No description yet.*
 
 ### Array[Quest] available_quests = [] {#var-available-quests}
+
+*No description yet.*
+
+### CheckBox remove_on_complete_check_box {#var-remove-on-complete-check-box}
+
+*No description yet.*
+
+### OptionButton availability_option {#var-availability-option}
 
 *No description yet.*
 

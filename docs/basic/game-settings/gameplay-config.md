@@ -482,7 +482,7 @@ How [generated items](/basic/items/item-generation) are made and what level thei
 | **Item weight enabled** | Items have weight and characters can be over-encumbered | off |
 | **Item durability enabled** | Items wear out | off |
 
-*These items settings are not used yet: they are stored, but nothing reads them. Weight and durability exist as stats and item fields, and dropped items are made by loot, but the switches above do not turn them on or off.*
+*These items settings are not used yet: they are stored, but nothing reads them. Weight and durability exist as stats and item fields, but the switches above do not turn them on or off. Dropped items are a [planned feature](/planned/dropped-items): until it is built an item taken out of a bag is destroyed and loot goes straight into an inventory.*
 
 ### Save/Load rules
 

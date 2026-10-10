@@ -19,8 +19,9 @@ export default defineConfig({
       { text: 'General', link: '/general/', activeMatch: '^/general/' },
       { text: 'Basic', link: '/basic/', activeMatch: '^/basic/' },
       { text: 'Advanced', link: '/advanced/', activeMatch: '^/advanced/' },
+      { text: 'Planned', link: '/planned/', activeMatch: '^/planned/' },
     ],
-    // One menu on every page, with the three sections in it. The tree inside a section goes system > pages.
+    // One menu on every page, with the sections in it. The tree inside a section goes system > pages.
     // The pages themselves are listed in sidebar.mjs
     sidebar,
   },
