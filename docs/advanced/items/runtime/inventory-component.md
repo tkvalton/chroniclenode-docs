@@ -25,11 +25,14 @@ UI behavior and context are handled by the UI layer, not here. For specialized t
 | `Array[InventorySlotInstance]` | [slots](#var-slots) | `[]` |
 | `int` | [max_slots](#var-max-slots) | `20` |
 | `CombatManager` | [combat_manager](#var-combat-manager) |  |
+| `bool` | [is_shared](#var-is-shared) | `false` |
+| `InventoryComponent` | [wallet](#var-wallet) | `null` |
 
 ## Methods
 
 | | |
 |---|---|
+| `void` | [attach_wallet](#method-attach-wallet)( `shared_wallet: InventoryComponent` ) |
 | `void` | [initialize_inventory](#method-initialize-inventory)( `slot_count: int = 20` ) |
 | `void` | [setup_inventory](#method-setup-inventory)( `inventory: Dictionary` ) |
 | `bool` | [add_item](#method-add-item)( `item_instance: ItemInstance` ) |
@@ -124,7 +127,19 @@ Maximum number of inventory slots available
 
 The combat system manager
 
+### bool is_shared = false {#var-is-shared}
+
+This is the one bag of the whole party (the characters all use this object): its changes are not the business of one character alone
+
+### InventoryComponent wallet = null {#var-wallet}
+
+The purse of the party, when the money is shared: the currency functions of this inventory work on it, so the bag of every member shows and spends the same money
+
 ## Method descriptions
+
+### void attach_wallet( shared_wallet: InventoryComponent ) {#method-attach-wallet}
+
+Uses the purse of another inventory (the shared purse of the party) for all money, from now on. The money this one held is moved into it
 
 ### void initialize_inventory( slot_count: int = 20 ) {#method-initialize-inventory}
 

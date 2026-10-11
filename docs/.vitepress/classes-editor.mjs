@@ -653,6 +653,18 @@ export const groups = [
         "file": "editor_components/editors/items/loot_table_inline_fields.gd"
       },
       {
+        "name": "SkillFields",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\items\\skill_fields.gd",
+        "file": "editor_components/editors/items/skill_fields.gd"
+      },
+      {
+        "name": "TrainerEditor",
+        "base": "ResourceEditor",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\items\\trainer_editor.gd",
+        "file": "editor_components/editors/items/trainer_editor.gd"
+      },
+      {
         "name": "VendorEditor",
         "base": "ResourceEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\items\\vendor_editor.gd",

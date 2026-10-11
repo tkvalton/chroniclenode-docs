@@ -12,6 +12,7 @@ Requires a level in a proficiency (swords, heavy armor, lockpicking): "needs Pla
 |---|---|---|
 | `int` | [proficiency_id](#prop-proficiency-id) | `0` |
 | `int` | [required_level](#prop-required-level) | `1` |
+| `int` | [min_tier](#prop-min-tier) | `0` |
 
 ## Methods
 
@@ -33,6 +34,10 @@ The proficiency
 ### int required_level = 1 {#prop-required-level}
 
 The level the entity needs
+
+### int min_tier = 0 {#prop-min-tier}
+
+The tier the entity needs to be in, a number from 0 (0 = any tier)
 
 ## Method descriptions
 

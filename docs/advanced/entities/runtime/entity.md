@@ -1298,7 +1298,7 @@ Get the attack tag for weapon animations Virtual method - override in subclasses
 
 ### Array[LootRule] get_loot_rules() {#method-get-loot-rules}
 
-The loot rules of this NPC: the ones of the placed NPC when it has its own, else the ones of its definition
+*No description yet.*
 
 ### int run_loot_rules( trigger: LootRule.Trigger, receiver: Entity = null ) {#method-run-loot-rules}
 

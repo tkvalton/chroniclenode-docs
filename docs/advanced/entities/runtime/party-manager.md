@@ -33,12 +33,16 @@ Key features:
 | `PlayerController` | [player_controller](#var-player-controller) |  |
 | `CameraController` | [camera_controller](#var-camera-controller) |  |
 | `CraftingManager` | [crafting_manager](#var-crafting-manager) |  |
+| `InventoryComponent` | [shared_bag](#var-shared-bag) | `null` |
+| `InventoryComponent` | [shared_wallet](#var-shared-wallet) | `null` |
 | `WorldContainer` | [world_container](#var-world-container) |  |
 
 ## Methods
 
 | | |
 |---|---|
+| `InventoryComponent` | [make_member_inventory](#method-make-member-inventory)( `own: InventoryComponent` ) |
+| `void` | [reset_shared_inventory](#method-reset-shared-inventory)() |
 | `bool` | [setup_initial_party](#method-setup-initial-party)( `system_hub: GameHost.SystemHub, loading_screen: LoadingScreen = null` ) |
 | `bool` | [create_players_from_party_composition](#method-create-players-from-party-composition)( `system_hub: GameHost.SystemHub, p_party_composition: Array[CharacterDefinition], loading_screen: LoadingScreen = null` ) |
 | `Player` | [create_player_from_character](#method-create-player-from-character)( `system_hub: GameHost.SystemHub, character_def: CharacterDefinition` ) |
@@ -182,11 +186,27 @@ The player camera
 
 CraftingManager system ref
 
+### InventoryComponent shared_bag = null {#var-shared-bag}
+
+The bag the whole party uses (GameplayConfig.inventory_sharing = shared currency and bag), or null
+
+### InventoryComponent shared_wallet = null {#var-shared-wallet}
+
+The purse the whole party uses (shared currency), or null
+
 ### WorldContainer world_container {#var-world-container}
 
 WorldContainer system ref
 
 ## Method descriptions
+
+### InventoryComponent make_member_inventory( own: InventoryComponent ) {#method-make-member-inventory}
+
+The inventory a new party member (or a member that waits in the reserve) uses: its own, with the shared purse, or the one bag of the party
+
+### void reset_shared_inventory() {#method-reset-shared-inventory}
+
+Empties the shared bag and purse (a new game)
 
 ### bool setup_initial_party( system_hub: GameHost.SystemHub, loading_screen: LoadingScreen = null ) {#method-setup-initial-party}
 

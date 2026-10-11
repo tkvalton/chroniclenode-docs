@@ -100,7 +100,7 @@ Instances save the stack, charges, cooldowns, enchantments with their remaining 
 | Class | What it is |
 |---|---|
 | [CraftingJob](/advanced/items/crafting/crafting-job) | Represents an active crafting operation with progress tracking Uses a single completion timer instead of polling for smoother performance Progress is calculated on-demand from timer.time_left when needed |
-| [CraftingManager](/advanced/items/crafting/crafting-manager) | CraftingManager - Main interface for the crafting system Autoload singleton that stores player crafting data and provides API for UI and gameplay systems |
+| [CraftingManager](/advanced/items/crafting/crafting-manager) | CraftingManager - Main interface for the crafting system Stores the professions (craft schools) of the player(s) and provides the API for UI and gameplay systems. |
 | [CraftingRecipeDefinition](/advanced/items/crafting/crafting-recipe-definition) | Definition for a crafting recipe that can be executed multiple times Uses ItemDefinition references and integrates with the database system |
 | [CraftSchoolDefinition](/advanced/items/crafting/craft-school-definition) | Definition of a crafting school (Blacksmithing, Tailoring, Alchemy, etc.) Contains static data that can be shared across multiple instances |
 | [CraftSchoolInstance](/advanced/items/crafting/craft-school-instance) | Runtime instance of a craft school for a specific entity Contains learned recipes, skill progress, and active crafting state |

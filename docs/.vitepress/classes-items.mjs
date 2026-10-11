@@ -217,6 +217,54 @@ export const groups = [
     ]
   },
   {
+    "text": "Trainers",
+    "slug": "trainers",
+    "classes": [
+      {
+        "name": "LessonCost",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\trainer\\lesson_cost.gd",
+        "file": "data_classes/trainer/lesson_cost.gd"
+      },
+      {
+        "name": "ReputationPrice",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\trainer\\reputation_price.gd",
+        "file": "data_classes/trainer/reputation_price.gd"
+      },
+      {
+        "name": "TrainerDefinition",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\trainer\\trainer_definition.gd",
+        "file": "data_classes/trainer/trainer_definition.gd"
+      },
+      {
+        "name": "TrainerLesson",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\trainer\\trainer_lesson.gd",
+        "file": "data_classes/trainer/trainer_lesson.gd"
+      }
+    ]
+  },
+  {
+    "text": "Skills: tiers and specializations",
+    "slug": "skills",
+    "classes": [
+      {
+        "name": "SkillSpecialization",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\skills\\skill_specialization.gd",
+        "file": "data_classes/skills/skill_specialization.gd"
+      },
+      {
+        "name": "SkillTier",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\skills\\skill_tier.gd",
+        "file": "data_classes/skills/skill_tier.gd"
+      }
+    ]
+  },
+  {
     "text": "Inventory and equipment (runtime)",
     "slug": "runtime",
     "classes": [

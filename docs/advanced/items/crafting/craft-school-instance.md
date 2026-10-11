@@ -16,6 +16,9 @@ Runtime instance of a craft school for a specific entity Contains learned recipe
 | `int` | [total_experience](#var-total-experience) | `0` |
 | `Array` | [learned_recipe_ids](#var-learned-recipe-ids) | `[]` |
 | `bool` | [is_unlocked](#var-is-unlocked) | `false` |
+| `int` | [current_tier](#var-current-tier) | `0` |
+| `Array[int]` | [chosen_specializations](#var-chosen-specializations) | `[]` |
+| `Variant` | [rng](#var-rng) | `RandomNumberGenerator.new()` |
 | `CraftingJob` | [active_craft_job](#var-active-craft-job) | `null` |
 | `Array[CraftingJob]` | [craft_queue](#var-craft-queue) | `[]` |
 | `int` | [original_craft_total](#var-original-craft-total) | `0` |
@@ -26,6 +29,21 @@ Runtime instance of a craft school for a specific entity Contains learned recipe
 
 | | |
 |---|---|
+| `SkillTier` | [get_tier_definition](#method-get-tier-definition)() |
+| `int` | [get_level_cap](#method-get-level-cap)() |
+| `bool` | [is_at_tier_cap](#method-is-at-tier-cap)() |
+| `bool` | [set_tier](#method-set-tier)( `tier_index: int` ) |
+| `bool` | [has_specialization](#method-has-specialization)( `spec_id: int` ) |
+| `String` | [get_specialization_blocker](#method-get-specialization-blocker)( `spec_id: int` ) |
+| `bool` | [choose_specialization](#method-choose-specialization)( `spec_id: int` ) |
+| `bool` | [remove_specialization](#method-remove-specialization)( `spec_id: int, force: bool = false` ) |
+| `Array[SkillSpecialization]` | [get_chosen_specializations](#method-get-chosen-specializations)() |
+| `float` | [get_craft_speed_factor](#method-get-craft-speed-factor)() |
+| `Dictionary` | [get_extra_output](#method-get-extra-output)() |
+| `float` | [get_material_save_chance](#method-get-material-save-chance)() |
+| `float` | [get_skill_gain_bonus](#method-get-skill-gain-bonus)() |
+| `bool` | [learn_school](#method-learn-school)() |
+| `bool` | [forget_school](#method-forget-school)() |
 | `bool` | [is_recipe_known](#method-is-recipe-known)( `recipe_id: int` ) |
 | `bool` | [learn_recipe](#method-learn-recipe)( `recipe_id: int` ) |
 | `bool` | [unlearn_recipe](#method-unlearn-recipe)( `recipe_id: int` ) |
@@ -49,6 +67,20 @@ Runtime instance of a craft school for a specific entity Contains learned recipe
 ## Signals
 
 ### queue_updated( queue_size: int ) {#signal-queue-updated}
+
+### skill_up( new_level: int ) {#signal-skill-up}
+
+A skill-up happened (a craft gave one level)
+
+### tier_changed( new_tier: int, old_tier: int ) {#signal-tier-changed}
+
+A tier or a specialization changed
+
+### specialization_changed( specialization_id: int, chosen: bool ) {#signal-specialization-changed}
+
+### learned_changed( learned: bool ) {#signal-learned-changed}
+
+The profession was learned or forgotten
 
 ### skill_level_changed( old_level: int, new_level: int ) {#signal-skill-level-changed}
 
@@ -80,6 +112,18 @@ Recipe IDs that have been learned (beyond starting recipes)
 
 Whether this school has been unlocked/learned
 
+### int current_tier = 0 {#var-current-tier}
+
+The tier the crafter is in (a number from 0, the first tier)
+
+### Array[int] chosen_specializations = [] {#var-chosen-specializations}
+
+The ids of the specializations the crafter has chosen
+
+### rng = RandomNumberGenerator.new() {#var-rng}
+
+The chance rolls of a craft (skill-ups, extra output, getting the materials back). A test can seed it
+
 ### CraftingJob active_craft_job = null {#var-active-craft-job}
 
 Currently active crafting job (if any)
@@ -101,6 +145,66 @@ ChronoManager system ref
 Items that were made and wait for room in the bag of the crafter
 
 ## Method descriptions
+
+### SkillTier get_tier_definition() {#method-get-tier-definition}
+
+The tier the crafter is in, as a resource (null when the profession has no tiers)
+
+### int get_level_cap() {#method-get-level-cap}
+
+The highest level the crafter can reach now: the cap of the tier, or the maximum skill level
+
+### bool is_at_tier_cap() {#method-is-at-tier-cap}
+
+Is the crafter at the cap of the tier, with a higher tier that a trainer can give?
+
+### bool set_tier( tier_index: int ) {#method-set-tier}
+
+Puts the crafter in a tier. A lower tier brings the level down to its cap. False when nothing changed or the tier does not exist
+
+### bool has_specialization( spec_id: int ) {#method-has-specialization}
+
+*No description yet.*
+
+### String get_specialization_blocker( spec_id: int ) {#method-get-specialization-blocker}
+
+Why the crafter cannot choose a specialization now ("" = they can)
+
+### bool choose_specialization( spec_id: int ) {#method-choose-specialization}
+
+Chooses a specialization (its rewards are given by whoever gives it: see SpecializationReward). False when it cannot be chosen
+
+### bool remove_specialization( spec_id: int, force: bool = false ) {#method-remove-specialization}
+
+Gives a specialization up (only one that can be changed, unless `force`)
+
+### Array[SkillSpecialization] get_chosen_specializations() {#method-get-chosen-specializations}
+
+The chosen specializations, as resources
+
+### float get_craft_speed_factor() {#method-get-craft-speed-factor}
+
+How much of the craft time is left: 1.0 normally, less with faster crafting (never below a tenth)
+
+### Dictionary get_extra_output() {#method-get-extra-output}
+
+The chance (percent, up to 100) of a craft making more than it should, and how many more
+
+### float get_material_save_chance() {#method-get-material-save-chance}
+
+The chance (percent, up to 100) of a finished craft giving the materials back
+
+### float get_skill_gain_bonus() {#method-get-skill-gain-bonus}
+
+The bonus to what a craft teaches, as a factor: 0.25 = a quarter more
+
+### bool learn_school() {#method-learn-school}
+
+Learn the profession (false when it is learned already)
+
+### bool forget_school() {#method-forget-school}
+
+Forget the profession: nothing can be crafted with it until it is learned again. Its level and recipes stay (false when it was not learned)
 
 ### bool is_recipe_known( recipe_id: int ) {#method-is-recipe-known}
 

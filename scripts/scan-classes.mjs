@@ -109,6 +109,8 @@ const SYSTEMS = {
       { text: 'Currency', slug: 'currency', dirs: [['data_classes/items/definitions/currency_definition.gd', false]] },
       { text: 'Crafting', slug: 'crafting', dirs: [['data_classes/crafting', true], ['runtime_classes/player/crafting', true], ['runtime_classes/player/crafting_manager.gd', false]] },
       { text: 'Vendors', slug: 'vendors', dirs: [['data_classes/vendor', true]] },
+      { text: 'Trainers', slug: 'trainers', dirs: [['data_classes/trainer', true]] },
+      { text: 'Skills: tiers and specializations', slug: 'skills', dirs: [['data_classes/skills', true]] },
       { text: 'Inventory and equipment (runtime)', slug: 'runtime', dirs: [['runtime_classes/entity/components/inventory', true]] },
     ],
   },

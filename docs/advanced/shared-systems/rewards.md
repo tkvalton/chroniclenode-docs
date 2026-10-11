@@ -89,7 +89,10 @@ func get_summary() -> String:
 | [FactionStandingReward](/advanced/shared-systems/rewards/faction-standing-reward) | Sets reputation to a specific standing level with a faction |
 | [ItemReward](/advanced/shared-systems/rewards/item-reward) | Grants items to the player's inventory. |
 | [LevelReward](/advanced/shared-systems/rewards/level-reward) | Container for rewards granted at a specific level |
+| [ProfessionReward](/advanced/shared-systems/rewards/profession-reward) | Teaches the player a profession (a craft school): a blacksmith trainer, a quest that opens alchemy. |
 | [ProficiencyReward](/advanced/shared-systems/rewards/proficiency-reward) | Trains the player in a proficiency: experience towards the next level, or whole levels. |
 | [Reward](/advanced/shared-systems/rewards/reward) | Base class for all reward types |
 | [SkillPointReward](/advanced/shared-systems/rewards/skill-point-reward) | Grants skill points to a specific point pool |
+| [SkillTierReward](/advanced/shared-systems/rewards/skill-tier-reward) | Trains a proficiency or a profession into a tier (Journeyman, Expert, Master): the cap of its level goes up. |
+| [SpecializationReward](/advanced/shared-systems/rewards/specialization-reward) | Chooses a specialization of a proficiency or a profession for the player: mastering one aspect of it. |
 <!-- /classes -->

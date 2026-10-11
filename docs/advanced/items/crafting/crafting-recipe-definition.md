@@ -18,6 +18,8 @@ Definition for a crafting recipe that can be executed multiple times Uses ItemDe
 | `String` | [recipe_category](#prop-recipe-category) | `""` |
 | `int` | [required_skill_level](#prop-required-skill-level) | `1` |
 | `int` | [skill_points_per_craft](#prop-skill-points-per-craft) | `1` |
+| `int` | [skill_up_until](#prop-skill-up-until) | `0` |
+| `CalculationFormula` | [skill_up_curve](#prop-skill-up-curve) |  |
 | `Array[Requirement]` | [requirements](#prop-requirements) | `[]` |
 | `bool` | [requires_learning](#prop-requires-learning) | `false` |
 
@@ -30,7 +32,21 @@ Definition for a crafting recipe that can be executed multiple times Uses ItemDe
 | `Texture2D` | [get_display_icon](#method-get-display-icon)() |
 | `String` | [get_display_name](#method-get-display-name)() |
 | `Array` | [get_materials_display](#method-get-materials-display)() |
+| `float` | [get_skill_up_factor](#method-get-skill-up-factor)( `skill_level: int` ) |
+| `SkillBand` | [get_skill_band](#method-get-skill-band)( `skill_level: int` ) |
 | `float` | [calculate_craft_duration](#method-calculate-craft-duration)( `crafter: Entity, craft_school_instance: CraftSchoolInstance` ) |
+
+## Enumerations
+
+### enum SkillBand {#enum-skillband}
+
+The colour band of the recipe for a crafter of this skill level, for the interface: NONE for a recipe with no range, else ORANGE (teaches well), YELLOW, GREEN (teaches little), GREY (teaches nothing)
+
+- **NONE** = `0`
+- **ORANGE** = `1`
+- **YELLOW** = `2`
+- **GREEN** = `3`
+- **GREY** = `4`
 
 ## Property descriptions
 
@@ -66,6 +82,14 @@ Minimum skill level required in the craft school
 
 Skill points awarded when this recipe is successfully crafted
 
+### int skill_up_until = 0 {#prop-skill-up-until}
+
+The level at which the recipe stops teaching anything (the "grey" level): from there a craft gives no skill. 0 = it never stops, as before
+
+### CalculationFormula skill_up_curve {#prop-skill-up-curve}
+
+How much the recipe teaches inside its range: a formula that gets the position in the range (0 at the level the recipe needs, 1 at the level where it stops teaching) and gives a factor from 0 to 1. Empty = 1 at the start, falling in a straight line to 0 at the end. A step curve makes the coloured bands
+
 ### Array[Requirement] requirements = [] {#prop-requirements}
 
 Additional requirements (could be quest completion, reputation, etc.)
@@ -96,7 +120,15 @@ Get display name, falling back to item name if empty
 
 Get formatted materials list for UI display
 
+### float get_skill_up_factor( skill_level: int ) {#method-get-skill-up-factor}
+
+How well the recipe teaches a crafter of this skill level: 0 (nothing: it is too easy) to 1 (everything). 1 for a recipe with no range
+
+### SkillBand get_skill_band( skill_level: int ) {#method-get-skill-band}
+
+*No description yet.*
+
 ### float calculate_craft_duration( crafter: Entity, craft_school_instance: CraftSchoolInstance ) {#method-calculate-craft-duration}
 
-Calculate actual craft duration (could be modified by skill level, buffs, etc.)
+Calculate actual craft duration(could be modified by skill level, buffs, etc.)
 

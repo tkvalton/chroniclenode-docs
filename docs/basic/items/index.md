@@ -10,6 +10,7 @@ Everything a player can own, find, make and trade is built in this category: the
 | [**Affixes**](/basic/items/affixes) | The bonuses a generated item can roll: "Heavy", "of the Monkey". An affix says what, the item's budget says how much |
 | [**Craft Recipes**](/basic/items/craft-recipes) | Materials in, an item out, with a duration, a skill level and requirements |
 | [**Craft Schools**](/basic/items/craft-schools) | A crafting profession: its skill, its recipe categories, the recipes it starts with and what it takes to learn it |
+| [**Trainers**](/basic/items/trainers) | Lessons that NPCs teach: abilities, ranks, proficiency levels, professions, tiers, specializations, recipes |
 | [**Vendors**](/basic/items/vendors) | A shop: what it stocks, how it restocks, what it pays and what it charges |
 
 ## Authored or generated

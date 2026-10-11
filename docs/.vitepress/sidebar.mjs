@@ -116,7 +116,9 @@ const basicSystems = [
     ['Player Classes', 'player-classes', 'player_classes'],
     ['NPCs', 'npcs', 'entities'],
     ['Interactables', 'interactables', 'interactables'],
-  ]),
+  ], {
+    after: [page('Shared party inventory', '/basic/entities/shared-inventory')],
+  }),
   abilitiesAndEffects,
   system('Behaviors', 'behaviors', [
     ['Factions', 'factions', 'factions'],
@@ -149,6 +151,7 @@ const basicSystems = [
     ['Craft Recipes', 'craft-recipes', 'craft_recipes'],
     ['Craft Schools', 'craft-schools', 'craft_schools'],
     ['Vendors', 'vendors', 'vendors'],
+    ['Trainers', 'trainers', 'trainers'],
   ], {
     after: [page('Generated items', '/basic/items/item-generation'), page('Loot rules', '/basic/items/loot-rules')],
   }),
@@ -190,6 +193,7 @@ const sharedSystems = {
     page('Conditions', '/basic/shared-systems/conditions'),
     page('Groups', '/basic/shared-systems/groups'),
     page('Rewards', '/basic/shared-systems/rewards'),
+    page('Skill tiers and specializations', '/basic/shared-systems/skill-tiers-and-specializations'),
     page('Text tokens', '/basic/shared-systems/text-tokens'),
     page('Formulas', '/basic/shared-systems/formulas'),
   ],
@@ -310,7 +314,7 @@ const advancedSystems = [
   : slug === 'entity-stats'
   ? advancedEntityStats
   : slug === 'items'
-  ? withPages(classSystem(text, slug, itemClasses), [page('Generated items', '/advanced/items/generation', { title: 'Generated items: how they are built' }), page('Loot', '/advanced/items/loot', { title: 'Loot: how it is built' })])
+  ? withPages(classSystem(text, slug, itemClasses), [page('Generated items', '/advanced/items/generation', { title: 'Generated items: how they are built' }), page('Loot', '/advanced/items/loot', { title: 'Loot: how it is built' }), page('Trainers, tiers and professions', '/advanced/items/trainers', { title: 'Trainers, tiers and professions: how they are built' })])
   : slug === 'entities'
   ? classSystem(text, slug, entityClasses)
   : slug === 'behaviors'

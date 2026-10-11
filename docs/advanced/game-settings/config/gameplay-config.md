@@ -64,6 +64,9 @@ Configuration for gameplay rules and mechanics
 | `bool` | [reserve_experience_enabled](#prop-reserve-experience-enabled) | `true` |
 | `float` | [reserve_experience_percentage](#prop-reserve-experience-percentage) | `0.5` |
 | `int` | [max_reserve_companions](#prop-max-reserve-companions) | `6` |
+| `InventorySharing` | [inventory_sharing](#prop-inventory-sharing) | `InventorySharing.PER_CHARACTER` |
+| `int` | [shared_bag_slots](#prop-shared-bag-slots) | `40` |
+| `ProfessionsScope` | [professions_scope](#prop-professions-scope) | `ProfessionsScope.PARTY` |
 | `bool` | [allow_character_switching](#prop-allow-character-switching) | `true` |
 | `bool` | [allow_switching_in_combat](#prop-allow-switching-in-combat) | `true` |
 | `bool` | [has_main_character](#prop-has-main-character) | `true` |
@@ -193,6 +196,21 @@ Whose level the NPCs scale to
 
 - **REAL_TIME** = `0`
 - **TURN_BASED** = `1`
+
+### enum InventorySharing {#enum-inventorysharing}
+
+What the members of the party share
+
+- **PER_CHARACTER** = `0` - Every character has a bag and money of their own
+- **SHARED_CURRENCY** = `1` - One purse for the whole party; every character keeps their own bag
+- **SHARED_CURRENCY_AND_BAG** = `2` - One purse and one bag for the whole party (equipment stays on the character)
+
+### enum ProfessionsScope {#enum-professionsscope}
+
+Who owns the professions
+
+- **PARTY** = `0` - The whole party shares one set of professions, recipes and levels
+- **CHARACTER** = `1` - Every character has professions, recipes and levels of their own
 
 ### enum DeathBehavior {#enum-deathbehavior}
 
@@ -515,9 +533,21 @@ Experience percentage for reserve members (0.0 - 1.0)
 
 How many recruited companions can wait in reserve besides the active party (0 = no reserve: a recruit with a full party is turned down)
 
+### InventorySharing inventory_sharing = InventorySharing.PER_CHARACTER {#prop-inventory-sharing}
+
+What the party members share: nothing (every character has a bag and a purse of their own), one purse, or one purse and one bag. Equipment always belongs to the character. Choose it before the game starts: a save made with another choice is not converted
+
+### int shared_bag_slots = 40 {#prop-shared-bag-slots}
+
+The number of slots of the shared bag (when the party shares the bag)
+
+### ProfessionsScope professions_scope = ProfessionsScope.PARTY {#prop-professions-scope}
+
+Who owns the professions (craft schools): the whole party shares one set of professions, recipes and levels, or every character has a set of their own. Choose it before the game starts: a save made with the other choice is not converted
+
 ### bool allow_character_switching = true {#prop-allow-character-switching}
 
-The player may take over any living party member (off: the first member of the party is the only one the player controls, the others are companions)
+The player may take over any living party member(off: the first member of the party is the only one the player controls, the others are companions)
 
 ### bool allow_switching_in_combat = true {#prop-allow-switching-in-combat}
 

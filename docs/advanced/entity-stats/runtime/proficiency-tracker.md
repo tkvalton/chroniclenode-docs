@@ -30,6 +30,16 @@ It listens to the player: a hit dealt with a weapon, a hit taken in armor and an
 | `int` | [add_experience](#method-add-experience)( `proficiency_id: int, amount: float` ) |
 | `void` | [set_level](#method-set-level)( `proficiency_id: int, level: int` ) |
 | `int` | [add_levels](#method-add-levels)( `proficiency_id: int, levels: int` ) |
+| `int` | [get_tier](#method-get-tier)( `proficiency_id: int` ) |
+| `SkillTier` | [get_tier_definition](#method-get-tier-definition)( `proficiency_id: int` ) |
+| `int` | [get_level_cap](#method-get-level-cap)( `proficiency_id: int` ) |
+| `bool` | [is_at_tier_cap](#method-is-at-tier-cap)( `proficiency_id: int` ) |
+| `bool` | [set_tier](#method-set-tier)( `proficiency_id: int, tier_index: int` ) |
+| `Array[int]` | [get_specializations](#method-get-specializations)( `proficiency_id: int` ) |
+| `bool` | [has_specialization](#method-has-specialization)( `proficiency_id: int, spec_id: int` ) |
+| `String` | [get_specialization_blocker](#method-get-specialization-blocker)( `proficiency_id: int, spec_id: int` ) |
+| `bool` | [choose_specialization](#method-choose-specialization)( `proficiency_id: int, spec_id: int` ) |
+| `bool` | [remove_specialization](#method-remove-specialization)( `proficiency_id: int, spec_id: int, force: bool = false` ) |
 | `Array[int]` | [get_known_ids](#method-get-known-ids)() |
 | `void` | [sync_all_stats](#method-sync-all-stats)() |
 | `float` | [get_active_points](#method-get-active-points)( `proficiency_id: int` ) |
@@ -41,6 +51,12 @@ It listens to the player: a hit dealt with a weapon, a hit taken in armor and an
 ### experience_gained( proficiency_id: int, amount: float ) {#signal-experience-gained}
 
 ### level_changed( proficiency_id: int, new_level: int, old_level: int ) {#signal-level-changed}
+
+### tier_changed( proficiency_id: int, new_tier: int, old_tier: int ) {#signal-tier-changed}
+
+A tier or a specialization changed
+
+### specialization_changed( proficiency_id: int, specialization_id: int, chosen: bool ) {#signal-specialization-changed}
 
 ## Variable descriptions
 
@@ -76,7 +92,7 @@ The experience towards the next level
 
 ### float get_experience_to_next( proficiency_id: int ) {#method-get-experience-to-next}
 
-The experience the next level needs (0 at the highest level)
+The experience the next level needs (0 at the highest level the tier allows)
 
 ### int add_experience( proficiency_id: int, amount: float ) {#method-add-experience}
 
@@ -89,6 +105,46 @@ Sets the level directly (a trainer, a reward, a cheat). The experience towards t
 ### int add_levels( proficiency_id: int, levels: int ) {#method-add-levels}
 
 Adds levels (a reward of whole levels). Returns the levels really added
+
+### int get_tier( proficiency_id: int ) {#method-get-tier}
+
+The tier the character is in (a number from 0, the first tier). 0 for a proficiency with no tiers
+
+### SkillTier get_tier_definition( proficiency_id: int ) {#method-get-tier-definition}
+
+The tier the character is in, as a resource (null when the proficiency has no tiers)
+
+### int get_level_cap( proficiency_id: int ) {#method-get-level-cap}
+
+The highest level the character can reach now: the cap of the tier, or the highest level of the proficiency
+
+### bool is_at_tier_cap( proficiency_id: int ) {#method-is-at-tier-cap}
+
+Is the character at the cap of the tier (and the tier is not the last: a trainer can take it further)?
+
+### bool set_tier( proficiency_id: int, tier_index: int ) {#method-set-tier}
+
+Puts the character in a tier (a number from 0). A lower tier brings the level down to its cap. False when nothing changed or the tier does not exist
+
+### Array[int] get_specializations( proficiency_id: int ) {#method-get-specializations}
+
+The ids of the specializations the character has chosen
+
+### bool has_specialization( proficiency_id: int, spec_id: int ) {#method-has-specialization}
+
+*No description yet.*
+
+### String get_specialization_blocker( proficiency_id: int, spec_id: int ) {#method-get-specialization-blocker}
+
+Why the character cannot choose a specialization now ("" = they can)
+
+### bool choose_specialization( proficiency_id: int, spec_id: int ) {#method-choose-specialization}
+
+Chooses a specialization (its rewards are given by whoever gives it: see SpecializationReward). False when it cannot be chosen
+
+### bool remove_specialization( proficiency_id: int, spec_id: int, force: bool = false ) {#method-remove-specialization}
+
+Gives a specialization up (only one that can be changed, unless `force`)
 
 ### Array[int] get_known_ids() {#method-get-known-ids}
 

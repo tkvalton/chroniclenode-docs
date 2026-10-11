@@ -4,7 +4,7 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-**Inherited by:** [ConversationInteraction](/advanced/entities/interactions/conversation-interaction), [CraftingInteraction](/advanced/entities/interactions/crafting-interaction), [EntityInteraction](/advanced/entities/interactions/entity-interaction), [GrantQuestInteraction](/advanced/entities/interactions/grant-quest-interaction), [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction), [ShowUIPanelInteraction](/advanced/entities/interactions/show-ui-panel-interaction), [SpeakInteraction](/advanced/entities/interactions/speak-interaction), [VendorInteraction](/advanced/entities/interactions/vendor-interaction)
+**Inherited by:** [ConversationInteraction](/advanced/entities/interactions/conversation-interaction), [CraftingInteraction](/advanced/entities/interactions/crafting-interaction), [EntityInteraction](/advanced/entities/interactions/entity-interaction), [GrantQuestInteraction](/advanced/entities/interactions/grant-quest-interaction), [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction), [ShowUIPanelInteraction](/advanced/entities/interactions/show-ui-panel-interaction), [SpeakInteraction](/advanced/entities/interactions/speak-interaction), [TrainerInteraction](/advanced/entities/interactions/trainer-interaction), [VendorInteraction](/advanced/entities/interactions/vendor-interaction)
 
 Base class for all entity interactions Provides the foundation for different types of NPC interactions
 

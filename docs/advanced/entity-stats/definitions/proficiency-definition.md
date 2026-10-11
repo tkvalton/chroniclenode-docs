@@ -22,6 +22,8 @@ A proficiency has a level from 0 to `max_level`. Its experience comes from use (
 | `Array[int]` | [weapon_types](#prop-weapon-types) | `[]` |
 | `Array[int]` | [armor_classes](#prop-armor-classes) | `[]` |
 | `Array[int]` | [schools](#prop-schools) | `[]` |
+| `Array[SkillTier]` | [tiers](#prop-tiers) | `[]` |
+| `Array[SkillSpecialization]` | [specializations](#prop-specializations) | `[]` |
 | `float` | [experience_per_use](#prop-experience-per-use) | `1.0` |
 | `float` | [minimum_seconds_between_gains](#prop-minimum-seconds-between-gains) | `0.0` |
 | `int` | [level_needed_to_equip](#prop-level-needed-to-equip) | `0` |
@@ -83,6 +85,16 @@ Armor classes (Plate, Mail, Leather ...): being hit in one trains the proficienc
 ### Array[int] schools = [] {#prop-schools}
 
 Schools (Arcane, Divine ...): using an ability of one trains the proficiency (SchoolTypeDefinition ids)
+
+*Tiers and specializations*
+
+### Array[SkillTier] tiers = [] {#prop-tiers}
+
+The steps of the proficiency (Apprentice, Journeyman, Master). A character is in one tier at a time and its level cannot go above the cap of the tier until a trainer, a quest or an event trains the next one. Empty = no caps: the level goes up to the highest level
+
+### Array[SkillSpecialization] specializations = [] {#prop-specializations}
+
+The choices inside the proficiency (a branch to master). A character chooses with a trainer, a quest or an event
 
 *Gaining experience*
 

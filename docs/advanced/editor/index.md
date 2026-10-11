@@ -192,6 +192,8 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [LootRulesFields](/advanced/editor/items/loot-rules-fields) | The editor of the loot rules of an NPC, an object or a placed one: for each rule the trigger (when it rolls), the loot table (a shared one, or one of its own that is edited here), where the item level of the drops comes from, and whether the one who gets the loot changes it. |
 | [LootTableEditor](/advanced/editor/items/loot-table-editor) | LootTable Editor - handles loot table definitions using the unified ResourceEditor base |
 | [LootTableInlineFields](/advanced/editor/items/loot-table-inline-fields) | A compact editor of one loot table, for the table a loot rule has of its own ("this guard carries the key"): the entries as rows (an item, a currency or another table, with its quantity, weight and chance), what always drops, what is rolled, and the number of rolls. |
+| [SkillFields](/advanced/editor/items/skill-fields) | Builders of the editor rows for the parts of skills and trainers that several editors share: lists of requirements and rewards, the tiers of a proficiency or a profession, their specializations, and the cost of a lesson. |
+| [TrainerEditor](/advanced/editor/items/trainer-editor) | Trainers Editor: the lessons that NPCs and objects teach (a TrainerInteraction points at one of these). |
 | [VendorEditor](/advanced/editor/items/vendor-editor) | Vendor Editor - handles vendor definitions using the unified ResourceEditor base |
 <!-- /classes -->
 

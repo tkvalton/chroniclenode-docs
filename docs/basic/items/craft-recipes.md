@@ -21,6 +21,17 @@ A **recipe** turns materials into an item: ore and coal into a sword, three herb
 | **Requirements** | More [requirements](/basic/shared-systems/requirements) the crafter must meet: a [quest](/basic/events-and-quests/quests) done, a reputation, a [proficiency](/basic/entity-stats/proficiencies) | none |
 | **Requires learning** | The recipe can only be crafted once it is known. A recipe is known when it is one of the **starting recipes** of its school or the player learned it (a [Crafting Recipe reward](/basic/shared-systems/rewards), a trainer) | off |
 
+## What a recipe teaches
+
+A recipe can say how much skill it gives to a crafter of a given level. It teaches **most where it starts** (the skill level it needs) and **nothing from its grey level**; a curve in between says how much.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Teaches nothing from level** | The skill level from which the recipe gives no skill. `0` = it never stops teaching, as before | `0` |
+| **How much inside the range** | A [formula](/basic/shared-systems/formulas) that gets the position in the range (0 at the level the recipe needs, 1 at the grey level) and gives a factor from 0 to 1. Empty = a straight fall from 1 to 0. A step formula makes bands like orange, yellow, green and grey | none |
+
+In a profession that raises skill by [points](/basic/items/craft-schools#points-or-skill-ups) the factor multiplies the points of the craft; in one that raises it by **skill-ups** it is the chance of one. A recipe with a range is coloured in the crafting window: orange (teaches well), yellow, green (teaches little), grey (teaches nothing).
+
 ## How a craft runs
 
 1. The player chooses a recipe and a quantity. The game checks that the recipe is known, that the **skill level** and the **requirements** are met, and that the bag holds the **materials** for the whole quantity.

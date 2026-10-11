@@ -22,6 +22,10 @@ The left column is the skill, the right column is what it does.
 | **Starting level** | The level a new player starts at | `0` |
 | **Experience formula** | The experience needed to go from level *n* to *n+1*, with *n* as the input (a [formula](/basic/shared-systems/formulas)). None = `10 x (n + 1)`: 10 for level 1, 20 for level 2 | none |
 
+### Tiers and specializations
+
+**Add tier** and **Add specialization** (under the Levels fields) give a proficiency tiers that cap its level until a [trainer](/basic/items/trainers), a quest or an event trains the next one (Novice up to 25, Skilled up to 50, Master up to 100), and choices to master (a Sharp Edge that gives +5 Strength while chosen). See [Skill tiers and specializations](/basic/shared-systems/skill-tiers-and-specializations). With no tiers the level goes up to the highest level, as before.
+
 ### What it is for
 
 These lists use **your own** weapon classes, weapon types and armor classes (the ones you made in [Equipment Definitions](/basic/equipment-definitions/)) and schools. A weapon class is a kind of weapon (Sword, Dagger, Bow); a weapon type is how it is held (One Hand, Two Hand, Ranged). Use whichever fits the skill: *Swords* for the class Sword, *One-Handed Weapons* for the type One Hand.

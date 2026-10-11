@@ -52,6 +52,8 @@ Manages UI layers, scene transitions, and overlay systems. Handles loading scree
 | `void` | [show_readable_data](#method-show-readable-data)( `readable_data: Dictionary` ) |
 | `void` | [open_crafting_interface](#method-open-crafting-interface)( `interaction: CraftingInteraction, player: Player, school: CraftSchoolDefinition` ) |
 | `void` | [close_crafting_interface](#method-close-crafting-interface)() |
+| `void` | [open_trainer_interface](#method-open-trainer-interface)( `interaction: TrainerInteraction, player: Player` ) |
+| `void` | [close_trainer_interface](#method-close-trainer-interface)() |
 | `void` | [update_crafting_progress](#method-update-crafting-progress)( `job: CraftingJob` ) |
 | `void` | [initialize_debug_menu](#method-initialize-debug-menu)( `system_hub: GameHost.SystemHub` ) |
 | `void` | [toggle_debug_menu](#method-toggle-debug-menu)() |
@@ -232,6 +234,14 @@ Request to open crafting interface
 ### void close_crafting_interface() {#method-close-crafting-interface}
 
 Request to close crafting interface
+
+### void open_trainer_interface( interaction: TrainerInteraction, player: Player ) {#method-open-trainer-interface}
+
+Request to open the list of lessons of a trainer
+
+### void close_trainer_interface() {#method-close-trainer-interface}
+
+Request to close the list of lessons of a trainer
 
 ### void update_crafting_progress( job: CraftingJob ) {#method-update-crafting-progress}
 

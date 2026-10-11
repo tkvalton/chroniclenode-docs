@@ -34,9 +34,12 @@ Click the add button next to the list, choose the **type** of reward in the dial
 | [FactionStandingReward](/advanced/shared-systems/rewards/faction-standing-reward) | Sets reputation to a specific standing level with a faction |
 | [ItemReward](/advanced/shared-systems/rewards/item-reward) | Grants items to the player's inventory. |
 | [LevelReward](/advanced/shared-systems/rewards/level-reward) | Container for rewards granted at a specific level |
+| [ProfessionReward](/advanced/shared-systems/rewards/profession-reward) | Teaches the player a profession (a craft school): a blacksmith trainer, a quest that opens alchemy. |
 | [ProficiencyReward](/advanced/shared-systems/rewards/proficiency-reward) | Trains the player in a proficiency: experience towards the next level, or whole levels. |
 | [Reward](/advanced/shared-systems/rewards/reward) | Base class for all reward types |
 | [SkillPointReward](/advanced/shared-systems/rewards/skill-point-reward) | Grants skill points to a specific point pool |
+| [SkillTierReward](/advanced/shared-systems/rewards/skill-tier-reward) | Trains a proficiency or a profession into a tier (Journeyman, Expert, Master): the cap of its level goes up. |
+| [SpecializationReward](/advanced/shared-systems/rewards/specialization-reward) | Chooses a specialization of a proficiency or a profession for the player: mastering one aspect of it. |
 <!-- /classes -->
 
 The fields of each type:
@@ -50,7 +53,10 @@ The fields of each type:
 | **Ability Rank** | **Ability**, **Ranks**, **Grant if missing** | Trains an [ability](/basic/abilities-and-effects/ability-ranks#giving-ranks) of the player one or more ranks (up to its highest rank). Put it on a rank of a skill tree node, on a class level or on a quest. It gives the ability first when the player has not got it (**Grant if missing**) |
 | **Skill Point** | **Skill pool**, **Skill points granted** | Points to spend in a [skill tree](/basic/abilities-and-effects/skill-trees) pool |
 | **Crafting Recipe** | **Recipe** | Teaches a crafting recipe |
-| **Crafting Skill Point** | **Craft school**, **Skill points** | Levels in a crafting school |
+| **Crafting Skill Point** | **Craft school**, **Skill points** | Levels in a crafting school (up to the cap of its tier) |
+| **Profession** | **Craft school**, **Levels** | Teaches a [profession](/basic/items/craft-schools) that is not known from the start, and gives levels in it |
+| **Skill Tier** | **Kind**, **Target**, **Tier index** | Puts a proficiency or profession in a [tier](/basic/shared-systems/skill-tiers-and-specializations) (only raises, never lowers) |
+| **Specialization** | **Kind**, **Target**, **Specialization** | Chooses a [specialization](/basic/shared-systems/skill-tiers-and-specializations#specializations); swaps the one of its group that can be changed. The rewards of the specialization are given |
 | **Equipment Slot Unlock** | **Equipment slot** | Opens an equipment slot for use |
 | **Faction Reputation** | **Faction**, **Reputation amount** | Reputation with a faction. A negative amount takes reputation away |
 | **Proficiency** | **Proficiency**, **Mode** (experience or levels), **Amount** | Trains the player in a [proficiency](/basic/entity-stats/proficiencies) |

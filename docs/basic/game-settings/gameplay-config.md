@@ -32,6 +32,16 @@ The rules for the party of player characters. See [Playable Character](/basic/en
 
 With **Has main character** on, the first member of the party is the **main character**: it cannot be put in the reserve, and its death ends the game when the death behavior is *Game over* or *Permadeath* (a companion that falls does not end it). With it off, nobody is special: the party can rotate its first member into the reserve, and only a party wipe ends the game. Use it for a game of a band of equals, where the player picks a squad from a roster.
 
+### Inventory and professions
+
+| Field | What it does | Default |
+|---|---|---|
+| **Inventory sharing** | What the characters share: nothing, one purse, or one purse and one bag. See [Shared party inventory](/basic/entities/shared-inventory) | Per character |
+| **Shared bag slots** | The size of the shared bag | `40` |
+| **Professions belong to** | **The party** (one set of professions, recipes and levels) or **Each character** (professions of their own). See [Craft Schools](/basic/items/craft-schools#who-owns-the-professions) | The party |
+
+Choose both before the game starts: a save made with another choice is not converted.
+
 ### Companions
 
 | Field | What it does | Default |

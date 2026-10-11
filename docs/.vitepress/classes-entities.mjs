@@ -149,6 +149,12 @@ export const groups = [
         "file": "data_classes/interactions/interactable_objects/switch_interaction.gd"
       },
       {
+        "name": "TrainerInteraction",
+        "base": "Interaction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\interactions\\common_interactions\\trainer_interaction.gd",
+        "file": "data_classes/interactions/common_interactions/trainer_interaction.gd"
+      },
+      {
         "name": "TrapInteraction",
         "base": "InteractableObjectInteraction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\interactions\\interactable_objects\\trap_interaction.gd",

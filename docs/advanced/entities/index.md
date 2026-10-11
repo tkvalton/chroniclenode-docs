@@ -141,6 +141,7 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 | [ShowUIPanelInteraction](/advanced/entities/interactions/show-ui-panel-interaction) | Calls for a UI Panel to be shown, can be used for custome UI panels Or built panels that you may want accessed through an interaction rather than always avialable through the InGameUI |
 | [SpeakInteraction](/advanced/entities/interactions/speak-interaction) | Simple interaction that displays text and optionally plays a voice line |
 | [SwitchInteraction](/advanced/entities/interactions/switch-interaction) | Switch interaction - handles ON/OFF toggle with lock mechanics and audio feedback Base class for LightInteraction and other toggle-based interactions |
+| [TrainerInteraction](/advanced/entities/interactions/trainer-interaction) | A trainer: using the NPC or the object opens a list of lessons that the player can buy (abilities, ranks, proficiency levels, professions, tiers, specializations, recipes). |
 | [TrapInteraction](/advanced/entities/interactions/trap-interaction) | Trap interaction - triggers effects through proximity, interaction, or events Integrates with combat system through effect application |
 | [VendorInteraction](/advanced/entities/interactions/vendor-interaction) | Vendor interaction that opens the shop interface when activated |
 <!-- /classes -->

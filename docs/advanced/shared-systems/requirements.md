@@ -88,10 +88,15 @@ func get_summary() -> String:
 | [RequirementChecker](/advanced/shared-systems/requirements/requirement-checker) | Utility class for checking requirements and generating feedback Can be used as a static utility or instantiated for batch checking |
 | [RequirementEquipmentSlot](/advanced/shared-systems/requirements/requirement-equipment-slot) | Requires entity to have equipment in specific slot |
 | [RequirementFaction](/advanced/shared-systems/requirements/requirement-faction) | Requires entity to have a minimum reputation with a faction |
+| [RequirementKnowsAbility](/advanced/shared-systems/requirements/requirement-knows-ability) | Needs the entity to have an ability, optionally at a rank: "needs Fireball to learn Fireball II". |
+| [RequirementKnowsRecipe](/advanced/shared-systems/requirements/requirement-knows-recipe) | Needs the character to know a crafting recipe (learned, or given by the profession, or by a specialization). |
 | [RequirementLevel](/advanced/shared-systems/requirements/requirement-level) | Requires the entity to be at or above a level, and optionally at or below another (a level range: a buff that only works up to level 60) |
 | [RequirementPlayerClassDefinition](/advanced/shared-systems/requirements/requirement-player-class-definition) | Requires entity to be one of the specified player classes |
+| [RequirementProfession](/advanced/shared-systems/requirements/requirement-profession) | Needs a profession (a craft school): learned, and optionally at a skill level or in a tier. |
 | [RequirementProficiency](/advanced/shared-systems/requirements/requirement-proficiency) | Requires a level in a proficiency (swords, heavy armor, lockpicking): "needs Plate 25 to wear this". |
 | [RequirementResponseSeen](/advanced/shared-systems/requirements/requirement-response-seen) | Requirement that checks if a player has seen/selected a specific response Useful for branching conversations based on player choices |
+| [RequirementSkillTier](/advanced/shared-systems/requirements/requirement-skill-tier) | Needs a proficiency or a profession to be in a tier (Journeyman or higher), or to be at the cap of its tier (ready to be trained further). |
+| [RequirementSpecialization](/advanced/shared-systems/requirements/requirement-specialization) | Needs a specialization of a proficiency or a profession (or needs that the character does NOT have it). |
 | [RequirementStat](/advanced/shared-systems/requirements/requirement-stat) | Requires entity to have a minimum value in a specific stat |
 | [RequirementWeapon](/advanced/shared-systems/requirements/requirement-weapon) | Requires entity to have specific weapon types equipped |
 <!-- /classes -->
