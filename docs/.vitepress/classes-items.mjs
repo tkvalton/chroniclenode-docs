@@ -35,6 +35,12 @@ export const groups = [
         "file": "data_classes/items/item_definition_ammo.gd"
       },
       {
+        "name": "ItemDefinitionBag",
+        "base": "ItemDefinitionEquipment",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\item_definition_bag.gd",
+        "file": "data_classes/items/item_definition_bag.gd"
+      },
+      {
         "name": "ItemDefinitionConsumable",
         "base": "ItemDefinition",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\item_definition_consumable.gd",

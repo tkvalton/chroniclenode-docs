@@ -19,6 +19,7 @@ Base class for all item definitions with integrated Requirement system
 | `Array[int]` | [rollable_quality_ids](#prop-rollable-quality-ids) | `[]` |
 | `bool` | [stackable](#prop-stackable) | `false` |
 | `int` | [max_stack_size](#prop-max-stack-size) | `1` |
+| `Vector2i` | [shape_size](#prop-shape-size) | `Vector2i(1, 1)` |
 | `float` | [weight](#prop-weight) | `0.0` |
 | `int` | [vendor_value](#prop-vendor-value) | `0` |
 | `bool` | [is_key_item](#prop-is-key-item) | `false` |
@@ -79,6 +80,10 @@ Whether multiple instances can stack together in inventory slots
 Maximum number of items in a single inventory slot
 
 *Value and Flags*
+
+### Vector2i shape_size = Vector2i(1, 1) {#prop-shape-size}
+
+How many cells the item covers in a grid inventory: width and height (1 x 1 = one cell). Always a rectangle. A slots inventory ignores it
 
 ### float weight = 0.0 {#prop-weight}
 

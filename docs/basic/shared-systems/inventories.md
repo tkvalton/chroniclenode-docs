@@ -80,7 +80,8 @@ Different games hold items in different ways. An **inventory style** is the set 
 
 | Field | What it does | Default |
 |---|---|---|
-| **Items take space as** | **Slots** (a list) or **No limit** (slots appear as items come, and go when they are emptied; there is always one empty slot) | Slots |
+| **Items take space as** | **Slots** (a list), **A grid** (cells, items have a shape) or **No limit** (slots appear as items come, and go when they are emptied; there is always one empty slot) | Slots |
+| **Cells across**, **Cells down** | The size of a grid | `10`, `6` |
 | **Number of slots from** | **The Bag Slots stat** of the owner, or **a fixed number** | The stat |
 | **Items have weight** | Turns weight on (below) | off |
 | **Capacity from** | **The Carry Capacity stat** of the owner, or a fixed number | The stat |
@@ -90,6 +91,29 @@ Different games hold items in different ways. An **inventory style** is the set 
 | **Encumbrance steps** | A list of steps: **name**, **from percent of the capacity** and an **effect** | none |
 
 A container's own **Max slots** is its number of slots in slots mode (the style's *fixed number* is for characters and NPCs). A [shared party bag](/basic/entities/shared-inventory) ignores the style: it has its fixed size and no weight.
+
+### A grid
+
+In a **grid** (as in Diablo) the bag is a rectangle of cells and every item has a **shape**: a **width and a height in cells** (the item editor, **Shape**; 1 x 1 by default, a sword can be 1 x 3, a shield 2 x 2). The shape is always a rectangle and items **cannot be turned**.
+
+- A new item goes in the **first place** (row by row, from the top left) where its rectangle is free. Items are drawn over the cells they cover.
+- Stacks work as they do in slots: a stackable item joins the stack of the same item, and a full stack makes a new item in a new place. A stack covers the shape of one item.
+- **Dragging**: an item can be dropped where its rectangle is free, or on a stack of the same item to join it. It does not go where it would cover another item or over the edge; it goes back where it was. (Swapping two items by dropping one on the other is not there: move one away first.)
+- **Room** is a question of rectangles: a bag with 12 free cells may have no room for a 3 x 2 item. Loot, rewards, purchases and crafting use the same check, so a stack that does not fit stays with the giver. An item bigger than the grid never fits.
+- **More cells**: the **Inventory Size** reward and the **Change Inventory Size** event action add **rows** (one slot = one row). The Bag Slots stat is not used by a grid. Bags (items that give slots) do not apply to a grid.
+- A grid is saved with the position of every item. Items keep their place after a load.
+- A grid can have **weight** too: the hard limit and encumbrance work as in the other styles.
+
+### Bags
+
+A **bag** is an item that gives its wearer more slots, as in World of Warcraft. Make the item as a **Bag** (the [item editor](/basic/items/items#bag)), make an equipment type for bags and **equipment slots** that take it (four bag slots, say), and the bags a character wears add their slots to the slots of their own bag.
+
+- The slots stay **one list** that the inventory window shows grouped by bag: the character's own slots first, then a row for each bag under its name (the slots of a bag have a faint tint of their own).
+- A bag can take **only some groups** of items (an herb pouch, a quiver, a gem case). An item of such a group goes into a bag that takes it **before** any other slot, and nothing else can be put in that bag. A bag with no groups takes anything.
+- A bag can make what is in it **lighter**: *What the items in it weigh* is a multiplier (0.5 = half) that counts when the style has weight.
+- A bag **cannot be taken off** while what it holds would not fit in the other slots (there needs to be a free slot for each item inside, and one for the bag): the player is told and the bag stays on. Replacing a bag with another one follows the same rule.
+- A worn bag is saved with the equipment, and the items in its slots with the inventory: after a load every item is in the same slot.
+- Bags give slots in the **slots** style. In **no limit** space they are not needed. A [shared party bag](/basic/entities/shared-inventory) has a fixed size and does not use bags.
 
 ### Weight
 
@@ -104,14 +128,15 @@ Every item has a **Weight** (the item editor, next to the value; `0` = nothing).
 | Game | Style |
 |---|---|
 | **The toolkit's own** | The default: slots from the stat, no weight |
+| **Diablo-like** | **A grid** of 10 x 6, items with shapes, no weight |
 | **Skyrim-like** | **No limit**, weight on, **Encumbrance** with a step at 100 that slows the character and a step at 150 that stops running |
 | **Slot bag with a weight limit** | Slots from the stat, weight on, a **hard limit** |
+| **World of Warcraft-like** | Slots from a small fixed number, four bag equipment slots, bags of 6 to 16 slots, an herb bag that takes only herbs |
 | **A chest that never fills** | The container style: **No limit** |
 | **A strongbox** | A container with its own style: weight on, a fixed capacity, a hard limit |
 
 ## What there is not
 
-- Items have **no size**: a bag has one stack in each slot. There is no **grid** where items cover cells, and no **bags that are items** (a worn bag that adds slots). Both are being built: see [Inventory styles](/planned/inventory-styles).
 - The older settings *Item weight enabled* and *Item durability enabled* in the [Gameplay Config](/basic/game-settings/gameplay-config#items-and-inventory) are not read: weight is a rule of the style, and items do not wear out yet.
 
 ## See also

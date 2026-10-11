@@ -22,12 +22,17 @@ Used by InventoryComponent for general item storage where multiple items of the 
 | | | |
 |---|---|---|
 | `CombatManager` | [combat_manager](#var-combat-manager) |  |
+| `ItemInstance` | [bag_item](#var-bag-item) | `null` |
+| `InventoryComponent` | [inventory](#var-inventory) | `null` |
+| `InventorySlotInstance` | [covered_by](#var-covered-by) | `null` |
 
 ## Methods
 
 | | |
 |---|---|
 | `bool` | [supports_stacking](#method-supports-stacking)() |
+| `bool` | [accepts_definition](#method-accepts-definition)( `definition: ItemDefinition` ) |
+| `bool` | [is_special_for](#method-is-special-for)( `definition: ItemDefinition` ) |
 | `bool` | [can_accept_item](#method-can-accept-item)( `item: ItemInstance` ) |
 | `int` | [add_quantity](#method-add-quantity)( `amount: int` ) |
 | `int` | [remove_quantity](#method-remove-quantity)( `amount: int` ) |
@@ -50,11 +55,31 @@ Emitted when the stack of the item in this slot got smaller without the inventor
 
 The combat system manager
 
+### ItemInstance bag_item = null {#var-bag-item}
+
+The bag that gave this slot (null = a slot of the character's own bag)
+
+### InventoryComponent inventory = null {#var-inventory}
+
+The inventory this slot is in (a grid needs it to ask whether an item fits where it is dropped)
+
+### InventorySlotInstance covered_by = null {#var-covered-by}
+
+Grid: the slot that holds the item that covers this cell (null = this cell is free, or it is the cell of its own item)
+
 ## Method descriptions
 
 ### bool supports_stacking() {#method-supports-stacking}
 
 Inventory slots always support stacking
+
+### bool accepts_definition( definition: ItemDefinition ) {#method-accepts-definition}
+
+Does this slot take an item of this definition? A slot of a bag that takes only some groups refuses the others
+
+### bool is_special_for( definition: ItemDefinition ) {#method-is-special-for}
+
+Does this slot belong to a bag that takes only some items (and does this definition fit it)?
 
 ### bool can_accept_item( item: ItemInstance ) {#method-can-accept-item}
 

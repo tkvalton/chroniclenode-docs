@@ -377,7 +377,6 @@ export const sidebar = [
     items: [
       page('About the planned features', '/planned/', { title: 'Planned features' }),
       page('Dropped items', '/planned/dropped-items'),
-      page('Inventory styles', '/planned/inventory-styles'),
       page('Water and swimming', '/planned/water-and-swimming'),
       page('Flying', '/planned/flying'),
       page('Mounts', '/planned/mounts'),

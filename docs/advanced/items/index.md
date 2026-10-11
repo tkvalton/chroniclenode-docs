@@ -75,6 +75,7 @@ Instances save the stack, charges, cooldowns, enchantments with their remaining 
 | [ItemBudget](/advanced/items/item-definitions/item-budget) | The stat budget of an item: a pool of points that the bonuses of a generated item spend. |
 | [ItemDefinition](/advanced/items/item-definitions/item-definition) | Base class for all item definitions with integrated Requirement system |
 | [ItemDefinitionAmmo](/advanced/items/item-definitions/item-definition-ammo) | Ammunition: arrows, bolts, bullets, and anything else an ability spends a piece of per use. |
+| [ItemDefinitionBag](/advanced/items/item-definitions/item-definition-bag) | A bag: equipment that gives its wearer more slots while it is worn (a satchel, a quiver, an herb pouch). |
 | [ItemDefinitionConsumable](/advanced/items/item-definitions/item-definition-consumable) | Consumable items that provide immediate effects when used (potions, food, scrolls, etc.) Uses the effect system for all functionality - effects, validation, and state management |
 | [ItemDefinitionEnchantScroll](/advanced/items/item-definitions/item-definition-enchant-scroll) | Enchantment scrolls that can permanently or temporarily enhance equipment items Uses effects system for actual enchantment functionality |
 | [ItemDefinitionEquipment](/advanced/items/item-definitions/item-definition-equipment) | Equipment items that can be worn by characters to provide stat bonuses and visual changes |

@@ -9,7 +9,6 @@ Nothing on these pages can be used today. A page can change before its feature s
 | Feature | What it is | What exists today |
 |---|---|---|
 | [Dropped items](/planned/dropped-items) | Items lying in the world: dropped by the player, by events, by NPCs and objects, placed by hand | Four stored settings that nothing reads, and a reserved collision layer |
-| [Inventory styles](/planned/inventory-styles) | Bags that are items, a grid with item shapes, weight with a carry limit: the other ways games hold items | Slots only; the Carry Weight stat is the number of slots |
 | [Water and swimming](/planned/water-and-swimming) | Water areas that put whoever enters them into swim movement, with demo water shaders | Swim animations and a swimming flag that nothing turns on |
 | [Flying](/planned/flying) | Entities that can fly: a state, not an area | Nothing |
 | [Mounts](/planned/mounts) | Riding: a speed buff on a mount, or movement of its own, perhaps flying, swimming or a vehicle | Mount and rider points in the character rig |

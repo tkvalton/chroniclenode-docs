@@ -15,6 +15,7 @@ An **item** definition says what a thing in the bag is: a sword, a potion, a let
 | **Ammo** | Equipment that is spent by ranged [abilities](/basic/abilities-and-effects/abilities#ammo-and-reagents): arrows, bolts, bullets | [Equipment](#equipment), [Ammo](#ammo) |
 | **Quest Item** | An item tied to a [quest](/basic/events-and-quests/quests) | [Quest item](#quest-item) |
 | **Material** | An ingredient for [recipes](/basic/items/craft-recipes) | [Material](#material) |
+| **Bag** | Equipment that gives its wearer more [inventory slots](/basic/shared-systems/inventories#bags) | [Bag](#bag) |
 | **Enchant Scroll** | Puts an [effect](/basic/abilities-and-effects/effects) on a piece of equipment, for a while or for good | [Enchant scroll](#enchant-scroll) |
 | **On-Use Item** | Runs an [ability](/basic/abilities-and-effects/abilities) and has charges (a wand, a scroll, a rod) | [On-use item](#on-use-item) |
 | **Readable** | Opens a panel of text pages: a letter, a book | [Readable](#readable) |
@@ -33,6 +34,7 @@ Every item has these.
 | **Quality** | The [quality](/basic/equipment-definitions/quality) of the item (common, rare, epic). The interface uses it for the color of the item's border and name. `None` = no quality. **Randomize** next to it makes a [generated item](/basic/items/item-generation) pick its quality from the qualities you tick below it (the chance of each is its drop weight) | none |
 | **Stackable**, **Max stack size** | Whether several of the item share one slot in the bag, and how many. Consumables and materials start with a maximum of `99` | not stackable, `1` |
 | **Vendor value** | What the item is worth, in the currency of the vendor. A vendor pays a share of it and sells at a multiple of it (see [Vendors](/basic/items/vendors#prices)). An item with a value is always worth at least `1` | `0` |
+| **Shape (cells)** | How many cells the item covers in a [grid inventory](/basic/shared-systems/inventories#a-grid): across and down. Always a rectangle, it cannot be turned. A slots inventory ignores it | `1` x `1` |
 | **Weight** | What one of the item weighs, when the [inventory style](/basic/shared-systems/inventories#weight) counts weight. A stack weighs this times its size. `0` = nothing | `0` |
 | **Is key item** | The item cannot be sold to a vendor or discarded. Use it for quest and story items | off |
 | **Item level** | How powerful the item is. A [generated item](/basic/items/item-generation) takes its stat budget from it, and [affixes](/basic/items/affixes) can limit themselves by it. The tooltip shows "Item Level N". It is **not** a level the player needs: use a [level requirement](/basic/shared-systems/requirements#level) for that (it can follow the item level). An item that **scales with its item level** reads it as **Authored at level**: the level its written numbers are for | `1` |
@@ -130,6 +132,18 @@ A quest item can be made to follow its quest:
 - Only **loot** is held back. An item that a quest, a vendor or an event gives straight to the player is not, except that the third availability will not stay in a bag while its quest is not running.
 - Put the same quest item in the loot tables of every place it could come from: the availability decides when it really drops, so you do not need a different table for "before" and "after".
 - An item with an availability and no quest set is flagged by the editor: it has nothing to follow.
+
+## Bag
+
+A bag is [equipment](#equipment) (it has the equipment fields too: an equipment type, requirements, stat bonuses ...) that gives slots while it is worn. Make an equipment type for bags and equipment slots that take it (the number of slots is the number of bags a character can wear).
+
+| Field | What it does | Default |
+|---|---|---|
+| **Slots it gives** | How many slots the bag adds to the inventory of its wearer | `6` |
+| **Takes only these groups** | [Groups](/basic/types-and-groups/groups) of items. With some ticked, the bag takes only items of those groups, and such items go there first. None = it takes anything | none |
+| **What the items in it weigh (x)** | A multiplier on the weight of what is in the bag (`0.5` = half). It matters when the [inventory style](/basic/shared-systems/inventories#weight) counts weight | `1` |
+
+See [Bags](/basic/shared-systems/inventories#bags) for how the slots are listed, what happens when a bag comes off, and saving.
 
 ## Material
 

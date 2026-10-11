@@ -4,7 +4,7 @@
 
 **Inherits:** [ItemDefinition](/advanced/items/item-definitions/item-definition) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-**Inherited by:** [ItemDefinitionAmmo](/advanced/items/item-definitions/item-definition-ammo), [ItemDefinitionEquipmentWeapon](/advanced/items/item-definitions/item-definition-equipment-weapon)
+**Inherited by:** [ItemDefinitionAmmo](/advanced/items/item-definitions/item-definition-ammo), [ItemDefinitionBag](/advanced/items/item-definitions/item-definition-bag), [ItemDefinitionEquipmentWeapon](/advanced/items/item-definitions/item-definition-equipment-weapon)
 
 Equipment items that can be worn by characters to provide stat bonuses and visual changes
 

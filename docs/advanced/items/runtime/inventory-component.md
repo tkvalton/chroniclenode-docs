@@ -40,9 +40,17 @@ UI behavior and context are handled by the UI layer, not here. For specialized t
 | `void` | [configure](#method-configure)( `p_style: InventoryStyle, p_owner: Entity = null, slots_override: int = -1` ) |
 | `int` | [get_slot_capacity](#method-get-slot-capacity)() |
 | `void` | [refresh_capacity](#method-refresh-capacity)() |
+| `Array[ItemInstance]` | [get_worn_bags](#method-get-worn-bags)() |
 | `int` | [get_overflow_count](#method-get-overflow-count)() |
+| `bool` | [can_release_bag](#method-can-release-bag)( `bag_item: ItemInstance` ) |
 | `void` | [add_extra_slots](#method-add-extra-slots)( `amount: int` ) |
 | `void` | [add_extra_capacity](#method-add-extra-capacity)( `amount: float` ) |
+| `bool` | [is_grid](#method-is-grid)() |
+| `int` | [get_grid_width](#method-get-grid-width)() |
+| `Vector2i` | [get_grid_cell](#method-get-grid-cell)( `slot: InventorySlotInstance` ) |
+| `int` | [count_grid_placements](#method-count-grid-placements)( `shape: Vector2i, wanted: int` ) |
+| `bool` | [can_place_in_grid](#method-can-place-in-grid)( `item_instance: ItemInstance, target_slot: InventorySlotInstance` ) |
+| `bool` | [place_in_grid](#method-place-in-grid)( `item_instance: ItemInstance, target_slot: InventorySlotInstance` ) |
 | `bool` | [is_weight_on](#method-is-weight-on)() |
 | `float` | [get_total_weight](#method-get-total-weight)() |
 | `float` | [get_weight_capacity](#method-get-weight-capacity)() |
@@ -73,7 +81,7 @@ UI behavior and context are handled by the UI layer, not here. For specialized t
 | `ItemInstance` | [get_item_at_index](#method-get-item-at-index)( `index: int` ) |
 | `int` | [get_index_of_slot](#method-get-index-of-slot)( `slot_instance: InventorySlotInstance` ) |
 | `InventorySlotInstance` | [find_slot_with_item](#method-find-slot-with-item)( `item_instance: ItemInstance` ) |
-| `Array[InventorySlotInstance]` | [get_empty_slots](#method-get-empty-slots)() |
+| `Array[InventorySlotInstance]` | [get_empty_slots](#method-get-empty-slots)( `definition: ItemDefinition = null` ) |
 | `bool` | [is_full](#method-is-full)() |
 | `bool` | [is_empty](#method-is-empty)() |
 | `int` | [get_currency_amount](#method-get-currency-amount)( `currency_id: int` ) |
@@ -189,11 +197,19 @@ How many slots the rules give now: the style's, plus the slots added for good. A
 
 ### void refresh_capacity() {#method-refresh-capacity}
 
-Makes the number of slots what the rules say. Growing adds slots; shrinking never destroys items: slots that hold items stay (over the limit) until emptied
+Makes the slots what the rules say: the slots of the style (the stat, the bonuses) and the slots of the bags worn. Growing adds slots; shrinking never destroys items: an item in a slot that goes away moves to a free slot, and when there is none its slot stays (over the limit) until it is emptied
+
+### Array[ItemInstance] get_worn_bags() {#method-get-worn-bags}
+
+The bags the owner wears, in the order of the equipment slots
 
 ### int get_overflow_count() {#method-get-overflow-count}
 
-Slots that hold items past the capacity (the bag got smaller)
+Slots of the character's own bag that hold items past the capacity (the bag got smaller and there was nowhere to move them)
+
+### bool can_release_bag( bag_item: ItemInstance ) {#method-can-release-bag}
+
+Could this bag come off? What it holds has to fit in the other slots (and the bag itself needs a slot too)
 
 ### void add_extra_slots( amount: int ) {#method-add-extra-slots}
 
@@ -202,6 +218,30 @@ Adds slots for good (a reward, an event). A negative number takes them away agai
 ### void add_extra_capacity( amount: float ) {#method-add-extra-capacity}
 
 Adds weight capacity for good
+
+### bool is_grid() {#method-is-grid}
+
+Is this a grid inventory (and not a shared bag)?
+
+### int get_grid_width() {#method-get-grid-width}
+
+How many cells wide the grid is
+
+### Vector2i get_grid_cell( slot: InventorySlotInstance ) {#method-get-grid-cell}
+
+The cell of a slot of a grid (x across, y down)
+
+### int count_grid_placements( shape: Vector2i, wanted: int ) {#method-count-grid-placements}
+
+How many items of this shape fit side by side in the free cells (up to `wanted`)
+
+### bool can_place_in_grid( item_instance: ItemInstance, target_slot: InventorySlotInstance ) {#method-can-place-in-grid}
+
+Does this item fit with its top left cell on this slot? (the item may be in the grid already: its own cells do not count)
+
+### bool place_in_grid( item_instance: ItemInstance, target_slot: InventorySlotInstance ) {#method-place-in-grid}
+
+Puts the item with its top left cell on this slot: it moves there if it fits, or joins the stack that is there. False when it does not fit
 
 ### bool is_weight_on() {#method-is-weight-on}
 
@@ -323,7 +363,7 @@ Get the index of a specific slot instance
 
 Find first slot containing an item instance
 
-### Array[InventorySlotInstance] get_empty_slots() {#method-get-empty-slots}
+### Array[InventorySlotInstance] get_empty_slots( definition: ItemDefinition = null ) {#method-get-empty-slots}
 
 Get all empty slots
 
