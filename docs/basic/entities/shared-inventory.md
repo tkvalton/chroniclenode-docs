@@ -34,4 +34,4 @@ Everything that uses a character's bag or money uses the shared one when the par
 
 ## See also
 
-- [Gameplay Config](/basic/game-settings/gameplay-config), [Items](/basic/items/items), [Playable Character](/basic/entities/playable-character), [Crafting professions per character](/basic/items/craft-schools#who-owns-the-professions)
+- [Inventories](/basic/shared-systems/inventories), [Gameplay Config](/basic/game-settings/gameplay-config), [Items](/basic/items/items), [Playable Character](/basic/entities/playable-character), [Crafting professions per character](/basic/items/craft-schools#who-owns-the-professions)

@@ -190,6 +190,7 @@ const sharedSystems = {
   items: [
     page('Overview', '/basic/shared-systems/', { title: 'Shared systems' }),
     page('Requirements', '/basic/shared-systems/requirements'),
+    page('Inventories', '/basic/shared-systems/inventories'),
     page('Conditions', '/basic/shared-systems/conditions'),
     page('Groups', '/basic/shared-systems/groups'),
     page('Rewards', '/basic/shared-systems/rewards'),
@@ -376,6 +377,7 @@ export const sidebar = [
     items: [
       page('About the planned features', '/planned/', { title: 'Planned features' }),
       page('Dropped items', '/planned/dropped-items'),
+      page('Inventory styles', '/planned/inventory-styles'),
       page('Water and swimming', '/planned/water-and-swimming'),
       page('Flying', '/planned/flying'),
       page('Mounts', '/planned/mounts'),

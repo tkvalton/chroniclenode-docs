@@ -7,6 +7,7 @@ This section explains those tools once, so the chapter of each system can simply
 |---|---|---|
 | [Requirements](/basic/shared-systems/requirements) | What an entity must be or have: a level, a class, a stat, a reputation, a weapon | Abilities, effects, items, quests, crafting recipes, conversation responses |
 | [Conditions](/basic/shared-systems/conditions) | A yes-or-no question about the game right now: is it alive, is a quest done, are three enemies near | Events, behaviors, stat effects, the Condition conditional effect, encounters |
+| [Inventories](/basic/shared-systems/inventories) | Where items live: the bag of a character, what it wears, containers, remains, shops, the shared party bag, and the rules they share | Characters, NPCs, chests, vendors, trainers, crafting, loot |
 | [Rewards](/basic/shared-systems/rewards) | Something given to the player: experience, an item, an ability, currency, reputation | Quests, level-ups, [skill trees](/basic/abilities-and-effects/skill-trees), conversations, events, the Grant Reward effect |
 | [Groups](/basic/shared-systems/groups) | A label that makes effects, abilities and items interact: one Seal at a time, potions that share a [cooldown](/basic/keywords#cooldown) | Effects, abilities, items |
 | [Text tokens](/basic/shared-systems/text-tokens) | Words in angle brackets that are filled in when text is shown: `<player name>` | Quests, conversations, popups |
