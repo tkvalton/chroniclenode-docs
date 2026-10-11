@@ -59,7 +59,7 @@ Master, music, sound effects, ambiance and voice volume, `0` to `1`, all default
 
 ### Keybinds
 
-The list of the actions of the project, each with a checkbox: tick the ones **players may rebind**. The keys themselves are not set here: define the actions and their default keys in Godot's **Project > Project Settings > Input Map**, and the game uses them. The tab shows the keys each action has now. The sixty action bar slots are explained on [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds). Actions starting with `ui_` are not listed.
+The list of the actions of the project, each with a checkbox: tick the ones **players may rebind**. The keys themselves are not set here: define the actions and their default keys in Godot's **Project > Project Settings > Input Map**, and the game uses them. The tab shows the keys each action has now. Every action also has a **name field**: what the player reads in the keybinds menu. The sixty action bar slots and the twenty panel keys are explained on [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds). Actions starting with `ui_` are not listed.
 
 ## The defaults and the player's changes
 

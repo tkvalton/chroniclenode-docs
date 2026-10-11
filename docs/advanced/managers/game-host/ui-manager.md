@@ -46,6 +46,7 @@ Manages UI layers, scene transitions, and overlay systems. Handles loading scree
 | `void` | [show_choice_tooltip](#method-show-choice-tooltip)( `choice_node: ChoiceSkillNode, choice_index: int` ) |
 | `void` | [hide_tooltip](#method-hide-tooltip)( `force_hide: bool` ) |
 | `void` | [toggle_panel](#method-toggle-panel)( `panel_name: String` ) |
+| `String` | [toggle_panel_number](#method-toggle-panel-number)( `number: int` ) |
 | `void` | [toggle_external_inventory](#method-toggle-external-inventory)( `inventory_data: InventoryComponent, inventory_owner: Variant, active: bool` ) |
 | `void` | [open_socket_panel](#method-open-socket-panel)( `item_instance: ItemInstance` ) |
 | `void` | [show_readable_panel](#method-show-readable-panel)( `readable_item: ItemInstance` ) |
@@ -210,6 +211,10 @@ Hide all tooltips
 ### void toggle_panel( panel_name: String ) {#method-toggle-panel}
 
 Toggle a named panel (character, spellbook, etc.)
+
+### String toggle_panel_number( number: int ) {#method-toggle-panel-number}
+
+Toggle the panel that a panel key number (1 to 20) opens. Returns the name of the panel ("" when no panel has the number)
 
 ### void toggle_external_inventory( inventory_data: InventoryComponent, inventory_owner: Variant, active: bool ) {#method-toggle-external-inventory}
 

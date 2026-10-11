@@ -46,6 +46,8 @@
 
 ### rquest_ui_panel( panel_name: String ) {#signal-rquest-ui-panel}
 
+A panel key opened or closed a panel (its name)
+
 ### request_warning_message( message: String ) {#signal-request-warning-message}
 
 ## Constants

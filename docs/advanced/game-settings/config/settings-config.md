@@ -83,6 +83,7 @@ Class representing the game settings
 | `float` | [voice_volume](#prop-voice-volume) | `1` |
 | `float` | [ui_volume](#prop-ui-volume) | `1` |
 | `Dictionary` | [action_binding_overrides](#prop-action-binding-overrides) | `{}` |
+| `Dictionary` | [keybind_labels](#prop-keybind-labels) | `{}` |
 | `Dictionary` | [player_accessible_settings](#prop-player-accessible-settings) | `{}` |
 
 ## Variables
@@ -95,6 +96,7 @@ Class representing the game settings
 
 | | |
 |---|---|
+| `String` | [get_keybind_label](#method-get-keybind-label)( `action_name: String` ) |
 | `SettingsConfig` | [get_config](#method-get-config)() *static* |
 | `SettingsConfig` | [get_active](#method-get-active)() *static* |
 
@@ -614,6 +616,10 @@ The current ui volume
 
 Dictionary of action binding overrides, set by the player
 
+### Dictionary keybind_labels =  {#prop-keybind-labels}
+
+What the player reads for an input action in the keybinds menu: action name -&gt; label ("Open the journal"). Set in the Keybinds tab of the Game Settings. An action with no label is shown with its name written out ("Move Up")
+
 ### Dictionary player_accessible_settings =  {#prop-player-accessible-settings}
 
 Dictionary tracking which settings are accessible to players in the in-game settings menu Key: setting property name (String), Value: enabled (bool) This is configured in the Game Settings editor and used at runtime to determine which settings should be displayed to players
@@ -625,6 +631,10 @@ Dictionary tracking which settings are accessible to players in the in-game sett
 Static reference to the currently active settings (runtime instance) This is set by SettingsManager and always reflects player modifications Use SettingsConfig.active or get_active() to access runtime settings Use SettingsConfig.get_config() to access developer defaults from settings.tres
 
 ## Method descriptions
+
+### String get_keybind_label( action_name: String ) {#method-get-keybind-label}
+
+The label of an input action for the player: the one the game set, or the action name written out
 
 ### SettingsConfig get_config() {#method-get-config}
 
