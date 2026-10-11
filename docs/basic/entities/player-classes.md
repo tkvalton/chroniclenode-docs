@@ -49,6 +49,17 @@ Core stats are overrides: leave one at `0` and the entity uses the default of th
 
 More abilities come from [level rewards](#level-rewards) and [skill trees](#skill-trees).
 
+## Action bar
+
+The **Action bar** section plans the bar of the class: for each **slot** the **ability** that belongs on it and whether the slot is **locked**. *Add a slot* adds a row. The ability can be one the character **does not know yet**:
+
+- A known ability is on its slot when the character is made.
+- An ability that is not known yet is **reserved**: the slot waits, and the ability goes there the moment it is learned (a level reward, a quest, a trainer, a skill tree). A slot without a lock is used once; a **locked** slot keeps its plan (forget the ability and learn it again and it goes back, and the player cannot use the slot for anything else).
+- A locked slot with no ability is a locked empty slot.
+- Slots that are not listed are the player's.
+
+See [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds#the-plan-of-a-class) for what this makes possible (a bar that is planned from level 1, a bar with the mouse buttons as attacks).
+
 ## Starting equipment
 
 The **Equipment Properties** section lists the [items](/basic/items/items) the class is wearing at the start, one for each [slot](/basic/equipment-definitions/equipment-slot) (the key is the slot and its number, such as *Main Hand:0*). A [playable character](/basic/entities/playable-character) can replace the list with its own. Starting gear is put on without checking [requirements](/basic/shared-systems/requirements).

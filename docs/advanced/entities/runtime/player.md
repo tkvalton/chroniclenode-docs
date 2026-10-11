@@ -32,6 +32,8 @@ Key features:
 | `bool` | [follow_stance](#var-follow-stance) | `true:` |
 | `bool` | [attack_stance](#var-attack-stance) | `true` |
 | `Array[ActionBarSlotData]` | [action_bar_configuration](#var-action-bar-configuration) | `[]` |
+| `Dictionary` | [action_bar_locked](#var-action-bar-locked) | `{}` |
+| `Dictionary` | [action_bar_reserved](#var-action-bar-reserved) | `{}` |
 | `bool` | [is_awaiting_target](#var-is-awaiting-target) | `false` |
 | `Array[SkillTreeInstance]` | [skill_tree_instances](#var-skill-tree-instances) | `[]` |
 | `Array[SkillPointPoolInstance]` | [skill_point_pools](#var-skill-point-pools) | `[]` |
@@ -58,6 +60,7 @@ Key features:
 | `ProficiencyTracker` | [get_proficiencies](#method-get-proficiencies)() |
 | `void` | [set_reserved](#method-set-reserved)( `value: bool` ) |
 | `Dictionary` | [grant_reward](#method-grant-reward)( `reward: Reward, for_good: bool = false` ) |
+| `AbilityInstance` | [get_basic_attack](#method-get-basic-attack)() |
 | `bool` | [is_companion](#method-is-companion)() |
 | `void` | [initialize_entity](#method-initialize-entity)( `system_hub: GameHost.SystemHub` ) |
 | `void` | [equip_starting_gear](#method-equip-starting-gear)() |
@@ -85,9 +88,16 @@ Key features:
 | `bool` | [can_level_up](#method-can-level-up)() |
 | `int` | [get_experience_needed_for_next_level](#method-get-experience-needed-for-next-level)() |
 | `int` | [get_max_level](#method-get-max-level)() |
+| `int` | [get_action_bar_slot_count](#method-get-action-bar-slot-count)() |
+| `bool` | [is_action_bar_slot_locked](#method-is-action-bar-slot-locked)( `slot_index: int` ) |
 | `void` | [validate_action_bar_integrity](#method-validate-action-bar-integrity)() |
-| `void` | [update_action_bar_slot](#method-update-action-bar-slot)( `slot_index: int, slot_data: ActionBarSlotData` ) |
+| `void` | [update_action_bar_slot](#method-update-action-bar-slot)( `slot_index: int, slot_data: ActionBarSlotData, by_system: bool = false` ) |
 | `void` | [clear_action_bar_slot](#method-clear-action-bar-slot)( `slot_index: int` ) |
+| `void` | [set_action_bar_slot_ability](#method-set-action-bar-slot-ability)( `slot_index: int, ability_id: int, lock_change: int = 0` ) |
+| `void` | [push_action_bar_override](#method-push-action-bar-override)( `slot_index: int, source: Variant, ability: AbilityInstance` ) |
+| `void` | [remove_action_bar_override](#method-remove-action-bar-override)( `slot_index: int, source: Variant` ) |
+| `bool` | [is_action_bar_slot_covered](#method-is-action-bar-slot-covered)( `slot_index: int` ) |
+| `void` | [apply_action_bar_layout](#method-apply-action-bar-layout)() |
 | `Variant` | [get_action_bar_content](#method-get-action-bar-content)( `slot_index: int` ) |
 | `void` | [initialize_action_bar](#method-initialize-action-bar)( `slot_count: int = 10` ) |
 | `Array` | [serialize_action_bar](#method-serialize-action-bar)() |
@@ -146,7 +156,15 @@ Stance of a companion: fight freely, joining the fights of the party (off: passi
 
 ### Array[ActionBarSlotData] action_bar_configuration = [] {#var-action-bar-configuration}
 
-Actionbar configuration for this player
+Actionbar configuration for this player: what each slot shows now (an effect can cover what the player put on it, see push_action_bar_override)
+
+### Dictionary action_bar_locked =  {#var-action-bar-locked}
+
+The slots the player cannot change (a plan of the class, an event): slot index -&gt; true. Saved
+
+### Dictionary action_bar_reserved =  {#var-action-bar-reserved}
+
+The slots that wait for an ability the player has not learned yet: slot index -&gt; ability id. Saved. The ability goes on its slot when it is learned
 
 ### bool is_awaiting_target = false {#var-is-awaiting-target}
 
@@ -233,6 +251,10 @@ A companion in the reserve leaves the world: hidden, not processed, not detected
 ### Dictionary grant_reward( reward: Reward, for_good: bool = false ) {#method-grant-reward}
 
 Give a reward. One that cannot be given right now (no room for its items) waits instead of being lost: the player is warned and it is given when there is room. The answer has `pending` set then. `for_good`: the reward is the player's from now on (a quest, a conversation, an event, a trainer): an ability or a rank it gives is saved with the player. Left off, the caller keeps the reward itself and gives it again after a load (a skill tree, the levels of a class)
+
+### AbilityInstance get_basic_attack() {#method-get-basic-attack}
+
+The basic attack of a player is the one of the weapon, unless the project turns the built-in basic attack off (then there is none: slot 1 is a slot like any other)
 
 ### bool is_companion() {#method-is-companion}
 
@@ -342,20 +364,50 @@ Get experience needed for next level
 
 Get max level from player class
 
+### int get_action_bar_slot_count() {#method-get-action-bar-slot-count}
+
+How many slots the action bar has (the setting of the project)
+
+### bool is_action_bar_slot_locked( slot_index: int ) {#method-is-action-bar-slot-locked}
+
+Can the player not change this slot? (the project says the bar is fixed, the plan of the class or an event locked it, or an effect covers it)
+
 ### void validate_action_bar_integrity() {#method-validate-action-bar-integrity}
 
 Validate all action bar slots and clean up invalid references
 
-### void update_action_bar_slot( slot_index: int, slot_data: ActionBarSlotData ) {#method-update-action-bar-slot}
+### void update_action_bar_slot( slot_index: int, slot_data: ActionBarSlotData, by_system: bool = false ) {#method-update-action-bar-slot}
 
 Updates the action bar configuration at the specified index Parameters:
 
 - slot_index: The index in the action bar to update (0-based)
 - ability: The ability to assign to the slot, or null to clear it
 
+`by_system` is true for the game itself (events, the plan of a class, cleaning up): the player's own change of a slot that is locked is refused (the bar shows what it holds again)
+
 ### void clear_action_bar_slot( slot_index: int ) {#method-clear-action-bar-slot}
 
-Clear action bar slot
+Clear action bar slot (by the game: a locked slot is cleared too)
+
+### void set_action_bar_slot_ability( slot_index: int, ability_id: int, lock_change: int = 0 ) {#method-set-action-bar-slot-ability}
+
+Puts an ability on a slot, empties it (ability_id 0), or reserves it for an ability that is not known yet (it goes there when it is learned). `lock_change`: 0 keep the lock as it is, 1 lock, 2 unlock. A locked slot keeps its plan: the ability goes back to it when it is learned again
+
+### void push_action_bar_override( slot_index: int, source: Variant, ability: AbilityInstance ) {#method-push-action-bar-override}
+
+An effect covers a slot: it shows `ability` (null = the slot is empty and cannot be used) and the player cannot change it. What was on the slot comes back when the effect ends (remove_action_bar_override)
+
+### void remove_action_bar_override( slot_index: int, source: Variant ) {#method-remove-action-bar-override}
+
+*No description yet.*
+
+### bool is_action_bar_slot_covered( slot_index: int ) {#method-is-action-bar-slot-covered}
+
+Is an effect covering this slot?
+
+### void apply_action_bar_layout() {#method-apply-action-bar-layout}
+
+The plan of the player class goes on the bar: each planned slot gets its ability (or waits for it) and its lock
 
 ### Variant get_action_bar_content( slot_index: int ) {#method-get-action-bar-content}
 
@@ -367,7 +419,7 @@ Initialize action bar with default size
 
 ### Array serialize_action_bar() {#method-serialize-action-bar}
 
-Serialize action bar configuration
+Serialize action bar configuration (what the player put on the slots: a slot an effect covers saves what is underneath)
 
 ### void deserialize_action_bar( serialized_bar: Array ) {#method-deserialize-action-bar}
 

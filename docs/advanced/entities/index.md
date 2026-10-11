@@ -111,6 +111,7 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 <!-- classes:entities/definitions -->
 | Class | What it is |
 |---|---|
+| [ActionBarLayoutEntry](/advanced/entities/definitions/action-bar-layout-entry) | One planned slot of the action bar of a player class: the ability that belongs on a slot, and whether the player may change that slot. |
 | [CharacterDefinition](/advanced/entities/definitions/character-definition) | Character Definition - Unique template for creating player characters References a PlayerClassDefinition and inherits visual/audio from EntityDefinition |
 | [CustomCharacterDefinition](/advanced/entities/definitions/custom-character-definition) | CustomCharacterDefinition - Extended character template with full customization support Stores facial feature configurations, shader color parameters, blend shape weights, and voice selection for creating unique, customizable player characters |
 | [EntityDefinition](/advanced/entities/definitions/entity-definition) | EntityDefinition contains all visual, audio, and display configuration for entities This serves as the base class for NPCDefinition and CharacterDefinition |
@@ -129,6 +130,7 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 | [CraftingInteraction](/advanced/entities/interactions/crafting-interaction) | Crafting interaction that opens the crafting interface when activated Can be attached to NPCs, Crafting Tables, or other interactive objects Updated to use CraftingJob's existing timer system instead of redundant timers |
 | [DoorInteraction](/advanced/entities/interactions/door-interaction) | Door interaction - opens/closes doors with animations Uses available_animations from InteractableDefinition for animation selection |
 | [EntityInteraction](/advanced/entities/interactions/entity-interaction) | Only entities can use these interactions |
+| [GatherInteraction](/advanced/entities/interactions/gather-interaction) | A gathering node (an ore vein, an herb, a tree to chop, a fishing spot): using it gives the player what its loot rules of the trigger "On Gathered" roll, straight to the bag. |
 | [GrantQuestInteraction](/advanced/entities/interactions/grant-quest-interaction) | Interaction that instantly activates a Quest if player meets requirements |
 | [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction) | Only interactable objects can use these interactions |
 | [Interaction](/advanced/entities/interactions/interaction) | Base class for all entity interactions Provides the foundation for different types of NPC interactions |

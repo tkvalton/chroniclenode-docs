@@ -33,6 +33,7 @@ Definition for a crafting recipe that can be executed multiple times Uses ItemDe
 | `String` | [get_display_name](#method-get-display-name)() |
 | `Array` | [get_materials_display](#method-get-materials-display)() |
 | `float` | [get_skill_up_factor](#method-get-skill-up-factor)( `skill_level: int` ) |
+| `float` | [skill_up_factor](#method-skill-up-factor)( `from_level: int, until_level: int, curve: CalculationFormula, skill_level: int` ) *static* |
 | `SkillBand` | [get_skill_band](#method-get-skill-band)( `skill_level: int` ) |
 | `float` | [calculate_craft_duration](#method-calculate-craft-duration)( `crafter: Entity, craft_school_instance: CraftSchoolInstance` ) |
 
@@ -123,6 +124,10 @@ Get formatted materials list for UI display
 ### float get_skill_up_factor( skill_level: int ) {#method-get-skill-up-factor}
 
 How well the recipe teaches a crafter of this skill level: 0 (nothing: it is too easy) to 1 (everything). 1 for a recipe with no range
+
+### float skill_up_factor( from_level: int, until_level: int, curve: CalculationFormula, skill_level: int ) {#method-skill-up-factor}
+
+The same for any activity that teaches a profession (a recipe, a gathering node): it starts at `from_level`, teaches nothing from `until_level` on (0 = never stops) and follows `curve` in between (empty = a straight line down)
 
 ### SkillBand get_skill_band( skill_level: int ) {#method-get-skill-band}
 

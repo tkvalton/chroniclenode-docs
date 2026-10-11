@@ -55,6 +55,10 @@ With the default style, the number of slots is the entity's **Bag Slots** stat, 
 - Companions use theirs automatically (to pick up loot, to get things from the player).
 - NPCs hold what their [loot rules](/basic/items/loot-rules) gave them: a body can be looted, and a [pickpocket](/basic/abilities-and-effects/effect-types) effect opens the bag of a live NPC.
 
+## Items kept aside
+
+A [quest item](/basic/items/items#quest-items-kept-aside) can be set to be **kept aside**. It is then not in the slots (or the cells) at all: it is in a list of its own that grows and shrinks with what is in it. It takes no slot, no cell and no weight, a full bag still takes it, and it counts everywhere else (objectives, requirements, hand-in costs, saves, the shared party bag). The inventory window lists it as **Quest items** under the slots; a window without that list shows nothing.
+
 ## What a character wears
 
 Equipment is a second inventory with a slot for each **equipment slot** (head, chest, two rings, main hand ...). A slot can be **locked** until a reward unlocks it. A piece of equipment

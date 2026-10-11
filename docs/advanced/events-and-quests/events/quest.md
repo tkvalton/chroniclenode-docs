@@ -19,6 +19,7 @@ Main quest resource that handles objectives, rewards, and quest state
 | `Array[Requirement]` | [requirements](#prop-requirements) | `[]` |
 | `bool` | [requires_hand_in](#prop-requires-hand-in) | `false` |
 | `Array[String]` | [turn_in_text](#prop-turn-in-text) | `[]` |
+| `LessonCost` | [hand_in_cost](#prop-hand-in-cost) | `null` |
 | `bool` | [is_repeatable](#prop-is-repeatable) | `false` |
 | `int` | [repeat_limit](#prop-repeat-limit) | `0` |
 | `CooldownType` | [cooldown_type](#prop-cooldown-type) | `CooldownType.NONE` |
@@ -70,6 +71,9 @@ Main quest resource that handles objectives, rewards, and quest state
 | `int` | [get_remaining_repeats](#method-get-remaining-repeats)() |
 | `bool` | [is_on_cooldown](#method-is-on-cooldown)() |
 | `float` | [get_remaining_cooldown_hours](#method-get-remaining-cooldown-hours)() |
+| `bool` | [has_hand_in_cost](#method-has-hand-in-cost)() |
+| `String` | [get_hand_in_cost_text](#method-get-hand-in-cost-text)() |
+| `String` | [get_hand_in_blocker](#method-get-hand-in-blocker)( `player: Player = null` ) |
 | `void` | [add_reward](#method-add-reward)( `reward: Reward` ) |
 | `bool` | [remove_reward](#method-remove-reward)( `reward: Reward` ) |
 | `void` | [clear_rewards](#method-clear-rewards)() |
@@ -188,6 +192,10 @@ If true, quest requires manual hand-in after objectives are complete
 
 Text displayed by NPC when handing in quest, Array to hold each language
 
+### LessonCost hand_in_cost = null {#prop-hand-in-cost}
+
+What the player pays when the quest completes (when it is handed in, for a hand-in quest): items and currency taken from the bag of the player (the shared bag, when the party shares it). The quest does not complete until the player can pay all of it. Null = the quest costs nothing
+
 ### bool is_repeatable = false {#prop-is-repeatable}
 
 If true, quest can be repeated after completion
@@ -258,7 +266,7 @@ Activates the quest and its objectives. False when it cannot start (see can_star
 
 ### bool complete() {#method-complete}
 
-Marks the quest as completed and grants rewards. False when it did not complete: with no room for an item reward the player is warned and the quest waits (it completes by itself when the room is there, a hand-in quest when it is handed in again)
+Marks the quest as completed and grants rewards. False when it did not complete: when the player cannot pay the hand-in cost, or has no room for an item reward, the player is warned and the quest waits (it completes by itself when it is possible, a hand-in quest when it is handed in again)
 
 ### void fail() {#method-fail}
 
@@ -355,6 +363,18 @@ Check if quest is on cooldown
 ### float get_remaining_cooldown_hours() {#method-get-remaining-cooldown-hours}
 
 Get remaining cooldown time in game hours (for duration cooldown)
+
+### bool has_hand_in_cost() {#method-has-hand-in-cost}
+
+Does the quest cost something when it completes?
+
+### String get_hand_in_cost_text() {#method-get-hand-in-cost-text}
+
+What the hand-in costs, as text ("10 Boar Meat, 5 Gold"; empty when it costs nothing)
+
+### String get_hand_in_blocker( player: Player = null ) {#method-get-hand-in-blocker}
+
+Why the player cannot pay the hand-in cost ("" = they can, or there is none)
 
 ### void add_reward( reward: Reward ) {#method-add-reward}
 

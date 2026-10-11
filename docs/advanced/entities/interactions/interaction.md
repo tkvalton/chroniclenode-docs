@@ -23,6 +23,7 @@ Base class for all entity interactions Provides the foundation for different typ
 | `void` | [set_entity_reference](#method-set-entity-reference)( `new_entity: Variant, p_system_hub: GameHost.SystemHub` ) |
 | `void` | [setup_for_interactable_objects](#method-setup-for-interactable-objects)( `interactable: InteractableObject` ) |
 | `bool` | [can_interact](#method-can-interact)( `player: Player` ) |
+| `String` | [get_block_reason](#method-get-block-reason)( `_entity: Entity` ) |
 | `void` | [start_interaction](#method-start-interaction)( `_player: Player` ) |
 | `void` | [end_interaction](#method-end-interaction)() |
 
@@ -53,6 +54,10 @@ Set the entity reference
 ### bool can_interact( player: Player ) {#method-can-interact}
 
 Check if the player can interact with this interaction
+
+### String get_block_reason( _entity: Entity ) {#method-get-block-reason}
+
+Why the interaction cannot start now ("" = it can, or it says nothing): the user is told when `can_interact` is false
 
 ### void start_interaction( _player: Player ) {#method-start-interaction}
 

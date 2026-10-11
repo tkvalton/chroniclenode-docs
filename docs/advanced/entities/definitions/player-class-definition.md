@@ -15,6 +15,7 @@ PlayerClassDefinition defines the template and progression for player character 
 | `Array[LevelReward]` | [level_rewards](#prop-level-rewards) | `[]` |
 | `Array[int]` | [locked_equipment_slots](#prop-locked-equipment-slots) | `[]` |
 | `Array[int]` | [skill_trees](#prop-skill-trees) | `[]` |
+| `Array[ActionBarLayoutEntry]` | [action_bar_layout](#prop-action-bar-layout) | `[]` |
 | `StatsData` | [stats_data](#prop-stats-data) |  |
 | `int` | [basic_attack_data](#prop-basic-attack-data) |  |
 | `Array[int]` | [active_abilities_data](#prop-active-abilities-data) |  |
@@ -78,6 +79,12 @@ Equipment slots that start locked for this class
 ### Array[int] skill_trees = [] {#prop-skill-trees}
 
 Skill trees available to this class
+
+*Action Bar*
+
+### Array[ActionBarLayoutEntry] action_bar_layout = [] {#prop-action-bar-layout}
+
+The planned action bar of the class: the ability that belongs on each slot and whether the player may change it. An ability that is not known yet waits on its slot and goes there when it is learned. Slots that are not listed are free for the player
 
 *Combat Stats*
 

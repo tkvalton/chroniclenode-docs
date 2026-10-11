@@ -30,6 +30,32 @@ The animations the scene has (open, close, locked, destroyed) are offered in the
 | **Interaction cooldown** | Seconds the object waits after being used before it can be used again. `0` = no wait | `0.5` |
 | **Interaction** | What the object does: pick one of the [interaction types](#interaction-types) | none |
 
+## Using an object
+
+These fields work for **every** kind of object, whatever its interaction does: a door that needs a skill, a chest that takes time to pick, a node that is gathered from. They are in the **Using it** section of the editor.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Requirements** | What a user needs to use the object: any [requirement](/basic/shared-systems/requirements) (a profession level, a tool in the hands, a quest, a class). **All** must be met. Empty = anyone | none |
+| **Message when not met** | What the user is told when they are not. Empty = the reasons the requirements give ("Needs Mining 25 (you have 12)") | empty |
+| **Hide the prompt until they are met** | The "interact" prompt of the object is not shown to a user who cannot use it. Off: the prompt is shown, and using the object says why not | off |
+| **Time to use (seconds)** | How long using the object takes. The user's **cast bar** shows it and the use happens when it ends. `0` = at once | `0` |
+| **Cast bar text** | The text of the bar. Empty = "Using" and the name of the object | empty |
+| **Moving interrupts** | Walking away (more than three quarters of a metre) cancels the use | on |
+| **Taking damage interrupts** | Being hurt cancels the use | on |
+| **User animation** | The animation the user plays while the object is used: a [social animation](/basic/assets/animations) of the **actions** kind (kneel, mine, pick). It stops when the use ends | none |
+| **Object animation** | The animation of the object's own model that plays when the use starts | none |
+
+What happens when a user tries:
+
+1. The object is **locked**? Its key opens it (see *Locked by item*).
+2. The **requirements** are checked. Not met: nothing happens, the user is told (the message above), and the object's `interaction_refused` signal fires.
+3. The interaction says whether it **can** start (a gathering node with nothing left, or a bag with no room, says why).
+4. With a **time to use**, the cast bar runs. Moving, taking damage (when the box is on), casting an ability or dying cancels it: nothing happens, and the bar flashes. Using the object again while somebody is using it does nothing.
+5. When the time is up the requirements and the interaction are checked **again** (the user may have changed), and the interaction happens.
+
+The cast bar is the one that shows ability casts, so an interface that has a cast bar shows this one too.
+
 ## Targeting and stats
 
 By default an object is scenery. These switches make it a thing that can be attacked.
@@ -67,9 +93,35 @@ Each type has a section of its own in the editor. There are three families:
 
 | Family | Works on | Types |
 |---|---|---|
-| **Object interactions** | Interactable objects | Door, Container, Switch, Light, Ladder, Rabbit Hole, Trap, Readable |
+| **Object interactions** | Interactable objects | Door, Container, Switch, Light, Ladder, Rabbit Hole, Trap, Readable, Gather |
 | **Common interactions** | Objects *and* NPCs | Speak, Conversation, Vendor, Crafting, Grant Quest, Show UI Panel |
 | **Entity interactions** | NPCs and other entities | Loot, Join Party |
+
+### Gather
+
+A **gathering node**: an ore vein, an herb, a tree to chop, a fishing spot. Using it gives the user what the node's loot rules of the trigger **On Gathered** roll, **straight to the bag**. It uses everything from [Using an object](#using-an-object): a profession level as a requirement, a time to gather with a cast bar, the animation of the gatherer.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Charges** | How many times the node can be gathered from before it is used up. A mining node of `3` is gone after three gathers | `1` |
+| **When depleted** | **Stays**: the node stays where it is, cannot be used, and plays its depleted animation. **Disappears**: it cannot be seen, hit or used | Stays |
+| **Respawn seconds** | Game seconds until a used-up node is full again. `0` = never (until an event brings it back) | `0` |
+| **Profession** (*Craft school*) | The [profession](/basic/items/craft-schools) a gather raises (Mining, Herbalism). `0` = none | none |
+| **Skill points** | What one gather gives (Points mode), or the weight of the chance of a skill-up (Skill-ups mode) | `1` |
+| **Skill up from / until** | The skill range the node teaches in, with a **curve** inside it, exactly as a [recipe](/basic/items/craft-recipes#what-a-recipe-teaches) does. From the *until* level the node teaches nothing (grey). `0` = it never stops | `1`, `0` |
+| **Full / Gather / Depleted animation** | Animations of the object's model: when it is full (and comes back), at every gather, when it is used up | none |
+
+**Where the loot comes from.** Add a [loot rule](/basic/items/loot-rules) to the object with the trigger **On Gathered**. Each gather rolls it again, so a node with a table of three herbs gives one of them each time. A rule can give currency too.
+
+**No room.** The loot goes into the gatherer's bag or not at all. A gatherer whose bag has **no room at all** is told "Your bag is full" **before** the time starts. A bag with some room but not enough for the whole roll fails when the time is up: nothing is given, **the charge is not used**, and the node stays as it was. A [quest item that is kept aside](/basic/items/items#quest-items-kept-aside) and a [currency](/basic/items/currency) take no room.
+
+**Profession and skill.** Gate a node with the **Requirements** of the object: *Needs Mining 25*. The node teaches the profession only while the gatherer's skill is inside the node's range; a copper vein at skill 300 gives nothing to learn.
+
+**Quests.** The **Player Gathered** [trigger](/basic/events-and-quests/event-triggers) counts gathers (of any node, or of one kind) for an objective: *Gather 8 Moonpetal*, with a tally.
+
+**Saving.** The charges left, whether the node is used up and how long until it returns are saved.
+
+A used-up node can be brought back by an event or later by a [spawner](/planned/spawners); today it comes back on its own when it has a respawn time.
 
 ### Door
 

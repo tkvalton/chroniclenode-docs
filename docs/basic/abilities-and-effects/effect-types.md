@@ -69,6 +69,7 @@ These effects change abilities themselves.
 | [**Ability Range**](/advanced/abilities-and-effects/effects-ability/ability-range-effect) (`AbilityRangeEffect`) | Changes the range of an ability: longer for a sniper shot, shorter as a debuff |
 | [**Ability Effects Modifier**](/advanced/abilities-and-effects/effects-ability/ability-effects-modifier-effect) (`AbilityEffectsModifierEffect`) | Adds or removes effects from an ability's passive or on-use effects while it lasts |
 | [**Ability Morph**](/advanced/abilities-and-effects/effects-ability/ability-morph-effect) (`AbilityMorphEffect`) | Temporarily turns an ability into another one, in the same slot |
+| [**Action Bar Slot**](/advanced/abilities-and-effects/effects-ability/action-bar-slot-effect) (`ActionBarSlotEffect`) | Puts an ability on a slot of the action bar while it lasts, or empties the slot, and gives the ability if the target does not know it. What the player had comes back when the effect ends. Give it to a weapon to change the bar with the weapon. See [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds#an-effect-changes-a-slot) |
 | [**Set Ability Active**](/advanced/abilities-and-effects/effects-ability/set-ability-active-effect) (`SetAbilityActiveEffect`) | Makes an ability ready for the duration: a temporary unlock or power grant |
 | [**Repeat Ability**](/advanced/abilities-and-effects/effects-ability/repeat-ability-effect) (`RepeatAbilityEffect`) | Applies an ability's on-use effects again to the same target, a number of times with a delay. The repeats are free |
 

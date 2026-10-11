@@ -347,6 +347,12 @@ export const groups = [
         "file": "data_classes/conditions/entity/equipped_weapon_type_condition.gd"
       },
       {
+        "name": "HasCurrencyCondition",
+        "base": "EntityCondition",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\entity\\has_currency_condition.gd",
+        "file": "data_classes/conditions/entity/has_currency_condition.gd"
+      },
+      {
         "name": "HasEffectCondition",
         "base": "EntityCondition",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\entity\\has_effect_condition.gd",

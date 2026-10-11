@@ -24,11 +24,13 @@ Quest items can:
 | `bool` | [triggers_quest](#prop-triggers-quest) | `false` |
 | `bool` | [remove_on_quest_complete](#prop-remove-on-quest-complete) | `true` |
 | `Availability` | [availability](#prop-availability) | `Availability.ALWAYS` |
+| `BagSpace` | [bag_space](#prop-bag-space) | `BagSpace.IN_THE_BAG` |
 
 ## Methods
 
 | | |
 |---|---|
+| `bool` | [is_kept_aside](#method-is-kept-aside)() |
 | `bool` | [is_quest_completed](#method-is-quest-completed)( `system_hub: GameHost.SystemHub` ) |
 | `bool` | [is_quest_active](#method-is-quest-active)( `system_hub: GameHost.SystemHub` ) |
 | `bool` | [is_quest_running](#method-is-quest-running)( `system_hub: GameHost.SystemHub` ) |
@@ -52,6 +54,13 @@ When the item can drop and how long it may stay in a bag
 - **DROPS_WHILE_QUEST_ACTIVE** = `1`
 - **EXISTS_WHILE_QUEST_ACTIVE** = `2`
 
+### enum BagSpace {#enum-bagspace}
+
+Where the item lives in a bag
+
+- **IN_THE_BAG** = `0`
+- **KEPT_ASIDE** = `1`
+
 ## Property descriptions
 
 ### int quest_id = 0 {#prop-quest-id}
@@ -74,7 +83,15 @@ Whether to auto-remove this item when the associated quest is completed
 
 When the item can drop, and whether it only exists while the quest is running
 
+### BagSpace bag_space = BagSpace.IN_THE_BAG {#prop-bag-space}
+
+Where the item lives in a bag: in a slot, or kept aside (no space taken)
+
 ## Method descriptions
+
+### bool is_kept_aside() {#method-is-kept-aside}
+
+Is this item kept aside in the bag (taking no slot, cell or weight)? Only a quest item can be (ItemDefinitionQuest.BagSpace) *(from [ItemDefinition](/advanced/items/item-definitions/item-definition))*
 
 ### bool is_quest_completed( system_hub: GameHost.SystemHub ) {#method-is-quest-completed}
 

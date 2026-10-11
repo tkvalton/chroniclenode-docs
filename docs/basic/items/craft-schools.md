@@ -76,6 +76,10 @@ Choose it before the game starts: a save made with the other choice is not conve
 
 A **crafting station** [interactable](/basic/entities/interactables) has a *Craft school* field: using the station opens the crafting window of that school. All schools exist from the start of a game (the ones that are not [known from the start](#learning-and-how-a-craft-raises-the-skill) wait to be learned); a player's progress in each is part of the save.
 
+## Gathering and the profession
+
+A [gathering node](/basic/entities/interactables#gather) can raise a profession too: the node names the profession and a skill range with a curve, the same range a recipe has. A Mining node at skill 1 to 75 teaches a lot at first and nothing from 75 on; use the **Requirements** of the node to gate it (*Needs Mining 25*). The profession's progression mode decides whether a gather gives points or a chance of a skill-up.
+
 ## See also
 
 - [Craft Recipes](/basic/items/craft-recipes), [Items](/basic/items/items), [Rewards](/basic/shared-systems/rewards)

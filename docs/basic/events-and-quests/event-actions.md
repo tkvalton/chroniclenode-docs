@@ -2,7 +2,7 @@
 
 <!-- generated from the code comments by scripts/event-lists.mjs: change the comments in the code, not this page -->
 
-An **action** is the *do* of an [event](/basic/events-and-quests/events). An event runs its actions **in order, and each one finishes before the next one starts**: a Wait action really waits, and a Popup action can wait until the popup is closed. An action that cannot do what it was asked (a quest that cannot start, an object that does not exist) **fails**, and so does its event. There are 86 kinds, in 13 categories. Choose one with **Add Action** in the event editor.
+An **action** is the *do* of an [event](/basic/events-and-quests/events). An event runs its actions **in order, and each one finishes before the next one starts**: a Wait action really waits, and a Popup action can wait until the popup is closed. An action that cannot do what it was asked (a quest that cannot start, an object that does not exist) **fails**, and so does its event. There are 90 kinds, in 13 categories. Choose one with **Add Action** in the event editor.
 
 ## Audio
 
@@ -126,12 +126,16 @@ Grant or remove effects, move or kill the player characters, change their combat
 
 | Action | What it does |
 |---|---|
+| [**Change Inventory Size**](/advanced/events-and-quests/actions-player/change-inventory-size-action) (`ChangeInventorySizeAction`) | Action that makes the bag of player(s) bigger (or smaller) for good: more slots, more carry capacity. |
 | [**Grant Effect To Player**](/advanced/events-and-quests/actions-player/grant-effect-to-player-action) (`GrantEffectToPlayerAction`) | Grant an effect to player(s) |
 | [**Kill Player**](/advanced/events-and-quests/actions-player/kill-player-action) (`KillPlayerAction`) | Kill player(s) (trigger death state) |
 | [**Remove All Effects From Player**](/advanced/events-and-quests/actions-player/remove-all-effects-from-player-action) (`RemoveAllEffectsFromPlayerAction`) | Remove all effects from player(s) |
 | [**Remove Effect From Player**](/advanced/events-and-quests/actions-player/remove-effect-from-player-action) (`RemoveEffectFromPlayerAction`) | Remove a specific effect from player(s) |
+| [**Set Action Bar Slot**](/advanced/events-and-quests/actions-player/set-action-bar-slot-action) (`SetActionBarSlotAction`) | Action that puts an ability on a slot of the action bar of player(s), empties a slot, or locks and unlocks it. |
 | [**Set Player Combat Script**](/advanced/events-and-quests/actions-player/set-player-combat-script-action) (`SetPlayerCombatScriptAction`) | Change player(s) combat script at runtime |
 | [**Set Player Position**](/advanced/events-and-quests/actions-player/set-player-position-action) (`SetPlayerPositionAction`) | Teleport/move player(s) to a specific position |
+| [**Take Currency**](/advanced/events-and-quests/actions-player/take-currency-action) (`TakeCurrencyAction`) | Action that takes currency from player(s): a fee, a bribe, the meat a quest asks for when a currency stands for it. |
+| [**Take Items**](/advanced/events-and-quests/actions-player/take-items-action) (`TakeItemsAction`) | Action that takes items out of the bag of player(s): a toll, a payment, items handed over to an NPC. |
 
 ## Quest
 

@@ -12,6 +12,7 @@ CurrencyDefinition defines a currency type with display properties and limits Cr
 |---|---|---|
 | `int` | [max_value](#prop-max-value) | `0` |
 | `String` | [abbreviation](#prop-abbreviation) | `""` |
+| `bool` | [show_in_wallet](#prop-show-in-wallet) | `true` |
 
 ## Methods
 
@@ -38,6 +39,10 @@ Maximum amount that can be held (0 = unlimited)
 ### String abbreviation = "" {#prop-abbreviation}
 
 Short form for display (e.g., "GP", "G", "$")
+
+### bool show_in_wallet = true {#prop-show-in-wallet}
+
+Is the currency listed with the money of the player (the inventory window, the trainer)? Off for a currency that only counts something for a quest or a system (the meat a quest asks for): it is held and counted all the same, the player does not see it
 
 ## Method descriptions
 

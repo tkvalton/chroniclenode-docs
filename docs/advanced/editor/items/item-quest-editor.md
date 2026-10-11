@@ -16,6 +16,7 @@ Item Quest Editor - handles ItemDefinitionQuest specific properties Designed to 
 | `Array[Quest]` | [available_quests](#var-available-quests) | `[]` |
 | `CheckBox` | [remove_on_complete_check_box](#var-remove-on-complete-check-box) |  |
 | `OptionButton` | [availability_option](#var-availability-option) |  |
+| `OptionButton` | [bag_space_option](#var-bag-space-option) |  |
 
 ## Methods
 
@@ -62,6 +63,10 @@ Item Quest Editor - handles ItemDefinitionQuest specific properties Designed to 
 *No description yet.*
 
 ### OptionButton availability_option {#var-availability-option}
+
+*No description yet.*
+
+### OptionButton bag_space_option {#var-bag-space-option}
 
 *No description yet.*
 

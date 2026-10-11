@@ -21,6 +21,15 @@ Core data definition for interactable objects. This is the "NPCDefinition" equiv
 | `int` | [locked_by_item_id](#prop-locked-by-item-id) | `-1` |
 | `bool` | [consume_key_on_unlock](#prop-consume-key-on-unlock) | `false` |
 | `float` | [interaction_cooldown_duration](#prop-interaction-cooldown-duration) | `0.5` |
+| `Array[Requirement]` | [use_requirements](#prop-use-requirements) | `[]` |
+| `String` | [use_requirement_message](#prop-use-requirement-message) | `""` |
+| `bool` | [hide_prompt_until_requirements_met](#prop-hide-prompt-until-requirements-met) | `false` |
+| `float` | [use_time](#prop-use-time) | `0.0` |
+| `String` | [use_time_label](#prop-use-time-label) | `""` |
+| `bool` | [interrupt_on_move](#prop-interrupt-on-move) | `true` |
+| `bool` | [interrupt_on_damage](#prop-interrupt-on-damage) | `true` |
+| `AnimationSelectionSocial` | [user_animation](#prop-user-animation) |  |
+| `String` | [object_use_animation](#prop-object-use-animation) | `""` |
 | `Interaction` | [interaction](#prop-interaction) | `null` |
 | `Array[LootRule]` | [loot_rules](#prop-loot-rules) | `[]` |
 | `SFXSelection` | [interaction_sfx](#prop-interaction-sfx) |  |
@@ -102,6 +111,44 @@ The key is used up when it unlocks the object (off: the key stays in the bag)
 ### float interaction_cooldown_duration = 0.5 {#prop-interaction-cooldown-duration}
 
 Seconds an object waits after it was used before it can be used again (0 = no wait)
+
+*Using it*
+
+### Array[Requirement] use_requirements = [] {#prop-use-requirements}
+
+What a user needs to use the object (a profession level, a tool, a quest). Empty = anyone. Works for every kind of interaction: a locked-by-skill chest, a gathering node
+
+### String use_requirement_message = "" {#prop-use-requirement-message}
+
+What the user is told when the requirements are not met. Empty = the reasons the requirements give
+
+### bool hide_prompt_until_requirements_met = false {#prop-hide-prompt-until-requirements-met}
+
+The "interact" prompt of the object is not shown to a user who does not meet the requirements (off: the prompt is shown and using the object tells the user why not)
+
+### float use_time = 0.0 {#prop-use-time}
+
+Seconds that using the object takes. 0 = at once. While it lasts the user's cast bar shows it, and the use is done when it ends
+
+### String use_time_label = "" {#prop-use-time-label}
+
+The text of the cast bar. Empty = "Using &lt;name of the object&gt;"
+
+### bool interrupt_on_move = true {#prop-interrupt-on-move}
+
+Moving cancels the use
+
+### bool interrupt_on_damage = true {#prop-interrupt-on-damage}
+
+Taking damage cancels the use
+
+### AnimationSelectionSocial user_animation {#prop-user-animation}
+
+The animation the user plays while the object is used (a social animation, from the "actions" category: kneel, mine, pick)
+
+### String object_use_animation = "" {#prop-object-use-animation}
+
+The animation the object plays when its use starts (one of the animations of its model)
 
 *Behaviors*
 

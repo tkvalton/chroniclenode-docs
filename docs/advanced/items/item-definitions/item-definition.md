@@ -37,6 +37,7 @@ Base class for all item definitions with integrated Requirement system
 | `String` | [get_requirement_failure_message](#method-get-requirement-failure-message)( `user: Entity, item_instance: ItemInstance = null` ) |
 | `String` | [get_requirements_summary](#method-get-requirements-summary)( `item_instance: ItemInstance = null` ) |
 | `bool` | [can_drop_now](#method-can-drop-now)( `_system_hub: GameHost.SystemHub` ) |
+| `bool` | [is_kept_aside](#method-is-kept-aside)() |
 | `bool` | [needs_generation](#method-needs-generation)() |
 | `Quality` | [get_quality](#method-get-quality)() |
 | `Color` | [get_quality_color](#method-get-quality-color)() |
@@ -140,6 +141,10 @@ Get requirements summary for tooltip display
 ### bool can_drop_now( _system_hub: GameHost.SystemHub ) {#method-can-drop-now}
 
 Is the item generated when it is given (loot, reward, vendor) rather than copied as it is? It is when it rolls its quality or scales with its item level; equipment also when it rolls stats or effects. See ItemGenerator Can loot give this item right now? Items hold nothing back; a quest item can wait for its quest (ItemDefinitionQuest.Availability)
+
+### bool is_kept_aside() {#method-is-kept-aside}
+
+Is this item kept aside in the bag (taking no slot, cell or weight)? Only a quest item can be (ItemDefinitionQuest.BagSpace)
 
 ### bool needs_generation() {#method-needs-generation}
 

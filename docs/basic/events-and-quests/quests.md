@@ -29,6 +29,23 @@ An objective has a **number** (its position, 1 is the first). Conversations and 
 
 The quest is complete when every **required** objective is complete.
 
+#### Objectives that count
+
+An objective that counts shows a tally (**3 / 10**): the *Entity Death Type* trigger (defeat 10 wolves), the *Player Has X Items* trigger (have 10 herbs), the *Player Currency Changed* trigger (gain 10 boar meat) and the *Player Gathered* trigger (gather from a [node](/basic/entities/interactables#gather) 8 times). *Player Has X Items* is done the moment the player holds that many, **including what the player already holds** when the objective starts. If the player drops below it again, the objective that was done stays done.
+
+#### Currency as a quest track
+
+A [currency](/basic/items/currency) can be an objective too. The **Player Currency Changed** trigger counts what the player **gains** (or spends, or both) of one currency from the moment the objective starts: *gain 10 Boar Meat*, *spend 50 Gold*. Spending does not undo what was gained.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Currency** | The currency to watch | |
+| **Direction** | **Gained**, **Lost** or **Either** | Gained |
+| **Amount required** | How much has to move before the objective is done | 1 |
+| **Count existing** | (Gained only) Start from what the player already holds: *have 10*, not *gain 10 more* | off |
+
+To check what the player holds at a moment (a conversation, an *If* action, a requirement of an event), use the **Has Currency** [condition](/basic/shared-systems/conditions).
+
 ### Rewards
 
 **Add Reward** gives the player [rewards](/basic/shared-systems/rewards) when the quest completes: experience, items, gold, reputation, a skill point. Right-click a reward to edit, remove, move or clear. If a reward needs room the player does not have (an item and a full bag), the player is told and the quest **waits**; it completes by itself as soon as there is room (a hand-in quest, when it is handed in again).
@@ -45,6 +62,18 @@ The quest is complete when every **required** objective is complete.
 | **Turn-in text** | What the NPC says when the player hands it in | empty |
 
 Add the quest to the **hand-in list** of the NPC's [conversation](/basic/behaviors/conversations). The quest editor lists the conversations that take the quest in, under the text, and shows an orange warning while none does (the quest would wait for ever).
+
+### Hand-in cost
+
+A quest can **take** something when it completes: *Hand in 10 Boar Meat*, *pay 50 gold*. The cost belongs to the **quest**, not to the NPC, so every NPC that takes the quest in asks for the same thing, and the quest designer sees it in one place.
+
+The **Hand-in cost** section of the quest editor lists **Money** (currencies) and **Items taken**. Items can be any item, including [quest items that are kept aside](/basic/items/items#quest-items-kept-aside).
+
+- The quest **waits** until the player can pay **all** of it: the player is told what is missing, nothing is taken, and the quest completes by itself when the player can pay (a hand-in quest, when it is handed in again).
+- The cost is taken from the bag of the player who completes it (the shared bag, when the party [shares it](/basic/entities/shared-inventory)), then the rewards are given.
+- Paying is separate from the **objective**: an objective *Have 10 herbs* only checks. Add the same herbs as a cost to have them taken.
+
+The same thing in the middle of the world (a toll, a bribe, an item handed to a guard) is the **Take Items** and **Take Currency** [event actions](/basic/events-and-quests/event-actions).
 
 ### Repeating
 

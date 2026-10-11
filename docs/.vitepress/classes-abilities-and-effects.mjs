@@ -257,6 +257,12 @@ export const groups = [
         "file": "data_classes/effects/ability/effect_ability_resource.gd"
       },
       {
+        "name": "ActionBarSlotEffect",
+        "base": "Effect",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\ability\\effect_action_bar_slot.gd",
+        "file": "data_classes/effects/ability/effect_action_bar_slot.gd"
+      },
+      {
         "name": "BasicAttackSwapEffect",
         "base": "Effect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\ability\\effect_basic_attack_swap.gd",

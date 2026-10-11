@@ -71,6 +71,12 @@ export const groups = [
     "slug": "utilities",
     "classes": [
       {
+        "name": "InputEventText",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\input_event_text.gd",
+        "file": "runtime_classes/utility/input_event_text.gd"
+      },
+      {
         "name": "InstanceUtility",
         "base": "Node",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\instance_utility.gd",

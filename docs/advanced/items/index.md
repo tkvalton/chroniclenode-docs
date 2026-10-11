@@ -127,6 +127,7 @@ Instances save the stack, charges, cooldowns, enchantments with their remaining 
 | [InventoryComponent](/advanced/items/runtime/inventory-component) | Universal inventory system for storing item instances and currency |
 | [InventorySlotInstance](/advanced/items/runtime/inventory-slot-instance) | Inventory slot with full stacking support and item management |
 | [ItemInstance](/advanced/items/runtime/item-instance) | Runtime instance of an item that references an ItemDefinition for configuration Handles individual item state, modifications, effects, and socket management |
+| [KeptAsideSlotInstance](/advanced/items/runtime/kept-aside-slot-instance) | A stack of an item that is kept aside (see ItemDefinition.is_kept_aside): it lives in the list `InventoryComponent.aside_slots`, outside the slots, cells and weight of the bag. |
 | [SlotInstance](/advanced/items/runtime/slot-instance) | Base class for all slot types - provides common interface for item storage |
 | [VendorInventoryComponent](/advanced/items/runtime/vendor-inventory-component) | Stock-based vendor inventory that manages item availability and creates instances on-demand No longer inherits from InventoryComponent - uses pure stock tracking instead |
 <!-- /classes -->

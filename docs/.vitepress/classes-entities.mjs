@@ -5,6 +5,12 @@ export const groups = [
     "slug": "definitions",
     "classes": [
       {
+        "name": "ActionBarLayoutEntry",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\action_bar_layout_entry.gd",
+        "file": "data_classes/entity/action_bar_layout_entry.gd"
+      },
+      {
         "name": "CharacterDefinition",
         "base": "EntityDefinition",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\character_definition.gd",
@@ -75,6 +81,12 @@ export const groups = [
         "base": "Interaction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\interactions\\entity_interaction.gd",
         "file": "data_classes/interactions/entity_interaction.gd"
+      },
+      {
+        "name": "GatherInteraction",
+        "base": "InteractableObjectInteraction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\interactions\\interactable_objects\\gather_interaction.gd",
+        "file": "data_classes/interactions/interactable_objects/gather_interaction.gd"
       },
       {
         "name": "GrantQuestInteraction",

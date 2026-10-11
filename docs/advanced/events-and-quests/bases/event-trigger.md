@@ -23,6 +23,10 @@ Base class for all "When" conditions that trigger events These represent the ent
 | `bool` | [is_triggered](#method-is-triggered)( `_event_data: Dictionary` ) |
 | `void` | [setup](#method-setup)() |
 | `void` | [cleanup](#method-cleanup)() |
+| `void` | [reset](#method-reset)() |
+| `int` | [get_tally_target](#method-get-tally-target)() |
+| `int` | [get_tally_progress](#method-get-tally-progress)() |
+| `void` | [poll](#method-poll)() |
 | `void` | [emit_triggered](#method-emit-triggered)( `event_data: Dictionary = {}` ) |
 | `String` | [generate_objective_description](#method-generate-objective-description)() |
 
@@ -31,6 +35,10 @@ Base class for all "When" conditions that trigger events These represent the ent
 ### triggered( event_data: Dictionary ) {#signal-triggered}
 
 Signal emitted when this trigger is activated
+
+### progressed( event_data: Dictionary ) {#signal-progressed}
+
+Signal emitted by a trigger that counts toward a goal when it moves closer without having reached it (an objective shows the tally; an event does not start)
 
 ## Variable descriptions
 
@@ -59,6 +67,22 @@ Set up any listeners or connections needed by this trigger
 ### void cleanup() {#method-cleanup}
 
 Clean up any listeners or connections
+
+### void reset() {#method-reset}
+
+What a trigger that holds a count does when its owner starts it over (see QuestObjective.reset)
+
+### int get_tally_target() {#method-get-tally-target}
+
+How far a counting trigger has to count (0 = it does not count: a quest objective of it is done or not). An objective shows the tally "3/10" for it
+
+### int get_tally_progress() {#method-get-tally-progress}
+
+How far a counting trigger has counted
+
+### void poll() {#method-poll}
+
+Asked once the owner listens: a trigger that can already hold true when it starts (the player has the items now) says so. Fires `triggered` or `progressed`
 
 ### void emit_triggered( event_data: Dictionary = &#123;&#125; ) {#method-emit-triggered}
 

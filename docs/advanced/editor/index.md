@@ -123,9 +123,11 @@ Many editors build their controls **in code** by reflecting over the resource's 
 <!-- classes:editor/entities -->
 | Class | What it is |
 |---|---|
+| [ActionBarLayoutFields](/advanced/editor/entities/action-bar-layout-fields) | The planned action bar of a player class: for each slot the ability that belongs there and whether the player may change it. |
 | [CharacterEditor](/advanced/editor/entities/character-editor) | CharacterEditor for managing CharacterDefinition resources CharacterDefinition inherits EntityDefinition for visual/audio and links to PlayerClassDefinition |
 | [EntityAbilitiesEditor](/advanced/editor/entities/entity-abilities-editor) | Editor for EntityDefinition ability properties - manages auto-attack and ability lists Now uses ListCatalog for ability selection with proper type filtering |
 | [InteractableDefinitionEditor](/advanced/editor/entities/interactable-definition-editor) | Editor for InteractableDefinition resources |
+| [InteractableUseFields](/advanced/editor/entities/interactable-use-fields) | The "Using it" fields of an interactable: what a user needs to use it (requirements, with a message and the choice to hide the prompt), how long using it takes (a time with a cast bar, and what interrupts it) and the animations while it is used (the user's, the object's). |
 | [InteractionEditor](/advanced/editor/entities/interaction-editor) | Editor for a single Interaction instance Combines category/type selection with dynamic property editing |
 | [NpcEditor](/advanced/editor/entities/npc-editor) | Entity Editor for managing NPCDefinitions resources |
 | [PlayerClassEditor](/advanced/editor/entities/player-class-editor) | PlayerClassEditor for managing PlayerClassDefinition resources |

@@ -38,6 +38,10 @@ A rule of thumb for deciding where something belongs:
 - **The player's preference** (resolution, volume, mouse speed, UI size): Game Settings. You choose the default, and which ones the player can change.
 - **What something is** (a sword, a wolf, a quest): the database, in the other categories.
 
+## Action bars and keybinds
+
+How abilities and items sit on the bar, which key fires a slot (a keyboard key, a mouse button, a gamepad button), who may rearrange the bar, and how a game with the mouse buttons as attacks is made: [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds).
+
 ## See also
 
 - [How the settings are built](/advanced/game-settings/).

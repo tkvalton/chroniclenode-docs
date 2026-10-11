@@ -18,6 +18,10 @@ Triggers when target player(s) have X amount of a specific item
 
 | | |
 |---|---|
+| `int` | [get_tally_target](#method-get-tally-target)() |
+| `int` | [get_tally_progress](#method-get-tally-progress)() |
+| `void` | [reset](#method-reset)() |
+| `void` | [poll](#method-poll)() |
 | `String` | [get_display_name](#method-get-display-name)() |
 | `String` | [get_function_description](#method-get-function-description)() |
 | `void` | [setup_player_connection](#method-setup-player-connection)( `player: Player` ) |
@@ -41,6 +45,22 @@ Triggers when target player(s) have X amount of a specific item
 *No description yet.*
 
 ## Method descriptions
+
+### int get_tally_target() {#method-get-tally-target}
+
+How far a counting trigger has to count (0 = it does not count: a quest objective of it is done or not). An objective shows the tally "3/10" for it *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+
+### int get_tally_progress() {#method-get-tally-progress}
+
+How far a counting trigger has counted *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+
+### void reset() {#method-reset}
+
+What a trigger that holds a count does when its owner starts it over (see QuestObjective.reset) *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+
+### void poll() {#method-poll}
+
+The player may hold the items already when an objective starts to listen
 
 ### String get_display_name() {#method-get-display-name}
 

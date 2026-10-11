@@ -4,6 +4,8 @@
 
 **Inherits:** [SlotInstance](/advanced/items/runtime/slot-instance) < [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
+**Inherited by:** [KeptAsideSlotInstance](/advanced/items/runtime/kept-aside-slot-instance)
+
 Inventory slot with full stacking support and item management
 
 ## Description

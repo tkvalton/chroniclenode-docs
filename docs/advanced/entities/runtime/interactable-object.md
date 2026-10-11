@@ -56,6 +56,9 @@ Unified interactable object class - uses InteractableDefinition + Interactions A
 | `bool` | [has_pending_loot](#method-has-pending-loot)() |
 | `bool` | [has_lootable_remains](#method-has-lootable-remains)() |
 | `void` | [process_interaction](#method-process-interaction)( `entity: Entity` ) |
+| `String` | [get_requirements_blocker](#method-get-requirements-blocker)( `entity: Entity` ) |
+| `bool` | [is_in_use](#method-is-in-use)() |
+| `void` | [cancel_use](#method-cancel-use)() |
 | `bool` | [is_locked](#method-is-locked)() |
 | `Interaction` | [get_interaction_by_type](#method-get-interaction-by-type)( `type_name: String` ) |
 | `bool` | [unlock_from_external](#method-unlock-from-external)() |
@@ -126,6 +129,18 @@ Signals
 ### object_damaged( damage_amount: int, damage_source: Entity ) {#signal-object-damaged}
 
 ### object_destroyed() {#signal-object-destroyed}
+
+### use_started( user: Entity, duration: float ) {#signal-use-started}
+
+Somebody started a use that takes time (the object has a use time), and how long it takes
+
+### use_ended( user: Entity, completed: bool ) {#signal-use-ended}
+
+The use that took time ended: it was finished (true) or cancelled (false)
+
+### interaction_refused( user: Entity, message: String ) {#signal-interaction-refused}
+
+Somebody tried to use the object and was refused (requirements, no room), with what they were told
 
 ### object_health_changed( new_health: int ) {#signal-object-health-changed}
 
@@ -278,6 +293,18 @@ Does a destroyed object still hold something to take (loot in its inventory, or 
 ### void process_interaction( entity: Entity ) {#method-process-interaction}
 
 *No description yet.*
+
+### String get_requirements_blocker( entity: Entity ) {#method-get-requirements-blocker}
+
+Why the user cannot use the object ("" = they can): what the object asks for (see InteractableDefinition.use_requirements)
+
+### bool is_in_use() {#method-is-in-use}
+
+*No description yet.*
+
+### void cancel_use() {#method-cancel-use}
+
+The use that takes time is cancelled (the user moved, was hurt, cast an ability, died, or an event cancels it)
 
 ### bool is_locked() {#method-is-locked}
 

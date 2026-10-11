@@ -380,6 +380,18 @@ Damage redirection (a guardian takes hits for someone): on the protected entity,
 
 ### entity_interrupted() {#signal-entity-interrupted}
 
+### entity_activity_started( label: String, timer: Timer ) {#signal-entity-activity-started}
+
+The entity is busy with something that takes time and shows a progress bar (using an object): the timer runs it. The cast bars show it
+
+### entity_activity_ended( completed: bool ) {#signal-entity-activity-ended}
+
+The activity ended: it was finished (true) or cancelled (false)
+
+### entity_gathered( node: InteractableObject ) {#signal-entity-gathered}
+
+The entity gathered from a gathering node
+
 ### entity_leveled_up( entity: Entity ) {#signal-entity-leveled-up}
 
 Level progression signals - Player-specific

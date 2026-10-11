@@ -32,6 +32,7 @@ UI behavior and context are handled by the UI layer, not here. For specialized t
 | `int` | [extra_slots](#var-extra-slots) | `0` |
 | `float` | [extra_capacity](#var-extra-capacity) | `0.0` |
 | `String` | [last_block_reason](#var-last-block-reason) | `""` |
+| `Array[InventorySlotInstance]` | [aside_slots](#var-aside-slots) | `[]` |
 
 ## Methods
 
@@ -82,6 +83,7 @@ UI behavior and context are handled by the UI layer, not here. For specialized t
 | `int` | [get_index_of_slot](#method-get-index-of-slot)( `slot_instance: InventorySlotInstance` ) |
 | `InventorySlotInstance` | [find_slot_with_item](#method-find-slot-with-item)( `item_instance: ItemInstance` ) |
 | `Array[InventorySlotInstance]` | [get_empty_slots](#method-get-empty-slots)( `definition: ItemDefinition = null` ) |
+| `bool` | [is_completely_full](#method-is-completely-full)() |
 | `bool` | [is_full](#method-is-full)() |
 | `bool` | [is_empty](#method-is-empty)() |
 | `int` | [get_currency_amount](#method-get-currency-amount)( `currency_id: int` ) |
@@ -97,12 +99,14 @@ UI behavior and context are handled by the UI layer, not here. For specialized t
 | `bool` | [can_afford_currency_definition](#method-can-afford-currency-definition)( `currency_def: CurrencyDefinition, amount: int` ) |
 | `bool` | [spend_currency_definition](#method-spend-currency-definition)( `currency_def: CurrencyDefinition, amount: int` ) |
 | `Dictionary` | [get_all_currencies](#method-get-all-currencies)() |
+| `Dictionary` | [get_visible_currencies](#method-get-visible-currencies)() |
 | `Dictionary` | [get_all_currency_amounts](#method-get-all-currency-amounts)() |
 | `void` | [clear_all_currency](#method-clear-all-currency)() |
 | `float` | [add_item_with_quantity](#method-add-item-with-quantity)( `item_instance: ItemInstance, quantity: float` ) |
 | `Dictionary` | [calculate_addable_quantity](#method-calculate-addable-quantity)( `item_instance: ItemInstance, desired_quantity: float` ) |
 | `bool` | [can_discard_item](#method-can-discard-item)( `item_instance: ItemInstance` ) |
 | `bool` | [discard_item](#method-discard-item)( `item_instance: ItemInstance, quantity: int = -1` ) |
+| `Array[ItemInstance]` | [get_aside_items](#method-get-aside-items)() |
 | `int` | [remove_completed_quest_items](#method-remove-completed-quest-items)() |
 | `int` | [remove_quest_items_for_quest](#method-remove-quest-items-for-quest)( `quest_id: int` ) |
 | `int` | [remove_quest_items_on_end](#method-remove-quest-items-on-end)( `quest_id: int, completed: bool` ) |
@@ -184,6 +188,10 @@ Weight capacity added for good
 ### String last_block_reason = "" {#var-last-block-reason}
 
 Why the last add was held back ("" = it was not): the giver can tell the player
+
+### Array[InventorySlotInstance] aside_slots = [] {#var-aside-slots}
+
+The stacks that are kept aside: items that take no space (no slot, no cell, no weight), see ItemDefinition.is_kept_aside. They are a list outside `slots` that grows and shrinks with what is in it, and they count everywhere else (counts, removal, requirements, triggers, saves)
 
 ## Method descriptions
 
@@ -367,6 +375,10 @@ Find first slot containing an item instance
 
 Get all empty slots
 
+### bool is_completely_full() {#method-is-completely-full}
+
+Is there no room at all? No free slot (or cell, or room to grow) and no stack of an item that stacks that has room left. A bag like this takes nothing
+
 ### bool is_full() {#method-is-full}
 
 Check if inventory is full
@@ -427,6 +439,10 @@ Spend currency by definition
 
 Get all currency types in inventory
 
+### Dictionary get_visible_currencies() {#method-get-visible-currencies}
+
+The currencies the player is shown: the ones held, without the ones that are not listed with the money (CurrencyDefinition.show_in_wallet)
+
 ### Dictionary get_all_currency_amounts() {#method-get-all-currency-amounts}
 
 Get all currency amounts in inventory (alias for compatibility)
@@ -450,6 +466,10 @@ A key item cannot be discarded (dropped, destroyed or sold)
 ### bool discard_item( item_instance: ItemInstance, quantity: int = -1 ) {#method-discard-item}
 
 Throw an item away (a stack, or part of it). False for a key item
+
+### Array[ItemInstance] get_aside_items() {#method-get-aside-items}
+
+The items that are kept aside (they take no space in the bag)
 
 ### int remove_completed_quest_items() {#method-remove-completed-quest-items}
 

@@ -10,7 +10,7 @@ The **Gameplay Config** holds the rules of your game that are not about one thin
 |---|---|
 | **General** | Items & Inventory, [Quests](/basic/events-and-quests/quests), Fog of War, Save/Load Rules |
 | **Visuals** | Rig Markers, Outline Materials, Targeting Visuals, Tactical View Visuals, Target Textures |
-| **Party Management** | Party and companions, New Game Rules, Leveling, **Kill Experience**, **NPC Level Scaling**, Controller Logic, Input |
+| **Party Management** | Party and companions, New Game Rules, Leveling, **Kill Experience**, **NPC Level Scaling**, Controller Logic, **Action Bar**, Input |
 | **Combat** | Death & Revival, Threat, Damage Results, Pools, **Hit Rules** |
 | **NPC LOD System** | LOD distance thresholds, update intervals, batch processing |
 
@@ -181,6 +181,19 @@ If an NPC has several types, *Fixed offset* wins over *Never scales*, and the fi
 | **Players who out-level a zone get an easy time, but not a deadly one** | Scale **Down** only: strong NPCs are lowered to near the player, weak ones keep their level |
 | **Boss rush** | Everything *Fixed offset* `+5` |
 | **A dragon in the starting zone** | *Never scales* on its type, or scaling Off |
+
+### Action bar
+
+How the bar of a character works. The whole subject, with recipes, is on [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds).
+
+| Setting | What it does | Default |
+|---|---|---|
+| **Action bar slot count** | How many slots a character has, `1` to `60`. The first 30 have keys by default; bind the others in the Input Map. How many the screen draws is the interface's business | `30` |
+| **Action bar arrangement** | **Free**: the player drags abilities and items on and off the slots (slots a class plan or an effect locks excepted). **Fixed**: nobody can change a slot but the class plan, the effects and the events | Free |
+| **Action bar auto fill** | A newly learned ability goes to the first free slot that nothing is planned for. Off: it waits in the spellbook | off |
+| **Player basic attack** | **Auto attack**: the built-in basic attack of the weapon. **Off**: there is none for players and companions, and **slot 1 is a slot like any other**: the attacks of your game are the abilities you put on the slots. NPCs keep their basic attack | Auto attack |
+
+With the basic attack **Off** and a point-and-click controller, clicking an enemy only selects it: the editor shows a warning for that pairing.
 
 ### Controller logic and input
 

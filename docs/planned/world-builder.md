@@ -14,6 +14,10 @@ A tool for making the **terrain** of a world: shaping the ground, painting it, a
 
 An improved version of the way [uniques](/basic/world/uniques) are placed: NPCs, interactables, [regions](/basic/world/regions) and [encounters](/basic/world/encounters) placed, moved and checked in the 3D view, with the terrain under them.
 
+## Spawn areas
+
+The painted terrain and the volumes of the [spawners](/planned/spawners): where NPCs and gathering nodes appear by themselves.
+
 ## Water placement
 
 A tool for placing [water](/planned/water-and-swimming): the sea, lakes and rivers, with their shapes, their depth and the demo shaders that go with them.

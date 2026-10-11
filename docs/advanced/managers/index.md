@@ -62,6 +62,7 @@ Not managers, but used the same way from anywhere: the [`Database`](/advanced/da
 <!-- classes:managers/utilities -->
 | Class | What it is |
 |---|---|
+| [InputEventText](/advanced/managers/utilities/input-event-text) | The text of an input event for the screen: "Q", "Ctrl 2", "LMB", "Mouse 4", "Joy A". |
 | [InstanceUtility](/advanced/managers/utilities/instance-utility) | Utility script to help item/ability creation anywhere. |
 | [PlayerUtility](/advanced/managers/utilities/player-utility) |  |
 | [RangeQueryUtil](/advanced/managers/utilities/range-query-util) | RangeQueryUtil is a global system providing various helper functions for game logic, particularly focusing on spatial queries and entity relationships within the game world. |

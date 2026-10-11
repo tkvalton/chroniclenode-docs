@@ -73,6 +73,18 @@ export const groups = [
     ]
   },
   {
+    "text": "Triggers: currency",
+    "slug": "triggers-currency",
+    "classes": [
+      {
+        "name": "PlayerCurrencyChangedTrigger",
+        "base": "PlayerEventTrigger",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\currency\\player_currency_changed_trigger.gd",
+        "file": "data_classes/events/event_triggers/currency/player_currency_changed_trigger.gd"
+      }
+    ]
+  },
+  {
     "text": "Triggers: encounter",
     "slug": "triggers-encounter",
     "classes": [
@@ -339,6 +351,12 @@ export const groups = [
         "base": "EventTrigger",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\interactable_object\\object_trap_trigger.gd",
         "file": "data_classes/events/event_triggers/interactable_object/object_trap_trigger.gd"
+      },
+      {
+        "name": "PlayerGatheredTrigger",
+        "base": "PlayerEventTrigger",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\interactable_object\\player_gathered_trigger.gd",
+        "file": "data_classes/events/event_triggers/interactable_object/player_gathered_trigger.gd"
       }
     ]
   },
@@ -1061,6 +1079,12 @@ export const groups = [
         "file": "data_classes/events/event_actions/player/remove_effect_from_player_action.gd"
       },
       {
+        "name": "SetActionBarSlotAction",
+        "base": "PlayerEventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\player\\set_action_bar_slot_action.gd",
+        "file": "data_classes/events/event_actions/player/set_action_bar_slot_action.gd"
+      },
+      {
         "name": "SetPlayerCombatScriptAction",
         "base": "PlayerEventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\player\\set_player_combat_script_action.gd",
@@ -1071,6 +1095,18 @@ export const groups = [
         "base": "PlayerEventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\player\\set_player_position.gd",
         "file": "data_classes/events/event_actions/player/set_player_position.gd"
+      },
+      {
+        "name": "TakeCurrencyAction",
+        "base": "PlayerEventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\player\\take_currency_action.gd",
+        "file": "data_classes/events/event_actions/player/take_currency_action.gd"
+      },
+      {
+        "name": "TakeItemsAction",
+        "base": "PlayerEventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\player\\take_items_action.gd",
+        "file": "data_classes/events/event_actions/player/take_items_action.gd"
       }
     ]
   },

@@ -92,6 +92,10 @@ Configuration for gameplay rules and mechanics
 | `int` | [default_npc_growth_profile_id](#prop-default-npc-growth-profile-id) | `GrowthProfile.ID_DEFAULT` |
 | `CameraLogic` | [camera_logic](#prop-camera-logic) | `null` |
 | `ControllerLogic` | [player_controller_logic](#prop-player-controller-logic) | `null` |
+| `int` | [action_bar_slot_count](#prop-action-bar-slot-count) | `30` |
+| `ActionBarArrangement` | [action_bar_arrangement](#prop-action-bar-arrangement) | `ActionBarArrangement.FREE` |
+| `bool` | [action_bar_auto_fill](#prop-action-bar-auto-fill) | `false` |
+| `PlayerBasicAttack` | [player_basic_attack](#prop-player-basic-attack) | `PlayerBasicAttack.AUTO_ATTACK` |
 | `float` | [look_drag_threshold](#prop-look-drag-threshold) | `10.0` |
 | `bool` | [log_input_routing](#prop-log-input-routing) | `false` |
 | `CombatStyle` | [combat_style](#prop-combat-style) | `CombatStyle.REAL_TIME` |
@@ -214,6 +218,20 @@ Who owns the professions
 
 - **PARTY** = `0` - The whole party shares one set of professions, recipes and levels
 - **CHARACTER** = `1` - Every character has professions, recipes and levels of their own
+
+### enum ActionBarArrangement {#enum-actionbararrangement}
+
+Who arranges the action bar
+
+- **FREE** = `0` - The player drags abilities and items on and off the slots (the plan of a class and the effects can lock slots)
+- **FIXED** = `1` - The player cannot change any slot: only the plan of the class, effects and events fill the bar
+
+### enum PlayerBasicAttack {#enum-playerbasicattack}
+
+What the built-in basic attack of the player (and of the party members) is
+
+- **AUTO_ATTACK** = `0` - The basic attack of the weapon: an auto attack when the player clicks an enemy or holds the attack button
+- **OFF** = `1` - There is no built-in basic attack: the first slot of the action bar is an ordinary slot, and the attacks are whatever the game puts on the slots
 
 ### enum DeathBehavior {#enum-deathbehavior}
 
@@ -660,11 +678,29 @@ Camera logic resource - defines camera behavior and settings
 
 Player controller logic resource - defines movement and control behavior
 
+*Action Bar*
+
+### int action_bar_slot_count = 30 {#prop-action-bar-slot-count}
+
+How many slots the action bar of a character has (the interface decides how many it shows and in what layout). Every slot has an input action `action_slot_keybind_N` in the Input Map: the first 30 get keys by default (1-0, Shift and Ctrl), the others are made without keys for you to bind (a mouse button, a gamepad button)
+
+### ActionBarArrangement action_bar_arrangement = ActionBarArrangement.FREE {#prop-action-bar-arrangement}
+
+Who arranges the action bar: the player (free), or nobody but the plan of the class, the effects and the events (fixed)
+
+### bool action_bar_auto_fill = false {#prop-action-bar-auto-fill}
+
+A newly learned ability goes to the first free slot that nothing is planned for (off: it waits in the spellbook until the player drags it)
+
+### PlayerBasicAttack player_basic_attack = PlayerBasicAttack.AUTO_ATTACK {#prop-player-basic-attack}
+
+The built-in basic attack of the player and the companions. Off: there is none, slot 1 is a slot like any other (put the basic attack of your game there, and bind the slot to a mouse button if you like). Not for NPCs: they keep theirs. With a point-and-click controller, Off means that clicking an enemy only selects it
+
 *Input*
 
 ### float look_drag_threshold = 10.0 {#prop-look-drag-threshold}
 
-Pixels the mouse must move while a button is held before a drag gesture starts (e.g. left-button free-look, or right-click that only looks when dragged). A release before that counts as a plain click.
+Pixels the mouse must movewhile a button is held before a drag gesture starts (e.g. left-button free-look, or right-click that only looks when dragged). A release before that counts as a plain click.
 
 ### bool log_input_routing = false {#prop-log-input-routing}
 

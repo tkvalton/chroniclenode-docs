@@ -15,7 +15,7 @@ Builders of the editor rows for the parts of skills and trainers that several ed
 | `void` | [add_specializations](#method-add-specializations)( `container: Container, specs: Array[SkillSpecialization], is_profession: bool, on_changed: Callable, rebuild: Callable` ) *static* |
 | `void` | [add_resource_ids](#method-add-resource-ids)( `container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable` ) *static* |
 | `void` | [add_stat_points](#method-add-stat-points)( `container: Container, label_text: String, bonuses: Dictionary, on_changed: Callable, rebuild: Callable` ) *static* |
-| `void` | [add_cost](#method-add-cost)( `container: Container, cost: LessonCost, on_changed: Callable, rebuild: Callable` ) *static* |
+| `void` | [add_cost](#method-add-cost)( `container: Container, cost: LessonCost, on_changed: Callable, rebuild: Callable, with_skill_points: bool = true` ) *static* |
 
 ## Method descriptions
 
@@ -39,7 +39,7 @@ A list of ids picked from the catalog of a database type
 
 A map of stat id -&gt; points: a row for each with the points, a stat picker to add
 
-### void add_cost( container: Container, cost: LessonCost, on_changed: Callable, rebuild: Callable ) {#method-add-cost}
+### void add_cost( container: Container, cost: LessonCost, on_changed: Callable, rebuild: Callable, with_skill_points: bool = true ) {#method-add-cost}
 
 The cost of a lesson: money, items and skill points (any mix). `cost` is changed in place
 

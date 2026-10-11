@@ -347,6 +347,12 @@ export const groups = [
     "slug": "entities",
     "classes": [
       {
+        "name": "ActionBarLayoutFields",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\action_bar_layout_fields.gd",
+        "file": "editor_components/editors/entities/action_bar_layout_fields.gd"
+      },
+      {
         "name": "CharacterEditor",
         "base": "ResourceEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\character_editor.gd",
@@ -363,6 +369,12 @@ export const groups = [
         "base": "ResourceEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\interactable_editor.gd",
         "file": "editor_components/editors/entities/interactable_editor.gd"
+      },
+      {
+        "name": "InteractableUseFields",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\interactable_use_fields.gd",
+        "file": "editor_components/editors/entities/interactable_use_fields.gd"
       },
       {
         "name": "InteractionEditor",

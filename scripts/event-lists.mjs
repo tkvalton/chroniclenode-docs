@@ -28,8 +28,9 @@ const escapeCell = text => text.replace(/\|/g, '\\|').replace(/\r?\n/g, ' ').rep
 
 const CATEGORY_NOTES = {
   triggers: {
+    currency: 'The player gains or spends a [currency](/basic/items/currency): a quest can count it.',
     encounter: 'An [encounter](/basic/world/encounters) starts or ends a fight.',
-    entity: 'Something happens to or with an NPC or a character: it dies, takes damage, uses an ability, changes stats, is talked to.',
+    entity:'Something happens to or with an NPC or a character: it dies, takes damage, uses an ability, changes stats, is talked to.',
     faction: 'A standing with a [faction](/basic/behaviors/factions) changes.',
     input: 'The player presses a key.',
     interactable_object: 'Something happens to a chest, door, switch, ladder, trap or other [interactable](/basic/entities/interactables).',

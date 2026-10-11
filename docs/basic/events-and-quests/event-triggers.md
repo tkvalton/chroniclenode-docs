@@ -2,7 +2,15 @@
 
 <!-- generated from the code comments by scripts/event-lists.mjs: change the comments in the code, not this page -->
 
-A **trigger** is the *when* of an [event](/basic/events-and-quests/events) (and of the objectives of a [quest](/basic/events-and-quests/quests)). An event can have several triggers; any one of them can start it. There are 78 kinds, in 13 categories. Choose one with **Add Trigger** in the event editor; its own fields appear below. The class name is the name in the code, and the link goes to the page of the class.
+A **trigger** is the *when* of an [event](/basic/events-and-quests/events) (and of the objectives of a [quest](/basic/events-and-quests/quests)). An event can have several triggers; any one of them can start it. There are 80 kinds, in 14 categories. Choose one with **Add Trigger** in the event editor; its own fields appear below. The class name is the name in the code, and the link goes to the page of the class.
+
+## Currency
+
+The player gains or spends a [currency](/basic/items/currency): a quest can count it.
+
+| Trigger | What it does |
+|---|---|
+| [**Player Currency Changed**](/advanced/events-and-quests/triggers-currency/player-currency-changed-trigger) (`PlayerCurrencyChangedTrigger`) | Triggers when the player gains or spends an amount of a currency. |
 
 ## Encounter
 
@@ -78,6 +86,7 @@ Something happens to a chest, door, switch, ladder, trap or other [interactable]
 | [**Object Switch State Change**](/advanced/events-and-quests/triggers-interactable-object/object-switch-state-change-trigger) (`ObjectSwitchStateChangeTrigger`) | Triggers when a specific switch changes to a target state |
 | [**Object Teleportation**](/advanced/events-and-quests/triggers-interactable-object/object-teleportation-trigger) (`ObjectTeleportationTrigger`) | Triggers when an entity uses a rabbit hole for teleportation |
 | [**Object Trap**](/advanced/events-and-quests/triggers-interactable-object/object-trap-trigger) (`ObjectTrapTrigger`) | Triggers when a specific trap object is triggered |
+| [**Player Gathered**](/advanced/events-and-quests/triggers-interactable-object/player-gathered-trigger) (`PlayerGatheredTrigger`) | Triggers when the player gathers from a gathering node (a GatherInteraction): any node, or one kind of node, a number of times. |
 
 ## Item
 

@@ -40,6 +40,7 @@ The loot table says WHAT can drop; the rule says WHEN (the trigger) and at what 
 - **ON_DEATH** = `1` - When an NPC dies. The loot is on the body
 - **ON_DESTROYED** = `2` - When an object with health is destroyed. The remains stay lootable
 - **ON_FIRST_ACCESS** = `3` - The first time someone opens the inventory: a chest is opened, a pocket is picked, a body is looted. Rolled once and kept
+- **ON_GATHERED** = `4` - Each time a gathering node is gathered from. Rolled again every time and given straight to the bag of the gatherer (no room: nothing is given)
 
 ## Property descriptions
 

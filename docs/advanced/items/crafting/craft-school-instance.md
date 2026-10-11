@@ -61,6 +61,7 @@ Runtime instance of a craft school for a specific entity Contains learned recipe
 | `float` | [get_total_remaining_time](#method-get-total-remaining-time)() |
 | `Dictionary` | [get_queue_info](#method-get-queue-info)() |
 | `Array[CraftingJob]` | [get_all_craft_jobs](#method-get-all-craft-jobs)() |
+| `void` | [gain_skill](#method-gain-skill)( `factor: float, base_points: int` ) |
 | `Dictionary` | [to_dict](#method-to-dict)() |
 | `void` | [from_dict](#method-from-dict)( `data: Dictionary, craft_school_def: CraftSchoolDefinition, crafter: Entity = null` ) |
 
@@ -273,6 +274,10 @@ Get information about the current queue state
 ### Array[CraftingJob] get_all_craft_jobs() {#method-get-all-craft-jobs}
 
 Get array of all jobs (active + queued) for UI display
+
+### void gain_skill( factor: float, base_points: int ) {#method-gain-skill}
+
+What an activity of the profession (a craft, a gather) does to the skill: `factor` (0 to 1) says how much it teaches at this level, `base_points` are its points. Points mode: points towards the next level. Skill-ups mode: a chance of one level at once
 
 ### Dictionary to_dict() {#method-to-dict}
 

@@ -323,6 +323,12 @@ export const groups = [
         "file": "runtime_classes/entity/components/inventory/item_instance.gd"
       },
       {
+        "name": "KeptAsideSlotInstance",
+        "base": "InventorySlotInstance",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\components\\inventory\\kept_aside_slot_instance.gd",
+        "file": "runtime_classes/entity/components/inventory/kept_aside_slot_instance.gd"
+      },
+      {
         "name": "SlotInstance",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\components\\inventory\\slot_instance.gd",

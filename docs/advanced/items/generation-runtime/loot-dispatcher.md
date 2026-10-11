@@ -16,6 +16,7 @@ The holder keeps a list of the rule numbers that have rolled (`rolled`): a rule 
 |---|---|
 | `int` | [run](#method-run)( `holder: Object, holder_kind: LootLevel.HolderKind, rules: Array, trigger: LootRule.Trigger, inventory: InventoryComponent, rolled: Array, receiver: Entity = null, hub: Variant = null, rng: RandomNumberGenerator = null` ) *static* |
 | `Dictionary` | [roll_rule](#method-roll-rule)( `rule: LootRule, holder: Object, holder_kind: LootLevel.HolderKind, receiver: Entity, hub: Variant, rng: RandomNumberGenerator = null` ) *static* |
+| `bool` | [deliver_all_or_nothing](#method-deliver-all-or-nothing)( `drops: Dictionary, inventory: InventoryComponent, rng: RandomNumberGenerator = null` ) *static* |
 | `Array[ItemInstance]` | [deliver](#method-deliver)( `drops: Dictionary, inventory: InventoryComponent, rng: RandomNumberGenerator = null` ) *static* |
 
 ## Method descriptions
@@ -27,6 +28,10 @@ Runs every rule of `trigger`. `rolled` is the holder's list of rolled rule numbe
 ### Dictionary roll_rule( rule: LootRule, holder: Object, holder_kind: LootLevel.HolderKind, receiver: Entity, hub: Variant, rng: RandomNumberGenerator = null ) {#method-roll-rule}
 
 The drops of one rule: &#123;"items": [...], "currency": &#123;...&#125;&#125; as LootTable.roll_drops gives them (empty when the rule has no table)
+
+### bool deliver_all_or_nothing( drops: Dictionary, inventory: InventoryComponent, rng: RandomNumberGenerator = null ) {#method-deliver-all-or-nothing}
+
+Puts drops in an inventory all or nothing: when one of them does not fit, what was put in is taken out again and false is returned (a gatherer with a full bag gets nothing). Currency goes in last (it takes no room)
 
 ### Array[ItemInstance] deliver( drops: Dictionary, inventory: InventoryComponent, rng: RandomNumberGenerator = null ) {#method-deliver}
 

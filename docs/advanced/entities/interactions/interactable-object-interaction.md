@@ -4,7 +4,7 @@
 
 **Inherits:** [Interaction](/advanced/entities/interactions/interaction) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-**Inherited by:** [ContainerInteraction](/advanced/entities/interactions/container-interaction), [DoorInteraction](/advanced/entities/interactions/door-interaction), [LadderInteraction](/advanced/entities/interactions/ladder-interaction), [RabbitHoleInteraction](/advanced/entities/interactions/rabbit-hole-interaction), [ReadableInteraction](/advanced/entities/interactions/readable-interaction), [SwitchInteraction](/advanced/entities/interactions/switch-interaction), [TrapInteraction](/advanced/entities/interactions/trap-interaction)
+**Inherited by:** [ContainerInteraction](/advanced/entities/interactions/container-interaction), [DoorInteraction](/advanced/entities/interactions/door-interaction), [GatherInteraction](/advanced/entities/interactions/gather-interaction), [LadderInteraction](/advanced/entities/interactions/ladder-interaction), [RabbitHoleInteraction](/advanced/entities/interactions/rabbit-hole-interaction), [ReadableInteraction](/advanced/entities/interactions/readable-interaction), [SwitchInteraction](/advanced/entities/interactions/switch-interaction), [TrapInteraction](/advanced/entities/interactions/trap-interaction)
 
 Only interactable objects can use these interactions
 

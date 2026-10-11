@@ -181,7 +181,7 @@ const basicSystems = [
     ['Controller & Camera', 'controller-and-camera', 'controller_camera'],
     ['UI Settings', 'ui-settings', 'ui_settings'],
     ['Localization', 'localization', 'localization'],
-  ]),
+  ], { after: [page('Action bars and keybinds', '/basic/game-settings/action-bars-and-keybinds')] }),
 ]
 
 const sharedSystems = {
@@ -381,6 +381,7 @@ export const sidebar = [
       page('Flying', '/planned/flying'),
       page('Mounts', '/planned/mounts'),
       page('The World Builder', '/planned/world-builder'),
+      page('Spawners', '/planned/spawners'),
       page('The NPC behaviour tool', '/planned/npc-behaviour-tool'),
     ],
   },

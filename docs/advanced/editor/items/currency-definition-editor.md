@@ -10,6 +10,7 @@ Currency Definition Editor for managing currency definitions
 
 | | | |
 |---|---|---|
+| `CheckBox` | [show_in_wallet_check_box](#var-show-in-wallet-check-box) |  |
 | `CurrencyDefinition:` | [current_currency](#var-current-currency) |  |
 
 ## Methods
@@ -22,6 +23,10 @@ Currency Definition Editor for managing currency definitions
 | `Array[Dictionary]` | [validate_current_currency](#method-validate-current-currency)() |
 
 ## Variable descriptions
+
+### CheckBox show_in_wallet_check_box {#var-show-in-wallet-check-box}
+
+*No description yet.*
 
 ### CurrencyDefinition: current_currency {#var-current-currency}
 
