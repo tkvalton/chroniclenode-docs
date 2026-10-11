@@ -87,6 +87,7 @@ func get_summary() -> String:
 | [ExperienceReward](/advanced/shared-systems/rewards/experience-reward) | Grants experience points to the player |
 | [FactionReputationReward](/advanced/shared-systems/rewards/faction-reputation-reward) | Grants or removes reputation with a faction |
 | [FactionStandingReward](/advanced/shared-systems/rewards/faction-standing-reward) | Sets reputation to a specific standing level with a faction |
+| [InventorySizeReward](/advanced/shared-systems/rewards/inventory-size-reward) | Makes the bag of the player bigger for good: more slots, more carry capacity (a bigger backpack as the reward of a quest). |
 | [ItemReward](/advanced/shared-systems/rewards/item-reward) | Grants items to the player's inventory. |
 | [LevelReward](/advanced/shared-systems/rewards/level-reward) | Container for rewards granted at a specific level |
 | [ProfessionReward](/advanced/shared-systems/rewards/profession-reward) | Teaches the player a profession (a craft school): a blacksmith trainer, a quest that opens alchemy. |

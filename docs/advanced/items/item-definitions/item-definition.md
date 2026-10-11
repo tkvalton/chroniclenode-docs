@@ -19,6 +19,7 @@ Base class for all item definitions with integrated Requirement system
 | `Array[int]` | [rollable_quality_ids](#prop-rollable-quality-ids) | `[]` |
 | `bool` | [stackable](#prop-stackable) | `false` |
 | `int` | [max_stack_size](#prop-max-stack-size) | `1` |
+| `float` | [weight](#prop-weight) | `0.0` |
 | `int` | [vendor_value](#prop-vendor-value) | `0` |
 | `bool` | [is_key_item](#prop-is-key-item) | `false` |
 | `int` | [item_level](#prop-item-level) | `1` |
@@ -78,6 +79,10 @@ Whether multiple instances can stack together in inventory slots
 Maximum number of items in a single inventory slot
 
 *Value and Flags*
+
+### float weight = 0.0 {#prop-weight}
+
+What one of the item weighs, when the inventory style counts weight (a stack weighs this times its size). 0 = nothing
 
 ### int vendor_value = 0 {#prop-vendor-value}
 

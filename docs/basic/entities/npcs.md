@@ -81,6 +81,10 @@ What the NPC hands out is a list of [loot rules](/basic/items/loot-rules): each 
 
 When an NPC dies it becomes a **corpse** that can be looted, if it has anything (or a rule still waits for the first time it is looted). After the last item the corpse has nothing to loot. A placed NPC with a respawn timer comes back; one with *despawn on death* vanishes. A [placed NPC](/basic/world/uniques) can replace the rules of its definition.
 
+## Bag
+
+The bag of an NPC follows the **NPC inventory style** of the [Gameplay Config](/basic/game-settings/gameplay-config#inventory-styles): slots from the Bag Slots stat, no limit, weight. **Own inventory style** (the NPC editor, **Bag**) gives this NPC rules of its own, for example a pack mule with a high carry capacity. See [Inventories](/basic/shared-systems/inventories#inventory-styles).
+
 ## Ability ranks
 
 An NPC can use [abilities that have ranks](/basic/abilities-and-effects/ability-ranks). The **Ability ranks** section of the NPC editor lists its abilities that have ranks:

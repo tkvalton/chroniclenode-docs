@@ -315,7 +315,7 @@ const advancedSystems = [
   : slug === 'entity-stats'
   ? advancedEntityStats
   : slug === 'items'
-  ? withPages(classSystem(text, slug, itemClasses), [page('Generated items', '/advanced/items/generation', { title: 'Generated items: how they are built' }), page('Loot', '/advanced/items/loot', { title: 'Loot: how it is built' }), page('Trainers, tiers and professions', '/advanced/items/trainers', { title: 'Trainers, tiers and professions: how they are built' })])
+  ? withPages(classSystem(text, slug, itemClasses), [page('Generated items', '/advanced/items/generation', { title: 'Generated items: how they are built' }), page('Loot', '/advanced/items/loot', { title: 'Loot: how it is built' }), page('Trainers, tiers and professions', '/advanced/items/trainers', { title: 'Trainers, tiers and professions: how they are built' }), page('Inventories', '/advanced/items/inventories', { title: 'Inventories: how they are built' })])
   : slug === 'entities'
   ? classSystem(text, slug, entityClasses)
   : slug === 'behaviors'

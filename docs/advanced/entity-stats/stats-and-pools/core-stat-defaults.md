@@ -21,7 +21,7 @@ The core stats (movement speed, attack speed, global cooldown, weapon speed, cas
 ## Constants
 
 - `Array[Dictionary]` **DEFINITIONS** = `[` - One entry per core stat: id (StatsComponent.CoreStats), name, description, default, display and limits
-- `int` **MAX_CORE_ID** = `9` - The highest core stat id: every id up to it is reserved for the engine (project stats get 7-digit ids)
+- `int` **MAX_CORE_ID** = `10` - The highest core stat id: every id up to it is reserved for the engine (project stats get 7-digit ids)
 
 ## Method descriptions
 

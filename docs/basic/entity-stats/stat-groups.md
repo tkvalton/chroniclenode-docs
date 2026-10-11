@@ -6,7 +6,7 @@ A **stat group** is a section for [stats](/basic/entity-stats/stats): Primary, S
 
 | Group | What it holds |
 |---|---|
-| **Core** | The engine's own stats: movement speed, attack speed, cast speed, carry weight ... |
+| **Core** | The engine's own stats: movement speed, attack speed, cast speed, bag slots, carry capacity ... |
 | **Primary** | The main attributes of a character: Strength, Agility, Intellect |
 | **Secondary** | Stats that come from the primary ones or from gear: crit, haste |
 | **Offensive** | Stats that make an entity hit harder |

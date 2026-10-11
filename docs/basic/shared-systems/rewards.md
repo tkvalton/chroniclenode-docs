@@ -32,6 +32,7 @@ Click the add button next to the list, choose the **type** of reward in the dial
 | [ExperienceReward](/advanced/shared-systems/rewards/experience-reward) | Grants experience points to the player |
 | [FactionReputationReward](/advanced/shared-systems/rewards/faction-reputation-reward) | Grants or removes reputation with a faction |
 | [FactionStandingReward](/advanced/shared-systems/rewards/faction-standing-reward) | Sets reputation to a specific standing level with a faction |
+| [InventorySizeReward](/advanced/shared-systems/rewards/inventory-size-reward) | Makes the bag of the player bigger for good: more slots, more carry capacity (a bigger backpack as the reward of a quest). |
 | [ItemReward](/advanced/shared-systems/rewards/item-reward) | Grants items to the player's inventory. |
 | [LevelReward](/advanced/shared-systems/rewards/level-reward) | Container for rewards granted at a specific level |
 | [ProfessionReward](/advanced/shared-systems/rewards/profession-reward) | Teaches the player a profession (a craft school): a blacksmith trainer, a quest that opens alchemy. |
@@ -51,6 +52,7 @@ The fields of each type:
 | **Item** | **Item**, **Quantity**, **Auto equip**, **Level from**, **Fixed item level**, **Item level offset** | Items into the inventory, and equips them with **Auto equip**. See [pending rewards](#when-there-is-no-room) and [Item reward](#item-reward) |
 | **Ability** | **Ability**, **Ability destination**, **Initial rank** | An ability: it replaces the basic attack, or is added to the active abilities, or to the passive ones. **Initial rank** starts it at a higher [rank](/basic/abilities-and-effects/ability-ranks) |
 | **Ability Rank** | **Ability**, **Ranks**, **Grant if missing** | Trains an [ability](/basic/abilities-and-effects/ability-ranks#giving-ranks) of the player one or more ranks (up to its highest rank). Put it on a rank of a skill tree node, on a class level or on a quest. It gives the ability first when the player has not got it (**Grant if missing**) |
+| **Inventory Size** | **Slots**, **Capacity** | Makes the player's bag bigger for good: slots and carry capacity, saved with the bag. Does nothing with a shared party bag |
 | **Skill Point** | **Skill pool**, **Skill points granted** | Points to spend in a [skill tree](/basic/abilities-and-effects/skill-trees) pool |
 | **Crafting Recipe** | **Recipe** | Teaches a crafting recipe |
 | **Crafting Skill Point** | **Craft school**, **Skill points** | Levels in a crafting school (up to the cap of its tier) |

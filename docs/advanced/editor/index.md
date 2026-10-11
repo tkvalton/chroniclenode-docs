@@ -177,6 +177,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [CraftSchoolEditor](/advanced/editor/items/craft-school-editor) | CraftSchool Editor - handles craft school definitions using the unified ResourceEditor base |
 | [CurrencyDefinitionEditor](/advanced/editor/items/currency-definition-editor) | Currency Definition Editor for managing currency definitions |
 | [EquipmentGenerationFields](/advanced/editor/items/equipment-generation-fields) | The "Generation" section of the equipment editor: what an item rolls when it is generated (loot, rewards, vendors). |
+| [InventoryStyleEditor](/advanced/editor/items/inventory-style-editor) | The fields of an inventory style: how items take space, where the capacity comes from, weight, and what happens above the limit (a hard limit, or encumbrance with effects made in the Effects editor). |
 | [ItemConsumableEditor](/advanced/editor/items/item-consumable-editor) | Item Consumable Editor - handles ItemDefinitionConsumable specific properties Updated for Effect-based system |
 | [ItemEditor](/advanced/editor/items/item-editor) | Base Item Data Editor for managing basic item properties with sub-editors |
 | [ItemEnchantScrollEditor](/advanced/editor/items/item-enchant-scroll-editor) | Item Enchant Scroll Editor - handles ItemDefinitionEnchantScroll specific properties Single enchant system with duration control and equipment targeting |

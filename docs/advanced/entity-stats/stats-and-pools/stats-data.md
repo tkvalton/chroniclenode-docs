@@ -25,6 +25,7 @@ StatsData resource that defines the initial stats and pools for an Entity/Object
 | `float` | [global_cooldown_duration_base](#prop-global-cooldown-duration-base) | `0.0` |
 | `float` | [cast_speed_base](#prop-cast-speed-base) | `0.0` |
 | `float` | [carry_weight_base](#prop-carry-weight-base) | `0.0` |
+| `float` | [carry_capacity_base](#prop-carry-capacity-base) | `0.0` |
 | `float` | [sight_range_base](#prop-sight-range-base) | `0.0` |
 | `float` | [weapon_damage_base](#prop-weapon-damage-base) | `0.0` |
 | `float` | [weapon_damage_variance](#prop-weapon-damage-variance) | `0.0` |
@@ -72,6 +73,7 @@ StatsData resource that defines the initial stats and pools for an Entity/Object
 | `float` | [get_global_cooldown_duration_base](#method-get-global-cooldown-duration-base)() |
 | `float` | [get_cast_speed_base](#method-get-cast-speed-base)() |
 | `float` | [get_carry_weight_base](#method-get-carry-weight-base)() |
+| `float` | [get_carry_capacity_base](#method-get-carry-capacity-base)() |
 | `float` | [get_sight_range_base](#method-get-sight-range-base)() |
 | `float` | [get_core_value](#method-get-core-value)( `stat_id: int` ) |
 | `void` | [clear_core_stat_overrides](#method-clear-core-stat-overrides)() |
@@ -155,7 +157,11 @@ Cast speed multiplier override (0 = use default)
 
 ### float carry_weight_base = 0.0 {#prop-carry-weight-base}
 
-Carry weight capacity override (0 = use default)
+Bag slots override (0 = use default). It is called carry weight in older data
+
+### float carry_capacity_base = 0.0 {#prop-carry-capacity-base}
+
+Carry capacity (the weight the entity can carry) override (0 = use default)
 
 ### float sight_range_base = 0.0 {#prop-sight-range-base}
 
@@ -328,6 +334,10 @@ The cast speed override (0 = none)
 ### float get_carry_weight_base() {#method-get-carry-weight-base}
 
 The carry weight override (0 = none)
+
+### float get_carry_capacity_base() {#method-get-carry-capacity-base}
+
+The carry capacity override (0 = none)
 
 ### float get_sight_range_base() {#method-get-sight-range-base}
 

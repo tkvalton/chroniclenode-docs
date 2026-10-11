@@ -161,6 +161,12 @@ export const groups = [
         "file": "data_classes/rewards/types/faction_standing_reward.gd"
       },
       {
+        "name": "InventorySizeReward",
+        "base": "Reward",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\rewards\\types\\inventory_size_reward.gd",
+        "file": "data_classes/rewards/types/inventory_size_reward.gd"
+      },
+      {
         "name": "ItemReward",
         "base": "Reward",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\rewards\\types\\item_reward.gd",

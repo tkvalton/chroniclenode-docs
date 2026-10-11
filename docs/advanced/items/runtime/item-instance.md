@@ -46,6 +46,8 @@ Runtime instance of an item that references an ItemDefinition for configuration 
 | `String` | [get_description](#method-get-description)() |
 | `Texture2D` | [get_icon](#method-get-icon)() |
 | `int` | [get_vendor_value](#method-get-vendor-value)() |
+| `float` | [get_unit_weight](#method-get-unit-weight)() |
+| `float` | [get_total_weight](#method-get-total-weight)() |
 | `int` | [get_max_stack_size](#method-get-max-stack-size)() |
 | `int` | [get_item_level](#method-get-item-level)() |
 | `Dictionary` | [get_generated](#method-get-generated)() |
@@ -271,9 +273,17 @@ Get icon from definition
 
 Get vendor value from definition (a generated item: times the value multiplier of its quality and the growth of an item that scales)
 
+### float get_unit_weight() {#method-get-unit-weight}
+
+Get max stack size from definition What one of this item weighs
+
+### float get_total_weight() {#method-get-total-weight}
+
+What the whole stack weighs
+
 ### int get_max_stack_size() {#method-get-max-stack-size}
 
-Get max stack size from definition
+*No description yet.*
 
 ### int get_item_level() {#method-get-item-level}
 

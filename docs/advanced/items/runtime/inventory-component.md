@@ -27,11 +27,29 @@ UI behavior and context are handled by the UI layer, not here. For specialized t
 | `CombatManager` | [combat_manager](#var-combat-manager) |  |
 | `bool` | [is_shared](#var-is-shared) | `false` |
 | `InventoryComponent` | [wallet](#var-wallet) | `null` |
+| `InventoryStyle` | [style](#var-style) | `null` |
+| `Entity` | [owner_entity](#var-owner-entity) | `null` |
+| `int` | [extra_slots](#var-extra-slots) | `0` |
+| `float` | [extra_capacity](#var-extra-capacity) | `0.0` |
+| `String` | [last_block_reason](#var-last-block-reason) | `""` |
 
 ## Methods
 
 | | |
 |---|---|
+| `void` | [configure](#method-configure)( `p_style: InventoryStyle, p_owner: Entity = null, slots_override: int = -1` ) |
+| `int` | [get_slot_capacity](#method-get-slot-capacity)() |
+| `void` | [refresh_capacity](#method-refresh-capacity)() |
+| `int` | [get_overflow_count](#method-get-overflow-count)() |
+| `void` | [add_extra_slots](#method-add-extra-slots)( `amount: int` ) |
+| `void` | [add_extra_capacity](#method-add-extra-capacity)( `amount: float` ) |
+| `bool` | [is_weight_on](#method-is-weight-on)() |
+| `float` | [get_total_weight](#method-get-total-weight)() |
+| `float` | [get_weight_capacity](#method-get-weight-capacity)() |
+| `float` | [get_weight_percent](#method-get-weight-percent)() |
+| `bool` | [is_over_capacity](#method-is-over-capacity)() |
+| `void` | [refresh_encumbrance](#method-refresh-encumbrance)() |
+| `EncumbranceTier` | [get_encumbrance_step](#method-get-encumbrance-step)() |
 | `void` | [attach_wallet](#method-attach-wallet)( `shared_wallet: InventoryComponent` ) |
 | `void` | [initialize_inventory](#method-initialize-inventory)( `slot_count: int = 20` ) |
 | `void` | [setup_inventory](#method-setup-inventory)( `inventory: Dictionary` ) |
@@ -109,6 +127,10 @@ Emitted when currency amounts change
 
 Emitted when a new currency type is added to the inventory for the first time
 
+### slots_resized() {#signal-slots-resized}
+
+Emitted when the number of slots changed (the window builds its slots again)
+
 ## Variable descriptions
 
 ### Dictionary currency =  {#var-currency}
@@ -135,11 +157,83 @@ This is the one bag of the whole party (the characters all use this object): its
 
 The purse of the party, when the money is shared: the currency functions of this inventory work on it, so the bag of every member shows and spends the same money
 
+### InventoryStyle style = null {#var-style}
+
+The rules of this inventory (space, weight). Null = a plain list of max_slots slots, as before
+
+### Entity owner_entity = null {#var-owner-entity}
+
+The entity whose bag this is (its stats give the capacity, its effects are used for encumbrance), if any
+
+### int extra_slots = 0 {#var-extra-slots}
+
+Slots added for good (a reward, an event): they come on top of what the style gives
+
+### float extra_capacity = 0.0 {#var-extra-capacity}
+
+Weight capacity added for good
+
+### String last_block_reason = "" {#var-last-block-reason}
+
+Why the last add was held back ("" = it was not): the giver can tell the player
+
 ## Method descriptions
+
+### void configure( p_style: InventoryStyle, p_owner: Entity = null, slots_override: int = -1 ) {#method-configure}
+
+Sets the rules of this inventory, whose it is, and (for a container) the number of slots it asks for. The size follows the stats from now on
+
+### int get_slot_capacity() {#method-get-slot-capacity}
+
+How many slots the rules give now: the style's, plus the slots added for good. A plain inventory (no style) has max_slots
+
+### void refresh_capacity() {#method-refresh-capacity}
+
+Makes the number of slots what the rules say. Growing adds slots; shrinking never destroys items: slots that hold items stay (over the limit) until emptied
+
+### int get_overflow_count() {#method-get-overflow-count}
+
+Slots that hold items past the capacity (the bag got smaller)
+
+### void add_extra_slots( amount: int ) {#method-add-extra-slots}
+
+Adds slots for good (a reward, an event). A negative number takes them away again
+
+### void add_extra_capacity( amount: float ) {#method-add-extra-capacity}
+
+Adds weight capacity for good
+
+### bool is_weight_on() {#method-is-weight-on}
+
+Does this inventory count weight?
+
+### float get_total_weight() {#method-get-total-weight}
+
+What everything in the bag weighs (and what is worn, when the style counts it)
+
+### float get_weight_capacity() {#method-get-weight-capacity}
+
+The most this inventory can carry before the limit
+
+### float get_weight_percent() {#method-get-weight-percent}
+
+What share of the capacity is carried (100 = exactly the capacity); 0 when there is no capacity to compare with
+
+### bool is_over_capacity() {#method-is-over-capacity}
+
+Is the load above the capacity?
+
+### void refresh_encumbrance() {#method-refresh-encumbrance}
+
+Puts the effect of the step of encumbrance that the load has reached on the owner (and takes the old one off)
+
+### EncumbranceTier get_encumbrance_step() {#method-get-encumbrance-step}
+
+The step of encumbrance that is on now (null = none)
 
 ### void attach_wallet( shared_wallet: InventoryComponent ) {#method-attach-wallet}
 
-Uses the purse of another inventory (the shared purse of the party) for all money, from now on. The money this one held is moved into it
+Uses the purse of another inventory(the shared purse of the party) for all money, from now on. The money this one held is moved into it
 
 ### void initialize_inventory( slot_count: int = 20 ) {#method-initialize-inventory}
 

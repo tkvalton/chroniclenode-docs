@@ -62,7 +62,8 @@ Nine stats are ChronicleNode's own. The toolkit makes them for you the first tim
 | **Global Cooldown** | 2 s | How long an ability locks the others for. See the [global cooldown](/basic/keywords#global-cooldown) |
 | **Weapon Speed** | 3 s | Seconds one weapon swing takes. Set by the equipped weapon (hidden) |
 | **Cast Speed** | 1x | A multiplier on how fast spells are cast |
-| **Carry Weight** | 50 | How much the inventory carries |
+| **Bag Slots** | 50 | How many slots the bag has (it was called Carry Weight) |
+| **Carry Capacity** | 100 | How much weight the character can carry, when the inventory style counts weight |
 | **Sight Range** | 12 m | How far the entity sees and detects others |
 | **Weapon Damage** | 0 | Damage of the weapon in hand. Set by the equipped weapon (hidden) |
 | **Weapon Damage Variance** | 0 | How far a weapon hit can stray from the weapon damage (hidden) |

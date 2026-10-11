@@ -1031,6 +1031,12 @@ export const groups = [
     "slug": "actions-player",
     "classes": [
       {
+        "name": "ChangeInventorySizeAction",
+        "base": "PlayerEventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\player\\change_inventory_size_action.gd",
+        "file": "data_classes/events/event_actions/player/change_inventory_size_action.gd"
+      },
+      {
         "name": "GrantEffectToPlayerAction",
         "base": "PlayerEventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\player\\grant_effect_to_player_action.gd",

@@ -563,6 +563,12 @@ export const groups = [
         "file": "editor_components/editors/items/item_properties/equipment_generation_fields.gd"
       },
       {
+        "name": "InventoryStyleEditor",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\items\\inventory_style_editor.gd",
+        "file": "editor_components/editors/items/inventory_style_editor.gd"
+      },
+      {
         "name": "ItemConsumableEditor",
         "base": "Control",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\items\\item_properties\\item_consumable_editor.gd",

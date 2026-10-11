@@ -10,6 +10,7 @@ Unified editor for StatsData configuration Works for both EntityDefinition and I
 
 | | | |
 |---|---|---|
+| `SpinBox` | [carry_capacity_spin](#var-carry-capacity-spin) | `null` |
 | `StatsData` | [current_stats_data](#var-current-stats-data) |  |
 | `bool` | [is_loading](#var-is-loading) | `false` |
 | `bool` | [is_entity_mode](#var-is-entity-mode) | `true  # true = entity, false = interactable` |
@@ -41,6 +42,10 @@ Unified editor for StatsData configuration Works for both EntityDefinition and I
 - **EDIT_POOL_VALUES** = `400`
 
 ## Variable descriptions
+
+### SpinBox carry_capacity_spin = null {#var-carry-capacity-spin}
+
+The carry capacity row is built in code (next to the bag slots)
 
 ### StatsData current_stats_data {#var-current-stats-data}
 

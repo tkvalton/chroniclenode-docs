@@ -12,6 +12,7 @@ Container interaction - manages inventory storage in world objects Uses Interact
 |---|---|---|
 | `Dictionary` | [inventory](#prop-inventory) | `{ ... }` |
 | `int` | [max_slots](#prop-max-slots) | `20` |
+| `InventoryStyle` | [inventory_style](#prop-inventory-style) | `null` |
 | `int` | [loot_table_id](#prop-loot-table-id) |  |
 | `bool` | [auto_close_enabled](#prop-auto-close-enabled) | `true` |
 | `float` | [auto_close_distance](#prop-auto-close-distance) | `4.0` |
@@ -81,6 +82,10 @@ Dictionary of inventory items and currency for this container Format: &#123; "it
 ### int max_slots = 20 {#prop-max-slots}
 
 Maximum number of inventory slots
+
+### InventoryStyle inventory_style = null {#prop-inventory-style}
+
+The rules of this container's bag (space, weight). Empty = the style of the containers of the Gameplay Config. In slots mode Max slots is the number of slots
 
 *Loot Generation*
 

@@ -91,6 +91,7 @@ A chest, a crate, a corpse-less loot pile.
 |---|---|---|
 | **Inventory** | An older setting: [items](/basic/items/items) and [currency](/basic/items/currency) in it from the start. It keeps working (as a [loot rule](/basic/items/loot-rules) on Initialize); new containers use loot rules | empty |
 | **Max slots** | How many slots it has | `20` |
+| **Inventory style** | Own rules for this container: no limit, a weight limit ... Off = the **container inventory style** of the [Gameplay Config](/basic/game-settings/gameplay-config#inventory-styles). See [Inventories](/basic/shared-systems/inventories#inventory-styles) | off |
 | **Loot table** | An older setting: a [loot table](/basic/items/loot-tables) rolled into the container when it is created. Use a [loot rule](/basic/items/loot-rules) instead: it can roll when the chest is **first opened**, at the level of the one who opens it | none |
 | **Auto close**, **Auto close distance** | The container closes when the player walks this many metres away (`2` to `10`) | on, `4` |
 | **Animations**, **Sounds** | Closed, locked, open; open, close, locked | |

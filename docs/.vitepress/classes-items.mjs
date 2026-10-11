@@ -5,6 +5,18 @@ export const groups = [
     "slug": "item-definitions",
     "classes": [
       {
+        "name": "EncumbranceTier",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\encumbrance_tier.gd",
+        "file": "data_classes/items/encumbrance_tier.gd"
+      },
+      {
+        "name": "InventoryStyle",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\inventory_style.gd",
+        "file": "data_classes/items/inventory_style.gd"
+      },
+      {
         "name": "ItemBudget",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\item_budget.gd",

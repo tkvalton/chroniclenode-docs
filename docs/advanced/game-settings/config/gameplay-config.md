@@ -16,6 +16,9 @@ Configuration for gameplay rules and mechanics
 | `bool` | [droped_items_saved_to_map](#prop-droped-items-saved-to-map) | `false` |
 | `bool` | [item_weight_enabled](#prop-item-weight-enabled) | `false` |
 | `bool` | [item_durability_enabled](#prop-item-durability-enabled) | `false` |
+| `InventoryStyle` | [character_inventory_style](#prop-character-inventory-style) | `InventoryStyle.new()` |
+| `InventoryStyle` | [npc_inventory_style](#prop-npc-inventory-style) | `InventoryStyle.new()` |
+| `InventoryStyle` | [container_inventory_style](#prop-container-inventory-style) | `InventoryStyle.new()` |
 | `CalculationFormula` | [item_budget_formula](#prop-item-budget-formula) |  |
 | `LootLevelSource.Source` | [default_npc_loot_level](#prop-default-npc-loot-level) | `LootLevelSource.Source.HOLDER` |
 | `LootLevelSource.Source` | [default_object_loot_level](#prop-default-object-loot-level) | `LootLevelSource.Source.PARTY` |
@@ -315,11 +318,25 @@ Are dropped items saved for maps save data
 
 ### bool item_weight_enabled = false {#prop-item-weight-enabled}
 
-Items have weight/encumbrance
+(older switch: weight is a rule of the inventory styles below now, this one is not read)
 
 ### bool item_durability_enabled = false {#prop-item-durability-enabled}
 
 Items can break/degrade over time
+
+*Inventory Styles*
+
+### InventoryStyle character_inventory_style = InventoryStyle.new() {#prop-character-inventory-style}
+
+The rules of the bag of the characters (players and companions): how items take space, the weight and what happens above the limit. The default is a list of slots from the Bag Slots stat and no weight
+
+### InventoryStyle npc_inventory_style = InventoryStyle.new() {#prop-npc-inventory-style}
+
+The rules of the bag of NPCs (an NPC definition can have its own)
+
+### InventoryStyle container_inventory_style = InventoryStyle.new() {#prop-container-inventory-style}
+
+The rules of containers: chests, bodies and other objects (a container can have its own). In slots mode a container's own Max slots is its number of slots
 
 *Item Generation*
 

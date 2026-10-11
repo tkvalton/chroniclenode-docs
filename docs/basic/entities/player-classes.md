@@ -35,7 +35,8 @@ Core stats are overrides: leave one at `0` and the entity uses the default of th
 | **Attack speed** | A multiplier of the attack rate | `1` |
 | **Global cooldown** | Seconds the [global cooldown](/basic/keywords#global-cooldown) lasts | `1.5` |
 | **Cast speed** | A multiplier: how much faster [casts](/basic/abilities-and-effects/using-an-ability) finish | `1` |
-| **Carry weight** | The carrying capacity | `20` |
+| **Bag slots** | The number of slots of the bag (when the inventory style takes them from the stat) | `20` |
+| **Carry capacity** | The weight the character can carry (when the inventory style counts weight) | the stat's default |
 | **Sight range** | How far the entity notices things; the pull and search distance of an NPC | `20` |
 
 ## Abilities

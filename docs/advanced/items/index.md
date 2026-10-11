@@ -70,6 +70,8 @@ Instances save the stack, charges, cooldowns, enchantments with their remaining 
 <!-- classes:items/item-definitions -->
 | Class | What it is |
 |---|---|
+| [EncumbranceTier](/advanced/items/item-definitions/encumbrance-tier) | One step of encumbrance: from this share of the carry capacity, an effect is on the character that carries it (slowed, cannot sprint, cannot jump ...). |
+| [InventoryStyle](/advanced/items/item-definitions/inventory-style) | The rules of the inventory of one kind of owner: how items take space, where the capacity comes from, and whether items weigh something. |
 | [ItemBudget](/advanced/items/item-definitions/item-budget) | The stat budget of an item: a pool of points that the bonuses of a generated item spend. |
 | [ItemDefinition](/advanced/items/item-definitions/item-definition) | Base class for all item definitions with integrated Requirement system |
 | [ItemDefinitionAmmo](/advanced/items/item-definitions/item-definition-ammo) | Ammunition: arrows, bolts, bullets, and anything else an ability spends a piece of per use. |

@@ -484,12 +484,22 @@ How [generated items](/basic/items/item-generation) are made and what level thei
 | **Default object loot level** | The same for chests, crates and other objects. An object has no level of its own, so *Holder level* falls back to the party's | Party level |
 | **Fallback item level** | The item level used when a source cannot give one (no party yet, a world with no level) | `1` |
 
+### Inventory styles
+
+How the bags of characters, NPCs and containers work: slots or no limit, weight, and what happens above the limit. The fields and what they do are on [Inventories](/basic/shared-systems/inventories#inventory-styles).
+
+| Field | What it does | Default |
+|---|---|---|
+| **Character inventory style** | The bag of players and companions | Slots from Bag Slots, no weight |
+| **Npc inventory style** | The bag of NPCs. An NPC can have its own (the NPC editor, Bag) | the same |
+| **Container inventory style** | Chests, bodies and other objects. A container can have its own | the same |
+
 ### Items and inventory
 
 | Field | What it does | Default |
 |---|---|---|
 | **Dropped items enabled**, **visual style** (mesh or sprite), **pickup rule** (interact, walk over, both), **saved to map** | Dropped items in the world | on, mesh, both, off |
-| **Item weight enabled** | Items have weight and characters can be over-encumbered | off |
+| **Item weight enabled** | An older switch: it is not read any more. Weight is a rule of the [inventory styles](#inventory-styles) | off |
 | **Item durability enabled** | Items wear out | off |
 
 *These items settings are not used yet: they are stored, but nothing reads them. Items have no weight or durability yet, and the switches above do not turn anything on or off (the **Carry Weight** stat is the number of slots of a bag today: see [Inventories](/basic/shared-systems/inventories#the-size-of-a-bag)). Dropped items are a [planned feature](/planned/dropped-items): until it is built an item taken out of a bag is destroyed and loot goes straight into an inventory.*

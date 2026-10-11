@@ -169,10 +169,11 @@ School effect blocking (forwarded from ImmunityComponent)
 - **GLOBAL_COOLDOWN_DURATION** = `3`
 - **WEAPON_SPEED** = `4`
 - **CAST_SPEED** = `5`
-- **CARRY_WEIGHT** = `6`
+- **BAG_SLOTS** = `6`
 - **SIGHT_RANGE** = `7`
 - **WEAPON_DAMAGE** = `8`
 - **WEAPON_DAMAGE_VARIANCE** = `9`
+- **CARRY_CAPACITY** = `10`
 
 ## Constants
 

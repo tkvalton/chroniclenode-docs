@@ -1,7 +1,7 @@
 # Inventory styles
 
-::: warning Not built yet
-This page describes a feature that is **being designed**. Today every inventory is a list of slots, one stack in each slot: see [Inventories](/basic/shared-systems/inventories). Nothing here can be used yet, and the design may change.
+::: info Partly built
+**Built:** weight, the carry capacity, a hard limit, encumbrance, unlimited space, and a bag that follows the Bag Slots stat live: see [Inventories](/basic/shared-systems/inventories#inventory-styles). **Still to come on this page:** bags that are items, and the grid.
 :::
 
 Games hold items in different ways. ChronicleNode will let you choose the style of your game, and mix parts of them:
@@ -25,12 +25,16 @@ The project chooses the style for characters; a container, a chest or an NPC can
 
 ## What is there today
 
-- Items have **no weight and no size**. The *Item weight enabled* setting is stored and unused.
-- The **Carry Weight** stat is the **number of slots** of a bag, read when the character is made.
-- Equipment slots can be locked and unlocked by a reward: a bag could use the same idea.
+- **Slots**, **no limit** and **weight** (a hard limit or encumbrance) are built, with a style for characters, NPCs and containers.
+- Items have a **weight** but no **size**, and nothing adds slots by being worn.
+- Equipment slots can be locked and unlocked by a reward: a bag uses the same idea.
+
+## The two that are left
+
+**Bags (World of Warcraft).** A bag is an **equipment item** that gives slots. Some equipment slots are **bag slots** (a definition says so); the slots of the bags worn are added to the base slots of the character. The slots stay **one pooled list** that the window shows grouped by bag. A bag can accept only some [groups](/basic/types-and-groups/groups) of items (an herb bag, a quiver): such items go there first. A bag cannot be taken off if what it holds would not fit in the other slots.
+
+**Grid (Diablo).** Every item has a **shape**: a width and a height in cells (1 x 1 by default). In a grid the bag is a grid of cells; an item stack covers the cells of its shape, is placed on the first free spot, and stacks still merge. There is **no rotation**. A new window draws the grid with drag and drop.
 
 ## Still to decide
 
-- How bags and a weight limit work with a [shared party inventory](/basic/entities/shared-inventory).
-- Whether items in a grid can be rotated, and whether stacks are allowed in a grid.
-- Which of the three styles to build first.
+- How several grids (a bag in a grid style) work together.
