@@ -1,5 +1,9 @@
 # Regions
 
+::: info Planned rename
+The planned [zones](/planned/zones) will be the named areas of the map (with a banner, a look and weather). To keep the two apart, regions are planned to be called **trigger areas**. Only the name changes: nothing in an existing project has to be redone.
+:::
+
 A **region** is an area of a world that the game can *watch*: the old mill, the cave mouth, the market square. It does nothing by itself. It lets an [event](/basic/events-and-quests/events), a [quest](/basic/events-and-quests/quests) or a condition ask "is someone in there?" and react when they enter or leave.
 
 ## Placing one

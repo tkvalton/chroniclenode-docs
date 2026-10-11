@@ -381,6 +381,8 @@ export const sidebar = [
       page('Flying', '/planned/flying'),
       page('Mounts', '/planned/mounts'),
       page('The World Builder', '/planned/world-builder'),
+      page('Zones', '/planned/zones'),
+      page('Panel keybinds', '/planned/panel-keybinds'),
       page('Spawners', '/planned/spawners'),
       page('The NPC behaviour tool', '/planned/npc-behaviour-tool'),
     ],

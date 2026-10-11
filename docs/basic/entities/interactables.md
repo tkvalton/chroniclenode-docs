@@ -104,6 +104,8 @@ A **gathering node**: an ore vein, an herb, a tree to chop, a fishing spot. Usin
 | Field | What it does | Default |
 |---|---|---|
 | **Charges** | How many times the node can be gathered from before it is used up. A mining node of `3` is gone after three gathers | `1` |
+| **Loot mode** | **To the bag**: what a gather rolls goes straight to the gatherer's bag. **Window**: it goes into the inventory of the node and a loot window opens, like a chest (see below) | To the bag |
+| **Auto close distance** | Window: the window closes when the gatherer walks this far (`2` to `20`) | `4` |
 | **When depleted** | **Stays**: the node stays where it is, cannot be used, and plays its depleted animation. **Disappears**: it cannot be seen, hit or used | Stays |
 | **Respawn seconds** | Game seconds until a used-up node is full again. `0` = never (until an event brings it back) | `0` |
 | **Profession** (*Craft school*) | The [profession](/basic/items/craft-schools) a gather raises (Mining, Herbalism). `0` = none | none |
@@ -113,7 +115,15 @@ A **gathering node**: an ore vein, an herb, a tree to chop, a fishing spot. Usin
 
 **Where the loot comes from.** Add a [loot rule](/basic/items/loot-rules) to the object with the trigger **On Gathered**. Each gather rolls it again, so a node with a table of three herbs gives one of them each time. A rule can give currency too.
 
-**No room.** The loot goes into the gatherer's bag or not at all. A gatherer whose bag has **no room at all** is told "Your bag is full" **before** the time starts. A bag with some room but not enough for the whole roll fails when the time is up: nothing is given, **the charge is not used**, and the node stays as it was. A [quest item that is kept aside](/basic/items/items#quest-items-kept-aside) and a [currency](/basic/items/currency) take no room.
+**Loot window.** With **Loot mode: Window** the node keeps what it rolled in an inventory of its own (no slot limit) and opens it like a [container](#container). What the gatherer does not take **stays**:
+
+- Using the node again **opens the same window** with the same loot. It takes **no time**, uses **no charge** and gives **no skill**: nothing new is rolled until the node is empty.
+- When the window is emptied the next gather rolls again (a charge, skill), and takes its time as usual.
+- A node with no charges left is **not used up while loot is still waiting**: it is used up when the last loot is taken.
+- What is waiting in the node is saved. A node that comes back after being used up is full and empty of loot.
+- There is no "bag is full" check: the gatherer takes what fits.
+
+**No room (to the bag).** The loot goes into the gatherer's bag or not at all. A gatherer whose bag has **no room at all** is told "Your bag is full" **before** the time starts. A bag with some room but not enough for the whole roll fails when the time is up: nothing is given, **the charge is not used**, and the node stays as it was. A [quest item that is kept aside](/basic/items/items#quest-items-kept-aside) and a [currency](/basic/items/currency) take no room.
 
 **Profession and skill.** Gate a node with the **Requirements** of the object: *Needs Mining 25*. The node teaches the profession only while the gatherer's skill is inside the node's range; a copper vein at skill 300 gives nothing to learn.
 

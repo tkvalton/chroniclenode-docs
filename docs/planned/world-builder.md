@@ -14,6 +14,10 @@ A tool for making the **terrain** of a world: shaping the ground, painting it, a
 
 An improved version of the way [uniques](/basic/world/uniques) are placed: NPCs, interactables, [regions](/basic/world/regions) and [encounters](/basic/world/encounters) placed, moved and checked in the 3D view, with the terrain under them.
 
+## Zones
+
+The named areas of the map and their sub-zones: laid out in **chunks**, **painted** with a brush, or made as **volumes** for what is above and below (caves, floating islands). See [Zones](/planned/zones).
+
 ## Spawn areas
 
 The painted terrain and the volumes of the [spawners](/planned/spawners): where NPCs and gathering nodes appear by themselves.

@@ -8,7 +8,7 @@ A gathering node (an ore vein, an herb, a tree to chop, a fishing spot): using i
 
 ## Description
 
-The loot goes to the bag or not at all: a gatherer whose bag has no room for the roll gets nothing, the charge is not used and the node stays as it was.
+The loot goes to the bag or not at all: a gatherer whose bag has no room for the roll gets nothing, the charge is not used and the node stays as it was. Or the node can have a **loot window** like a chest: each gather puts what it rolls in the inventory of the node and opens it; what is not taken stays, and until the node is emptied another attempt opens the same window again (no charge, no skill).
 
 ## Properties
 
@@ -17,6 +17,8 @@ The loot goes to the bag or not at all: a gatherer whose bag has no room for the
 | `int` | [charges](#prop-charges) | `1` |
 | `WhenDepleted` | [when_depleted](#prop-when-depleted) | `WhenDepleted.STAYS` |
 | `float` | [respawn_seconds](#prop-respawn-seconds) | `0.0` |
+| `LootMode` | [loot_mode](#prop-loot-mode) | `LootMode.TO_THE_BAG` |
+| `float` | [auto_close_distance](#prop-auto-close-distance) | `4.0` |
 | `int` | [craft_school_id](#prop-craft-school-id) | `0` |
 | `int` | [skill_points](#prop-skill-points) | `1` |
 | `int` | [skill_up_from](#prop-skill-up-from) | `1` |
@@ -36,10 +38,12 @@ The loot goes to the bag or not at all: a gatherer whose bag has no room for the
 
 | | |
 |---|---|
-| `void` | [setup_for_interactable_objects](#method-setup-for-interactable-objects)( `_interactable: InteractableObject` ) |
+| `void` | [setup_for_interactable_objects](#method-setup-for-interactable-objects)( `interactable: InteractableObject` ) |
 | `String` | [get_interaction_prompt](#method-get-interaction-prompt)() |
 | `bool` | [is_depleted](#method-is-depleted)() |
 | `bool` | [can_interact](#method-can-interact)( `player: Player` ) |
+| `bool` | [needs_use_time](#method-needs-use-time)( `_entity: Entity` ) |
+| `bool` | [has_loot_waiting](#method-has-loot-waiting)() |
 | `String` | [get_block_reason](#method-get-block-reason)( `entity: Entity` ) |
 | `void` | [start_interaction](#method-start-interaction)( `player: Player` ) |
 | `void` | [replenish](#method-replenish)() |
@@ -57,6 +61,11 @@ The loot goes to the bag or not at all: a gatherer whose bag has no room for the
 ### replenished() {#signal-replenished}
 
 ## Enumerations
+
+### enum LootMode {#enum-lootmode}
+
+- **TO_THE_BAG** = `0` - What a gather rolls goes straight to the bag of the gatherer (all of it, or nothing)
+- **WINDOW** = `1` - What a gather rolls goes into the inventory of the node and its window opens, like a chest. What is not taken stays: the next attempt opens the same window, with no new roll
 
 ### enum WhenDepleted {#enum-whendepleted}
 
@@ -78,6 +87,16 @@ What a used-up node looks like
 ### float respawn_seconds = 0.0 {#prop-respawn-seconds}
 
 Seconds of game time until a used-up node is full again. 0 = never (until an event or a spawner brings it back)
+
+*Loot*
+
+### LootMode loot_mode = LootMode.TO_THE_BAG {#prop-loot-mode}
+
+Where the loot goes: straight to the bag, or into a window that the gatherer takes from
+
+### float auto_close_distance = 4.0 {#prop-auto-close-distance}
+
+Window: the window closes by itself when the gatherer walks this far from the node
 
 *Skill*
 
@@ -123,7 +142,7 @@ Uses left
 
 ## Method descriptions
 
-### void setup_for_interactable_objects( _interactable: InteractableObject ) {#method-setup-for-interactable-objects}
+### void setup_for_interactable_objects( interactable: InteractableObject ) {#method-setup-for-interactable-objects}
 
 *Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
 
@@ -138,6 +157,14 @@ Uses left
 ### bool can_interact( player: Player ) {#method-can-interact}
 
 Can the node be gathered from now? (it is not used up, and the gatherer's bag has some room)
+
+### bool needs_use_time( _entity: Entity ) {#method-needs-use-time}
+
+Does the use take its time? Not when it only opens the window again (loot is waiting)
+
+### bool has_loot_waiting() {#method-has-loot-waiting}
+
+Window: is there loot in the node that nobody has taken?
 
 ### String get_block_reason( entity: Entity ) {#method-get-block-reason}
 

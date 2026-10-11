@@ -145,6 +145,10 @@ Set **Bag space** to **Kept aside** and the item takes **no space**: no slot, no
 
 Whether the player **sees** the list is a question of the interface only. The inventory window of the toolkit shows a **Quest items** list under the slots while something is kept aside (the window's **Show kept aside** option, on by default). A window that has that option off, or your own interface that does not draw the list, shows nothing: the items are still held and counted, they just are not shown anywhere.
 
+::: tip Set per item
+**Bag space** is a setting of each quest item, so a key that opens a door can be kept aside while an item that starts a quest is left in the bag. The editor warns about an item that is **kept aside and starts a quest when used** without *Auto use on pickup*: the player would have to use it from the "Quest items" list, which your interface may not have.
+:::
+
 ::: tip Hidden quest items
 "Hidden" is "kept aside, with no list in the interface". There is no separate setting.
 :::

@@ -24,6 +24,7 @@ Base class for all entity interactions Provides the foundation for different typ
 | `void` | [setup_for_interactable_objects](#method-setup-for-interactable-objects)( `interactable: InteractableObject` ) |
 | `bool` | [can_interact](#method-can-interact)( `player: Player` ) |
 | `String` | [get_block_reason](#method-get-block-reason)( `_entity: Entity` ) |
+| `bool` | [needs_use_time](#method-needs-use-time)( `_entity: Entity` ) |
 | `void` | [start_interaction](#method-start-interaction)( `_player: Player` ) |
 | `void` | [end_interaction](#method-end-interaction)() |
 
@@ -58,6 +59,10 @@ Check if the player can interact with this interaction
 ### String get_block_reason( _entity: Entity ) {#method-get-block-reason}
 
 Why the interaction cannot start now ("" = it can, or it says nothing): the user is told when `can_interact` is false
+
+### bool needs_use_time( _entity: Entity ) {#method-needs-use-time}
+
+Does this use take the time the object asks for (its use time) right now? An interaction that is only a second look at something that is already there (a loot window with loot waiting) says no
 
 ### void start_interaction( _player: Player ) {#method-start-interaction}
 
