@@ -9,6 +9,7 @@
 | | | |
 |---|---|---|
 | `Color` | [color](#prop-color) | `Color.WHITE` |
+| `Array[ArmorClassBonus]` | [bonuses](#prop-bonuses) | `[]` |
 
 ## Methods
 
@@ -27,6 +28,12 @@
 ### Color color = Color.WHITE {#prop-color}
 
 Color associated with this armor type
+
+*Bonuses Of The Class*
+
+### Array[ArmorClassBonus] bonuses = [] {#prop-bonuses}
+
+The effects the wearer gets for wearing pieces of this class, in the way of a set bonus: each bonus says how many worn pieces of the class it needs. Empty = the class gives nothing by itself
 
 ## Method descriptions
 

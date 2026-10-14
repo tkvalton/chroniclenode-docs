@@ -15,6 +15,7 @@ A type can also be a **rank** (Elite, Rare, Boss): it can change how the NPCs th
 | | | |
 |---|---|---|
 | `Color` | [color](#prop-color) | `Color.WHITE` |
+| `Array[int]` | [applied_effects](#prop-applied-effects) | `[]` |
 | `ScalingRule` | [level_scaling](#prop-level-scaling) | `ScalingRule.FOLLOW_GAME` |
 | `int` | [level_offset](#prop-level-offset) | `0` |
 | `float` | [experience_multiplier](#prop-experience-multiplier) | `1.0` |
@@ -34,6 +35,12 @@ How an NPC with this type follows the level of the player (Gameplay Config, NPC 
 ### Color color = Color.WHITE {#prop-color}
 
 The color that stands for this in the interface
+
+*Effects Applied To The Type*
+
+### Array[int] applied_effects = [] {#prop-applied-effects}
+
+The effects (Effect ids) every entity of this type has, as long as it has the type: Undead takes more damage from Holy, a Construct is immune to poison. They are put on the entity when it is made (and when the type is added to it while playing) and taken off when the type is taken away. Empty (default) = the type changes nothing by itself
 
 *NPC Level and Experience*
 

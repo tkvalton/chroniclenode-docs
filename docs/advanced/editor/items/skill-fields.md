@@ -11,6 +11,8 @@ Builders of the editor rows for the parts of skills and trainers that several ed
 | | |
 |---|---|
 | `void` | [add_resource_list](#method-add-resource-list)( `container: Container, label_text: String, category: String, items: Array, on_changed: Callable, rebuild: Callable` ) *static* |
+| `void` | [add_resource_via_dialog](#method-add-resource-via-dialog)( `category: String, items: Array, on_changed: Callable, rebuild: Callable` ) *static* |
+| `void` | [add_resource_rows](#method-add-resource-rows)( `container: Container, items: Array, on_changed: Callable, rebuild: Callable` ) *static* |
 | `void` | [add_tiers](#method-add-tiers)( `container: Container, tiers: Array[SkillTier], on_changed: Callable, rebuild: Callable` ) *static* |
 | `void` | [add_specializations](#method-add-specializations)( `container: Container, specs: Array[SkillSpecialization], is_profession: bool, on_changed: Callable, rebuild: Callable` ) *static* |
 | `void` | [add_resource_ids](#method-add-resource-ids)( `container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable` ) *static* |
@@ -22,6 +24,14 @@ Builders of the editor rows for the parts of skills and trainers that several ed
 ### void add_resource_list( container: Container, label_text: String, category: String, items: Array, on_changed: Callable, rebuild: Callable ) {#method-add-resource-list}
 
 A list of requirements ("requirement") or rewards ("reward"): each with Edit and a button to take it away, and an Add button. `items` is changed in place
+
+### void add_resource_via_dialog( category: String, items: Array, on_changed: Callable, rebuild: Callable ) {#method-add-resource-via-dialog}
+
+Asks for a new resource of a category (a requirement, a reward) with the unified dialog and adds it to `items`
+
+### void add_resource_rows( container: Container, items: Array, on_changed: Callable, rebuild: Callable ) {#method-add-resource-rows}
+
+The rows of a list of resources, each with a summary, Edit and x. (The heading and the Add button are the caller's: they can be nodes of a scene)
 
 ### void add_tiers( container: Container, tiers: Array[SkillTier], on_changed: Callable, rebuild: Callable ) {#method-add-tiers}
 

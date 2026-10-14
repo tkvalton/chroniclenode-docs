@@ -413,7 +413,7 @@ const SYSTEMS = {
       { text: 'Viewport tools', slug: 'viewport-tools', dirs: [['editor_components/3d_scene_tools', false], ['editor_components/inspector_plugins', false]] },
       { text: 'Catalogs', slug: 'catalogs', dirs: [['editor_components/catalogs', true]] },
       { text: 'Dialogs', slug: 'dialogs', dirs: [['editor_components/dialogs', true]] },
-      { text: 'Property controls', slug: 'factory', dirs: [['editor_components/factory', true], ['editor_components/curve_editor', true]] },
+      { text: 'Property controls', slug: 'factory', dirs: [['editor_components/factory', true], ['editor_components/curve_editor', true], ['editor_components/controls', true]] },
       { text: 'Managers and utilities', slug: 'tools', dirs: [['editor_components/managers', true], ['editor_components/utility', true]] },
     ],
   },

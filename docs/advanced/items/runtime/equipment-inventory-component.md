@@ -14,6 +14,7 @@ Equipment signals for Entity to connect to Emitted when stat bonuses are applied
 | `Entity` | [entity_owner](#var-entity-owner) | `null` |
 | `Dictionary` | [active_set_bonus_effects](#var-active-set-bonus-effects) | `{} # Key: SetBonusDefinition, Value: Array[EffectInstance]` |
 | `CombatManager` | [combat_manager](#var-combat-manager) |  |
+| `Dictionary` | [active_armor_class_effects](#var-active-armor-class-effects) | `{}` |
 
 ## Methods
 
@@ -81,6 +82,10 @@ Track active set bonus effects for proper removal
 ### CombatManager combat_manager {#var-combat-manager}
 
 The combat system manager
+
+### Dictionary active_armor_class_effects =  {#var-active-armor-class-effects}
+
+The bonuses of armor classes that are active now: "class id:number of the bonus" -&gt; the effect instances that run
 
 ## Method descriptions
 

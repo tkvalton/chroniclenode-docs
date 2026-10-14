@@ -27,7 +27,7 @@ Every builder adds its rows to `container` and calls `on_changed` (no arguments)
 | `OptionButton` | [add_enum](#method-add-enum)( `container: Container, label_text: String, value: int, hint_string: String, on_changed: Callable` ) *static* |
 | `void` | [add_curve](#method-add-curve)( `container: Container, label_text: String, resource: Resource, property_name: String, on_changed: Callable` ) *static* |
 | `OptionButton` | [add_database_picker](#method-add-database-picker)( `container: Container, label_text: String, database_type: String, current: Resource, none_text: String, on_changed: Callable` ) *static* |
-| `void` | [add_id_checklist](#method-add-id-checklist)( `container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable` ) *static* |
+| `IdMultiSelect` | [add_id_checklist](#method-add-id-checklist)( `container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable, single: bool = false` ) *static* |
 | `void` | [add_id_picker](#method-add-id-picker)( `container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable` ) *static* |
 | `void` | [add_enum_checklist](#method-add-enum-checklist)( `container: Container, label_text: String, hint_names: Array, values: Array, on_changed: Callable` ) *static* |
 | `void` | [add_resource_fields](#method-add-resource-fields)( `container: Container, resource: Resource, on_changed: Callable, skipped: Array[String] = [], rebuild: Callable = Callable()` ) *static* |
@@ -44,6 +44,7 @@ Every builder adds its rows to `container` and calls `on_changed` (no arguments)
 - `Array[String]` **SKIPPED** = `["script", "resource_local_to_scene", "resource_name", "resource_path"]` - Properties of every resource that are never shown
 - `Array[String]` **CATALOG_TYPES** = `["ability", "effect"]` - Databases that are always picked from a catalog (there can be hundreds), and the size from which any other database is
 - `int` **CATALOG_FROM_ENTRIES** = `10`
+- `String` **ID_MULTI_SELECT_SCENE** = `"res://addons/chroniclenode/editor_components/controls/id_multi_select.tscn"` - The scene of the multi select: the picked entries as tags and a searchable list to add from
 - `String` **AMOUNT_KIND_HINT** = `"Stat of the user:0,Weapon damage:1,Target max health:2,Target current health...`
 - `Array[String]` **STAT_EFFECT_CHOICES** = `[` - The kinds of stat effect, in the order of the dialog and of make_stat_effect
 
@@ -83,9 +84,9 @@ An enum: `hint_string` is the property hint of an exported enum ("Name:value,Nam
 
 A picker for a resource of a database type (trigger tag, entity tag ...). The current value is the resource itself (null = `none_text`). Returns the OptionButton
 
-### void add_id_checklist( container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable ) {#method-add-id-checklist}
+### IdMultiSelect add_id_checklist( container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable, single: bool = false ) {#method-add-id-checklist}
 
-A list of database ids (Array[int]) as one switch per database entry: the tags of an entity, the tags of a condition. A long list (abilities, effects, a database with many entries) becomes a button that opens the catalog and a list of what was picked
+A list of database ids (Array[int]) picked from a database type: the groups of an ability, the types of an entity, the tags of a condition. The picked entries show as tags with an x and an Add button opens a searchable list, so it reads the same with three entries or three hundred. The array is changed in place. `single` lets it hold one id (an entity has one type). Returns the control
 
 ### void add_id_picker( container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable ) {#method-add-id-picker}
 

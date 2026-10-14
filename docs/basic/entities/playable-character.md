@@ -46,7 +46,7 @@ Characters are used in three places:
 
 ## Entity types
 
-The **Entity Types** list sits under the starting level. A player character is usually *Humanoid*; conditions that look at the types ("+20 % damage against Beasts") also work on how enemies treat you.
+The **Entity type** sits under the starting level. A player character is usually *Humanoid*; conditions that look at the type ("+20 % damage against Beasts") and the effects of the type read it.
 
 ## Custom characters
 

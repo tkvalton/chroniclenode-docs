@@ -17,12 +17,10 @@ Entity Editor for managing NPCDefinitions resources
 | `Array[String]` | [available_voice_variants](#var-available-voice-variants) | `[]` |
 | `Array[String]` | [available_motion_entities](#var-available-motion-entities) | `[]` |
 | `Array[String]` | [available_animation_types](#var-available-animation-types) | `[]` |
-| `Array[NPCDefinition.LootTableLogic]` | [available_loot_table_logic](#var-available-loot-table-logic) | `[]` |
 | `Array[String]` | [available_attack_tags](#var-available-attack-tags) | `[]` |
 | `Array[String]` | [available_stance_tags](#var-available-stance-tags) | `[]` |
 | `Array[String]` | [available_aim_tags](#var-available-aim-tags) | `[]` |
 | `Array[String]` | [available_reload_tags](#var-available-reload-tags) | `[]` |
-| `bool` | [item_selection_mode](#var-item-selection-mode) | `false` |
 
 ## Methods
 
@@ -38,10 +36,6 @@ Entity Editor for managing NPCDefinitions resources
 
 - `const` **TEMPLATE_NEW** = `300`
 - `const` **TEMPLATE_BROWSE** = `301`
-- `const` **CONTEXT_ADD_ITEM** = `400`
-- `const` **CONTEXT_ADD_CURRENCY** = `401`
-- `const` **CONTEXT_EDIT_ITEM** = `402`
-- `const` **CONTEXT_REMOVE** = `403`
 
 ## Variable descriptions
 
@@ -73,10 +67,6 @@ Entity Editor for managing NPCDefinitions resources
 
 *No description yet.*
 
-### Array[NPCDefinition.LootTableLogic] available_loot_table_logic = [] {#var-available-loot-table-logic}
-
-*No description yet.*
-
 ### Array[String] available_attack_tags = [] {#var-available-attack-tags}
 
 *No description yet.*
@@ -90,10 +80,6 @@ Entity Editor for managing NPCDefinitions resources
 *No description yet.*
 
 ### Array[String] available_reload_tags = [] {#var-available-reload-tags}
-
-*No description yet.*
-
-### bool item_selection_mode = false {#var-item-selection-mode}
 
 *No description yet.*
 

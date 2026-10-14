@@ -4,30 +4,27 @@
 
 An **entity type** says what an entity *is*: Humanoid, Beast, Undead, Construct, Demon, Dragon. It is a type label, not a rule. It does nothing until a [condition](/basic/shared-systems/conditions) asks for it.
 
-An entity type has a **Display name**, **Description**, **Color** and **Icon**.
+An entity type has a **Display name**, **Description**, **Color** and **Icon**, and the **effects every entity of the type has**.
 
-## NPC level and experience
+## Effects applied to the type
 
-An entity type can be a **rank**: Elite, Rare, Boss. It then has three more fields. They only matter for NPCs.
+The **Effects applied to the type** section lists effects that **every entity of this type has**, for as long as it has the type. Pick them with **Add...**, which opens a searchable list, and take one away with its **x**.
 
-| Field | What it does | Default |
-|---|---|---|
-| **Level scaling** | **Follow game**: like every NPC. **Never scales**: the NPC keeps the level of its definition. **Fixed offset**: always a number of levels from the player | Follow game |
-| **Level offset** | For *Fixed offset*: levels above the player. `3` = always 3 levels above, `-2` = always 2 under | `0` |
-| **Experience multiplier** | A defeated NPC of this type gives this many times the experience. All the types of an NPC multiply | `1` |
+- **Undead** takes 30% more damage from the Holy [damage type](/basic/types-and-groups/damage-types): an effect that raises the damage taken from Holy, put on the type once.
+- A **Construct** is immune to poison: an [immunity effect](/basic/abilities-and-effects/immunities).
+- A **Beast** gets *Keen senses*, a passive effect.
 
-Level scaling only does something when the project turns on [NPC level scaling](/basic/game-settings/gameplay-config#npc-level-scaling). With it off a rank is a label for your interface and your conditions, and only the experience multiplier works. If an NPC has several types, *Fixed offset* wins over *Never scales*.
+The effects are put on the entity **when it is made** (and when a script gives it the type while the game runs) and **taken off when the type is taken away**. They are not saved: they are put on again when the entity is made, so changing the effects of a type changes every entity of it the next time it is made. The effects follow their own stacking rules, so two types that apply the same effect with a group follow that group.
 
-| Rank | A typical setup |
-|---|---|
-| **Elite** | Fixed offset `+2`, experience multiplier `2` |
-| **Rare** | Follow game, experience multiplier `4` (and a better [loot table](/basic/items/loot-tables) on the NPC) |
-| **Boss** | Fixed offset `+3`, experience multiplier `10` |
-| **Trivial critter** | Never scales, experience multiplier `0` |
+## Ranks (Elite, Rare, Boss)
+
+An entity type used to double as a **rank**, with fields for how an NPC of the type follows the level of the player and how much experience it gives. The editor no longer shows those fields: an entity type is what the creature **is** (Humanoid, Undead, Beast), and ranks are going to be tags of their own. What is already set on a type keeps working: the level scaling, the level offset and the experience multiplier of an existing type are still read by the game.
+
+The experience of one NPC is set on the NPC itself: the [NPC editor](/basic/entities/npcs) has **Experience worth** and **Experience multiplier** in its Basic Properties.
 
 ## Giving a type to an entity
 
-Open the [character](/basic/entities/) or the NPC and tick its types in the **Entity Types** field. An entity can have any number: a lich is Undead, Humanoid and Elite. Scripts can add and remove types while the game runs ([`Entity.add_entity_tag`](/advanced/entities/runtime/entity) and `remove_entity_tag`); the level of an NPC is decided when it is made, from the types it starts with.
+Open the [character](/basic/entities/playable-character) or the [NPC](/basic/entities/npcs) and choose its type in the **Entity type** field of the Basic Properties. **An entity has one type**: picking another replaces the first. (A lich is Undead; being an elite or a boss is a rank, which is not a type.) Scripts can add and remove types while the game runs ([`Entity.add_entity_tag`](/advanced/entities/runtime/entity) and `remove_entity_tag`), and the effects of the type follow.
 
 ## Where an entity type is used
 

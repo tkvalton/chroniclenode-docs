@@ -36,7 +36,7 @@ These lists use **your own** weapon classes, weapon types and armor classes (the
 | **Armor classes** | Being hit while wearing one trains the skill, the effects work while one is worn, and they can be gated |
 | **Schools** | Using an ability of one of these [schools](/basic/types-and-groups/school-types) trains the skill |
 
-A long list (weapon classes, abilities) opens the catalog from an **Add...** button; a short one is a row of tick boxes.
+Each of these lists is a **tag picker** (see [the editor tour](/general/editor-tour#choosing-from-a-list-the-tag-picker)): what you picked shows as tags with an **x**, and **Add...** opens a searchable list.
 
 ### Gaining experience
 

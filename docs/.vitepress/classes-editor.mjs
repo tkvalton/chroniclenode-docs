@@ -41,12 +41,6 @@ export const groups = [
         "file": "editor_components/editors/abilities/ability_editor.gd"
       },
       {
-        "name": "AbilityRankFields",
-        "base": "VBoxContainer",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\abilities\\ability_rank_fields.gd",
-        "file": "editor_components/editors/abilities/ability_rank_fields.gd"
-      },
-      {
         "name": "ComboStepsEditor",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\abilities\\ability_properties\\combo_steps_editor.gd",
@@ -371,12 +365,6 @@ export const groups = [
         "file": "editor_components/editors/entities/interactable_editor.gd"
       },
       {
-        "name": "InteractableUseFields",
-        "base": "VBoxContainer",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\interactable_use_fields.gd",
-        "file": "editor_components/editors/entities/interactable_use_fields.gd"
-      },
-      {
         "name": "InteractionEditor",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\interactions\\interactions_editor.gd",
@@ -443,12 +431,6 @@ export const groups = [
         "file": "editor_components/editors/equipment_definitions/quality_editor.gd"
       },
       {
-        "name": "QualityGenerationFields",
-        "base": "VBoxContainer",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\equipment_definitions\\quality_generation_fields.gd",
-        "file": "editor_components/editors/equipment_definitions/quality_generation_fields.gd"
-      },
-      {
         "name": "SetBonusDefinitionEditor",
         "base": "ResourceEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\equipment_definitions\\set_bonus_editor.gd",
@@ -495,12 +477,6 @@ export const groups = [
         "base": "MarginContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\events\\global_variables_editor.gd",
         "file": "editor_components/editors/events/global_variables_editor.gd"
-      },
-      {
-        "name": "PopupEditor",
-        "base": "ResourceEditor",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\events\\popup_editor.gd",
-        "file": "editor_components/editors/events/popup_editor.gd"
       },
       {
         "name": "QuestEditor",
@@ -1331,6 +1307,12 @@ export const groups = [
         "file": "editor_components/factory/experiance_per_level_editor.gd"
       },
       {
+        "name": "IdMultiSelect",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\id_multi_select.gd",
+        "file": "editor_components/controls/id_multi_select.gd"
+      },
+      {
         "name": "PropertyFactory",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\factory\\property_factory.gd",
@@ -1391,6 +1373,12 @@ export const groups = [
         "file": "editor_components/utility/effects_editor_util.gd"
       },
       {
+        "name": "EnumOptions",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\enum_options.gd",
+        "file": "editor_components/utility/enum_options.gd"
+      },
+      {
         "name": "EventTypeManager",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\managers\\event_type_manager.gd",
@@ -1401,6 +1389,12 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\interactable_scene_creator.gd",
         "file": "editor_components/utility/interactable_scene_creator.gd"
+      },
+      {
+        "name": "PopupLibrary",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\popup_library.gd",
+        "file": "editor_components/utility/popup_library.gd"
       },
       {
         "name": "ProjectSetupUtility",

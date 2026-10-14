@@ -6,7 +6,7 @@
 
 **Inherited by:** [DefaultPopupUI](/advanced/user-interface/in-game/default-popup-ui)
 
-The root of a popup scene. Build a popup as a scene with this script on its root: whatever the developer wants it to be (a tutorial page, a message, a toast, an achievement) with a button called ExitButton if it should have one (a node whose name is made unique with %: it closes the popup). The behaviour (ESC, pause, blocking, closing by itself, once only, what to do when another popup is open) is set on the popup data of the root node. Save the scene and the popup is in the database.
+The root of a popup scene. Build a popup as a scene with this script on its root: whatever the developer wants it to be (a tutorial page, a message, a toast, an achievement) with a button called ExitButton if it should have one (a node whose name is made unique with %: it closes the popup). How it behaves (ESC, pause, blocking, closing by itself, once only, what to do when another popup is open) is set with the options of this node in the inspector, on the saved scene. Save the scene and the popup is in the database. A new popup is made with the Create new popup button of the UI Settings editor.
 
 ## Description
 
@@ -16,7 +16,12 @@ Override setup(data) to show what the caller passes, and on_shown() for what hap
 
 | | | |
 |---|---|---|
-| `PopupData` | [popup_data](#prop-popup-data) |  |
+| `bool` | [close_on_escape](#prop-close-on-escape) | `true` |
+| `bool` | [block_gameplay_input](#prop-block-gameplay-input) | `true` |
+| `bool` | [pause_game](#prop-pause-game) | `false` |
+| `float` | [auto_close_seconds](#prop-auto-close-seconds) | `0.0` |
+| `bool` | [show_once](#prop-show-once) | `false` |
+| `PopupData.WhenBusy` | [when_another_is_open](#prop-when-another-is-open) | `PopupData.WhenBusy.QUEUE` |
 
 ## Variables
 
@@ -42,9 +47,31 @@ Emitted when the popup closes (the manager removes it)
 
 ## Property descriptions
 
-### PopupData popup_data {#prop-popup-data}
+*Behaviour*
 
-The data of this popup: made by the editor when the scene is saved in src/data/popups/
+### bool close_on_escape = true {#prop-close-on-escape}
+
+ESC closes the popup (when it is the one on top)
+
+### bool block_gameplay_input = true {#prop-block-gameplay-input}
+
+Gameplay does not react to the mouse and the keys while the popup is open (the popup itself does)
+
+### bool pause_game = false {#prop-pause-game}
+
+The game is paused while the popup is open (time stands still)
+
+### float auto_close_seconds = 0.0 {#prop-auto-close-seconds}
+
+The popup closes itself after this many seconds (real seconds, also while the game is paused; 0 = it waits to be closed)
+
+### bool show_once = false {#prop-show-once}
+
+The popup is shown once in a game (tutorials): after that it is never shown again, also not after a load. A new game shows it again
+
+### PopupData.WhenBusy when_another_is_open = PopupData.WhenBusy.QUEUE {#prop-when-another-is-open}
+
+What to do when this popup is asked for while another popup is on the screen
 
 ## Variable descriptions
 

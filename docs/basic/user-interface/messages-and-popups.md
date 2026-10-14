@@ -18,7 +18,7 @@ The messages are made by the [UI manager](/advanced/managers/game-host/ui-manage
 
 ## Popups
 
-A **popup** is a window you design in the [Popups editor](/basic/events-and-quests/popups) (a tutorial, a story message, a toast, a choice) and open from an [event](/basic/events-and-quests/events) with the *Popup* action. The popups have their own manager, which also handles the **Esc** key (the popup on top closes first, when it says it can) and can **shut gameplay input out** while it is open.
+A **popup** is a scene you design ([how](/basic/events-and-quests/popups); the list and the button that makes one are in [UI Settings](/basic/game-settings/ui-settings#popups)) (a tutorial, a story message, a toast, a choice) and open from an [event](/basic/events-and-quests/events) with the *Popup* action. The popups have their own manager, which also handles the **Esc** key (the popup on top closes first, when it says it can) and can **shut gameplay input out** while it is open.
 
 See [Popups](/basic/events-and-quests/popups) for how to make one.
 

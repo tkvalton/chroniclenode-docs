@@ -50,6 +50,17 @@ Some things you will see again and again:
 - **Every item has an id.** The toolkit assigns it when you create the item, and it is how everything else refers to it. You never need to type one, and changing an item's name does not change its id.
 - **Display Name and Description.** Almost everything has a name and a description that the player sees in the game.
 
+## Choosing from a list: the tag picker
+
+Where a field holds **several things of one kind** (the groups of an ability, the schools a skill is trained by, the effects of an entity type), it is a **tag picker**:
+
+- What is picked shows as small **tags**. The **x** on a tag takes it away.
+- **Add...** opens a list of everything that exists, with a **search** box. Click an entry to pick it (it is marked `[x]`); click it again to take it away. The list stays open so you can pick several.
+- A field that holds **one thing** (the entity type of an NPC) is the same picker with **Change...**: picking another replaces the first.
+- A tag in red with *(missing)* is something that has been deleted; take it away with its **x**.
+
+It reads the same with three things or three hundred, which is why it replaces rows of tick boxes.
+
 ## Where your work is saved
 
 Everything you create is a resource file under `res://src/data/`, in a folder for its kind (for example `src/data/abilities/`). The files are named after the item's id. They are normal Godot resources, so you can see them in the **FileSystem** dock, and they work with version control. The settings from **Game Settings** are saved in `src/data/config_data/`.

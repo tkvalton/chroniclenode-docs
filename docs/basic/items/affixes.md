@@ -32,7 +32,7 @@ Leave a list empty to allow everything.
 
 | Field | What it does |
 |---|---|
-| **Equipment types**, **Weapon types** | Only on items of these types (a sword affix, a helmet affix) |
+| **Equipment types** | Only on items of these types (a sword affix, a helmet affix) |
 | **Weapon classes** | Only on weapons of these [classes](/basic/equipment-definitions/weapon-class) |
 | **Item groups** | Only on an item that is in one of these [groups](/basic/shared-systems/groups) |
 | **Lowest / highest item level** | The levels of items it can roll on. `0` = no limit. A strong affix can start at level 20 |

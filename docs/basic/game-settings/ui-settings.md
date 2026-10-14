@@ -99,6 +99,18 @@ Shown in red above the lists:
 | *X is in UIPanels but is not a PanelUI* | Everything in `UIPanels` must be a panel, or it is not a window |
 | *X is in HUD but is not a HUDUIElement* | It works, but it does not scale and gets no signals |
 
+## Popups
+
+The last list of the interface section is the **popups** of the game: every scene built on a PopupUI that is saved in the project. A popup has no editor of its own; it is a scene, and its behaviour (Esc, pause, blocking input, closing by itself, once only, what to do when another is open) is set with the options of its root node. See [Popups](/basic/events-and-quests/popups) for how to build one.
+
+| Part | What it does |
+|---|---|
+| **Popups (N)** | The number of popups, with a row for each: its **name**, its **scene** (in red when it is missing or its root is not a PopupUI) and a line of what it does (*shown once, pauses the game, blocks input, Esc closes, waits when busy*) |
+| **Create new popup** | Asks for a name and saves a copy of the Message popup of the toolkit in `src/data/popups/`, named after it, and puts it in the list |
+| **Open** | Opens the scene of the popup in the editor |
+| **Remove** | Takes the popup out of the list. The scene is not deleted, and saving it puts the popup back |
+
+
 ## See also
 
 - [User Interface](/basic/user-interface/) (the scenes)

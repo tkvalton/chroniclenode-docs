@@ -10,10 +10,6 @@ Quest Editor using the new ResourceManager and EditorFileList system
 
 | | | |
 |---|---|---|
-| `SpinBox` | [level_spinbox](#var-level-spinbox) |  |
-| `OptionButton` | [on_fail_option](#var-on-fail-option) |  |
-| `OptionButton` | [abandonable_option](#var-abandonable-option) |  |
-| `VBoxContainer` | [hand_in_cost_box](#var-hand-in-cost-box) |  |
 | `EventTypeManager  # Reuse EventTypeManager for actions` | [type_manager](#var-type-manager) |  |
 | `PopupMenu` | [reward_context_menu](#var-reward-context-menu) |  |
 
@@ -41,22 +37,6 @@ Quest Editor using the new ResourceManager and EditorFileList system
 - **CLEAR_ALL** = `5`
 
 ## Variable descriptions
-
-### SpinBox level_spinbox {#var-level-spinbox}
-
-*No description yet.*
-
-### OptionButton on_fail_option {#var-on-fail-option}
-
-*No description yet.*
-
-### OptionButton abandonable_option {#var-abandonable-option}
-
-*No description yet.*
-
-### VBoxContainer hand_in_cost_box {#var-hand-in-cost-box}
-
-*No description yet.*
 
 ### EventTypeManager  # Reuse EventTypeManager for actions type_manager {#var-type-manager}
 

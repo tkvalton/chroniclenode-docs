@@ -164,7 +164,7 @@ A bag is [equipment](#equipment) (it has the equipment fields too: an equipment 
 | Field | What it does | Default |
 |---|---|---|
 | **Slots it gives** | How many slots the bag adds to the inventory of its wearer | `6` |
-| **Takes only these groups** | [Groups](/basic/types-and-groups/groups) of items. With some ticked, the bag takes only items of those groups, and such items go there first. None = it takes anything | none |
+| **Takes only these groups** | [Groups](/basic/types-and-groups/groups) of items. With some picked, the bag takes only items of those groups, and such items go there first. None = it takes anything | none |
 | **What the items in it weigh (x)** | A multiplier on the weight of what is in the bag (`0.5` = half). It matters when the [inventory style](/basic/shared-systems/inventories#weight) counts weight | `1` |
 
 See [Bags](/basic/shared-systems/inventories#bags) for how the slots are listed, what happens when a bag comes off, and saving.

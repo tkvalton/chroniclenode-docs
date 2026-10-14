@@ -108,9 +108,8 @@ const basicSystems = [
     ['Quests', 'quests', 'quests'],
     ['Quest Lines', 'quest-lines', 'questlines'],
     ['Global Variables', 'global-variables', 'global_variables'],
-    ['Popups', 'popups', 'popups'],
   ], {
-    after: [page('Event triggers', '/basic/events-and-quests/event-triggers'), page('Event actions', '/basic/events-and-quests/event-actions')],
+    after: [page('Popups', '/basic/events-and-quests/popups'), page('Event triggers', '/basic/events-and-quests/event-triggers'), page('Event actions', '/basic/events-and-quests/event-actions')],
   }),
   system('Entities', 'entities', [
     ['Playable Character', 'playable-character', 'character_editor'],

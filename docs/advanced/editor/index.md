@@ -54,7 +54,6 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | Class | What it is |
 |---|---|
 | [AbilityEditor](/advanced/editor/abilities/ability-editor) | Ability Editor for managing ability resources - refactored to use ResourceEditor base |
-| [AbilityRankFields](/advanced/editor/abilities/ability-rank-fields) | The "Ranks" section of the ability editor: the highest rank of the ability and what each rank above the first changes on its numbers (cooldown, cost, cast time, range ...). |
 | [ComboStepsEditor](/advanced/editor/abilities/combo-steps-editor) |  |
 | [CompositeEffectProperties](/advanced/editor/abilities/composite-effect-properties) | Property panel for CompositeEffect - handles child effects management |
 | [ConnectionCreationDialog](/advanced/editor/abilities/connection-creation-dialog) | Dialog for creating new skill node connections with advanced options and pre-selection support |
@@ -127,12 +126,11 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [CharacterEditor](/advanced/editor/entities/character-editor) | CharacterEditor for managing CharacterDefinition resources CharacterDefinition inherits EntityDefinition for visual/audio and links to PlayerClassDefinition |
 | [EntityAbilitiesEditor](/advanced/editor/entities/entity-abilities-editor) | Editor for EntityDefinition ability properties - manages auto-attack and ability lists Now uses ListCatalog for ability selection with proper type filtering |
 | [InteractableDefinitionEditor](/advanced/editor/entities/interactable-definition-editor) | Editor for InteractableDefinition resources |
-| [InteractableUseFields](/advanced/editor/entities/interactable-use-fields) | The "Using it" fields of an interactable: what a user needs to use it (requirements, with a message and the choice to hide the prompt), how long using it takes (a time with a cast bar, and what interrupts it) and the animations while it is used (the user's, the object's). |
 | [InteractionEditor](/advanced/editor/entities/interaction-editor) | Editor for a single Interaction instance Combines category/type selection with dynamic property editing |
 | [NpcEditor](/advanced/editor/entities/npc-editor) | Entity Editor for managing NPCDefinitions resources |
 | [PlayerClassEditor](/advanced/editor/entities/player-class-editor) | PlayerClassEditor for managing PlayerClassDefinition resources |
 | [PlayerClassLevelRewardEditor](/advanced/editor/entities/player-class-level-reward-editor) | Editor for PlayerClassDefinition level rewards only Experience requirements are now managed in GameplayConfig |
-| [StarterEquipmentEditor](/advanced/editor/entities/starter-equipment-editor) | Simple ItemList-based editor for starter equipment Works with both PlayerClassDefinition and CharacterDefinition |
+| [StarterEquipmentEditor](/advanced/editor/entities/starter-equipment-editor) | The starting equipment of a player class, or the equipment override of a character: one row for each equipment slot, with the item in it, a button to choose another, one to see it and one to take it out. |
 | [StatsDataEditor](/advanced/editor/entities/stats-data-editor) | Unified editor for StatsData configuration Works for both EntityDefinition and InteractableObject stats |
 <!-- /classes -->
 
@@ -145,7 +143,6 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [EquipmentSlotDefinitionEditor](/advanced/editor/equipment-definitions/equipment-slot-definition-editor) | Equipment Slot Definition Editor for managing equipment slot definitions |
 | [EquipmentTypeDefinitionEditor](/advanced/editor/equipment-definitions/equipment-type-definition-editor) | Equipment Type Definition Editor for managing equipment and weapon type definitions |
 | [QualityEditor](/advanced/editor/equipment-definitions/quality-editor) | Quality Editor - handles quality definitions using the unified ResourceEditor base |
-| [QualityGenerationFields](/advanced/editor/equipment-definitions/quality-generation-fields) | The sections of the Quality editor that say what a quality does to a generated item: how often it is rolled, how much stat budget it gives, how many affixes it rolls, its sockets, its value and its name, and custom rules. |
 | [SetBonusDefinitionEditor](/advanced/editor/equipment-definitions/set-bonus-definition-editor) | Set Bonus Definition Editor for managing equipment set bonus definitions |
 | [SocketDefinitionEditor](/advanced/editor/equipment-definitions/socket-definition-editor) | Socket Definition Editor for managing socket type definitions |
 | [WeaponClassDefinitionEditor](/advanced/editor/equipment-definitions/weapon-class-definition-editor) | Weapon Class Definition Editor for managing weapon class definitions |
@@ -160,7 +157,6 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [EventEditor](/advanced/editor/events/event-editor) | Event Editor using the new ResourceManager and EditorFileList system |
 | [EventTreeBuilder](/advanced/editor/events/event-tree-builder) | Event tree builder with triggers, conditions, and actions |
 | [GlobalVariablesEditor](/advanced/editor/events/global-variables-editor) |  |
-| [PopupEditor](/advanced/editor/events/popup-editor) | Popup Editor for the popups of the game: the scenes built on PopupUI (a tutorial, a message, a toast, an achievement) and how each one behaves when it is shown. |
 | [QuestEditor](/advanced/editor/events/quest-editor) | Quest Editor using the new ResourceManager and EditorFileList system |
 | [QuestLineEditor](/advanced/editor/events/quest-line-editor) | QuestLine Editor using the new ResourceManager and EditorFileList system |
 | [QuestLineTreeBuilder](/advanced/editor/events/quest-line-tree-builder) | QuestLine tree builder with quest steps and on start/complete actions |
@@ -347,6 +343,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [DatabaseResourceButton](/advanced/editor/factory/database-resource-button) | Button that opens ListCatalog to select a database resource Shows resource name, has optional clear button |
 | [DynamicDictionaryEditor](/advanced/editor/factory/dynamic-dictionary-editor) | Reusable component for editing dictionaries with add/edit/remove functionality Supports items (id -&gt; quantity) and currency (id -&gt; amount) entries |
 | [ExperiencePerLevelEditor](/advanced/editor/factory/experience-per-level-editor) | Editor for experience_per_level Dictionary in GameplayConfig Displays a list of levels with their XP requirements and allows editing |
+| [IdMultiSelect](/advanced/editor/factory/id-multi-select) | A list of ids picked from a database type: the picked entries as small tags with an x, and an Add button that opens a searchable list of everything that exists. |
 | [PropertyFactory](/advanced/editor/factory/property-factory) |  |
 | [PropertyUIFactory](/advanced/editor/factory/property-ui-factory) | Factory for creating UI controls with consistent styling and behavior Uses class-based controls for complex components |
 | [Vector2Control](/advanced/editor/factory/vector2-control) | Two spinboxes for Vector2 input with clipboard paste support |
@@ -363,8 +360,10 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [DocsLinks](/advanced/editor/tools/docs-links) | Where the online documentation is, and which page belongs to which tab of the Database editor. |
 | [EditorThemeManager](/advanced/editor/tools/editor-theme-manager) | Centralized theme and icon management for the Event System Provides consistent theming across all UI components and handles editor integration |
 | [EffectUtil](/advanced/editor/tools/effect-util) |  |
+| [EnumOptions](/advanced/editor/tools/enum-options) | Fills the items of an OptionButton from an enum, so a pre-built option button in a scene shows the values of an enum without a list of names to keep up to date. |
 | [EventTypeManager](/advanced/editor/tools/event-type-manager) | Manages all event type scanning, creation, and parameter handling Updated to work with new Condition system using @export hints Uses PropertySelectorRegistry for unified property → database mappings |
 | [InteractableSceneCreator](/advanced/editor/tools/interactable-scene-creator) | Creates new InteractableScene templates with all essential nodes pre-configured |
+| [PopupLibrary](/advanced/editor/tools/popup-library) | The popups of the game as the editor needs them: the list, making a new one from the template and taking one out of the list. |
 | [ProjectSetupUtility](/advanced/editor/tools/project-setup-utility) | Utility for setting up project-wide settings like global shader parameters, audio buses, and input actions |
 | [PropertySelectorRegistry](/advanced/editor/tools/property-selector-registry) | Utility class for mapping property names to database/selector types Single source of truth for property name → database mappings Used by editors, dialogs, and dynamic UI generation systems |
 | [ResourceManager](/advanced/editor/tools/resource-manager) | THE resource manager - handles ALL resource types and operations Live editing - no save logic needed |

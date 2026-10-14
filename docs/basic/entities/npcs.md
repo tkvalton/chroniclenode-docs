@@ -21,7 +21,7 @@ A placed NPC can override the level, the model scale, the faction, the experienc
 | **Entity name**, **Description**, **Icon**, **Color** | The name that shows over the creature and in the editor lists | |
 | **Default level** | The level an NPC of this kind has when it spawns | `1` |
 | **Faction** | The [faction](/basic/behaviors/factions) of the NPC. It decides who attacks whom. **None** is a neutral creature that fights back only when it is attacked | none |
-| **Entity types** | The [types](/basic/types-and-groups/entity-types) of the creature (Beast, Undead) | none |
+| **Entity type** | The [type](/basic/types-and-groups/entity-types) of the creature (Beast, Undead). One type: picking another replaces it. The effects of the type are put on the NPC | none |
 
 ## Visual properties
 
@@ -71,6 +71,8 @@ The same three lists as a class: the **auto attack ability**, the **active** abi
 | **Combat script** | How it fights: what it does when it sees an enemy and in the fight. See [Combat Scripts](/basic/behaviors/combat-scripts). With none, it fights simply: it uses its abilities in turn |
 
 ## Loot
+
+The loot rules, the bag and the ranks of the abilities are in the **Inventory & Loot** section of the editor.
 
 What the NPC hands out is a list of [loot rules](/basic/items/loot-rules): each is a [loot table](/basic/items/loot-tables), a **trigger** (**On Initialize**: it carries it from the start, **On Death**: it is on the body, **On First Access**: the first time its pockets are opened, by a pickpocket or when the body is looted) and where the **item level** of generated items comes from (the NPC's own level by default). Add a rule with a shared table, or with a table of its own that you edit right there ("this guard carries the key"). A fixed starting inventory is just a rule on Initialize with a table of guaranteed entries.
 

@@ -31,11 +31,11 @@ Whatever it is, an entity is made of the same parts, and they come from its defi
 | **Inventory and equipment** | The [items](/basic/items/) it starts with, and the [slots](/basic/equipment-definitions/equipment-slot) it wears them in |
 | **Faction** | The [faction](/basic/behaviors/factions) decides who it fights, who it helps and who ignores it |
 | **Behavior** | The [behavior script](/basic/behaviors/behavior-scripts) (what it does when nothing is happening) and the [combat script](/basic/behaviors/combat-scripts) (what it does in a fight) |
-| **Entity types** | The [entity types](/basic/types-and-groups/entity-types) of the definition (Humanoid, Beast, Undead): conditions read them |
+| **Entity type** | The [entity type](/basic/types-and-groups/entity-types) of the definition (Humanoid, Beast, Undead): conditions read it, and the effects of the type are put on the entity |
 
 ## Entity types in the definition
 
-Every entity definition has an **Entity Types** list. Choose the [types](/basic/types-and-groups/entity-types) the creature is: a skeleton is *Undead* and *Humanoid*. A stat effect with a condition "the opponent is Undead" then works on it. Scripts can add and take away types while the game runs.
+Every entity definition has an **Entity type**. Choose the [type](/basic/types-and-groups/entity-types) the creature is: a skeleton is *Undead*. A stat effect, an effect or a requirement can then ask "is it Undead?", and the effects the type brings (undead take more holy damage) are on the creature from the start. An entity has **one** type.
 
 ## Templates
 

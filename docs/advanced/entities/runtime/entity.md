@@ -115,6 +115,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `bool` | [has_entity_tag](#method-has-entity-tag)( `tag_id: int` ) |
 | `void` | [add_entity_tag](#method-add-entity-tag)( `tag_id: int` ) |
 | `void` | [remove_entity_tag](#method-remove-entity-tag)( `tag_id: int` ) |
+| `void` | [sync_type_effects](#method-sync-type-effects)() |
 | `Dictionary` | [entity_tags_to_save](#method-entity-tags-to-save)() |
 | `void` | [entity_tags_from_save](#method-entity-tags-from-save)( `data: Dictionary` ) |
 | `float` | [modify_gain](#method-modify-gain)( `channel: String, amount: float` ) |
@@ -827,6 +828,10 @@ The level of a proficiency (swords, heavy armor, lockpicking). Only players trai
 ### void remove_entity_tag( tag_id: int ) {#method-remove-entity-tag}
 
 *No description yet.*
+
+### void sync_type_effects() {#method-sync-type-effects}
+
+Puts the effects of the types the entity has on it, and takes off the ones of the types it no longer has. Called when the entity is made and when a type is added or taken away
 
 ### Dictionary entity_tags_to_save() {#method-entity-tags-to-save}
 

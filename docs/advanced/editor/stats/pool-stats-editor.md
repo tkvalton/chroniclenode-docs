@@ -34,7 +34,7 @@ Available damage types for selection
 
 ### GrowthEditor growth_editor {#var-growth-editor}
 
-The Level Growth section: how the pool's maximum grows with the entity's level
+*No description yet.*
 
 ## Method descriptions
 

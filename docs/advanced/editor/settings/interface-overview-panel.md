@@ -11,10 +11,15 @@ Under the UI settings: whether each UI scene has the class its root must have, a
 | | |
 |---|---|
 | `void` | [refresh](#method-refresh)( `config: UISettingsConfig` ) |
+| `PopupData` | [create_popup](#method-create-popup)( `popup_name: String` ) |
 
 ## Method descriptions
 
 ### void refresh( config: UISettingsConfig ) {#method-refresh}
 
 *No description yet.*
+
+### PopupData create_popup( popup_name: String ) {#method-create-popup}
+
+Makes a popup and shows it in the list. Returns the popup (null when it could not be made: the reason is in the errors printed)
 
