@@ -13,12 +13,17 @@ You build both in the **Abilities & Effects** category of the editor. This page 
 | [Using an ability](/basic/abilities-and-effects/using-an-ability) | Instant, cast, channel and toggle: every setting, interrupts and cancelling |
 | [Targeting](/basic/abilities-and-effects/targeting) | Who or what an ability can be aimed at: the eight strategies, range, line of sight, markers |
 | [Aiming](/basic/abilities-and-effects/aiming) | Bows and guns: the Aimed strategy, aim assist, draw and release, charge, hitscan |
+| [Ability ranks](/basic/abilities-and-effects/ability-ranks) | Abilities that get stronger by rank, and where the ranks come from (skill tree nodes, quests, trainers) |
 | [Effects](/basic/abilities-and-effects/effects) | The Effects editor: time strategies, stacking, [auras](/basic/keywords#aura), [groups](/basic/shared-systems/groups), limited uses |
 | [Effect types](/basic/abilities-and-effects/effect-types) | Every effect type by category: damage, stats, status, movement, projectiles, procs and more |
 | [Stacking and groups](/basic/abilities-and-effects/stacking-and-groups) | Stacking rules, and groups: exclusive effects, shared [cooldowns](/basic/keywords#cooldown), enchant slots |
 | [Scaling and trigger rules](/basic/abilities-and-effects/scaling-and-trigger-rules) | Execute and combo bonuses, always-crit and never-dodge rules |
 | [Crowd control](/basic/abilities-and-effects/crowd-control) | Stuns, roots and silences: status types, [diminishing returns](/basic/keywords#diminishing-returns), [immunity](/basic/abilities-and-effects/immunities), breaking on damage |
 | [Child effects and auras](/basic/abilities-and-effects/child-effects-and-auras) | Chains of effects: which one the player sees, what ends them, and how their text is written |
+| [Status Effects](/basic/abilities-and-effects/status-effects) | Named conditions (Stun, Frozen, Snare, Silenced) and what each one stops an entity from doing |
+| [Immunities](/basic/abilities-and-effects/immunities) | What an entity cannot be hit or affected by |
+| [Skill Trees](/basic/abilities-and-effects/skill-trees) | How players spend points to unlock abilities, stats and proficiencies: nodes, choices, connections, point pools, refunds |
+| [Tutorials](/basic/abilities-and-effects/tutorials/) | Build a damage attack, add a cost and a cooldown, add a cast time |
 
 ## How the two fit together
 
@@ -72,4 +77,4 @@ An effect that is applied again while it is still running can **stack**, so a se
 - **Cost and resources** use the **pools** you define in *[Entity Stats](/basic/entity-stats/)*.
 - **Damage and healing** go through the [calculations](/basic/entity-stats/calculations) in *Entity Stats*, so stats, critical strikes, dodges and armor apply to every ability.
 - **Types & Groups** label damage and abilities by kind, make abilities share a cooldown, and decide which effects exclude each other.
-- **Skill Trees** are how players unlock abilities.
+- **[Skill Trees](/basic/abilities-and-effects/skill-trees)** are how players unlock abilities: a class gets trees, a player earns points (level ups, quests) and spends them on nodes that give abilities, proficiencies and more.
