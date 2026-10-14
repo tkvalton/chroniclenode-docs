@@ -2,7 +2,7 @@
 
 If your game lets the player make their own hero, **Character Creation** sets up what they can choose. It does nothing for a game that starts with a fixed party: turn **Use character creation UI** on in the [Gameplay Config](/basic/game-settings/gameplay-config) (*New Game Rules*) to use it. With it off, *Play* starts a new game with the **starting party** you set there.
 
-The editor has three parts: the **options** (a list of tabs made from the settings), **Templates**, and **Profiles**.
+The editor has tabs for **Templates** and **Profiles**. Each tab is one column of sections (the name of the section is its title: click it to fold it).
 
 ## How it fits together
 
@@ -27,7 +27,7 @@ Player picks ─► a template   (a ready-made character, loaded as it is)
 
 ## Profiles
 
-A **profile** is a ruleset for making a character of one archetype. The list shows the profiles; **Add Profile** and **Remove** change it, and the **Profile Editor** on the right edits the selected one.
+A **profile** is a ruleset for making a character of one archetype. The **Profile rulesets** section lists the profiles; **Add Profile** and **Remove** change it, and the sections under it (one for each row of the table below) edit the selected one.
 
 | Section | What it holds |
 |---|---|

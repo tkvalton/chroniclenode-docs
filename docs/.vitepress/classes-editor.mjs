@@ -749,6 +749,12 @@ export const groups = [
         "file": "editor_components/editors/settings/settings_editor.gd"
       },
       {
+        "name": "SettingsSection",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\settings_section.gd",
+        "file": "editor_components/editors/settings/settings_section.gd"
+      },
+      {
         "name": "UISettingsEditor",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\ui_settings_editor.gd",

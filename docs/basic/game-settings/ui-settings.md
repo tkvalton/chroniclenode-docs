@@ -2,7 +2,7 @@
 
 **UI Settings** tells the game **which scenes make up the interface** and which **pictures** it uses for the mouse cursor and the minimap. The scenes themselves are described in the [User Interface chapter](/basic/user-interface/); this page is the editor that points the game at them.
 
-Open **Game Settings > UI Settings**. The editor has the settings in columns, and under them **The interface at a glance** (see [below](#the-interface-at-a-glance)). Changes are saved as you make them to `res://src/data/config_data/ui_settings_config.tres`.
+Open **Game Settings > UI Settings**. The editor is one column of sections (a section for each kind of setting, with the groups inside it), and under them **The interface at a glance** (see [below](#the-interface-at-a-glance)). Changes are saved as you make them to `res://src/data/config_data/ui_settings_config.tres`.
 
 ## UI scene paths
 

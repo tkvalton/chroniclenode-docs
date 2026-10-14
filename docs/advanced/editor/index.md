@@ -214,6 +214,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [LevelGapEditor](/advanced/editor/settings/level-gap-editor) | The editor of "Level Gap Mode" in the Gameplay Config (Hit Rules): how the levels of the attacker and the target change the chance to hit. |
 | [LocalizationEditor](/advanced/editor/settings/localization-editor) | Editor for managing game localization and translations |
 | [SettingsEditor](/advanced/editor/settings/settings-editor) | Dynamic editor for Settings resource Automatically extracts doc comments as tooltips and manages player accessibility |
+| [SettingsSection](/advanced/editor/settings/settings-section) | A section of a settings editor, built like the sections of the scene editors: a FoldableContainer (its title is the name of the section), a Panel behind it, a MarginContainer and a VBoxContainer for the rows. |
 | [UISettingsEditor](/advanced/editor/settings/ui-settings-editor) | Editor for UISettingsConfig resource |
 <!-- /classes -->
 
