@@ -6,6 +6,23 @@ A **skill tree** is how a player spends points to get stronger: a web of **nodes
 
 A tree is given to a [player class](/basic/entities/player-classes#skill-trees). A class can have several trees, and every character of the class gets its own copy: what one character unlocks, another does not.
 
+## Where trees can be used
+
+A tree is a resource of its own, so you can make as many as you like: one for the class, one for each branch of the class, one for a profession. What a tree can be **attached to** today is narrower:
+
+| | Works today |
+|---|---|
+| **A player class** | Yes. The class lists its trees (the **Skill Trees** section of the class editor). Every character of the class gets a copy of each tree at the start of the game, with its own points and ranks |
+| **Several trees on one class** | Yes. The skill window has a **dropdown** with the trees of the class. A *class tree* and a tree for each *specialization* are simply several trees of the class, all there from the start |
+| **A choice inside a tree** | Yes. A **choice node** (one of several options) or two branches joined by a **mutually exclusive** connection are the way to make a specialization *inside* one tree |
+
+Not built yet:
+
+- **A tree for something that is not a class**: a single character, a profession, a faction, a race or an item. The class is the only place that lists trees. (The craft school editor has a *skill tree* field, but nothing reads it.)
+- **Giving or taking a tree while the game runs.** No reward, quest or event adds a tree to a character, so a tree cannot appear when a specialization is chosen, a profession is learned or a faction likes the player.
+- **A tree that is locked until something is true.** Level, prerequisites and points are rules of a **node**; a tree itself has no requirements and always shows.
+- **A specialization that picks one tree and hides the others.** The class [specializations](/basic/shared-systems/skill-tiers-and-specializations) are a separate system, for proficiencies and professions; they do not choose skill trees. Mutually exclusive connections only work between nodes of the **same** tree.
+
 ## The three pieces
 
 | Piece | What it is |
