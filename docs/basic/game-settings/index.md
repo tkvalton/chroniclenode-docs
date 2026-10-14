@@ -9,10 +9,8 @@
 | [Character Creation](/basic/game-settings/character-creation) | The character creator: templates, the races or archetypes (profiles), colours, voices |
 | [Collision Layers](/basic/game-settings/collision-layers) | Which kinds of object collide with which |
 | [Controller & Camera](/basic/game-settings/controller-and-camera) | The camera and controls presets: third person with WASD, top-down, point and click |
-| UI Settings | The cursors, textures and scenes of the interface |
-| Localization | The languages of the game |
-
-(UI Settings and Localization are documented with the interface.)
+| [UI Settings](/basic/game-settings/ui-settings) | The cursors, minimap icons and **scenes** of the [interface](/basic/user-interface/), with a check of each scene and a list of the panels and their keys |
+| [Localization](/basic/game-settings/localization) | The languages of the game |
 
 ## Where the settings live
 
@@ -40,7 +38,7 @@ A rule of thumb for deciding where something belongs:
 
 ## Action bars and keybinds
 
-How abilities and items sit on the bar, which key fires a slot (a keyboard key, a mouse button, a gamepad button), who may rearrange the bar, and how a game with the mouse buttons as attacks is made: [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds).
+How abilities and items sit on the bar, which key fires a slot (a keyboard key, a mouse button, a gamepad button), who may rearrange the bar, and how a game with the mouse buttons as attacks is made: [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds). The scene that draws the bar: [Action bar](/basic/user-interface/action-bar).
 
 ## See also
 

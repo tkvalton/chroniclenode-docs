@@ -20,5 +20,5 @@ The fields of an inventory style: how items take space, where the capacity comes
 
 ### void setup( style: InventoryStyle, optional: bool = false, setter: Callable = Callable() ) {#method-setup}
 
-\`style\`: the style to edit (null with \`optional\`: the project's style is used). \`setter\` gets the style when it is made or taken away
+`style`: the style to edit (null with `optional`: the project's style is used). `setter` gets the style when it is made or taken away
 

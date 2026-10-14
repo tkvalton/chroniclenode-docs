@@ -5,6 +5,7 @@ This section explains those tools once, so the chapter of each system can simply
 
 | Shared system | What it is | Where you meet it |
 |---|---|---|
+| [Triggers, conditions and actions](/basic/shared-systems/triggers-conditions-actions) | The **when, if, do** of the game: a trigger notices, conditions decide, actions act | Events, quest objectives and quest actions, behaviors, stat effects, encounters |
 | [Requirements](/basic/shared-systems/requirements) | What an entity must be or have: a level, a class, a stat, a reputation, a weapon | Abilities, effects, items, quests, crafting recipes, conversation responses |
 | [Conditions](/basic/shared-systems/conditions) | A yes-or-no question about the game right now: is it alive, is a quest done, are three enemies near | Events, behaviors, stat effects, the Condition conditional effect, encounters |
 | [Inventories](/basic/shared-systems/inventories) | Where items live: the bag of a character, what it wears, containers, remains, shops, the shared party bag, and the rules they share | Characters, NPCs, chests, vendors, trainers, crafting, loot |

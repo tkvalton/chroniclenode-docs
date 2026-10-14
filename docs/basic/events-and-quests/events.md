@@ -71,6 +71,7 @@ Each event has its own **local variables**: named values of type int, float, boo
 
 ## See also
 
+- [Triggers, conditions and actions](/basic/shared-systems/triggers-conditions-actions): the three blocks and where else they are used.
 - [Event triggers](/basic/events-and-quests/event-triggers), [Event actions](/basic/events-and-quests/event-actions), [Conditions](/basic/shared-systems/conditions).
 - [Quests](/basic/events-and-quests/quests) use the same triggers for their objectives.
 - [How events are built](/advanced/events-and-quests/).

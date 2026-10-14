@@ -4,12 +4,14 @@ This page has two halves: the **action bar** (what ability or item is on a slot,
 
 The **action bar** is the row of slots the player uses to fire abilities and items. A slot has two sides: **what is on it** (an ability or an item) and **the key that fires it**. ChronicleNode keeps the two apart, and that is what lets one system make a classic RPG bar, an action-combat game with the mouse buttons as attacks, or a bar the story fills in as the game goes on.
 
+How the **scene** of the bar is built (the unique names it needs, its options, the slot button, how to draw your own) is on [Action bar](/basic/user-interface/action-bar) in the User Interface chapter.
+
 ## The model
 
 | Part | What it is | Where you set it |
 |---|---|---|
 | **The slot** | A place with a number, 1 to 60 (the project decides how many are used). Every character has a bar of its own | [Gameplay Config](/basic/game-settings/gameplay-config#action-bar) > *Action Bar* |
-| **The key of a slot** | Slot *N* is fired by the input action \`action_slot_keybind_N\` | Godot's **Project > Project Settings > Input Map** |
+| **The key of a slot** | Slot *N* is fired by the input action `action_slot_keybind_N` | Godot's **Project > Project Settings > Input Map** |
 | **What is on a slot** | An ability or an item | The player drags it there, or a [class plan](#the-plan-of-a-class), an [effect](#an-effect-changes-a-slot) or an [event](#an-event-changes-a-slot) puts it there |
 | **Who may change it** | The player, or only the game | The [arrangement](#free-or-fixed), the *locked* flag of a slot, an effect that covers it |
 | **How it looks** | The interface scene: how many slots it shows, in what layout | Your own **action bar scene** (the template of the toolkit is a starting point) |
@@ -18,7 +20,7 @@ The bar is **not** the controller. A slot is fired when its key is pressed, what
 
 ## Keys
 
-The toolkit makes **60 input actions**, \`action_slot_keybind_1\` to \`action_slot_keybind_60\`, when you run the project setup (and a character that has the controller adds any that are missing).
+The toolkit makes **60 input actions**, `action_slot_keybind_1` to `action_slot_keybind_60`, when you run the project setup (and a character that has the controller adds any that are missing).
 
 | Slots | Default keys |
 |---|---|
@@ -27,7 +29,7 @@ The toolkit makes **60 input actions**, \`action_slot_keybind_1\` to \`action_sl
 | 21 to 30 | **Ctrl + 1** to **Ctrl + 0** |
 | 31 to 60 | **No keys**: bind the ones you need |
 
-Open **Project > Project Settings > Input Map**, find \`action_slot_keybind_1\` and change its key, or add a **mouse button** or a **gamepad button** to it. Nothing else has to change: the controller reads the action, and the key label on the slot reads the action too (a slot on the left mouse button shows **LMB**).
+Open **Project > Project Settings > Input Map**, find `action_slot_keybind_1` and change its key, or add a **mouse button** or a **gamepad button** to it. Nothing else has to change: the controller reads the action, and the key label on the slot reads the action too (a slot on the left mouse button shows **LMB**).
 
 **Game Settings > Settings > Keybinds** lists every input action with its current keys and a checkbox: tick the ones **players may rebind** in the settings menu. A player's change is saved apart from your defaults. See [Settings](/basic/game-settings/settings#keybinds).
 
@@ -113,7 +115,7 @@ NPCs always keep their basic attack.
 
 A **panel** is a window of the interface: the character sheet, the spellbook, the quest log, and any window you make. A panel is opened by **one of twenty panel keys**, the input actions `panel_keybind_1` to `panel_keybind_20`. The key and the panel are tied by a **number**, and the number is set **on the panel**:
 
-1. Open the panel's scene (a panel is a `PanelUI`) and set **Panel keybind** to a number from **1 to 20** (`0` = no key).
+1. Open the panel's scene (a panel is a [`PanelUI`](/advanced/user-interface/panels/panel-ui)) and set **Panel keybind** to a number from **1 to 20** (`0` = no key).
 2. In the **Input Map**, give `panel_keybind_N` the key you want.
 3. Name the key for the player in **Game Settings > Settings > Keybinds** (see [What the player reads](#what-the-player-reads)).
 
@@ -156,7 +158,7 @@ Leave the defaults. The player drags abilities from the spellbook onto slots 1 t
 ### An action game: left and right mouse button are attacks
 
 1. **Player basic attack: Off**.
-2. In the **Input Map**, give \`action_slot_keybind_1\` the **left mouse button** and \`action_slot_keybind_2\` the **right mouse button**. Remove the keys they had.
+2. In the **Input Map**, give `action_slot_keybind_1` the **left mouse button** and `action_slot_keybind_2` the **right mouse button**. Remove the keys they had.
 3. Plan the class: slot 1 = *Light Attack*, slot 2 = *Heavy Attack*, both **locked**.
 4. In your action bar scene, **do not draw slots 1 and 2** (or draw them as a fixed icon): the player does not click them, the mouse does.
 5. Use a controller preset that does not use the right button for mouse look (or make look a drag with *Secondary action trigger: Release without drag*).
@@ -179,7 +181,7 @@ Plan the first four slots in the class and **lock** them. Leave the rest free. T
 
 - A **locked** or **covered** slot cannot be dragged onto or off. The player is told "This slot cannot be changed".
 - A slot that waits for an ability is **empty** until it is learned.
-- The **key label** of a slot is read from the input action: \`Q\`, \`Ctrl 2\`, \`LMB\`, \`RMB\`, \`Mouse 4\`, \`Joy 0\`.
+- The **key label** of a slot is read from the input action: `Q`, `Ctrl 2`, `LMB`, `RMB`, `Mouse 4`, `Joy 0`.
 
 ## Saving
 

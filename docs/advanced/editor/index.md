@@ -210,6 +210,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [ConfigEditor](/advanced/editor/settings/config-editor) | Base class for configuration editors that dynamically build UI from exported properties Provides common functionality for GameplayConfigEditor and SettingsEditor |
 | [ControllerLogicEditor](/advanced/editor/settings/controller-logic-editor) | Editor for creating, loading, and editing controller logic resources (Camera &amp; Player) Allows switching between different logic types and editing their properties Resources are saved to disk for reuse across projects |
 | [GameplayConfigEditor](/advanced/editor/settings/gameplay-config-editor) | Editor for GameplayConfig resource with tab-based UI |
+| [InterfaceOverviewPanel](/advanced/editor/settings/interface-overview-panel) | Under the UI settings: whether each UI scene has the class its root must have, and what the in-game scene holds at a glance: the HUD elements, the interaction panels and the UI panels with their panel key numbers, with a warning for two panels that have the same key. |
 | [ItemBudgetEditor](/advanced/editor/settings/item-budget-editor) | The editor of "Item Budget Formula" in the Gameplay Config (General &gt; Item Generation): the formula that turns the item level into the stat budget of a generated item. |
 | [KillExperienceEditor](/advanced/editor/settings/kill-experience-editor) | The editor of "Kill Experience Mode" in the Gameplay Config (Leveling): how much experience a defeated NPC gives. |
 | [KillFalloffEditor](/advanced/editor/settings/kill-falloff-editor) | The editor of "Kill Experience Falloff" in the Gameplay Config (Leveling): an NPC under the level of the party gives less experience. |
@@ -226,10 +227,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 |---|---|
 | [CalculationList](/advanced/editor/stats/calculation-list) | Displays all CalculationModifierStatEffects affecting a calculation type Provides intuitive priority management with drag-and-drop reordering |
 | [CalculationsEditor](/advanced/editor/stats/calculations-editor) | Main calculations editor - manages priority ordering for all calculation types |
-| [DamageTypesEditor](/advanced/editor/stats/damage-types-editor) | Damage Types Editor for managing damage type definitions: the name, description, icon and color are the base editor's; the effects the damage type applies when a hit lands (fire burns) are shown by reflection of the definition. |
-| [EntityTagsEditor](/advanced/editor/stats/entity-tags-editor) | Entity Types Editor (the Entity Tag definitions): the types an entity can have (Humanoid, Beast, Undead ...). |
 | [FormulaGraph](/advanced/editor/stats/formula-graph) | A small line graph of a formula: stat points (or levels) along the bottom, the value it gives up the side. |
-| [GroupsEditor](/advanced/editor/stats/groups-editor) | Groups Editor: the groups effects, abilities and items can be in. |
 | [GrowthEditor](/advanced/editor/stats/growth-editor) | "Level Growth" section of the stat and pool editors: the formula and optional diminishing returns that turn the levels gained (level - 1) into growth, plus a ceiling and a small table of the result at a few levels. |
 | [GrowthOverridesEditor](/advanced/editor/stats/growth-overrides-editor) | The list of growth entries of a StatsData (an NPC's Level Growth Overrides) or of a GrowthProfile: one growth editor for each stat or pool that grows differently, a Remove button for each, and a picker to add one more. |
 | [GrowthProfilePicker](/advanced/editor/stats/growth-profile-picker) | A dropdown of the growth profiles of the project. |
@@ -237,7 +235,6 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [ImmunityDefinitionsEditor](/advanced/editor/stats/immunity-definitions-editor) | Immunity Definitions Editor for managing immunity definition resources |
 | [PoolStatsEditor](/advanced/editor/stats/pool-stats-editor) | Pool Stats Editor for managing pool definitions with damage type absorption |
 | [ProficienciesEditor](/advanced/editor/stats/proficiencies-editor) | Proficiencies Editor: the skills a player gets better at by use or training (swords, heavy armor, lockpicking). |
-| [SchoolTypesEditor](/advanced/editor/stats/school-types-editor) | School Types Editor for managing school type definitions |
 | [StatClassScanner](/advanced/editor/stats/stat-class-scanner) | Finds the classes that can fill a slot of a stat effect: the formulas, the diminishing-returns curves and the conditions. |
 | [StatEditor](/advanced/editor/stats/stat-editor) | Unified Stat Editor for managing stat definitions with composable StatEffect system |
 | [StatEffectPropertyEditor](/advanced/editor/stats/stat-effect-property-editor) | Dynamic property editor for StatEffect instances Creates appropriate UI controls based on effect type |

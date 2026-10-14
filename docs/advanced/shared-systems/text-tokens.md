@@ -59,8 +59,8 @@ The resolver returns an empty string when it has nothing to say; a token you add
 |---|---|
 | `Quest.get_display_title` and `get_display_description` | Quest name and description, with `quest` and `player` |
 | `QuestObjective.update_description` | Objective text, with the objective |
-| `ConversationPanelUI` | Conversation chat and response texts, with the NPC and the player |
-| `DefaultPopupUI` | The title and text of the default popup |
+| [`ConversationPanelUI`](/advanced/user-interface/interaction-panels/conversation-panel-ui) | Conversation chat and response texts, with the NPC and the player |
+| [`DefaultPopupUI`](/advanced/user-interface/in-game/default-popup-ui) | The title and text of the default popup |
 
 ## Not to be confused with
 

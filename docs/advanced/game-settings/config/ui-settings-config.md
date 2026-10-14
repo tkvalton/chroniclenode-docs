@@ -52,6 +52,8 @@ Stores all customizable UI settings including:
 
 | | |
 |---|---|
+| `String` | [get_scene_problem](#method-get-scene-problem)( `property_name: String` ) |
+| `Array[String]` | [get_scene_problems](#method-get-scene-problems)() |
 | `Dictionary` | [validate](#method-validate)() |
 | `UISettingsConfig` | [create_default](#method-create-default)() *static* |
 | `UISettingsConfig` | [get_config](#method-get-config)() *static* |
@@ -59,6 +61,7 @@ Stores all customizable UI settings including:
 ## Constants
 
 - `const` **CONFIG_PATH** = `"res://src/data/config_data/ui_settings_config.tres"`
+- `Dictionary` **REQUIRED_ROOT_CLASSES** = `{` - The class each UI scene must have as its root: the game calls the methods of that class. A scene of another class cannot do the job. Property name -&gt; class name (a scene can extend the class: a root of a class that extends it is fine)
 
 ## Property descriptions
 
@@ -162,29 +165,37 @@ Loading screen scene
 
 Nameplate scene
 
-*Tactical Command Icons*
+*Tooltip Scenes*
 
 ### String item_tooltip = "res://addons/chroniclenode/ui_scenes/in_game/tooltips/items {#prop-item-tooltip}
 
-Icon for movement command
+Tooltip of an item (root class TooltipItem)
 
 ### String ability_tooltip = "res://addons/chroniclenode/ui_scenes/in_game/tooltips/abili {#prop-ability-tooltip}
 
-Icon for attack command
+Tooltip of an ability (root class TooltipAbility)
 
 ### String effect_tooltip = "res://addons/chroniclenode/ui_scenes/in_game/tooltips/toolt {#prop-effect-tooltip}
 
-Icon for heal command
+Tooltip of an effect: a buff or a debuff (root class TooltipEffect)
 
 ### String skill_node_tooltip = "res://addons/chroniclenode/ui_scenes/in_game/tooltips/toolt {#prop-skill-node-tooltip}
 
-Icon for interact command
+Tooltip of a node of a skill tree (root class TooltipSkillNode)
 
 ### String description_tooltip = "res://addons/chroniclenode/ui_scenes/in_game/tooltips/toolt {#prop-description-tooltip}
 
-Icon for target command
+Tooltip with a name and a description (root class TooltipDescription): the buttons of the mini menu, stats, anything with a plain text
 
 ## Method descriptions
+
+### String get_scene_problem( property_name: String ) {#method-get-scene-problem}
+
+What is wrong with the root of a UI scene ("" = it is fine, or the scene is not set)
+
+### Array[String] get_scene_problems() {#method-get-scene-problems}
+
+The problems of all the UI scenes, as readable messages (empty = none)
 
 ### Dictionary validate() {#method-validate}
 

@@ -20,6 +20,7 @@ import { groups as assetClasses } from './classes-assets.mjs'
 import { groups as managerClasses } from './classes-managers.mjs'
 import { groups as editorClasses } from './classes-editor.mjs'
 import { groups as behaviorClasses } from './classes-behaviors.mjs'
+import { groups as userInterfaceClasses } from './classes-user-interface.mjs'
 
 const page = (text, link, extra = {}) => ({ text, link, ...extra })
 const kebab = name => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2').toLowerCase()
@@ -182,13 +183,41 @@ const basicSystems = [
     ['UI Settings', 'ui-settings', 'ui_settings'],
     ['Localization', 'localization', 'localization'],
   ], { after: [page('Action bars and keybinds', '/basic/game-settings/action-bars-and-keybinds')] }),
+  userInterface,
 ]
+
+// The interface: the scenes of the game's UI
+const userInterface = {
+  text: 'User Interface',
+  collapsed: true,
+  items: [
+    page('Overview', '/basic/user-interface/', { title: 'User Interface' }),
+    page('Loading Screen', '/basic/user-interface/loading-screen'),
+    page('Main Menu', '/basic/user-interface/main-menu'),
+    page('Character Creation screen', '/basic/user-interface/character-creation'),
+    {
+      text: 'In Game',
+      collapsed: true,
+      items: [
+        page('In Game', '/basic/user-interface/in-game'),
+        page('HUD', '/basic/user-interface/hud'),
+        page('Action bar', '/basic/user-interface/action-bar'),
+        page('Interaction Panels', '/basic/user-interface/interaction-panels'),
+        page('UI Panels', '/basic/user-interface/ui-panels'),
+      ],
+    },
+    page('Tooltips', '/basic/user-interface/tooltips'),
+    page('Nameplates', '/basic/user-interface/nameplates'),
+    page('Messages and popups', '/basic/user-interface/messages-and-popups'),
+  ],
+}
 
 const sharedSystems = {
   text: 'Shared systems',
   collapsed: true,
   items: [
     page('Overview', '/basic/shared-systems/', { title: 'Shared systems' }),
+    page('Triggers, conditions and actions', '/basic/shared-systems/triggers-conditions-actions'),
     page('Requirements', '/basic/shared-systems/requirements'),
     page('Inventories', '/basic/shared-systems/inventories'),
     page('Conditions', '/basic/shared-systems/conditions'),
@@ -305,7 +334,7 @@ const advancedSystems = [
   ['World', 'world'], ['Events & Quests', 'events-and-quests'], ['Entities', 'entities'], ['Abilities & Effects', 'abilities-and-effects'],
   ['Behaviors', 'behaviors'], ['Entity Stats', 'entity-stats'], ['Types & Groups', 'types-and-groups'], ['Items', 'items'],
   ['Equipment Definitions', 'equipment-definitions'], ['Assets', 'assets'], ['Game Settings', 'game-settings'],
-  ['Managers', 'managers'], ['Editor', 'editor'],
+  ['User Interface', 'user-interface'], ['Managers', 'managers'], ['Editor', 'editor'],
 ].map(([text, slug]) => slug === 'abilities-and-effects'
   ? withPages(classSystem(text, slug, abilitiesAndEffectsClasses), [page('Ability ranks', '/advanced/abilities-and-effects/ranks', { title: 'Ability ranks: how they are built' }), page('The effect amount', '/advanced/abilities-and-effects/effect-amount', { title: 'The effect amount: how it is built' }),page('Immunities', '/advanced/abilities-and-effects/immunities', { title: 'Immunities: how they are built' }), page('Skill trees', '/advanced/abilities-and-effects/skill-trees', { title: 'Skill trees: how they are built' })])
   : slug === 'world'
@@ -326,6 +355,8 @@ const advancedSystems = [
   ? classSystem(text, slug, assetClasses)
   : slug === 'game-settings'
   ? classSystem(text, slug, gameSettingsClasses)
+  : slug === 'user-interface'
+  ? classSystem(text, slug, userInterfaceClasses)
   : slug === 'managers'
   ? classSystem(text, slug, managerClasses)
   : slug === 'editor'
@@ -381,6 +412,10 @@ export const sidebar = [
       page('Flying', '/planned/flying'),
       page('Mounts', '/planned/mounts'),
       page('The World Builder', '/planned/world-builder'),
+      page('Localization', '/planned/localization'),
+      page('Chat box and combat log', '/planned/chat-box'),
+      page('Entity tooltip', '/planned/entity-tooltip'),
+      page('Which windows can be open together', '/planned/panel-stacking'),
       page('Zones', '/planned/zones'),
       page('Spawners', '/planned/spawners'),
       page('The NPC behaviour tool', '/planned/npc-behaviour-tool'),

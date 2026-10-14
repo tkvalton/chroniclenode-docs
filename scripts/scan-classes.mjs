@@ -361,6 +361,30 @@ const SYSTEMS = {
       { text: 'Rig and bodies', slug: 'rig', dirs: [['runtime_classes/entity/components/rig', true], ['runtime_classes/entity/components/audio_component.gd', false], ['runtime_classes/entity/components/animation_resolver.gd', false], ['runtime_classes/utility/extended_skin_service.gd', false]] },
     ],
   },
+  'user-interface': {
+    title: 'User Interface',
+    groups: [
+      {
+        text: 'Scenes',
+        slug: 'scenes',
+        dirs: [
+          ['ui_scenes/current_ui.gd', false],
+          ['ui_scenes/in_game/in_game_ui.gd', false],
+          ['ui_scenes/menus/main/main_menu.gd', false],
+          ['ui_scenes/menus/character_creation_menu/character_creation_ui.gd', false],
+          ['ui_scenes/loading_screen/loading_screen.gd', false],
+          ['ui_scenes/splash_screen/splash_screen.gd', false],
+        ],
+      },
+      { text: 'Nameplates', slug: 'nameplates', dirs: [['ui_scenes/in_game/nameplates_manager.gd', false], ['ui_scenes/in_game/HUD/components/nameplates', false]] },
+      { text: 'HUD', slug: 'hud', dirs: [['ui_scenes/in_game/HUD', true]] },
+      { text: 'Interaction panels', slug: 'interaction-panels', dirs: [['ui_scenes/in_game/panels/interaction_panels', true]] },
+      { text: 'UI panels', slug: 'panels', dirs: [['ui_scenes/in_game/panels', true]] },
+      { text: 'Tooltips', slug: 'tooltips', dirs: [['ui_scenes/in_game/tooltips', true]] },
+      { text: 'In game: menus, dragging, messages', slug: 'in-game', dirs: [['ui_scenes/in_game/esc_menu', true], ['ui_scenes/in_game/game_over', true], ['ui_scenes/in_game/drag_controller.gd', false], ['ui_scenes/in_game/dragged_content.gd', false], ['ui_scenes/in_game/message_manager.gd', false], ['ui_scenes/in_game/popups', true], ['ui_scenes/in_game/debug', true]] },
+      { text: 'Menus', slug: 'menus', dirs: [['ui_scenes/menus', true]] },
+    ],
+  },
   'managers': {
     title: 'Managers',
     groups: [

@@ -83,6 +83,12 @@ export const groups = [
         "file": "runtime_classes/utility/instance_utility.gd"
       },
       {
+        "name": "InterfaceOverview",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\interface_overview.gd",
+        "file": "runtime_classes/utility/interface_overview.gd"
+      },
+      {
         "name": "PlayerUtility",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\player_utility.gd",
@@ -93,6 +99,12 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\range_quary_util.gd",
         "file": "runtime_classes/utility/range_quary_util.gd"
+      },
+      {
+        "name": "SceneStateReader",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\scene_state_reader.gd",
+        "file": "runtime_classes/utility/scene_state_reader.gd"
       }
     ]
   },

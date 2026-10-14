@@ -64,8 +64,10 @@ Not managers, but used the same way from anywhere: the [`Database`](/advanced/da
 |---|---|
 | [InputEventText](/advanced/managers/utilities/input-event-text) | The text of an input event for the screen: "Q", "Ctrl 2", "LMB", "Mouse 4", "Joy A". |
 | [InstanceUtility](/advanced/managers/utilities/instance-utility) | Utility script to help item/ability creation anywhere. |
+| [InterfaceOverview](/advanced/managers/utilities/interface-overview) | What the in-game interface scene holds, read from the scene without running it: the HUD elements, the interaction panels and the UI panels, with the panel key number of each panel and the problems with them (two panels with one key, a panel with a key and no name, a node in a container that is not of the class the interface needs). |
 | [PlayerUtility](/advanced/managers/utilities/player-utility) |  |
 | [RangeQueryUtil](/advanced/managers/utilities/range-query-util) | RangeQueryUtil is a global system providing various helper functions for game logic, particularly focusing on spatial queries and entity relationships within the game world. |
+| [SceneStateReader](/advanced/managers/utilities/scene-state-reader) | Reads the nodes of a PackedScene from its saved state, without making the nodes. |
 <!-- /classes -->
 
 ### Combat sessions

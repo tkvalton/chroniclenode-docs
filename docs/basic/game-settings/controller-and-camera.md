@@ -83,6 +83,10 @@ The warnings are advice, not a lock: the controller wins any conflict.
 
 How fast the mouse turns the view is the **player's** setting, not the preset's: *Mouse sensitivity*, the X and Y fine-tuning and *invert* are in [Game Settings](/basic/game-settings/settings#gameplay). A preset only holds its relative feel (*Look sensitivity scale*). Two options of the Gameplay Config tune the whole input: **Look drag threshold** (how many pixels a press must move to count as a drag instead of a click, `10`) and **Log input routing** (prints where each click went, for finding a UI element that swallows clicks).
 
+## Mouse buttons and the action bar
+
+An **action bar slot** can be bound to a mouse button (the left and right buttons as attacks in an action game). A slot is read **before** the controller, so a button taken by a slot is not also a click or a mouse look. Choose a preset that does not claim the button, or put the slot on another one. The whole setup is in [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds#keys); the scene that draws the bar is [Action bar](/basic/user-interface/action-bar).
+
 ## Clicks that do not reach the world
 
 If clicks do nothing in your game, a full-screen UI node is probably catching them. In your own interface scenes, set `mouse_filter` to **Ignore** on roots, containers and overlays, and to **Stop** on panels and buttons. See the [advanced page](/advanced/game-settings/#input).

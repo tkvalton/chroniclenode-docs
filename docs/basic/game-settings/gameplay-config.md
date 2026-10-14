@@ -184,7 +184,7 @@ If an NPC has several types, *Fixed offset* wins over *Never scales*, and the fi
 
 ### Action bar
 
-How the bar of a character works. The whole subject, with recipes, is on [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds).
+How the bar of a character works. The whole subject, with recipes, is on [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds); the scene that draws it is [Action bar](/basic/user-interface/action-bar).
 
 | Setting | What it does | Default |
 |---|---|---|

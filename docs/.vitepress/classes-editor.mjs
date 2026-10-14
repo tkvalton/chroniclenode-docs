@@ -725,6 +725,12 @@ export const groups = [
         "file": "editor_components/editors/settings/gameplay_config_editor.gd"
       },
       {
+        "name": "InterfaceOverviewPanel",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\interface_overview_panel.gd",
+        "file": "editor_components/editors/settings/interface_overview_panel.gd"
+      },
+      {
         "name": "ItemBudgetEditor",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\item_budget_editor.gd",
@@ -785,28 +791,10 @@ export const groups = [
         "file": "editor_components/editors/stats/calculations_editor.gd"
       },
       {
-        "name": "DamageTypesEditor",
-        "base": "ResourceEditor",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\stats\\damage_types_editor.gd",
-        "file": "editor_components/editors/stats/damage_types_editor.gd"
-      },
-      {
-        "name": "EntityTagsEditor",
-        "base": "ResourceEditor",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\stats\\entity_tags_editor.gd",
-        "file": "editor_components/editors/stats/entity_tags_editor.gd"
-      },
-      {
         "name": "FormulaGraph",
         "base": "Control",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\stats\\stats_properties\\formula_graph.gd",
         "file": "editor_components/editors/stats/stats_properties/formula_graph.gd"
-      },
-      {
-        "name": "GroupsEditor",
-        "base": "ResourceEditor",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\stats\\groups_editor.gd",
-        "file": "editor_components/editors/stats/groups_editor.gd"
       },
       {
         "name": "GrowthEditor",
@@ -849,12 +837,6 @@ export const groups = [
         "base": "ResourceEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\stats\\proficiencies_editor.gd",
         "file": "editor_components/editors/stats/proficiencies_editor.gd"
-      },
-      {
-        "name": "SchoolTypesEditor",
-        "base": "ResourceEditor",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\stats\\school_types_editor.gd",
-        "file": "editor_components/editors/stats/school_types_editor.gd"
       },
       {
         "name": "StatClassScanner",

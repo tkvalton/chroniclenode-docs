@@ -12,7 +12,7 @@ The [Events & Quests chapter](/basic/events-and-quests/) explains the editors. T
 | [`EventAction`](/advanced/events-and-quests/bases/event-action) and its kinds | The "do": a small state machine that finishes with `complete()` or `fail()` |
 | [`Quest`](/advanced/events-and-quests/events/quest), [`QuestObjective`](/advanced/events-and-quests/events/quest-objective), [`QuestLine`](/advanced/events-and-quests/events/quest-line) | Database resources (types `quest`, `questline`) that also run themselves |
 | [`GlobalVariable`](/advanced/events-and-quests/events/global-variable), `LocalVariables` | The named values |
-| [`PopupData`](/advanced/events-and-quests/popups/popup-data), [`PopupManager`](/advanced/events-and-quests/popups/popup-manager), `PopupUI` | Popups |
+| [`PopupData`](/advanced/events-and-quests/popups/popup-data), [`PopupManager`](/advanced/events-and-quests/popups/popup-manager), [`PopupUI`](/advanced/user-interface/in-game/popup-ui) | Popups |
 | [`EventManager`](/advanced/events-and-quests/runtime/event-manager) | One node. Holds the **copies** of every event, quest and quest line, the lists of what is active or done, the global variables; saves and loads them |
 
 ## Definitions and copies

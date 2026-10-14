@@ -11,7 +11,7 @@ The [Trainers](/basic/items/trainers), [Skill tiers and specializations](/basic/
 | [`LessonCost`](/advanced/items/trainers/lesson-cost) | Money, items and skill points: `get_blocker`, `pay`, `refund`, `describe`, all scaled by a multiplier and rounded up |
 | [`ReputationPrice`](/advanced/items/trainers/reputation-price) | A row of a price table by reputation. `multiplier_for(rows, reputation)` |
 | [`TrainerInteraction`](/advanced/entities/interactions/trainer-interaction) | The interaction: opens the panel, `get_offers(player)`, `learn(lesson, player)`, signal `lesson_learned`. Closes when the player walks away |
-| `TrainerPanelUI` | The list of lessons, built in code. `InGameUI.open_trainer_panel` makes it with the other windows. A game can replace it: the interaction gives it everything |
+| [`TrainerPanelUI`](/advanced/user-interface/interaction-panels/trainer-panel-ui) | The list of lessons, built in code. [`InGameUI.open_trainer_panel`](/advanced/user-interface/scenes/in-game-ui) makes it with the other windows. A game can replace it: the interaction gives it everything |
 | [`SkillTier`](/advanced/items/skills/skill-tier), [`SkillSpecialization`](/advanced/items/skills/skill-specialization) | The tiers and the specializations of a skill (the lists are `tiers` and `specializations` of [`ProficiencyDefinition`](/advanced/entity-stats/definitions/proficiency-definition) and [`CraftSchoolDefinition`](/advanced/items/crafting/craft-school-definition)) |
 
 ## A lesson
