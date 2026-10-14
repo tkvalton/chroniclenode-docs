@@ -58,7 +58,9 @@ All the resources extend DatabaseResource. The database also makes the few resou
 | `bool` | [remove_toggle_group](#method-remove-toggle-group)( `group_name: String` ) *static* |
 | `bool` | [rename_toggle_group](#method-rename-toggle-group)( `old_name: String, new_name: String` ) *static* |
 | `NPCDefinition` | [create_entity_from_template](#method-create-entity-from-template)( `template_id: int, display_name: String` ) *static* |
-| `NPCDefinition` | [clone_entity_as_template](#method-clone-entity-as-template)( `source_id: int` ) *static* |
+| `InteractableDefinition` | [create_interactable_from_template](#method-create-interactable-from-template)( `template_id: int, display_name: String` ) *static* |
+| `NPCDefinition` | [clone_entity_as_template](#method-clone-entity-as-template)( `source_id: int, template_name: String = "", follow: bool = false` ) *static* |
+| `InteractableDefinition` | [clone_interactable_as_template](#method-clone-interactable-as-template)( `source_id: int, template_name: String = "", follow: bool = false` ) *static* |
 | `PlayerClassDefinition` | [create_player_class_from_template](#method-create-player-class-from-template)( `template_id: int, display_name: String` ) *static* |
 | `PlayerClassDefinition` | [clone_player_class_as_template](#method-clone-player-class-as-template)( `source_id: int` ) *static* |
 
@@ -228,9 +230,17 @@ Renames a toggle group and saves the list.
 
 Makes a new NPC from the NPC template with this id, named `display_name`, and saves it in "npc". Null when the name is empty, the template does not exist or the file cannot be written.
 
-### NPCDefinition clone_entity_as_template( source_id: int ) {#method-clone-entity-as-template}
+### InteractableDefinition create_interactable_from_template( template_id: int, display_name: String ) {#method-create-interactable-from-template}
 
-Saves a copy of the NPC with this id as a new NPC template (no name, `template = true`) in "npc_template". Null when the NPC does not exist or the file cannot be written.
+Makes a new interactable from the interactable template with this id, named `display_name`, and saves it in "interactable". It follows the template. Null when the name is empty, the template does not exist or the file cannot be written.
+
+### NPCDefinition clone_entity_as_template( source_id: int, template_name: String = "", follow: bool = false ) {#method-clone-entity-as-template}
+
+Saves a copy of the NPC with this id as a new NPC template (`template = true`, named `template_name`, no name when empty) in "npc_template". With `follow` the NPC follows the new template from then on. Null when the NPC does not exist or the file cannot be written.
+
+### InteractableDefinition clone_interactable_as_template( source_id: int, template_name: String = "", follow: bool = false ) {#method-clone-interactable-as-template}
+
+The same for an interactable: saves a copy of it as a new interactable template in "interactable_template"
 
 ### PlayerClassDefinition create_player_class_from_template( template_id: int, display_name: String ) {#method-create-player-class-from-template}
 

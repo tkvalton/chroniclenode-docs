@@ -39,7 +39,7 @@ Every entity definition has an **Entity type**. Choose the [type](/basic/types-a
 
 ## Templates
 
-The player class and NPC editors have a **Templates** menu and a **Save as Template** button. A template is a definition you start new ones from: make a "Goblin" once, save it, and make ten variants by changing the level, the loot and the faction.
+An NPC or an interactable can **follow a template**: the stats, pools, immunities, growth and abilities that many of them share. Change the template and everything that follows it changes, keeping what each one did for itself. See [Templates](/basic/entities/templates). The player class editor has a **Templates** menu that makes a new class from a saved one.
 
 ## See also
 

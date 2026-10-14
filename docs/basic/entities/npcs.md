@@ -14,6 +14,10 @@ An **NPC** is every living thing that is not controlled by a player: enemies, to
 
 A placed NPC can override the level, the model scale, the faction, the experience it is worth, its behavior and combat script, its loot table and inventory, and its stats. It can also **be given an interaction** (a conversation, a shop, a quest to give), have a spawn delay, a respawn timer, and decide whether it vanishes on death. Everything not overridden comes from the definition.
 
+## Template
+
+An NPC can **follow a [template](/basic/entities/templates)**: the stats, pools, immunities, growth and abilities that many NPCs share. The **Template** section at the top of the editor chooses it, lists what this NPC changed on top of it, and makes new templates. A template is edited in this same editor, with the model, animations, audio and loot hidden.
+
 ## Basic properties
 
 | Field | What it does | Default |
@@ -49,6 +53,8 @@ A placed NPC can override the level, the model scale, the faction, the experienc
 ## Stats
 
 The **Stats** section is the same *stats data* a [player class](/basic/entities/player-classes#stats) has: the pools, the core stat overrides (an NPC's **weapon damage** and **weapon speed** are how hard and how fast its bite hits), the base value of each stat, permanent [immunities](/basic/abilities-and-effects/immunities) and level growth overrides.
+
+Above the list of stats a **Show** menu filters it by [stat group](/basic/entity-stats/stat-groups): *All stats*, one group (Primary, Offensive ...) or *In no group*, so a long list reads one group at a time.
 
 An NPC levels with its **level**: its stats grow with it by their *level growth*, so a level 20 wolf is a stronger wolf than a level 5 one without a second definition.
 

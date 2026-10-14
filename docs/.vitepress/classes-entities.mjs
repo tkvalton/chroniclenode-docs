@@ -45,6 +45,12 @@ export const groups = [
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\player_class_definition.gd",
         "file": "data_classes/entity/player_class_definition.gd"
+      },
+      {
+        "name": "TemplateBaseline",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\template_baseline.gd",
+        "file": "data_classes/entity/template_baseline.gd"
       }
     ]
   },
@@ -207,6 +213,12 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\components\\entity_component_registry.gd",
         "file": "runtime_classes/entity/components/entity_component_registry.gd"
+      },
+      {
+        "name": "EntityTemplates",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\entity_templates.gd",
+        "file": "runtime_classes/entity/entity_templates.gd"
       },
       {
         "name": "FormationSystem",

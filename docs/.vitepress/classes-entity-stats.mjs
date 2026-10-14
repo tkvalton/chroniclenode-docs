@@ -23,6 +23,12 @@ export const groups = [
         "file": "data_classes/stats/growth_override.gd"
       },
       {
+        "name": "GrowthPreview",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\growth_preview.gd",
+        "file": "data_classes/stats/growth_preview.gd"
+      },
+      {
         "name": "GrowthProfile",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\growth_profile.gd",

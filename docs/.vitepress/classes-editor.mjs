@@ -399,6 +399,12 @@ export const groups = [
         "base": "BoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\property_editors\\stats_data_editor.gd",
         "file": "editor_components/editors/entities/property_editors/stats_data_editor.gd"
+      },
+      {
+        "name": "TemplateSection",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\property_editors\\template_section.gd",
+        "file": "editor_components/editors/entities/property_editors/template_section.gd"
       }
     ]
   },

@@ -37,6 +37,10 @@ Core data definition for interactable objects. This is the "NPCDefinition" equiv
 | `SFXSelection` | [damaged_sound](#prop-damaged-sound) |  |
 | `SFXSelection` | [destroyed_sound](#prop-destroyed-sound) |  |
 | `VFXSelection` | [destruction_vfx](#prop-destruction-vfx) |  |
+| `int` | [template_id](#prop-template-id) | `0` |
+| `TemplateBaseline` | [template_baseline](#prop-template-baseline) |  |
+| `Array[int]` | [template_fixed_stats](#prop-template-fixed-stats) | `[]` |
+| `bool` | [template](#prop-template) | `false` |
 
 ## Methods
 
@@ -55,6 +59,7 @@ Core data definition for interactable objects. This is the "NPCDefinition" equiv
 | `void` | [make_fully_targetable](#method-make-fully-targetable)() |
 | `void` | [make_aoe_targetable_only](#method-make-aoe-targetable-only)() |
 | `void` | [make_non_targetable](#method-make-non-targetable)() |
+| `bool` | [is_template](#method-is-template)() |
 
 ## Property descriptions
 
@@ -186,6 +191,24 @@ Sound when object is destroyed (if object_has_stats)
 
 VFX to play when destroyed (if object_has_stats)
 
+*Template*
+
+### int template_id = 0 {#prop-template-id}
+
+The template this one follows (an id of the npc_template / interactable_template database type), 0 = none. An entity that follows a template has the changes of the template added when they are made (see EntityTemplates). Its growth is the growth of the template
+
+### TemplateBaseline template_baseline {#prop-template-baseline}
+
+What the template was when this entity last looked at it (the difference to the template now is what is added)
+
+### Array[int] template_fixed_stats = [] {#prop-template-fixed-stats}
+
+Stats whose base value does not follow the template (they have the value set here whatever the template does)
+
+### bool template = false {#prop-template}
+
+Is this a template (a definition that others follow)?
+
 ## Method descriptions
 
 ### bool is_valid() {#method-is-valid}
@@ -239,4 +262,8 @@ Configure as AoE-only targetable (common for environmental objects)
 ### void make_non_targetable() {#method-make-non-targetable}
 
 Configure as non-targetable (pure interaction objects)
+
+### bool is_template() {#method-is-template}
+
+*No description yet.*
 

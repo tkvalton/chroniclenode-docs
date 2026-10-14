@@ -6,6 +6,10 @@ An **interactable** is an object of the world that the player can use or hurt: a
 
 An interactable has **one interaction**: the thing that happens when it is used. The model, the lock, the targeting and the stats are the same for every kind.
 
+## Template
+
+An interactable can **follow a [template](/basic/entities/templates)** for its stats, pools, immunities and growth: all the *Wooden Crate*s share one template. The **Template** section at the top of the editor chooses it and lists what this object changed on top of it. A template hides the model, sounds, effects, interactions and loot.
+
 ## Basic properties
 
 | Field | What it does |

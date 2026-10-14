@@ -15,6 +15,9 @@ NPCDefinition extends EntityDefinition with combat stats, AI behavior, and loot 
 | `float` | [experience_multiplier](#prop-experience-multiplier) | `1.0` |
 | `int` | [faction](#prop-faction) | `0` |
 | `StatsData` | [stats_data](#prop-stats-data) | `StatsData.new()` |
+| `int` | [template_id](#prop-template-id) | `0` |
+| `TemplateBaseline` | [template_baseline](#prop-template-baseline) |  |
+| `Array[int]` | [template_fixed_stats](#prop-template-fixed-stats) | `[]` |
 | `Array[LootRule]` | [loot_rules](#prop-loot-rules) | `[]` |
 | `InventoryStyle` | [inventory_style](#prop-inventory-style) | `null` |
 | `LootTableLogic` | [loot_table_logic](#prop-loot-table-logic) | `LootTableLogic.NONE` |
@@ -138,6 +141,20 @@ Team/faction alignment for combat and AI behavior
 ### StatsData stats_data = StatsData.new() {#prop-stats-data}
 
 Stats configuration including health, resources, and combat stats
+
+*Template*
+
+### int template_id = 0 {#prop-template-id}
+
+The template this one follows (an id of the npc_template / interactable_template database type), 0 = none. An entity that follows a template has the changes of the template added when they are made (see EntityTemplates). Its growth is the growth of the template
+
+### TemplateBaseline template_baseline {#prop-template-baseline}
+
+What the template was when this entity last looked at it (the difference to the template now is what is added)
+
+### Array[int] template_fixed_stats = [] {#prop-template-fixed-stats}
+
+Stats whose base value does not follow the template (they have the value set here whatever the template does)
 
 *Loot Configuration*
 

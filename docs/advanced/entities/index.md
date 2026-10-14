@@ -118,6 +118,7 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 | [InteractableDefinition](/advanced/entities/definitions/interactable-definition) | Core data definition for interactable objects. |
 | [NPCDefinition](/advanced/entities/definitions/npc-definition) | NPCDefinition extends EntityDefinition with combat stats, AI behavior, and loot systems Used for creating NPC entities with full combat and inventory capabilities |
 | [PlayerClassDefinition](/advanced/entities/definitions/player-class-definition) | PlayerClassDefinition defines the template and progression for player character classes This is a class archetype (like "Warrior", "Mage") not tied to specific entity models |
+| [TemplateBaseline](/advanced/entities/definitions/template-baseline) | What a template was the last time an entity that uses it looked at it: the base values of its stats and pools, its immunities and its abilities. |
 <!-- /classes -->
 
 ### Interactions
@@ -157,6 +158,7 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 | [Entity](/advanced/entities/runtime/entity) | Entity is the base class for all characters and creatures in the game world. |
 | [EntityComponentMediator](/advanced/entities/runtime/entity-component-mediator) | Internal signal bus for Entity component coordination |
 | [EntityComponentRegistry](/advanced/entities/runtime/entity-component-registry) | Unified component manager for Entity - combines registry and factory Provides type-safe access to all entity components with lazy initialization Eliminates timing issues by ensuring components exist when accessed |
+| [EntityTemplates](/advanced/entities/runtime/entity-templates) | Entities that follow a template. |
 | [FormationSystem](/advanced/entities/runtime/formation-system) |  |
 | [InteractableObject](/advanced/entities/runtime/interactable-object) | Unified interactable object class - uses InteractableDefinition + Interactions All specialized logic is now in Interaction subclasses |
 | [NPC](/advanced/entities/runtime/npc) | NPC represents a non-player character in the game. |

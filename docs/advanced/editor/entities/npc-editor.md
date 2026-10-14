@@ -27,15 +27,9 @@ Entity Editor for managing NPCDefinitions resources
 | | |
 |---|---|
 | `void` | [setup_managers](#method-setup-managers)( `p_resource_manager: ResourceManager, p_dialog_manager: DialogManager` ) |
-| `void` | [build_template_menu](#method-build-template-menu)() |
 | `EntityDefinition` | [get_current_entity_data](#method-get-current-entity-data)() |
 | `void` | [set_current_entity](#method-set-current-entity)( `entity_data: EntityDefinition` ) |
 | `void` | [refresh_database_references](#method-refresh-database-references)() |
-
-## Constants
-
-- `const` **TEMPLATE_NEW** = `300`
-- `const` **TEMPLATE_BROWSE** = `301`
 
 ## Variable descriptions
 
@@ -88,10 +82,6 @@ Entity Editor for managing NPCDefinitions resources
 ### void setup_managers( p_resource_manager: ResourceManager, p_dialog_manager: DialogManager ) {#method-setup-managers}
 
 *Overrides this function of [ResourceEditor](/advanced/editor/base/resource-editor).*
-
-### void build_template_menu() {#method-build-template-menu}
-
-*No description yet.*
 
 ### EntityDefinition get_current_entity_data() {#method-get-current-entity-data}
 

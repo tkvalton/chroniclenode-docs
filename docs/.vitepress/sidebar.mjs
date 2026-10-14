@@ -117,7 +117,7 @@ const basicSystems = [
     ['NPCs', 'npcs', 'entities'],
     ['Interactables', 'interactables', 'interactables'],
   ], {
-    after: [page('Shared party inventory', '/basic/entities/shared-inventory')],
+    after: [page('Templates', '/basic/entities/templates'), page('Shared party inventory', '/basic/entities/shared-inventory')],
   }),
   abilitiesAndEffects,
   system('Behaviors', 'behaviors', [
