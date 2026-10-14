@@ -62,7 +62,7 @@ All the resources extend DatabaseResource. The database also makes the few resou
 | `NPCDefinition` | [clone_entity_as_template](#method-clone-entity-as-template)( `source_id: int, template_name: String = "", follow: bool = false` ) *static* |
 | `InteractableDefinition` | [clone_interactable_as_template](#method-clone-interactable-as-template)( `source_id: int, template_name: String = "", follow: bool = false` ) *static* |
 | `PlayerClassDefinition` | [create_player_class_from_template](#method-create-player-class-from-template)( `template_id: int, display_name: String` ) *static* |
-| `PlayerClassDefinition` | [clone_player_class_as_template](#method-clone-player-class-as-template)( `source_id: int` ) *static* |
+| `PlayerClassDefinition` | [clone_player_class_as_template](#method-clone-player-class-as-template)( `source_id: int, template_name: String = "", follow: bool = false` ) *static* |
 
 ## Constants
 
@@ -244,9 +244,9 @@ The same for an interactable: saves a copy of it as a new interactable template 
 
 ### PlayerClassDefinition create_player_class_from_template( template_id: int, display_name: String ) {#method-create-player-class-from-template}
 
-Makes a new player class from the player class template with this id, named `display_name`, and saves it in "player_class". Null when the name is empty, the template does not exist or the file cannot be written.
+Makes a new player class from the player class template with this id, named `display_name`, and saves it in "player_class". It follows the template. Null when the name is empty, the template does not exist or the file cannot be written.
 
-### PlayerClassDefinition clone_player_class_as_template( source_id: int ) {#method-clone-player-class-as-template}
+### PlayerClassDefinition clone_player_class_as_template( source_id: int, template_name: String = "", follow: bool = false ) {#method-clone-player-class-as-template}
 
-Saves a copy of the player class with this id as a new player class template (no name, `template = true`) in "player_class_template". Null when the class does not exist or the file cannot be written.
+Saves a copy of the player class with this id as a new player class template (`template = true`, named `template_name`) in "player_class_template". With `follow` the class follows the new template. Null when the class does not exist or the file cannot be written.
 

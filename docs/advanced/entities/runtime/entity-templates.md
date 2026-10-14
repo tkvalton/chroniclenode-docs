@@ -21,6 +21,9 @@ The game asks `resolve` for the definition to use, and the editors call `sync` w
 | | |
 |---|---|
 | `String` | [template_type_of](#method-template-type-of)( `holder: Resource` ) *static* |
+| `String` | [user_type_of](#method-user-type-of)( `template: Resource` ) *static* |
+| `bool` | [has_abilities](#method-has-abilities)( `holder: Resource` ) *static* |
+| `bool` | [is_unique](#method-is-unique)( `holder: Resource` ) *static* |
 | `Resource` | [get_template](#method-get-template)( `holder: Resource` ) *static* |
 | `bool` | [is_linked](#method-is-linked)( `holder: Resource` ) *static* |
 | `bool` | [can_follow](#method-can-follow)( `holder: Resource` ) *static* |
@@ -29,6 +32,8 @@ The game asks `resolve` for the definition to use, and the editors call `sync` w
 | `Array[Resource]` | [templates_of_type](#method-templates-of-type)( `type: String` ) *static* |
 | `TemplateBaseline` | [capture](#method-capture)( `template: Resource` ) *static* |
 | `void` | [link](#method-link)( `holder: Resource, template: Resource, take_values: bool = false` ) *static* |
+| `void` | [link_unique](#method-link-unique)( `unique: Resource, definition: Resource` ) *static* |
+| `StatsData` | [unique_stats](#method-unique-stats)( `unique: Resource` ) *static* |
 | `void` | [detach](#method-detach)( `holder: Resource` ) *static* |
 | `Resource` | [resolve](#method-resolve)( `holder: Resource` ) *static* |
 | `Array[String]` | [sync](#method-sync)( `holder: Resource` ) *static* |
@@ -47,11 +52,23 @@ The game asks `resolve` for the definition to use, and the editors call `sync` w
 
 ### String template_type_of( holder: Resource ) {#method-template-type-of}
 
-The database type of the templates of an entity (an NPC or an interactable object)
+The database type of the templates of an entity (an NPC, an interactable object or a player class)
+
+### String user_type_of( template: Resource ) {#method-user-type-of}
+
+The database type of the entities that follow templates of this kind
+
+### bool has_abilities( holder: Resource ) {#method-has-abilities}
+
+Does the definition have abilities (an NPC, a player class)?
+
+### bool is_unique( holder: Resource ) {#method-is-unique}
+
+Is this a placed (unique) NPC or interactable? It follows its **definition** (the definition as it is with its own template added) instead of a template, through its stats override
 
 ### Resource get_template( holder: Resource ) {#method-get-template}
 
-The template the entity follows, or null
+What the holder follows: the template of a definition, or the definition (resolved) of a unique that has a stats override. Null when it follows nothing
 
 ### bool is_linked( holder: Resource ) {#method-is-linked}
 
@@ -80,6 +97,14 @@ A copy of what the template is now: the baseline
 ### void link( holder: Resource, template: Resource, take_values: bool = false ) {#method-link}
 
 The entity follows the template from now on. Its own values stay (what differs from the template is what it added); the growth becomes the template's. With `take_values` the entity takes the template's stats, pools, immunities and abilities instead of its own (a new, blank entity)
+
+### void link_unique( unique: Resource, definition: Resource ) {#method-link-unique}
+
+A placed (unique) NPC or interactable takes its stats override from its definition: it follows the definition from now on (a change of the definition, or of the template of the definition, is added to the override; what was changed in the override stays)
+
+### StatsData unique_stats( unique: Resource ) {#method-unique-stats}
+
+The stats a placed unique uses in the game: its stats override with the changes of its definition added (nothing is saved). Null when it has no stats override
 
 ### void detach( holder: Resource ) {#method-detach}
 

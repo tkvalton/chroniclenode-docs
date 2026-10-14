@@ -23,6 +23,9 @@ PlayerClassDefinition defines the template and progression for player character 
 | `int` | [behavior_script](#prop-behavior-script) |  |
 | `int` | [combat_script](#prop-combat-script) |  |
 | `bool` | [template](#prop-template) | `false` |
+| `int` | [template_id](#prop-template-id) | `0` |
+| `TemplateBaseline` | [template_baseline](#prop-template-baseline) |  |
+| `Array[int]` | [template_fixed_stats](#prop-template-fixed-stats) | `[]` |
 
 ## Methods
 
@@ -119,6 +122,20 @@ Combat Script - optional
 ### bool template = false {#prop-template}
 
 *No description yet.*
+
+*Template*
+
+### int template_id = 0 {#prop-template-id}
+
+The template this class follows (an id of the player_class_template database type), 0 = none. A class that follows a template has the changes of the template (stats, pools, immunities, growth and abilities) added when they are made, see EntityTemplates
+
+### TemplateBaseline template_baseline {#prop-template-baseline}
+
+What the template was when this class last looked at it (the difference to the template now is what is added)
+
+### Array[int] template_fixed_stats = [] {#prop-template-fixed-stats}
+
+Stats whose base value does not follow the template
 
 ## Method descriptions
 

@@ -26,12 +26,9 @@ PlayerClassEditor for managing PlayerClassDefinition resources
 | | |
 |---|---|
 | `void` | [setup_managers](#method-setup-managers)( `p_resource_manager: ResourceManager, p_dialog_manager: DialogManager` ) |
-| `void` | [build_template_menu](#method-build-template-menu)() |
 
 ## Constants
 
-- `const` **TEMPLATE_NEW** = `300`
-- `const` **TEMPLATE_BROWSE** = `301`
 - `const` **CONTEXT_ADD_ITEM** = `400`
 - `const` **CONTEXT_ADD_CURRENCY** = `401`
 - `const` **CONTEXT_EDIT_ITEM** = `402`
@@ -85,8 +82,4 @@ PlayerClassEditor for managing PlayerClassDefinition resources
 ### void setup_managers( p_resource_manager: ResourceManager, p_dialog_manager: DialogManager ) {#method-setup-managers}
 
 *Overrides this function of [ResourceEditor](/advanced/editor/base/resource-editor).*
-
-### void build_template_menu() {#method-build-template-menu}
-
-*No description yet.*
 

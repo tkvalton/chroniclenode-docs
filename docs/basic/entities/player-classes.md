@@ -10,7 +10,7 @@ A **player class** is what a character can *do*: Warrior, Mage, Ranger. It holds
 |---|---|
 | **Entity name**, **Description**, **Icon** | What the character creation window and the party show |
 | **Class color** | The color of the class in the interface |
-| **Templates**, **Save as Template** | Start a new class from a saved one, or save this one as a template |
+| **Template** section | The [template](/basic/entities/templates) this class follows, what it changed on top of it, how many characters use it, and **Save as template...** |
 
 ## Stats
 

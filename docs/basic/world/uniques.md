@@ -37,6 +37,8 @@ What each kind can override:
 
 **Loot rules** of a placed NPC or object **replace** all the [rules](/basic/items/loot-rules) of its definition when it has any: a unique boss with its own table, a chest with its own contents. Leave the list empty to use the definition's.
 
+A **stats override** keeps following its definition: what the definition gains later (or its [template](/basic/entities/templates) gains) is added to the override, and what you changed in it stays. Right-click a stat for **Always this value**.
+
 All kinds also store their **position and rotation**, which follow the object when you save the scene.
 
 ## When a unique is deleted

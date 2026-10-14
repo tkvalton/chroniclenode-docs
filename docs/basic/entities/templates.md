@@ -45,15 +45,19 @@ A template is edited in the same editor. It hides what only an entity has: the m
 
 When you change a template, every entity that follows it is brought up to date and saved. An entity is also brought up to date when you open it or when the game starts: the game uses a copy with the template's changes added, and saves nothing.
 
-## NPCs and interactables
+## NPCs, interactables and player classes
 
-NPC templates hold the stats, pools, immunities, growth and abilities. **Interactable** templates hold the stats, pools, immunities and growth (an object has no abilities): *Wooden Crate*, *Iron Door*, *Training Dummy*.
+| Kind | The template holds |
+|---|---|
+| **NPC** | Stats, pools, immunities, growth, abilities (active, passive, basic attack) |
+| **Interactable** | Stats, pools, immunities and growth (an object has no abilities): *Wooden Crate*, *Iron Door*, *Training Dummy* |
+| **Player class** | Stats, pools, immunities, growth and abilities. A *Warrior Base* template for every warrior-like class. A class template hides level rewards, skill trees and equipment, which are of each class |
 
-Making a new NPC in the **Create** dialog with a template chosen makes an NPC that follows it, with its values.
+The **Create** dialog of the NPC, interactable and player class editors asks for a template: the new one follows it and has its values. A character follows its **class** (the class is what a character takes its stats and abilities from), so a template reaches characters through their class. A class shows how many characters use it.
 
-::: info Player classes
-The player class **is** the template of its characters: a character follows its class's stats and growth. The **Templates** menu of the class editor still makes a new class from a saved one, as a starting copy that does not follow.
-:::
+## Placed NPCs and objects
+
+A [placed NPC or object](/basic/world/uniques) with a **stats override** follows its **definition**, exactly as the definition follows its template: the override keeps what you changed, and what the definition gains (its own changes, or its template's) is added. The stats list of the override marks what differs from the definition (*[definition: 10, +3]*), **Always this value** keeps a stat as it is, and a placed NPC can still choose its own growth. A template change therefore reaches every placed NPC with an override.
 
 ## See also
 

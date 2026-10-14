@@ -46,6 +46,7 @@ Dialog for creating new entities or player classes with optional template select
 
 - **ENTITY** = `0`
 - **PLAYER_CLASS** = `1`
+- **INTERACTABLE** = `2`
 
 ## Property descriptions
 

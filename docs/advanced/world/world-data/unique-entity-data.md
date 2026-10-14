@@ -26,6 +26,8 @@
 | `int` | [loot_table_override](#prop-loot-table-override) | `0` |
 | `Dictionary` | [inventory_override](#prop-inventory-override) |  |
 | `StatsData` | [stats_override](#prop-stats-override) |  |
+| `TemplateBaseline` | [template_baseline](#prop-template-baseline) |  |
+| `Array[int]` | [template_fixed_stats](#prop-template-fixed-stats) | `[]` |
 | `Interaction` | [interaction](#prop-interaction) | `null` |
 | `Vector3` | [world_position](#prop-world-position) | `Vector3.ZERO` |
 | `Vector3` | [world_rotation](#prop-world-rotation) | `Vector3.ZERO` |
@@ -144,6 +146,14 @@ Older override for starting inventory - if empty, uses EntityDefinition.inventor
 ### StatsData stats_override {#prop-stats-override}
 
 *No description yet.*
+
+### TemplateBaseline template_baseline {#prop-template-baseline}
+
+What the definition was when the stats override last looked at it. The override follows its definition (and the template of the definition): what the definition gained since is added to it
+
+### Array[int] template_fixed_stats = [] {#prop-template-fixed-stats}
+
+Stats of the override that keep their own value whatever the definition does
 
 *Interactions*
 

@@ -18,6 +18,8 @@
 | `bool` | [object_targetable_directly](#prop-object-targetable-directly) | `false` |
 | `bool` | [object_targetable_by_aoe](#prop-object-targetable-by-aoe) | `false` |
 | `StatsData` | [stats_override](#prop-stats-override) |  |
+| `TemplateBaseline` | [template_baseline](#prop-template-baseline) |  |
+| `Array[int]` | [template_fixed_stats](#prop-template-fixed-stats) | `[]` |
 | `Array[LootRule]` | [loot_rules_override](#prop-loot-rules-override) | `[]` |
 | `Interaction` | [interaction](#prop-interaction) | `null` |
 | `Vector3` | [world_position](#prop-world-position) | `Vector3.ZERO` |
@@ -91,6 +93,14 @@ Can this object be hit by area-of-effect abilities?
 ### StatsData stats_override {#prop-stats-override}
 
 Stats configuration for objects with combat capabilities Only shown and used if object_targetable_directly or object_targetable_by_aoe is true
+
+### TemplateBaseline template_baseline {#prop-template-baseline}
+
+What the definition was when the stats override last looked at it. The override follows its definition (and the template of the definition): what the definition gained since is added to it
+
+### Array[int] template_fixed_stats = [] {#prop-template-fixed-stats}
+
+Stats of the override that keep their own value whatever the definition does
 
 *Loot*
 
