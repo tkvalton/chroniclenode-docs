@@ -154,7 +154,7 @@ const basicSystems = [
     ['Vendors', 'vendors', 'vendors'],
     ['Trainers', 'trainers', 'trainers'],
   ], {
-    after: [page('Tutorial: your first item and its loot', '/basic/items/first-item'), page('Quest items', '/basic/items/quest-items'), page('Generated items', '/basic/items/item-generation'), page('Loot rules', '/basic/items/loot-rules'), page('Dropped items', '/basic/items/dropped-items')],
+    after: [page('Tutorial: your first item and its loot', '/basic/items/first-item'), page('Quest items', '/basic/items/quest-items'), page('Generated items', '/basic/items/item-generation'), page('Loot rules', '/basic/items/loot-rules'), page('Dropped items', '/basic/items/dropped-items'), page('Durability', '/basic/items/durability')],
   }),
   system('Equipment Definitions', 'equipment-definitions', [
     ['Armor Class', 'armor-class', 'armor_class'],
@@ -344,7 +344,7 @@ const advancedSystems = [
   : slug === 'entity-stats'
   ? advancedEntityStats
   : slug === 'items'
-  ? withPages(classSystem(text, slug, itemClasses), [page('Generated items', '/advanced/items/generation', { title: 'Generated items: how they are built' }), page('Loot', '/advanced/items/loot', { title: 'Loot: how it is built' }), page('Dropped items', '/advanced/items/dropped-items', { title: 'Dropped items: how they are built' }), page('Trainers, tiers and professions', '/advanced/items/trainers', { title: 'Trainers, tiers and professions: how they are built' }), page('Inventories', '/advanced/items/inventories', { title: 'Inventories: how they are built' })])
+  ? withPages(classSystem(text, slug, itemClasses), [page('Generated items', '/advanced/items/generation', { title: 'Generated items: how they are built' }), page('Loot', '/advanced/items/loot', { title: 'Loot: how it is built' }), page('Dropped items', '/advanced/items/dropped-items', { title: 'Dropped items: how they are built' }), page('Durability', '/advanced/items/durability', { title: 'Durability: how it is built' }), page('Trainers, tiers and professions', '/advanced/items/trainers', { title: 'Trainers, tiers and professions: how they are built' }), page('Inventories', '/advanced/items/inventories', { title: 'Inventories: how they are built' })])
   : slug === 'entities'
   ? classSystem(text, slug, entityClasses)
   : slug === 'behaviors'

@@ -18,6 +18,8 @@ VendorDefinition serves as a blueprint/template that multiple vendor instances c
 | `float` | [sell_value_multiplier](#prop-sell-value-multiplier) | `1.0` |
 | `int` | [preferred_currency_id](#prop-preferred-currency-id) | `0` |
 | `Dictionary` | [starting_currency](#prop-starting-currency) | `{}` |
+| `bool` | [can_repair](#prop-can-repair) | `true` |
+| `float` | [repair_cost_multiplier](#prop-repair-cost-multiplier) | `1.0` |
 
 ## Methods
 
@@ -63,6 +65,14 @@ Currency vendor prefers for transactions (ID of preferred currency) Used for rep
 ### Dictionary starting_currency =  {#prop-starting-currency}
 
 Starting currency amounts for vendor [currency_id: int] = amount: int PreferredCurrency is always the first entry, additional currencies can be added
+
+### bool can_repair = true {#prop-can-repair}
+
+Whether this vendor repairs the worn equipment of the player (when the project uses durability)
+
+### float repair_cost_multiplier = 1.0 {#prop-repair-cost-multiplier}
+
+What this vendor charges for repairs compared with the standard price (0.5 = half, 2 = double)
 
 ## Method descriptions
 

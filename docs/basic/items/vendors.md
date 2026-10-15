@@ -25,6 +25,15 @@ A **vendor** is a shop. It has a list of items it **stocks**, a purse of its own
 |---|---|---|
 | **Sell value multiplier** | A multiplier on the price of everything the vendor sells. `1.5` = 50 % dearer | `1` |
 
+### Repairs
+
+A vendor can repair the [equipment](/basic/items/durability) the player wears (only when the project uses durability). The vendor window shows a **Repair all** button with the price.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Repairs equipment** | Off: this vendor does not repair | on |
+| **Repair cost multiplier** | What this vendor charges compared with the standard price (the vendor value of the item × the share that is missing × the project's repair cost multiplier). `0.5` = half, `2` = double | `1` |
+
 ### Currency
 
 | Field | What it does |

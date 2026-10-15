@@ -46,6 +46,9 @@ Stock-based vendor inventory that manages item availability and creates instance
 | `String` | [get_item_display_price](#method-get-item-display-price)( `item_id: int` ) |
 | `String` | [get_buyback_price](#method-get-buyback-price)( `item_instance: ItemInstance` ) |
 | `int` | [calculate_sell_price](#method-calculate-sell-price)( `item_instance: ItemInstance` ) |
+| `int` | [get_repair_cost](#method-get-repair-cost)( `item: ItemInstance` ) |
+| `int` | [get_repair_cost_all](#method-get-repair-cost-all)( `player: Entity` ) |
+| `Dictionary` | [repair_equipment](#method-repair-equipment)( `player: Entity, item: ItemInstance = null` ) |
 | `Dictionary` | [get_vendor_summary](#method-get-vendor-summary)() |
 | `Dictionary` | [get_save_data](#method-get-save-data)() |
 | `void` | [load_save_data](#method-load-save-data)( `data: Dictionary` ) |
@@ -209,9 +212,21 @@ Get buy-back price for an item instance (what vendor will pay player)
 
 Calculate what vendor will pay player for an item (numerical value)
 
+### int get_repair_cost( item: ItemInstance ) {#method-get-repair-cost}
+
+A short description of the vendor (for debugging and the UI) What this vendor charges to repair a piece of equipment, in its preferred currency (0 = nothing to repair)
+
+### int get_repair_cost_all( player: Entity ) {#method-get-repair-cost-all}
+
+What this vendor charges to repair everything the player wears
+
+### Dictionary repair_equipment( player: Entity, item: ItemInstance = null ) {#method-repair-equipment}
+
+Repairs one worn piece (or every damaged piece when `item` is null) of the player and takes the price from the purse of the player, all or nothing. Gives &#123;"success": bool, "message": String, "cost": int&#125;
+
 ### Dictionary get_vendor_summary() {#method-get-vendor-summary}
 
-A short description of the vendor (for debugging and the UI)
+*No description yet.*
 
 ### Dictionary get_save_data() {#method-get-save-data}
 

@@ -23,6 +23,12 @@ export const groups = [
         "file": "data_classes/settings/collision_layer_config.gd"
       },
       {
+        "name": "DeathCurrencyLoss",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\settings\\death_currency_loss.gd",
+        "file": "data_classes/settings/death_currency_loss.gd"
+      },
+      {
         "name": "EventSettings",
         "base": "Node",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_settings.gd",

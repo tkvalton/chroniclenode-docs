@@ -15,6 +15,7 @@ Equipment items that can be worn by characters to provide stat bonuses and visua
 | `Dictionary` | [stat_bonuses](#prop-stat-bonuses) | `{}` |
 | `int` | [equipment_type](#prop-equipment-type) |  |
 | `int` | [armor_class](#prop-armor-class) |  |
+| `int` | [durability_override](#prop-durability-override) | `0` |
 | `Dictionary` | [modular_mesh_data](#prop-modular-mesh-data) | `{}` |
 | `Array[int]` | [equipment_effects](#prop-equipment-effects) | `[]` |
 | `int` | [on_use_ability_id](#prop-on-use-ability-id) | `0` |
@@ -113,6 +114,12 @@ Equipment type and mesh slot compatibility
 ### int armor_class {#prop-armor-class}
 
 Armor classification: "Plate", "Leather", "Cloth"
+
+*Durability*
+
+### int durability_override = 0 {#prop-durability-override}
+
+The durability of this item (0 = what the equipment slot it is worn in gives, -1 = it never wears, a number = its own). Used when the project uses durability
 
 *Visual Properties - Modular Mesh Data*
 

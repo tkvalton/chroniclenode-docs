@@ -72,9 +72,21 @@ How the bags of characters, NPCs and containers work: slots or no limit, weight,
 | Field | What it does | Default |
 |---|---|---|
 | **Item weight enabled** | An older switch: it is not read any more. Weight is a rule of the [inventory styles](#inventory-styles) | off |
-| **Item durability enabled** | Items wear out | off |
 
-*These items settings are not used yet: they are stored, but nothing reads them. Items have no weight or durability yet, and the switches above do not turn anything on or off (the **Carry Weight** stat is the number of slots of a bag today: see [Inventories](/basic/shared-systems/inventories#the-size-of-a-bag)). Dropped items have their own group, below.*
+*Weight is a rule of the [inventory styles](#inventory-styles) and durability has its own group, below. Dropped items have theirs after it.*
+
+### Durability
+
+Equipment that wears out: see [Durability](/basic/items/durability) for how it works. The numbers (how much durability, how fast it wears) are on the [equipment slots](/basic/equipment-definitions/equipment-slot#durability).
+
+| Field | What it does | Default |
+|---|---|---|
+| **Durability mode** | **Off**, or **On hits**: weapons lose durability when their wearer deals damage, the rest of the equipment when it takes damage | Off |
+| **Durability loss per hit** | How much a piece loses in a hit (times the loss multiplier of its slot) | `1` |
+| **Durability loss chance** | The chance a piece wears in a hit | `1` |
+| **Durability one piece per hit** | Only one random piece wears when its wearer takes damage | off |
+| **Durability broken behavior** | A piece at 0: **No effect** (stays on, gives nothing until repaired), **Unequip** (into the bag) or **Destroy** | No effect |
+| **Durability repair cost multiplier** | The price of a repair: vendor value × share missing × this | `0.25` |
 
 ### Dropped items
 

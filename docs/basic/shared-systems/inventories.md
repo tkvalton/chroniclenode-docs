@@ -141,7 +141,7 @@ Every item has a **Weight** (the item editor, next to the value; `0` = nothing).
 
 ## What there is not
 
-- The older settings *Item weight enabled* and *Item durability enabled* in the [Gameplay Config](/basic/game-settings/gameplay-config#items-and-inventory) are not read: weight is a rule of the style, and items do not wear out yet.
+- The older setting *Item weight enabled* in the [Gameplay Config](/basic/game-settings/gameplay-config#items-and-inventory) is not read: weight is a rule of the style. Equipment that wears out is [Durability](/basic/items/durability).
 
 ## See also
 

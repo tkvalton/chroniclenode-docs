@@ -22,6 +22,16 @@ An **equipment slot** is a place on a character that holds one piece of equipmen
 |---|---|---|
 | **Budget weight** | How much of the stat budget an item in this slot gets compared with the items of other slots: chest `1.5`, head `1`, ring `0.5`, the slot of a two-handed weapon `2`. The budget is what the rolled bonuses of a [generated item](/basic/items/item-generation#the-budget) share. An item that fits several slots uses the highest weight | `1` |
 
+## Durability
+
+Used when the project uses [durability](/basic/items/durability).
+
+| Field | What it does | Default |
+|---|---|---|
+| **Durability** | The durability of the items worn in this slot, given the first time an item is worn. `0` = the slot is exempt: its items never wear | `0` |
+| **Loss multiplier** | How fast the items of this slot wear compared with the others (a shield: `2`) | `1` |
+| **Wears when** | **Automatic** (a weapon slot wears when its wearer deals damage, any other slot when it takes damage), **Damage dealt**, **Damage taken** or **Both** | Automatic |
+
 ## How an item finds a slot
 
 Equipping an item (by double-click or by a reward) looks for a slot that accepts the type of the item and is not blocked by a wielded weapon:

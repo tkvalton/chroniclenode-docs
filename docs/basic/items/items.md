@@ -72,6 +72,14 @@ The visual side of equipment is the **Equipment mesh** section: the body part an
 
 When a player equips an item it leaves the bag. If a worn item is in the way it is displaced into the bag, and with a full bag the swap still works. An item that does not meet its requirements is refused with a message. A two-handed weapon empties the slots its weapon type blocks.
 
+### Durability
+
+Used when the project uses [durability](/basic/items/durability).
+
+| Field | What it does | Default |
+|---|---|---|
+| **Durability** | `0`: the item gets the durability of the [equipment slot](/basic/equipment-definitions/equipment-slot#durability) it is worn in. `-1`: this item never wears. A number: this item has that durability whatever the slot says | `0` |
+
 ### Generation
 
 At the bottom of the equipment section. These settings make an equipment item **generated**: it rolls bonuses when it is given. Read [Generated Items](/basic/items/item-generation) first.

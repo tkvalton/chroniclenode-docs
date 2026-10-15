@@ -1091,6 +1091,12 @@ export const groups = [
         "file": "data_classes/events/event_actions/player/remove_effect_from_player_action.gd"
       },
       {
+        "name": "RepairEquipmentAction",
+        "base": "PlayerEventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\player\\repair_equipment_action.gd",
+        "file": "data_classes/events/event_actions/player/repair_equipment_action.gd"
+      },
+      {
         "name": "SetActionBarSlotAction",
         "base": "PlayerEventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\player\\set_action_bar_slot_action.gd",

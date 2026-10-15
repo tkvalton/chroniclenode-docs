@@ -11,10 +11,11 @@ The **Combat** category of the [Gameplay Config](/basic/game-settings/gameplay-c
 | Field | What it does | Default |
 |---|---|---|
 | **Death behavior** | Game over, respawn at a checkpoint, or permadeath | Respawn at checkpoint |
-| **Death gold penalty** | The share of gold lost on death (0 to 1) | `0.1` |
+| **Death currency losses** | The **money** a player loses on death: a list of rules, each for one currency (or every currency) with a way to work the amount out: a **percentage** of what is held, an **amount** lost, or the amount that is **kept** (what is above it is lost). A rule can make the money **lie on the ground as coins** ([Dropped items](/basic/items/dropped-items)). Rules apply one after the other | none |
 | **Death experience penalty** | The share of experience lost on death (0 to 1) | `0` |
 | **Death item loss** | What happens to the **items in the bag** of a player who dies: **Keep** them, **Drop** them on the ground around the body ([Dropped items](/basic/items/dropped-items#where-items-come-from)), or **Destroy** them | Keep |
 | **Death equipment loss** | The same for the **equipment the player wears**: Keep, Drop (taken off and dropped around the body) or Destroy | Keep |
+| **Death durability loss** | The share of its maximum durability that every worn piece loses on death (`0.25` = a quarter). Needs [durability](/basic/items/durability) on | `0` |
 | **Death item loss chance** | The share of the stacks in the bag and of the pieces of equipment that are lost (`1` = all of them, `0.25` = about a quarter). Key items are never lost | `1` |
 
 ### Threat

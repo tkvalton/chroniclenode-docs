@@ -143,6 +143,7 @@ Grant or remove effects, move or kill the player characters, change their combat
 | [**Kill Player**](/advanced/events-and-quests/actions-player/kill-player-action) (`KillPlayerAction`) | Kill player(s) (trigger death state) |
 | [**Remove All Effects From Player**](/advanced/events-and-quests/actions-player/remove-all-effects-from-player-action) (`RemoveAllEffectsFromPlayerAction`) | Remove all effects from player(s) |
 | [**Remove Effect From Player**](/advanced/events-and-quests/actions-player/remove-effect-from-player-action) (`RemoveEffectFromPlayerAction`) | Remove a specific effect from player(s) |
+| [**Repair Equipment**](/advanced/events-and-quests/actions-player/repair-equipment-action) (`RepairEquipmentAction`) | Repairs the worn equipment of player(s) by a share of its maximum durability (100 % = fully). Needs [durability](/basic/items/durability) on |
 | [**Set Action Bar Slot**](/advanced/events-and-quests/actions-player/set-action-bar-slot-action) (`SetActionBarSlotAction`) | Action that puts an ability on a slot of the action bar of player(s), empties a slot, or locks and unlocks it. |
 | [**Set Player Combat Script**](/advanced/events-and-quests/actions-player/set-player-combat-script-action) (`SetPlayerCombatScriptAction`) | Change player(s) combat script at runtime |
 | [**Set Player Position**](/advanced/events-and-quests/actions-player/set-player-position-action) (`SetPlayerPositionAction`) | Teleport/move player(s) to a specific position |

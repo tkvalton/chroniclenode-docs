@@ -71,6 +71,12 @@ export const groups = [
     "slug": "utilities",
     "classes": [
       {
+        "name": "Durability",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\durability.gd",
+        "file": "runtime_classes/utility/durability.gd"
+      },
+      {
         "name": "InputEventText",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\input_event_text.gd",

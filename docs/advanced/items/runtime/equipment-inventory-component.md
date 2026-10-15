@@ -27,6 +27,8 @@ Equipment signals for Entity to connect to Emitted when stat bonuses are applied
 | `bool` | [equip_item](#method-equip-item)( `item_instance: ItemInstance, forced: bool = false` ) |
 | `bool` | [equip_item_to_slot](#method-equip-item-to-slot)( `item_instance: ItemInstance, slot_data: EquipmentSlotInstance, forced: bool = false` ) |
 | `ItemInstance` | [unequip_slot](#method-unequip-slot)( `slot_data: EquipmentSlotInstance` ) |
+| `void` | [break_item](#method-break-item)( `item_instance: ItemInstance` ) |
+| `void` | [repair_broken_item](#method-repair-broken-item)( `item_instance: ItemInstance` ) |
 | `bool` | [unequip_item](#method-unequip-item)( `item_instance: ItemInstance` ) |
 | `Array[ItemInstance]` | [get_all_equipped_items](#method-get-all-equipped-items)() |
 | `ItemInstance` | [get_item_at_index](#method-get-item-at-index)( `index: int` ) |
@@ -60,6 +62,10 @@ Emitted when equipment-specific effects (not stats) are applied/removed
 ### equipment_changed( item_instance: ItemInstance, slot_def: EquipmentSlotDefinition, equipped: bool ) {#signal-equipment-changed}
 
 Emitted whenever any equipment change occurs (equip/unequip)
+
+### item_broken( item_instance: ItemInstance ) {#signal-item-broken}
+
+Emitted when a worn piece reaches 0 durability and breaks.
 
 ### set_bonus_changed( item_instance: ItemInstance, set_def: SetBonusDefinition, is_applying: bool ) {#signal-set-bonus-changed}
 
@@ -116,6 +122,14 @@ Equip an item to a specific slot. Nothing changes unless the whole equip works: 
 ### ItemInstance unequip_slot( slot_data: EquipmentSlotInstance ) {#method-unequip-slot}
 
 Unequip a specific slot and return the item instance
+
+### void break_item( item_instance: ItemInstance ) {#method-break-item}
+
+A worn piece reached 0 durability: its effects go, it is marked broken, and what the project says happens to a broken piece happens
+
+### void repair_broken_item( item_instance: ItemInstance ) {#method-repair-broken-item}
+
+A broken worn piece was repaired: it gives its effects again
 
 ### bool unequip_item( item_instance: ItemInstance ) {#method-unequip-item}
 

@@ -15,6 +15,9 @@ Enhanced EquipmentSlotDefinition with slot categories for better UI organization
 | `Array[int]` | [allowed_equipment_types](#prop-allowed-equipment-types) | `[]` |
 | `int` | [slot_instances](#prop-slot-instances) | `1` |
 | `float` | [budget_weight](#prop-budget-weight) | `1.0` |
+| `int` | [max_durability](#prop-max-durability) | `0` |
+| `float` | [durability_loss_multiplier](#prop-durability-loss-multiplier) | `1.0` |
+| `DurabilityWear` | [durability_wears_on](#prop-durability-wears-on) | `DurabilityWear.AUTOMATIC` |
 | `bool` | [is_weapon_slot](#prop-is-weapon-slot) | `false` |
 | `GeneralSkeleton.WeaponSlot` | [mesh_slot](#prop-mesh-slot) | `GeneralSkeleton.WeaponSlot.MAIN_HAND` |
 
@@ -22,6 +25,8 @@ Enhanced EquipmentSlotDefinition with slot categories for better UI organization
 
 | | |
 |---|---|
+| `bool` | [wears_on_damage_dealt](#method-wears-on-damage-dealt)() |
+| `bool` | [wears_on_damage_taken](#method-wears-on-damage-taken)() |
 | `bool` | [is_valid](#method-is-valid)() |
 | `Array[Dictionary]` | [validate](#method-validate)() |
 | `String` | [get_category_name](#method-get-category-name)() |
@@ -52,6 +57,15 @@ The options of slot category: armor, weapon, accessory.
 - **WEAPON** = `1` - Weapons (main hand, off hand)
 - **ACCESSORY** = `2` - Accessories (rings, amulets, trinkets, etc.)
 
+### enum DurabilityWear {#enum-durabilitywear}
+
+What makes the equipment of a slot wear (when the project uses durability). Automatic: a weapon slot wears when its owner deals damage, any other slot when its owner takes damage.
+
+- **AUTOMATIC** = `0` - A weapon slot wears when its owner deals damage, any other slot when its owner takes damage
+- **DAMAGE_DEALT** = `1` - When the owner deals damage
+- **DAMAGE_TAKEN** = `2` - When the owner takes damage (a shield in the off hand)
+- **BOTH** = `3` - Both
+
 ## Property descriptions
 
 *Slot Organization*
@@ -80,6 +94,20 @@ How many instances of this slot type should exist (e.g., 2 for ring slots)
 
 How much of the item budget an item in this slot gets compared with other slots (head 1, ring 0.5, a two-handed weapon slot 2). See ItemBudget
 
+*Durability*
+
+### int max_durability = 0 {#prop-max-durability}
+
+The durability of the items worn in this slot (0 = the slot never wears: its items have no durability). Used when the project uses durability (Gameplay Config &gt; Durability)
+
+### float durability_loss_multiplier = 1.0 {#prop-durability-loss-multiplier}
+
+How fast the items of this slot wear compared with the others (2 = twice as fast, a shield; 0.5 = half as fast)
+
+### DurabilityWear durability_wears_on = DurabilityWear.AUTOMATIC {#prop-durability-wears-on}
+
+What makes the items of this slot wear
+
 *Weapon Support*
 
 ### bool is_weapon_slot = false {#prop-is-weapon-slot}
@@ -91,6 +119,14 @@ Whether this slot is for weapons
 Equipment Type ID -&gt; WeaponSlot mapping for contextual placement (e.g., &#123;12345: MAIN_HAND, 67890: OFF_HAND&#125;)
 
 ## Method descriptions
+
+### bool wears_on_damage_dealt() {#method-wears-on-damage-dealt}
+
+Does an item in this slot wear when its owner deals damage?
+
+### bool wears_on_damage_taken() {#method-wears-on-damage-taken}
+
+Does an item in this slot wear when its owner takes damage?
 
 ### bool is_valid() {#method-is-valid}
 

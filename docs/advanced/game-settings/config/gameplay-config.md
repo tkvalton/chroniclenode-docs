@@ -11,7 +11,6 @@ Configuration for gameplay rules and mechanics
 | | | |
 |---|---|---|
 | `bool` | [item_weight_enabled](#prop-item-weight-enabled) | `false` |
-| `bool` | [item_durability_enabled](#prop-item-durability-enabled) | `false` |
 | `bool` | [dropped_items_enabled](#prop-dropped-items-enabled) | `true` |
 | `DroppedItemsVisualSytle` | [dropped_items_visual_style](#prop-dropped-items-visual-style) | `DroppedItemsVisualSytle.MESH` |
 | `DroppedItemsPhysics` | [dropped_items_physics](#prop-dropped-items-physics) | `DroppedItemsPhysics.SETTLE_THEN_FREEZE` |
@@ -28,6 +27,12 @@ Configuration for gameplay rules and mechanics
 | `int` | [dropped_items_max_in_world](#prop-dropped-items-max-in-world) | `0` |
 | `bool` | [droped_items_saved_to_map](#prop-droped-items-saved-to-map) | `true` |
 | `PackedScene` | [dropped_items_scene](#prop-dropped-items-scene) |  |
+| `DurabilityMode` | [durability_mode](#prop-durability-mode) | `DurabilityMode.OFF` |
+| `float` | [durability_loss_per_hit](#prop-durability-loss-per-hit) | `1.0` |
+| `float` | [durability_loss_chance](#prop-durability-loss-chance) | `1.0` |
+| `bool` | [durability_one_piece_per_hit](#prop-durability-one-piece-per-hit) | `false` |
+| `BrokenBehavior` | [durability_broken_behavior](#prop-durability-broken-behavior) | `BrokenBehavior.NO_EFFECT` |
+| `float` | [durability_repair_cost_multiplier](#prop-durability-repair-cost-multiplier) | `0.25` |
 | `InventoryStyle` | [character_inventory_style](#prop-character-inventory-style) | `InventoryStyle.new()` |
 | `InventoryStyle` | [npc_inventory_style](#prop-npc-inventory-style) | `InventoryStyle.new()` |
 | `InventoryStyle` | [container_inventory_style](#prop-container-inventory-style) | `InventoryStyle.new()` |
@@ -112,11 +117,12 @@ Configuration for gameplay rules and mechanics
 | `bool` | [log_input_routing](#prop-log-input-routing) | `false` |
 | `CombatStyle` | [combat_style](#prop-combat-style) | `CombatStyle.REAL_TIME` |
 | `DeathBehavior` | [death_behavior](#prop-death-behavior) | `DeathBehavior.RESPAWN_CHECKPOINT` |
-| `float` | [death_gold_penalty](#prop-death-gold-penalty) | `0.1` |
+| `Array[DeathCurrencyLoss]` | [death_currency_losses](#prop-death-currency-losses) | `[]` |
 | `float` | [death_experience_penalty](#prop-death-experience-penalty) | `0.0` |
 | `DeathItemLoss` | [death_item_loss](#prop-death-item-loss) | `DeathItemLoss.KEEP` |
 | `DeathItemLoss` | [death_equipment_loss](#prop-death-equipment-loss) | `DeathItemLoss.KEEP` |
 | `float` | [death_item_loss_chance](#prop-death-item-loss-chance) | `1.0` |
+| `float` | [death_durability_loss](#prop-death-durability-loss) | `0.0` |
 | `bool` | [use_threat_system](#prop-use-threat-system) | `true` |
 | `float` | [heal_threat_multiplier](#prop-heal-threat-multiplier) | `0.5` |
 | `float` | [damage_threat_multiplier](#prop-damage-threat-multiplier) | `1.0` |
@@ -340,6 +346,21 @@ Fog edge quality - controls smoothness of fog boundaries
 - **HIGH** = `3` - High quality smoothing - smooth edges
 - **ULTRA** = `4` - Maximum quality - very smooth (most expensive)
 
+### enum DurabilityMode {#enum-durabilitymode}
+
+Whether equipment wears out: off, or it loses durability when its owner deals and takes damage.
+
+- **OFF** = `0`
+- **ON_HITS** = `1`
+
+### enum BrokenBehavior {#enum-brokenbehavior}
+
+What happens to a piece of equipment that reaches 0 durability: it stops giving anything until repaired, it is taken off into the bag, or it is destroyed.
+
+- **NO_EFFECT** = `0`
+- **UNEQUIP** = `1`
+- **DESTROY** = `2`
+
 ### enum DeathItemLoss {#enum-deathitemloss}
 
 What happens to the items of a player who dies: they are kept, dropped on the ground around the body, or destroyed.
@@ -361,10 +382,6 @@ What happens to the items of a player who dies: they are kept, dropped on the gr
 ### bool item_weight_enabled = false {#prop-item-weight-enabled}
 
 (older switch: weight is a rule of the inventory styles below now, this one is not read)
-
-### bool item_durability_enabled = false {#prop-item-durability-enabled}
-
-Items can break/degrade over time
 
 *Dropped Items*
 
@@ -431,6 +448,32 @@ Are dropped items kept in the save and when the player leaves a world and comes 
 ### PackedScene dropped_items_scene {#prop-dropped-items-scene}
 
 The scene a dropped item is made from (empty = the one of the toolkit). It must have a DroppedItem script on its root: copy the toolkit scene and change how it looks
+
+*Durability*
+
+### DurabilityMode durability_mode = DurabilityMode.OFF {#prop-durability-mode}
+
+Off: nothing wears. On hits: the weapons of a character lose durability when it deals damage, the rest of its equipment when it takes damage. The numbers are on the equipment slots (Equipment Definitions &gt; Equipment Slots)
+
+### float durability_loss_per_hit = 1.0 {#prop-durability-loss-per-hit}
+
+How much durability a piece loses in a hit (multiplied by the loss multiplier of its slot)
+
+### float durability_loss_chance = 1.0 {#prop-durability-loss-chance}
+
+The chance that a piece wears in a hit (1 = every hit)
+
+### bool durability_one_piece_per_hit = false {#prop-durability-one-piece-per-hit}
+
+When a character takes damage only one random piece of its equipment wears, not all of them
+
+### BrokenBehavior durability_broken_behavior = BrokenBehavior.NO_EFFECT {#prop-durability-broken-behavior}
+
+What a piece of equipment that reaches 0 durability does
+
+### float durability_repair_cost_multiplier = 0.25 {#prop-durability-repair-cost-multiplier}
+
+What a vendor charges to repair: the vendor value of the item times the share that is missing times this
 
 *Inventory Styles*
 
@@ -808,9 +851,9 @@ Combat system style (real-time or turn-based)
 
 What happens when the player dies
 
-### float death_gold_penalty = 0.1 {#prop-death-gold-penalty}
+### Array[DeathCurrencyLoss] death_currency_losses = [] {#prop-death-currency-losses}
 
-Gold penalty on death (percentage lost, 0.0 - 1.0)
+The money a player loses on death: a list of rules, each for one currency (or all of them): a percentage, an amount, or set to a value. Nothing when empty
 
 ### float death_experience_penalty = 0.0 {#prop-death-experience-penalty}
 
@@ -827,6 +870,10 @@ What happens to the equipment a player who dies wears: kept, taken off and dropp
 ### float death_item_loss_chance = 1.0 {#prop-death-item-loss-chance}
 
 What share of the stacks in the bag, and of the pieces of equipment, is lost on death (1 = all of them)
+
+### float death_durability_loss = 0.0 {#prop-death-durability-loss}
+
+The share of its maximum durability that every worn piece loses when the player dies (0 = none, 0.25 = a quarter). Needs durability on
 
 *Threat*
 
