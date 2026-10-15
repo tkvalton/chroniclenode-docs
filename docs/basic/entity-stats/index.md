@@ -38,7 +38,7 @@ The result is kept between the stat's **Min value** and **Max value** and rounde
 
 When something damages an entity, the number goes through a fixed set of steps. The Calculations page and the stat effects fill the steps in:
 
-0. Before any of it, the ability has made its [hit roll](/basic/game-settings/gameplay-config#hit-rules) (if your game has misses): a miss ends the attack before it gets here.
+0. Before any of it, the ability has made its [hit roll](/basic/game-settings/hit-rules#hit-rules) (if your game has misses): a miss ends the attack before it gets here.
 1. The attacker's **damage done** is worked out: triggers roll (a critical strike?) and modifiers run (attack power).
 2. A guardian effect may take part of the damage, and an **immunity** may stop it.
 3. The target's **damage taken** is worked out: triggers roll (a dodge ends the hit, a block softens it) and modifiers run (armor).

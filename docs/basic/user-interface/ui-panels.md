@@ -28,7 +28,7 @@ Set on the root node of the panel scene:
 | **Is draggable** | The player can move the window by its title bar | on |
 | **Title bar show** | Hide the title bar and its close button | on |
 
-The [UI Settings editor](/basic/game-settings/ui-settings#the-interface-at-a-glance) lists every panel with its number and the key that number currently has, and **warns when two panels have the same number**. The Input Map and the names the player reads are explained in [Panel keys](/basic/game-settings/action-bars-and-keybinds#panel-keys).
+The [UI Settings editor](/basic/game-settings/ui-settings#the-interface-at-a-glance) lists every panel with its number and the key that number currently has, and **warns when two panels have the same number**. The Input Map and the names the player reads are explained in [Panel keys](/basic/game-settings/panel-keys).
 
 ## What a panel gets for free
 
@@ -72,7 +72,7 @@ Today opening a window closes every other window. This is going to be configurab
 
 ## See also
 
-- [Panel keys](/basic/game-settings/action-bars-and-keybinds#panel-keys) (the keys, the mini menu, the names)
+- [Panel keys](/basic/game-settings/panel-keys) (the keys, the mini menu, the names)
 - [In Game](/basic/user-interface/in-game)
 - [Interaction Panels](/basic/user-interface/interaction-panels)
 - [HUD](/basic/user-interface/hud) (the mini menu)

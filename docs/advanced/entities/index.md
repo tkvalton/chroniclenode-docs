@@ -154,6 +154,7 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 <!-- classes:entities/runtime -->
 | Class | What it is |
 |---|---|
+| [ActionBarSlotData](/advanced/entities/runtime/action-bar-slot-data) | Data structure for storing action bar slot content Can reference either abilities or items REFACTORED: Now stores direct item instance references instead of inventory indices |
 | [DynamicFollowerSystem](/advanced/entities/runtime/dynamic-follower-system) |  |
 | [Entity](/advanced/entities/runtime/entity) | Entity is the base class for all characters and creatures in the game world. |
 | [EntityComponentMediator](/advanced/entities/runtime/entity-component-mediator) | Internal signal bus for Entity component coordination |

@@ -26,7 +26,7 @@ Mods and enchantments stay with the item when it is moved around, and go with it
 |---|---|---|
 | **Gems** | Red, Blue, Green | Ruby (+attack), Sapphire (+mana), Emerald (+stamina) |
 | **Runes** | Rune | Runes with a [proc](/basic/abilities-and-effects/effect-types), a lifesteal, a thorns effect |
-| **Weapon attachments** | Scope, Barrel, Grip | A scope (+accuracy), a silencer, a laser sight: with [Hit Chance](/basic/game-settings/gameplay-config#accuracy-and-evasion) and [Ability Modifier](/basic/entity-stats/stats#the-effect-types) effects |
+| **Weapon attachments** | Scope, Barrel, Grip | A scope (+accuracy), a silencer, a laser sight: with [Hit Chance](/basic/game-settings/hit-rules#accuracy-and-evasion) and [Ability Modifier](/basic/entity-stats/stats#the-effect-types) effects |
 | **Armor plating** | Plate | Plates with a resistance to one [damage type](/basic/types-and-groups/damage-types) |
 | **Upgrade chips** | Chip | Chips that change an ability of the item |
 | **Materia** (as in some JRPGs) | Materia | Materia that give the wearer an ability |

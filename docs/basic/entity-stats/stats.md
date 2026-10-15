@@ -70,7 +70,7 @@ Most effects share these parts:
 | [**Reactive Damage Effect**](/advanced/entity-stats/stat-effects/reactive-damage-stat-effect) | Damages the attacker back: damage reflection, retaliation | **Trigger Type** (damage taken, block, being hit), **Damage Scaling**, **Percent of Damage**, **Damage Basis**, **Damage Type**, **Can Be Avoided** |
 | [**Trigger Rule Effect**](/advanced/entity-stats/stat-effects/trigger-rule-stat-effect) | Changes a trigger tag from the points of the stat: more critical strike damage, a chance bonus for every roll ("luck"), always or never | **Tag** (empty = every tag), **Works in** (the calculations it applies to; none ticked = all four), **Tags of kind** (avoid, mitigate or boost, when no tag is chosen), **Changes the rolls of** (the owner, whoever acts on the owner, or whoever defends against the owner), **What It Does**: chance bonus, magnitude bonus, magnitude more (a percentage), always, never |
 | [**Gain Modifier Effect**](/advanced/entity-stats/stat-effects/gain-modifier-stat-effect) | Changes what the entity gains: experience, currency, loot quantity, loot rarity, [threat](/basic/keywords#threat), resources, status duration (tenacity), effect duration, shield strength, drain resistance | **Channel**, **Calculation Type** |
-| **Hit Chance Effect** | Changes the chance to hit of the [hit roll](/basic/game-settings/gameplay-config#hit-rules): **accuracy** raises the chance of the attacks of the owner, **evasion** lowers the chance of the attacks aimed at it | **Side** (accuracy or evasion), the value in points of hit chance, the hit filters |
+| **Hit Chance Effect** | Changes the chance to hit of the [hit roll](/basic/game-settings/hit-rules#hit-rules): **accuracy** raises the chance of the attacks of the owner, **evasion** lowers the chance of the attacks aimed at it | **Side** (accuracy or evasion), the value in points of hit chance, the hit filters |
 
 #### Hit filters
 
@@ -83,7 +83,7 @@ The effects that work on a hit or a heal (Calculation Trigger, Calculation Modif
 | **Only these effects** | Only hits and heals that come from these effects. An effect inside a composite effect also counts under the id of the composite, so naming a composite names everything it applies |
 | **Only these abilities** | Only hits and heals that come from these abilities. A **mastery**: +20 % damage for Fireball and Ignite only |
 | **Only these effects** | Only hits and heals that come from these effects. An effect inside a composite effect also counts under the id of the composite, so naming a composite names everything it applies |
-| **Melee or ranged** | Both, only melee attacks, or only ranged attacks. An ability is melee or ranged by its [Attack style](/basic/game-settings/gameplay-config#melee-and-ranged) |
+| **Melee or ranged** | Both, only melee attacks, or only ranged attacks. An ability is melee or ranged by its [Attack style](/basic/game-settings/hit-rules#melee-and-ranged) |
 | **Direct or periodic** | Both, only direct hits, or only the ticks of damage or healing over time |
 
 With the damage type and the [conditions](/basic/shared-systems/conditions) they say exactly which hits an effect is about. A filter is ignored by an effect that is not about a hit.

@@ -12,7 +12,8 @@
     "autolink": "node scripts/autolink.mjs",
     "database": "node scripts/scan-database.mjs",
     "events": "node scripts/event-lists.mjs",
-    "linkclasses": "node scripts/link-classes.mjs"
+    "linkclasses": "node scripts/link-classes.mjs",
+    "check-anchors": "node scripts/check-anchors.mjs"
   },
   "devDependencies": {
     "vitepress": "^1.6.4"

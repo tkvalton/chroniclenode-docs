@@ -8,7 +8,7 @@ Everything that holds items in ChronicleNode is an **inventory**: the bag of a c
 |---|---|---|---|---|
 | **The bag of a character** | The **inventory** of a player, a companion or an NPC | By default a list of slots, as many as the character's [Bag Slots](#the-size-of-a-bag); the [inventory style](#inventory-styles) can change that | [Player Classes](/basic/entities/player-classes), [NPCs](/basic/entities/npcs) | The character |
 | **What a character wears** | The **equipment inventory**: one slot for each [equipment slot](/basic/equipment-definitions/equipment-slot) | The slots of the definitions, some locked | [Equipment Slot](/basic/equipment-definitions/equipment-slot) | The character |
-| **A container** | A chest, a crate, a cupboard: an [interactable](/basic/entities/interactables) with a **Container** interaction | **Max slots** of the interaction (`20`) | [Interactables](/basic/entities/interactables#container) | The object |
+| **A container** | A chest, a crate, a cupboard: an [interactable](/basic/entities/interactables) with a **Container** interaction | **Max slots** of the interaction (`20`) | [Interactables](/basic/entities/interaction-types#container) | The object |
 | **The remains** | The body of a dead NPC, a destroyed object that held loot | The bag of the NPC, or a container made for the object | [Loot rules](/basic/items/loot-rules) | The NPC or the object |
 | **A shop** | A [vendor](/basic/items/vendors): a stock, not a bag | None: a list of goods with a quantity each (or unlimited) | [Vendors](/basic/items/vendors) | The vendor interaction |
 | **The shared party bag** | One bag for the whole party, when the game [shares it](/basic/entities/shared-inventory) | **Shared bag slots** | [Gameplay Config](/basic/game-settings/gameplay-config) | Every character (the same bag) |
@@ -31,7 +31,7 @@ An [item](/basic/items/items) is **stackable** or not, with a **max stack size**
 
 - Using an item that is consumed shrinks the stack; a **key item** (quest items are key items by default) can **never be discarded**, destroyed or sold.
 - **Discarding** an item destroys it. Putting items on the ground is a [planned feature](/planned/dropped-items).
-- A [quest item](/basic/items/items#quest-item) can be made to leave the bag when its quest ends ([availability](/basic/items/items#quest-item-availability)).
+- A [quest item](/basic/items/quest-items) can be made to leave the bag when its quest ends ([availability](/basic/items/quest-items#quest-item-availability)).
 
 ### Money
 
@@ -57,7 +57,7 @@ With the default style, the number of slots is the entity's **Bag Slots** stat, 
 
 ## Items kept aside
 
-A [quest item](/basic/items/items#quest-items-kept-aside) can be set to be **kept aside**. It is then not in the slots (or the cells) at all: it is in a list of its own that grows and shrinks with what is in it. It takes no slot, no cell and no weight, a full bag still takes it, and it counts everywhere else (objectives, requirements, hand-in costs, saves, the shared party bag). The inventory window lists it as **Quest items** under the slots; a window without that list shows nothing.
+A [quest item](/basic/items/quest-items#quest-items-kept-aside) can be set to be **kept aside**. It is then not in the slots (or the cells) at all: it is in a list of its own that grows and shrinks with what is in it. It takes no slot, no cell and no weight, a full bag still takes it, and it counts everywhere else (objectives, requirements, hand-in costs, saves, the shared party bag). The inventory window lists it as **Quest items** under the slots; a window without that list shows nothing.
 
 ## What a character wears
 
@@ -72,7 +72,7 @@ NPCs have all their slots open.
 
 ## Containers and other objects
 
-A [container](/basic/entities/interactables#container) has a bag of its own. It can be locked, opens a window next to the inventory of the player, and closes when the player walks away. What is in it comes from its [loot rules](/basic/items/loot-rules) (rolled when it is made, opened, or destroyed) and from what the player puts in. A destroyed container that still holds something stays lootable. Items cannot hold other items: a bag in the style of other games is not an item (see below).
+A [container](/basic/entities/interaction-types#container) has a bag of its own. It can be locked, opens a window next to the inventory of the player, and closes when the player walks away. What is in it comes from its [loot rules](/basic/items/loot-rules) (rolled when it is made, opened, or destroyed) and from what the player puts in. A destroyed container that still holds something stays lootable. Items cannot hold other items: a bag in the style of other games is not an item (see below).
 
 ## Shops
 
@@ -146,4 +146,4 @@ Every item has a **Weight** (the item editor, next to the value; `0` = nothing).
 ## See also
 
 - [Shared party inventory](/basic/entities/shared-inventory), [Items](/basic/items/items), [Currency](/basic/items/currency), [Loot rules](/basic/items/loot-rules), [Vendors](/basic/items/vendors), [Trainers](/basic/items/trainers)
-- [Interactables](/basic/entities/interactables#container), [Equipment Slot](/basic/equipment-definitions/equipment-slot)
+- [Interactables](/basic/entities/interaction-types#container), [Equipment Slot](/basic/equipment-definitions/equipment-slot)

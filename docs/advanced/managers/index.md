@@ -14,7 +14,7 @@ Read [Architecture](/advanced/architecture) for the whole picture and [Game host
 | [`ChronoManager`](/advanced/managers/managers/chrono-manager) | [Pooling](/advanced/pooling#timers), [World configs](/basic/world/world-configs#time) | At start-up |
 | [`AudioManager`](/advanced/managers/managers/audio-manager) | [Pooling](/advanced/pooling#audio-players), [Assets](/advanced/assets/#audio) | At start-up |
 | [`FactionManager`](/advanced/managers/managers/faction-manager) | [Behaviors](/advanced/behaviors/) | At start-up |
-| [`SettingsManager`](/advanced/game-settings/settings-runtime/settings-manager) | [Game settings](/advanced/game-settings/#the-players-settings-two-tiers) | At start-up |
+| [`SettingsManager`](/advanced/game-settings/settings-runtime/settings-manager) | [Game settings](/advanced/game-settings/#the-player-s-settings-two-tiers) | At start-up |
 | [`InputManager`](/advanced/game-settings/camera-and-controller/input-manager) | [Game settings](/advanced/game-settings/#camera-controller-and-input) | At start-up |
 | [`PartyManager`](/advanced/entities/runtime/party-manager) | [Entities](/advanced/entities/) | At start-up |
 | [`WorldContainer`](/advanced/world/runtime/world-container) | [World](/advanced/world/) | At start-up |

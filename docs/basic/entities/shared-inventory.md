@@ -1,6 +1,6 @@
 # Shared party inventory
 
-By default **every character of the party has a bag and money of their own**. A game can change that in the [Gameplay Config](/basic/game-settings/gameplay-config#party-management) (Party Management > **Inventory sharing**): the party can share **one purse**, or **one purse and one bag**.
+By default **every character of the party has a bag and money of their own**. A game can change that in the [Gameplay Config](/basic/game-settings/gameplay-party) (Party Management > **Inventory sharing**): the party can share **one purse**, or **one purse and one bag**.
 
 | Inventory sharing | What the characters share |
 |---|---|
@@ -22,7 +22,7 @@ Everything that uses a character's bag or money uses the shared one when the par
 - **Loot, item rewards, quest items and pick-pocketing** go into the bag of the party; money goes into the purse.
 - **[Vendors](/basic/items/vendors)** sell to the purse and the bag, and buy from the bag.
 - **[Trainers](/basic/items/trainers)** and **[crafting](/basic/items/craft-recipes)** take their costs and materials from the bag and the purse that the learner or crafter uses.
-- [Quest items](/basic/items/items#quest-item) in the shared bag count for the whole party.
+- [Quest items](/basic/items/quest-items) in the shared bag count for the whole party.
 
 ## Good to know
 

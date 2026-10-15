@@ -155,6 +155,18 @@ export const groups = [
         "file": "runtime_classes/world/fog/fog_of_war_system.gd"
       },
       {
+        "name": "HTerrainProvider",
+        "base": "TerrainProvider",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\terrain_provider\\h_terrain_provider.gd",
+        "file": "runtime_classes/world/terrain_provider/h_terrain_provider.gd"
+      },
+      {
+        "name": "Light",
+        "base": "Node3D",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\light.gd",
+        "file": "runtime_classes/world/light.gd"
+      },
+      {
         "name": "ObjectRegistry",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\object_registery.gd",
@@ -165,6 +177,30 @@ export const groups = [
         "base": "Area3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\region.gd",
         "file": "runtime_classes/world/region.gd"
+      },
+      {
+        "name": "TerraBrushProvider",
+        "base": "TerrainProvider",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\terrain_provider\\terra_brush_provider.gd",
+        "file": "runtime_classes/world/terrain_provider/terra_brush_provider.gd"
+      },
+      {
+        "name": "Terrain3DProvider",
+        "base": "TerrainProvider",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\terrain_provider\\terrain_3d_provider.gd",
+        "file": "runtime_classes/world/terrain_provider/terrain_3d_provider.gd"
+      },
+      {
+        "name": "TerrainProvider",
+        "base": "Node",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\terrain_provider\\terrain_provider.gd",
+        "file": "runtime_classes/world/terrain_provider/terrain_provider.gd"
+      },
+      {
+        "name": "VoxelTerrainProvider",
+        "base": "TerrainProvider",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\terrain_provider\\voxel_tools_provider.gd",
+        "file": "runtime_classes/world/terrain_provider/voxel_tools_provider.gd"
       },
       {
         "name": "WeatherSystem",

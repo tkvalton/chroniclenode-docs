@@ -30,7 +30,7 @@ InGameUI
 |---|---|---|
 | **HUD** | [HUD](/basic/user-interface/hud) | Self-sufficient elements you can add and remove freely |
 | **Interaction panels** | [Interaction Panels](/basic/user-interface/interaction-panels) | Each belongs to an [interaction](/basic/entities/interactables): talking, trading, crafting, looting |
-| **UI panels** | [UI Panels](/basic/user-interface/ui-panels) | The player's windows, opened by a [panel key](/basic/game-settings/action-bars-and-keybinds#panel-keys) or the mini menu |
+| **UI panels** | [UI Panels](/basic/user-interface/ui-panels) | The player's windows, opened by a [panel key](/basic/game-settings/panel-keys) or the mini menu |
 
 The scene makes three more things for you, in code: the [**nameplates**](/basic/user-interface/nameplates) (one for each entity and object), the **drag controller** (picking things up with the mouse) and the **trainer window**.
 
@@ -50,7 +50,7 @@ That only one window can be open at a time is fixed in the code today. A better 
 
 ## Panel keys
 
-A UI panel is opened by one of **twenty panel keys**, tied to the panel by the number set on the panel. The key, the number, the mini menu button and the name the player reads are all explained in [Panel keys](/basic/game-settings/action-bars-and-keybinds#panel-keys). The [UI Settings editor](/basic/game-settings/ui-settings#the-interface-at-a-glance) lists **which panel has which number** and warns when two panels share one.
+A UI panel is opened by one of **twenty panel keys**, tied to the panel by the number set on the panel. The key, the number, the mini menu button and the name the player reads are all explained in [Panel keys](/basic/game-settings/panel-keys). The [UI Settings editor](/basic/game-settings/ui-settings#the-interface-at-a-glance) lists **which panel has which number** and warns when two panels share one.
 
 ## The pause menu and game over
 

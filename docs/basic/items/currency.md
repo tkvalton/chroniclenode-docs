@@ -33,7 +33,7 @@ The *vendor value* of an [item](/basic/items/items) is a plain number. It is rea
 
 A currency is only a number, so it can stand for anything a game counts without carrying it. *Kill boars, bring 10 boar meat* does not need an item at all: make a currency **Boar Meat**, let the boars drop it, and untick **Show in wallet** if the player should not see it as money. It takes no space, it needs no room in the bag, and it can never be lost to a full inventory.
 
-It is a choice, not a rule. Use an **item** when the player should see it, carry it, trade it or lose it; use a currency (or a [quest item that is kept aside](/basic/items/items#quest-items-kept-aside)) when it is only a count for a quest.
+It is a choice, not a rule. Use an **item** when the player should see it, carry it, trade it or lose it; use a currency (or a [quest item that is kept aside](/basic/items/quest-items#quest-items-kept-aside)) when it is only a count for a quest.
 
 ## See also
 

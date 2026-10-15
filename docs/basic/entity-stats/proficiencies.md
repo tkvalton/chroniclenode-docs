@@ -82,7 +82,7 @@ The **stat effects** of the skill are in the right column: **Add stat effect** a
 | **Lockpicking** | A proficiency with no weapon, armor or school. A reward or an interaction gives it experience; a [requirement](/basic/shared-systems/requirements) on a lock asks for the level |
 | **A slower climb at the top** | An experience formula such as a Linear formula of `25` per level |
 
-If your game has no misses ([Gameplay Config > Hit Rules](/basic/game-settings/gameplay-config#hit-rules)), leave the accuracy effect out: it does nothing while the hit system is off.
+If your game has no misses ([Gameplay Config > Hit Rules](/basic/game-settings/hit-rules#hit-rules)), leave the accuracy effect out: it does nothing while the hit system is off.
 
 ## Proficiencies in other systems
 

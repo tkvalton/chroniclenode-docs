@@ -7,6 +7,10 @@ Everything an entity can *do* in ChronicleNode is built from two pieces that wor
 
 You build both in the **Abilities & Effects** category of the editor. This page explains how they fit together. The pages after it describe each editor in detail.
 
+::: tip Start here
+New to the toolkit? Do the [three ability tutorials](/basic/abilities-and-effects/tutorials/) first (a damage attack, a cost and a cooldown, a cast time): about 40 minutes, and you will know what the rest of this chapter is about. A [talent tree](/basic/abilities-and-effects/tutorials/talent-tree) is the fourth.
+:::
+
 | Page | What it covers |
 |---|---|
 | [Abilities](/basic/abilities-and-effects/abilities) | The Abilities editor: the five kinds of ability, and every field |

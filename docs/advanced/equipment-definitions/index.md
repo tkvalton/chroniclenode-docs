@@ -35,6 +35,7 @@ The [Equipment Definitions chapter](/basic/equipment-definitions/) explains the 
 <!-- classes:equipment-definitions/definitions -->
 | Class | What it is |
 |---|---|
+| [ArmorClassBonus](/advanced/equipment-definitions/definitions/armor-class-bonus) | One bonus of an armor class, in the way of a set bonus: the effects its wearer gets once enough of the pieces they wear are of the class. |
 | [ArmorClassDefinition](/advanced/equipment-definitions/definitions/armor-class-definition) |  |
 | [EquipmentSlotDefinition](/advanced/equipment-definitions/definitions/equipment-slot-definition) |  |
 | [EquipmentTypeDefinition](/advanced/equipment-definitions/definitions/equipment-type-definition) | EquipmentTypeDefinition defines a category of equipment and what mesh slots it affects. |

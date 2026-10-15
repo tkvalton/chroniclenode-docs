@@ -61,7 +61,7 @@ A placed NPC with a **stats override** follows its definition from the first tim
 
 ### A hit accuracy effect does nothing
 
-It only matters while the hit system is on. If your game has no misses ([Gameplay Config > Hit Rules](/basic/game-settings/gameplay-config#hit-rules)), leave the accuracy effect out.
+It only matters while the hit system is on. If your game has no misses ([Gameplay Config > Hit Rules](/basic/game-settings/hit-rules#hit-rules)), leave the accuracy effect out.
 
 ## The interface
 

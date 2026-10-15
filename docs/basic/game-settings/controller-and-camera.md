@@ -89,7 +89,7 @@ An **action bar slot** can be bound to a mouse button (the left and right button
 
 ## Clicks that do not reach the world
 
-If clicks do nothing in your game, a full-screen UI node is probably catching them. In your own interface scenes, set `mouse_filter` to **Ignore** on roots, containers and overlays, and to **Stop** on panels and buttons. See the [advanced page](/advanced/game-settings/#input).
+If clicks do nothing in your game, a full-screen UI node is probably catching them. In your own interface scenes, set `mouse_filter` to **Ignore** on roots, containers and overlays, and to **Stop** on panels and buttons. See the [advanced page](/advanced/game-settings/#camera-controller-and-input).
 
 ## See also
 

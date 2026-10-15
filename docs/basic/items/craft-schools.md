@@ -72,7 +72,7 @@ The **Skill Trees** section of the craft school editor lists the [skill trees](/
 
 ## Who owns the professions
 
-By default the professions belong to the **party**: one set of schools, recipes and levels for everybody, as in most single-character crafting games. In the [Gameplay Config](/basic/game-settings/gameplay-config#party-management) (Party Management), **Professions belong to** can be changed to **Each character**: every character then has professions of their own (their own levels, tiers, specializations and recipes), and a crafting station uses the professions of the character who uses it and the materials in their bag. A recipe learned by one is not known to the others, and a companion can learn a profession a trainer teaches the character who is talking.
+By default the professions belong to the **party**: one set of schools, recipes and levels for everybody, as in most single-character crafting games. In the [Gameplay Config](/basic/game-settings/gameplay-party) (Party Management), **Professions belong to** can be changed to **Each character**: every character then has professions of their own (their own levels, tiers, specializations and recipes), and a crafting station uses the professions of the character who uses it and the materials in their bag. A recipe learned by one is not known to the others, and a companion can learn a profession a trainer teaches the character who is talking.
 
 Choose it before the game starts: a save made with the other choice is not converted (a save of the party read in a game of characters gives every character a fresh set).
 
@@ -82,7 +82,7 @@ A **crafting station** [interactable](/basic/entities/interactables) has a *Craf
 
 ## Gathering and the profession
 
-A [gathering node](/basic/entities/interactables#gather) can raise a profession too: the node names the profession and a skill range with a curve, the same range a recipe has. A Mining node at skill 1 to 75 teaches a lot at first and nothing from 75 on; use the **Requirements** of the node to gate it (*Needs Mining 25*). The profession's progression mode decides whether a gather gives points or a chance of a skill-up.
+A [gathering node](/basic/entities/interaction-types#gather) can raise a profession too: the node names the profession and a skill range with a curve, the same range a recipe has. A Mining node at skill 1 to 75 teaches a lot at first and nothing from 75 on; use the **Requirements** of the node to gate it (*Needs Mining 25*). The profession's progression mode decides whether a gather gives points or a chance of a skill-up.
 
 ## See also
 

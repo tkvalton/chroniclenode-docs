@@ -106,23 +106,23 @@ An ability that has neither is rank 1. The ranks follow the NPC's level whenever
 
 ## Experience
 
-An NPC gives the party **experience** when it dies. How much is decided by the [Kill Experience](/basic/game-settings/gameplay-config#kill-experience) settings of the project: a fixed amount, a table by the NPC's level, or a [formula](/basic/shared-systems/formulas) of its level.
+An NPC gives the party **experience** when it dies. How much is decided by the [Kill Experience](/basic/game-settings/leveling-and-experience#kill-experience) settings of the project: a fixed amount, a table by the NPC's level, or a [formula](/basic/shared-systems/formulas) of its level.
 
 | Field | What it does | Default |
 |---|---|---|
 | **Experience worth** | With *Fixed* kill experience, the amount the NPC gives. With a table or a formula, a worth above `0` replaces the amount of the NPC's level | `0` |
 | **Experience multiplier** | Multiplies the result: `2` is double, `0` is none | `1` |
 
-A [placed NPC](/basic/world/uniques) can override the worth, and has a multiplier of its own that multiplies on top. The entity types of the NPC multiply too (an *Elite* type that is worth 3 times as much). The experience goes to the party, and the reserve gets its [share](/basic/game-settings/gameplay-config#party-management).
+A [placed NPC](/basic/world/uniques) can override the worth, and has a multiplier of its own that multiplies on top. The entity types of the NPC multiply too (an *Elite* type that is worth 3 times as much). The experience goes to the party, and the reserve gets its [share](/basic/game-settings/gameplay-party).
 
 ## Level
 
-The **Default level** is the level the NPC has when it is made. If the project uses [NPC level scaling](/basic/game-settings/gameplay-config#npc-level-scaling) the level is then moved towards the level of the party, and the stats grow with the level it ends up with. A placed NPC can override the level. The scaled level is not fixed for ever: with the [rescale options](/basic/game-settings/gameplay-config#npc-level-scaling) on, an NPC takes a new level when it respawns and when the party levels up. An NPC with the entity type *Boss* or *Elite* can follow its own [scaling rule](/basic/abilities-and-effects/scaling-and-trigger-rules).
+The **Default level** is the level the NPC has when it is made. If the project uses [NPC level scaling](/basic/game-settings/leveling-and-experience#npc-level-scaling) the level is then moved towards the level of the party, and the stats grow with the level it ends up with. A placed NPC can override the level. The scaled level is not fixed for ever: with the [rescale options](/basic/game-settings/leveling-and-experience#npc-level-scaling) on, an NPC takes a new level when it respawns and when the party levels up. An NPC with the entity type *Boss* or *Elite* can follow its own [scaling rule](/basic/abilities-and-effects/scaling-and-trigger-rules).
 
 ## How an NPC behaves in a fight
 
 1. It is **hostile** to the factions its own faction says, so it pulls (starts a fight) when one of them comes into its sight range. A **neutral** creature never pulls; it fights only once it was attacked, and is neutral again when the fight ends.
-2. Its **threat table** decides whom it attacks, unless the project turned the [threat system](/basic/game-settings/gameplay-config#threat) off (it then attacks the nearest).
+2. Its **threat table** decides whom it attacks, unless the project turned the [threat system](/basic/game-settings/gameplay-combat#threat) off (it then attacks the nearest).
 3. It follows its [combat script](/basic/behaviors/combat-scripts): search, chase, attack, flee.
 4. When it is far from the player the game lowers how often it thinks (the **level of detail** settings in the [Gameplay Config](/basic/game-settings/gameplay-config)), so a world full of NPCs stays fast.
 

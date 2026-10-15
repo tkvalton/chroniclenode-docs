@@ -8,7 +8,7 @@ HUD elements are **self-sufficient**. The interface does not know what an elemen
 
 | Element | Class | What it shows |
 |---|---|---|
-| **Mini menu** | [`MiniMenuUI`](/advanced/user-interface/hud/mini-menu-ui) | A row of buttons that open the [UI panels](/basic/user-interface/ui-panels), with the key written on each. Made from the panels that have a [panel key number](/basic/game-settings/action-bars-and-keybinds#panel-keys) |
+| **Mini menu** | [`MiniMenuUI`](/advanced/user-interface/hud/mini-menu-ui) | A row of buttons that open the [UI panels](/basic/user-interface/ui-panels), with the key written on each. Made from the panels that have a [panel key number](/basic/game-settings/panel-keys) |
 | **Action bar** | [`ActionBarUI`](/advanced/user-interface/hud/action-bar-ui) | The slots for abilities and items, the health and resource bars, buffs and debuffs, the cast bar. See [Action bar](/basic/user-interface/action-bar) |
 | **Party frames** | [`PartyFramesUI`](/advanced/user-interface/hud/party-frames-ui) | One frame for each party member (up to five): health, resource, the selected member |
 | **Minimap** | [`MiniMap`](/advanced/user-interface/hud/mini-map) | A top-down view of the surroundings with markers for quest givers, enemies, objects, treasure (the icons are set in [UI Settings](/basic/game-settings/ui-settings#minimap-icons)) |

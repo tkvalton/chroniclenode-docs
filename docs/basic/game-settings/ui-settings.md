@@ -114,6 +114,6 @@ The last list of the interface section is the **popups** of the game: every scen
 ## See also
 
 - [User Interface](/basic/user-interface/) (the scenes)
-- [Panel keys](/basic/game-settings/action-bars-and-keybinds#panel-keys)
+- [Panel keys](/basic/game-settings/panel-keys)
 - [Settings](/basic/game-settings/settings#ui) (what the player may change in the interface)
 - [`UISettingsConfig`](/advanced/game-settings/config/ui-settings-config)

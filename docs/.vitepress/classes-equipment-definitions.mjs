@@ -5,6 +5,12 @@ export const groups = [
     "slug": "definitions",
     "classes": [
       {
+        "name": "ArmorClassBonus",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\definitions\\armor_class_bonus.gd",
+        "file": "data_classes/items/definitions/armor_class_bonus.gd"
+      },
+      {
         "name": "ArmorClassDefinition",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\items\\definitions\\armor_class_definition.gd",

@@ -13,7 +13,7 @@ When a stat or pool needs its growth at a level, it asks the layers below in thi
 | 1 | The **NPC's own override** | The NPC's Stats section, *Level Growth*, **Add Override** |
 | 2 | The NPC's **growth profile** | The NPC's Stats section, *Growth profile* |
 | 3 | The profile's **parent**, the parent's parent... | The profile's *Builds on* |
-| 4 | The **project's default profile** | [Gameplay Config](/basic/game-settings/gameplay-config#npc-level-scaling), *Default NPC growth profile* |
+| 4 | The **project's default profile** | [Gameplay Config](/basic/game-settings/leveling-and-experience#npc-level-scaling), *Default NPC growth profile* |
 | 5 | The **stat's or pool's own growth** | The [Stats](/basic/entity-stats/stats#level-growth) or [Pool](/basic/entity-stats/pool#level-growth) editor |
 
 An entry **replaces** what is below it, even an entry with no formula (that means "this stat does not grow for this kind of NPC"). A stat or pool that a layer does not list is left to the layer below. So a profile only ever lists what is *different*.
@@ -67,17 +67,17 @@ A rat uses *Default* (no profile chosen). A bear uses *Heavy*, a cultist *Caster
 
 Read the numbers as a starting point: they are plain Linear [formulas](/basic/shared-systems/formulas), and the editor shows the curve of each.
 
-Profiles and [ranks](/basic/types-and-groups/entity-types#npc-level-and-experience) go together well: the rank (Elite, Boss) changes the level and the experience, and a profile of the same name changes how hard it hits.
+Profiles and [ranks](/basic/types-and-groups/entity-types) go together well: the rank (Elite, Boss) changes the level and the experience, and a profile of the same name changes how hard it hits.
 
 ## What happens when an NPC changes level
 
-Anything that changes the level of an NPC goes through the same steps: the level it is made with, [level scaling](/basic/game-settings/gameplay-config#npc-level-scaling) when the party changes, a respawn, an event that sets a level.
+Anything that changes the level of an NPC goes through the same steps: the level it is made with, [level scaling](/basic/game-settings/leveling-and-experience#npc-level-scaling) when the party changes, a respawn, an event that sets a level.
 
 1. Every stat gets its **growth** for the new level (the layers above).
 2. Every pool gets its **growth** added to its maximum. The stat effects that depend on the level are worked out again, and so is everything that feeds from a stat that grew (a Stamina that grows makes health grow if you made it so).
 3. The **maximum** of each pool changes, and the **current value keeps its share**. An NPC at 65 % health that goes from level 4 to level 12 has a bigger maximum and is at 65 %; lowering the level keeps the 65 % too. It does not matter what the project's *Level up capacity rule* is: that rule is for the player's characters. A new NPC always starts full.
 
-An NPC that is in a fight waits for the end of it (see [NPC level scaling](/basic/game-settings/gameplay-config#npc-level-scaling)).
+An NPC that is in a fight waits for the end of it (see [NPC level scaling](/basic/game-settings/leveling-and-experience#npc-level-scaling)).
 
 ### "Why does my NPC not get stronger?"
 
@@ -92,5 +92,5 @@ Growth only comes from formulas, so a stat with no growth anywhere does not chan
 ## See also
 
 - [Stats](/basic/entity-stats/stats#level-growth) and [Pool](/basic/entity-stats/pool#level-growth): the growth of a single stat or pool.
-- [NPCs](/basic/entities/npcs), [Player Classes](/basic/entities/player-classes), [Gameplay Config](/basic/game-settings/gameplay-config#npc-level-scaling).
+- [NPCs](/basic/entities/npcs), [Player Classes](/basic/entities/player-classes), [Gameplay Config](/basic/game-settings/leveling-and-experience#npc-level-scaling).
 - [Growth, core stats and gain channels](/advanced/entity-stats/growth-and-core-stats): how it is built.

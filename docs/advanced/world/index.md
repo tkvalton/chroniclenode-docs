@@ -118,8 +118,14 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [FogExplorationData](/advanced/world/runtime/fog-exploration-data) | Stores fog of war exploration data for a single map. |
 | [FogOfWarCompositorEffect](/advanced/world/runtime/fog-of-war-compositor-effect) | CompositorEffect that renders fog of war as a post-process. |
 | [FogOfWarSystem](/advanced/world/runtime/fog-of-war-system) | FogOfWarSystem manages fog of war using a CompositorEffect for rendering. |
+| [HTerrainProvider](/advanced/world/runtime/h-terrain-provider) |  |
+| [Light](/advanced/world/runtime/light) | LightEffect manages light sources and associated audio effects in the game world. |
 | [ObjectRegistry](/advanced/world/runtime/object-registry) | ObjectRegistry - manages all NPCs, Interactables, Regions, and special Encounters with advanced LOD system Integrated with CombatSystem's encounter management for coordinated combat behavior Features configurable LOD system via GameplayConfig, behavior optimization, and comprehensive performance management Handles registration, spawning, interaction tracking, and state management Provides centralized access for quest systems, events, and ability effects |
 | [Region](/advanced/world/runtime/region) | Region node that creates and manages its own RegionData in the database. |
+| [TerraBrushProvider](/advanced/world/runtime/terra-brush-provider) |  |
+| [Terrain3DProvider](/advanced/world/runtime/terrain3-d-provider) |  |
+| [TerrainProvider](/advanced/world/runtime/terrain-provider) | The fallback surface type if detection fails |
+| [VoxelTerrainProvider](/advanced/world/runtime/voxel-terrain-provider) |  |
 | [WeatherSystem](/advanced/world/runtime/weather-system) | Deals with weather application logic |
 | [WorldContainer](/advanced/world/runtime/world-container) | Lightweight coordinator for world management Handles world transitions and delegates object queries to the current WorldScene |
 | [WorldScene](/advanced/world/runtime/world-scene) | WorldScene manages all objects within a specific map/scene Handles object discovery, tracking, and provides query methods |

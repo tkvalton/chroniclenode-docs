@@ -2,6 +2,10 @@
 
 Everything a player can own, find, make and trade is built in this category: the **items** themselves, the **currencies** that pay for them, the **loot tables** that drop them (and the [loot rules](/basic/items/loot-rules) that say when and at what level), the **affixes** that give generated items their random bonuses, the **craft schools and recipes** that make them and the **vendors** that sell them.The rules that equipment is built from (slots, types, qualities, sets, sockets) are in [Equipment Definitions](/basic/equipment-definitions/).
 
+::: tip Start here
+Build [your first item and its loot](/basic/items/first-item): a material, a potion, a loot table, and a wolf that drops them, about 20 minutes.
+:::
+
 | Tab | What it holds |
 |---|---|
 | [**Items**](/basic/items/items) | Every item of the game, of eleven kinds: basic, consumable, equipment, weapon, ammo, [quest](/basic/events-and-quests/quests) item, material, enchant scroll, on-use item, readable and socketable |

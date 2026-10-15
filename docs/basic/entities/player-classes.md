@@ -74,7 +74,7 @@ The **Level rewards** tree has a row for each level. Right-click a level to add 
 
 The rewards a class gives are the reason players look forward to a level: a new ability, [skill points](/basic/shared-systems/rewards) for the skill tree, an item, a [proficiency](/basic/entity-stats/proficiencies) level. A reward that needs room (an item with a full bag) waits until there is room.
 
-How fast a character levels is set in the [Gameplay Config](/basic/game-settings/gameplay-config#leveling): the highest level and the experience for each level.
+How fast a character levels is set in the [Gameplay Config](/basic/game-settings/leveling-and-experience#leveling): the highest level and the experience for each level.
 
 ## Skill trees
 

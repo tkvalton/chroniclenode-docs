@@ -100,7 +100,7 @@ An encounter is **out of combat**, **in combat** or **defeated** (every original
 
 ## Respawning
 
-With **Respawns** on, a defeated encounter starts a timer of **Respawn delay** seconds. When it runs out, every member that is dead stands up again at its starting place with full health, at the level the party needs now ([level scaling](/basic/game-settings/gameplay-config#npc-level-scaling)), and the encounter is ready to fight again with its reactions as new.
+With **Respawns** on, a defeated encounter starts a timer of **Respawn delay** seconds. When it runs out, every member that is dead stands up again at its starting place with full health, at the level the party needs now ([level scaling](/basic/game-settings/leveling-and-experience#npc-level-scaling)), and the encounter is ready to fight again with its reactions as new.
 
 Things to know:
 

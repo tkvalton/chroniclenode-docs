@@ -2,7 +2,7 @@
 
 <Shot name="conversations-editor" caption="The Conversations editor (Behaviors > Conversations)." />
 
-A **conversation** is a dialogue: what an NPC says, what the player can answer, and what happens because of it. It is drawn as a **graph** of boxes joined by lines, so a branching story is easy to see. You attach a conversation to an NPC or an object with a [Conversation interaction](/basic/entities/interactables#conversation); the player starts it by using the NPC.
+A **conversation** is a dialogue: what an NPC says, what the player can answer, and what happens because of it. It is drawn as a **graph** of boxes joined by lines, so a branching story is easy to see. You attach a conversation to an NPC or an object with a [Conversation interaction](/basic/entities/interaction-types#conversation); the player starts it by using the NPC.
 
 ## The pieces
 
@@ -58,7 +58,7 @@ Actions run when a response is chosen (and in order).
 | **Grant reward** | Give a [reward](/basic/shared-systems/rewards): an item, experience, currency, reputation |
 | **Set starting chat** | Where this conversation will start **next time**. A story that moves on: the first talk, the second talk |
 | **Set response state** | Turn another response on or off |
-| **Trigger new interaction** | End the conversation and start a different [interaction](/basic/entities/interactables#interaction-types): open the shop, give the quest |
+| **Trigger new interaction** | End the conversation and start a different [interaction](/basic/entities/interaction-types): open the shop, give the quest |
 
 ## Dice rolls
 
@@ -100,5 +100,5 @@ Drag from the port of one box to the port of another to connect them: a chat to 
 
 ## See also
 
-- [Interactables](/basic/entities/interactables#conversation), [Requirements](/basic/shared-systems/requirements), [Rewards](/basic/shared-systems/rewards), [Quests](/basic/events-and-quests/quests)
+- [Interactables](/basic/entities/interaction-types#conversation), [Requirements](/basic/shared-systems/requirements), [Rewards](/basic/shared-systems/rewards), [Quests](/basic/events-and-quests/quests)
 - [Behaviors: how they are built](/advanced/behaviors/) (Advanced)

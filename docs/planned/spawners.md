@@ -1,13 +1,13 @@
 # Spawners
 
 ::: warning Not built yet
-This page describes a planned feature. Today everything that lives in the world is **placed by hand**, one NPC or one object at a time, and what comes back after it is gone is decided by the thing itself (an [encounter](/basic/world/encounters) that respawns its group, an NPC with a respawn timer, a [gathering node](/basic/entities/interactables#gather) that fills up again).
+This page describes a planned feature. Today everything that lives in the world is **placed by hand**, one NPC or one object at a time, and what comes back after it is gone is decided by the thing itself (an [encounter](/basic/world/encounters) that respawns its group, an NPC with a respawn timer, a [gathering node](/basic/entities/interaction-types#gather) that fills up again).
 :::
 
 A **spawner** makes the world fill itself: you describe **where** something can appear, **what** can appear, and **how often**, and the toolkit places it for you and keeps the place alive. It will cover both of the things a world is full of:
 
 - **NPCs**: the wolves of a forest, the bandits of a road, the fish of a lake.
-- **Interactable nodes**: the herbs of a meadow, the ore of a mountain, the trees of a wood (see [gathering nodes](/basic/entities/interactables#gather)).
+- **Interactable nodes**: the herbs of a meadow, the ore of a mountain, the trees of a wood (see [gathering nodes](/basic/entities/interaction-types#gather)).
 
 ## Where: areas and painted terrain
 
@@ -45,7 +45,7 @@ A spawner has a **spawn table**, much like a [loot table](/basic/items/loot-tabl
 ## How it fits what exists
 
 - A spawner makes the same **uniques** the [Add Object tool](/basic/world/add-object) places by hand, so everything about an NPC or an object (loot, behaviour, quests that count its death) works for what a spawner makes.
-- A [gathering node](/basic/entities/interactables#gather) already comes back by itself on a timer. A spawner will take over the job of **placing** the nodes and choosing which one appears where.
+- A [gathering node](/basic/entities/interaction-types#gather) already comes back by itself on a timer. A spawner will take over the job of **placing** the nodes and choosing which one appears where.
 - [Encounters](/basic/world/encounters) stay for hand-made groups with a story (a camp that fights together). A spawner is for the living world around them.
 
 ## What is there today

@@ -191,6 +191,12 @@ export const groups = [
     "slug": "runtime",
     "classes": [
       {
+        "name": "ActionBarSlotData",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\player\\action_bar_slot_data.gd",
+        "file": "runtime_classes/player/action_bar_slot_data.gd"
+      },
+      {
         "name": "DynamicFollowerSystem",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\components\\dynamic_follower_system.gd",

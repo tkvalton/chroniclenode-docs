@@ -4,7 +4,7 @@
 
 A **trigger tag** names something that *happened* during a hit or a heal: a dodge, a block, a critical strike, a multistrike, an armor penetration. A stat rolls the tag (a [Calculation Trigger Effect](/basic/entity-stats/stats#the-effect-types)), the tag is kept for the rest of the calculation, and anything that cares can react to it: a modifier ("block lowers damage by 30 %"), a [proc](/basic/abilities-and-effects/effect-types) ("when you crit, heal"), or an effect that forces it ("this attack always crits").
 
-The toolkit ships five: **Dodge**, **Block**, **Critical Strike**, **Multistrike** and **Armor Penetration**. A miss is not a trigger tag: it is the result of the [hit roll](/basic/game-settings/gameplay-config#hit-rules) of the ability.
+The toolkit ships five: **Dodge**, **Block**, **Critical Strike**, **Multistrike** and **Armor Penetration**. A miss is not a trigger tag: it is the result of the [hit roll](/basic/game-settings/hit-rules#hit-rules) of the ability.
 
 ## Tag
 

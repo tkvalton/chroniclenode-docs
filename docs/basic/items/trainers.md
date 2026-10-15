@@ -91,7 +91,7 @@ Using the NPC opens the list. It closes when the player walks away. It does not 
 
 ## What is saved
 
-- An **ability** or a **rank** from a trainer is saved with the character (it is given for good, like the one a [quest](/basic/shared-systems/rewards#abilities-and-ranks-are-kept) gives).
+- An **ability** or a **rank** from a trainer is saved with the character (it is given for good, like the one a [quest](/basic/shared-systems/rewards#when-there-is-no-room) gives).
 - Proficiency levels, tiers and specializations are saved with the character's [proficiencies](/basic/entity-stats/proficiencies#saving).
 - Professions, their levels, tiers, specializations and recipes are saved with the [crafting](/basic/items/craft-schools#who-owns-the-professions) data (of the party, or of each character).
 - A lesson itself has no memory: whether it is "known" is read from what it teaches. A lesson that gives **any rewards** can be bought again; keep it to once with a requirement that the reward changes.

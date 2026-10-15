@@ -8,8 +8,8 @@ Characters are used in three places:
 
 | Where | How |
 |---|---|
-| **The starting party** | The *Starting party composition* of the [Gameplay Config](/basic/game-settings/gameplay-config#party-management). With **Use character creation UI** on, the player chooses from these at the start of a new game |
-| **Companions** | A [Join Party interaction](/basic/entities/interactables#entity-interactions) on an NPC recruits a character into the party |
+| **The starting party** | The *Starting party composition* of the [Gameplay Config](/basic/game-settings/gameplay-party). With **Use character creation UI** on, the player chooses from these at the start of a new game |
+| **Companions** | A [Join Party interaction](/basic/entities/interaction-types#entity-interactions) on an NPC recruits a character into the party |
 | **Created characters** | A game with [character creation](/basic/game-settings/character-creation) lets the player make a custom character: the game stores it as a custom character definition |
 
 ## Basic properties
@@ -64,11 +64,11 @@ Every member of the party is a player. The one the player controls is the **curr
 - In combat it joins a fight near any party member, chases the target, attacks with its basic attack and uses its abilities: an ability that targets an enemy is used on the target when it is ready and in range; an ability that targets an ally is used on the most hurt member below 70 % health. Abilities that target the caster, the ground or an aim are not used by the AI yet.
 - When the fight is over it searches for a moment, then follows again.
 
-The [Gameplay Config](/basic/game-settings/gameplay-config) has the options: how many members the party holds, how many wait in the **reserve**, whether the player may take over any member, whether switching is allowed in combat, the follow distance and assist range, and whether companions use abilities. See [Party management](/basic/game-settings/gameplay-config#party-management).
+The [Gameplay Config](/basic/game-settings/gameplay-config) has the options: how many members the party holds, how many wait in the **reserve**, whether the player may take over any member, whether switching is allowed in combat, the follow distance and assist range, and whether companions use abilities. See [Party management](/basic/game-settings/gameplay-party).
 
 A companion's class can carry its own [combat script](/basic/entities/player-classes#ai-scripts) for how it fights.
 
 ## See also
 
-- [Player Classes](/basic/entities/player-classes), [Gameplay Config](/basic/game-settings/gameplay-config#party-management)
+- [Player Classes](/basic/entities/player-classes), [Gameplay Config](/basic/game-settings/gameplay-party)
 - [Entities: how they are built](/advanced/entities/) (Advanced)

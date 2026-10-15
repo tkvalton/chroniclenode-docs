@@ -81,14 +81,14 @@ An ability can also use up items or money each time it is used.
 
 ## Hit roll
 
-Active abilities have a **Hit roll** box with two fields. They only matter when your game has [misses](/basic/game-settings/gameplay-config#hit-rules).
+Active abilities have a **Hit roll** box with two fields. They only matter when your game has [misses](/basic/game-settings/hit-rules#hit-rules).
 
 | Field | What it does | Default |
 |---|---|---|
 | **Hit rule** | **Project default**: the ability can miss when **Use hit system** is on in the [Gameplay Config](/basic/game-settings/gameplay-config). **Always hits**: it never misses (a spell that cannot be dodged, a trap). **Can miss**: it rolls to hit even when the project does not use the hit system | Project default |
-| **Attack style** | **Automatic**: melee when the range is at most the **Melee range** of the Gameplay Config, otherwise ranged. **Melee** or **Ranged** to decide yourself. The style picks the base chance to hit and which [accuracy and evasion](/basic/game-settings/gameplay-config#accuracy-and-evasion) effects count | Automatic |
+| **Attack style** | **Automatic**: melee when the range is at most the **Melee range** of the Gameplay Config, otherwise ranged. **Melee** or **Ranged** to decide yourself. The style picks the base chance to hit and which [accuracy and evasion](/basic/game-settings/hit-rules#accuracy-and-evasion) effects count | Automatic |
 
-The ability rolls **once per use and enemy**, before any of its effects apply: a miss stops everything the ability would have done to that enemy. The editor shows what the ability does with the current settings. The full rules, the [formula](/basic/shared-systems/formulas) and examples are on the [Gameplay Config](/basic/game-settings/gameplay-config#hit-rules) page.
+The ability rolls **once per use and enemy**, before any of its effects apply: a miss stops everything the ability would have done to that enemy. The editor shows what the ability does with the current settings. The full rules, the [formula](/basic/shared-systems/formulas) and examples are on the [Gameplay Config](/basic/game-settings/hit-rules#hit-rules) page.
 
 ## Requirements
 

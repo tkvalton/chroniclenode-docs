@@ -653,16 +653,52 @@ export const groups = [
     "slug": "effects-projectiles-and-shots",
     "classes": [
       {
+        "name": "BoomerangMovement",
+        "base": "ProjectileMovement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\projectile_strategy_classes\\movement_strategy\\projectile_movement_boomerang.gd",
+        "file": "data_classes/projectile_strategy_classes/movement_strategy/projectile_movement_boomerang.gd"
+      },
+      {
         "name": "BoomerangProjectileEffect",
         "base": "BaseProjectileEffect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\projectiles_and_shots\\effect_projectile_boomerang.gd",
         "file": "data_classes/effects/projectiles_and_shots/effect_projectile_boomerang.gd"
       },
       {
+        "name": "ChainMovement",
+        "base": "ProjectileMovement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\projectile_strategy_classes\\movement_strategy\\projectile_movement_chain.gd",
+        "file": "data_classes/projectile_strategy_classes/movement_strategy/projectile_movement_chain.gd"
+      },
+      {
         "name": "ChainProjectileEffect",
         "base": "BaseProjectileEffect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\projectiles_and_shots\\effect_projectile_chain.gd",
         "file": "data_classes/effects/projectiles_and_shots/effect_projectile_chain.gd"
+      },
+      {
+        "name": "CollisionProjectileTrigger",
+        "base": "ProjectileTrigger",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\projectile_strategy_classes\\trigger_strategy\\projectile_trigger_collision.gd",
+        "file": "data_classes/projectile_strategy_classes/trigger_strategy/projectile_trigger_collision.gd"
+      },
+      {
+        "name": "CurvedHomingMovement",
+        "base": "HomingMovement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\projectile_strategy_classes\\movement_strategy\\projectile_movement_curved_homing.gd",
+        "file": "data_classes/projectile_strategy_classes/movement_strategy/projectile_movement_curved_homing.gd"
+      },
+      {
+        "name": "DestinationProjectileTrigger",
+        "base": "ProjectileTrigger",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\projectile_strategy_classes\\trigger_strategy\\projectile_trigger_destination.gd",
+        "file": "data_classes/projectile_strategy_classes/trigger_strategy/projectile_trigger_destination.gd"
+      },
+      {
+        "name": "DirectMovement",
+        "base": "ProjectileMovement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\projectile_strategy_classes\\movement_strategy\\projectile_movement_direct.gd",
+        "file": "data_classes/projectile_strategy_classes/movement_strategy/projectile_movement_direct.gd"
       },
       {
         "name": "DirectProjectileEffect",
@@ -677,16 +713,52 @@ export const groups = [
         "file": "data_classes/effects/projectiles_and_shots/effect_hitscan.gd"
       },
       {
+        "name": "HomingMovement",
+        "base": "ProjectileMovement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\projectile_strategy_classes\\movement_strategy\\projectile_movement_homing.gd",
+        "file": "data_classes/projectile_strategy_classes/movement_strategy/projectile_movement_homing.gd"
+      },
+      {
         "name": "HomingProjectileEffect",
         "base": "BaseProjectileEffect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\projectiles_and_shots\\effect_projectile_homing.gd",
         "file": "data_classes/effects/projectiles_and_shots/effect_projectile_homing.gd"
       },
       {
+        "name": "ParametricCurvedMovement",
+        "base": "DirectMovement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\projectile_strategy_classes\\movement_strategy\\projectile_movement_curved.gd",
+        "file": "data_classes/projectile_strategy_classes/movement_strategy/projectile_movement_curved.gd"
+      },
+      {
+        "name": "PhysicsMovement",
+        "base": "ProjectileMovement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\projectile_strategy_classes\\movement_strategy\\projectile_movement_physics.gd",
+        "file": "data_classes/projectile_strategy_classes/movement_strategy/projectile_movement_physics.gd"
+      },
+      {
         "name": "PhysicsProjectileEffect",
         "base": "BaseProjectileEffect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\projectiles_and_shots\\effect_projectile_physics.gd",
         "file": "data_classes/effects/projectiles_and_shots/effect_projectile_physics.gd"
+      },
+      {
+        "name": "ProjectileMovement",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\projectile_strategy_classes\\movement_strategy\\projectile_movement.gd",
+        "file": "data_classes/projectile_strategy_classes/movement_strategy/projectile_movement.gd"
+      },
+      {
+        "name": "ProjectileTrigger",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\projectile_strategy_classes\\trigger_strategy\\projectile_trigger.gd",
+        "file": "data_classes/projectile_strategy_classes/trigger_strategy/projectile_trigger.gd"
+      },
+      {
+        "name": "TimerProjectileTrigger",
+        "base": "ProjectileTrigger",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\projectile_strategy_classes\\trigger_strategy\\projectile_trigger_time.gd",
+        "file": "data_classes/projectile_strategy_classes/trigger_strategy/projectile_trigger_time.gd"
       }
     ]
   },

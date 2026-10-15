@@ -2,6 +2,10 @@
 
 An **entity** is anything in the world that has a body and can act or be acted on: the characters of the player, the creatures and people of the world, and the objects you can use or destroy. This category holds their definitions.
 
+::: tip Start here
+Build [an NPC who talks and sells](/basic/entities/first-npc): an NPC, a shop and a conversation, placed in a world, about 20 minutes.
+:::
+
 | Tab | What it defines |
 |---|---|
 | [**Playable Character**](/basic/entities/playable-character) | A character the player can control or recruit: its class, level, model, inventory and equipment |

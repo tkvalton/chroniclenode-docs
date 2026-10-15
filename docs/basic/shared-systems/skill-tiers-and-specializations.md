@@ -47,7 +47,7 @@ Add them in the skill's editor (**Add specialization**).
 | **Faster crafting** | The craft time is shortened by this percent |
 | **Extra output chance**, **Extra output amount** | A chance that a craft makes more than the recipe says, and how many more |
 | **Materials back chance** | A chance that a finished craft gives the materials back |
-| **More skill from crafting** | A percent added to the chance of a skill-up, or to the points of a craft ([how a craft raises the skill](/basic/items/craft-schools#how-a-craft-raises-the-skill)) |
+| **More skill from crafting** | A percent added to the chance of a skill-up, or to the points of a craft ([how a craft raises the skill](/basic/items/craft-schools#learning-and-how-a-craft-raises-the-skill)) |
 
 Several specializations add their percentages together (up to 100 for a chance, 90 for speed).
 

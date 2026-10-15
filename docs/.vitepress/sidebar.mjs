@@ -79,6 +79,7 @@ const abilitiesAndEffects = {
         page('1. A damage attack', '/basic/abilities-and-effects/tutorials/first-damage-attack'),
         page('2. A cost and a cooldown', '/basic/abilities-and-effects/tutorials/cost-and-cooldown'),
         page('3. Cast time and interrupts', '/basic/abilities-and-effects/tutorials/cast-time-and-interrupts'),
+        page('4. A talent tree', '/basic/abilities-and-effects/tutorials/talent-tree'),
       ],
     },
   ],
@@ -109,7 +110,7 @@ const basicSystems = [
     ['Quest Lines', 'quest-lines', 'questlines'],
     ['Global Variables', 'global-variables', 'global_variables'],
   ], {
-    after: [page('Popups', '/basic/events-and-quests/popups'), page('Event triggers', '/basic/events-and-quests/event-triggers'), page('Event actions', '/basic/events-and-quests/event-actions')],
+    after: [page('Tutorial: your first quest', '/basic/events-and-quests/first-quest'), page('Popups', '/basic/events-and-quests/popups'), page('Event triggers', '/basic/events-and-quests/event-triggers'), page('Event actions', '/basic/events-and-quests/event-actions')],
   }),
   system('Entities', 'entities', [
     ['Playable Character', 'playable-character', 'character_editor'],
@@ -117,7 +118,7 @@ const basicSystems = [
     ['NPCs', 'npcs', 'entities'],
     ['Interactables', 'interactables', 'interactables'],
   ], {
-    after: [page('Templates', '/basic/entities/templates'), page('Shared party inventory', '/basic/entities/shared-inventory')],
+    after: [page('Tutorial: an NPC who talks and sells', '/basic/entities/first-npc'), page('Interaction types', '/basic/entities/interaction-types'), page('Templates', '/basic/entities/templates'), page('Shared party inventory', '/basic/entities/shared-inventory')],
   }),
   abilitiesAndEffects,
   system('Behaviors', 'behaviors', [
@@ -153,7 +154,7 @@ const basicSystems = [
     ['Vendors', 'vendors', 'vendors'],
     ['Trainers', 'trainers', 'trainers'],
   ], {
-    after: [page('Generated items', '/basic/items/item-generation'), page('Loot rules', '/basic/items/loot-rules')],
+    after: [page('Tutorial: your first item and its loot', '/basic/items/first-item'), page('Quest items', '/basic/items/quest-items'), page('Generated items', '/basic/items/item-generation'), page('Loot rules', '/basic/items/loot-rules')],
   }),
   system('Equipment Definitions', 'equipment-definitions', [
     ['Armor Class', 'armor-class', 'armor_class'],
@@ -181,7 +182,7 @@ const basicSystems = [
     ['Controller & Camera', 'controller-and-camera', 'controller_camera'],
     ['UI Settings', 'ui-settings', 'ui_settings'],
     ['Localization', 'localization', 'localization'],
-  ], { after: [page('Action bars and keybinds', '/basic/game-settings/action-bars-and-keybinds')] }),
+  ], { after: [page('Party Management', '/basic/game-settings/gameplay-party'), page('Leveling and experience', '/basic/game-settings/leveling-and-experience'), page('Combat rules', '/basic/game-settings/gameplay-combat'), page('Hit Rules', '/basic/game-settings/hit-rules'), page('Action bars and keybinds', '/basic/game-settings/action-bars-and-keybinds'), page('Panel keys', '/basic/game-settings/panel-keys')] }),
   userInterface,
 ]
 

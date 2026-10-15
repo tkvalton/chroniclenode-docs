@@ -10,7 +10,7 @@ The **action bar** is the HUD element the player fires abilities and items from.
 
 ## The data and the drawing are apart
 
-A character's bar is **data**: 1 to 60 slots, set by *Action bar slot count* in the [Gameplay Config](/basic/game-settings/gameplay-config#action-bar). The scene is only **a way of drawing it**. A slot your scene does not draw still exists and still fires with its key. So you can draw ten slots, three, or none, without touching the character.
+A character's bar is **data**: 1 to 60 slots, set by *Action bar slot count* in the [Gameplay Config](/basic/game-settings/gameplay-party#action-bar). The scene is only **a way of drawing it**. A slot your scene does not draw still exists and still fires with its key. So you can draw ten slots, three, or none, without touching the character.
 
 ## What the scene must contain
 
@@ -72,4 +72,4 @@ Each slot is a scene with an `ActionBarButton` script. Its parts, by unique name
 - [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds) (what is on a slot, keys, plans, locks, recipes)
 - [HUD](/basic/user-interface/hud)
 - [Controller & Camera](/basic/game-settings/controller-and-camera) (mouse buttons are shared between slots and the camera)
-- [Gameplay Config > Action Bar](/basic/game-settings/gameplay-config#action-bar)
+- [Gameplay Config > Action Bar](/basic/game-settings/gameplay-party#action-bar)

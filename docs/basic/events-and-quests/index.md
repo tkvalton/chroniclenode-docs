@@ -2,6 +2,10 @@
 
 This is how the story and the rules of the world are told. Three systems work together:
 
+::: tip Start here
+Build [your first quest](/basic/events-and-quests/first-quest) (kill three wolves, hand in, get paid): it uses the quest editor, a conversation, an NPC and a world, about 20 minutes.
+:::
+
 - An **event** is "when this happens, if that is true, do these things". It is the general tool: open a door when the switch is flipped, spawn bandits when the party enters the forest road, set a flag when the king dies.
 - A **quest** is something the player takes on: objectives to complete, rewards, requirements, what happens if it is failed or given up.
 - A **conversation** (in [Behaviors](/basic/behaviors/conversations)) is how a quest is usually offered and handed in.

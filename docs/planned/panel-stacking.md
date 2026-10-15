@@ -32,7 +32,7 @@ The developer decides **which windows can be open together**, and the rule is **
 The same change makes the **interaction panels** open without code:
 
 - Every panel placed in `InteractionPanels` or `UIPanels` is **registered by its name**, whatever its class.
-- An [interaction](/basic/entities/interactables#interaction-types) opens one by name. The **Show UI Panel** interaction, which has no effect today, takes a **panel name** and opens that panel from an object or an NPC.
+- An [interaction](/basic/entities/interaction-types#interaction-types) opens one by name. The **Show UI Panel** interaction, which has no effect today, takes a **panel name** and opens that panel from an object or an NPC.
 - A new interaction type of your own needs **no change to the in-game scene class**: its window is a scene, its name is a string.
 
 ## Still undecided

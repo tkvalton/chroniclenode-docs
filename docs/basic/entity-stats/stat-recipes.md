@@ -21,7 +21,7 @@ Every effect has [conditions](/basic/shared-systems/conditions) (against Undead,
 
 ## Hit chance
 
-Whether attacks can miss at all is a rule of your game: **Gameplay Config > Combat > [Hit Rules](/basic/game-settings/gameplay-config#hit-rules)** has the switch, the base chances for melee and ranged attacks, the limits, the level gap and glancing hits. This page is about the **stats** that change that chance. A game with no misses switches the system off and builds none of them.
+Whether attacks can miss at all is a rule of your game: **Gameplay Config > Combat > [Hit Rules](/basic/game-settings/hit-rules#hit-rules)** has the switch, the base chances for melee and ranged attacks, the limits, the level gap and glancing hits. This page is about the **stats** that change that chance. A game with no misses switches the system off and builds none of them.
 
 The chance to hit is the base chance, **plus the accuracy of the attacker, minus the evasion of the target**, plus the level gap, kept between the minimum and the maximum. Accuracy and evasion are one stat effect, the **Hit Chance Effect**, with a **Side**:
 
@@ -74,7 +74,7 @@ Defense makes you harder to hit and to hurt: more dodge and block, a lower chanc
 |---|---|
 | A **Calculation Trigger Effect** | Target Calculations *Damage Taken*, Tag *Dodge*, Linear `0.1` per point |
 | A **Calculation Trigger Effect** | Target Calculations *Damage Taken*, Tag *Block*, Linear `0.1` per point |
-| A **Hit Chance Effect** | Side *Evasion*, Linear `0.1`: attackers hit you less often (only when the [hit system](/basic/game-settings/gameplay-config#hit-rules) is on) |
+| A **Hit Chance Effect** | Side *Evasion*, Linear `0.1`: attackers hit you less often (only when the [hit system](/basic/game-settings/hit-rules#hit-rules) is on) |
 | A **Trigger Rule Effect** | Tags of kind *Boost*, Changes the rolls of **Whoever acts on the owner**, Chance bonus, Linear `-0.1`: attackers crit you less |
 
 A *Trigger Rule Effect* that changes the rolls of the **owner** is for your own rolls (your crit chance). One that changes the rolls of **whoever acts on the owner** is for the attackers and healers that target you. One that changes the rolls of **whoever defends against the owner** is for the targets of your attacks (expertise).

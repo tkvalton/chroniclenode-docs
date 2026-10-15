@@ -21,7 +21,7 @@ Loot rules replace the old fixed **Inventory** and the single **Loot table** of 
 | **On Death** | NPCs | When the NPC dies. The loot is on the body |
 | **On Destroyed** | Objects with health | When the object is destroyed. What it leaves behind stays lootable, **like a corpse** |
 | **On First Access** | NPCs, objects | The first time someone opens its inventory: a chest is opened, a pocket is picked, a body is looted. Rolled **once** and kept |
-| **On Gathered** | Gathering nodes | Each time the node is [gathered from](/basic/entities/interactables#gather). Rolled **again every time** and given straight to the **bag of the gatherer** (no room: nothing is given and the charge is kept) |
+| **On Gathered** | Gathering nodes | Each time the node is [gathered from](/basic/entities/interaction-types#gather). Rolled **again every time** and given straight to the **bag of the gatherer** (no room: nothing is given and the charge is kept) |
 
 A rule on **Initialize** or **First Access** rolls once; the holder remembers it, so loading a save or opening a chest a second time does not roll it again. A rule on **Death** or **Destroyed** rolls when it happens.
 

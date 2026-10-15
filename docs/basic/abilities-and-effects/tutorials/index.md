@@ -9,6 +9,7 @@ Every tutorial uses the **Database** tab, and ends by trying the result in the g
 | [1. Your first ability: a damage attack](/basic/abilities-and-effects/tutorials/first-damage-attack) | *Spark*, an instant attack that hits an enemy | An effect, an ability, and how they connect |
 | [2. A cost and a cooldown](/basic/abilities-and-effects/tutorials/cost-and-cooldown) | Spark with a resource cost and a [cooldown](/basic/keywords#cooldown) | Pools, the [global cooldown](/basic/keywords#global-cooldown), cooldown duration |
 | [3. Cast time and interrupts](/basic/abilities-and-effects/tutorials/cast-time-and-interrupts) | *Frost Bolt*, a spell with a cast time | The Cast use style, interrupting, moving while casting |
+| [4. A talent tree](/basic/abilities-and-effects/tutorials/talent-tree) | A small talent tree for a class, with a locked second row | Point pools, nodes, connections, a class that has a tree |
 
 ::: info Status of the tutorials
 They are written from the fields of the editors and the demo content. They are being checked step by step in the editor, one at a time. The status of each is at the top of its page.

@@ -1,6 +1,6 @@
 # Interaction Panels
 
-An **interaction panel** is the window that belongs to an [interaction](/basic/entities/interactables#interaction-types). When the player talks to an NPC, opens a chest, trades, crafts or reads a sign, the interaction does its work and asks the interface to show the window for it. The windows live in the **`InteractionPanels`** container of the [in-game scene](/basic/user-interface/in-game).
+An **interaction panel** is the window that belongs to an [interaction](/basic/entities/interaction-types). When the player talks to an NPC, opens a chest, trades, crafts or reads a sign, the interaction does its work and asks the interface to show the window for it. The windows live in the **`InteractionPanels`** container of the [in-game scene](/basic/user-interface/in-game).
 
 Every interaction panel is a [`PanelUI`](/advanced/user-interface/panels/panel-ui) (the DiceRoll panel is a small exception, it is part of the conversation).
 

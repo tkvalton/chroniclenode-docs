@@ -31,7 +31,7 @@ The quest is complete when every **required** objective is complete.
 
 #### Objectives that count
 
-An objective that counts shows a tally (**3 / 10**): the *Entity Death Type* trigger (defeat 10 wolves), the *Player Has X Items* trigger (have 10 herbs), the *Player Currency Changed* trigger (gain 10 boar meat) and the *Player Gathered* trigger (gather from a [node](/basic/entities/interactables#gather) 8 times). *Player Has X Items* is done the moment the player holds that many, **including what the player already holds** when the objective starts. If the player drops below it again, the objective that was done stays done.
+An objective that counts shows a tally (**3 / 10**): the *Entity Death Type* trigger (defeat 10 wolves), the *Player Has X Items* trigger (have 10 herbs), the *Player Currency Changed* trigger (gain 10 boar meat) and the *Player Gathered* trigger (gather from a [node](/basic/entities/interaction-types#gather) 8 times). *Player Has X Items* is done the moment the player holds that many, **including what the player already holds** when the objective starts. If the player drops below it again, the objective that was done stays done.
 
 #### Currency as a quest track
 
@@ -67,7 +67,7 @@ Add the quest to the **hand-in list** of the NPC's [conversation](/basic/behavio
 
 A quest can **take** something when it completes: *Hand in 10 Boar Meat*, *pay 50 gold*. The cost belongs to the **quest**, not to the NPC, so every NPC that takes the quest in asks for the same thing, and the quest designer sees it in one place.
 
-The **Hand-in cost** section of the quest editor lists **Money** (currencies) and **Items taken**. Items can be any item, including [quest items that are kept aside](/basic/items/items#quest-items-kept-aside).
+The **Hand-in cost** section of the quest editor lists **Money** (currencies) and **Items taken**. Items can be any item, including [quest items that are kept aside](/basic/items/quest-items#quest-items-kept-aside).
 
 - The quest **waits** until the player can pay **all** of it: the player is told what is missing, nothing is taken, and the quest completes by itself when the player can pay (a hand-in quest, when it is handed in again).
 - The cost is taken from the bag of the player who completes it (the shared bag, when the party [shares it](/basic/entities/shared-inventory)), then the rewards are given.

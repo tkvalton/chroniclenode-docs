@@ -22,7 +22,7 @@ Each calculation has two phases:
 1. **Triggers.** Stats with a [Calculation Trigger Effect](/basic/entity-stats/stats#the-effect-types) roll their chance. **Avoid** triggers go first: in **Damage Taken** an avoid trigger is a dodge or a parry. When one fires, the number becomes 0 and the calculation ends. Other triggers (critical strike, block) set a [trigger tag](/basic/entity-stats/trigger-tags) and carry on.
 2. **Modifiers.** Every Calculation Modifier Effect changes the number, one at a time, in the order of the list below. After the modifiers, the **damage done** and **healing done** calculations apply the [Ability Boost](/basic/abilities-and-effects/effect-amount#boosting-some-abilities) effects of the doer, as steps of their own. A modifier that **requires a trigger tag** only runs when that tag fired: "block lowers the damage by 30 %" needs the *block* tag.
 
-A **miss** is not part of a calculation. Whether an attack reaches its target is decided before, by the [hit roll](/basic/game-settings/gameplay-config#hit-rules) of the ability; the calculations only run for an attack that landed.
+A **miss** is not part of a calculation. Whether an attack reaches its target is decided before, by the [hit roll](/basic/game-settings/hit-rules#hit-rules) of the ability; the calculations only run for an attack that landed.
 
 A trigger tag can also change the number by itself: a *critical strike* adds +100 % when it fires, without any modifier.
 
