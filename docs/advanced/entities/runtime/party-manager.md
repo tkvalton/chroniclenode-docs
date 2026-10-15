@@ -33,6 +33,7 @@ Key features:
 | `PlayerController` | [player_controller](#var-player-controller) |  |
 | `CameraController` | [camera_controller](#var-camera-controller) |  |
 | `CraftingManager` | [crafting_manager](#var-crafting-manager) |  |
+| `SkillHolders` | [skill_holders](#var-skill-holders) |  |
 | `InventoryComponent` | [shared_bag](#var-shared-bag) | `null` |
 | `InventoryComponent` | [shared_wallet](#var-shared-wallet) | `null` |
 | `WorldContainer` | [world_container](#var-world-container) |  |
@@ -185,6 +186,10 @@ The player camera
 ### CraftingManager crafting_manager {#var-crafting-manager}
 
 CraftingManager system ref
+
+### SkillHolders skill_holders {#var-skill-holders}
+
+The skill trees and points that are not a character's: the professions and the factions
 
 ### InventoryComponent shared_bag = null {#var-shared-bag}
 

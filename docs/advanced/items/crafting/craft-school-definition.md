@@ -24,6 +24,7 @@ Definition of a crafting school (Blacksmithing, Tailoring, Alchemy, etc.) Contai
 | `Array[SkillSpecialization]` | [specializations](#prop-specializations) | `[]` |
 | `Array[Requirement]` | [learning_requirements](#prop-learning-requirements) | `[]` |
 | `SkillTree` | [skill_tree](#prop-skill-tree) | `null` |
+| `Array[int]` | [skill_trees](#prop-skill-trees) | `[]` |
 
 ## Methods
 
@@ -99,6 +100,10 @@ Requirements to learn this craft school (could be quest, level, etc.)
 ### SkillTree skill_tree = null {#prop-skill-tree}
 
 Optional skill tree for this craft school
+
+### Array[int] skill_trees = [] {#prop-skill-trees}
+
+Skill trees of this profession (ids of the skill_tree type). They open when the profession is learned and spend the points of the profession pools (SkillPointPool.scope). The older field above is not read
 
 ## Method descriptions
 

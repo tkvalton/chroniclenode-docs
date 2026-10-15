@@ -14,6 +14,7 @@ Dialog for managing skill point pools
 | `Label` | [pool_id_label](#var-pool-id-label) |  |
 | `TextEdit` | [description_edit](#var-description-edit) |  |
 | `SpinBox` | [max_points_spin](#var-max-points-spin) |  |
+| `OptionButton` | [scope_option](#var-scope-option) |  |
 | `ColorPickerButton` | [color_picker_button](#var-color-picker-button) |  |
 | `SkillPointPool` | [current_pool](#var-current-pool) |  |
 | `bool` | [is_loading](#var-is-loading) | `false` |
@@ -44,6 +45,10 @@ Dialog for managing skill point pools
 *No description yet.*
 
 ### SpinBox max_points_spin {#var-max-points-spin}
+
+*No description yet.*
+
+### OptionButton scope_option {#var-scope-option}
 
 *No description yet.*
 

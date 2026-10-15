@@ -8,58 +8,37 @@ A tree is given to a [player class](/basic/entities/player-classes#skill-trees).
 
 ## Where trees can be used
 
-A tree is a resource of its own, so you can make as many as you like: one for the class, one for each branch of the class, one for a profession. A tree is **listed** by something that can hold trees, and every player that has it gets a copy with their own points and ranks.
+A tree is a resource of its own, so you can make as many as you like: one for the class, one for each branch of the class, one for a profession, one for a faction. A tree is **listed** by something that can hold trees, and the player gets a copy with its own points and ranks.
 
-| Held by | How |
-|---|---|
-| **A player class** | The **Skill Trees** section of the class editor. Every character of the class gets the trees |
-| **A character** | The **Skill Trees** section of the [Playable Character](/basic/entities/playable-character) editor: trees on top of the class's, for a general tree that does not belong to a class |
+| Held by | How | Opens |
+|---|---|---|
+| **A player class** | The **Skill Trees** section of the class editor | From the start |
+| **A character** | The **Skill Trees** section of the [Playable Character](/basic/entities/playable-character) editor: trees on top of the class's, for a general tree that does not belong to a class | From the start |
+| **A profession** | The **Skill Trees** section of the [Craft Schools](/basic/items/craft-schools#skill-trees) editor | When the profession is **learned** |
+| **A faction** | The **Skill Trees** section of the [Factions](/basic/behaviors/factions#skill-trees) editor | Once the party has **met** the faction (it has a standing with it) |
+| **A reward** | The **Skill Tree** [reward](/basic/shared-systems/rewards): a specialization, a quest, an event, a conversation | When the reward is given. Taking the reward back takes the tree away again |
 
-The skill window has a **dropdown** with all the trees of the player (the class's, then the character's). A tree that is **locked** is listed as *(locked)* with the reason as a tooltip, or left out when the tree is set to hide.
+Every tree can also have [Tree rules](#tree-rules): requirements that decide when the player can spend points in it.
 
-Not built yet: trees listed by a **profession** or a **faction**, and a reward that gives or takes a tree while the game runs.
+The skill window has a **dropdown** with all the trees of the player. A tree that is **locked** is listed as *(locked)* with the reason as a tooltip (*Learn the profession Mining first*, *Meet the Mages Guild first*, *Spend 31 points in Fire first*), or left out when the tree is set to hide.
 
-## The three pieces
+## Whose points they are
 
-| Piece | What it is |
-|---|---|
-| **Skill point pool** | A kind of point: *Talent Points*, *Mastery Points*, *Skill Points*. Players earn points of a pool and spend them on nodes of that pool |
-| **Node** | One thing to unlock. It costs points of a pool, and has rewards, a required level and prerequisites |
-| **Connection** | A line between two nodes: *prerequisite*, *mutually exclusive* or only *visual* |
+The points of a pool belong to the **same owner** as the trees that spend them. Set it in the **Pool Manager**: **Points belong to**.
 
-## Skill point pools
+| The pool belongs to | The points are kept by | The trees that spend them |
+|---|---|---|
+| **Each character** | The character, saved with it | The trees of a class, of a character, and the ones a reward gave |
+| **The owner of the professions** | The party, or each character, as the Gameplay Config says (**Professions belong to**: see [Craft Schools](/basic/items/craft-schools#who-owns-the-professions)) | The trees of the professions |
+| **The party** | The party | The trees of the factions |
 
-Open the **Pool Manager** (toolbar) to make the pools of your game. A pool has a **name**, a **color** and an optional **maximum total points** (`-1` = no limit): the most points a player can ever earn in the pool, so a tree has a fixed size.
+So with professions shared by the party, the points a character earns in a profession pool go to the party, and any member can spend them. With professions of each character, the points and the ranks are each character's own. A [Skill Point reward](/basic/shared-systems/rewards) of a pool lands in the right place by itself. Make a pool for each profession or faction that should have points of its own (*Smithing Points*, *Mages Guild Favor*).
 
-Points come from [rewards](/basic/shared-systems/rewards). The **Skill Point** reward gives *an amount of points of a pool*, and you put it where points should come from:
-
-| Source | How |
-|---|---|
-| **Leveling up** | In the [level rewards](/basic/entities/player-classes#level-rewards) of a class: *level 2: 1 Talent Point* |
-| **A quest, a boss, an event** | A Skill Point reward in the [quest](/basic/events-and-quests/quests) or the event |
-| **A node** | A node can give points of another pool (unlock a node to open the next tree) |
-
-Taking away the reward (a respec) takes the points away again.
-
-## The editor
-
-| Part | What it does |
-|---|---|
-| **Name, Description, Color, Icon** | What the interface shows |
-| **Background**, **Background color**, **Tint** | The picture and the colors behind the tree in the skill window |
-| **Global point pool**, **Global can refund** | **Set Global Point Pool** and **Set Global Can Refund** set the same value on every node of the tree in one go |
-| **Add Node** | Adds a node |
-| **Add Connection** | Joins two nodes (choose the two and the type) |
-| **Pool Manager** | The skill point pools |
-| **Validate** | Checks the tree (see below) |
-| **Auto Layout** | Arranges the nodes for you |
-| **Tree structure** | The nodes as a list |
-| **Visual editor** | The canvas: drag nodes where you want them, click a node or a line to edit it |
-| **Properties** | The properties of the node or connection you selected |
+Factions are kept by the party today. The trees of a faction are the party's: the one set of factions of the game.
 
 ## Tree rules
 
-The **Tree rules** section of the editor decides when the player can spend points in the tree. A tree that does not meet them is **locked**: points already in it stay, but no more go in.
+The **Tree rules** section of the editor decides when the player can spend points in the tree. A tree that does not meet them is **locked** (and so is the tree of a profession that is not learned, or of a faction that has not met the party): points already in it stay, but no more go in.
 
 | Field | What it does | Default |
 |---|---|---|

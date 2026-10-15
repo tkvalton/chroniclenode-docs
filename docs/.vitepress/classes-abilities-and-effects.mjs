@@ -875,6 +875,18 @@ export const groups = [
         "file": "data_classes/skill_tree/skill_connection.gd"
       },
       {
+        "name": "SkillHolder",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\player\\skill_tree\\skill_holder.gd",
+        "file": "runtime_classes/player/skill_tree/skill_holder.gd"
+      },
+      {
+        "name": "SkillHolders",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\player\\skill_tree\\skill_holders.gd",
+        "file": "runtime_classes/player/skill_tree/skill_holders.gd"
+      },
+      {
         "name": "SkillNode",
         "base": "Resource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\skill_tree\\skill_node.gd",

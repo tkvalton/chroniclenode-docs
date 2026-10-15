@@ -37,6 +37,7 @@ Key features:
 | `bool` | [is_awaiting_target](#var-is-awaiting-target) | `false` |
 | `Array[SkillTreeInstance]` | [skill_tree_instances](#var-skill-tree-instances) | `[]` |
 | `Array[SkillPointPoolInstance]` | [skill_point_pools](#var-skill-point-pools) | `[]` |
+| `Array[int]` | [granted_skill_tree_ids](#var-granted-skill-tree-ids) | `[]` |
 | `Array[EquipmentSlotDefinition]` | [unlocked_equipment_slots](#var-unlocked-equipment-slots) | `[]` |
 | `Marker3D` | [drop_location](#var-drop-location) |  |
 | `AudioListener3D` | [audio_listener](#var-audio-listener) |  |
@@ -65,6 +66,10 @@ Key features:
 | `void` | [initialize_entity](#method-initialize-entity)( `system_hub: GameHost.SystemHub` ) |
 | `void` | [equip_starting_gear](#method-equip-starting-gear)() |
 | `Array[SkillTree]` | [get_skill_tree_definitions](#method-get-skill-tree-definitions)() |
+| `bool` | [grant_skill_tree](#method-grant-skill-tree)( `tree_id: int` ) |
+| `bool` | [revoke_skill_tree](#method-revoke-skill-tree)( `tree_id: int` ) |
+| `Array[SkillTreeInstance]` | [get_all_skill_tree_instances](#method-get-all-skill-tree-instances)() |
+| `Array[SkillPointPoolInstance]` | [get_all_skill_point_pools](#method-get-all-skill-point-pools)() |
 | `SkillTreeInstance` | [get_skill_tree_instance](#method-get-skill-tree-instance)( `tree_id: int` ) |
 | `SkillPointPoolInstance` | [get_skill_point_pool_instance](#method-get-skill-point-pool-instance)( `pool_id: int` ) |
 | `bool` | [can_spend_from_pool](#method-can-spend-from-pool)( `pool_def: SkillPointPool, amount: int = 1` ) |
@@ -179,6 +184,10 @@ Active skill tree instances for this player
 
 Skill point pool instances for available pools
 
+### Array[int] granted_skill_tree_ids = [] {#var-granted-skill-tree-ids}
+
+Skill trees given to this player by a reward (a specialization, a quest, an event): saved with the player, on top of the trees of its class and its character
+
 ### Array[EquipmentSlotDefinition] unlocked_equipment_slots = [] {#var-unlocked-equipment-slots}
 
 Currently unlocked equipment slots for this player
@@ -271,15 +280,31 @@ Equip starting gear from CharacterDefinition override or PlayerClassDefinition C
 
 ### Array[SkillTree] get_skill_tree_definitions() {#method-get-skill-tree-definitions}
 
-The skill trees this player has: the trees of its class, then the ones of its character (each once)
+The skill trees this player has of its own: the trees of its class, then the ones of its character, then the ones a reward gave (each once)
+
+### bool grant_skill_tree( tree_id: int ) {#method-grant-skill-tree}
+
+Gives the player a skill tree (a reward gives it). False when it has the tree already or the tree does not exist
+
+### bool revoke_skill_tree( tree_id: int ) {#method-revoke-skill-tree}
+
+Takes a tree a reward gave away again: what was spent in it is refunded and its rewards are taken back. False when the tree was not given by a reward
+
+### Array[SkillTreeInstance] get_all_skill_tree_instances() {#method-get-all-skill-tree-instances}
+
+Every skill tree the player can see: its own, the ones of the professions and the ones of the factions
+
+### Array[SkillPointPoolInstance] get_all_skill_point_pools() {#method-get-all-skill-point-pools}
+
+Every skill point pool of the player: its own, the ones of its professions and the ones of the factions
 
 ### SkillTreeInstance get_skill_tree_instance( tree_id: int ) {#method-get-skill-tree-instance}
 
-Get skill tree instance by definition ID
+Get skill tree instance by definition ID (the player's own, then the ones of the professions and the factions)
 
 ### SkillPointPoolInstance get_skill_point_pool_instance( pool_id: int ) {#method-get-skill-point-pool-instance}
 
-Get skill point pool instance by definition ID
+Get skill point pool instance by definition ID. The points of a profession or a faction pool are kept by the owner of those (SkillHolders), not by the character
 
 ### bool can_spend_from_pool( pool_def: SkillPointPool, amount: int = 1 ) {#method-can-spend-from-pool}
 

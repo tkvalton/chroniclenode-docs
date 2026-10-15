@@ -66,6 +66,10 @@ The headings that the recipes of the school are sorted under: General, Weapons, 
 The school also has a **Skill tree** field. Nothing uses it yet.
 :::
 
+## Skill trees
+
+The **Skill Trees** section of the craft school editor lists the [skill trees](/basic/abilities-and-effects/skill-trees) of the profession. A tree opens when the profession is **learned** (a locked tree says *Learn the profession X first*), and spends the points of **profession pools**: pools whose **Points belong to** is *The owner of the professions*. Who owns the points follows **Who owns the professions** below: the party, or each character. Make a pool for each profession that should have points of its own.
+
 ## Who owns the professions
 
 By default the professions belong to the **party**: one set of schools, recipes and levels for everybody, as in most single-character crafting games. In the [Gameplay Config](/basic/game-settings/gameplay-config#party-management) (Party Management), **Professions belong to** can be changed to **Each character**: every character then has professions of their own (their own levels, tiers, specializations and recipes), and a crafting station uses the professions of the character who uses it and the materials in their bag. A recipe learned by one is not known to the others, and a companion can learn a profession a trainer teaches the character who is talking.

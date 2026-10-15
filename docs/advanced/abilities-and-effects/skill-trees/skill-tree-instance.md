@@ -12,6 +12,8 @@ Runtime instance tracking state of a skill tree for a player
 |---|---|---|
 | `SkillTree` | [tree_definition](#var-tree-definition) |  |
 | `Dictionary` | [node_states](#var-node-states) | `{}` |
+| `String` | [source_kind](#var-source-kind) | `""` |
+| `int` | [source_id](#var-source-id) | `0` |
 
 ## Methods
 
@@ -55,6 +57,14 @@ The tree definition this instance tracks
 ### Dictionary node_states =  {#var-node-states}
 
 Tracks the state of each node: node_id -&gt; NodeUnlockState
+
+### String source_kind = "" {#var-source-kind}
+
+Where the tree comes from when it is not the character's own: "school" (a profession) or "faction", with the id of the craft school or the faction. Such a tree is open only while the profession is learned or the faction has met the party (SkillHolders.source_availability)
+
+### int source_id = 0 {#var-source-id}
+
+*No description yet.*
 
 ## Method descriptions
 

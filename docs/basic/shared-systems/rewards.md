@@ -40,6 +40,7 @@ Click the add button next to the list, choose the **type** of reward in the dial
 | [Reward](/advanced/shared-systems/rewards/reward) | Base class for all reward types |
 | [SkillPointReward](/advanced/shared-systems/rewards/skill-point-reward) | Grants skill points to a specific point pool |
 | [SkillTierReward](/advanced/shared-systems/rewards/skill-tier-reward) | Trains a proficiency or a profession into a tier (Journeyman, Expert, Master): the cap of its level goes up. |
+| [SkillTreeReward](/advanced/shared-systems/rewards/skill-tree-reward) | Gives the player a skill tree: the tree of a specialization that was chosen, of a rank, a quest, an event. |
 | [SpecializationReward](/advanced/shared-systems/rewards/specialization-reward) | Chooses a specialization of a proficiency or a profession for the player: mastering one aspect of it. |
 <!-- /classes -->
 
@@ -53,6 +54,7 @@ The fields of each type:
 | **Ability** | **Ability**, **Ability destination**, **Initial rank** | An ability: it replaces the basic attack, or is added to the active abilities, or to the passive ones. **Initial rank** starts it at a higher [rank](/basic/abilities-and-effects/ability-ranks) |
 | **Ability Rank** | **Ability**, **Ranks**, **Grant if missing** | Trains an [ability](/basic/abilities-and-effects/ability-ranks#giving-ranks) of the player one or more ranks (up to its highest rank). Put it on a rank of a skill tree node, on a class level or on a quest. It gives the ability first when the player has not got it (**Grant if missing**) |
 | **Inventory Size** | **Slots**, **Capacity** | Makes the player's bag bigger for good: slots and carry capacity, saved with the bag. Does nothing with a shared party bag |
+| **Skill Tree** | **Skill tree** | Gives the player a [skill tree](/basic/abilities-and-effects/skill-trees#where-trees-can-be-used) of its own, on top of the trees of its class and its character. It is saved with the player. Put it on the **rewards when chosen** of a specialization, on a quest or an event. Taking the reward back takes the tree away: what was spent in it comes back. A tree the player has already (from its class) is neither given nor taken back |
 | **Skill Point** | **Skill pool**, **Skill points granted** | Points to spend in a [skill tree](/basic/abilities-and-effects/skill-trees) pool |
 | **Crafting Recipe** | **Recipe** | Teaches a crafting recipe |
 | **Crafting Skill Point** | **Craft school**, **Skill points** | Levels in a crafting school (up to the cap of its tier) |

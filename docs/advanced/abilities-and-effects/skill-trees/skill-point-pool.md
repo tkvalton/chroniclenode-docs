@@ -11,6 +11,7 @@ Point management for different skill point sources
 | | | |
 |---|---|---|
 | `Color` | [pool_color](#prop-pool-color) | `Color.CYAN` |
+| `Scope` | [scope](#prop-scope) | `Scope.CHARACTER` |
 | `int` | [max_total_points](#prop-max-total-points) | `-1  # -1 = unlimited` |
 
 ## Methods
@@ -24,11 +25,25 @@ Point management for different skill point sources
 | `Array[Dictionary]` | [validate](#method-validate)() |
 | `bool` | [is_valid](#method-is-valid)() |
 
+## Enumerations
+
+### enum Scope {#enum-scope}
+
+Whose points these are, and so which trees spend them. The points and the trees that spend them are kept by the same owner
+
+- **CHARACTER** = `0` - Each character has its own points (the trees of a class and of a character)
+- **PROFESSION** = `1` - The owner of the professions: the party, or each character (Gameplay Config &gt; Professions belong to). The trees of the professions
+- **FACTION** = `2` - The party (the trees of a faction)
+
 ## Property descriptions
 
 ### Color pool_color = Color.CYAN {#prop-pool-color}
 
 *No description yet.*
+
+### Scope scope = Scope.CHARACTER {#prop-scope}
+
+The owner of the points of this pool
 
 ### int max_total_points = -1  # -1 = unlimited {#prop-max-total-points}
 

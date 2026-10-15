@@ -95,5 +95,6 @@ func get_summary() -> String:
 | [Reward](/advanced/shared-systems/rewards/reward) | Base class for all reward types |
 | [SkillPointReward](/advanced/shared-systems/rewards/skill-point-reward) | Grants skill points to a specific point pool |
 | [SkillTierReward](/advanced/shared-systems/rewards/skill-tier-reward) | Trains a proficiency or a profession into a tier (Journeyman, Expert, Master): the cap of its level goes up. |
+| [SkillTreeReward](/advanced/shared-systems/rewards/skill-tree-reward) | Gives the player a skill tree: the tree of a specialization that was chosen, of a rank, a quest, an event. |
 | [SpecializationReward](/advanced/shared-systems/rewards/specialization-reward) | Chooses a specialization of a proficiency or a profession for the player: mastering one aspect of it. |
 <!-- /classes -->

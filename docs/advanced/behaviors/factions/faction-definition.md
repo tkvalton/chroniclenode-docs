@@ -14,6 +14,7 @@ Enhanced faction definition with reputation levels and relationships
 | `Array[ReputationLevel]` | [reputation_levels](#prop-reputation-levels) | `[]` |
 | `Dictionary` | [faction_relationships](#prop-faction-relationships) | `{}` |
 | `bool` | [is_builtin](#prop-is-builtin) | `false` |
+| `Array[int]` | [skill_trees](#prop-skill-trees) | `[]` |
 
 ## Variables
 
@@ -72,6 +73,10 @@ Predefined relationships with other factions (faction_id -&gt; standing_name lik
 ### bool is_builtin = false {#prop-is-builtin}
 
 Whether this faction is a built-in system faction
+
+### Array[int] skill_trees = [] {#prop-skill-trees}
+
+Skill trees of this faction (ids of the skill_tree type). They open once the party has met the faction (it has a standing with it) and spend the points of the faction pools (SkillPointPool.scope)
 
 ## Variable descriptions
 

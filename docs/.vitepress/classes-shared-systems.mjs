@@ -221,6 +221,12 @@ export const groups = [
         "file": "data_classes/rewards/types/skill_tier_reward.gd"
       },
       {
+        "name": "SkillTreeReward",
+        "base": "Reward",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\rewards\\types\\skill_tree_reward.gd",
+        "file": "data_classes/rewards/types/skill_tree_reward.gd"
+      },
+      {
         "name": "SpecializationReward",
         "base": "Reward",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\rewards\\types\\specialization_reward.gd",

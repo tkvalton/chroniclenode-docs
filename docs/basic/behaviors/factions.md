@@ -69,6 +69,10 @@ The Environmental faction keeps no reputation.
 | **Faction Standing** reward | Sets the reputation to the start of a standing by its name |
 | **Faction** [requirement](/basic/shared-systems/requirements) | Needs a minimum reputation or a named standing with a faction: "Honored with the Guild" |
 
+## Skill trees
+
+The **Skill Trees** section of the faction editor lists the [skill trees](/basic/abilities-and-effects/skill-trees) of the faction: a tree for the Mages Guild, a tree of favours. A tree opens once the party has **met** the faction (the faction has a standing with the party's faction) and spends the points of **faction pools** (**Points belong to**: *The party*). Use the tree rules (a requirement on the standing, say) to open it later. Factions belong to the party for now.
+
 ## Where a faction is chosen
 
 - **NPC**: the *Faction* field of the [NPC definition](/basic/entities/npcs), and the override of a placed NPC.
