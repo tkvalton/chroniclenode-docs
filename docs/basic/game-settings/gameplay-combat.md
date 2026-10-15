@@ -13,8 +13,9 @@ The **Combat** category of the [Gameplay Config](/basic/game-settings/gameplay-c
 | **Death behavior** | Game over, respawn at a checkpoint, or permadeath | Respawn at checkpoint |
 | **Death gold penalty** | The share of gold lost on death (0 to 1) | `0.1` |
 | **Death experience penalty** | The share of experience lost on death (0 to 1) | `0` |
-| **Drop items on death** | The player drops the items of the bag on the ground around the body ([Dropped items](/basic/items/dropped-items#where-items-come-from)). Equipped items stay | off |
-| **Death item drop chance** | The share of the stacks in the bag that are dropped (`1` = all of them). Key items never drop | `1` |
+| **Death item loss** | What happens to the **items in the bag** of a player who dies: **Keep** them, **Drop** them on the ground around the body ([Dropped items](/basic/items/dropped-items#where-items-come-from)), or **Destroy** them | Keep |
+| **Death equipment loss** | The same for the **equipment the player wears**: Keep, Drop (taken off and dropped around the body) or Destroy | Keep |
+| **Death item loss chance** | The share of the stacks in the bag and of the pieces of equipment that are lost (`1` = all of them, `0.25` = about a quarter). Key items are never lost | `1` |
 
 ### Threat
 

@@ -50,7 +50,7 @@ Other things to know:
 | Source | How |
 |---|---|
 | **The player** | **Drag** an item out of the inventory or an equipment slot and **let go over the world**: it drops in front of the character. Over a window or the HUD it goes back. A **key item** cannot be dropped |
-| **Dying** | With *Drop items on death* (Gameplay Config > Combat > Death & Revival) the player's bag spills around the body. *Death item drop chance* is the share of the stacks that drop; key items and equipped items stay |
+| **Dying** | With *Death item loss* or *Death equipment loss* set to **Drop** (Gameplay Config > Combat > Death & Revival) the bag, the worn equipment or both spill around the body; **Destroy** removes them instead, **Keep** (the default) leaves them. *Death item loss chance* is the share of the stacks and pieces that are lost; key items never are. If dropped items are off, a Drop keeps the items |
 | **An NPC or an object** | A [loot rule](/basic/items/loot-rules#where-the-drops-go) with *Drops: On the ground*: the loot lies around the body or the wreck, with **no loot window** |
 | **A gathering node** | Loot mode *On the ground*: what a gather rolls lies around the node ([Gather](/basic/entities/interaction-types#gather)) |
 | **An event** | The [Drop Item](/basic/events-and-quests/event-actions#drop-item) action: a quest reward left on a table, a key that falls from the ceiling, coins that spill from a chest |

@@ -480,7 +480,7 @@ Drops an item that is already out of the bag (dragged out of it, or taken off) o
 
 ### void entity_death( announce: bool = true ) {#method-entity-death}
 
-A player that dies drops items when the Gameplay Config says so
+A player that dies loses items when the Gameplay Config says so
 
 ### Dictionary to_save_data() {#method-to-save-data}
 

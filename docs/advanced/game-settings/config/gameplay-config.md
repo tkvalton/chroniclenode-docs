@@ -114,8 +114,9 @@ Configuration for gameplay rules and mechanics
 | `DeathBehavior` | [death_behavior](#prop-death-behavior) | `DeathBehavior.RESPAWN_CHECKPOINT` |
 | `float` | [death_gold_penalty](#prop-death-gold-penalty) | `0.1` |
 | `float` | [death_experience_penalty](#prop-death-experience-penalty) | `0.0` |
-| `bool` | [drop_items_on_death](#prop-drop-items-on-death) | `false` |
-| `float` | [death_item_drop_chance](#prop-death-item-drop-chance) | `1.0` |
+| `DeathItemLoss` | [death_item_loss](#prop-death-item-loss) | `DeathItemLoss.KEEP` |
+| `DeathItemLoss` | [death_equipment_loss](#prop-death-equipment-loss) | `DeathItemLoss.KEEP` |
+| `float` | [death_item_loss_chance](#prop-death-item-loss-chance) | `1.0` |
 | `bool` | [use_threat_system](#prop-use-threat-system) | `true` |
 | `float` | [heal_threat_multiplier](#prop-heal-threat-multiplier) | `0.5` |
 | `float` | [damage_threat_multiplier](#prop-damage-threat-multiplier) | `1.0` |
@@ -338,6 +339,14 @@ Fog edge quality - controls smoothness of fog boundaries
 - **MEDIUM** = `2` - Moderate smoothing - balanced
 - **HIGH** = `3` - High quality smoothing - smooth edges
 - **ULTRA** = `4` - Maximum quality - very smooth (most expensive)
+
+### enum DeathItemLoss {#enum-deathitemloss}
+
+What happens to the items of a player who dies: they are kept, dropped on the ground around the body, or destroyed.
+
+- **KEEP** = `0`
+- **DROP** = `1`
+- **DESTROY** = `2`
 
 ## Constants
 
@@ -807,13 +816,17 @@ Gold penalty on death (percentage lost, 0.0 - 1.0)
 
 Experience penalty on death (percentage lost, 0.0 - 1.0)
 
-### bool drop_items_on_death = false {#prop-drop-items-on-death}
+### DeathItemLoss death_item_loss = DeathItemLoss.KEEP {#prop-death-item-loss}
 
-The player drops items from the bag when dying (see Dropped Items). Equipped items stay
+What happens to the items in the bag of a player who dies: kept, dropped on the ground around the body (see Dropped Items), or destroyed. Key items are never lost
 
-### float death_item_drop_chance = 1.0 {#prop-death-item-drop-chance}
+### DeathItemLoss death_equipment_loss = DeathItemLoss.KEEP {#prop-death-equipment-loss}
 
-What share of the stacks in the bag is dropped on death (1 = all of them). Key items are never dropped
+What happens to the equipment a player who dies wears: kept, taken off and dropped around the body, or destroyed. Key items are never lost
+
+### float death_item_loss_chance = 1.0 {#prop-death-item-loss-chance}
+
+What share of the stacks in the bag, and of the pieces of equipment, is lost on death (1 = all of them)
 
 *Threat*
 
