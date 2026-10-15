@@ -12,24 +12,24 @@ Organizes group members into specific formations
 |---|---|---|
 | `UniqueEncounterData.Formation` | [formation_type](#prop-formation-type) | `UniqueEncounterData.Formation.CIRCLE_TARGET` |
 | `float` | [formation_radius](#prop-formation-radius) | `0.0  # 0 = use automatic radius based on group size` |
-| `bool` | [maintain_formation](#prop-maintain-formation) | `true  # Whether to continuously maintain formation` |
-| `float` | [movement_speed_modifier](#prop-movement-speed-modifier) | `1.0  # Speed modifier when moving to formation` |
+| `bool` | [maintain_formation](#prop-maintain-formation) | `true` |
+| `float` | [movement_speed_modifier](#prop-movement-speed-modifier) | `1.0` |
 
 ## Property descriptions
 
 ### UniqueEncounterData.Formation formation_type = UniqueEncounterData.Formation.CIRCLE_TARGET {#prop-formation-type}
 
-*No description yet.*
+The formation the group takes.
 
 ### float formation_radius = 0.0  # 0 = use automatic radius based on group size {#prop-formation-radius}
 
-*No description yet.*
+The size of the formation (0 = the default).
 
-### bool maintain_formation = true  # Whether to continuously maintain formation {#prop-maintain-formation}
+### bool maintain_formation = true {#prop-maintain-formation}
 
-*No description yet.*
+Whether to continuously maintain formation
 
-### float movement_speed_modifier = 1.0  # Speed modifier when moving to formation {#prop-movement-speed-modifier}
+### float movement_speed_modifier = 1.0 {#prop-movement-speed-modifier}
 
-*No description yet.*
+Speed modifier when moving to formation
 

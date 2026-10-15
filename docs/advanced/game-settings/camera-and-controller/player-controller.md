@@ -50,6 +50,8 @@ A panel key opened or closed a panel (its name)
 
 ### request_warning_message( message: String ) {#signal-request-warning-message}
 
+Emitted when the controller wants to tell the player something (out of range, not ready ...).
+
 ## Constants
 
 - `const` **SELECTION_BOX_STYLE** = `preload("res://addons/chroniclenode/assets/targeting/selection_box_style.tres")` - ---------- Constants ----------
@@ -58,7 +60,7 @@ A panel key opened or closed a panel (its name)
 
 ### ControllerLogic current_controller_logic {#var-current-controller-logic}
 
-*No description yet.*
+The controller logic in use.
 
 ### Node current_mouse_hover_target = null {#var-current-mouse-hover-target}
 
@@ -66,11 +68,11 @@ A panel key opened or closed a panel (its name)
 
 ### float mouse_hover_check_timer = 0.0 {#var-mouse-hover-check-timer}
 
-*No description yet.*
+The time since the last check of what is under the mouse.
 
 ### float mouse_hover_check_interval = 0.05 {#var-mouse-hover-check-interval}
 
-*No description yet.*
+How many seconds between checks of what is under the mouse.
 
 ### CollisionShape3D dragbox_collision = null {#var-dragbox-collision}
 
@@ -78,7 +80,7 @@ Properties needed by controller logic classes
 
 ### Panel dragbox_visual {#var-dragbox-visual}
 
-*No description yet.*
+The rectangle drawn while the player drags a selection.
 
 ### Dictionary current_targeting_context =  {#var-current-targeting-context}
 
@@ -86,7 +88,7 @@ Properties needed by controller logic classes
 
 ### bool is_targeting_mode = false {#var-is-targeting-mode}
 
-*No description yet.*
+True while the player picks the target of an ability.
 
 ### PointMarker point_marker {#var-point-marker}
 
@@ -94,11 +96,11 @@ Properties needed by controller logic classes
 
 ### RadiusMarker radius_marker {#var-radius-marker}
 
-*No description yet.*
+The circle that shows the radius of an ability while it is aimed.
 
 ### Player current_player {#var-current-player}
 
-*No description yet.*
+The player the controller moves.
 
 ## Method descriptions
 
@@ -116,19 +118,19 @@ Clear selection - implement if supporting multi-unit selection
 
 ### Entity get_current_player() {#method-get-current-player}
 
-*No description yet.*
+The player the controller logic controls now.
 
 ### Array[Entity] get_selected_units() {#method-get-selected-units}
 
-*No description yet.*
+The entities the player has selected.
 
 ### void handle_action_bar_button_click( slot_number: int ) {#method-handle-action-bar-button-click}
 
-*No description yet.*
+Uses the slot of the action bar that was clicked.
 
 ### bool start_ability_targeting( ability: AbilityInstance, initiator: Variant = null ) {#method-start-ability-targeting}
 
-*No description yet.*
+Starts the picking of a target for an ability. False when the logic cannot.
 
 ### void create_new_radius_marker( user: Entity, is_marker_friendly: bool, marker_range: float ) {#method-create-new-radius-marker}
 
@@ -136,13 +138,13 @@ Create radius marker for an entity
 
 ### Dictionary get_mouse_collision_info() {#method-get-mouse-collision-info}
 
-*No description yet.*
+What is under the mouse: the object and the point.
 
 ### void select_single_player( player: Player ) {#method-select-single-player}
 
-*No description yet.*
+Selects one player of the party.
 
 ### void toggle_player_selection( player: Player ) {#method-toggle-player-selection}
 
-*No description yet.*
+Adds a player to the selection or takes it out.
 

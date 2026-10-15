@@ -33,7 +33,7 @@ One tracked quest in the quest tracker: the title of the quest and its objective
 
 ### PackedScene quest_objective_label {#prop-quest-objective-label}
 
-*No description yet.*
+The scene of one objective line.
 
 ## Variable descriptions
 
@@ -57,13 +57,13 @@ The event manager (set by the tracker that makes this display: a scene cannot be
 
 ### void setup( quest: Quest ) {#method-setup}
 
-*No description yet.*
+Fills the tracker with a quest: its title and its objectives.
 
 ### void animate_quest_removal() {#method-animate-quest-removal}
 
-*No description yet.*
+Plays the animation of the quest leaving the tracker.
 
 ### void update_objective( objective: QuestObjective ) {#method-update-objective}
 
-*No description yet.*
+Updates the line of an objective (unless it is hidden).
 

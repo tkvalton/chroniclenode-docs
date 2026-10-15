@@ -37,7 +37,7 @@ ID of the interactable to clear effects from
 
 ### InteractableObject target_interactable = null {#var-target-interactable}
 
-*No description yet.*
+Reference to the target interactable
 
 ## Method descriptions
 

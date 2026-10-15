@@ -26,31 +26,33 @@ A button of the settings menu that opens one of its sub menus (display, audio, c
 
 ### button_up( button: MarginContainer ) {#signal-button-up}
 
+Emitted when the button is released.
+
 ## Property descriptions
 
 ### String button_text {#prop-button-text}
 
-*No description yet.*
+The text of the button.
 
 ### Color text_normal_color {#prop-text-normal-color}
 
-*No description yet.*
+The color of the text.
 
 ### Color brackets_active_color {#prop-brackets-active-color}
 
-*No description yet.*
+The color of the brackets around the text when it is the one open.
 
 ### Color text_highlight_color {#prop-text-highlight-color}
 
-*No description yet.*
+The color of the text under the mouse.
 
 ### Color active_colour_highlight {#prop-active-colour-highlight}
 
-*No description yet.*
+The color of the button when it is the one open.
 
 ## Variable descriptions
 
 ### bool active = false {#var-active}
 
-*No description yet.*
+True when this is the sub menu that is open.
 

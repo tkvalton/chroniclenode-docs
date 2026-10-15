@@ -33,5 +33,5 @@ The effects (Effect ids) the wearer has while enough pieces are worn. Taking a p
 
 ### String get_description() {#method-get-description}
 
-*No description yet.*
+A short text: how many pieces it takes and how many effects it gives.
 

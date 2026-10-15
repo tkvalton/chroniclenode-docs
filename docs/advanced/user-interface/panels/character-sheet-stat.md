@@ -32,11 +32,13 @@ Signals for tooltip requests
 
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
 
+Asks the interface to hide the tooltip (force hides it at once).
+
 ## Constants
 
 - `Color` **COLOR_NORMAL** = `Color.WHITE` - Colors for different stat states
-- `Color` **COLOR_BUFFED** = `Color.GREEN`
-- `Color` **COLOR_DEBUFFED** = `Color.RED`
+- `Color` **COLOR_BUFFED** = `Color.GREEN` - The color of a stat that is above its base.
+- `Color` **COLOR_DEBUFFED** = `Color.RED` - The color of a stat that is below its base.
 
 ## Variable descriptions
 
@@ -50,7 +52,7 @@ The type of stat (for different handling)
 
 ### String display_name = "" {#var-display-name}
 
-*No description yet.*
+The name of the stat shown.
 
 ### float base_value = 0.0 {#var-base-value}
 
@@ -64,7 +66,7 @@ Stat definition reference (shared resource - no memory overhead)
 
 ### void initialize_ui( _system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*No description yet.*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void setup_stat_with_instance( p_stat_instance: StatInstance, display_name_param: String = "", stat_type_param: String = "" ) {#method-setup-stat-with-instance}
 

@@ -51,6 +51,8 @@ Climb a ladder (any entity can use) Enhanced with proper signal-based movement h
 
 ### enum ClimbDirection {#enum-climbdirection}
 
+The options of climb direction: auto detect, up, down.
+
 - **AUTO_DETECT** = `0`
 - **UP** = `1`
 - **DOWN** = `2`
@@ -89,69 +91,69 @@ Whether to interrupt if ladder becomes occupied (for single-climber ladders)
 
 ### InteractableObject target_ladder = null {#var-target-ladder}
 
-*No description yet.*
+The ladder the entity climbs.
 
 ### Timer climb_timer = null {#var-climb-timer}
 
-*No description yet.*
+The timer of the climb.
 
 ### bool is_climbing = false {#var-is-climbing}
 
-*No description yet.*
+True while the entity climbs.
 
 ### bool climb_started = false {#var-climb-started}
 
-*No description yet.*
+True once the climb has started.
 
 ### Vector3 ladder_position = Vector3.ZERO {#var-ladder-position}
 
-*No description yet.*
+The position of the ladder.
 
 ### float interaction_range = 3.0 {#var-interaction-range}
 
-*No description yet.*
+How close the entity must be to use the ladder.
 
 ### bool movement_completed = false {#var-movement-completed}
 
-*No description yet.*
+True once the entity arrived.
 
 ### bool ladder_interaction_completed = false {#var-ladder-interaction-completed}
 
-*No description yet.*
+True once the climb is done.
 
 ## Method descriptions
 
 ### void execute_task_start() {#method-execute-task-start}
 
-Override this in subclasses to implement specific task behavior *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Starts the task.
 
 ### void execute_task_complete() {#method-execute-task-complete}
 
-Override this in subclasses for task completion logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task finishes well.
 
 ### void execute_task_interrupt() {#method-execute-task-interrupt}
 
-Override this in subclasses for task interruption logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when something interrupts the task.
 
 ### void execute_task_fail() {#method-execute-task-fail}
 
-Override this in subclasses for task failure logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task fails.
 
 ### float get_climb_progress() {#method-get-climb-progress}
 
-*No description yet.*
+How far along the ladder the entity is (0 to 1).
 
 ### bool is_ladder_accessible() {#method-is-ladder-accessible}
 
-*No description yet.*
+Can the ladder be used now (it is not broken)?
 
 ### float get_distance_to_ladder() {#method-get-distance-to-ladder}
 
-*No description yet.*
+The distance to the ladder (-1 when there is none).
 
 ### bool is_in_ladder_interaction_range() {#method-is-in-ladder-interaction-range}
 
-*No description yet.*
+Is the entity close enough to use the ladder?
 
 ### void set_ladder_id( new_id: int ) {#method-set-ladder-id}
 
@@ -167,5 +169,5 @@ Set interaction distance dynamically
 
 ### void cleanup_timers() {#method-cleanup-timers}
 
-Clean up all timers and resources *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Frees the timers of the task.
 

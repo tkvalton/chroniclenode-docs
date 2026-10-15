@@ -27,6 +27,8 @@ Shows or hides a popup (a scene built on PopupUI: a tutorial, a message, a toast
 
 ### enum PopupActionType {#enum-popupactiontype}
 
+The options of popup action type: show, hide.
+
 - **SHOW** = `0`
 - **HIDE** = `1`
 
@@ -46,7 +48,7 @@ Given to the popup: the message popup shows a title and a text (words in &lt;ang
 
 ### String text = "" {#prop-text}
 
-*No description yet.*
+The text the popup shows (when the popup scene has a place for it).
 
 ### bool wait_for_close = false {#prop-wait-for-close}
 
@@ -56,9 +58,9 @@ The action completes when the popup is closed (a tutorial that the next action o
 
 ### String get_function_description() {#method-get-function-description}
 
-Return a description of this action with parameter placeholders *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+The sentence the editor shows for the action, with &#123;placeholders&#125; for its values.
 
 ### void cleanup() {#method-cleanup}
 
-Clean up resources *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+Stops what the action started (timers, connections) when the event ends.
 

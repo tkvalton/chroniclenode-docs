@@ -20,13 +20,13 @@ DynamicFollowerSystem manages a group of followers in a dynamic formation around
 
 | | | |
 |---|---|---|
-| `Node3D # The entity that the followers will follow` | [leader](#var-leader) |  |
-| `float` | [follow_distance](#var-follow-distance) | `3.0 # The ideal distance followers should maintain from t...` |
-| `float` | [min_distance](#var-min-distance) | `1.5 # The minimum allowed distance between a follower and...` |
-| `float` | [max_distance](#var-max-distance) | `5.0 # The maximum allowed distance between a follower and...` |
-| `float` | [angle_spread](#var-angle-spread) | `PI / 2 # The spread angle of the formation in radians (PI...` |
-| `float` | [update_interval](#var-update-interval) | `0.1 # How often to check for leader movement (in seconds)` |
-| `float` | [movement_threshold](#var-movement-threshold) | `0.1 # Minimum distance the leader must move to trigger an...` |
+| `Node3D` | [leader](#var-leader) |  |
+| `float` | [follow_distance](#var-follow-distance) | `3.0` |
+| `float` | [min_distance](#var-min-distance) | `1.5` |
+| `float` | [max_distance](#var-max-distance) | `5.0` |
+| `float` | [angle_spread](#var-angle-spread) | `PI / 2` |
+| `float` | [update_interval](#var-update-interval) | `0.1` |
+| `float` | [movement_threshold](#var-movement-threshold) | `0.1` |
 | `Array[Entity]` | [followers](#var-followers) | `[]` |
 | `Dictionary` | [target_positions](#var-target-positions) | `{}` |
 | `FastNoiseLite` | [noise](#var-noise) |  |
@@ -49,55 +49,57 @@ DynamicFollowerSystem manages a group of followers in a dynamic formation around
 
 ### formation_updated() {#signal-formation-updated}
 
+Signal emitted when the formation is updated
+
 ## Variable descriptions
 
-### Node3D # The entity that the followers will follow leader {#var-leader}
+### Node3D leader {#var-leader}
 
-*No description yet.*
+The entity that the followers will follow
 
-### float follow_distance = 3.0 # The ideal distance followers should maintain from the  {#var-follow-distance}
+### float follow_distance = 3.0 {#var-follow-distance}
 
-*No description yet.*
+The ideal distance followers should maintain from the leader
 
-### float min_distance = 1.5 # The minimum allowed distance between a follower and th {#var-min-distance}
+### float min_distance = 1.5 {#var-min-distance}
 
-*No description yet.*
+The minimum allowed distance between a follower and the leader
 
-### float max_distance = 5.0 # The maximum allowed distance between a follower and th {#var-max-distance}
+### float max_distance = 5.0 {#var-max-distance}
 
-*No description yet.*
+The maximum allowed distance between a follower and the leader
 
-### float angle_spread = PI / 2 # The spread angle of the formation in radians (PI/2  {#var-angle-spread}
+### float angle_spread = PI / 2 {#var-angle-spread}
 
-*No description yet.*
+The spread angle of the formation in radians (PI/2 is 90 degrees)
 
-### float update_interval = 0.1 # How often to check for leader movement (in seconds) {#var-update-interval}
+### float update_interval = 0.1 {#var-update-interval}
 
-*No description yet.*
+How often to check for leader movement (in seconds)
 
-### float movement_threshold = 0.1 # Minimum distance the leader must move to trigger an up {#var-movement-threshold}
+### float movement_threshold = 0.1 {#var-movement-threshold}
 
-*No description yet.*
+Minimum distance the leader must move to trigger an update
 
 ### Array[Entity] followers = [] {#var-followers}
 
-*No description yet.*
+Array of follower entities
 
 ### Dictionary target_positions =  {#var-target-positions}
 
-*No description yet.*
+Dictionary to store target positions for each follower
 
 ### FastNoiseLite noise {#var-noise}
 
-*No description yet.*
+Noise generator for adding randomness to follower positions
 
 ### Vector3 last_leader_position {#var-last-leader-position}
 
-*No description yet.*
+Last recorded position of the leader
 
 ### Timer update_timer {#var-update-timer}
 
-*No description yet.*
+Reference to the timer from ChronoManager
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
@@ -111,21 +113,21 @@ Gives the timer back (the owner is going away)
 
 ### void add_follower( follower: Entity ) {#method-add-follower}
 
-*No description yet.*
+Adds a new follower to the formation
 
 ### void remove_follower( follower: Entity ) {#method-remove-follower}
 
-*No description yet.*
+Removes a follower from the formation
 
 ### void update_formation() {#method-update-formation}
 
-*No description yet.*
+Updates the formation, calculating new positions for all followers
 
 ### Vector3 get_target_position( follower: Entity ) {#method-get-target-position}
 
-*No description yet.*
+Returns the target position for a specific follower
 
 ### void set_leader( new_leader: Node3D ) {#method-set-leader}
 
-*No description yet.*
+Sets a new leader for the formation
 

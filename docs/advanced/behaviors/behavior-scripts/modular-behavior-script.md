@@ -74,6 +74,8 @@ Emitted when a schedule activation fails
 
 ### enum FallbackBehaviorType {#enum-fallbackbehaviortype}
 
+The options of fallback behavior type: wander, move to spawn, idle at current, follow nearest ally.
+
 - **WANDER** = `0` - Auto-create WanderSchedule with specified radius
 - **MOVE_TO_SPAWN** = `1` - Single task: move to spawn point then idle
 - **IDLE_AT_CURRENT** = `2` - Single task: idle with animations

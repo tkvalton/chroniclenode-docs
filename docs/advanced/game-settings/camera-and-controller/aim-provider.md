@@ -28,7 +28,7 @@ The answer is a Dictionary: &#123;"valid": bool, "origin": Vector3 (the muzzle),
 
 ### Dictionary get_aim( entity: Entity, max_range: float ) {#method-get-aim}
 
-*No description yet.*
+Where the entity aims: the origin, the point and what is hit, up to a maximum range.
 
 ### Vector3 get_muzzle( entity: Entity ) {#method-get-muzzle}
 

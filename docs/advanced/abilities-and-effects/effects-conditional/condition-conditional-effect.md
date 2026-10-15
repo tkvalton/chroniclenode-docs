@@ -28,10 +28,14 @@ The Conditions see the checked entity as their "argument entity", so a condition
 
 ### enum CheckOn {#enum-checkon}
 
+The options of check on: target, originator.
+
 - **TARGET** = `0`
 - **ORIGINATOR** = `1`
 
 ### enum Logic {#enum-logic}
+
+The options of logic: all, any.
 
 - **ALL** = `0`
 - **ANY** = `1`
@@ -56,5 +60,5 @@ The Conditions to check. Empty = always met
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 

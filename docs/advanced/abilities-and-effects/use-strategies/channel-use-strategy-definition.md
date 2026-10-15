@@ -48,6 +48,8 @@ Definition for abilities that execute over time with periodic or continuous effe
 
 ### enum ChannelMode {#enum-channelmode}
 
+The options of channel mode: tick channel, active channel.
+
 - **TICK_CHANNEL** = `0` - Effects applied on each tick (existing behavior)
 - **ACTIVE_CHANNEL** = `1` - Effects applied at start, removed when channel ends
 

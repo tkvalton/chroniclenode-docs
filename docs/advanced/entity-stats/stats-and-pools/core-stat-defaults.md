@@ -27,11 +27,11 @@ The core stats (movement speed, attack speed, global cooldown, weapon speed, cas
 
 ### bool is_core_stat( stat_id: int ) {#method-is-core-stat}
 
-*No description yet.*
+Is this stat id one of the core stats?
 
 ### float get_default( stat_id: int ) {#method-get-default}
 
-*No description yet.*
+The default value of a core stat.
 
 ### StatDefinition build( entry: Dictionary ) {#method-build}
 

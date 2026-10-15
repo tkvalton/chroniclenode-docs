@@ -44,7 +44,7 @@ What the entry gives
 
 ### EntryType entry_type = EntryType.ITEM {#prop-entry-type}
 
-*No description yet.*
+What the line gives: an item, a currency or another loot table.
 
 ### int item_id = 0 {#prop-item-id}
 
@@ -64,11 +64,11 @@ Higher weight = more likely among the random entries of the table (not used by g
 
 ### int min_quantity = 1 {#prop-min-quantity}
 
-*No description yet.*
+The least that drops.
 
 ### int max_quantity = 1 {#prop-max-quantity}
 
-*No description yet.*
+The most that drops.
 
 ### bool can_duplicate = false {#prop-can-duplicate}
 

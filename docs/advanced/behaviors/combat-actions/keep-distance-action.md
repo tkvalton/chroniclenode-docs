@@ -18,13 +18,13 @@ Maintains a specific distance from target by moving closer or farther as needed.
 
 ### float desired_distance = 8.0 {#prop-desired-distance}
 
-*No description yet.*
+The distance to keep from the target.
 
 ### float tolerance = 1.5 {#prop-tolerance}
 
-*No description yet.*
+How far off that distance the entity may be before it moves.
 
 ### bool should_walk = false {#prop-should-walk}
 
-*No description yet.*
+True when the entity walks and does not run.
 

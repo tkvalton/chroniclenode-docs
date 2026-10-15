@@ -46,15 +46,15 @@ Text settings
 
 ### float text_size = 40.0 {#prop-text-size}
 
-*No description yet.*
+The size of the text above the NPC.
 
 ### float text_outline_size = 14.0 {#prop-text-outline-size}
 
-*No description yet.*
+The size of the outline of the text.
 
 ### Color text_color = Color(1.0, 1.0, 1.0, 1.0) {#prop-text-color}
 
-*No description yet.*
+The color of the text.
 
 ### float text_visual_duration = 5.0 {#prop-text-visual-duration}
 

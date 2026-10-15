@@ -40,6 +40,8 @@ ComboActiveAbilityDefinition supports multi-step combo sequences. Step 0 uses th
 
 ### enum ComboCooldownMode {#enum-combocooldownmode}
 
+The options of combo cooldown mode: cooldown on completion, cooldown on every use, cooldown on timeout or completion.
+
 - **COOLDOWN_ON_COMPLETION** = `0` - Cooldown only after final step
 - **COOLDOWN_ON_EVERY_USE** = `1` - Cooldown on every combo step
 - **COOLDOWN_ON_TIMEOUT_OR_COMPLETION** = `2` - Cooldown when combo times out or completes
@@ -82,7 +84,7 @@ Whether the combo loops back to step 0 after the final step.
 
 ### void handle_completion( ability_instance: AbilityInstance ) {#method-handle-completion}
 
-Override to add active ability specific validation Active abilities complete the standard way (cooldown, resource gain, state, ability_used); the passive base class that this extends has no completion logic *(from [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition))*
+Called when a step is done: gains the resource and moves to the next step.
 
 ### Array get_current_on_use_effects( ability_instance: AbilityInstance ) {#method-get-current-on-use-effects}
 
@@ -90,45 +92,45 @@ Return on-use effects for the current combo step.
 
 ### void cleanup_ability_logic( ability_instance: AbilityInstance ) {#method-cleanup-ability-logic}
 
-No special cleanup needed - AbilityInstance handles effect removal. *(from [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition))*
+Stops the combo timer and goes back to the first step.
 
 ### Array get_combo_effects( combo_index: int ) {#method-get-combo-effects}
 
-*No description yet.*
+The effects of a step (step 0 is the ability itself).
 
 ### float get_combo_cost( combo_index: int ) {#method-get-combo-cost}
 
-*No description yet.*
+The cost of a step.
 
 ### CompressedTexture2D get_combo_icon( combo_index: int ) {#method-get-combo-icon}
 
-*No description yet.*
+The icon of a step.
 
 ### String get_combo_name( combo_index: int ) {#method-get-combo-name}
 
-*No description yet.*
+The name of a step.
 
 ### int get_max_combo_steps() {#method-get-max-combo-steps}
 
-*No description yet.*
+How many steps the combo has, the first one included.
 
 ### String get_combo_name_for_step( step: int ) {#method-get-combo-name-for-step}
 
-*No description yet.*
+The name of a step.
 
 ### bool combo_step_has_custom_effects( step: int ) {#method-combo-step-has-custom-effects}
 
-*No description yet.*
+Does the step have effects of its own?
 
 ### bool combo_step_has_custom_cost( step: int ) {#method-combo-step-has-custom-cost}
 
-*No description yet.*
+Does the step have a cost of its own?
 
 ### String get_cooldown_mode_string() {#method-get-cooldown-mode-string}
 
-*No description yet.*
+The name of the cooldown mode, for the tooltip.
 
 ### String get_tooltip_description() {#method-get-tooltip-description}
 
-*Overrides this function of [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition).*
+The text of the tooltip, with the combo.
 

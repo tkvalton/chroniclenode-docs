@@ -99,23 +99,23 @@ Conditions that must be met for actions to execute
 
 ### CombatSession encounter_instance = null {#var-encounter-instance}
 
-*No description yet.*
+Internal state
 
 ### Encounter encounter_node = null {#var-encounter-node}
 
-*No description yet.*
+The encounter the reaction belongs to.
 
 ### float cooldown_remaining = 0.0 {#var-cooldown-remaining}
 
-*No description yet.*
+How many seconds until the reaction can fire again.
 
 ### bool has_triggered = false {#var-has-triggered}
 
-*No description yet.*
+True once the reaction fired (for one that fires once).
 
 ### float time_passed_timer = 0.0 {#var-time-passed-timer}
 
-*No description yet.*
+How many seconds have passed, for a reaction that waits.
 
 ## Method descriptions
 

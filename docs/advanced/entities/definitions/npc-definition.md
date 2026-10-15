@@ -111,6 +111,8 @@ NPCDefinition extends EntityDefinition with combat stats, AI behavior, and loot 
 
 ### enum LootTableLogic {#enum-loottablelogic}
 
+========== ENUMS ==========
+
 - **NONE** = `0`
 - **ON_INITIALIZE** = `1`
 

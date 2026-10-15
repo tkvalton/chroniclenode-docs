@@ -76,7 +76,11 @@ Time related signals
 
 ### game_minute_passed( game_time: float, time_display: String, minute: int ) {#signal-game-minute-passed}
 
+Emitted each minute of game time: the time, its text and the minute.
+
 ### game_hour_passed( game_time: float, time_display: String, hour: int ) {#signal-game-hour-passed}
+
+Emitted each hour of game time: the time, its text and the hour.
 
 ### timer_pool_low( available_count: int ) {#signal-timer-pool-low}
 
@@ -124,7 +128,7 @@ Track previous time values to detect changes
 
 ### int previous_hour = -1 {#var-previous-hour}
 
-*No description yet.*
+The hour of the last tick.
 
 ### bool is_paused = false {#var-is-paused}
 
@@ -132,7 +136,7 @@ Track previous time values to detect changes
 
 ### GameHost.SystemHub system_hub = null {#var-system-hub}
 
-*No description yet.*
+The hub of the game systems.
 
 ### Array[Timer] available_timers = [] {#var-available-timers}
 
@@ -146,27 +150,27 @@ Initialize with system_hub to listen for pause state changes
 
 ### void update_time_display() {#method-update-time-display}
 
-*No description yet.*
+Update the time display string
 
 ### void check_time_events() {#method-check-time-events}
 
-*No description yet.*
+Check for minute and hour changes and emit appropriate signals
 
 ### void set_time_from_string( time_string: String ) {#method-set-time-from-string}
 
-*No description yet.*
+Set game time from a string in "HH:MM" format
 
 ### void set_time( hours: int, minutes: int ) {#method-set-time}
 
-*No description yet.*
+Set game time using hours and minutes
 
 ### void advance_time( hours: int, minutes: int ) {#method-advance-time}
 
-*No description yet.*
+Advance time by a specific number of hours and minutes
 
 ### void initialize_timer_pool() {#method-initialize-timer-pool}
 
-*No description yet.*
+Makes the pool of timers that others borrow.
 
 ### Timer get_timer( timer_name: String = "NoNameDefined", timer_duration: float = 0.5, timer_one_shot: bool = true ) {#method-get-timer}
 
@@ -198,11 +202,11 @@ Load time state
 
 ### void register_pool_for_ticking( pool: PoolInstance ) {#method-register-pool-for-ticking}
 
-*No description yet.*
+========== SHARED POOL TICK ==========
 
 ### void unregister_pool_from_ticking( pool: PoolInstance ) {#method-unregister-pool-from-ticking}
 
-*No description yet.*
+Stops a pool from regenerating or decaying over time.
 
 ### int get_ticking_pool_count() {#method-get-ticking-pool-count}
 

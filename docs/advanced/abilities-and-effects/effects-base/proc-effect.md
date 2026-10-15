@@ -34,6 +34,8 @@ Base class for all proc effects with shared RNG and consumption logic
 
 ### enum RngMode {#enum-rngmode}
 
+The options of rng mode: pure random, pity timer, streak breaker, weighted streak.
+
 - **PURE_RANDOM** = `0` - Each roll is independent
 - **PITY_TIMER** = `1` - Chance increases after each failure
 - **STREAK_BREAKER** = `2` - Guarantees success after X failures
@@ -89,7 +91,7 @@ Child classes override this to set up their specific signal connections
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-Handle effect completion *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+Called when the effect ends: takes back what it did.
 
 ### String get_rng_mode_description() {#method-get-rng-mode-description}
 
@@ -97,5 +99,5 @@ Get description of RNG mode for tooltips
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 

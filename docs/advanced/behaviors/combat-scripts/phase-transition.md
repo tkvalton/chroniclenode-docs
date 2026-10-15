@@ -32,6 +32,8 @@ Defines transition conditions for a boss phase using existing EntityCondition sy
 
 ### enum LogicOperator {#enum-logicoperator}
 
+The options of logic operator: and, or.
+
 - **AND** = `0` - All conditions must be met
 - **OR** = `1` - Any condition can trigger transition
 

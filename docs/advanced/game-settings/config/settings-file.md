@@ -16,8 +16,8 @@ Dynamic settings file that saves/loads ANY property from SettingsConfig resource
 
 ## Constants
 
-- `String` **SECTION_GENERAL** = `"General"`
-- `String` **SECTION_KEYBINDS** = `"Keybinds"`
+- `String` **SECTION_GENERAL** = `"General"` - The section of the settings file for the general settings.
+- `String` **SECTION_KEYBINDS** = `"Keybinds"` - The section of the settings file for the keybinds.
 
 ## Method descriptions
 

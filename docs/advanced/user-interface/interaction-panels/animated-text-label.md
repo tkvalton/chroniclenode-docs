@@ -34,9 +34,15 @@ A RichTextLabel that can type out text character by character Simplified version
 
 ### typing_started() {#signal-typing-started}
 
+========== SIGNALS ==========
+
 ### typing_finished() {#signal-typing-finished}
 
+Emitted when the whole text has been typed.
+
 ### typing_skipped() {#signal-typing-skipped}
+
+Emitted when the player skipped the typing.
 
 ## Property descriptions
 
@@ -60,7 +66,7 @@ Duration of pause at punctuation (in seconds)
 
 ### bool is_typing = false {#var-is-typing}
 
-*No description yet.*
+========== RUNTIME STATE ==========
 
 ## Method descriptions
 

@@ -182,7 +182,7 @@ System hub reference (set at runtime)
 
 ### CameraController camera_manager {#var-camera-manager}
 
-*No description yet.*
+The camera controller this logic moves.
 
 ### bool is_locked_to_target = false {#var-is-locked-to-target}
 
@@ -190,7 +190,7 @@ Target lock state
 
 ### Variant locked_target = null {#var-locked-target}
 
-*No description yet.*
+The target the player has locked, if any.
 
 ## Method descriptions
 
@@ -204,7 +204,7 @@ Follows a player's target lock. Call from set_target with the new target: it dis
 
 ### void unbind_lock_source() {#method-unbind-lock-source}
 
-*No description yet.*
+Stops following the lock of a player.
 
 ### void apply_to_camera_manager( camera_manager: CameraController ) {#method-apply-to-camera-manager}
 

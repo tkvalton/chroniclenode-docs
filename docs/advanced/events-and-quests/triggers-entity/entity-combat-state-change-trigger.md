@@ -37,6 +37,8 @@ Triggers when a specific entity enters or exits combat
 
 ### enum CombatStateTriggerType {#enum-combatstatetriggertype}
 
+The options of combat state trigger type: enter combat, exit combat.
+
 - **ENTER_COMBAT** = `0`
 - **EXIT_COMBAT** = `1`
 

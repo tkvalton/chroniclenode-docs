@@ -40,8 +40,8 @@ Runtime Mode:
 | `Timer` | [despawn_timer](#var-despawn-timer) | `null` |
 | `bool` | [is_waiting_to_spawn](#var-is-waiting-to-spawn) | `false      # During spawn_delay` |
 | `bool` | [rescale_pending](#var-rescale-pending) | `false` |
-| `bool` | [is_respawning](#var-is-respawning) | `false            # During respawn_timer` |
-| `float` | [respawn_time_remaining](#var-respawn-time-remaining) | `0.0    # For save/load` |
+| `bool` | [is_respawning](#var-is-respawning) | `false` |
+| `float` | [respawn_time_remaining](#var-respawn-time-remaining) | `0.0` |
 
 ## Methods
 
@@ -94,7 +94,7 @@ Entity Interactions - NPCs can have multiple interaction types (conversation, ve
 
 ### Label3D interact_prompt_label {#var-interact-prompt-label}
 
-*No description yet.*
+The label above the NPC that tells the player what the key does.
 
 ### Timer spawn_delay_timer = null {#var-spawn-delay-timer}
 
@@ -102,11 +102,11 @@ Spawn/Respawn/Despawn Timers (managed via ChronoManager)
 
 ### Timer respawn_timer = null {#var-respawn-timer}
 
-*No description yet.*
+The timer that brings the NPC back after its death.
 
 ### Timer despawn_timer = null {#var-despawn-timer}
 
-*No description yet.*
+The timer that removes the body after the death.
 
 ### bool is_waiting_to_spawn = false      # During spawn_delay {#var-is-waiting-to-spawn}
 
@@ -116,13 +116,13 @@ Respawn State Tracking
 
 The party changed while the NPC was in a fight: it takes the new level when the fight ends
 
-### bool is_respawning = false            # During respawn_timer {#var-is-respawning}
+### bool is_respawning = false {#var-is-respawning}
 
-*No description yet.*
+During respawn_timer
 
-### float respawn_time_remaining = 0.0    # For save/load {#var-respawn-time-remaining}
+### float respawn_time_remaining = 0.0 {#var-respawn-time-remaining}
 
-*No description yet.*
+For save/load
 
 ## Method descriptions
 
@@ -132,7 +132,7 @@ Override initialize_entity to add NPC-specific setup ## Regsitry should initiali
 
 ### void entity_death( announce: bool = true ) {#method-entity-death}
 
-`announce` false puts a saved corpse back (loading): the entity becomes a corpse but nobody is told it died *(from [Entity](/advanced/entities/runtime/entity))*
+Kills the NPC: the death, the loot, the experience, and the timers of the respawn and the despawn.
 
 ### void respawn_now() {#method-respawn-now}
 
@@ -172,15 +172,15 @@ Reset NPC to spawn position
 
 ### void process_interaction( entity: Entity ) {#method-process-interaction}
 
-*No description yet.*
+Runs the primary interaction of the NPC for an entity.
 
 ### void show_interact_prompt() {#method-show-interact-prompt}
 
-*No description yet.*
+Shows the prompt above the NPC.
 
 ### void hide_interact_prompt() {#method-hide-interact-prompt}
 
-*No description yet.*
+Hides the prompt above the NPC.
 
 ### void resurrect() {#method-resurrect}
 

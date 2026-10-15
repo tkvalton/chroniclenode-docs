@@ -190,16 +190,22 @@ Whose level the NPCs scale to
 
 ### enum DroppedItemsVisualSytle {#enum-droppeditemsvisualsytle}
 
+The options of dropped items visual sytle: mesh, sprite.
+
 - **MESH** = `0`
 - **SPRITE** = `1`
 
 ### enum DroppedItemsPickupRule {#enum-droppeditemspickuprule}
+
+The options of dropped items pickup rule: interact, walkover, both.
 
 - **INTERACT** = `0`
 - **WALKOVER** = `1`
 - **BOTH** = `2`
 
 ### enum CombatStyle {#enum-combatstyle}
+
+The options of combat style: real time, turn based.
 
 - **REAL_TIME** = `0`
 - **TURN_BASED** = `1`
@@ -235,6 +241,8 @@ What the built-in basic attack of the player (and of the party members) is
 
 ### enum DeathBehavior {#enum-deathbehavior}
 
+The options of death behavior: game over, respawn checkpoint, permadeath.
+
 - **GAME_OVER** = `0`
 - **RESPAWN_CHECKPOINT** = `1`
 - **PERMADEATH** = `2`
@@ -266,6 +274,8 @@ What happens to the current value of a pool when its maximum changes How the dif
 - **FORMULA** = `3` - A formula that gets the gap (and can read both levels) and returns the change in chance
 
 ### enum CapacityRule {#enum-capacityrule}
+
+The options of capacity rule: keep percentage, add gain, keep current, full restore.
 
 - **KEEP_PERCENTAGE** = `0` - Current stays the same share of the maximum (equipping +50 health at 60/100 gives 90/150; unequipping undoes it)
 - **ADD_GAIN** = `1` - A gained maximum is added to the current value (60/100 + 50 = 110/150); a lost maximum only caps it
@@ -310,7 +320,7 @@ Fog edge quality - controls smoothness of fog boundaries
 
 ## Constants
 
-- `const` **CONFIG_PATH** = `"res://src/data/config_data/gameplay_config.tres"`
+- `const` **CONFIG_PATH** = `"res://src/data/config_data/gameplay_config.tres"` - The file the settings are saved in.
 - `float` **DEFAULT_BUDGET_PER_LEVEL** = `20.0` - The budget per item level when the project has no formula of its own
 - `Dictionary` **SETTING_DESCRIPTIONS** = `{` - Dictionary of setting descriptions for tooltips and help text
 
@@ -950,7 +960,7 @@ The config of a project that has none yet: the third person camera with WASD and
 
 ### GameplayConfig get_config() {#method-get-config}
 
-*No description yet.*
+The gameplay settings of the project (the copy of the running game, else the file).
 
 ### Array[String] get_input_setup_warnings() {#method-get-input-setup-warnings}
 

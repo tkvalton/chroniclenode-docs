@@ -30,7 +30,7 @@ Telegraph VFX selection - warning/indicator effects for abilities
 
 ### VFXTelegraph.TelegraphShape telegraph_shape = VFXTelegraph.TelegraphShape.CIRCLE {#prop-telegraph-shape}
 
-*No description yet.*
+The shape of the warning (a circle, a cone, a line ...).
 
 ### Vector2 telegraph_size = Vector2(5.0, 5.0) {#prop-telegraph-size}
 
@@ -38,11 +38,11 @@ X,Z for decal
 
 ### Color telegraph_color = Color.RED {#prop-telegraph-color}
 
-*No description yet.*
+The color of the warning.
 
 ### VFXTelegraph.TelegraphAttachment attachment_type = VFXTelegraph.TelegraphAttachment.POINT {#prop-attachment-type}
 
-*No description yet.*
+What the warning is attached to (a point, the user ...).
 
 ### float orientation_offset = 0.0 {#prop-orientation-offset}
 
@@ -56,15 +56,15 @@ Telegraph VFX uses target as-is (no special preparation needed)
 
 ### String get_description() {#method-get-description}
 
-Get a description of this VFX selection for UI *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+A short text about the visual effect, for the editor.
 
 ### String get_vfx_type() {#method-get-vfx-type}
 
-Get the VFX type for database queries *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+The kind of visual effect (beam, loop, one shot ...).
 
 ### String get_vfx_name() {#method-get-vfx-name}
 
-Get the VFX name for database queries *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+The name of the visual effect that is picked.
 
 ### Dictionary get_telegraph_config() {#method-get-telegraph-config}
 

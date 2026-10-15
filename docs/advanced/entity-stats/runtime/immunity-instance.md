@@ -35,29 +35,33 @@ Individual immunity instance that tracks a specific active immunity
 
 ### immunity_expired( immunity_instance: ImmunityInstance ) {#signal-immunity-expired}
 
+========== SIGNALS ==========
+
 ### time_remaining_changed( immunity_instance: ImmunityInstance, time_remaining: float ) {#signal-time-remaining-changed}
+
+Emitted when the time left of the immunity changes.
 
 ## Variable descriptions
 
 ### ImmunityDefinition definition {#var-definition}
 
-*No description yet.*
+========== CORE PROPERTIES ==========
 
 ### int immunity_id {#var-immunity-id}
 
-*No description yet.*
+The id of the immunity.
 
 ### float duration {#var-duration}
 
-*No description yet.*
+How many seconds the immunity lasts (negative: until it is turned off).
 
 ### Timer timer {#var-timer}
 
-*No description yet.*
+The timer of the immunity.
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
-*No description yet.*
+The manager of timers.
 
 ### bool permanent = false {#var-permanent}
 

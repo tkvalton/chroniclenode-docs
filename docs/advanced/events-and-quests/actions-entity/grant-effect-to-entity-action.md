@@ -41,7 +41,7 @@ Effect ID to grant
 
 ### Entity target_entity = null {#var-target-entity}
 
-*No description yet.*
+Reference to the target entity
 
 ## Method descriptions
 

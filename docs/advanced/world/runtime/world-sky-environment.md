@@ -41,27 +41,27 @@ Currently active sky and environment configurations
 
 ### EnvironmentConfig current_environment_config {#var-current-environment-config}
 
-*No description yet.*
+The environment (sky, light, fog) that is set now.
 
 ### ShaderMaterial sky_material {#var-sky-material}
 
-*No description yet.*
+The material of the sky.
 
 ### bool day_night_cycle = true {#var-day-night-cycle}
 
-*No description yet.*
+Day/night cycle control (set by SkyConfig)
 
 ### float transition_duration = 3.0 {#var-transition-duration}
 
-*No description yet.*
+Parameters for smooth interpolation
 
 ### Dictionary current_params =  {#var-current-params}
 
-*No description yet.*
+The sky settings that are applied now.
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
-*No description yet.*
+The manager of time and timers.
 
 ## Method descriptions
 

@@ -53,6 +53,8 @@ Base class for all stat effects Effects are composable modifiers that can be att
 
 ### enum EffectType {#enum-effecttype}
 
+The options of effect type: multiplier, pool modifier, ability modifier, calculation modifier, calculation trigger, pool restoration, reactive damage, custom, trigger rule, gain modifier ....
+
 - **MULTIPLIER** = `0`
 - **POOL_MODIFIER** = `1`
 - **ABILITY_MODIFIER** = `2`
@@ -67,6 +69,8 @@ Base class for all stat effects Effects are composable modifiers that can be att
 
 ### enum CalculationType {#enum-calculationtype}
 
+The options of calculation type: add, minus, multiply, percentage increase, percentage decrease, set value, percentage of max, percentage of base.
+
 - **ADD** = `0`
 - **MINUS** = `1`
 - **MULTIPLY** = `2`
@@ -77,10 +81,14 @@ Base class for all stat effects Effects are composable modifiers that can be att
 
 ### enum ScalingMode {#enum-scalingmode}
 
+The options of scaling mode: linear, threshold, custom curve.
+
 - **LINEAR** = `0`
 - **THRESHOLD** = `1`
 
 ### enum ActiveTriggerType {#enum-activetriggertype}
+
+========== ACTIVE TRIGGER ==========
 
 - **PERMANENT** = `0`
 - **IN_COMBAT** = `1`
@@ -94,6 +102,8 @@ Which hits and heals a calculation effect is about, beyond the damage type: the 
 - **RANGED** = `2` - Only ranged attacks
 
 ### enum PeriodicFilter {#enum-periodicfilter}
+
+The options of periodic filter: any, only direct, only periodic.
 
 - **ANY** = `0` - Direct and periodic hits and heals
 - **ONLY_DIRECT** = `1` - Only direct ones
@@ -211,7 +221,7 @@ The editor's quick edit of the common case: the number of a Linear (per point) o
 
 ### void set_primary_value( new_value: float ) {#method-set-primary-value}
 
-*No description yet.*
+Sets the main number of the effect (the value per point of a linear formula).
 
 ### Curve create_default_scaling_curve() {#method-create-default-scaling-curve}
 

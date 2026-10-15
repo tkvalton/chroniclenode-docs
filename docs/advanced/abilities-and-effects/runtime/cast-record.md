@@ -44,15 +44,15 @@ Keeps the outcome of a heal: the healing that was applied
 
 ### bool has_hit_outcome( target: Object ) {#method-has-hit-outcome}
 
-*No description yet.*
+Has the cast already decided the hit outcome (hit, miss ...) for this target?
 
 ### int get_hit_outcome( target: Object ) {#method-get-hit-outcome}
 
-*No description yet.*
+The hit outcome the cast decided for this target (0 when none).
 
 ### void set_hit_outcome( target: Object, outcome: int ) {#method-set-hit-outcome}
 
-*No description yet.*
+Remembers the hit outcome for a target, so every effect of the cast agrees.
 
 ### float get_total( kind: Kind, effect_id: int = 0 ) {#method-get-total}
 

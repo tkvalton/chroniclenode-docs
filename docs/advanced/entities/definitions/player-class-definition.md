@@ -121,7 +121,7 @@ Combat Script - optional
 
 ### bool template = false {#prop-template}
 
-*No description yet.*
+True when this class is a template: other classes follow it and it is not offered to the player.
 
 *Template*
 

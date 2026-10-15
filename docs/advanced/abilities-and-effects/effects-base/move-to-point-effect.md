@@ -58,7 +58,7 @@ Override duration setup — point movement effects own their lifecycle via movem
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Apply all child effects using the simplified system *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+What the effect does to its target when it is applied.
 
 ### void apply_movement_to_point( _effect_instance: EffectInstance, _entity: Entity, _target_position: Vector3 ) {#method-apply-movement-to-point}
 
@@ -66,11 +66,11 @@ Virtual method for child classes to implement their movement logic
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-Handle effect completion *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+Called when the effect ends: takes back what it did.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

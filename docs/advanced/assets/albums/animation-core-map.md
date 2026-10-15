@@ -140,461 +140,461 @@ Parent package for animation inheritance When an animation is empty/null, the sy
 
 ### String idle_standing = "idle_standing" {#prop-idle-standing}
 
-*No description yet.*
+The animation of standing still standing.
 
 ### String idle_crouch = "idle_crouch" {#prop-idle-crouch}
 
-*No description yet.*
+The animation of standing still crouching.
 
 ### String idle_swim = "idle_swim" {#prop-idle-swim}
 
-*No description yet.*
+The animation of standing still swimming.
 
 *Walk*
 
 ### String walk_f = "walk_f" {#prop-walk-f}
 
-*No description yet.*
+The animation of walking forward.
 
 ### String walk_b = "walk_b" {#prop-walk-b}
 
-*No description yet.*
+The animation of walking backward.
 
 ### String walk_l = "walk_l" {#prop-walk-l}
 
-*No description yet.*
+The animation of walking left.
 
 ### String walk_r = "walk_r" {#prop-walk-r}
 
-*No description yet.*
+The animation of walking right.
 
 ### String walk_fl = "walk_fl" {#prop-walk-fl}
 
-*No description yet.*
+The animation of walking forward and left.
 
 ### String walk_fr = "walk_fr" {#prop-walk-fr}
 
-*No description yet.*
+The animation of walking forward and right.
 
 ### String walk_bl = "walk_bl" {#prop-walk-bl}
 
-*No description yet.*
+The animation of walking backward and left.
 
 ### String walk_br = "walk_br" {#prop-walk-br}
 
-*No description yet.*
+The animation of walking backward and right.
 
 *Crouch Walk*
 
 ### String crouch_walk_f = "crouch_walk_f" {#prop-crouch-walk-f}
 
-*No description yet.*
+The animation of walking crouched forward.
 
 ### String crouch_walk_b = "crouch_walk_b" {#prop-crouch-walk-b}
 
-*No description yet.*
+The animation of walking crouched backward.
 
 ### String crouch_walk_l = "crouch_walk_l" {#prop-crouch-walk-l}
 
-*No description yet.*
+The animation of walking crouched left.
 
 ### String crouch_walk_r = "crouch_walk_r" {#prop-crouch-walk-r}
 
-*No description yet.*
+The animation of walking crouched right.
 
 ### String crouch_walk_fl = "crouch_walk_fl" {#prop-crouch-walk-fl}
 
-*No description yet.*
+The animation of walking crouched forward and left.
 
 ### String crouch_walk_fr = "crouch_walk_fr" {#prop-crouch-walk-fr}
 
-*No description yet.*
+The animation of walking crouched forward and right.
 
 ### String crouch_walk_bl = "crouch_walk_bl" {#prop-crouch-walk-bl}
 
-*No description yet.*
+The animation of walking crouched backward and left.
 
 ### String crouch_walk_br = "crouch_walk_br" {#prop-crouch-walk-br}
 
-*No description yet.*
+The animation of walking crouched backward and right.
 
 *Run*
 
 ### String run_f = "run_f" {#prop-run-f}
 
-*No description yet.*
+The animation of running forward.
 
 ### String run_b = "run_b" {#prop-run-b}
 
-*No description yet.*
+The animation of running backward.
 
 ### String run_l = "run_l" {#prop-run-l}
 
-*No description yet.*
+The animation of running left.
 
 ### String run_r = "run_r" {#prop-run-r}
 
-*No description yet.*
+The animation of running right.
 
 ### String run_fl = "run_fl" {#prop-run-fl}
 
-*No description yet.*
+The animation of running forward and left.
 
 ### String run_fr = "run_fr" {#prop-run-fr}
 
-*No description yet.*
+The animation of running forward and right.
 
 ### String run_bl = "run_bl" {#prop-run-bl}
 
-*No description yet.*
+The animation of running backward and left.
 
 ### String run_br = "run_br" {#prop-run-br}
 
-*No description yet.*
+The animation of running backward and right.
 
 *Sprint*
 
 ### String sprint_f = "sprint_f" {#prop-sprint-f}
 
-*No description yet.*
+The animation of sprinting forward.
 
 ### String sprint_b = "sprint_b" {#prop-sprint-b}
 
-*No description yet.*
+The animation of sprinting backward.
 
 ### String sprint_l = "sprint_l" {#prop-sprint-l}
 
-*No description yet.*
+The animation of sprinting left.
 
 ### String sprint_r = "sprint_r" {#prop-sprint-r}
 
-*No description yet.*
+The animation of sprinting right.
 
 ### String sprint_fl = "sprint_fl" {#prop-sprint-fl}
 
-*No description yet.*
+The animation of sprinting forward and left.
 
 ### String sprint_fr = "sprint_fr" {#prop-sprint-fr}
 
-*No description yet.*
+The animation of sprinting forward and right.
 
 ### String sprint_bl = "sprint_bl" {#prop-sprint-bl}
 
-*No description yet.*
+The animation of sprinting backward and left.
 
 ### String sprint_br = "sprint_br" {#prop-sprint-br}
 
-*No description yet.*
+The animation of sprinting backward and right.
 
 *Strafe*
 
 ### String strafe_l = "strafe_l" {#prop-strafe-l}
 
-*No description yet.*
+The animation of strafing left.
 
 ### String strafe_r = "strafe_r" {#prop-strafe-r}
 
-*No description yet.*
+The animation of strafing right.
 
 ### String strafe_lf = "strafe_lf" {#prop-strafe-lf}
 
-*No description yet.*
+The animation of strafing left and forward.
 
 ### String strafe_lb = "strafe_lb" {#prop-strafe-lb}
 
-*No description yet.*
+The animation of strafing left and backward.
 
 ### String strafe_rf = "strafe_rf" {#prop-strafe-rf}
 
-*No description yet.*
+The animation of strafing right and forward.
 
 ### String strafe_rb = "strafe_rb" {#prop-strafe-rb}
 
-*No description yet.*
+The animation of strafing right and backward.
 
 *Turn*
 
 ### String turn_standing_90_l = "turn_standing_90_l" {#prop-turn-standing-90-l}
 
-*No description yet.*
+The animation of turning 90 degrees to the left while standing.
 
 ### String turn_standing_90_r = "turn_standing_90_r" {#prop-turn-standing-90-r}
 
-*No description yet.*
+The animation of turning 90 degrees to the right while standing.
 
 ### String turn_standing_180_l = "turn_standing_180_l" {#prop-turn-standing-180-l}
 
-*No description yet.*
+The animation of turning 180 degrees to the left while standing.
 
 ### String turn_standing_180_r = "turn_standing_180_r" {#prop-turn-standing-180-r}
 
-*No description yet.*
+The animation of turning 180 degrees to the right while standing.
 
 *Crouch Turn*
 
 ### String turn_crouch_90_l = "turn_crouch_90_l" {#prop-turn-crouch-90-l}
 
-*No description yet.*
+The animation of turning 90 degrees to the left while crouching.
 
 ### String turn_crouch_90_r = "turn_crouch_90_r" {#prop-turn-crouch-90-r}
 
-*No description yet.*
+The animation of turning 90 degrees to the right while crouching.
 
 ### String turn_crouch_180_l = "turn_crouch_180_l" {#prop-turn-crouch-180-l}
 
-*No description yet.*
+The animation of turning 180 degrees to the left while crouching.
 
 ### String turn_crouch_180_r = "turn_crouch_180_r" {#prop-turn-crouch-180-r}
 
-*No description yet.*
+The animation of turning 180 degrees to the right while crouching.
 
 *Jump*
 
 ### String jump_idle = "jump_idle" {#prop-jump-idle}
 
-*No description yet.*
+The animation of jumping from standing still.
 
 ### String jump_running = "jump_running" {#prop-jump-running}
 
-*No description yet.*
+The animation of jumping while running.
 
 *Fall*
 
 ### String fall_start = "fall_start" {#prop-fall-start}
 
-*No description yet.*
+The animation of the start of a fall.
 
 ### String fall_loop = "fall_loop" {#prop-fall-loop}
 
-*No description yet.*
+The animation of falling, played in a loop.
 
 *Landing*
 
 ### String land_soft = "land_soft" {#prop-land-soft}
 
-*No description yet.*
+The animation of a soft landing (by how far the entity fell).
 
 ### String land_medium = "land_medium" {#prop-land-medium}
 
-*No description yet.*
+The animation of a medium landing (by how far the entity fell).
 
 ### String land_hard = "land_hard" {#prop-land-hard}
 
-*No description yet.*
+The animation of a hard landing (by how far the entity fell).
 
 *Swim*
 
 ### String swim_f = "swim_f" {#prop-swim-f}
 
-*No description yet.*
+The animation of swimming forward.
 
 ### String swim_b = "swim_b" {#prop-swim-b}
 
-*No description yet.*
+The animation of swimming backward.
 
 ### String swim_l = "swim_l" {#prop-swim-l}
 
-*No description yet.*
+The animation of swimming left.
 
 ### String swim_r = "swim_r" {#prop-swim-r}
 
-*No description yet.*
+The animation of swimming right.
 
 ### String swim_fl = "swim_fl" {#prop-swim-fl}
 
-*No description yet.*
+The animation of swimming forward and left.
 
 ### String swim_fr = "swim_fr" {#prop-swim-fr}
 
-*No description yet.*
+The animation of swimming forward and right.
 
 ### String swim_bl = "swim_bl" {#prop-swim-bl}
 
-*No description yet.*
+The animation of swimming backward and left.
 
 ### String swim_br = "swim_br" {#prop-swim-br}
 
-*No description yet.*
+The animation of swimming backward and right.
 
 *Combat Idle*
 
 ### String combat_idle_unarmed = "combat_idle" {#prop-combat-idle-unarmed}
 
-*No description yet.*
+The animation of standing ready in combat, unarmed.
 
 ### String combat_idle_shield = "combat_idle_shield" {#prop-combat-idle-shield}
 
-*No description yet.*
+The animation of standing ready in combat, with a shield.
 
 ### String combat_idle_one_hand = "combat_idle_1h" {#prop-combat-idle-one-hand}
 
-*No description yet.*
+The animation of standing ready in combat, with a one hand weapon.
 
 ### String combat_idle_dual_wield = "combat_idle_dual_wield" {#prop-combat-idle-dual-wield}
 
-*No description yet.*
+The animation of standing ready in combat, with two weapons.
 
 ### String combat_idle_two_hand = "combat_idle_2h" {#prop-combat-idle-two-hand}
 
-*No description yet.*
+The animation of standing ready in combat, with a two hand weapon.
 
 ### String combat_idle_ranged_weapon = "combat_idle_ranged" {#prop-combat-idle-ranged-weapon}
 
-*No description yet.*
+The animation of standing ready in combat, with a ranged weapon.
 
 ### String combat_idle_bow = "combat_idle_bow" {#prop-combat-idle-bow}
 
-*No description yet.*
+The animation of standing ready in combat, with a bow.
 
 ### String combat_idle_polearm = "combat_idle_polearm" {#prop-combat-idle-polearm}
 
-*No description yet.*
+The animation of standing ready in combat, with a polearm.
 
 *Block*
 
 ### Array[String] block_unarmed = [] {#prop-block-unarmed}
 
-*No description yet.*
+The animations of blocking, unarmed (one is picked at random).
 
 ### Array[String] block_shield = [] {#prop-block-shield}
 
-*No description yet.*
+The animations of blocking, with a shield (one is picked at random).
 
 ### Array[String] block_one_hand = [] {#prop-block-one-hand}
 
-*No description yet.*
+The animations of blocking, with a one hand weapon (one is picked at random).
 
 ### Array[String] block_dual_wield = [] {#prop-block-dual-wield}
 
-*No description yet.*
+The animations of blocking, with two weapons (one is picked at random).
 
 ### Array[String] block_two_hand = [] {#prop-block-two-hand}
 
-*No description yet.*
+The animations of blocking, with a two hand weapon (one is picked at random).
 
 ### Array[String] block_ranged_weapon = [] {#prop-block-ranged-weapon}
 
-*No description yet.*
+The animations of blocking, with a ranged weapon (one is picked at random).
 
 ### Array[String] block_bow = [] {#prop-block-bow}
 
-*No description yet.*
+The animations of blocking, with a bow (one is picked at random).
 
 ### Array[String] block_polearm = [] {#prop-block-polearm}
 
-*No description yet.*
+The animations of blocking, with a polearm (one is picked at random).
 
 ### Array[String] block_casting = [] {#prop-block-casting}
 
-*No description yet.*
+The animations of blocking while casting (one is picked at random).
 
 *Dodge*
 
 ### Array[String] dodge = [] {#prop-dodge}
 
-*No description yet.*
+The animations of dodging (one is picked at random).
 
 *Hit*
 
 ### Array[String] hit = [] {#prop-hit}
 
-*No description yet.*
+The animations of being hit (one is picked at random).
 
 *Sheathe*
 
 ### String sheathe_one_hand = "sheathe_one_hand" {#prop-sheathe-one-hand}
 
-*No description yet.*
+The animation of putting the weapon away, with a one hand weapon.
 
 ### String sheathe_two_hand = "sheathe_two_hand" {#prop-sheathe-two-hand}
 
-*No description yet.*
+The animation of putting the weapon away, with a two hand weapon.
 
 ### String sheathe_dual_wield = "sheathe_dual_wield" {#prop-sheathe-dual-wield}
 
-*No description yet.*
+The animation of putting the weapon away, with two weapons.
 
 ### String sheathe_off_hand = "sheathe_off_hand" {#prop-sheathe-off-hand}
 
-*No description yet.*
+The animation of putting the weapon away, of the off hand.
 
 ### String sheathe_bow = "sheathe_bow" {#prop-sheathe-bow}
 
-*No description yet.*
+The animation of putting the weapon away, with a bow.
 
 ### String sheathe_ranged_weapon = "sheathe_ranged_weapon" {#prop-sheathe-ranged-weapon}
 
-*No description yet.*
+The animation of putting the weapon away, with a ranged weapon.
 
 ### String sheathe_polearm = "sheathe_polearm" {#prop-sheathe-polearm}
 
-*No description yet.*
+The animation of putting the weapon away, with a polearm.
 
 *Unsheathe*
 
 ### String unsheathe_one_hand = "unsheathe_one_hand" {#prop-unsheathe-one-hand}
 
-*No description yet.*
+The animation of drawing the weapon, with a one hand weapon.
 
 ### String unsheathe_two_hand = "unsheathe_two_hand" {#prop-unsheathe-two-hand}
 
-*No description yet.*
+The animation of drawing the weapon, with a two hand weapon.
 
 ### String unsheathe_dual_wield = "unsheathe_dual_wield" {#prop-unsheathe-dual-wield}
 
-*No description yet.*
+The animation of drawing the weapon, with two weapons.
 
 ### String unsheathe_off_hand = "unsheathe_off_hand" {#prop-unsheathe-off-hand}
 
-*No description yet.*
+The animation of drawing the weapon, of the off hand.
 
 ### String unsheathe_bow = "unsheathe_bow" {#prop-unsheathe-bow}
 
-*No description yet.*
+The animation of drawing the weapon, with a bow.
 
 ### String unsheathe_ranged_weapon = "unsheathe_ranged_weapon" {#prop-unsheathe-ranged-weapon}
 
-*No description yet.*
+The animation of drawing the weapon, with a ranged weapon.
 
 ### String unsheathe_polearm = "unsheathe_polearm" {#prop-unsheathe-polearm}
 
-*No description yet.*
+The animation of drawing the weapon, with a polearm.
 
 *Death*
 
 ### Array[String] death_default = [] {#prop-death-default}
 
-*No description yet.*
+The animations of dying (one is picked at random).
 
 ### Array[String] death_swim = [] {#prop-death-swim}
 
-*No description yet.*
+The animations of dying in water (one is picked at random).
 
 *InteractObject*
 
 ### String loot = "loot" {#prop-loot}
 
-*No description yet.*
+The animation of looting.
 
 ### String short_interact = "short_interact" {#prop-short-interact}
 
-*No description yet.*
+The animation of a short interaction (pressing a button, picking up).
 
 ### String loop_interact = "loop_interact" {#prop-loop-interact}
 
-*No description yet.*
+The animation of a long interaction, played in a loop (crafting, opening a lock).
 
 ### String push = "push" {#prop-push}
 
-*No description yet.*
+The animation of pushing.
 
 ### String pull = "pull" {#prop-pull}
 
-*No description yet.*
+The animation of pulling.
 
 ### String climb = "climb" {#prop-climb}
 
-*No description yet.*
+The animation of climbing.
 
 ## Method descriptions
 

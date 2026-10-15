@@ -215,11 +215,11 @@ A short description of the vendor (for debugging and the UI)
 
 ### Dictionary get_save_data() {#method-get-save-data}
 
-*No description yet.*
+The stock of the vendor for a save.
 
 ### void load_save_data( data: Dictionary ) {#method-load-save-data}
 
-*No description yet.*
+Restores the stock of the vendor from a save.
 
 ### bool is_valid_setup() {#method-is-valid-setup}
 

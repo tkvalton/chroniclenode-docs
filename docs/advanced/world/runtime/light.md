@@ -110,19 +110,19 @@ Whether audio should loop continuously
 
 ### float stored_omni_energy = 1.0 {#var-stored-omni-energy}
 
-*No description yet.*
+The energy of the omni light, kept while it is switched off.
 
 ### float stored_spot_energy = 1.0 {#var-stored-spot-energy}
 
-*No description yet.*
+The energy of the spot light, kept while it is switched off.
 
 ### bool stored_omni_visible = true {#var-stored-omni-visible}
 
-*No description yet.*
+Whether the omni light was visible, kept while it is switched off.
 
 ### bool stored_spot_visible = true {#var-stored-spot-visible}
 
-*No description yet.*
+Whether the spot light was visible, kept while it is switched off.
 
 ## Method descriptions
 

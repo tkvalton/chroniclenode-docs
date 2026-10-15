@@ -40,6 +40,8 @@ Equip or unequip equipment items from the entity's inventory
 
 ### enum EquipType {#enum-equiptype}
 
+The options of equip type: equip, unequip.
+
 - **EQUIP** = `0`
 - **UNEQUIP** = `1`
 
@@ -69,11 +71,11 @@ Whether to fail if the action cannot be completed
 
 ### ItemDefinitionEquipment target_item = null {#var-target-item}
 
-*No description yet.*
+The item the entity equips or takes off.
 
 ### bool action_completed = false {#var-action-completed}
 
-*No description yet.*
+True once the item is equipped or taken off.
 
 ## Method descriptions
 

@@ -50,5 +50,5 @@ Check if the basic attack can be swapped
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 

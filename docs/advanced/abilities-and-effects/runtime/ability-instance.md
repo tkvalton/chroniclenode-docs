@@ -187,6 +187,8 @@ Emitted when toggle state changes for any reason
 
 ### enum AbilityState {#enum-abilitystate}
 
+The options of ability state: ready, casting, channeling, silenced, on cooldown, inactive.
+
 - **READY** = `0`
 - **CASTING** = `1`
 - **CHANNELING** = `2`
@@ -195,6 +197,8 @@ Emitted when toggle state changes for any reason
 - **INACTIVE** = `5`
 
 ### enum AbilityUseAttemptResult {#enum-abilityuseattemptresult}
+
+The options of ability use attempt result: ok, entity dead, on global cooldown, on cooldown, insufficient resource, ability not found, ability inactive, silenced, target out of range, disarmed ....
 
 - **OK** = `0`
 - **ENTITY_DEAD** = `1`
@@ -216,6 +220,8 @@ Emitted when toggle state changes for any reason
 - **NO_AMMO** = `17`
 
 ### enum SourceType {#enum-sourcetype}
+
+The options of source type: intrinsic, external, stateful, persistent.
 
 - **INTRINSIC** = `0`
 - **EXTERNAL** = `1`
@@ -245,7 +251,7 @@ SystemManagers refs
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
-*No description yet.*
+The manager of timers the ability takes its timers from.
 
 ### TargetStrategyInstance target_strategy_instance {#var-target-strategy-instance}
 
@@ -671,7 +677,7 @@ Clean up all resources used by this ability instance
 
 ### void cleanup_timers() {#method-cleanup-timers}
 
-*No description yet.*
+Gives the cooldown timer back to the manager.
 
 ### String get_ammo_warning() {#method-get-ammo-warning}
 

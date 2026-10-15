@@ -40,13 +40,13 @@ True: every member of the group must be near. False: one is enough
 
 ### bool evaluate_encounter( encounter: Encounter ) {#method-evaluate-encounter}
 
-Override this in subclasses to implement encounter-specific evaluation @param encounter: The target encounter to evaluate @return: true if condition is met for this encounter *(from [EncounterCondition](/advanced/shared-systems/condition-bases/encounter-condition))*
+Is the condition met for this encounter?
 
 ### String get_encounter_description() {#method-get-encounter-description}
 
-Override this in subclasses to describe the specific encounter condition *(from [EncounterCondition](/advanced/shared-systems/condition-bases/encounter-condition))*
+A short text about what the condition checks on the encounter.
 
 ### String get_encounter_function_description() {#method-get-encounter-function-description}
 
-Override this in subclasses to provide template for inline editing *(from [EncounterCondition](/advanced/shared-systems/condition-bases/encounter-condition))*
+The sentence the editor shows for the condition, with &#123;placeholders&#125; for its values.
 

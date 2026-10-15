@@ -67,5 +67,5 @@ The parts as text for a tooltip: "50 + 1.50x Attack Power ±5 + 25% weapon damag
 
 ### Array[String] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings of the effect. Gives the problems found (empty when it is fine).
 

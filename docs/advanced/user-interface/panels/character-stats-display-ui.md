@@ -35,6 +35,8 @@ Signals for forwarding from child stats
 
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
 
+Asks the interface to hide the tooltip (force hides it at once).
+
 ## Property descriptions
 
 ### PackedScene character_sheet_stat_scene {#prop-character-sheet-stat-scene}

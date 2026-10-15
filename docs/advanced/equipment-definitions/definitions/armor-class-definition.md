@@ -41,21 +41,21 @@ The effects the wearer gets for wearing pieces of this class, in the way of a se
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Validation methods
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 
 ### String get_id() {#method-get-id}
 
-*No description yet.*
+Get ID from filename
 
 ### Dictionary get_armor_info() {#method-get-armor-info}
 
-*No description yet.*
+Info methods
 
 ### String get_description_text() {#method-get-description-text}
 
-*No description yet.*
+The description of the armor class.
 

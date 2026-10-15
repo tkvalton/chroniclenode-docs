@@ -41,7 +41,7 @@ Position to spawn the entity at
 
 ### NPC spawned_entity = null {#var-spawned-entity}
 
-*No description yet.*
+Reference to the spawned entity
 
 ## Method descriptions
 

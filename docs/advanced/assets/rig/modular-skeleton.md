@@ -63,23 +63,23 @@ The tag used to fetch the correct mesh data from equipment items This should mat
 
 ### Dictionary base_body_meshes =  {#var-base-body-meshes}
 
-*No description yet.*
+The meshes the body had before equipment changed them, by body slot (to give them back).
 
 ### Dictionary base_facial_meshes =  {#var-base-facial-meshes}
 
-*No description yet.*
+The meshes the face had before changes, by facial feature.
 
 ### Dictionary base_body_skins =  {#var-base-body-skins}
 
-*No description yet.*
+The skins the body had before changes, by body slot.
 
 ### Dictionary base_facial_skins =  {#var-base-facial-skins}
 
-*No description yet.*
+The skins the face had before changes, by facial feature.
 
 ### bool base_meshes_initialized = false {#var-base-meshes-initialized}
 
-*No description yet.*
+True once the starting meshes were stored.
 
 ### Dictionary original_body_part_skins =  {#var-original-body-part-skins}
 
@@ -89,7 +89,7 @@ Storage for original skins before equipment changes them (body parts)
 
 ### String get_skeleton_type() {#method-get-skeleton-type}
 
-*Overrides this function of [GeneralSkeleton](/advanced/assets/rig/general-skeleton).*
+The kind of skeleton ("ModularSkeleton").
 
 ### String get_modular_equipment_tag() {#method-get-modular-equipment-tag}
 
@@ -165,17 +165,17 @@ Check if hair should be hidden (called from GeneralSkeleton)
 
 ### int clear_all_body_part_meshes() {#method-clear-all-body-part-meshes}
 
-*No description yet.*
+Hides every body part. Gives how many were hidden.
 
 ### int clear_all_facial_feature_meshes() {#method-clear-all-facial-feature-meshes}
 
-*No description yet.*
+Hides every facial feature. Gives how many were hidden.
 
 ### int restore_all_body_part_meshes() {#method-restore-all-body-part-meshes}
 
-*No description yet.*
+Shows every body part again. Gives how many were restored.
 
 ### int restore_all_facial_feature_meshes() {#method-restore-all-facial-feature-meshes}
 
-*No description yet.*
+Shows every facial feature again. Gives how many were restored.
 

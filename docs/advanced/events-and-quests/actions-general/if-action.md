@@ -82,7 +82,7 @@ Result of the condition check
 
 ### void set_system_hub( p_system_hub: GameHost.SystemHub ) {#method-set-system-hub}
 
-*Overrides this function of [EventAction](/advanced/events-and-quests/bases/event-action).*
+Gives the action, its conditions and its child actions the hub of the game systems.
 
 ### String get_function_description() {#method-get-function-description}
 

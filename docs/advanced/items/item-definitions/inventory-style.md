@@ -133,5 +133,5 @@ The style of the owner: an NPC definition's own, else the project's for NPCs; a 
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 

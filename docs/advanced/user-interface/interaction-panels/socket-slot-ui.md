@@ -18,7 +18,7 @@ Individual socket slot display - supports both tooltip and interactive socket pa
 | | | |
 |---|---|---|
 | `ItemInstance.SocketInstance` | [socket_instance](#var-socket-instance) | `null` |
-| `int` | [socket_index](#var-socket-index) | `-1  # Index in the equipment's socket array` |
+| `int` | [socket_index](#var-socket-index) | `-1` |
 | `Color` | [socket_colour](#var-socket-colour) | `Color.GRAY` |
 | `Color` | [hover_background_color](#var-hover-background-color) | `Color(0.5, 0.5, 0.5, 1.0)` |
 | `Color` | [can_accept_color](#var-can-accept-color) | `Color(0.2, 0.6, 0.2, 1.0)` |
@@ -40,15 +40,21 @@ Individual socket slot display - supports both tooltip and interactive socket pa
 
 ### socket_item_removed( socket_index: int, removed_item: ItemInstance ) {#signal-socket-item-removed}
 
+========== SIGNALS ==========
+
 ### socket_item_added( socket_index: int, added_item: ItemInstance ) {#signal-socket-item-added}
 
+Emitted when a gem or rune is put in the socket.
+
 ### socket_hovered( socket_slot: SocketSlotUI, is_hovering: bool ) {#signal-socket-hovered}
+
+Emitted when the mouse enters or leaves the socket.
 
 ## Property descriptions
 
 ### Texture2D socketable_texture {#prop-socketable-texture}
 
-Icon of socketed item (if any)
+========== EXPORT PROPERTIES (for tooltip compatibility) ==========
 
 ### String socketable_effect_text = "&lt;Empty&gt;" {#prop-socketable-effect-text}
 
@@ -58,11 +64,11 @@ Effect description or placeholder
 
 ### ItemInstance.SocketInstance socket_instance = null {#var-socket-instance}
 
-*No description yet.*
+========== PROPERTIES ==========
 
-### int socket_index = -1  # Index in the equipment's socket array {#var-socket-index}
+### int socket_index = -1 {#var-socket-index}
 
-*No description yet.*
+Index in the equipment's socket array
 
 ### Color socket_colour = Color.GRAY {#var-socket-colour}
 
@@ -70,15 +76,15 @@ Socket border/background color
 
 ### Color hover_background_color = Color(0.5, 0.5, 0.5, 1.0) {#var-hover-background-color}
 
-*No description yet.*
+========== VISUAL STATES ==========
 
 ### Color can_accept_color = Color(0.2, 0.6, 0.2, 1.0) {#var-can-accept-color}
 
-*No description yet.*
+The color of the socket when the item dragged fits.
 
 ### Color cannot_accept_color = Color(0.6, 0.2, 0.2, 1.0) {#var-cannot-accept-color}
 
-*No description yet.*
+The color of the socket when the item dragged does not fit.
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 
@@ -96,15 +102,15 @@ Setup socket for definition-only display (for vendor tooltips)
 
 ### String strip_bbcode( text: String ) {#method-strip-bbcode}
 
-*No description yet.*
+The text without its BBCode tags.
 
 ### bool can_accept_socketable_item( item: ItemInstance ) {#method-can-accept-socketable-item}
 
-*No description yet.*
+Does the item fit this socket?
 
 ### bool try_socket_item( item: ItemInstance ) {#method-try-socket-item}
 
-*No description yet.*
+Puts the item in the socket. False when it does not fit.
 
 ### void refresh_display() {#method-refresh-display}
 

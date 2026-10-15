@@ -36,6 +36,8 @@ Checks if a random roll succeeds based on percentage chance. Supports multiple R
 
 ### enum RngMode {#enum-rngmode}
 
+The options of rng mode: pure random, pity timer, streak breaker, weighted streak.
+
 - **PURE_RANDOM** = `0` - Each roll is independent (original behavior)
 - **PITY_TIMER** = `1` - Chance increases after each failure
 - **STREAK_BREAKER** = `2` - Guarantees success after X failures
@@ -77,7 +79,7 @@ Internal state - tracks consecutive failures for this specific condition instanc
 
 ### bool evaluate( argument: Variant = null ) {#method-evaluate}
 
-Final evaluate method that handles entity targeting and calls evaluate_entity Don't override this - override evaluate_entity instead *(from [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition))*
+Is the condition met?
 
 ### float get_current_chance() {#method-get-current-chance}
 
@@ -89,9 +91,9 @@ Reset the failure counter (useful for combat state transitions)
 
 ### String get_description() {#method-get-description}
 
-Get description including entity targeting info *(from [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition))*
+A short text about what the condition checks.
 
 ### String get_function_description() {#method-get-function-description}
 
-Main function description method - includes targeting as part of inline template *(from [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition))*
+The sentence the editor shows for the condition, with &#123;placeholders&#125; for its values.
 

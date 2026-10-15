@@ -46,11 +46,11 @@ Markers sourced from the scene instance
 
 ### Marker3D overhead_marker {#var-overhead-marker}
 
-*No description yet.*
+The marker above the object.
 
 ### Marker3D nameplate_marker {#var-nameplate-marker}
 
-*No description yet.*
+The marker where the nameplate of the object goes.
 
 ### Array[MeshInstance3D] mesh_instances = [] {#var-mesh-instances}
 
@@ -60,33 +60,33 @@ Mesh instances discovered from the scene (used by base class via _get_mesh_insta
 
 ### void initialize_rig( owner_node: Node3D ) {#method-initialize-rig}
 
-Single entry point. Stores the owner, creates decals, defers remote setup. Subclasses call super then add their own model instantiation. *(from [RigComponent](/advanced/assets/rig/rig-component))*
+Builds the rig of the object: its scene and animation player.
 
 ### Node3D get_attachment_point_node( location: VFXSelection.VfxLocation ) {#method-get-attachment-point-node}
 
-Return the Node3D that physically represents a VfxLocation attachment point. *(from [RigComponent](/advanced/assets/rig/rig-component))*
+The node of the object where a visual effect attaches.
 
 ### bool apply_vfx_material_effect( selection: VFXSelectionMaterial, _timer: Timer = null ) {#method-apply-vfx-material-effect}
 
-Apply a material effect to the rig's meshes. Returns success. *(from [RigComponent](/advanced/assets/rig/rig-component))*
+Puts a material effect on the meshes of the object.
 
 ### bool cleanup_vfx_material_effect( _selection: VFXSelectionMaterial ) {#method-cleanup-vfx-material-effect}
 
-Clean up a previously applied material effect. Returns success. *(from [RigComponent](/advanced/assets/rig/rig-component))*
+Takes the material effect off the meshes of the object.
 
 ### Array[String] get_available_animations() {#method-get-available-animations}
 
-*No description yet.*
+The animations of the scene of the object.
 
 ### bool has_animation( anim_name: String ) {#method-has-animation}
 
-*No description yet.*
+Does the scene of the object have this animation?
 
 ### bool play_animation( anim_name: String ) {#method-play-animation}
 
-*No description yet.*
+Plays an animation of the object. False when it has none.
 
 ### AnimationPlayer get_animation_player() {#method-get-animation-player}
 
-*No description yet.*
+The animation player of the object.
 

@@ -30,10 +30,14 @@ Modifies the target's master health pool values or generation. Always targets th
 
 ### enum CalculationPipeline {#enum-calculationpipeline}
 
+The options of calculation pipeline: none, damage done, healing done.
+
 - **NONE** = `0`
 - **DAMAGE_DONE** = `1`
 
 ### enum CalculationType {#enum-calculationtype}
+
+The options of calculation type: add current, add current percent, set current, set current percent, add to max, add to max percent, set max, set max percent, add gen rate, add gen value.
 
 - **ADD_CURRENT** = `0`
 - **ADD_CURRENT_PERCENT** = `1`
@@ -51,7 +55,7 @@ Modifies the target's master health pool values or generation. Always targets th
 
 ### CalculationType calculation_type = CalculationType.ADD_CURRENT {#prop-calculation-type}
 
-*No description yet.*
+How the amount changes the pool (add to the current value, set the maximum ...).
 
 ### float base_value = 0.0 {#prop-base-value}
 
@@ -75,21 +79,21 @@ Run the final value through a combat pipeline before applying
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+What the effect does to its target when it is applied.
 
 ### void on_stack_reapply( effect_instance: EffectInstance, old_stack_count: int, new_stack_count: int ) {#method-on-stack-reapply}
 
-Virtual method for custom stack reapply logic Called when an existing effect gains additional stacks and reapply_on_stack is true (override in child classes if needed) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+Called when the effect is applied again on a target that has it (a new stack or a refresh).
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-Handles the finishing of the effect, including cleanup and VFX/SFX (override in child classes if needed, call .super for cleanup) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+Called when the effect ends: takes back what it did.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 

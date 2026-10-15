@@ -39,7 +39,7 @@ Whose points these are, and so which trees spend them. The points and the trees 
 
 ### Color pool_color = Color.CYAN {#prop-pool-color}
 
-*No description yet.*
+========== BASIC PROPERTIES ==========
 
 ### Scope scope = Scope.CHARACTER {#prop-scope}
 
@@ -47,31 +47,31 @@ The owner of the points of this pool
 
 ### int max_total_points = -1  # -1 = unlimited {#prop-max-total-points}
 
-*No description yet.*
+========== POINT GENERATION ==========
 
 ## Method descriptions
 
 ### bool has_point_cap() {#method-has-point-cap}
 
-*No description yet.*
+========== POOL STATUS METHODS ==========
 
 ### int get_point_cap() {#method-get-point-cap}
 
-*No description yet.*
+The most points the pool can ever hold (-1 when it has no cap).
 
 ### bool can_add_points( current_points: int, points_to_add: int ) {#method-can-add-points}
 
-*No description yet.*
+Can this many points be added without passing the cap?
 
 ### int get_remaining_capacity( current_points: int ) {#method-get-remaining-capacity}
 
-*No description yet.*
+How many more points the pool can take (-1 when it has no cap).
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Is it free of errors?
 

@@ -232,7 +232,7 @@ Check if this equipment has a full socket bonus
 
 ### Dictionary create_mesh_assignment( mesh_path: String, material_overrides: Array[Material] = [], scale: float = 1.0 ) {#method-create-mesh-assignment}
 
-*No description yet.*
+Makes the record of a mesh of the item: its path, material overrides and scale.
 
 ### Array[String] get_defined_tags() {#method-get-defined-tags}
 
@@ -288,27 +288,27 @@ Get mesh count for a specific tag
 
 ### EquipmentTypeDefinition get_equipment_type() {#method-get-equipment-type}
 
-*No description yet.*
+The equipment type of the item (a weapon type counts too), or null.
 
 ### ArmorClassDefinition get_armor_class() {#method-get-armor-class}
 
-*No description yet.*
+The armor class of the item, or null.
 
 ### bool is_weapon() {#method-is-weapon}
 
-*No description yet.*
+Is the item a weapon?
 
 ### bool affects_body_part( body_part: GeneralSkeleton.BodySlot ) {#method-affects-body-part}
 
-*No description yet.*
+Does the item change this part of the body of the model?
 
 ### bool uses_attachment_point( attachment_point: GeneralSkeleton.AttachmentSlot ) {#method-uses-attachment-point}
 
-*No description yet.*
+Does the item use this attachment point of the model?
 
 ### Dictionary get_affected_mesh_slots() {#method-get-affected-mesh-slots}
 
-*No description yet.*
+The slots of the model the item changes.
 
 ### void clear_all_mesh_assignments() {#method-clear-all-mesh-assignments}
 
@@ -340,7 +340,7 @@ Get display name for equipment action based on current state
 
 ### Array[Effect] get_equipment_effects() {#method-get-equipment-effects}
 
-*No description yet.*
+The effects the item gives while worn.
 
 ### Dictionary get_effective_stat_bonuses( item_instance: ItemInstance ) {#method-get-effective-stat-bonuses}
 

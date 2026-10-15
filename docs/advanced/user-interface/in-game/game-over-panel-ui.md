@@ -58,7 +58,7 @@ Current death behavior being displayed
 
 ### void initialize_ui( system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [PanelUI](/advanced/user-interface/panels/panel-ui).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void show_game_over( death_behavior: GameplayConfig.DeathBehavior, player: Player ) {#method-show-game-over}
 

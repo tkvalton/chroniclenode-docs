@@ -297,7 +297,7 @@ Add item instance to inventory, returns true if successful
 
 ### bool try_swap_items( item_instance: ItemInstance, target_slot_index: int ) {#method-try-swap-items}
 
-*No description yet.*
+Moves an item to a slot, swapping it with what is there. False when the slot is not valid.
 
 ### bool add_item_definition( item_def: ItemDefinition, quantity: int = 1 ) {#method-add-item-definition}
 
@@ -325,7 +325,7 @@ Remove items by definition and return how many were actually removed
 
 ### void clear_inventory() {#method-clear-inventory}
 
-*No description yet.*
+Empties every slot.
 
 ### int get_item_count( item_instance: ItemInstance ) {#method-get-item-count}
 

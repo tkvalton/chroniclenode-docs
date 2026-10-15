@@ -24,7 +24,7 @@ One entry for each node of the scene, parents first: "name", "path" ("." for the
 
 ### Array[Dictionary] read( scene: PackedScene ) {#method-read}
 
-*No description yet.*
+The nodes of a scene (name, type, script, properties) read without making them.
 
 ### Array[String] class_names_of( script: Script ) {#method-class-names-of}
 

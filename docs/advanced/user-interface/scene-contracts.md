@@ -114,16 +114,16 @@ Template scene: `ui_scenes/menus/character_creation_menu/buttons/arrow_selection
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `type_label` | `Label` | `%TypeLabel` |  |
-| `selection_label` | `Label` | `%SelectionLabel` |  |
-| `left` | `Control` | `%Left` |  |
-| `left_pressed` | `Control` | `%LeftPressed` |  |
-| `right` | `Control` | `%Right` |  |
-| `right_pressed` | `Control` | `%RightPressed` |  |
+| `type_label` | `Label` | `%TypeLabel` | The type label (a Label) of the scene, found by its unique name %TypeLabel. |
+| `selection_label` | `Label` | `%SelectionLabel` | The selection label (a Label) of the scene, found by its unique name %SelectionLabel. |
+| `left` | `Control` | `%Left` | The left (a Control) of the scene, found by its unique name %Left. |
+| `left_pressed` | `Control` | `%LeftPressed` | The left pressed (a Control) of the scene, found by its unique name %LeftPressed. |
+| `right` | `Control` | `%Right` | The right (a Control) of the scene, found by its unique name %Right. |
+| `right_pressed` | `Control` | `%RightPressed` | The right pressed (a Control) of the scene, found by its unique name %RightPressed. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `number_of_options` | `int` |  |
+| `number_of_options` | `int` | How many options there are. |
 | `option_labels` | `Array[String]` | Optional array of display strings for each option If empty, shows numeric values (1, 2, 3...) If populated, shows these strings instead |
 
 Signals: `selection_changed(option: int)`
@@ -140,19 +140,19 @@ Template scene: `ui_scenes/menus/settings/settings_buttons/button_sub_menu_templ
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `button` | `Button` | `$Button` |  |
-| `button_hover` | `TextureRect` | `%ButtonHover` |  |
-| `border_1` | `TextureRect` | `%Border1` |  |
-| `border_2` | `TextureRect` | `%Border2` |  |
-| `header_label` | `Label` | `%HeaderLabel` |  |
+| `button` | `Button` | `$Button` | The button (a Button) of the scene, found by its path $Button. |
+| `button_hover` | `TextureRect` | `%ButtonHover` | The button hover (a TextureRect) of the scene, found by its unique name %ButtonHover. |
+| `border_1` | `TextureRect` | `%Border1` | The border 1 (a TextureRect) of the scene, found by its unique name %Border1. |
+| `border_2` | `TextureRect` | `%Border2` | The border 2 (a TextureRect) of the scene, found by its unique name %Border2. |
+| `header_label` | `Label` | `%HeaderLabel` | The header label (a Label) of the scene, found by its unique name %HeaderLabel. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `button_text` | `String` |  |
-| `text_normal_color` | `Color` |  |
-| `brackets_active_color` | `Color` |  |
-| `text_highlight_color` | `Color` |  |
-| `active_colour_highlight` | `Color` |  |
+| `button_text` | `String` | The text of the button. |
+| `text_normal_color` | `Color` | The color of the text. |
+| `brackets_active_color` | `Color` | The color of the brackets around the text when it is the one open. |
+| `text_highlight_color` | `Color` | The color of the text under the mouse. |
+| `active_colour_highlight` | `Color` | The color of the button when it is the one open. |
 
 Signals: `button_up(button: MarginContainer)`
 
@@ -184,9 +184,9 @@ Script: `ui_scenes/menus/character_creation_menu/companion_info_box.gd`
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `template_title_label` | `Label` | `%TemplateTitleLabel` | Template section labels |
-| `template_description_label` | `Label` | `%TemplateDescriptionLabel` |  |
+| `template_description_label` | `Label` | `%TemplateDescriptionLabel` | The template description label (a Label) of the scene, found by its unique name %TemplateDescriptionLabel. |
 | `class_title_label` | `Label` | `%ClassTitleLabel` | Class section labels |
-| `class_description_label` | `Label` | `%ClassDescriptionLabel` |  |
+| `class_description_label` | `Label` | `%ClassDescriptionLabel` | The class description label (a Label) of the scene, found by its unique name %ClassDescriptionLabel. |
 
 | Export | Type | What it is |
 |---|---|---|
@@ -244,21 +244,21 @@ Template scene: `ui_scenes/menus/character_creation_menu/buttons/class_selection
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `button` | `Button` | `$Button` |  |
-| `button_hover` | `TextureRect` | `%ButtonHover` |  |
-| `border_1` | `TextureRect` | `%Border1` |  |
-| `border_2` | `TextureRect` | `%Border2` |  |
-| `header_label` | `Label` | `%HeaderLabel` |  |
-| `class_icon` | `TextureRect` | `%ClassIcon` |  |
-| `panel_background` | `Panel` | `%PanelBackground` |  |
+| `button` | `Button` | `$Button` | The button (a Button) of the scene, found by its path $Button. |
+| `button_hover` | `TextureRect` | `%ButtonHover` | The button hover (a TextureRect) of the scene, found by its unique name %ButtonHover. |
+| `border_1` | `TextureRect` | `%Border1` | The border 1 (a TextureRect) of the scene, found by its unique name %Border1. |
+| `border_2` | `TextureRect` | `%Border2` | The border 2 (a TextureRect) of the scene, found by its unique name %Border2. |
+| `header_label` | `Label` | `%HeaderLabel` | The header label (a Label) of the scene, found by its unique name %HeaderLabel. |
+| `class_icon` | `TextureRect` | `%ClassIcon` | The class icon (a TextureRect) of the scene, found by its unique name %ClassIcon. |
+| `panel_background` | `Panel` | `%PanelBackground` | The panel background (a Panel) of the scene, found by its unique name %PanelBackground. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `text_normal_color` | `Color` |  |
-| `text_highlight_color` | `Color` |  |
+| `text_normal_color` | `Color` | The color of the text. |
+| `text_highlight_color` | `Color` | The color of the text under the mouse. |
 | `brackets_active_color` | `Color` |  |
 | `brackets_inactive_color` | `Color` |  |
-| `active_colour_highlight` | `Color` |  |
+| `active_colour_highlight` | `Color` | The color of the button when it is the one picked. |
 
 Signals: `button_up(button: MarginContainer)`, `class_selected(player_class: PlayerClassDefinition)`
 
@@ -274,13 +274,13 @@ Template scene: `ui_scenes/menus/character_creation_menu/buttons/color_button_te
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `button` | `Button` | `%Button` |  |
-| `color_rect` | `ColorRect` | `%ColorRect` |  |
-| `selection_border` | `MarginContainer` | `%SelectionBorder` |  |
+| `button` | `Button` | `%Button` | The button (a Button) of the scene, found by its unique name %Button. |
+| `color_rect` | `ColorRect` | `%ColorRect` | The color rect (a ColorRect) of the scene, found by its unique name %ColorRect. |
+| `selection_border` | `MarginContainer` | `%SelectionBorder` | The selection border (a MarginContainer) of the scene, found by its unique name %SelectionBorder. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `button_color` | `Color` |  |
+| `button_color` | `Color` | The color the button shows and picks. |
 | `border_selected_color` | `Color` |  |
 | `border_unselected_color` | `Color` |  |
 
@@ -298,7 +298,7 @@ Template scene: `ui_scenes/menus/main/credits_template.tscn`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `animation_player` | `AnimationPlayer` | `$AnimationPlayer` |  |
+| `animation_player` | `AnimationPlayer` | `$AnimationPlayer` | The animation player (a AnimationPlayer) of the scene, found by its path $AnimationPlayer. |
 
 Signals: `credits_finish`
 
@@ -314,18 +314,18 @@ Template scene: `ui_scenes/menus/character_creation_menu/buttons/custom_slider_t
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `label` | `Label` | `%Label` |  |
-| `slider` | `HSlider` | `%Slider` |  |
-| `value_label` | `Label` | `%ValueLabel` |  |
+| `label` | `Label` | `%Label` | The label (a Label) of the scene, found by its unique name %Label. |
+| `slider` | `HSlider` | `%Slider` | The slider (a HSlider) of the scene, found by its unique name %Slider. |
+| `value_label` | `Label` | `%ValueLabel` | The value label (a Label) of the scene, found by its unique name %ValueLabel. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `label_text` | `String` |  |
-| `min_value` | `float` |  |
-| `max_value` | `float` |  |
-| `step` | `float` |  |
-| `initial_value` | `float` |  |
-| `show_value_label` | `bool` |  |
+| `label_text` | `String` | The text of the label. |
+| `min_value` | `float` | The lowest value. |
+| `max_value` | `float` | The highest value. |
+| `step` | `float` | How much the value changes in a step. |
+| `initial_value` | `float` | The value the slider starts with. |
+| `show_value_label` | `bool` | True shows the number next to the slider. |
 
 Signals: `value_changed(value: float)`
 
@@ -342,14 +342,14 @@ Template scene: `ui_scenes/menus/main/main_menu_template.tscn`
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `play_button` | `Control` | `%PlayButton` | Main menu buttons |
-| `continue_button` | `Control` | `%ContinueButton` |  |
-| `load_button` | `Control` | `%LoadButton` |  |
-| `settings_button` | `Control` | `%SettingsButton` |  |
-| `credits_button` | `Control` | `%CreditsButton` |  |
-| `exit_button` | `Control` | `%ExitButton` |  |
-| `title` | `MarginContainer` | `%Title` |  |
+| `continue_button` | `Control` | `%ContinueButton` | The continue button (a Control) of the scene, found by its unique name %ContinueButton. |
+| `load_button` | `Control` | `%LoadButton` | The load button (a Control) of the scene, found by its unique name %LoadButton. |
+| `settings_button` | `Control` | `%SettingsButton` | The settings button (a Control) of the scene, found by its unique name %SettingsButton. |
+| `credits_button` | `Control` | `%CreditsButton` | The credits button (a Control) of the scene, found by its unique name %CreditsButton. |
+| `exit_button` | `Control` | `%ExitButton` | The exit button (a Control) of the scene, found by its unique name %ExitButton. |
+| `title` | `MarginContainer` | `%Title` | The title (a MarginContainer) of the scene, found by its unique name %Title. |
 | `settings_menu_ui` | `SettingsMenuUI` | `%SettingsMenuUI` | Sub-menus |
-| `credits` | `Credits` | `%Credits` |  |
+| `credits` | `Credits` | `%Credits` | The credits (a Credits) of the scene, found by its unique name %Credits. |
 
 ### SaveFileButton {#class-save-file-button}
 
@@ -363,16 +363,16 @@ Template scene: `ui_scenes/menus/save_load/save_file_button.tscn`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `panel` | `Panel` | `%Panel` |  |
-| `button` | `Button` | `%Button` |  |
-| `name_label` | `Label` | `%NameLabel` |  |
-| `date_time_label` | `Label` | `%DateTimeLabel` |  |
+| `panel` | `Panel` | `%Panel` | The panel (a Panel) of the scene, found by its unique name %Panel. |
+| `button` | `Button` | `%Button` | The button (a Button) of the scene, found by its unique name %Button. |
+| `name_label` | `Label` | `%NameLabel` | The name label (a Label) of the scene, found by its unique name %NameLabel. |
+| `date_time_label` | `Label` | `%DateTimeLabel` | The date time label (a Label) of the scene, found by its unique name %DateTimeLabel. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `unselected_background_colour` | `Color` |  |
-| `mouse_over_background_colour` | `Color` |  |
-| `selected_background_colour` | `Color` |  |
+| `unselected_background_colour` | `Color` | The color of the background when it is not picked. |
+| `mouse_over_background_colour` | `Color` | The color of the background under the mouse. |
+| `selected_background_colour` | `Color` | The color of the background when it is picked. |
 
 Signals: `save_button_selected(save_file: SaveFileButton)`
 
@@ -389,10 +389,10 @@ Template scene: `ui_scenes/menus/save_load/load_game_menu_template.tscn`
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `load_button` | `Button` | `%LoadButton` | Buttons |
-| `save_button` | `Button` | `%SaveButton` |  |
+| `save_button` | `Button` | `%SaveButton` | The save button (a Button) of the scene, found by its unique name %SaveButton. |
 | `save_file_list` | `VBoxContainer` | `%SaveFileList` | Save file list container |
 | `new_save_game_name_box` | `MarginContainer` | `%NewSaveGameNameBox` | New save name input |
-| `line_edit` | `LineEdit` | `%LineEdit` |  |
+| `line_edit` | `LineEdit` | `%LineEdit` | The line edit (a LineEdit) of the scene, found by its unique name %LineEdit. |
 
 | Export | Type | What it is |
 |---|---|---|
@@ -412,10 +412,10 @@ Template scene: `ui_scenes/menus/settings/settings_buttons/settings_button_check
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `name_label` | `Label` | `%NameLabel` |  |
-| `check_box` | `CheckBox` | `%CheckBox` |  |
-| `state_label` | `Label` | `%StateLabel` |  |
-| `panel` | `Panel` | `%Panel` |  |
+| `name_label` | `Label` | `%NameLabel` | The name label (a Label) of the scene, found by its unique name %NameLabel. |
+| `check_box` | `CheckBox` | `%CheckBox` | The check box (a CheckBox) of the scene, found by its unique name %CheckBox. |
+| `state_label` | `Label` | `%StateLabel` | The state label (a Label) of the scene, found by its unique name %StateLabel. |
+| `panel` | `Panel` | `%Panel` | The panel (a Panel) of the scene, found by its unique name %Panel. |
 
 Signals: `mouse_focus_changed(has_focus: bool, property_name: String, description: String)`
 
@@ -431,9 +431,9 @@ Template scene: `ui_scenes/menus/settings/settings_buttons/settings_button_color
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `name_label` | `Label` | `%NameLabel` |  |
-| `color_picker_button` | `ColorPickerButton` | `%ColorPickerButton` |  |
-| `panel` | `Panel` | `%Panel` |  |
+| `name_label` | `Label` | `%NameLabel` | The name label (a Label) of the scene, found by its unique name %NameLabel. |
+| `color_picker_button` | `ColorPickerButton` | `%ColorPickerButton` | The color picker button (a ColorPickerButton) of the scene, found by its unique name %ColorPickerButton. |
+| `panel` | `Panel` | `%Panel` | The panel (a Panel) of the scene, found by its unique name %Panel. |
 
 Signals: `mouse_focus_changed(has_focus: bool, property_name: String, description: String)`
 
@@ -449,10 +449,10 @@ Template scene: `ui_scenes/menus/settings/settings_buttons/settings_button_drag_
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `name_label` | `Label` | `%NameLabel` |  |
-| `slider` | `HSlider` | `%Slider` |  |
-| `value_label` | `Label` | `%ValueLabel` |  |
-| `panel` | `Panel` | `$Panel` |  |
+| `name_label` | `Label` | `%NameLabel` | The name label (a Label) of the scene, found by its unique name %NameLabel. |
+| `slider` | `HSlider` | `%Slider` | The slider (a HSlider) of the scene, found by its unique name %Slider. |
+| `value_label` | `Label` | `%ValueLabel` | The value label (a Label) of the scene, found by its unique name %ValueLabel. |
+| `panel` | `Panel` | `$Panel` | The panel (a Panel) of the scene, found by its path $Panel. |
 
 | Export | Type | What it is |
 |---|---|---|
@@ -475,9 +475,9 @@ Template scene: `ui_scenes/menus/settings/settings_buttons/settings_button_hotke
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `label` | `Label` | `%Label` |  |
-| `button` | `Button` | `%Button` |  |
-| `panel` | `Panel` | `$Panel` |  |
+| `label` | `Label` | `%Label` | The label (a Label) of the scene, found by its unique name %Label. |
+| `button` | `Button` | `%Button` | The button (a Button) of the scene, found by its unique name %Button. |
+| `panel` | `Panel` | `$Panel` | The panel (a Panel) of the scene, found by its path $Panel. |
 
 Signals: `mouse_focus_changed(has_focus: bool, action_name: String, description: String)`
 
@@ -493,21 +493,21 @@ Template scene: `ui_scenes/menus/settings/settings_menu_template.tscn`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `tab_buttons_container` | `HBoxContainer` | `%TabButtonsContainer` |  |
-| `panels_container` | `Control` | `%PanelsContainer` |  |
-| `setting_description_title_label` | `Label` | `%SettingDescriptionTitleLabel` |  |
-| `settings_section_divider` | `MarginContainer` | `%SettingsSectionDivider` |  |
-| `settings_section_description_text` | `Label` | `%SettingsSectionDescriptionText` |  |
+| `tab_buttons_container` | `HBoxContainer` | `%TabButtonsContainer` | UI References - connect these in the scene |
+| `panels_container` | `Control` | `%PanelsContainer` | The panels container (a Control) of the scene, found by its unique name %PanelsContainer. |
+| `setting_description_title_label` | `Label` | `%SettingDescriptionTitleLabel` | The setting description title label (a Label) of the scene, found by its unique name %SettingDescriptionTitleLabel. |
+| `settings_section_divider` | `MarginContainer` | `%SettingsSectionDivider` | The settings section divider (a MarginContainer) of the scene, found by its unique name %SettingsSectionDivider. |
+| `settings_section_description_text` | `Label` | `%SettingsSectionDescriptionText` | The settings section description text (a Label) of the scene, found by its unique name %SettingsSectionDescriptionText. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `checkbox_scene` | `PackedScene` |  |
-| `option_button_scene` | `PackedScene` |  |
-| `drag_bar_scene` | `PackedScene` |  |
-| `color_picker_scene` | `PackedScene` |  |
-| `section_label_scene` | `PackedScene` |  |
-| `hotkey_rebind_button_scene` | `PackedScene` |  |
-| `button_sub_menu_scene` | `PackedScene` |  |
+| `checkbox_scene` | `PackedScene` | Scene references - assign these in the editor |
+| `option_button_scene` | `PackedScene` | The scene of a setting with a list of options. |
+| `drag_bar_scene` | `PackedScene` | The scene of a setting with a slider. |
+| `color_picker_scene` | `PackedScene` | The scene of a setting with a color. |
+| `section_label_scene` | `PackedScene` | The scene of the title of a section. |
+| `hotkey_rebind_button_scene` | `PackedScene` | The scene of a keybind. |
+| `button_sub_menu_scene` | `PackedScene` | The scene of a button that opens a sub menu. |
 
 Signals: `restored_default_settings`, `settings_exit_button_pressed`
 
@@ -523,9 +523,9 @@ Template scene: `ui_scenes/menus/settings/settings_buttons/settings_button_optio
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `name_label` | `Label` | `%NameLabel` |  |
-| `option_button` | `OptionButton` | `%OptionButton` |  |
-| `panel` | `Panel` | `$Panel` |  |
+| `name_label` | `Label` | `%NameLabel` | The name label (a Label) of the scene, found by its unique name %NameLabel. |
+| `option_button` | `OptionButton` | `%OptionButton` | The option button (a OptionButton) of the scene, found by its unique name %OptionButton. |
+| `panel` | `Panel` | `$Panel` | The panel (a Panel) of the scene, found by its path $Panel. |
 
 Signals: `mouse_focus_changed(has_focus: bool, property_name: String, description: String)`
 
@@ -541,21 +541,21 @@ Template scene: `ui_scenes/menus/character_creation_menu/buttons/template_select
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `panel_background` | `Panel` | `%PanelBackground` |  |
-| `icon` | `TextureRect` | `%Icon` |  |
-| `button` | `Button` | `%Button` |  |
-| `selection_border` | `MarginContainer` | `%SelectionBorder` |  |
-| `label` | `Label` | `%Label` |  |
+| `panel_background` | `Panel` | `%PanelBackground` | The panel background (a Panel) of the scene, found by its unique name %PanelBackground. |
+| `icon` | `TextureRect` | `%Icon` | The icon (a TextureRect) of the scene, found by its unique name %Icon. |
+| `button` | `Button` | `%Button` | The button (a Button) of the scene, found by its unique name %Button. |
+| `selection_border` | `MarginContainer` | `%SelectionBorder` | The selection border (a MarginContainer) of the scene, found by its unique name %SelectionBorder. |
+| `label` | `Label` | `%Label` | The label (a Label) of the scene, found by its unique name %Label. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `text_normal_color` | `Color` |  |
-| `text_highlight_color` | `Color` |  |
-| `active_background_color` | `Color` |  |
-| `inactive_background_color` | `Color` |  |
+| `text_normal_color` | `Color` | The color of the text. |
+| `text_highlight_color` | `Color` | The color of the text under the mouse. |
+| `active_background_color` | `Color` | The color of the background when it is the one picked. |
+| `inactive_background_color` | `Color` | The color of the background when it is not. |
 | `border_selected_color` | `Color` |  |
 | `border_unselected_color` | `Color` |  |
-| `uses_icon` | `bool` |  |
+| `uses_icon` | `bool` | True when the button shows an icon. |
 
 Signals: `pressed`, `template_selected(is_custom: bool, template: CharacterDefinition)`
 
@@ -636,10 +636,10 @@ Template scene: `ui_scenes/in_game/HUD/components/auras/aura_template.tscn`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `border_texture` | `TextureRect` | `%BorderTexture` |  |
-| `spell_icon` | `TextureRect` | `%SpellIcon` |  |
-| `cooldown_timer_text` | `Label` | `%CooldownTimerText` |  |
-| `stacks_label` | `Label` | `%StacksLabel` |  |
+| `border_texture` | `TextureRect` | `%BorderTexture` | The border texture (a TextureRect) of the scene, found by its unique name %BorderTexture. |
+| `spell_icon` | `TextureRect` | `%SpellIcon` | The spell icon (a TextureRect) of the scene, found by its unique name %SpellIcon. |
+| `cooldown_timer_text` | `Label` | `%CooldownTimerText` | The cooldown timer text (a Label) of the scene, found by its unique name %CooldownTimerText. |
+| `stacks_label` | `Label` | `%StacksLabel` | The stacks label (a Label) of the scene, found by its unique name %StacksLabel. |
 
 Signals: `aura_reset(aura: Aura)`, `effect_tooltip_requested(effect: EffectInstance)`, `hide_tooltip(force_hide: bool)`
 
@@ -678,8 +678,8 @@ Template scene: `ui_scenes/in_game/HUD/combat_log/combat_log_template.tscn`
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `full_combat_log` | `RichTextLabel` | `%FullCombatLog` | References to UI elements |
-| `damage_taken_log` | `RichTextLabel` | `%DamageTakenLog` |  |
-| `damage_done_log` | `RichTextLabel` | `%DamageDoneLog` |  |
+| `damage_taken_log` | `RichTextLabel` | `%DamageTakenLog` | The damage taken log (a RichTextLabel) of the scene, found by its unique name %DamageTakenLog. |
+| `damage_done_log` | `RichTextLabel` | `%DamageDoneLog` | The damage done log (a RichTextLabel) of the scene, found by its unique name %DamageDoneLog. |
 
 ### DamageMeterUI {#class-damage-meter-ui}
 
@@ -694,7 +694,7 @@ Template scene: `ui_scenes/in_game/HUD/damage_meter_ui/damage_meter_ui_template.
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `damage_done_container` | `VBoxContainer` | `%DamageDoneContainer` | UI containers for damage and healing statistics |
-| `healing_done_container` | `VBoxContainer` | `%HealingDoneContainer` |  |
+| `healing_done_container` | `VBoxContainer` | `%HealingDoneContainer` | The healing done container (a VBoxContainer) of the scene, found by its unique name %HealingDoneContainer. |
 
 | Export | Type | What it is |
 |---|---|---|
@@ -713,8 +713,8 @@ Template scene: `ui_scenes/in_game/HUD/damage_meter_ui/damage_bar_template.tscn`
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `progress_bar` | `ProgressBar` | `%ProgressBar` | UI Elements |
-| `character_name` | `Label` | `%CharacterName` |  |
-| `total` | `Label` | `%Total` |  |
+| `character_name` | `Label` | `%CharacterName` | The character name (a Label) of the scene, found by its unique name %CharacterName. |
+| `total` | `Label` | `%Total` | The total (a Label) of the scene, found by its unique name %Total. |
 
 ### ExperienceBar {#class-experience-bar}
 
@@ -726,8 +726,8 @@ Script: `ui_scenes/in_game/HUD/action_bar/buttons/experiance_bar.gd`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `progress_bar` | `ProgressBar` | `%ProgressBar` |  |
-| `label` | `Label` | `$Label` |  |
+| `progress_bar` | `ProgressBar` | `%ProgressBar` | The progress bar (a ProgressBar) of the scene, found by its unique name %ProgressBar. |
+| `label` | `Label` | `$Label` | The label (a Label) of the scene, found by its path $Label. |
 
 ### FloatingText {#class-floating-text}
 
@@ -767,7 +767,7 @@ Template scene: `ui_scenes/in_game/HUD/mini_map/mini_map_ui_template.tscn`
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `mini_map_cam` | `Camera3D` | `%MiniMapCam` | Node refrences |
-| `time_label` | `Label` | `%TimeLabel` |  |
+| `time_label` | `Label` | `%TimeLabel` | The time label (a Label) of the scene, found by its unique name %TimeLabel. |
 
 ### MiniMenuButton {#class-mini-menu-button}
 
@@ -782,8 +782,8 @@ Template scene: `ui_scenes/in_game/HUD/menu_bar/mini_menu_button_template.tscn`
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `button_icon_texture` | `TextureRect` | `%ButtonIcon` | UI element references |
-| `hover_texture` | `TextureRect` | `%Hover` |  |
-| `pressed_texture` | `TextureRect` | `%Pressed` |  |
+| `hover_texture` | `TextureRect` | `%Hover` | The hover texture (a TextureRect) of the scene, found by its unique name %Hover. |
+| `pressed_texture` | `TextureRect` | `%Pressed` | The pressed texture (a TextureRect) of the scene, found by its unique name %Pressed. |
 
 Signals: `panel_number_requested(panel_number: int)`, `description_tooltip_requested(object_name: String, description_text: String)`, `hide_tooltip(force_hide: bool)`
 
@@ -842,9 +842,9 @@ Template scene: `ui_scenes/in_game/HUD/party_frames/party_frame_ui_template.tscn
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `party_member_name` | `Label` | `%PartyMemberName` | UI Elements |
-| `health_container` | `MarginContainer` | `%HealthContainer` |  |
-| `resource_container` | `MarginContainer` | `%ResourceContainer` |  |
-| `borders` | `MarginContainer` | `%Borders` |  |
+| `health_container` | `MarginContainer` | `%HealthContainer` | The health container (a MarginContainer) of the scene, found by its unique name %HealthContainer. |
+| `resource_container` | `MarginContainer` | `%ResourceContainer` | The resource container (a MarginContainer) of the scene, found by its unique name %ResourceContainer. |
+| `borders` | `MarginContainer` | `%Borders` | The borders (a MarginContainer) of the scene, found by its unique name %Borders. |
 
 | Export | Type | What it is |
 |---|---|---|
@@ -876,8 +876,8 @@ Template scenes: `ui_scenes/in_game/HUD/action_bar/buttons/action_bar_pool_bar_t
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `pool_progress_bar` | `ProgressBar` | `%PoolProgressBar` |  |
-| `pool_value_label` | `Label` | `%PoolValueLabel` |  |
+| `pool_progress_bar` | `ProgressBar` | `%PoolProgressBar` | UI elements |
+| `pool_value_label` | `Label` | `%PoolValueLabel` | The pool value label (a Label) of the scene, found by its unique name %PoolValueLabel. |
 
 ### QuestTrackerQuestUI {#class-quest-tracker-quest-ui}
 
@@ -891,12 +891,12 @@ Template scene: `ui_scenes/in_game/HUD/quest_tracker/tracked_quest_ui_template.t
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `quest_title_label` | `Label` | `%QuestTitleLabel` |  |
-| `objectives_container` | `VBoxContainer` | `%ObjectivesContainer` |  |
+| `quest_title_label` | `Label` | `%QuestTitleLabel` | The quest title label (a Label) of the scene, found by its unique name %QuestTitleLabel. |
+| `objectives_container` | `VBoxContainer` | `%ObjectivesContainer` | The objectives container (a VBoxContainer) of the scene, found by its unique name %ObjectivesContainer. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `quest_objective_label` | `PackedScene` |  |
+| `quest_objective_label` | `PackedScene` | The scene of one objective line. |
 
 ### QuestTrackerQuestUIObjectiveLabel {#class-quest-tracker-quest-ui-objective-label}
 
@@ -910,8 +910,8 @@ Template scene: `ui_scenes/in_game/HUD/quest_tracker/quest_tracker_objective_lab
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `quest_objective_label` | `Label` | `%QuestObjectiveLabel` |  |
-| `progress_label` | `Label` | `%ProgressLabel` |  |
+| `quest_objective_label` | `Label` | `%QuestObjectiveLabel` | The quest objective label (a Label) of the scene, found by its unique name %QuestObjectiveLabel. |
+| `progress_label` | `Label` | `%ProgressLabel` | The progress label (a Label) of the scene, found by its unique name %ProgressLabel. |
 
 ### QuestTrackerUI {#class-quest-tracker-ui}
 
@@ -944,15 +944,15 @@ Template scenes: `ui_scenes/in_game/HUD/unit_frames/current_player_unit_frame.ts
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `unit_name` | `Label` | `%UnitName` | UI Elements |
-| `target_name` | `Label` | `%TargetName` |  |
-| `health_bar` | `ProgressBar` | `%HealthBar` |  |
-| `health_text` | `Label` | `%HealthText` |  |
-| `resource_bar` | `ProgressBar` | `%ResourceBar` |  |
-| `resource_text` | `Label` | `%ResourceText` |  |
-| `cast_bar` | `ProgressBar` | `%CastBar` |  |
-| `cast_ability_name` | `Label` | `%CastAbilityName` |  |
-| `cast_bar_timer_text` | `Label` | `%CastAbilityTimer` |  |
-| `cast_bar_timer` | `Timer` | `%CastBarTimer` |  |
+| `target_name` | `Label` | `%TargetName` | The target name (a Label) of the scene, found by its unique name %TargetName. |
+| `health_bar` | `ProgressBar` | `%HealthBar` | The health bar (a ProgressBar) of the scene, found by its unique name %HealthBar. |
+| `health_text` | `Label` | `%HealthText` | The health text (a Label) of the scene, found by its unique name %HealthText. |
+| `resource_bar` | `ProgressBar` | `%ResourceBar` | The resource bar (a ProgressBar) of the scene, found by its unique name %ResourceBar. |
+| `resource_text` | `Label` | `%ResourceText` | The resource text (a Label) of the scene, found by its unique name %ResourceText. |
+| `cast_bar` | `ProgressBar` | `%CastBar` | The cast bar (a ProgressBar) of the scene, found by its unique name %CastBar. |
+| `cast_ability_name` | `Label` | `%CastAbilityName` | The cast ability name (a Label) of the scene, found by its unique name %CastAbilityName. |
+| `cast_bar_timer_text` | `Label` | `%CastAbilityTimer` | The cast bar timer text (a Label) of the scene, found by its unique name %CastAbilityTimer. |
+| `cast_bar_timer` | `Timer` | `%CastBarTimer` | The cast bar timer (a Timer) of the scene, found by its unique name %CastBarTimer. |
 
 ## Interaction panels
 
@@ -985,9 +985,9 @@ Template scene: `ui_scenes/in_game/panels/interaction_panels/converstaion_panel/
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `character_label` | `RichTextLabel` | `%CharacterLabel` |  |
-| `chat_label` | `RichTextLabel` | `%ChatLabel` |  |
-| `conversation_responses_menu` | `VBoxContainer` | `%ConversationResponsesMenu` |  |
+| `character_label` | `RichTextLabel` | `%CharacterLabel` | The character label (a RichTextLabel) of the scene, found by its unique name %CharacterLabel. |
+| `chat_label` | `RichTextLabel` | `%ChatLabel` | The chat label (a RichTextLabel) of the scene, found by its unique name %ChatLabel. |
+| `conversation_responses_menu` | `VBoxContainer` | `%ConversationResponsesMenu` | The conversation responses menu (a VBoxContainer) of the scene, found by its unique name %ConversationResponsesMenu. |
 
 | Export | Type | What it is |
 |---|---|---|
@@ -1014,20 +1014,20 @@ Template scene: `ui_scenes/in_game/panels/interaction_panels/crafting_panel/craf
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `side_panel` | `MarginContainer` | `%SidePanel` |  |
-| `recipe_panel` | `VBoxContainer` | `%RecipePanel` |  |
-| `crafting_item_tooltip` | `TooltipItem` | `%CraftingItemTooltip` |  |
-| `materials_panel` | `MarginContainer` | `%MaterialsPanel` |  |
-| `crafting_materials_container` | `VBoxContainer` | `%CraftingMaterialsContainer` |  |
-| `craft_spin_box` | `SpinBox` | `%CraftSpinBox` |  |
-| `craft_button` | `Control` | `%CraftButton` |  |
-| `craft_progress_bar` | `ProgressBar` | `%CraftProgressBar` |  |
-| `progress_label` | `Label` | `%ProgressLabel` |  |
+| `side_panel` | `MarginContainer` | `%SidePanel` | ========== NODE REFERENCES ========== Note: title_container is inherited from PanelUI |
+| `recipe_panel` | `VBoxContainer` | `%RecipePanel` | The recipe panel (a VBoxContainer) of the scene, found by its unique name %RecipePanel. |
+| `crafting_item_tooltip` | `TooltipItem` | `%CraftingItemTooltip` | The crafting item tooltip (a TooltipItem) of the scene, found by its unique name %CraftingItemTooltip. |
+| `materials_panel` | `MarginContainer` | `%MaterialsPanel` | The materials panel (a MarginContainer) of the scene, found by its unique name %MaterialsPanel. |
+| `crafting_materials_container` | `VBoxContainer` | `%CraftingMaterialsContainer` | The crafting materials container (a VBoxContainer) of the scene, found by its unique name %CraftingMaterialsContainer. |
+| `craft_spin_box` | `SpinBox` | `%CraftSpinBox` | The craft spin box (a SpinBox) of the scene, found by its unique name %CraftSpinBox. |
+| `craft_button` | `Control` | `%CraftButton` | The craft button (a Control) of the scene, found by its unique name %CraftButton. |
+| `craft_progress_bar` | `ProgressBar` | `%CraftProgressBar` | The craft progress bar (a ProgressBar) of the scene, found by its unique name %CraftProgressBar. |
+| `progress_label` | `Label` | `%ProgressLabel` | The progress label (a Label) of the scene, found by its unique name %ProgressLabel. |
 
 | Export | Type | What it is |
 |---|---|---|
 | `craft_material_icon_scene` | `PackedScene` | ========== PRELOADED SCENES ========== |
-| `recipe_button_scene` | `PackedScene` |  |
+| `recipe_button_scene` | `PackedScene` | The scene of one recipe in the list. |
 
 Signals: `crafting_started(recipe: CraftingRecipeDefinition, quantity: int)`, `crafting_cancelled`
 
@@ -1043,9 +1043,9 @@ Template scene: `ui_scenes/in_game/panels/interaction_panels/crafting_panel/craf
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `item_icon` | `TextureRect` | `%ItemIcon` |  |
-| `item_quality_label` | `Label` | `%ItemQualityLabel` |  |
-| `item_name_label` | `Label` | `%ItemNameLabel` |  |
+| `item_icon` | `TextureRect` | `%ItemIcon` | The item icon (a TextureRect) of the scene, found by its unique name %ItemIcon. |
+| `item_quality_label` | `Label` | `%ItemQualityLabel` | The item quality label (a Label) of the scene, found by its unique name %ItemQualityLabel. |
+| `item_name_label` | `Label` | `%ItemNameLabel` | The item name label (a Label) of the scene, found by its unique name %ItemNameLabel. |
 
 ### DiceRollPanel {#class-dice-roll-panel}
 
@@ -1059,10 +1059,10 @@ Template scene: `ui_scenes/in_game/panels/interaction_panels/converstaion_panel/
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `title_container` | `Control` | `%TitleContainer` |  |
-| `roll_result_label` | `Label` | `%RollResultLabel` |  |
-| `attribute_label` | `Label` | `%AttributeLabel` |  |
-| `roll_button` | `Control` | `%RollButton` |  |
+| `title_container` | `Control` | `%TitleContainer` | ========== UI REFERENCES ========== |
+| `roll_result_label` | `Label` | `%RollResultLabel` | The roll result label (a Label) of the scene, found by its unique name %RollResultLabel. |
+| `attribute_label` | `Label` | `%AttributeLabel` | The attribute label (a Label) of the scene, found by its unique name %AttributeLabel. |
+| `roll_button` | `Control` | `%RollButton` | The roll button (a Control) of the scene, found by its unique name %RollButton. |
 
 | Export | Type | What it is |
 |---|---|---|
@@ -1083,17 +1083,17 @@ Template scene: `ui_scenes/in_game/panels/interaction_panels/readable_panel/read
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `background_texture` | `TextureRect` | `%BackgroundTexture` |  |
-| `readable_title_container` | `Control` | `%ReadableTitleContainer` |  |
-| `readable_title` | `Label` | `%ReadableTitle` |  |
-| `page_text` | `RichTextLabel` | `%ReadablePageText` |  |
-| `page_label` | `Label` | `%PageLabel` |  |
-| `previous_button` | `Button` | `%PreviousPageButton` |  |
-| `next_button` | `Button` | `%NextPageButton` |  |
+| `background_texture` | `TextureRect` | `%BackgroundTexture` | ========== UI REFERENCES ========== |
+| `readable_title_container` | `Control` | `%ReadableTitleContainer` | The readable title container (a Control) of the scene, found by its unique name %ReadableTitleContainer. |
+| `readable_title` | `Label` | `%ReadableTitle` | The readable title (a Label) of the scene, found by its unique name %ReadableTitle. |
+| `page_text` | `RichTextLabel` | `%ReadablePageText` | The page text (a RichTextLabel) of the scene, found by its unique name %ReadablePageText. |
+| `page_label` | `Label` | `%PageLabel` | The page label (a Label) of the scene, found by its unique name %PageLabel. |
+| `previous_button` | `Button` | `%PreviousPageButton` | The previous button (a Button) of the scene, found by its unique name %PreviousPageButton. |
+| `next_button` | `Button` | `%NextPageButton` | The next button (a Button) of the scene, found by its unique name %NextPageButton. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `default_background_texture` | `Texture` |  |
+| `default_background_texture` | `Texture` | ========== READABLE DATA ========== |
 
 ### ResponseButton {#class-response-button}
 
@@ -1107,8 +1107,8 @@ Template scene: `ui_scenes/in_game/panels/interaction_panels/converstaion_panel/
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `response_text` | `RichTextLabel` | `%ResponseText` |  |
-| `hover_texture` | `TextureRect` | `%HoverTexture` |  |
+| `response_text` | `RichTextLabel` | `%ResponseText` | The response text (a RichTextLabel) of the scene, found by its unique name %ResponseText. |
+| `hover_texture` | `TextureRect` | `%HoverTexture` | The hover texture (a TextureRect) of the scene, found by its unique name %HoverTexture. |
 
 Signals: `button_clicked`
 
@@ -1124,9 +1124,9 @@ Template scene: `ui_scenes/in_game/panels/interaction_panels/socket_window/socke
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `item_title` | `Label` | `%ItemTitle` |  |
-| `sockets_v_box_container` | `VBoxContainer` | `%SocketsVBoxContainer` |  |
-| `socket_bonus_label` | `Label` | `%SocketBonusLabel` |  |
+| `item_title` | `Label` | `%ItemTitle` | ========== UI REFERENCES ========== |
+| `sockets_v_box_container` | `VBoxContainer` | `%SocketsVBoxContainer` | The sockets v box container (a VBoxContainer) of the scene, found by its unique name %SocketsVBoxContainer. |
+| `socket_bonus_label` | `Label` | `%SocketBonusLabel` | The socket bonus label (a Label) of the scene, found by its unique name %SocketBonusLabel. |
 
 | Export | Type | What it is |
 |---|---|---|
@@ -1144,9 +1144,9 @@ Template scenes: `ui_scenes/in_game/panels/interaction_panels/socket_window/sock
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `socket_slot_colour_rect` | `TextureRect` | `%SocketSlotColourRect` |  |
-| `socketable_texture_rect` | `TextureRect` | `%SocketableTextureRect` |  |
-| `socketable_effect_label` | `Label` | `%SocketableEffectLabel` |  |
+| `socket_slot_colour_rect` | `TextureRect` | `%SocketSlotColourRect` | ========== UI REFERENCES ========== |
+| `socketable_texture_rect` | `TextureRect` | `%SocketableTextureRect` | The socketable texture rect (a TextureRect) of the scene, found by its unique name %SocketableTextureRect. |
+| `socketable_effect_label` | `Label` | `%SocketableEffectLabel` | The socketable effect label (a Label) of the scene, found by its unique name %SocketableEffectLabel. |
 
 | Export | Type | What it is |
 |---|---|---|
@@ -1176,18 +1176,18 @@ Template scene: `ui_scenes/in_game/panels/interaction_panels/vendor_panel/vendor
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `currency_display_container` | `HBoxContainer` | `%CurrencyDisplayContainer` |  |
-| `vendor_shop_container` | `Control` | `%VendorShopContainer` |  |
-| `vendor_items_grid` | `GridContainer` | `%VendorItemsGrid` |  |
-| `player_inventory_ui` | `InventoryUI` | `%PlayerInventoryUI` |  |
+| `currency_display_container` | `HBoxContainer` | `%CurrencyDisplayContainer` | The currency display container (a HBoxContainer) of the scene, found by its unique name %CurrencyDisplayContainer. |
+| `vendor_shop_container` | `Control` | `%VendorShopContainer` | The vendor shop container (a Control) of the scene, found by its unique name %VendorShopContainer. |
+| `vendor_items_grid` | `GridContainer` | `%VendorItemsGrid` | The vendor items grid (a GridContainer) of the scene, found by its unique name %VendorItemsGrid. |
+| `player_inventory_ui` | `InventoryUI` | `%PlayerInventoryUI` | The player inventory ui (a InventoryUI) of the scene, found by its unique name %PlayerInventoryUI. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `show_repair_button` | `bool` |  |
-| `vendor_slots_per_row` | `int` |  |
-| `max_vendor_rows` | `int` |  |
-| `vendor_slot_scene` | `PackedScene` |  |
-| `currency_display_scene` | `PackedScene` |  |
+| `show_repair_button` | `bool` | True shows the repair button. |
+| `vendor_slots_per_row` | `int` | How many vendor slots are in a row. |
+| `max_vendor_rows` | `int` | How many rows of vendor slots the panel shows. |
+| `vendor_slot_scene` | `PackedScene` | The scene of one vendor slot. |
+| `currency_display_scene` | `PackedScene` | The scene of one currency display. |
 
 Signals: `transaction_completed(success: bool, message: String)`
 
@@ -1203,11 +1203,11 @@ Template scene: `ui_scenes/in_game/panels/interaction_panels/vendor_panel/vendor
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `slot_background` | `TextureRect` | `%SlotBackground` |  |
-| `item_icon` | `TextureRect` | `%ItemIcon` |  |
-| `stock_label` | `Label` | `%StockLabel` |  |
-| `currency_icon` | `TextureRect` | `%CurrencyIcon` |  |
-| `cost_label` | `Label` | `%CostLabel` |  |
+| `slot_background` | `TextureRect` | `%SlotBackground` | The slot background (a TextureRect) of the scene, found by its unique name %SlotBackground. |
+| `item_icon` | `TextureRect` | `%ItemIcon` | The item icon (a TextureRect) of the scene, found by its unique name %ItemIcon. |
+| `stock_label` | `Label` | `%StockLabel` | The stock label (a Label) of the scene, found by its unique name %StockLabel. |
+| `currency_icon` | `TextureRect` | `%CurrencyIcon` | The currency icon (a TextureRect) of the scene, found by its unique name %CurrencyIcon. |
+| `cost_label` | `Label` | `%CostLabel` | The cost label (a Label) of the scene, found by its unique name %CostLabel. |
 
 Signals: `purchase_requested(item_id: int, quantity: int)`, `item_tooltip_requested(item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary)`, `hide_tooltip(force_hide: bool)`, `message_requested(message: String)`, `warning_message_requested(message: String)`, `ui_sfx_request(sound: AudioManager.UISound, volume_modifier: float)`
 
@@ -1225,14 +1225,14 @@ Template scene: `ui_scenes/in_game/panels/spellbook/ability_panel_ui_template.ts
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `ability_grid_container` | `GridContainer` | `%AbilityGridContainer` |  |
-| `page_label` | `Label` | `%PageLabel` |  |
-| `previous_page_button` | `Button` | `%PreviousPageButton` |  |
-| `next_page_button` | `Button` | `%NextPageButton` |  |
+| `ability_grid_container` | `GridContainer` | `%AbilityGridContainer` | UI References |
+| `page_label` | `Label` | `%PageLabel` | The page label (a Label) of the scene, found by its unique name %PageLabel. |
+| `previous_page_button` | `Button` | `%PreviousPageButton` | The previous page button (a Button) of the scene, found by its unique name %PreviousPageButton. |
+| `next_page_button` | `Button` | `%NextPageButton` | The next page button (a Button) of the scene, found by its unique name %NextPageButton. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `spell_book_ability_scene` | `PackedScene` |  |
+| `spell_book_ability_scene` | `PackedScene` | The scene of one ability. |
 
 Signals: `ability_tooltip_requested(ability: AbilityInstance)`, `hide_tooltip(force_hide: bool)`, `ability_drag_requested(ability: AbilityInstance)`
 
@@ -1249,7 +1249,7 @@ Template scene: `ui_scenes/in_game/panels/character/active_effects_display_ui_te
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `effects_container` | `VBoxContainer` | `%EffectsContainer` | Container references for organizing effects |
-| `effects_label` | `Label` | `%EffectsLabel` |  |
+| `effects_label` | `Label` | `%EffectsLabel` | The effects label (a Label) of the scene, found by its unique name %EffectsLabel. |
 
 Signals: `effect_tooltip_requested(effect: EffectInstance)`, `hide_tooltip(force_hide: bool)`
 
@@ -1279,14 +1279,14 @@ Template scene: `ui_scenes/in_game/panels/character/character_panel_ui_template.
 |---|---|---|---|
 | `equipment_inventory` | `EquipmentInventoryUI` | `%EquipmentInventory` | Left Panel - Equipment and Backdrop |
 | `stats_button` | `Button` | `%StatsButton` | Right Panel - Stats/Effects Toggle |
-| `active_effects_button` | `Button` | `%ActiveEffectsButton` |  |
-| `stats_display` | `CharacterStatsDisplayUI` | `%StatsDisplay` |  |
-| `effects_display` | `ActiveEffectsDisplayUI` | `%EffectsDisplay` |  |
+| `active_effects_button` | `Button` | `%ActiveEffectsButton` | The active effects button (a Button) of the scene, found by its unique name %ActiveEffectsButton. |
+| `stats_display` | `CharacterStatsDisplayUI` | `%StatsDisplay` | The stats display (a CharacterStatsDisplayUI) of the scene, found by its unique name %StatsDisplay. |
+| `effects_display` | `ActiveEffectsDisplayUI` | `%EffectsDisplay` | The effects display (a ActiveEffectsDisplayUI) of the scene, found by its unique name %EffectsDisplay. |
 | `inventory_ui` | `InventoryUI` | `%InventoryUI` | Bottom Panel - Inventory |
 
 | Export | Type | What it is |
 |---|---|---|
-| `character_backdrop` | `CharacterBackdropScene` |  |
+| `character_backdrop` | `CharacterBackdropScene` | The 3D scene that shows the character. |
 
 ### CharacterPreviewManager {#class-character-preview-manager}
 
@@ -1311,7 +1311,7 @@ Template scene: `ui_scenes/in_game/panels/character/character_sheet_stat_templat
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `stat_name` | `Label` | `%StatName` | UI References |
-| `stat_amount` | `Label` | `%StatAmount` |  |
+| `stat_amount` | `Label` | `%StatAmount` | The stat amount (a Label) of the scene, found by its unique name %StatAmount. |
 
 Signals: `description_tooltip_requested(object_name: String, description: String)`, `hide_tooltip(force_hide: bool)`
 
@@ -1328,7 +1328,7 @@ Template scene: `ui_scenes/in_game/panels/character/character_stats_display_ui_t
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `effect_stats_container` | `VBoxContainer` | `%EffectStatsContainer` | Container references for organizing stats |
-| `primary_stats_container` | `VBoxContainer` | `%PrimaryStatsContainer` |  |
+| `primary_stats_container` | `VBoxContainer` | `%PrimaryStatsContainer` | The primary stats container (a VBoxContainer) of the scene, found by its unique name %PrimaryStatsContainer. |
 
 | Export | Type | What it is |
 |---|---|---|
@@ -1348,8 +1348,8 @@ Template scene: `ui_scenes/in_game/panels/spellbook/skill_tree/choice_button_tem
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `border_texture` | `TextureRect` | `%BorderTexture` |  |
-| `spell_icon` | `TextureRect` | `%SpellIcon` |  |
+| `border_texture` | `TextureRect` | `%BorderTexture` | ========== UI REFERENCES ========== |
+| `spell_icon` | `TextureRect` | `%SpellIcon` | The spell icon (a TextureRect) of the scene, found by its unique name %SpellIcon. |
 
 ### ChoiceSelectionPopup {#class-choice-selection-popup}
 
@@ -1363,11 +1363,11 @@ Template scene: `ui_scenes/in_game/panels/spellbook/skill_tree/choice_selection_
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `choices_container` | `HBoxContainer` | `%ChoicesContainer` |  |
+| `choices_container` | `HBoxContainer` | `%ChoicesContainer` | ========== UI REFERENCES ========== |
 
 | Export | Type | What it is |
 |---|---|---|
-| `choice_button_scene` | `PackedScene` |  |
+| `choice_button_scene` | `PackedScene` | The scene of one choice. |
 
 Signals: `choice_selected(choice_index: int)`, `skill_node_tooltip_requested(node: SkillNode)`, `hide_tooltip(force_hide: bool)`, `popup_closed`
 
@@ -1383,8 +1383,8 @@ Template scene: `ui_scenes/in_game/panels/inventory/currency_display_template.ts
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `entity_currency_icon` | `TextureRect` | `%CurrencyIcon` |  |
-| `entity_currency_label` | `Label` | `%CurrencyLabel` |  |
+| `entity_currency_icon` | `TextureRect` | `%CurrencyIcon` | The entity currency icon (a TextureRect) of the scene, found by its unique name %CurrencyIcon. |
+| `entity_currency_label` | `Label` | `%CurrencyLabel` | The entity currency label (a Label) of the scene, found by its unique name %CurrencyLabel. |
 
 ### EquipmentInventoryUI {#class-equipment-inventory-ui}
 
@@ -1398,14 +1398,14 @@ Template scene: `ui_scenes/in_game/panels/character/equipment_inventory_ui_templ
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `armor_container` | `VBoxContainer` | `%ArmorContainer` |  |
-| `weapon_container` | `HBoxContainer` | `%WeaponContainer` |  |
-| `accessory_container` | `VBoxContainer` | `%AccessoryContainer` |  |
-| `sub_viewport` | `SubViewport` | `%SubViewport` |  |
+| `armor_container` | `VBoxContainer` | `%ArmorContainer` | The armor container (a VBoxContainer) of the scene, found by its unique name %ArmorContainer. |
+| `weapon_container` | `HBoxContainer` | `%WeaponContainer` | The weapon container (a HBoxContainer) of the scene, found by its unique name %WeaponContainer. |
+| `accessory_container` | `VBoxContainer` | `%AccessoryContainer` | The accessory container (a VBoxContainer) of the scene, found by its unique name %AccessoryContainer. |
+| `sub_viewport` | `SubViewport` | `%SubViewport` | The sub viewport (a SubViewport) of the scene, found by its unique name %SubViewport. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `item_slot_scene` | `PackedScene` |  |
+| `item_slot_scene` | `PackedScene` | The scene of one slot. |
 
 Signals: `socket_panel_requested(equipment_item: ItemInstance)`, `item_tooltip_requested(item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary)`, `hide_tooltip(force_hide: bool)`, `message_requested(message: String)`, `warning_message_requested(message: String)`, `drag_from_equipment_requested(item: ItemInstance, slot_data: SlotInstance)`
 
@@ -1421,19 +1421,19 @@ Template scene: `ui_scenes/in_game/panels/inventory/inventory_ui_template.tscn`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `item_grid` | `GridContainer` | `%ItemGrid` |  |
-| `currency_panel` | `HBoxContainer` | `%CurrencyPanel` |  |
+| `item_grid` | `GridContainer` | `%ItemGrid` | The item grid (a GridContainer) of the scene, found by its unique name %ItemGrid. |
+| `currency_panel` | `HBoxContainer` | `%CurrencyPanel` | The currency panel (a HBoxContainer) of the scene, found by its unique name %CurrencyPanel. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `context` | `InventoryContext` |  |
-| `title` | `String` |  |
-| `show_currency` | `bool` |  |
-| `allow_drag_and_drop` | `bool` |  |
+| `context` | `InventoryContext` | Whose inventory the window shows (the player, a container, a vendor ...). |
+| `title` | `String` | The title of the window. |
+| `show_currency` | `bool` | True shows the currencies. |
+| `allow_drag_and_drop` | `bool` | True lets the player drag items. |
 | `show_kept_aside` | `bool` | Lists the items that are kept aside (quest items that take no space) under the slots, as "Quest items". Off = the window does not show them at all (they stay in the bag) |
-| `grid_columns` | `int` |  |
-| `inventory_slot_scene` | `PackedScene` |  |
-| `currency_display_scene` | `PackedScene` |  |
+| `grid_columns` | `int` | How many slots are in a row. |
+| `inventory_slot_scene` | `PackedScene` | The scene of one slot. |
+| `currency_display_scene` | `PackedScene` | The scene of one currency display. |
 
 ### ItemSlotUI {#class-item-slot-ui}
 
@@ -1448,12 +1448,12 @@ Template scene: `ui_scenes/in_game/panels/inventory/item_slot_ui_template.tscn`
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
 | `slot_background` | `TextureRect` | `%SlotBackground` | UI references |
-| `slot_icon_background` | `TextureRect` | `%SlotIconBackground` |  |
-| `item_icon` | `TextureRect` | `%ItemIcon` |  |
-| `quantity_label` | `Label` | `%QuantityLabel` |  |
-| `locked_texture` | `TextureRect` | `$LockedTexture` |  |
+| `slot_icon_background` | `TextureRect` | `%SlotIconBackground` | The slot icon background (a TextureRect) of the scene, found by its unique name %SlotIconBackground. |
+| `item_icon` | `TextureRect` | `%ItemIcon` | The item icon (a TextureRect) of the scene, found by its unique name %ItemIcon. |
+| `quantity_label` | `Label` | `%QuantityLabel` | The quantity label (a Label) of the scene, found by its unique name %QuantityLabel. |
+| `locked_texture` | `TextureRect` | `$LockedTexture` | The locked texture (a TextureRect) of the scene, found by its path $LockedTexture. |
 | `cooldown_progress` | `TextureProgressBar` | `%CooldownProgress` | Cooldown UI elements |
-| `cooldown_timer_text` | `Label` | `%CooldownTimerText` |  |
+| `cooldown_timer_text` | `Label` | `%CooldownTimerText` | The cooldown timer text (a Label) of the scene, found by its unique name %CooldownTimerText. |
 
 Signals: `item_right_clicked(slot: ItemSlotUI)`, `item_left_clicked(slot: ItemSlotUI)`, `item_double_clicked(slot: ItemSlotUI)`, `item_hovered(slot: ItemSlotUI, is_hovering: bool)`, `socket_panel_requested(equipment_item: ItemInstance, slot: ItemSlotUI)`, `drag_requested(item: ItemInstance, quantity: int, slot_data: SlotInstance, slot_type: String)`, `split_drag_requested(item: ItemInstance, split_amount: int, slot_data: SlotInstance, slot_type: String)`
 
@@ -1488,8 +1488,8 @@ Template scene: `ui_scenes/in_game/panels/quest_log/quest_log_button_ui_template
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `highlight_background` | `Panel` | `%HighlightBackground` |  |
-| `quest_button_quest_name` | `Label` | `%QuestButtonQuestName` |  |
+| `highlight_background` | `Panel` | `%HighlightBackground` | The highlight background (a Panel) of the scene, found by its unique name %HighlightBackground. |
+| `quest_button_quest_name` | `Label` | `%QuestButtonQuestName` | The quest button quest name (a Label) of the scene, found by its unique name %QuestButtonQuestName. |
 
 Signals: `quest_selected(quest_button: QuestLogButtonUI)`
 
@@ -1505,16 +1505,16 @@ Template scene: `ui_scenes/in_game/panels/quest_log/quest_log_panel_ui_template.
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `active_quests_row` | `VBoxContainer` | `%ActiveQuestsRow` |  |
-| `complete_quests_row` | `VBoxContainer` | `%CompleteQuestsRow` |  |
-| `quest_name_label` | `Label` | `%QuestNameLabel` |  |
-| `quest_description_label` | `Label` | `%QuestDescriptionLabel` |  |
-| `quest_objectives_row` | `VBoxContainer` | `%QuestObjectivesRow` |  |
+| `active_quests_row` | `VBoxContainer` | `%ActiveQuestsRow` | The active quests row (a VBoxContainer) of the scene, found by its unique name %ActiveQuestsRow. |
+| `complete_quests_row` | `VBoxContainer` | `%CompleteQuestsRow` | The complete quests row (a VBoxContainer) of the scene, found by its unique name %CompleteQuestsRow. |
+| `quest_name_label` | `Label` | `%QuestNameLabel` | The quest name label (a Label) of the scene, found by its unique name %QuestNameLabel. |
+| `quest_description_label` | `Label` | `%QuestDescriptionLabel` | The quest description label (a Label) of the scene, found by its unique name %QuestDescriptionLabel. |
+| `quest_objectives_row` | `VBoxContainer` | `%QuestObjectivesRow` | The quest objectives row (a VBoxContainer) of the scene, found by its unique name %QuestObjectivesRow. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `quest_log_button` | `PackedScene` |  |
-| `quest_log_objective_label` | `PackedScene` |  |
+| `quest_log_button` | `PackedScene` | The scene of one quest in the list. |
+| `quest_log_objective_label` | `PackedScene` | The scene of one objective. |
 
 ### QuestLogQuestObjectiveLabel {#class-quest-log-quest-objective-label}
 
@@ -1528,10 +1528,10 @@ Template scene: `ui_scenes/in_game/panels/quest_log/quest_log_objective_label_ui
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `icon` | `Label` | `%Icon` |  |
-| `quest_objective_label` | `Label` | `%QuestObjectiveLabel` |  |
-| `progress_label` | `Label` | `%ProgressLabel` |  |
-| `complete` | `Label` | `%Complete` |  |
+| `icon` | `Label` | `%Icon` | The icon (a Label) of the scene, found by its unique name %Icon. |
+| `quest_objective_label` | `Label` | `%QuestObjectiveLabel` | The quest objective label (a Label) of the scene, found by its unique name %QuestObjectiveLabel. |
+| `progress_label` | `Label` | `%ProgressLabel` | The progress label (a Label) of the scene, found by its unique name %ProgressLabel. |
+| `complete` | `Label` | `%Complete` | The complete (a Label) of the scene, found by its unique name %Complete. |
 
 ### SkillNodeUIVisual {#class-skill-node-ui-visual}
 
@@ -1545,10 +1545,10 @@ Template scene: `ui_scenes/in_game/panels/spellbook/skill_tree/skill_node_ui_tem
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `icon_texture` | `TextureRect` | `%IconTexture` |  |
-| `border_texture` | `TextureRect` | `%BorderTexture` |  |
-| `disabled_overlay` | `TextureRect` | `%DisabledOverlay` |  |
-| `rank_label` | `Label` | `%RankLabel` |  |
+| `icon_texture` | `TextureRect` | `%IconTexture` | ========== UI ELEMENT REFERENCES ========== |
+| `border_texture` | `TextureRect` | `%BorderTexture` | The border texture (a TextureRect) of the scene, found by its unique name %BorderTexture. |
+| `disabled_overlay` | `TextureRect` | `%DisabledOverlay` | The disabled overlay (a TextureRect) of the scene, found by its unique name %DisabledOverlay. |
+| `rank_label` | `Label` | `%RankLabel` | The rank label (a Label) of the scene, found by its unique name %RankLabel. |
 
 Signals: `node_clicked(node: SkillNode)`, `node_right_clicked(node: SkillNode)`, `node_hover_started(node: SkillNode)`, `node_hover_ended(node: SkillNode)`
 
@@ -1564,16 +1564,16 @@ Template scene: `ui_scenes/in_game/panels/spellbook/skill_tree/skill_tree_panel_
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `tree_selector` | `OptionButton` | `%TreeSelector` |  |
-| `points_display_container` | `HBoxContainer` | `%PointsDisplayContainer` |  |
-| `canvas_container` | `Control` | `%CanvasContainer` |  |
-| `background_panel` | `Panel` | `%BackgroundPanel` |  |
-| `background_rect` | `TextureRect` | `%BackgroundRect` |  |
-| `choice_popup` | `ChoiceSelectionPopup` | `%ChoiceSelectionPopup` |  |
+| `tree_selector` | `OptionButton` | `%TreeSelector` | ========== UI REFERENCES ========== |
+| `points_display_container` | `HBoxContainer` | `%PointsDisplayContainer` | The points display container (a HBoxContainer) of the scene, found by its unique name %PointsDisplayContainer. |
+| `canvas_container` | `Control` | `%CanvasContainer` | The canvas container (a Control) of the scene, found by its unique name %CanvasContainer. |
+| `background_panel` | `Panel` | `%BackgroundPanel` | The background panel (a Panel) of the scene, found by its unique name %BackgroundPanel. |
+| `background_rect` | `TextureRect` | `%BackgroundRect` | The background rect (a TextureRect) of the scene, found by its unique name %BackgroundRect. |
+| `choice_popup` | `ChoiceSelectionPopup` | `%ChoiceSelectionPopup` | The choice popup (a ChoiceSelectionPopup) of the scene, found by its unique name %ChoiceSelectionPopup. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `skill_node_scene` | `PackedScene` |  |
+| `skill_node_scene` | `PackedScene` | The scene of one node. |
 
 Signals: `points_changed`, `skill_node_tooltip_requested(skill_node: SkillNode)`, `hide_tooltip(force_hide: bool)`, `message_requested(message: String)`, `warning_message_requested(message: String)`
 
@@ -1589,9 +1589,9 @@ Template scene: `ui_scenes/in_game/panels/spellbook/spell_book_ability_ui_templa
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `spell_icon` | `MarginContainer` | `%SpellIcon` |  |
-| `spell_icon_texture` | `TextureRect` | `%SpellIconTexture` |  |
-| `ability_name` | `Label` | `%AbilityName` |  |
+| `spell_icon` | `MarginContainer` | `%SpellIcon` | UI References |
+| `spell_icon_texture` | `TextureRect` | `%SpellIconTexture` | The spell icon texture (a TextureRect) of the scene, found by its unique name %SpellIconTexture. |
+| `ability_name` | `Label` | `%AbilityName` | The ability name (a Label) of the scene, found by its unique name %AbilityName. |
 
 Signals: `ability_tooltip_requested(ability: AbilityInstance)`, `hide_tooltip(force_hide: bool)`, `ability_drag_requested(ability: AbilityInstance)`
 
@@ -1607,10 +1607,10 @@ Template scene: `ui_scenes/in_game/panels/spellbook/spell_book_panel_ui_template
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `abilities_button` | `Control` | `%AbilitiesButton` |  |
-| `skill_tree_button` | `Control` | `%SkillTreeButton` |  |
-| `ability_panel` | `AbilityPanelUI` | `%AbilityPanel` |  |
-| `skill_tree_panel` | `SkillTreePanelUI` | `%SkillTreePanel` |  |
+| `abilities_button` | `Control` | `%AbilitiesButton` | The abilities button (a Control) of the scene, found by its unique name %AbilitiesButton. |
+| `skill_tree_button` | `Control` | `%SkillTreeButton` | The skill tree button (a Control) of the scene, found by its unique name %SkillTreeButton. |
+| `ability_panel` | `AbilityPanelUI` | `%AbilityPanel` | The ability panel (a AbilityPanelUI) of the scene, found by its unique name %AbilityPanel. |
+| `skill_tree_panel` | `SkillTreePanelUI` | `%SkillTreePanel` | The skill tree panel (a SkillTreePanelUI) of the scene, found by its unique name %SkillTreePanel. |
 
 ### TitleUI {#class-title-ui}
 
@@ -1624,14 +1624,14 @@ Template scene: `ui_scenes/in_game/panels/shared_panel_components/title_ui_templ
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `panel_name` | `Label` | `%PanelName` |  |
-| `exit_button` | `Control` | `%ExitButton` |  |
-| `exit_button_panel` | `MarginContainer` | `%ExitButtonPanel` |  |
+| `panel_name` | `Label` | `%PanelName` | The panel name (a Label) of the scene, found by its unique name %PanelName. |
+| `exit_button` | `Control` | `%ExitButton` | The exit button (a Control) of the scene, found by its unique name %ExitButton. |
+| `exit_button_panel` | `MarginContainer` | `%ExitButtonPanel` | The exit button panel (a MarginContainer) of the scene, found by its unique name %ExitButtonPanel. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `title` | `String` |  |
-| `has_exit_button` | `bool` |  |
+| `title` | `String` | The name shown in the title bar. |
+| `has_exit_button` | `bool` | True shows the button that closes the window. |
 
 Signals: `exit_button_pressed`
 
@@ -1649,14 +1649,14 @@ Template scene: `ui_scenes/in_game/tooltips/abilites/tooltip_ability_template.ts
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `panel_container` | `PanelContainer` | `%PanelContainer` |  |
-| `spell_icon` | `TextureRect` | `%SpellIcon` |  |
-| `cooldown_container` | `VBoxContainer` | `%Cooldown` |  |
+| `panel_container` | `PanelContainer` | `%PanelContainer` | References to various UI elements within the tooltip |
+| `spell_icon` | `TextureRect` | `%SpellIcon` | The spell icon (a TextureRect) of the scene, found by its unique name %SpellIcon. |
+| `cooldown_container` | `VBoxContainer` | `%Cooldown` | The cooldown container (a VBoxContainer) of the scene, found by its unique name %Cooldown. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `ability_tooltip_ability_type` | `PackedScene` |  |
-| `ability_description` | `PackedScene` |  |
+| `ability_tooltip_ability_type` | `PackedScene` | Preloaded scene for displaying ability type information |
+| `ability_description` | `PackedScene` | Preloaded scene for displaying ability descriptions |
 
 ### TooltipBase {#class-tooltip-base}
 
@@ -1687,8 +1687,8 @@ Template scene: `ui_scenes/in_game/tooltips/tooltip_description_template.tscn`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `settings_name_label` | `Label` | `%SettingsNameLabel` |  |
-| `settings_description_label` | `Label` | `%SettingsDescriptionLabel` |  |
+| `settings_name_label` | `Label` | `%SettingsNameLabel` | The settings name label (a Label) of the scene, found by its unique name %SettingsNameLabel. |
+| `settings_description_label` | `Label` | `%SettingsDescriptionLabel` | The settings description label (a Label) of the scene, found by its unique name %SettingsDescriptionLabel. |
 
 ### TooltipEffect {#class-tooltip-effect}
 
@@ -1702,8 +1702,8 @@ Template scene: `ui_scenes/in_game/tooltips/tooltip_effect_template.tscn`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `effect_name_label` | `Label` | `%EffectNameLabel` |  |
-| `effect_description_label` | `Label` | `%EffectDescriptionLabel` |  |
+| `effect_name_label` | `Label` | `%EffectNameLabel` | The effect name label (a Label) of the scene, found by its unique name %EffectNameLabel. |
+| `effect_description_label` | `Label` | `%EffectDescriptionLabel` | The effect description label (a Label) of the scene, found by its unique name %EffectDescriptionLabel. |
 
 ### TooltipItem {#class-tooltip-item}
 
@@ -1717,30 +1717,30 @@ Template scene: `ui_scenes/in_game/tooltips/items/tooltip_item_template.tscn`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `panel_container` | `PanelContainer` | `%PanelContainer` |  |
-| `item_name_label` | `Label` | `%ItemNameLabel` |  |
-| `item_description_label` | `Label` | `%ItemDescriptionLabel` |  |
-| `item_quality_label` | `Label` | `%ItemQualityLabel` |  |
-| `item_level_label` | `Label` | `%ItemLevelLabel` |  |
-| `item_value_label` | `Label` | `%ItemValueLabel` |  |
-| `vendor_buy_price_label` | `Label` | `%VendorBuyPriceLabel` |  |
-| `vendor_sell_price_label` | `Label` | `%VendorSellPriceLabel` |  |
+| `panel_container` | `PanelContainer` | `%PanelContainer` | The panel container (a PanelContainer) of the scene, found by its unique name %PanelContainer. |
+| `item_name_label` | `Label` | `%ItemNameLabel` | The item name label (a Label) of the scene, found by its unique name %ItemNameLabel. |
+| `item_description_label` | `Label` | `%ItemDescriptionLabel` | The item description label (a Label) of the scene, found by its unique name %ItemDescriptionLabel. |
+| `item_quality_label` | `Label` | `%ItemQualityLabel` | The item quality label (a Label) of the scene, found by its unique name %ItemQualityLabel. |
+| `item_level_label` | `Label` | `%ItemLevelLabel` | The item level label (a Label) of the scene, found by its unique name %ItemLevelLabel. |
+| `item_value_label` | `Label` | `%ItemValueLabel` | The item value label (a Label) of the scene, found by its unique name %ItemValueLabel. |
+| `vendor_buy_price_label` | `Label` | `%VendorBuyPriceLabel` | The vendor buy price label (a Label) of the scene, found by its unique name %VendorBuyPriceLabel. |
+| `vendor_sell_price_label` | `Label` | `%VendorSellPriceLabel` | The vendor sell price label (a Label) of the scene, found by its unique name %VendorSellPriceLabel. |
 | `type_label` | `Label` | `%TypeLabel` | Shared by Equipment Type and Material Type |
 | `class_label` | `Label` | `%ClassLabel` | Shared by Armor Class, Weapon Class, and Material Crafting Tier |
-| `weapon_damage_label` | `Label` | `%WeaponDamageLabel` |  |
-| `weapon_speed_label` | `Label` | `%WeaponSpeedLabel` |  |
-| `stat_bonuses_container` | `VBoxContainer` | `%StatBonusesContainer` |  |
-| `effects_container` | `VBoxContainer` | `%EffectsContainer` |  |
-| `requirements_label` | `Label` | `%RequirementsLabel` |  |
-| `socket_container` | `VBoxContainer` | `%SocketContainer` |  |
-| `set_bonus_container` | `VBoxContainer` | `%SetBonusContainer` |  |
-| `modifications_container` | `VBoxContainer` | `%ModificationsContainer` |  |
-| `durability_label` | `Label` | `%DurabilityLabel` |  |
-| `charges_label` | `Label` | `%ChargesLabel` |  |
+| `weapon_damage_label` | `Label` | `%WeaponDamageLabel` | The weapon damage label (a Label) of the scene, found by its unique name %WeaponDamageLabel. |
+| `weapon_speed_label` | `Label` | `%WeaponSpeedLabel` | The weapon speed label (a Label) of the scene, found by its unique name %WeaponSpeedLabel. |
+| `stat_bonuses_container` | `VBoxContainer` | `%StatBonusesContainer` | The stat bonuses container (a VBoxContainer) of the scene, found by its unique name %StatBonusesContainer. |
+| `effects_container` | `VBoxContainer` | `%EffectsContainer` | The effects container (a VBoxContainer) of the scene, found by its unique name %EffectsContainer. |
+| `requirements_label` | `Label` | `%RequirementsLabel` | The requirements label (a Label) of the scene, found by its unique name %RequirementsLabel. |
+| `socket_container` | `VBoxContainer` | `%SocketContainer` | The socket container (a VBoxContainer) of the scene, found by its unique name %SocketContainer. |
+| `set_bonus_container` | `VBoxContainer` | `%SetBonusContainer` | The set bonus container (a VBoxContainer) of the scene, found by its unique name %SetBonusContainer. |
+| `modifications_container` | `VBoxContainer` | `%ModificationsContainer` | The modifications container (a VBoxContainer) of the scene, found by its unique name %ModificationsContainer. |
+| `durability_label` | `Label` | `%DurabilityLabel` | The durability label (a Label) of the scene, found by its unique name %DurabilityLabel. |
+| `charges_label` | `Label` | `%ChargesLabel` | The charges label (a Label) of the scene, found by its unique name %ChargesLabel. |
 
 | Export | Type | What it is |
 |---|---|---|
-| `socket_slot_scene` | `PackedScene` |  |
+| `socket_slot_scene` | `PackedScene` | Preloaded scene for socket slots |
 
 ### TooltipManager {#class-tooltip-manager}
 
@@ -1764,9 +1764,9 @@ Template scene: `ui_scenes/in_game/tooltips/tooltip_skill_node_template.tscn`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `display_name_label` | `Label` | `%DisplayName` |  |
-| `description_label` | `Label` | `%Description` |  |
-| `rewards_container` | `VBoxContainer` | `%RewardsContainer` |  |
+| `display_name_label` | `Label` | `%DisplayName` | References to UI elements |
+| `description_label` | `Label` | `%Description` | The description label (a Label) of the scene, found by its unique name %Description. |
+| `rewards_container` | `VBoxContainer` | `%RewardsContainer` | The rewards container (a VBoxContainer) of the scene, found by its unique name %RewardsContainer. |
 
 ## Popups
 
@@ -1782,10 +1782,10 @@ Template scene: `ui_scenes/in_game/popups/default_popup_ui.tscn`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `title_label` | `Label` | `%TitleLabel` |  |
-| `text_label` | `RichTextLabel` | `%TextLabel` |  |
-| `icon_rect` | `TextureRect` | `%IconRect` |  |
-| `exit_button` | `Button` | `%ExitButton` |  |
+| `title_label` | `Label` | `%TitleLabel` | The title label (a Label) of the scene, found by its unique name %TitleLabel. |
+| `text_label` | `RichTextLabel` | `%TextLabel` | The text label (a RichTextLabel) of the scene, found by its unique name %TextLabel. |
+| `icon_rect` | `TextureRect` | `%IconRect` | The icon rect (a TextureRect) of the scene, found by its unique name %IconRect. |
+| `exit_button` | `Button` | `%ExitButton` | The exit button (a Button) of the scene, found by its unique name %ExitButton. |
 
 ### PopupUI {#class-popup-ui}
 
@@ -1840,7 +1840,7 @@ Template scene: `ui_scenes/splash_screen/splash_screen_template.tscn`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `animation_player` | `AnimationPlayer` | `$AnimationPlayer` |  |
+| `animation_player` | `AnimationPlayer` | `$AnimationPlayer` | The animation player (a AnimationPlayer) of the scene, found by its path $AnimationPlayer. |
 
 Signals: `splash_finished_signal`
 
@@ -1878,8 +1878,8 @@ Template scene: `ui_scenes/in_game/dragged_content_template.tscn`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `content_icon` | `TextureRect` | `%ContentIcon` |  |
-| `quantity_label` | `Label` | `%QuantityLabel` |  |
+| `content_icon` | `TextureRect` | `%ContentIcon` | UI elements |
+| `quantity_label` | `Label` | `%QuantityLabel` | The quantity label (a Label) of the scene, found by its unique name %QuantityLabel. |
 
 ### GameOverPanelUI {#class-game-over-panel-ui}
 
@@ -1893,10 +1893,10 @@ Template scene: `ui_scenes/in_game/game_over/game_over_ui_template.tscn`
 
 | Node the script looks for | Type | Found as | What it is |
 |---|---|---|---|
-| `message_label` | `Label` | `%MessageLabel` |  |
-| `respawn_button` | `Control` | `%RespawnButton` |  |
-| `load_game_button` | `Control` | `%LoadGameButton` |  |
-| `main_menu_button` | `Control` | `%MainMenuButton` |  |
+| `message_label` | `Label` | `%MessageLabel` | The message label (a Label) of the scene, found by its unique name %MessageLabel. |
+| `respawn_button` | `Control` | `%RespawnButton` | The respawn button (a Control) of the scene, found by its unique name %RespawnButton. |
+| `load_game_button` | `Control` | `%LoadGameButton` | The load game button (a Control) of the scene, found by its unique name %LoadGameButton. |
+| `main_menu_button` | `Control` | `%MainMenuButton` | The main menu button (a Control) of the scene, found by its unique name %MainMenuButton. |
 
 Signals: `respawn_confirmed(player: Player, respawn_point: Marker3D)`, `load_game_requested`, `return_to_main_menu_requested`, `panel_closed`
 
@@ -1930,12 +1930,12 @@ Template scene: `ui_scenes/in_game/in_game_ui_template.tscn`
 |---|---|---|---|
 | `load_game_menu` | `SaveLoadMenu` | `%LoadGameMenu` | Load game menu (shared between InGameMenu and GameOverPanelUI) |
 | `external_inventory` | `InventoryUI` | `%ExternalInventoryUI` | References to InteractionPanel elements |
-| `conversation_panel` | `ConversationPanelUI` | `%ConversationPanelUI` |  |
-| `dice_roll_panel` | `DiceRollPanel` | `%DiceRollPanelUI` |  |
-| `crafting_panel` | `CraftingPanelUI` | `%CraftingPanelUI` |  |
-| `vendor_panel` | `VendorPanelUI` | `%VendorPanelUI` |  |
-| `readable_panel` | `ReadablePanelUI` | `%ReadablePanelUI` |  |
-| `socket_panel` | `SocketPanelUI` | `%SocketPanelUI` |  |
+| `conversation_panel` | `ConversationPanelUI` | `%ConversationPanelUI` | The conversation panel (a ConversationPanelUI) of the scene, found by its unique name %ConversationPanelUI. |
+| `dice_roll_panel` | `DiceRollPanel` | `%DiceRollPanelUI` | The dice roll panel (a DiceRollPanel) of the scene, found by its unique name %DiceRollPanelUI. |
+| `crafting_panel` | `CraftingPanelUI` | `%CraftingPanelUI` | The crafting panel (a CraftingPanelUI) of the scene, found by its unique name %CraftingPanelUI. |
+| `vendor_panel` | `VendorPanelUI` | `%VendorPanelUI` | The vendor panel (a VendorPanelUI) of the scene, found by its unique name %VendorPanelUI. |
+| `readable_panel` | `ReadablePanelUI` | `%ReadablePanelUI` | The readable panel (a ReadablePanelUI) of the scene, found by its unique name %ReadablePanelUI. |
+| `socket_panel` | `SocketPanelUI` | `%SocketPanelUI` | The socket panel (a SocketPanelUI) of the scene, found by its unique name %SocketPanelUI. |
 | `game_over_panel` | `GameOverPanelUI` | `%GameOverPanelUI` | Death/Game Over UI |
 | `hud` | `Control` | `$HUD` | Container of HUD elements (ActionBar, Minimap ect) |
 | `ui_panels` | `Control` | `$UIPanels` | Container of UIPanel elements (CharacterSheet, Spellbook ect) |

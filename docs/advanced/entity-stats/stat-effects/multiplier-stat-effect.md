@@ -43,37 +43,37 @@ How the value changes the target stat: add, subtract, multiply, increase or decr
 
 ### EffectType get_effect_type() {#method-get-effect-type}
 
-Override in child classes to return effect type name *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== EFFECT IDENTIFICATION ==========
 
 ### String get_effect_category() {#method-get-effect-category}
 
-Override in child classes to return category *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+The group of the effect in the editor.
 
 ### float calculate_effect_value( stat_points: float, formula_context: FormulaContext = null ) {#method-calculate-effect-value}
 
-*No description yet.*
+========== EFFECT VALUE CALCULATION ==========
 
 ### float calculate_bonus( current_target_value: float, stat_points: float, formula_context: FormulaContext = null ) {#method-calculate-bonus}
 
-*No description yet.*
+The bonus to add to the target stat for a number of stat points.
 
 ### Dictionary apply_effect( stats_component: StatsComponent, stat_points: float, context: Dictionary = &#123;&#125; ) {#method-apply-effect}
 
-Main method to apply this effect - OVERRIDE IN CHILD CLASSES Returns dictionary with effect results *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== EFFECT APPLICATION ==========
 
 ### Dictionary get_preview_info( stat_points: float ) {#method-get-preview-info}
 
-*No description yet.*
+========== DISPLAY ==========
 
 ### String get_short_description() {#method-get-short-description}
 
-Override in child classes for a one-line summary of what this effect does *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+A one line text about what the effect does.
 
 ### String get_tooltip_text( stat_points: float ) {#method-get-tooltip-text}
 
-*No description yet.*
+The tooltip text of the effect for a number of stat points.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Validate this effect's configuration - override in child classes *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== VALIDATION ==========
 

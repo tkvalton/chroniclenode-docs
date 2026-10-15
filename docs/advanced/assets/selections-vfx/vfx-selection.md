@@ -31,6 +31,8 @@ Base VFX selection class - stores VFX configuration and references All VFX selec
 
 ### enum VfxLocation {#enum-vfxlocation}
 
+The options of vfx location: base, hands, left hand, right hand, head, chest, weapon, feet, overhead.
+
 - **BASE** = `0`
 - **HANDS** = `1`
 - **LEFT_HAND** = `2`
@@ -45,7 +47,7 @@ Base VFX selection class - stores VFX configuration and references All VFX selec
 
 ### String vfx_type = "": {#prop-vfx-type}
 
-Notify editor of change
+Notify editor of change The visual effect that is picked, by name.
 
 ### float duration_override = 0.0 {#prop-duration-override}
 
@@ -59,7 +61,7 @@ Set top_level = true when activated (for world-space positioning)
 
 ### Array[VFX] spawn_vfx( vfx_manager: VFXManager, target: Variant = null, originator: Variant = null, timer: Timer = null ) {#method-spawn-vfx}
 
-*No description yet.*
+Makes the visual effect for a target and an originator. Gives the effects made.
 
 ### Variant prepare_target_for_vfx_type( target: Variant, originator: Variant = null ) {#method-prepare-target-for-vfx-type}
 

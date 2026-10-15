@@ -31,7 +31,7 @@ A folder is a CATEGORY, and an icon is an image file named by its number (`12.pn
 
 ## Constants
 
-- `String` **ICONS_BASE_PATH** = `"res://src/data/icons/"`
+- `String` **ICONS_BASE_PATH** = `"res://src/data/icons/"` - The folder the icons are read from.
 
 ## Method descriptions
 

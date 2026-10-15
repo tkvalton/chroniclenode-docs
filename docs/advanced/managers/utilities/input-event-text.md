@@ -17,7 +17,7 @@ The text of an input event for the screen: "Q", "Ctrl 2", "LMB", "Mouse 4", "Joy
 
 ### String describe( event: InputEvent ) {#method-describe}
 
-*No description yet.*
+The text of an input event for the screen ("Q", "Ctrl 2", "LMB").
 
 ### String describe_action( action_name: String ) {#method-describe-action}
 

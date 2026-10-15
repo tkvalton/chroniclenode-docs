@@ -138,7 +138,7 @@ Validate set configuration
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Is it free of errors?
 
 ### Array[Dictionary] validate_and_fix_relationships( auto_fix: bool = false ) {#method-validate-and-fix-relationships}
 

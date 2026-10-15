@@ -33,6 +33,8 @@ Dice roll / skill check node for conversation branching Supports multiple dice t
 
 ### enum RollType {#enum-rolltype}
 
+========== ENUMS ==========
+
 - **D4** = `0`
 - **D6** = `1`
 - **D8** = `2`
@@ -46,6 +48,8 @@ Dice roll / skill check node for conversation branching Supports multiple dice t
 
 ### enum ModifierType {#enum-modifiertype}
 
+The options of modifier type: none, additive, percentage, dnd style.
+
 - **NONE** = `0`
 - **ADDITIVE** = `1`
 - **PERCENTAGE** = `2`
@@ -55,7 +59,7 @@ Dice roll / skill check node for conversation branching Supports multiple dice t
 
 ### int id = 0 {#prop-id}
 
-*No description yet.*
+========== EXPORTED PROPERTIES ==========
 
 ### RollType roll_type = RollType.D20 {#prop-roll-type}
 

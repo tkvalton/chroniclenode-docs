@@ -112,57 +112,57 @@ Hold the primary button while the mouse is captured (looking around) to fire the
 
 ### Vector2 input_vector = Vector2.ZERO {#var-input-vector}
 
-*No description yet.*
+Runtime state (not exported)
 
 ### Vector2 last_movement_direction = Vector2.ZERO {#var-last-movement-direction}
 
-*No description yet.*
+The last direction the keys asked for.
 
 ### Variant pending_interaction_target = null {#var-pending-interaction-target}
 
-*No description yet.*
+The thing the player is walking to use.
 
 ## Method descriptions
 
 ### void setup( pc: PlayerController ) {#method-setup}
 
-Setup controller behavior - override in child classes *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Sets the logic up when it becomes the one in use.
 
 ### void cleanup() {#method-cleanup}
 
-Cleanup when switching controllers - override in child classes *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Lets go of what the logic holds when it is replaced.
 
 ### void handle_input_event( event: InputEvent ) {#method-handle-input-event}
 
-Handle input events - override in child classes *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Handles one input event (a click, a key).
 
 ### void process_input( delta: float ) {#method-process-input}
 
-Per-frame input processing - override in child classes *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Handles the input of one frame.
 
 ### Player get_current_player() {#method-get-current-player}
 
-Get the primary controlled player *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+The player the logic controls now.
 
 ### Array[Entity] get_selected_units() {#method-get-selected-units}
 
-Get currently selected units (RTS mode) *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+The entities the player has selected.
 
 ### bool can_handle_direct_movement() {#method-can-handle-direct-movement}
 
-Can this controller handle direct WASD movement? *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Does the logic move the player directly (with keys)?
 
 ### bool can_handle_keyboard_interact() {#method-can-handle-keyboard-interact}
 
-Can this controller handle keyboard-based interactions? *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Can the player use objects with the interact key?
 
 ### void select_single_player( player: Entity ) {#method-select-single-player}
 
-Select a single player (called by UI/external systems) *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Selects one player.
 
 ### String get_type_display_name() {#method-get-type-display-name}
 
-Get display name for editor *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+The name of the logic in the editor.
 
 ### bool handle_interact_input() {#method-handle-interact-input}
 
@@ -170,27 +170,27 @@ Handle keyboard interaction (E key) - uses Area3D detection from Player
 
 ### bool handle_esc_input() {#method-handle-esc-input}
 
-Handle ESC key press with priority chain Returns true if the logic handled it, false to let controller handle it Priority chain (controller will handle these if logic returns false): 1. Cancel targeting mode 2. Clear target 3. Clear selection (multi-unit) *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Handles the Escape key. True when the logic used it.
 
 ### ControllerLogic.MovementBasis get_movement_basis() {#method-get-movement-basis}
 
-What movement is relative to. The camera asks this: with CAMERA movement it must not follow the body while walking (the body follows the camera instead) and right-drag orbits the camera. *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+What the movement keys are relative to (the character or the camera).
 
 ### Array[LookBinding] get_look_bindings() {#method-get-look-bindings}
 
-Mouse gestures this controller wants (button + LookBinding.Kind). Called when a gesture starts. *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+The mouse buttons that turn the view or the character for this logic.
 
 ### void handle_look( kind: LookBinding.Kind, delta_rad: Vector2 ) {#method-handle-look}
 
-Look movement for a gesture this controller declared. delta_rad is screen-space radians with the player's sensitivity and invert settings applied (x &gt; 0 = mouse right, y &gt; 0 = mouse down). Multiply by look_sensitivity_scale. *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Turns the view or the character by the mouse movement.
 
 ### void on_look_state( kind: LookBinding.Kind, active: bool ) {#method-on-look-state}
 
-A gesture this controller declared started (active = true) or ended (active = false) *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Called when a look button is pressed or released.
 
 ### void on_click_completed( button_index: int, position: Vector2 ) {#method-on-click-completed}
 
-A look binding that requires a drag was released before it became a drag (a plain click) *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Called when a click ends (the button and the place on the screen).
 
 ### void process_target_lock( delta: float ) {#method-process-target-lock}
 

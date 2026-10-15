@@ -66,11 +66,19 @@ Signals for encounter events
 
 ### encounter_combat_started( encounter: Encounter ) {#signal-encounter-combat-started}
 
+Emitted when the group goes into combat.
+
 ### encounter_combat_ended( encounter: Encounter, reason: String ) {#signal-encounter-combat-ended}
+
+Emitted when the combat of the group ends, with the reason.
 
 ### encounter_phase_changed( encounter: Encounter, phase_index: int ) {#signal-encounter-phase-changed}
 
+Emitted when the group moves to another phase (a boss fight).
+
 ### group_behavior_changed( encounter: Encounter, new_behavior: UniqueEncounterData.GroupBehavior ) {#signal-group-behavior-changed}
+
+Emitted when the group takes another behavior.
 
 ### encounter_respawned( encounter: Encounter ) {#signal-encounter-respawned}
 
@@ -129,7 +137,7 @@ Track active attack coordination (for turn-based combat)
 
 ### float last_attack_rotation_time = 0.0 {#var-last-attack-rotation-time}
 
-*No description yet.*
+The time the group last changed which member attacks.
 
 ### Array[Entity] original_group_members = [] {#var-original-group-members}
 
@@ -159,7 +167,7 @@ System hub for spawning/combat management
 
 ### void initialize_encounter( system_hub: GameHost.SystemHub ) {#method-initialize-encounter}
 
-*No description yet.*
+Sets the encounter up with the hub of the game systems.
 
 ### void sync_to_unique_data() {#method-sync-to-unique-data}
 

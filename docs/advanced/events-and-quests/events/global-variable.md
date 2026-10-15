@@ -31,6 +31,8 @@ Individual global variable resource Stores a single named variable with type saf
 
 ### enum VariableType {#enum-variabletype}
 
+The options of variable type: int, float, bool, string, array, dictionary.
+
 - **INT** = `0`
 - **FLOAT** = `1`
 - **BOOL** = `2`
@@ -54,23 +56,23 @@ The actual value stored (type depends on variable_type)
 
 ### float float_value = 0.0 {#prop-float-value}
 
-*No description yet.*
+The value of a decimal variable.
 
 ### bool bool_value = false {#prop-bool-value}
 
-*No description yet.*
+The value of a yes/no variable.
 
 ### String string_value = "" {#prop-string-value}
 
-*No description yet.*
+The value of a text variable.
 
 ### Array array_value = [] {#prop-array-value}
 
-*No description yet.*
+The value of a list variable.
 
 ### Dictionary dictionary_value =  {#prop-dictionary-value}
 
-*No description yet.*
+The value of a dictionary variable.
 
 ## Method descriptions
 

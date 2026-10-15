@@ -60,11 +60,17 @@ Container interaction - manages inventory storage in world objects Uses Interact
 
 ### container_opened( entity: Entity ) {#signal-container-opened}
 
+Emitted when an entity opens the container.
+
 ### container_closed( entity: Entity ) {#signal-container-closed}
+
+Emitted when the container is closed.
 
 ## Enumerations
 
 ### enum ContainerState {#enum-containerstate}
+
+The states of a container: closed and unlocked, closed and locked, open, or destroyed.
 
 - **CLOSED_UNLOCKED** = `0` - Container is closed and can be opened
 - **CLOSED_LOCKED** = `1` - Container is closed and locked
@@ -107,47 +113,47 @@ Distance at which container auto-closes
 
 ### String closed_animation = "closed" {#prop-closed-animation}
 
-*No description yet.*
+The animation of the container when it is closed.
 
 ### String locked_animation = "locked" {#prop-locked-animation}
 
-*No description yet.*
+The animation of the container when it is locked.
 
 ### String open_animation = "open" {#prop-open-animation}
 
-*No description yet.*
+The animation of the container when it opens.
 
 *Audio*
 
 ### SFXSelection container_open_sound {#prop-container-open-sound}
 
-*No description yet.*
+The sound of the container opening.
 
 ### SFXSelection container_close_sound {#prop-container-close-sound}
 
-*No description yet.*
+The sound of the container closing.
 
 ### SFXSelection container_locked_sound {#prop-container-locked-sound}
 
-*No description yet.*
+The sound of trying a locked container.
 
 ## Variable descriptions
 
 ### InventoryComponent inventory_data {#var-inventory-data}
 
-*No description yet.*
+The inventory of the container: what it holds.
 
 ### ContainerState current_container_state = ContainerState.CLOSED_UNLOCKED {#var-current-container-state}
 
-*No description yet.*
+The state of the container now.
 
 ### Entity opening_entity = null {#var-opening-entity}
 
-*No description yet.*
+The entity that has the container open now.
 
 ### Timer distance_check_timer {#var-distance-check-timer}
 
-*No description yet.*
+The timer that closes the container when the entity that opened it walks away.
 
 ## Method descriptions
 
@@ -157,7 +163,7 @@ Tell InteractableObject we need an InventoryComponent
 
 ### void setup_for_interactable_objects( interactable: InteractableObject ) {#method-setup-for-interactable-objects}
 
-*Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
+Sets the container up on its object: finds the nodes it needs and applies its starting state.
 
 ### Array[LootRule] get_legacy_loot_rules() {#method-get-legacy-loot-rules}
 
@@ -165,27 +171,27 @@ The loot rules the older settings of this container make: its fixed contents and
 
 ### bool can_interact( player: Player ) {#method-can-interact}
 
-*Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
+Can the player use the container now (in range, the object is not broken, the requirements are met)?
 
 ### void start_interaction( player: Player ) {#method-start-interaction}
 
-Start the interaction with the given player *(from [Interaction](/advanced/entities/interactions/interaction))*
+The player uses the container.
 
 ### void end_interaction() {#method-end-interaction}
 
-End the current interaction *(from [Interaction](/advanced/entities/interactions/interaction))*
+Does nothing: a container stays open after the interaction ends.
 
 ### String get_interaction_prompt() {#method-get-interaction-prompt}
 
-*No description yet.*
+The text of the prompt above the object for its state now ("Open", "Climb" ...).
 
 ### void change_container_state( new_state: ContainerState, interacting_entity: Entity = null ) {#method-change-container-state}
 
-*No description yet.*
+Puts the container in a state (opening it, locking it ...) and plays its animation and sound.
 
 ### void on_object_destroyed() {#method-on-object-destroyed}
 
-*No description yet.*
+Called when the object is destroyed. A container that still holds something stays lootable, like a corpse.
 
 ### void refresh_after_load() {#method-refresh-after-load}
 
@@ -193,37 +199,37 @@ After a load: a destroyed container with loot is lootable, an empty one is destr
 
 ### void on_unlocked() {#method-on-unlocked}
 
-*No description yet.*
+Called when the object is unlocked.
 
 ### void on_locked_reaction() {#method-on-locked-reaction}
 
-*No description yet.*
+Called when someone tries the object while it is locked: plays the locked sound and animation.
 
 ### InventoryComponent get_inventory() {#method-get-inventory}
 
-*No description yet.*
+The inventory of the container.
 
 ### bool is_empty() {#method-is-empty}
 
-*No description yet.*
+Is the container empty?
 
 ### void force_open() {#method-force-open}
 
-*No description yet.*
+Opens the container without a player (a script or an event). Not when it is destroyed.
 
 ### void force_close() {#method-force-close}
 
-*No description yet.*
+Closes the container without a player.
 
 ### Dictionary save_state() {#method-save-state}
 
-*No description yet.*
+The state of the container for a save.
 
 ### void load_state( state: Dictionary ) {#method-load-state}
 
-*No description yet.*
+Restores the state of the container from a save.
 
 ### void cleanup() {#method-cleanup}
 
-*No description yet.*
+Gives its timers back and clears what it holds (the object is going away).
 

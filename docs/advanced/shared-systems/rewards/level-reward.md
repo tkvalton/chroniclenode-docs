@@ -41,23 +41,23 @@ The rewards given at this level
 
 ### void add_reward( reward: Reward ) {#method-add-reward}
 
-*No description yet.*
+Adds a reward to the level.
 
 ### bool remove_reward( reward: Reward ) {#method-remove-reward}
 
-*No description yet.*
+Removes a reward. False when it was not there.
 
 ### void clear_rewards() {#method-clear-rewards}
 
-*No description yet.*
+Removes every reward.
 
 ### int get_reward_count() {#method-get-reward-count}
 
-*No description yet.*
+How many rewards the level gives.
 
 ### Reward get_reward_at_index( index: int ) {#method-get-reward-at-index}
 
-*No description yet.*
+The reward at a place of the list, or null.
 
 ### bool apply_to_player( player: Player ) {#method-apply-to-player}
 
@@ -65,13 +65,13 @@ Applies every reward; true when all of them were applied (an empty level reward 
 
 ### String get_summary() {#method-get-summary}
 
-*No description yet.*
+A short text about the rewards of the level.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Is it free of errors?
 

@@ -23,19 +23,21 @@ A response option button in the conversation UI
 
 ### button_clicked() {#signal-button-clicked}
 
+Emitted when the player clicks the response.
+
 ## Variable descriptions
 
 ### bool disabled = false {#var-disabled}
 
-*No description yet.*
+True when the response cannot be picked.
 
 ## Method descriptions
 
 ### void set_response_text( text: String ) {#method-set-response-text}
 
-*No description yet.*
+Sets the text of the response.
 
 ### void set_disabled( is_disabled: bool ) {#method-set-disabled}
 
-*No description yet.*
+Greys the response out, or not.
 

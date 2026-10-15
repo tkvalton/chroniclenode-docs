@@ -36,11 +36,13 @@ ArrowSelectionButton - Cyclic selection control with arrow navigation Supports b
 
 ### selection_changed( option: int ) {#signal-selection-changed}
 
+Emitted when the option changes.
+
 ## Property descriptions
 
 ### int number_of_options = 1 {#prop-number-of-options}
 
-*No description yet.*
+How many options there are.
 
 ### Array[String] option_labels = [] {#prop-option-labels}
 
@@ -50,13 +52,13 @@ Optional array of display strings for each option If empty, shows numeric values
 
 ### int current_option = 1: {#var-current-option}
 
-*No description yet.*
+The option picked now (the first is 1).
 
 ## Method descriptions
 
 ### void set_label( number: int ) {#method-set-label}
 
-*No description yet.*
+Old way to set the option (use current_option).
 
 ### void set_type_label( label_text: String ) {#method-set-type-label}
 
@@ -80,9 +82,9 @@ Get the current option as 0-indexed (useful for array lookups)
 
 ### void update_arrow_visibility() {#method-update-arrow-visibility}
 
-*No description yet.*
+Hides the arrows at the first and last option.
 
 ### void set_selection( index: int ) {#method-set-selection}
 
-*No description yet.*
+Moves to the next option.
 

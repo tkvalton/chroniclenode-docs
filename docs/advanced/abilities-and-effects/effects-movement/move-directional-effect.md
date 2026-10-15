@@ -38,6 +38,8 @@ MoveDirectionalEffect - Base class for all directional movement effects Inherits
 
 ### enum DirectionType {#enum-directiontype}
 
+The options of direction type: forward, backward, left, right, up, down, momentum.
+
 - **FORWARD** = `0`
 - **BACKWARD** = `1`
 - **LEFT** = `2`
@@ -47,6 +49,8 @@ MoveDirectionalEffect - Base class for all directional movement effects Inherits
 - **MOMENTUM** = `6` - Uses entity's current movement velocity direction (falls back to forward if stationary)
 
 ### enum ChildEffectTiming {#enum-childeffecttiming}
+
+The options of child effect timing: none, on collision, on end.
 
 - **NONE** = `0`
 - **ON_COLLISION** = `1`
@@ -108,19 +112,19 @@ Timer callback from EffectInstance - child classes can override
 
 ### void start_movement_timer( effect_instance: EffectInstance, duration_time: float, timer_name: String = "Movement_Timer" ) {#method-start-movement-timer}
 
-*No description yet.*
+Starts the timer that ends the movement after some seconds.
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-Handle effect completion *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+Called when the effect ends: takes back what it did.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

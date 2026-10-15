@@ -74,11 +74,19 @@ ObjectRegistry - manages all NPCs, Interactables, Regions, and special Encounter
 
 ### entity_registered( entity: Entity ) {#signal-entity-registered}
 
+========== SIGNALS ==========
+
 ### entity_unregistered( entity: Entity ) {#signal-entity-unregistered}
+
+Emitted when an entity is removed from the registry.
 
 ### interactable_registered( interactable: InteractableObject ) {#signal-interactable-registered}
 
+Emitted when an object is added to the registry.
+
 ### interactable_unregistered( interactable: InteractableObject ) {#signal-interactable-unregistered}
+
+Emitted when an object is removed from the registry.
 
 ## Variable descriptions
 
@@ -124,7 +132,7 @@ Enhanced optimization variables
 
 ### int next_controller_index = 0 {#var-next-controller-index}
 
-*No description yet.*
+The next place in the round robin that decides which entities think this frame.
 
 ### Dictionary lod_stats {#var-lod-stats}
 
@@ -132,15 +140,15 @@ Performance monitoring - tracks count per LOD level
 
 ### bool behaviors_initialized = false {#var-behaviors-initialized}
 
-*No description yet.*
+========== INITIALIZATION STATE ==========
 
 ### Entity current_entity = null {#var-current-entity}
 
-*No description yet.*
+========== INTERACTION MANAGEMENT ==========
 
 ### Interaction current_interaction = null {#var-current-interaction}
 
-*No description yet.*
+The interaction that is running now.
 
 ### Dictionary active_interactions =  {#var-active-interactions}
 
@@ -148,11 +156,11 @@ Track active interactions across all NPCs
 
 ### WorldScene current_world_scene {#var-current-world-scene}
 
-*No description yet.*
+========== ACTIVE WORLD SCENE ==========
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 
-*No description yet.*
+========== Required Systems ==========
 
 ## Method descriptions
 

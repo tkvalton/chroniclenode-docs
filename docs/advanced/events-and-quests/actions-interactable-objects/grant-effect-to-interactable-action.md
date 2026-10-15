@@ -42,7 +42,7 @@ Effect ID to grant
 
 ### InteractableObject target_interactable = null {#var-target-interactable}
 
-*No description yet.*
+Reference to the target interactable
 
 ## Method descriptions
 

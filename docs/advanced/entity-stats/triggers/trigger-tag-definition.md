@@ -36,6 +36,8 @@ The tag is the word modifiers require and procs filter on. Its definition holds 
 
 ### enum Application {#enum-application}
 
+The options of application: none, percent increase, percent decrease, add, minus.
+
 - **NONE** = `0` - The tag only marks the hit (modifiers elsewhere read the tag or its magnitude)
 - **PERCENT_INCREASE** = `1` - The magnitude is a percentage added to the number: critical strike (100 = doubled)
 - **PERCENT_DECREASE** = `2` - The magnitude is a percentage taken off the number

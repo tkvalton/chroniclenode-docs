@@ -87,7 +87,11 @@ CORRECTED: Restored proper movement functionality and signal handling
 
 ### task_state_changed( old_state: TaskState, new_state: TaskState ) {#signal-task-state-changed}
 
+Emitted when the state of the task changes (running, completed, failed ...).
+
 ### task_progress_updated( progress: float ) {#signal-task-progress-updated}
+
+Emitted when the progress of the task changes (0 to 1).
 
 ## Enumerations
 
@@ -208,7 +212,7 @@ Editor only properties
 
 ### String description = "" {#var-description}
 
-*No description yet.*
+A note about what the task is for (shown in the editor).
 
 ### TaskState state = TaskState.INACTIVE {#var-state}
 
@@ -290,7 +294,7 @@ SystemRefs
 
 ### void set_system_hub( p_system_hub: GameHost.SystemHub ) {#method-set-system-hub}
 
-*No description yet.*
+Gives the task and its conditions the hub of the game systems.
 
 ### void task_start() {#method-task-start}
 

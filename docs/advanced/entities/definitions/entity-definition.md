@@ -58,6 +58,8 @@ EntityDefinition contains all visual, audio, and display configuration for entit
 
 ### enum EntityCollisionShape {#enum-entitycollisionshape}
 
+========== ENUMS ==========
+
 - **TINY** = `0`
 - **SMALL** = `1`
 - **NORMAL** = `2`
@@ -105,7 +107,7 @@ Type tags of this kind of entity (Humanoid, Beast, Undead ...): EntityTagDefinit
 
 ### bool template = false {#prop-template}
 
-*No description yet.*
+True when this definition is a template: other definitions follow it and it is not placed in the world.
 
 ## Method descriptions
 

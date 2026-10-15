@@ -12,13 +12,15 @@ Switches target to enemy based on various criteria
 |---|---|---|
 | `float` | [search_range](#prop-search-range) | `20.0` |
 | `TargetCriteria` | [target_criteria](#prop-target-criteria) | `TargetCriteria.NEAREST` |
-| `float` | [health_threshold_percent](#prop-health-threshold-percent) | `-1.0  # -1 = ignore health threshold` |
+| `float` | [health_threshold_percent](#prop-health-threshold-percent) | `-1.0` |
 | `int` | [required_effect_id](#prop-required-effect-id) | `0  # 0 = no effect requirement` |
 | `int` | [required_effect_stacks](#prop-required-effect-stacks) | `1` |
 
 ## Enumerations
 
 ### enum TargetCriteria {#enum-targetcriteria}
+
+The options of target criteria: nearest, farthest, lowest health, highest health, random.
 
 - **NEAREST** = `0`
 - **FARTHEST** = `1`
@@ -30,21 +32,21 @@ Switches target to enemy based on various criteria
 
 ### float search_range = 20.0 {#prop-search-range}
 
-*No description yet.*
+How far to look for an enemy.
 
 ### TargetCriteria target_criteria = TargetCriteria.NEAREST {#prop-target-criteria}
 
-*No description yet.*
+Which enemy to pick (the nearest, the weakest ...).
 
-### float health_threshold_percent = -1.0  # -1 = ignore health threshold {#prop-health-threshold-percent}
+### float health_threshold_percent = -1.0 {#prop-health-threshold-percent}
 
-*No description yet.*
+-1 = ignore health threshold
 
 ### int required_effect_id = 0  # 0 = no effect requirement {#prop-required-effect-id}
 
-*No description yet.*
+Only enemies with this effect count (0 = no filter).
 
 ### int required_effect_stacks = 1 {#prop-required-effect-stacks}
 
-*No description yet.*
+How many stacks of that effect an enemy needs.
 

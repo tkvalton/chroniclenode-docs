@@ -15,8 +15,8 @@ StatInstance with effect application logic removed for cached query system
 | `float` | [bonus](#var-bonus) | `0.0` |
 | `float` | [growth](#var-growth) | `0.0` |
 | `float` | [multiplier](#var-multiplier) | `1.0` |
-| `bool` | [is_active](#var-is-active) | `true  # Simple enable/disable flag` |
-| `bool` | [in_combat](#var-in-combat) | `false  # Combat state for context-aware effects` |
+| `bool` | [is_active](#var-is-active) | `true` |
+| `bool` | [in_combat](#var-in-combat) | `false` |
 
 ## Methods
 
@@ -46,19 +46,21 @@ StatInstance with effect application logic removed for cached query system
 
 ### stat_changed( stat_id: int, old_value: float, new_value: float ) {#signal-stat-changed}
 
+========== SIGNALS ==========
+
 ## Variable descriptions
 
 ### StatDefinition  # StatDefinition with stat_effects array definition {#var-definition}
 
-*No description yet.*
+========== CORE PROPERTIES ==========
 
 ### float base = 0.0 {#var-base}
 
-*No description yet.*
+The base value of the stat.
 
 ### float bonus = 0.0 {#var-bonus}
 
-*No description yet.*
+The flat bonus added to the base.
 
 ### float growth = 0.0 {#var-growth}
 
@@ -66,15 +68,15 @@ Level growth (derived from the entity level by StatsComponent.set_level, never s
 
 ### float multiplier = 1.0 {#var-multiplier}
 
-*No description yet.*
+The multiplier applied to the base and the bonus (1 = none).
 
-### bool is_active = true  # Simple enable/disable flag {#var-is-active}
+### bool is_active = true {#var-is-active}
 
-*No description yet.*
+Simple enable/disable flag
 
-### bool in_combat = false  # Combat state for context-aware effects {#var-in-combat}
+### bool in_combat = false {#var-in-combat}
 
-*No description yet.*
+Combat state for context-aware effects
 
 ## Method descriptions
 

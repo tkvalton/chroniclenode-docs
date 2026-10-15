@@ -30,6 +30,8 @@ Modern keybind button that works with any InputMap action dynamically
 
 ### mouse_focus_changed( has_focus: bool, action_name: String, description: String ) {#signal-mouse-focus-changed}
 
+Emitted when the mouse enters or leaves the keybind: whether it has the focus, the name of the action and its text.
+
 ## Variable descriptions
 
 ### String action_name = "" {#var-action-name}

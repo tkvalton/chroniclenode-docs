@@ -54,5 +54,5 @@ Does the bag take only some items (so such items go there first)?
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 

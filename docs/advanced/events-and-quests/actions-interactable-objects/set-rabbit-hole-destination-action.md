@@ -42,7 +42,7 @@ New destination rabbit hole ID
 
 ### InteractableObject target_rabbit_hole = null {#var-target-rabbit-hole}
 
-*No description yet.*
+Reference to the target rabbit hole
 
 ## Method descriptions
 

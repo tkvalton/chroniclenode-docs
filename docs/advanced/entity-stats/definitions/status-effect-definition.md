@@ -42,9 +42,9 @@ Defines a configurable status effect that can be applied to entities
 
 ## Constants
 
-- `Array[String]` **CROWD_CONTROL_TYPES** = `["Incapacitate", "Root", "Silence", "Disarm", "Flee", "Disorient"]`
-- `Array[String]` **MOVEMENT_IMPAIRING_TYPES** = `["Root", "Incapacitate", "Cripple"]`
-- `Array[String]` **ABILITY_IMPAIRING_TYPES** = `["Silence", "Disarm", "Incapacitate"]`
+- `Array[String]` **CROWD_CONTROL_TYPES** = `["Incapacitate", "Root", "Silence", "Disarm", "Flee", "Disorient"]` - The status types that count as crowd control.
+- `Array[String]` **MOVEMENT_IMPAIRING_TYPES** = `["Root", "Incapacitate", "Cripple"]` - The status types that keep an entity from moving freely.
+- `Array[String]` **ABILITY_IMPAIRING_TYPES** = `["Silence", "Disarm", "Incapacitate"]` - The status types that keep an entity from using abilities.
 
 ## Property descriptions
 
@@ -114,45 +114,45 @@ A single hit breaks the status when it takes at least this share of the maximum 
 
 ### float get_effective_duration( base_duration: float, application_count: int ) {#method-get-effective-duration}
 
-*No description yet.*
+The duration of the status after diminishing returns, by how many times it was applied.
 
 ### bool should_grant_immunity( application_count: int ) {#method-should-grant-immunity}
 
-*No description yet.*
+Does the status give a temporary immunity after this many applications?
 
 ### bool should_break_on_damage( damage_amount: float, current_health: float, max_health: float ) {#method-should-break-on-damage}
 
-*No description yet.*
+Does this damage break the status?
 
 ### bool is_crowd_control() {#method-is-crowd-control}
 
-*No description yet.*
+Is this status crowd control?
 
 ### bool is_movement_impairing() {#method-is-movement-impairing}
 
-*No description yet.*
+Does this status keep the entity from moving freely?
 
 ### bool is_ability_impairing() {#method-is-ability-impairing}
 
-*No description yet.*
+Does this status keep the entity from using abilities?
 
 ### bool affects_combat() {#method-affects-combat}
 
-*No description yet.*
+Does this status change how the entity fights (disarm, silence, blind, incapacitate)?
 
 ### int get_id() {#method-get-id}
 
-*No description yet.*
+The id of the status.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*No description yet.*
+A text about what the status does.
 
 ### Array[Dictionary] get_duration_preview( base_duration: float, max_applications: int = 5 ) {#method-get-duration-preview}
 
-*No description yet.*
+The duration of the status for each of the first applications, for the editor.
 
 ### String get_preview_text( base_duration: float ) {#method-get-preview-text}
 
-*No description yet.*
+A text that shows the duration of the status for each application, for the editor.
 

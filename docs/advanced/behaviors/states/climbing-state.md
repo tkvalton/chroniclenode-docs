@@ -28,25 +28,25 @@ MovementState for when entity is climbing ladders or similar traversal objects H
 
 ### float climbing_progress = 0.0 {#var-climbing-progress}
 
-*No description yet.*
+How far along the ladder the entity is (0 to 1).
 
 ### int climb_direction = 1  # 1 = up, -1 = down {#var-climb-direction}
 
-*No description yet.*
+1 for up, -1 for down.
 
 ### InteractableObject current_ladder = null {#var-current-ladder}
 
-*No description yet.*
+The ladder the entity climbs.
 
 ## Method descriptions
 
 ### void enter() {#method-enter}
 
-*Overrides this function of [MovementState](/advanced/behaviors/states/movement-state).*
+The entity starts to climb.
 
 ### void exit() {#method-exit}
 
-*Overrides this function of [MovementState](/advanced/behaviors/states/movement-state).*
+The entity stops climbing.
 
 ### void set_ladder( ladder: InteractableObject ) {#method-set-ladder}
 

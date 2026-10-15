@@ -12,12 +12,12 @@ The music of a world (a map album): three lists of tracks (exploration music, co
 |---|---|---|
 | `String` | [album_name](#prop-album-name) | `""` |
 | `String` | [description](#prop-description) | `""` |
-| `Array[String]` | [music_tracks](#prop-music-tracks) | `[]      # Background/exploration music` |
-| `Array[String]` | [combat_tracks](#prop-combat-tracks) | `[]     # Battle music` |
-| `Array[String]` | [ambient_tracks](#prop-ambient-tracks) | `[]    # Environmental loops (wind, water, etc.)` |
-| `int` | [default_music_index](#prop-default-music-index) | `0         # Which music track plays first (-1 = random)` |
-| `int` | [default_combat_index](#prop-default-combat-index) | `0        # Which combat track plays first (-1 = random)` |
-| `int` | [default_ambient_index](#prop-default-ambient-index) | `0       # Which ambient track plays first (-1 = random)` |
+| `Array[String]` | [music_tracks](#prop-music-tracks) | `[]` |
+| `Array[String]` | [combat_tracks](#prop-combat-tracks) | `[]` |
+| `Array[String]` | [ambient_tracks](#prop-ambient-tracks) | `[]` |
+| `int` | [default_music_index](#prop-default-music-index) | `0` |
+| `int` | [default_combat_index](#prop-default-combat-index) | `0` |
+| `int` | [default_ambient_index](#prop-default-ambient-index) | `0` |
 | `bool` | [shuffle_music](#prop-shuffle-music) | `false` |
 | `bool` | [shuffle_combat](#prop-shuffle-combat) | `false` |
 | `bool` | [shuffle_ambient](#prop-shuffle-ambient) | `false` |
@@ -62,105 +62,105 @@ The music of a world (a map album): three lists of tracks (exploration music, co
 
 ### String album_name = "" {#prop-album-name}
 
-*No description yet.*
+The name of the album.
 
 ### String description = "" {#prop-description}
 
-*No description yet.*
+A note about the album (not shown to the player).
 
 *Track Arrays*
 
-### Array[String] music_tracks = []      # Background/exploration music {#prop-music-tracks}
+### Array[String] music_tracks = [] {#prop-music-tracks}
 
-*No description yet.*
+Background/exploration music
 
-### Array[String] combat_tracks = []     # Battle music {#prop-combat-tracks}
+### Array[String] combat_tracks = [] {#prop-combat-tracks}
 
-*No description yet.*
+Battle music
 
-### Array[String] ambient_tracks = []    # Environmental loops (wind, water, etc.) {#prop-ambient-tracks}
+### Array[String] ambient_tracks = [] {#prop-ambient-tracks}
 
-*No description yet.*
+Environmental loops (wind, water, etc.)
 
 *Playback Behavior*
 
-### int default_music_index = 0         # Which music track plays first (-1 = random) {#prop-default-music-index}
+### int default_music_index = 0 {#prop-default-music-index}
 
-*No description yet.*
+Which music track plays first (-1 = random)
 
-### int default_combat_index = 0        # Which combat track plays first (-1 = random) {#prop-default-combat-index}
+### int default_combat_index = 0 {#prop-default-combat-index}
 
-*No description yet.*
+Which combat track plays first (-1 = random)
 
-### int default_ambient_index = 0       # Which ambient track plays first (-1 = random) {#prop-default-ambient-index}
+### int default_ambient_index = 0 {#prop-default-ambient-index}
 
-*No description yet.*
+Which ambient track plays first (-1 = random)
 
 ### bool shuffle_music = false {#prop-shuffle-music}
 
-*No description yet.*
+True when the music tracks play in a random order.
 
 ### bool shuffle_combat = false {#prop-shuffle-combat}
 
-*No description yet.*
+True when the combat tracks play in a random order.
 
 ### bool shuffle_ambient = false {#prop-shuffle-ambient}
 
-*No description yet.*
+True when the ambient tracks play in a random order.
 
 ### bool loop_music = true {#prop-loop-music}
 
-*No description yet.*
+True when the music starts again when the tracks end.
 
 ### bool loop_combat = true {#prop-loop-combat}
 
-*No description yet.*
+True when the combat music starts again when the tracks end.
 
 ### bool loop_ambient = true {#prop-loop-ambient}
 
-*No description yet.*
+True when the ambient sounds start again when the tracks end.
 
 ### float crossfade_duration = 2.0 {#prop-crossfade-duration}
 
-*No description yet.*
+How many seconds a track takes to fade into the next.
 
 *Audio Settings*
 
 ### float music_volume_db = 0.0 {#prop-music-volume-db}
 
-*No description yet.*
+The volume of the music, in decibels.
 
 ### float combat_volume_db = 0.0 {#prop-combat-volume-db}
 
-*No description yet.*
+The volume of the combat music, in decibels.
 
 ### float ambient_volume_db = 0.0 {#prop-ambient-volume-db}
 
-*No description yet.*
+The volume of the ambient sounds, in decibels.
 
 ### float pitch_scale = 1.0 {#prop-pitch-scale}
 
-*No description yet.*
+The pitch of the whole album (1 = normal).
 
 *Advanced*
 
 ### float fade_in_duration = 1.0 {#prop-fade-in-duration}
 
-*No description yet.*
+How many seconds a track takes to fade in.
 
 ### float fade_out_duration = 1.0 {#prop-fade-out-duration}
 
-*No description yet.*
+How many seconds a track takes to fade out.
 
 ### float silence_between_tracks = 0.0 {#prop-silence-between-tracks}
 
-*No description yet.*
+How many seconds of silence between two tracks.
 
 *Validation*
 
 ### Array[String] validation_warnings = [] {#prop-validation-warnings}
 
-*No description yet.*
+The problems validate found (a missing track ...).
 
 ## Method descriptions
 
@@ -202,35 +202,35 @@ Get track by name for a specific type
 
 ### Array[String] validate() {#method-validate}
 
-*No description yet.*
+Checks the album and gives the warnings (a missing file, an empty list).
 
 ### String get_summary() {#method-get-summary}
 
-*No description yet.*
+A short text about the album: how many tracks of each kind.
 
 ### Dictionary get_playback_info() {#method-get-playback-info}
 
-*No description yet.*
+The playback settings of the album (shuffle, loop, volumes) as a dictionary.
 
 ### AudioAlbum create_new( name: String ) {#method-create-new}
 
-*No description yet.*
+Makes an empty album with a name.
 
 ### AudioAlbum create_music_only_album( name: String, music_tracks: Array[String] ) {#method-create-music-only-album}
 
-*No description yet.*
+Makes an album with music tracks only.
 
 ### AudioAlbum create_combat_only_album( name: String, combat_tracks: Array[String] ) {#method-create-combat-only-album}
 
-*No description yet.*
+Makes an album with combat tracks only.
 
 ### AudioAlbum create_ambient_only_album( name: String, ambient_tracks: Array[String] ) {#method-create-ambient-only-album}
 
-*No description yet.*
+Makes an album with ambient tracks only.
 
 ### AudioAlbum create_full_album( name: String, music_tracks: Array[String], combat_tracks: Array[String], ambient_tracks: Array[String] ) {#method-create-full-album}
 
-*No description yet.*
+Makes an album with music, combat and ambient tracks.
 
 ### Array[String] get_available_music_tracks() {#method-get-available-music-tracks}
 
@@ -238,5 +238,5 @@ Get available tracks from DatabaseAudio for dropdown menus
 
 ### Array[String] get_available_ambient_tracks() {#method-get-available-ambient-tracks}
 
-*No description yet.*
+The ambient files the project has (the looping and the non looping ones).
 

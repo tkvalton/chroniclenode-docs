@@ -29,6 +29,8 @@ HealReflectEffect passes a share of the healing its bearer receives on to someon
 
 ### enum Recipient {#enum-recipient}
 
+The options of recipient: originator, healer.
+
 - **ORIGINATOR** = `0` - The entity that applied this effect (the priest who cast Vampiric Embrace)
 - **HEALER** = `1` - Whoever healed the bearer
 
@@ -60,17 +62,17 @@ How many reactions deep a heal may be and still be reflected. 1: a normal heal i
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+What the effect does to its target when it is applied.
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-Handles the finishing of the effect, including cleanup and VFX/SFX (override in child classes if needed, call .super for cleanup) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+Called when the effect ends: takes back what it did.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 

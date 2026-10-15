@@ -29,7 +29,7 @@ The fallback surface type if detection fails
 
 ### Node3D terrain {#prop-terrain}
 
-*No description yet.*
+The terrain node the provider reads.
 
 ## Method descriptions
 

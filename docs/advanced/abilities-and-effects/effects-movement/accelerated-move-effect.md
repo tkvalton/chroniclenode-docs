@@ -29,6 +29,8 @@ AcceleratedMoveEffect: Acceleration and curve-based movement Combines accelerati
 
 ### enum AccelerationType {#enum-accelerationtype}
 
+The options of acceleration type: linear, quadratic, cubic, smooth, custom.
+
 - **LINEAR** = `0`
 - **QUADRATIC** = `1`
 - **CUBIC** = `2`
@@ -59,11 +61,11 @@ Custom curve defining velocity over time (only used when acceleration_type is Cu
 
 ### void apply_movement( effect_instance: EffectInstance, entity: Entity, direction: Vector3 ) {#method-apply-movement}
 
-Virtual method for child classes to implement their movement logic *(from [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect))*
+Moves the entity one step in the direction of the movement.
 
 ### void handle_movement_collision( effect_instance: EffectInstance, collision: KinematicCollision3D ) {#method-handle-movement-collision}
 
-Virtual method for child classes to handle movement-specific collision logic *(from [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect))*
+Called when the moving entity hits something: it bounces or stops, by the settings of the effect.
 
 ### float get_acceleration_factor( progress: float ) {#method-get-acceleration-factor}
 
@@ -71,9 +73,9 @@ Calculate acceleration factor based on progress and curve type
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*Overrides this function of [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect).*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect).*
+A short text for the effect editor that says what the effect does.
 

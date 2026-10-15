@@ -20,21 +20,21 @@ Makes the five tooltips once (item, effect, ability, skill node and description)
 
 ### TooltipItem item_tooltip {#var-item-tooltip}
 
-*No description yet.*
+The tooltip of items.
 
 ### TooltipEffect effect_tooltip {#var-effect-tooltip}
 
-*No description yet.*
+The tooltip of effects.
 
 ### TooltipAbility ability_tooltip {#var-ability-tooltip}
 
-*No description yet.*
+The tooltip of abilities.
 
 ### TooltipSkillNode skill_node_tooltip {#var-skill-node-tooltip}
 
-*No description yet.*
+The tooltip of skill nodes.
 
 ### TooltipDescription description_tooltip {#var-description-tooltip}
 
-*No description yet.*
+The tooltip of plain texts.
 

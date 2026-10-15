@@ -30,6 +30,8 @@ HealEffect is a an effect that applies healing to the target entity.
 
 ### enum TargetMode {#enum-targetmode}
 
+The options of target mode: all health pools, base pool only, specific pool.
+
 - **ALL_HEALTH_POOLS** = `0`
 - **BASE_POOL_ONLY** = `1`
 - **SPECIFIC_POOL** = `2`
@@ -68,15 +70,15 @@ Specific Pool to heal (If not found will not heal)
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+What the effect does to its target when it is applied.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

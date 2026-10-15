@@ -12,8 +12,8 @@ One objective in the quest tracker: its text and its progress, with an animation
 |---|---|---|
 | `Tween` | [tween](#var-tween) |  |
 | `Color` | [original_color](#var-original-color) | `Color.WHITE` |
-| `Color` | [completion_color](#var-completion-color) | `Color(0.5, 0.9, 0.5)  # Green` |
-| `Color` | [failure_color](#var-failure-color) | `Color(0.9, 0.3, 0.3)     # Red` |
+| `Color` | [completion_color](#var-completion-color) | `Color(0.5, 0.9, 0.5)` |
+| `Color` | [failure_color](#var-failure-color) | `Color(0.9, 0.3, 0.3)` |
 
 ## Methods
 
@@ -27,31 +27,31 @@ One objective in the quest tracker: its text and its progress, with an animation
 
 ### Tween tween {#var-tween}
 
-*No description yet.*
+Animation properties
 
 ### Color original_color = Color.WHITE {#var-original-color}
 
-*No description yet.*
+The color of the text, kept to give it back after an animation.
 
-### Color completion_color = Color(0.5, 0.9, 0.5)  # Green {#var-completion-color}
+### Color completion_color = Color(0.5, 0.9, 0.5) {#var-completion-color}
 
-*No description yet.*
+Green
 
-### Color failure_color = Color(0.9, 0.3, 0.3)     # Red {#var-failure-color}
+### Color failure_color = Color(0.9, 0.3, 0.3) {#var-failure-color}
 
-*No description yet.*
+Red
 
 ## Method descriptions
 
 ### void setup_objective( objective: QuestObjective ) {#method-setup-objective}
 
-*No description yet.*
+Fills the label with an objective: its text and its progress.
 
 ### void update_objective_display( objective: QuestObjective ) {#method-update-objective-display}
 
-*No description yet.*
+Updates the text and the progress of the objective.
 
 ### void animate_progress_update() {#method-animate-progress-update}
 
-*No description yet.*
+Plays a short animation when the progress changes (not at the end).
 

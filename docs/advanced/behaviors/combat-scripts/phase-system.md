@@ -74,7 +74,7 @@ Whether phase system is active
 
 ### bool combat_started = false {#var-combat-started}
 
-*No description yet.*
+True once the combat has started (the phases are on).
 
 ## Method descriptions
 

@@ -40,6 +40,8 @@ Base class for all projectile effects Handles shared functionality like spawn po
 
 ### enum TriggerType {#enum-triggertype}
 
+The options of trigger type: collision, destination, timer.
+
 - **COLLISION** = `0`
 - **DESTINATION** = `1`
 
@@ -51,7 +53,7 @@ VFX for the projectile visual
 
 ### float projectile_speed = 15.0 {#prop-projectile-speed}
 
-*No description yet.*
+How fast the projectile travels, in units per second.
 
 ### bool charge_scales_speed = false {#prop-charge-scales-speed}
 
@@ -115,7 +117,7 @@ Override this to provide complete effect description
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

@@ -257,9 +257,15 @@ Damage signals - forwarded from StatsComponent
 
 ### entity_taken_damage( damage_amount: int, damage_source: Variant, effect: EffectInstance, damage_type: int ) {#signal-entity-taken-damage}
 
+Emitted when the entity takes damage: the amount, who or what dealt it, the effect and the damage type.
+
 ### entity_health_changed( new_health: int ) {#signal-entity-health-changed}
 
+Emitted when the health of the entity changes, with the new health.
+
 ### entity_damage_absorbed_by_pool( pool_id: int, amount: float, damage_type: int, damage_source: Variant, effect: EffectInstance ) {#signal-entity-damage-absorbed-by-pool}
+
+Emitted when a pool other than health (a shield) absorbs damage: the pool, the amount, the damage type, the source and the effect.
 
 ### entity_healing_applied( pool_id: int, amount: float, healing_source: Variant, effect: EffectInstance ) {#signal-entity-healing-applied}
 
@@ -271,15 +277,23 @@ Resolved hits and heals: ONE signal each carrying the typed result (see DamageRe
 
 ### entity_hit_received( result: DamageResult ) {#signal-entity-hit-received}
 
+Emitted with the full result of a hit the entity received (see DamageResult).
+
 ### entity_heal_dealt( result: HealingResult ) {#signal-entity-heal-dealt}
 
+Emitted with the result of a heal the entity gave to someone.
+
 ### entity_heal_received( result: HealingResult ) {#signal-entity-heal-received}
+
+Emitted with the result of a heal the entity received.
 
 ### entity_dying( entity: Entity ) {#signal-entity-dying}
 
 Death signal - forwarded from StatsComponent via mediator Emitted when the entity has just died, before its effects are removed: death procs (and a resurrection) run on it. entity_died follows
 
 ### entity_died( entity: Entity ) {#signal-entity-died}
+
+Emitted when the entity dies.
 
 ### entity_corpse_restored( entity: Entity ) {#signal-entity-corpse-restored}
 
@@ -291,13 +305,19 @@ The damage reflection of this entity hit an attacker (the attacker, the damage, 
 
 ### reflected_damage_taken( bearer: Variant, amount: float, effect: EffectInstance ) {#signal-reflected-damage-taken}
 
+Emitted when the entity takes damage that was reflected back by a target.
+
 ### entity_resource_changed( new_resource: int ) {#signal-entity-resource-changed}
 
 Resource signals - forwarded from StatsComponent
 
 ### pool_added( pool_instance: PoolInstance, pool_type: String ) {#signal-pool-added}
 
+Emitted when a pool is added to the entity (a health or a resource pool).
+
 ### pool_removed( pool_id: int, pool_type: String ) {#signal-pool-removed}
+
+Emitted when a pool is removed from the entity.
 
 ### entity_stat_changed( stat_id: int, old_value: float, new_value: float ) {#signal-entity-stat-changed}
 
@@ -313,7 +333,11 @@ Effect signals - forwarded from EffectsComponent
 
 ### effect_updated( effect_instance: EffectInstance ) {#signal-effect-updated}
 
+Emitted when an effect on the entity changes (a new stack, a refreshed duration).
+
 ### effect_lost( effect_instance: EffectInstance ) {#signal-effect-lost}
+
+Emitted when an effect on the entity ends or is removed.
 
 ### immunity_activated( immunity_id: int, duration: float, immunity_type: ImmunityDefinition.ImmunityType, protected_targets: Array[int] ) {#signal-immunity-activated}
 
@@ -321,19 +345,27 @@ Immunity signals - forwarded from ImmunityComponent via StatsComponent
 
 ### immunity_deactivated( immunity_id: int, immunity_type: ImmunityDefinition.ImmunityType, protected_targets: Array[int] ) {#signal-immunity-deactivated}
 
+Emitted when a temporary immunity of the entity ends: the immunity, its type and what it protected against.
+
 ### ability_cooldown_started( ability_name: String, duration: float ) {#signal-ability-cooldown-started}
 
 Ability cooldown signals - forwarded from AbilityComponent
 
 ### global_cooldown_started() {#signal-global-cooldown-started}
 
+Emitted when the global cooldown of the entity starts.
+
 ### global_cooldown_ended() {#signal-global-cooldown-ended}
+
+Emitted when the global cooldown of the entity ends.
 
 ### pet_gained( pet: Pet ) {#signal-pet-gained}
 
 Pet signals - forwarded from PetManagerComponent
 
 ### pet_lost( pet: Pet ) {#signal-pet-lost}
+
+Emitted when a pet of the entity is lost (dies or is dismissed).
 
 ### equipment_changed( item: ItemInstance, item_slot: EquipmentSlotDefinition, equipped: bool ) {#signal-equipment-changed}
 
@@ -345,11 +377,15 @@ Inventory change signals - forwarded from InventoryComponent
 
 ### entity_item_removed( item_instance: ItemInstance, quantity: int ) {#signal-entity-item-removed}
 
+Emitted when items leave the bag of the entity: the item and how many.
+
 ### entity_dealt_damage( effect: EffectInstance, target: Variant ) {#signal-entity-dealt-damage}
 
 Entity action signals - Entity-level emissions (not from components)
 
 ### entity_heal_cast( effect: EffectInstance, target: Variant ) {#signal-entity-heal-cast}
+
+Emitted when the entity casts a heal on a target.
 
 ### entity_cast_resurrection( target: Variant, healing_applied: float, effect: EffectInstance ) {#signal-entity-cast-resurrection}
 
@@ -369,17 +405,31 @@ Damage redirection (a guardian takes hits for someone): on the protected entity,
 
 ### damage_redirected_to_self( protected: Variant, attacker: Variant, amount: float, effect: EffectInstance ) {#signal-damage-redirected-to-self}
 
+Emitted when damage meant for another entity is redirected to this one (a guardian ability).
+
 ### damage_was_redirected( protected: Variant, guardian: Variant, amount: float, effect: EffectInstance ) {#signal-damage-was-redirected}
+
+Emitted when damage that would hit this entity is redirected to its guardian.
 
 ### entity_ability_cast( ability: AbilityInstance, target: Variant ) {#signal-entity-ability-cast}
 
+Emitted when the entity casts an ability on a target.
+
 ### entity_basic_attack_cast() {#signal-entity-basic-attack-cast}
+
+Emitted when the entity uses its basic attack.
 
 ### entity_casting( ability: AbilityInstance ) {#signal-entity-casting}
 
+Emitted when the entity starts casting an ability that takes time.
+
 ### entity_stop_casting() {#signal-entity-stop-casting}
 
+Emitted when the entity stops casting, finished or not.
+
 ### entity_interrupted() {#signal-entity-interrupted}
+
+Emitted when the cast of the entity is interrupted.
 
 ### entity_activity_started( label: String, timer: Timer ) {#signal-entity-activity-started}
 
@@ -398,6 +448,8 @@ The entity gathered from a gathering node
 Level progression signals - Player-specific
 
 ### entity_xp_changed( player: Player, experience: int, experience_requirement: int ) {#signal-entity-xp-changed}
+
+Emitted when the experience of a player changes: the player, the experience and what the next level needs.
 
 ### entity_interacted() {#signal-entity-interacted}
 
@@ -421,11 +473,17 @@ Item usage signals - emitted directly from ItemInstance
 
 ### entity_item_consumed( item_instance: ItemInstance, amount: int ) {#signal-entity-item-consumed}
 
+Emitted when the entity uses up items (a potion): the item and how many.
+
 ### entity_item_depleted( item_instance: ItemInstance ) {#signal-entity-item-depleted}
+
+Emitted when the last item of a stack is used up.
 
 ## Enumerations
 
 ### enum MapMarkerType {#enum-mapmarkertype}
+
+The kinds of mark an entity can have on the mini map.
 
 - **ENTITY** = `0`
 - **QUEST_NPC** = `1`
@@ -437,12 +495,16 @@ Item usage signals - emitted directly from ItemInstance
 
 ### enum FaceTargetSpeed {#enum-facetargetspeed}
 
+How fast the entity turns to look at something: instantly, or smoothly at one of the speeds.
+
 - **SLOW** = `0`
 - **AVERAGE** = `1`
 - **FAST** = `2`
 - **INSTANT** = `3`
 
 ### enum TurnSource {#enum-turnsource}
+
+What is turning the entity: its own navigation (it faces where it walks) or direct input (the mouse look of a player).
 
 - **NAVIGATION** = `0`
 - **DIRECT_INPUT** = `1`
@@ -455,11 +517,11 @@ Item usage signals - emitted directly from ItemInstance
 
 ### UniqueEntityData unique_data {#prop-unique-data}
 
-*No description yet.*
+The record of this entity in the world (a placed NPC): its overrides, position and spawn settings. Empty for an entity that is not placed.
 
 ### EntityDefinition : definition {#prop-definition}
 
-*No description yet.*
+What kind of entity this is: the NPC, the character or the interactable definition it was made from.
 
 ## Variable descriptions
 
@@ -469,31 +531,31 @@ Jump velocity applied when jump() is called
 
 ### bool is_initialized = false {#var-is-initialized}
 
-*No description yet.*
+True once initialize_entity has run and the entity has its components.
 
 ### String display_name {#var-display-name}
 
-*No description yet.*
+The name shown above the entity and in the interface.
 
 ### Variant target {#var-target}
 
-*No description yet.*
+The entity or object this entity has targeted now (null when none).
 
 ### int current_level = 0: {#var-current-level}
 
-*No description yet.*
+The level of the entity. Changing it recomputes the growth of its stats and pools.
 
 ### AbilityInstance casting_ability = null: {#var-casting-ability}
 
-*No description yet.*
+The ability the entity is casting now (null when it is not casting).
 
 ### FactionDefinition faction {#var-faction}
 
-*No description yet.*
+The faction of the entity. It decides who it attacks and who it helps.
 
 ### Entity last_damage_source = null {#var-last-damage-source}
 
-*No description yet.*
+Track last entity that damaged this entity (for kill credit)
 
 ### Dictionary meta_data =  {#var-meta-data}
 
@@ -501,75 +563,75 @@ Free-form values behaviour tasks and conditions read and write (the Set Metadata
 
 ### bool is_active = false {#var-is-active}
 
-*No description yet.*
+True while the entity is active in the world (an inactive one is hidden and does nothing).
 
 ### bool is_dead = false {#var-is-dead}
 
-*No description yet.*
+True when the entity is dead.
 
 ### bool currently_moving = false {#var-currently-moving}
 
-*No description yet.*
+True while the entity is moving.
 
 ### bool in_combat = false {#var-in-combat}
 
-*No description yet.*
+True while the entity is in combat.
 
 ### CombatSession current_encounter = null {#var-current-encounter}
 
-*No description yet.*
+The combat session the entity takes part in (null outside combat).
 
 ### EffectInstance active_movement_effect = null {#var-active-movement-effect}
 
-*No description yet.*
+The movement effect (a charge, a leap) that is moving the entity now, if any.
 
 ### bool immobile = false {#var-immobile}
 
-*No description yet.*
+True when something holds the entity still (it cannot move or turn on its own).
 
 ### bool cast_immobile = false {#var-cast-immobile}
 
-*No description yet.*
+True while the entity is casting an ability that does not let it move.
 
 ### bool is_falling = false {#var-is-falling}
 
-*No description yet.*
+True while the entity is in the air.
 
 ### bool is_crouched = false {#var-is-crouched}
 
-*No description yet.*
+True while the entity is crouched.
 
 ### bool is_swimming = false {#var-is-swimming}
 
-*No description yet.*
+True while the entity is swimming.
 
 ### bool is_walking = false {#var-is-walking}
 
-*No description yet.*
+True while the entity walks (instead of running).
 
 ### bool is_flying = false {#var-is-flying}
 
-*No description yet.*
+True while the entity is flying.
 
 ### bool is_climbing = false {#var-is-climbing}
 
-*No description yet.*
+True while the entity is climbing a ladder.
 
 ### bool fleeing = false {#var-fleeing}
 
-*No description yet.*
+True while the entity runs away (afraid).
 
 ### bool incapactiated = false {#var-incapactiated}
 
-*No description yet.*
+True while the entity is incapacitated (stunned or asleep): it cannot act.
 
 ### bool disoriented = false {#var-disoriented}
 
-*No description yet.*
+True while the entity is disoriented (it moves in a random direction).
 
 ### bool is_stealthed = false: {#var-is-stealthed}
 
-*No description yet.*
+True while the entity is hidden from others. Setting it tells the rig and the nameplate.
 
 ### GameplayConfig.LODLevel lod_level = GameplayConfig.LODLevel.HIGH_DETAIL: {#var-lod-level}
 
@@ -589,15 +651,15 @@ Whether this entity is currently hidden due to fog
 
 ### EntityComponentRegistry components {#var-components}
 
-*No description yet.*
+The components of the entity (stats, abilities, effects, inventory, equipment, rig, states ...), made when it is initialized.
 
 ### CollisionShape3D entity_collision {#var-entity-collision}
 
-*No description yet.*
+The collision shape of the body of the entity.
 
 ### Decal map_marker {#var-map-marker}
 
-*No description yet.*
+The mark under the entity that shows on the mini map.
 
 ### Nameplate: nameplate {#var-nameplate}
 
@@ -647,11 +709,11 @@ The numbers of the loot rules that have rolled (a rule on Initialize or First Ac
 
 ### int get_unique_id() {#method-get-unique-id}
 
-*No description yet.*
+The id of the unique record of the entity (its place in the world), or -1 when it has none.
 
 ### void initialize_entity( system_hub: GameHost.SystemHub ) {#method-initialize-entity}
 
-*No description yet.*
+Builds the entity from its definition: resolves its template, makes its components, faction, abilities, bag and equipment, and sets it up. Called once when the entity is made.
 
 ### void update_movement_tracking( delta: float ) {#method-update-movement-tracking}
 
@@ -675,7 +737,7 @@ Mouse-look lease, held by the controller for the duration of an RMB look. block_
 
 ### void end_direct_facing() {#method-end-direct-facing}
 
-*No description yet.*
+Ends the mouse look: the entity turns on its own again.
 
 ### bool is_auto_facing_blocked() {#method-is-auto-facing-blocked}
 
@@ -707,7 +769,7 @@ Sets the facing to follow the direction of travel (NavigationController velocity
 
 ### void set_active_state( system_hub: GameHost.SystemHub, active: bool ) {#method-set-active-state}
 
-*No description yet.*
+Makes the entity active or inactive. An inactive entity is hidden, does not think and is not saved as alive.
 
 ### void resume_behavior_system() {#method-resume-behavior-system}
 
@@ -763,11 +825,11 @@ Level up a specific player
 
 ### float get_stat( stat_id: int ) {#method-get-stat}
 
-*No description yet.*
+The current value of a stat, with every bonus and multiplier.
 
 ### bool has_stat( stat_id: int ) {#method-has-stat}
 
-*No description yet.*
+Does the entity have this stat?
 
 ### float get_stat_value( stat_name: String ) {#method-get-stat-value}
 
@@ -775,19 +837,19 @@ A stat by its name (the display name, any case) or by its id as text: what conve
 
 ### Array[int] get_stat_ids_in_group( group_id: int ) {#method-get-stat-ids-in-group}
 
-*No description yet.*
+The ids of the stats the entity has in a stat group.
 
 ### bool add_stat_bonus( stat_id: int, amount: float ) {#method-add-stat-bonus}
 
-*No description yet.*
+Adds a flat amount to a stat (a negative amount takes away). False when the stat does not exist.
 
 ### bool add_stat_multiplier( stat_id: int, amount: float ) {#method-add-stat-multiplier}
 
-*No description yet.*
+Adds to the multiplier of a stat (the percent change is added to what is there).
 
 ### bool set_stat_multiplier( stat_id: int, multiplier: float ) {#method-set-stat-multiplier}
 
-*No description yet.*
+Sets the multiplier of a stat as a percent (100 = no change).
 
 ### bool is_hostile_to( other: Variant ) {#method-is-hostile-to}
 
@@ -819,15 +881,15 @@ The level of a proficiency (swords, heavy armor, lockpicking). Only players trai
 
 ### bool has_entity_tag( tag_id: int ) {#method-has-entity-tag}
 
-*No description yet.*
+Does the entity have this entity type tag? A tag of the definition counts unless it was taken away at run time.
 
 ### void add_entity_tag( tag_id: int ) {#method-add-entity-tag}
 
-*No description yet.*
+Gives the entity a tag at run time (it stays in the save).
 
 ### void remove_entity_tag( tag_id: int ) {#method-remove-entity-tag}
 
-*No description yet.*
+Takes a tag away at run time, even one the definition gives.
 
 ### void sync_type_effects() {#method-sync-type-effects}
 
@@ -839,7 +901,7 @@ The tags added or removed while playing (the definition's own tags come back fro
 
 ### void entity_tags_from_save( data: Dictionary ) {#method-entity-tags-from-save}
 
-*No description yet.*
+Restores the tags added and taken away at run time from a save.
 
 ### float modify_gain( channel: String, amount: float ) {#method-modify-gain}
 
@@ -851,31 +913,31 @@ modify_gain for whole numbers; `probabilistic` turns a fraction into a chance of
 
 ### bool set_stat_base( stat_id: int, value: float ) {#method-set-stat-base}
 
-*No description yet.*
+Sets the base value of a stat (what the value is before bonuses).
 
 ### void set_custom_gravity( new_gravity: float ) {#method-set-custom-gravity}
 
-*No description yet.*
+Gives the entity a gravity of its own (a floating creature, a slow fall).
 
 ### void reset_custom_gravity() {#method-reset-custom-gravity}
 
-*No description yet.*
+Gives the entity the gravity of the project again.
 
 ### float get_custom_gravity() {#method-get-custom-gravity}
 
-*No description yet.*
+The gravity of the entity: its own when set, else the project's.
 
 ### float get_weapon_damage() {#method-get-weapon-damage}
 
-*No description yet.*
+The weapon damage stat of the entity (what its weapon or its body hits for).
 
 ### float roll_weapon_damage() {#method-roll-weapon-damage}
 
-*No description yet.*
+Rolls the weapon damage within its variance: the damage of one swing.
 
 ### bool has_weapon_equipped() {#method-has-weapon-equipped}
 
-*No description yet.*
+Does the entity have weapon damage above zero?
 
 ### int get_equipped_weapon_damage_type() {#method-get-equipped-weapon-damage-type}
 
@@ -887,123 +949,123 @@ Check if any equipped weapon deals a specific damage type
 
 ### float get_current_health() {#method-get-current-health}
 
-*No description yet.*
+The current health (the current value of the master pool).
 
 ### float get_max_health() {#method-get-max-health}
 
-*No description yet.*
+The maximum health (the maximum of the master pool).
 
 ### float get_health_percentage() {#method-get-health-percentage}
 
-*No description yet.*
+The health as a percentage of the maximum.
 
 ### bool is_health_below( threshold: float ) {#method-is-health-below}
 
-*No description yet.*
+Is the health percentage below the threshold?
 
 ### bool is_health_above( threshold: float ) {#method-is-health-above}
 
-*No description yet.*
+Is the health percentage above the threshold?
 
 ### float get_pool_current( pool_id: int ) {#method-get-pool-current}
 
-*No description yet.*
+The current value of a pool.
 
 ### float get_pool_max( pool_id: int ) {#method-get-pool-max}
 
-*No description yet.*
+The maximum value of a pool.
 
 ### float get_pool_percentage( pool_id: int ) {#method-get-pool-percentage}
 
-*No description yet.*
+The value of a pool as a percentage of its maximum.
 
 ### Dictionary can_afford_resource( pool_id: int, amount: float ) {#method-can-afford-resource}
 
-*No description yet.*
+Can the entity pay this amount from the pool? The answer says whether it can and, when it cannot, why.
 
 ### bool has_pool( pool_id: int ) {#method-has-pool}
 
-*No description yet.*
+Does the entity have this pool?
 
 ### bool is_master_pool( pool_id: int ) {#method-is-master-pool}
 
-*No description yet.*
+Is this the master pool of the entity (the one whose emptying kills it)?
 
 ### PoolInstance get_master_pool() {#method-get-master-pool}
 
-*No description yet.*
+The master pool of the entity (health).
 
 ### float add_pool_value( pool_id: int, amount: float ) {#method-add-pool-value}
 
-*No description yet.*
+Adds an amount to a pool, up to its maximum. Gives back what was added.
 
 ### bool remove_pool_value( pool_id: int, amount: float ) {#method-remove-pool-value}
 
-*No description yet.*
+Takes an amount from a pool. False when the entity has no such pool.
 
 ### bool is_resource_pool( pool_id: int ) {#method-is-resource-pool}
 
-*No description yet.*
+Is the pool a resource pool (mana, rage) and not a health pool?
 
 ### Array[int] get_resource_pool_ids() {#method-get-resource-pool-ids}
 
-*No description yet.*
+The ids of the resource pools of the entity.
 
 ### AbilityInstance get_ability_by_id( ability_id: int ) {#method-get-ability-by-id}
 
-*No description yet.*
+The ability instance of the entity with this ability id, or null.
 
 ### bool has_ability_by_id( ability_id: int ) {#method-has-ability-by-id}
 
-*No description yet.*
+Does the entity know this ability?
 
 ### AbilityInstance get_basic_attack() {#method-get-basic-attack}
 
-*No description yet.*
+The basic attack of the entity.
 
 ### Array[AbilityInstance] get_active_abilities() {#method-get-active-abilities}
 
-*No description yet.*
+The active abilities of the entity.
 
 ### Array[AbilityInstance] get_passive_abilities() {#method-get-passive-abilities}
 
-*No description yet.*
+The passive abilities of the entity.
 
 ### bool add_ability( ability: AbilityInstance ) {#method-add-ability}
 
-*No description yet.*
+Gives the entity an ability instance (an active or a passive one).
 
 ### bool swap_basic_attack( ability: AbilityInstance ) {#method-swap-basic-attack}
 
-*No description yet.*
+Replaces the basic attack of the entity.
 
 ### bool remove_basic_attack() {#method-remove-basic-attack}
 
-*No description yet.*
+Takes the basic attack away.
 
 ### bool remove_ability_by_id( ability_id: int ) {#method-remove-ability-by-id}
 
-*No description yet.*
+Takes an ability away by its id.
 
 ### bool move_to_position( target_pos: Vector3, should_walk: bool = false, min_distance: float = -1.0 ) {#method-move-to-position}
 
-*No description yet.*
+Moves the entity to a position and waits until it gets there (true) or the path fails (false). Stops a cast first. A minimum distance stops it short.
 
 ### bool move_keep_facing( target_pos: Vector3, should_walk: bool = false, min_distance: float = -1.0 ) {#method-move-keep-facing}
 
-*No description yet.*
+Moves to a position without turning to the direction of the movement.
 
 ### bool backpedal_to( target_pos: Vector3, should_walk: bool = false, min_distance: float = -1.0 ) {#method-backpedal-to}
 
-*No description yet.*
+Moves to a position walking backward, facing the same way.
 
 ### bool strafe_to( target_pos: Vector3, strafe_direction: int, should_walk: bool = false, min_distance: float = -1.0 ) {#method-strafe-to}
 
-*No description yet.*
+Moves to a position sideways (left or right), facing the same way.
 
 ### bool follow_target( target_to_follow: Node3D, min_distance: float = 2.0, should_walk: bool = false ) {#method-follow-target}
 
-*No description yet.*
+Follows a node at a distance until it is told to stop.
 
 ### bool move_to_position_sync( target_pos: Vector3, should_walk: bool = false, min_distance: float = -1.0 ) {#method-move-to-position-sync}
 
@@ -1023,7 +1085,7 @@ Synchronous strafe movement - for behavior tasks
 
 ### void stop_moving() {#method-stop-moving}
 
-*No description yet.*
+Stops the movement of the entity.
 
 ### void jump() {#method-jump}
 
@@ -1031,67 +1093,67 @@ Performs a jump if the entity is on the floor Uses the exported jump_velocity va
 
 ### void entity_face_direction( look_at_direction: Vector3, speed: int = FaceTargetSpeed.INSTANT ) {#method-entity-face-direction}
 
-*No description yet.*
+Turns the entity to a direction, at a speed (instantly by default).
 
 ### void entity_look_at_object( object: Node3D, speed: int = FaceTargetSpeed.INSTANT ) {#method-entity-look-at-object}
 
-*No description yet.*
+Turns the entity to look at a node, at a speed (instantly by default).
 
 ### void set_approach_distance( distance: float ) {#method-set-approach-distance}
 
-*No description yet.*
+Sets how close the entity gets to its target before it stops moving.
 
 ### MovementState get_movement_state() {#method-get-movement-state}
 
-*No description yet.*
+The movement state of the entity now (idle, moving, falling, climbing ...).
 
 ### void change_movement_state( state_name: MovementStateComponent.MovementStateName ) {#method-change-movement-state}
 
-*No description yet.*
+Puts the entity in a movement state.
 
 ### Dictionary get_aim( max_range: float = 0.0 ) {#method-get-aim}
 
-*No description yet.*
+Where the entity aims now (a ray to a point or an entity), through its aim provider, up to a maximum range (0 = the ability's own).
 
 ### void request_action_state_change( state_name: ModularCombatScript.ActionStateName, data: Dictionary = &#123;&#125; ) {#method-request-action-state-change}
 
-*No description yet.*
+Asks the combat script of the entity to go to an action state (attack, flee, dead ...) with data. A dead entity only accepts the dead state.
 
 ### void set_stealth_prevention( prevent: bool ) {#method-set-stealth-prevention}
 
-*No description yet.*
+Stops the entity from being stealthed (true) or lets it again (false). It counts: two reasons need two releases.
 
 ### bool is_stealth_prevented() {#method-is-stealth-prevented}
 
-*No description yet.*
+Does something stop the entity from being stealthed now?
 
 ### bool is_immobile() {#method-is-immobile}
 
-*No description yet.*
+Can the entity not move now: held, casting in place or rooted?
 
 ### void cast_interrupted() {#method-cast-interrupted}
 
-*No description yet.*
+Interrupts the cast of the entity.
 
 ### void stop_cast() {#method-stop-cast}
 
-*No description yet.*
+Stops the cast of the entity.
 
 ### void set_target( new_target: Variant ) {#method-set-target}
 
-*No description yet.*
+Targets an entity or object (or nothing). The marks and the target frame follow.
 
 ### void enter_combat( target_entity: Entity = null ) {#method-enter-combat}
 
-*No description yet.*
+Puts the entity in combat, against a target when it has one. A dead entity cannot.
 
 ### void exit_combat() {#method-exit-combat}
 
-*No description yet.*
+The fight is over for the entity: a neutral that was attacked is neutral again.
 
 ### void change_combat_state( value: bool ) {#method-change-combat-state}
 
-*No description yet.*
+Sets whether the entity is in combat and tells the components.
 
 ### void set_encounter( encounter: CombatSession ) {#method-set-encounter}
 
@@ -1103,7 +1165,7 @@ Remove entity from current encounter
 
 ### Node3D get_attachment_point_node( location: VFXSelection.VfxLocation ) {#method-get-attachment-point-node}
 
-*No description yet.*
+The node of the model where a visual effect attaches (a hand, the head, the feet).
 
 ### DamageResult take_damage( result: DamageResult ) {#method-take-damage}
 
@@ -1115,31 +1177,31 @@ Completes the HealingResult for a heal on this entity (see StatsComponent.take_h
 
 ### bool can_apply_school_effect( school_id: int, source_entity: Variant = null, effect: EffectInstance = null ) {#method-can-apply-school-effect}
 
-*No description yet.*
+Can an effect of this school land on the entity (it is not immune and not locked)?
 
 ### EffectInstance get_effect( effect_id: int ) {#method-get-effect}
 
-*No description yet.*
+The effect of the entity with this effect id, or null.
 
 ### EffectInstance get_effect_from_caller( effect_id: int, originator: Entity ) {#method-get-effect-from-caller}
 
-*No description yet.*
+The effect with this id that this originator put on the entity, or null.
 
 ### void reduce_effect_stacks( effect_instance: EffectInstance, stacks_to_remove: int ) {#method-reduce-effect-stacks}
 
-*No description yet.*
+Takes stacks off an effect (the effect ends when none is left).
 
 ### Array[EffectInstance] get_active_effects_by_type( effect_type: String ) {#method-get-active-effects-by-type}
 
-*No description yet.*
+The active effects of one effect type (the class name of the type).
 
 ### Array[EffectInstance] get_all_active_effects() {#method-get-all-active-effects}
 
-*No description yet.*
+A copy of the list of the active effects of the entity.
 
 ### void remove_all_effects() {#method-remove-all-effects}
 
-*No description yet.*
+Removes every effect from the entity.
 
 ### Dictionary apply_status_effect( status_effect: int, base_duration: float, source_entity: Variant = null, effect: EffectInstance = null ) {#method-apply-status-effect}
 
@@ -1147,87 +1209,87 @@ Asks the stat system whether a status lands and for how long (immunity, tenacity
 
 ### bool is_immune_to_status_effect( status_effect_id: int ) {#method-is-immune-to-status-effect}
 
-*No description yet.*
+Is the entity immune to this status effect?
 
 ### bool is_immune_to_damage_type( damage_type: int ) {#method-is-immune-to-damage-type}
 
-*No description yet.*
+Is the entity immune to this damage type?
 
 ### bool is_immune_to_school_type( school_id: int ) {#method-is-immune-to-school-type}
 
-*No description yet.*
+Is the entity immune to this school?
 
 ### bool activate_immunity( immunity_id: int, duration: float = -1.0 ) {#method-activate-immunity}
 
-*No description yet.*
+Turns an immunity on, for a duration (a negative one lasts until it is turned off).
 
 ### bool deactivate_immunity( immunity_id: int ) {#method-deactivate-immunity}
 
-*No description yet.*
+Turns an immunity off.
 
 ### bool is_incapacitated() {#method-is-incapacitated}
 
-*No description yet.*
+Crowd control is answered by the status types the effects component counts as active (see StatusEffect)
 
 ### bool is_silenced() {#method-is-silenced}
 
-*No description yet.*
+Is the entity silenced (it cannot cast)?
 
 ### bool is_rooted() {#method-is-rooted}
 
-*No description yet.*
+Is the entity rooted (held, rooted or incapacitated)?
 
 ### bool is_crippled() {#method-is-crippled}
 
-*No description yet.*
+Is the entity crippled?
 
 ### bool is_blinded() {#method-is-blinded}
 
-*No description yet.*
+Is the entity blinded?
 
 ### bool is_fleeing() {#method-is-fleeing}
 
-*No description yet.*
+Is the entity under a flee effect?
 
 ### bool is_disoriented() {#method-is-disoriented}
 
-*No description yet.*
+Is the entity disoriented?
 
 ### bool is_disarmed() {#method-is-disarmed}
 
-*No description yet.*
+Is the entity disarmed (it cannot use its weapon)?
 
 ### Dictionary get_status_effect_summary() {#method-get-status-effect-summary}
 
-*No description yet.*
+A summary of the status effects on the entity.
 
 ### Array[String] get_active_status_effects() {#method-get-active-status-effects}
 
-*No description yet.*
+The names of the status types active on the entity.
 
 ### bool has_any_cc_effects() {#method-has-any-cc-effects}
 
-*No description yet.*
+Is the entity under any crowd control?
 
 ### bool has_movement_impairing_effects() {#method-has-movement-impairing-effects}
 
-*No description yet.*
+Does an effect or a hold keep the entity from moving freely?
 
 ### bool has_ability_blocking_effects() {#method-has-ability-blocking-effects}
 
-*No description yet.*
+Does an effect keep the entity from using abilities?
 
 ### bool can_use_weapon_abilities() {#method-can-use-weapon-abilities}
 
-*No description yet.*
+Can the entity use abilities that need a weapon (it is neither disarmed nor incapacitated)?
 
 ### InventoryComponent get_inventory() {#method-get-inventory}
 
-*No description yet.*
+The inventory component of the entity.
 
 ### bool has_inventory() {#method-has-inventory}
 
-*No description yet.*
+Does the entity have an inventory?
 
 ### int count_item( item_id: int ) {#method-count-item}
 
@@ -1235,19 +1297,19 @@ How many of an item (by definition id) the entity carries in its inventory
 
 ### bool equip_item( item_instance: ItemInstance, forced: bool = false ) {#method-equip-item}
 
-*No description yet.*
+Equips an item in a fitting slot. Forced skips the requirements.
 
 ### bool equip_item_to_slot( item_instance: ItemInstance, slot_data: EquipmentSlotInstance, forced: bool = false ) {#method-equip-item-to-slot}
 
-*No description yet.*
+Equips an item in a given slot.
 
 ### ItemInstance unequip_slot( slot_data: EquipmentSlotInstance ) {#method-unequip-slot}
 
-*No description yet.*
+Takes the item out of a slot and gives it back.
 
 ### bool unequip_item( item_instance: ItemInstance ) {#method-unequip-item}
 
-*No description yet.*
+Takes an equipped item off.
 
 ### bool equip_item_instance( item_instance: ItemInstance ) {#method-equip-item-instance}
 
@@ -1255,47 +1317,47 @@ The names the behaviour tasks use for the same two actions
 
 ### bool unequip_item_instance( item_instance: ItemInstance ) {#method-unequip-item-instance}
 
-*No description yet.*
+The same as unequip_item.
 
 ### Array[ItemInstance] get_equipped_items() {#method-get-equipped-items}
 
-*No description yet.*
+Every item the entity wears.
 
 ### void clear_all_equipment() {#method-clear-all-equipment}
 
-*No description yet.*
+Takes everything off.
 
 ### Array[EquipmentSlotInstance] get_equipment_slots_by_definition( slot_def: EquipmentSlotDefinition ) {#method-get-equipment-slots-by-definition}
 
-*No description yet.*
+The slots of a slot definition (an entity can have several slots of one kind).
 
 ### bool has_item_equipped_in_slot_definition( slot_def: EquipmentSlotDefinition ) {#method-has-item-equipped-in-slot-definition}
 
-*No description yet.*
+Is something worn in a slot of this definition?
 
 ### ItemInstance get_equipped_item_from_slot_definition( slot_def: EquipmentSlotDefinition ) {#method-get-equipped-item-from-slot-definition}
 
-*No description yet.*
+The item worn in the first slot of this definition, or null.
 
 ### Array[ItemInstance] get_all_equipped_items_from_slot_definition( slot_def: EquipmentSlotDefinition ) {#method-get-all-equipped-items-from-slot-definition}
 
-*No description yet.*
+Every item worn in the slots of this definition.
 
 ### ItemInstance get_equipped_weapon_from_slot( slot_def: EquipmentSlotDefinition ) {#method-get-equipped-weapon-from-slot}
 
-*No description yet.*
+The weapon worn in the slot, or null when the item is not a weapon.
 
 ### Array[ItemInstance] get_equipped_weapons() {#method-get-equipped-weapons}
 
-*No description yet.*
+Every weapon the entity wears.
 
 ### bool has_any_weapon_equipped() {#method-has-any-weapon-equipped}
 
-*No description yet.*
+Does the entity wear a weapon?
 
 ### bool has_weapon_equipped_in_slot( slot_def: EquipmentSlotDefinition ) {#method-has-weapon-equipped-in-slot}
 
-*No description yet.*
+Is a weapon worn in this slot?
 
 ### void sync_animation_state() {#method-sync-animation-state}
 
@@ -1315,7 +1377,7 @@ Get the attack tag for weapon animations Virtual method - override in subclasses
 
 ### Array[LootRule] get_loot_rules() {#method-get-loot-rules}
 
-*No description yet.*
+The loot rules of the entity: the ones of its placed record when it has them, else the ones of its NPC definition. Empty for anything but an NPC.
 
 ### int run_loot_rules( trigger: LootRule.Trigger, receiver: Entity = null ) {#method-run-loot-rules}
 
@@ -1331,33 +1393,33 @@ Is there a loot rule of this NPC that rolls the first time its inventory is open
 
 ### void resurrect() {#method-resurrect}
 
-*No description yet.*
+Brings the dead entity back to life (at full health) and restores its state.
 
 ### void set_current_target_hover() {#method-set-current-target-hover}
 
-*No description yet.*
+Shows the hover mark on the entity (the mouse is over it).
 
 ### void set_current_target_on() {#method-set-current-target-on}
 
-*No description yet.*
+Shows the target mark on the entity, in the color of its relation to the player.
 
 ### void set_current_target_off() {#method-set-current-target-off}
 
-*No description yet.*
+Takes the target marks off the entity.
 
 ### void set_map_marker_icon( type: Entity.MapMarkerType ) {#method-set-map-marker-icon}
 
-*No description yet.*
+Sets the picture of the mini map mark of the entity.
 
 ### String get_current_surface_type() {#method-get-current-surface-type}
 
-*No description yet.*
+The kind of ground under the entity (for footsteps), from the terrain of the current world.
 
 ### Dictionary to_save_data() {#method-to-save-data}
 
-*No description yet.*
+The state of the entity for a save (a dead entity saves a short record).
 
 ### void from_save_data( save_data: Dictionary, system_hub: GameHost.SystemHub ) {#method-from-save-data}
 
-*No description yet.*
+Restores the entity from a save: position, health, effects, abilities, bag and equipment.
 

@@ -11,14 +11,14 @@ VFX Transformation - Handles temporary visual transformations for entities Suppo
 | | | |
 |---|---|---|
 | `Entity  # The entity this transformation is applied to` | [target_entity](#var-target-entity) |  |
-| `VFXSelectionTransformation  # The selection config that created this` | [transformation_selection](#var-transformation-selection) |  |
-| `Timer  # Timer controlling the effect duration` | [effect_timer](#var-effect-timer) |  |
+| `VFXSelectionTransformation` | [transformation_selection](#var-transformation-selection) |  |
+| `Timer` | [effect_timer](#var-effect-timer) |  |
 | `bool` | [is_active](#var-is-active) | `false` |
 | `bool` | [is_finished](#var-is-finished) | `false` |
 | `TransformationType` | [transformation_type](#var-transformation-type) | `TransformationType.SCALE` |
 | `Vector3` | [original_scale](#var-original-scale) |  |
 | `PackedScene` | [original_skeleton_scene](#var-original-skeleton-scene) |  |
-| `Dictionary` | [original_weapon_meshes](#var-original-weapon-meshes) | `{}  # slot_name -> original_mesh` |
+| `Dictionary` | [original_weapon_meshes](#var-original-weapon-meshes) | `{}` |
 | `Tween` | [blend_tween](#var-blend-tween) |  |
 
 ## Methods
@@ -38,6 +38,8 @@ VFX Transformation - Handles temporary visual transformations for entities Suppo
 
 ### enum TransformationType {#enum-transformationtype}
 
+The options of transformation type: scale, polymorph, weapon swap.
+
 - **SCALE** = `0`
 - **POLYMORPH** = `1`
 
@@ -45,43 +47,43 @@ VFX Transformation - Handles temporary visual transformations for entities Suppo
 
 ### Entity  # The entity this transformation is applied to target_entity {#var-target-entity}
 
-*No description yet.*
+========== CORE PROPERTIES ==========
 
-### VFXSelectionTransformation  # The selection config that created this transformation_selection {#var-transformation-selection}
+### VFXSelectionTransformation transformation_selection {#var-transformation-selection}
 
-*No description yet.*
+The selection config that created this
 
-### Timer  # Timer controlling the effect duration effect_timer {#var-effect-timer}
+### Timer effect_timer {#var-effect-timer}
 
-*No description yet.*
+Timer controlling the effect duration
 
 ### bool is_active = false {#var-is-active}
 
-*No description yet.*
+========== STATE TRACKING ==========
 
 ### bool is_finished = false {#var-is-finished}
 
-*No description yet.*
+True when the transformation is done.
 
 ### TransformationType transformation_type = TransformationType.SCALE {#var-transformation-type}
 
-*No description yet.*
+Which change it is (scale, polymorph, weapon swap).
 
 ### Vector3 original_scale {#var-original-scale}
 
-*No description yet.*
+========== ORIGINAL STATE BACKUP ==========
 
 ### PackedScene original_skeleton_scene {#var-original-skeleton-scene}
 
-*No description yet.*
+The model the entity had before the change.
 
-### Dictionary original_weapon_meshes =   # slot_name -&gt; original_mesh {#var-original-weapon-meshes}
+### Dictionary original_weapon_meshes =  {#var-original-weapon-meshes}
 
-*No description yet.*
+slot_name -&gt; original_mesh
 
 ### Tween blend_tween {#var-blend-tween}
 
-*No description yet.*
+The tween of the change.
 
 ## Method descriptions
 

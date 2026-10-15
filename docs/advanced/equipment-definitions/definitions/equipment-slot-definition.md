@@ -46,6 +46,8 @@ Enhanced EquipmentSlotDefinition with slot categories for better UI organization
 
 ### enum SlotCategory {#enum-slotcategory}
 
+The options of slot category: armor, weapon, accessory.
+
 - **ARMOR** = `0` - Protective equipment (helmet, chest, boots, etc.)
 - **WEAPON** = `1` - Weapons (main hand, off hand)
 - **ACCESSORY** = `2` - Accessories (rings, amulets, trinkets, etc.)
@@ -92,11 +94,11 @@ Equipment Type ID -&gt; WeaponSlot mapping for contextual placement (e.g., &#123
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Is it free of errors?
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 
 ### String get_category_name() {#method-get-category-name}
 
@@ -144,19 +146,19 @@ Get all slot conflicts
 
 ### bool affects_body_part( body_part: GeneralSkeleton.BodySlot ) {#method-affects-body-part}
 
-*No description yet.*
+Does an item in this slot change this part of the body of the model?
 
 ### bool affects_attachment_point( attachment_point: GeneralSkeleton.AttachmentSlot ) {#method-affects-attachment-point}
 
-*No description yet.*
+Does an item in this slot use this attachment point of the model?
 
 ### bool is_multi_slot() {#method-is-multi-slot}
 
-*No description yet.*
+Does the entity have more than one slot of this kind?
 
 ### bool blocks_other_slots() {#method-blocks-other-slots}
 
-*No description yet.*
+Does a weapon type of this slot block other slots (a two hand weapon blocks the off hand)?
 
 ### Array[SlotCategory] get_all_categories() {#method-get-all-categories}
 

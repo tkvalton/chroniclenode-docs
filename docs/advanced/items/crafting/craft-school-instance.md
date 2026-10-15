@@ -69,6 +69,8 @@ Runtime instance of a craft school for a specific entity Contains learned recipe
 
 ### queue_updated( queue_size: int ) {#signal-queue-updated}
 
+Emitted when the queue of jobs changes: the new size.
+
 ### skill_up( new_level: int ) {#signal-skill-up}
 
 A skill-up happened (a craft gave one level)
@@ -79,13 +81,19 @@ A tier or a specialization changed
 
 ### specialization_changed( specialization_id: int, chosen: bool ) {#signal-specialization-changed}
 
+Emitted when a specialization is chosen or dropped.
+
 ### learned_changed( learned: bool ) {#signal-learned-changed}
 
 The profession was learned or forgotten
 
 ### skill_level_changed( old_level: int, new_level: int ) {#signal-skill-level-changed}
 
+Emitted when the skill level changes: the old and the new level.
+
 ### experience_gained( amount: int ) {#signal-experience-gained}
+
+Emitted when the school gains experience.
 
 ## Variable descriptions
 
@@ -165,7 +173,7 @@ Puts the crafter in a tier. A lower tier brings the level down to its cap. False
 
 ### bool has_specialization( spec_id: int ) {#method-has-specialization}
 
-*No description yet.*
+========== SPECIALIZATIONS ==========
 
 ### String get_specialization_blocker( spec_id: int ) {#method-get-specialization-blocker}
 
@@ -281,9 +289,9 @@ What an activity of the profession (a craft, a gather) does to the skill: `facto
 
 ### Dictionary to_dict() {#method-to-dict}
 
-*No description yet.*
+The state of the school for a save: level, recipes, queue.
 
 ### void from_dict( data: Dictionary, craft_school_def: CraftSchoolDefinition, crafter: Entity = null ) {#method-from-dict}
 
-*No description yet.*
+Restores the school from a save.
 

@@ -51,7 +51,7 @@ Whether to stop movement state (velocity, navigation)
 
 ### Entity target_entity = null {#var-target-entity}
 
-*No description yet.*
+Reference to the target entity
 
 ## Method descriptions
 

@@ -29,39 +29,39 @@ Triggers when target player(s) resource changes
 
 ### Condition.CheckLogic resource_check_logic = Condition.CheckLogic.GREATER_EQUAL {#prop-resource-check-logic}
 
-*No description yet.*
+How the resource is compared with the target (equal, at least, less than ...).
 
 ### int target_resource = 0 {#prop-target-resource}
 
-*No description yet.*
+The amount of the resource to compare with.
 
 ## Method descriptions
 
 ### String get_display_name() {#method-get-display-name}
 
-Return the display name of this Trigger *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The name of the trigger in the editor.
 
 ### String get_function_description() {#method-get-function-description}
 
-Return a description of this trigger with parameter placeholders *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The sentence the editor shows for the trigger, with &#123;placeholders&#125; for its values.
 
 ### void setup_player_connection( player: Player ) {#method-setup-player-connection}
 
-Override this in child classes to set up signal connections for a player *(from [PlayerEventTrigger](/advanced/events-and-quests/bases/player-event-trigger))*
+Connects the signal of a player this trigger listens to.
 
 ### void cleanup_player_connection( player: Player ) {#method-cleanup-player-connection}
 
-Override this in child classes to clean up signal connections for a player *(from [PlayerEventTrigger](/advanced/events-and-quests/bases/player-event-trigger))*
+Disconnects the signal of a player.
 
 ### bool meets_resource_condition( current_resource: int ) {#method-meets-resource-condition}
 
-*No description yet.*
+Does this amount satisfy the trigger?
 
 ### bool is_triggered( event_data: Dictionary ) {#method-is-triggered}
 
-Check if this trigger is currently active *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+Does this event data satisfy the trigger? Called when the signal the trigger listens to fires.
 
 ### String generate_objective_description() {#method-generate-objective-description}
 
-Generate quest objective description *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The line of the quest objective this trigger makes ("Kill 5 wolves").
 

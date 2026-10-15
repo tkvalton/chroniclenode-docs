@@ -16,9 +16,9 @@ What the in-game interface scene holds, read from the scene without running it: 
 
 ## Constants
 
-- `String` **HUD_NODE** = `"HUD"`
-- `String` **INTERACTION_PANELS_NODE** = `"InteractionPanels"`
-- `String` **UI_PANELS_NODE** = `"UIPanels"`
+- `String` **HUD_NODE** = `"HUD"` - The name of the node that holds the HUD elements.
+- `String` **INTERACTION_PANELS_NODE** = `"InteractionPanels"` - The name of the node that holds the windows of interactions.
+- `String` **UI_PANELS_NODE** = `"UIPanels"` - The name of the node that holds the windows the player opens.
 
 ## Method descriptions
 

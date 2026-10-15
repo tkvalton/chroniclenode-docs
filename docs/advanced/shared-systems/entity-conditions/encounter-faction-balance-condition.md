@@ -25,6 +25,8 @@ Checks the faction balance in the current encounter. Useful for surrender mechan
 
 ### enum BalanceType {#enum-balancetype}
 
+The options of balance type: outnumbered, outnumbering, balanced, last of faction.
+
 - **OUTNUMBERED** = `0` - This entity's faction is outnumbered
 - **OUTNUMBERING** = `1` - This entity's faction is outnumbering others
 - **BALANCED** = `2` - Forces are roughly equal
@@ -44,13 +46,13 @@ How many times more numerous a side must be to count as outnumbering (for the ou
 
 ### String get_entity_function_description() {#method-get-entity-function-description}
 
-Override this in subclasses to provide template for inline editing *(from [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition))*
+The sentence the editor shows for the condition, with &#123;placeholders&#125; for its values.
 
 ### bool evaluate_entity( entity: Entity ) {#method-evaluate-entity}
 
-Override this in subclasses to implement entity-specific evaluation @param entity: The target entity to evaluate @return: true if condition is met for this entity *(from [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition))*
+Is the condition met for this entity?
 
 ### String get_entity_description() {#method-get-entity-description}
 
-Override this in subclasses to describe the specific entity condition *(from [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition))*
+A short text about what the condition checks on the entity.
 

@@ -11,8 +11,8 @@ Single-rank skill node where player chooses between multiple reward options
 | | | |
 |---|---|---|
 | `int` | [point_cost](#prop-point-cost) | `1  # Single cost since max rank is always 1` |
-| `Array[Array]` | [choice_options](#prop-choice-options) | `[]  # Each element is an array of rewards for that choice` |
-| `Array[CompressedTexture2D]` | [choice_icons](#prop-choice-icons) | `[]  # Icon for each choice option` |
+| `Array[Array]` | [choice_options](#prop-choice-options) | `[]` |
+| `Array[CompressedTexture2D]` | [choice_icons](#prop-choice-icons) | `[]` |
 
 ## Methods
 
@@ -36,67 +36,67 @@ Single-rank skill node where player chooses between multiple reward options
 
 ### int point_cost = 1  # Single cost since max rank is always 1 {#prop-point-cost}
 
-*No description yet.*
+========== CHOICE NODE PROPERTIES ==========
 
-### Array[Array] choice_options = []  # Each element is an array of rewards for that choice {#prop-choice-options}
+### Array[Array] choice_options = [] {#prop-choice-options}
 
-*No description yet.*
+Each element is an array of rewards for that choice
 
-### Array[CompressedTexture2D] choice_icons = []  # Icon for each choice option {#prop-choice-icons}
+### Array[CompressedTexture2D] choice_icons = [] {#prop-choice-icons}
 
-*No description yet.*
+Icon for each choice option
 
 ## Method descriptions
 
 ### int get_max_ranks() {#method-get-max-ranks}
 
-Override in child classes to return maximum ranks for this node *(from [SkillNode](/advanced/abilities-and-effects/skill-trees/skill-node))*
+========== IMPLEMENTATION OF ABSTRACT METHODS ==========
 
 ### int get_point_cost_for_rank( rank: int ) {#method-get-point-cost-for-rank}
 
-Override in child classes to return point cost for specific rank *(from [SkillNode](/advanced/abilities-and-effects/skill-trees/skill-node))*
+The skill points the node costs (a choice node has one rank).
 
 ### int get_choice_count() {#method-get-choice-count}
 
-*No description yet.*
+========== CHOICE-SPECIFIC METHODS ==========
 
 ### Array[Array] get_choice_options() {#method-get-choice-options}
 
-*No description yet.*
+The options of the node: the rewards of each.
 
 ### Array get_choice_option( choice_index: int ) {#method-get-choice-option}
 
-*No description yet.*
+The rewards of one option.
 
 ### CompressedTexture2D get_choice_icon( choice_index: int ) {#method-get-choice-icon}
 
-*No description yet.*
+The icon of one option.
 
 ### void set_choice_icon( choice_index: int, icon: CompressedTexture2D ) {#method-set-choice-icon}
 
-*No description yet.*
+Sets the icon of one option.
 
 ### void add_choice_option( rewards: Array, icon: CompressedTexture2D = null ) {#method-add-choice-option}
 
-*No description yet.*
+Adds an option with its rewards and icon.
 
 ### bool remove_choice_option( choice_index: int ) {#method-remove-choice-option}
 
-*No description yet.*
+Removes an option. False when the number is not valid.
 
 ### void clear_choice_options() {#method-clear-choice-options}
 
-*No description yet.*
+Removes every option.
 
 ### bool apply_choice( player: Player, choice_index: int ) {#method-apply-choice}
 
-*No description yet.*
+Old way to give an option to a player (use SkillTreeInstance.apply_node_rewards).
 
 ### String get_choice_summary( choice_index: int ) {#method-get-choice-summary}
 
-*No description yet.*
+A short text about what an option gives.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*Overrides this function of [SkillNode](/advanced/abilities-and-effects/skill-trees/skill-node).*
+========== VALIDATION ==========
 

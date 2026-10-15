@@ -17,10 +17,10 @@ The quest log window: the lists of active and completed quests (a button for eac
 
 | | | |
 |---|---|---|
-| `Dictionary` | [button_instances](#var-button-instances) | `{}  # Dictionary to store quest_id -> button instance` |
+| `Dictionary` | [button_instances](#var-button-instances) | `{}` |
 | `QuestLogButtonUI` | [current_selected_quest](#var-current-selected-quest) | `null` |
-| `Dictionary` | [objective_labels](#var-objective-labels) | `{}  # Dictionary to store objective -> objective_label in...` |
-| `Array[QuestObjective]` | [connected_objectives](#var-connected-objectives) | `[]  # Track connected objectives for cleanup` |
+| `Dictionary` | [objective_labels](#var-objective-labels) | `{}` |
+| `Array[QuestObjective]` | [connected_objectives](#var-connected-objectives) | `[]` |
 
 ## Methods
 
@@ -36,49 +36,49 @@ The quest log window: the lists of active and completed quests (a button for eac
 
 ### PackedScene quest_log_button {#prop-quest-log-button}
 
-*No description yet.*
+The scene of one quest in the list.
 
 ### PackedScene quest_log_objective_label {#prop-quest-log-objective-label}
 
-*No description yet.*
+The scene of one objective.
 
 ## Variable descriptions
 
-### Dictionary button_instances =   # Dictionary to store quest_id -&gt; button instance {#var-button-instances}
+### Dictionary button_instances =  {#var-button-instances}
 
-*No description yet.*
+Dictionary to store quest_id -&gt; button instance
 
 ### QuestLogButtonUI current_selected_quest = null {#var-current-selected-quest}
 
-*No description yet.*
+The button of the quest shown.
 
-### Dictionary objective_labels =   # Dictionary to store objective -&gt; objective_label instanc {#var-objective-labels}
+### Dictionary objective_labels =  {#var-objective-labels}
 
-*No description yet.*
+Dictionary to store objective -&gt; objective_label instances
 
-### Array[QuestObjective] connected_objectives = []  # Track connected objectives for cleanup {#var-connected-objectives}
+### Array[QuestObjective] connected_objectives = [] {#var-connected-objectives}
 
-*No description yet.*
+Track connected objectives for cleanup
 
 ## Method descriptions
 
 ### void initialize_ui( system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [PanelUI](/advanced/user-interface/panels/panel-ui).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### QuestLogButtonUI add_quest_button( quest: Quest, parent_container: VBoxContainer ) {#method-add-quest-button}
 
-*No description yet.*
+Adds the button of a quest to a list (or gives the one it has).
 
 ### void update_quest_details( quest: Quest ) {#method-update-quest-details}
 
-*No description yet.*
+Shows the name, the text and the objectives of a quest.
 
 ### void clear_quest_details() {#method-clear-quest-details}
 
-*No description yet.*
+Empties the details.
 
 ### void close_panel() {#method-close-panel}
 
-Signal handlers for UI elements *(from [PanelUI](/advanced/user-interface/panels/panel-ui))*
+Closes the window.
 

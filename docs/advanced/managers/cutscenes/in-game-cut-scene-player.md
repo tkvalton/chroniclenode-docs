@@ -36,7 +36,11 @@ Usage:
 
 ### cutscene_started() {#signal-cutscene-started}
 
+Emitted when the cutscene starts.
+
 ### cutscene_finished() {#signal-cutscene-finished}
+
+Emitted when the cutscene ends.
 
 ## Method descriptions
 

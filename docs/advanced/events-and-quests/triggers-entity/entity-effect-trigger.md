@@ -38,6 +38,8 @@ Triggers when a specific entity gains or loses a specific effect
 
 ### enum EffectTriggerType {#enum-effecttriggertype}
 
+The options of effect trigger type: gained, lost.
+
 - **GAINED** = `0`
 - **LOST** = `1`
 

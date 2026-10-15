@@ -35,6 +35,8 @@ Triggers when a specific object is locked or unlocked
 
 ### enum LockStateTriggerType {#enum-lockstatetriggertype}
 
+The options of lock state trigger type: locked, unlocked.
+
 - **LOCKED** = `0`
 
 ## Property descriptions

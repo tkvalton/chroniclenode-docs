@@ -53,10 +53,14 @@ Definition for pool stats - contains ALL logic for damage absorption, overfill, 
 
 ### enum StartValue {#enum-startvalue}
 
+The options of start value: starts full, starts empty.
+
 - **STARTS_FULL** = `0`
 - **STARTS_EMPTY** = `1`
 
 ### enum GenerationLogic {#enum-generationlogic}
+
+The options of generation logic: regen, decay.
 
 - **REGEN** = `0`
 - **DECAY** = `1`
@@ -165,47 +169,47 @@ The damage types the pool absorbs. Empty = all of them
 
 ### Dictionary calculate_generation( current_value: float, max_value: float, delta_time: float ) {#method-calculate-generation}
 
-*No description yet.*
+========== GENERATION/DECAY LOGIC ==========
 
 ### String get_generation_description() {#method-get-generation-description}
 
-*No description yet.*
+A text about how the pool fills or drains by itself.
 
 ### bool should_absorb_damage_type( damage_type: int ) {#method-should-absorb-damage-type}
 
-*No description yet.*
+========== DAMAGE ABSORPTION LOGIC ==========
 
 ### float calculate_max_absorption( incoming_damage: float, damage_type: int ) {#method-calculate-max-absorption}
 
-*No description yet.*
+The most this pool can take of incoming damage of a type.
 
 ### Dictionary calculate_actual_absorption( incoming_damage: float, damage_type: int, current_pool_value: float ) {#method-calculate-actual-absorption}
 
-*No description yet.*
+How much of the incoming damage the pool takes now, given what it holds.
 
 ### Dictionary calculate_healing_application( healing_amount: float, current_value: float, max_value: float, overfill_current: float = 0.0 ) {#method-calculate-healing-application}
 
-*No description yet.*
+========== HEALING/RESTORATION LOGIC ==========
 
 ### Dictionary calculate_overfill_decay( current_overfill: float, delta_time: float ) {#method-calculate-overfill-decay}
 
-*No description yet.*
+========== OVERFILL DECAY LOGIC ==========
 
 ### float apply_value_constraints( current_value: float ) {#method-apply-value-constraints}
 
-*No description yet.*
+========== VALUE CONSTRAINTS ==========
 
 ### float get_total_max_value() {#method-get-total-max-value}
 
-*No description yet.*
+The maximum of the pool including its overfill.
 
 ### PoolInstance create_instance( chorno_manager: ChronoManager, initial_current_value: float = -1.0 ) {#method-create-instance}
 
-*No description yet.*
+========== INSTANCE CREATION ==========
 
 ### String get_pool_description() {#method-get-pool-description}
 
-*No description yet.*
+========== UTILITY METHODS ==========
 
 ### float calculate_growth( level: int, context: FormulaContext = null ) {#method-calculate-growth}
 

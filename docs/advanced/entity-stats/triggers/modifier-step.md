@@ -30,19 +30,19 @@ One calculation modifier that changed the number during a phase of a hit (armor 
 
 ### int stat_id = 0 {#var-stat-id}
 
-*No description yet.*
+The stat whose modifier changed the number.
 
 ### String stat_name = "" {#var-stat-name}
 
-*No description yet.*
+The name of that stat.
 
 ### float before = 0.0 {#var-before}
 
-*No description yet.*
+The number before the modifier.
 
 ### float after = 0.0 {#var-after}
 
-*No description yet.*
+The number after the modifier.
 
 ### String required_tag = "" {#var-required-tag}
 
@@ -56,7 +56,7 @@ The value the modifier calculated from the stat points (flat amount or percentag
 
 ### ModifierStep create( p_stat_id: int, p_stat_name: String, p_before: float, p_after: float, p_required_tag: String = "", p_effect_value: float = 0.0 ) {#method-create}
 
-*No description yet.*
+Makes a step: the stat, the number before and after, and what the modifier needed.
 
 ### float delta() {#method-delta}
 

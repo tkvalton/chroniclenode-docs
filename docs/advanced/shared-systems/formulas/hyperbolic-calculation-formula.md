@@ -46,21 +46,21 @@ When true, negative points mirror the curve (negative armor increases damage tak
 
 ### float evaluate( points: float, context: FormulaContext = null ) {#method-evaluate}
 
-Points in, value out. The base class is the identity so a bare CalculationFormula is harmless *(from [CalculationFormula](/advanced/shared-systems/formulas/calculation-formula))*
+The value the formula gives for a number of stat points.
 
 ### String get_label() {#method-get-label}
 
-Short name shown in the editor's formula picker *(from [CalculationFormula](/advanced/shared-systems/formulas/calculation-formula))*
+The name of the formula in the editor.
 
 ### String get_description() {#method-get-description}
 
-One-line description with the current numbers (tooltips, editor) *(from [CalculationFormula](/advanced/shared-systems/formulas/calculation-formula))*
+A sentence about the formula and its values.
 
 ### Vector2 get_preview_range() {#method-get-preview-range}
 
-The points range the editor graph and table draw (x from, x to) *(from [CalculationFormula](/advanced/shared-systems/formulas/calculation-formula))*
+The range of points the editor graph shows.
 
 ### Array[String] validate() {#method-validate}
 
-Configuration problems, as readable messages (empty = fine). Shown in the editor *(from [CalculationFormula](/advanced/shared-systems/formulas/calculation-formula))*
+Checks the settings of the formula. Gives the warnings (empty when it is fine).
 

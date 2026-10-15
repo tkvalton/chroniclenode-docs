@@ -83,9 +83,9 @@ Get telegraph duration (same as delay duration)
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 

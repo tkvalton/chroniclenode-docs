@@ -73,26 +73,40 @@ Trap interaction - triggers effects through proximity, interaction, or events In
 
 ### trap_triggered( target: Variant, effect_instance: EffectInstance, triggering_entity: Entity ) {#signal-trap-triggered}
 
+Emitted when the trap fires: the target, the effect and who triggered it.
+
 ### trap_activated( triggering_entity: Entity ) {#signal-trap-activated}
+
+Emitted when something sets the trap off.
 
 ### trap_state_changed( old_state: TrapState, new_state: TrapState ) {#signal-trap-state-changed}
 
+Emitted when the state of the trap changes.
+
 ### trap_lifetime_expired() {#signal-trap-lifetime-expired}
+
+Emitted when the lifetime of the trap ends.
 
 ## Enumerations
 
 ### enum TriggerMode {#enum-triggermode}
+
+What sets the trap off: something that comes near (proximity), someone who uses it (interaction) or only an event.
 
 - **PROXIMITY** = `0`
 - **INTERACTION** = `1`
 
 ### enum TriggerReusability {#enum-triggerreusability}
 
+How often the trap fires: once, again after a cooldown, or every time with no cooldown.
+
 - **ONE_TIME** = `0`
 - **COOLDOWN** = `1`
 - **cooldown** = `2`
 
 ### enum TrapState {#enum-trapstate}
+
+The states of a trap: armed, triggered, in cooldown, disabled or destroyed.
 
 - **ARMED** = `0`
 - **TRIGGERED** = `1`
@@ -109,11 +123,11 @@ The effect ID to apply when triggered (from Database)
 
 ### TriggerMode trigger_mode = TriggerMode.PROXIMITY {#prop-trigger-mode}
 
-*No description yet.*
+What sets the trap off.
 
 ### TriggerReusability trigger_reusability = TriggerReusability.ONE_TIME {#prop-trigger-reusability}
 
-*No description yet.*
+How often the trap can fire.
 
 ### float cooldown_duration = 5.0 {#prop-cooldown-duration}
 
@@ -143,7 +157,7 @@ Also ask how the faction of the trap relates to the one that walks in (a placed 
 
 ### ReputationLevel.FactionRelationship trigger_relationship = ReputationLevel.FactionRelationship.HOSTILE {#prop-trigger-relationship}
 
-*No description yet.*
+The relation to the faction of the trap that sets it off (hostile by default). Only used when the relationship filter is on.
 
 *Targeting*
 
@@ -201,37 +215,37 @@ Cancel persistent effects when lifetime expires
 
 ### SFXSelection trigger_sound {#prop-trigger-sound}
 
-*No description yet.*
+The sound the trap makes when it fires.
 
 ## Variable descriptions
 
 ### TrapState current_trap_state = TrapState.ARMED {#var-current-trap-state}
 
-*No description yet.*
+The state of the trap now.
 
 ### Array[Entity] entities_in_range = [] {#var-entities-in-range}
 
-*No description yet.*
+The entities inside the detection area of the trap.
 
 ### Timer cooldown_timer {#var-cooldown-timer}
 
-*No description yet.*
+The timer of the cooldown between two triggers.
 
 ### Timer repeat_timer {#var-repeat-timer}
 
-*No description yet.*
+The timer between repeats of the effect.
 
 ### Timer lifetime_timer {#var-lifetime-timer}
 
-*No description yet.*
+The timer that ends the trap when its lifetime is over.
 
 ### int current_repeat_count = 0 {#var-current-repeat-count}
 
-*No description yet.*
+How many times the effect has repeated in this trigger.
 
 ### EffectInstance active_effect_instance {#var-active-effect-instance}
 
-*No description yet.*
+The effect the trap has put on a target and keeps running.
 
 ### Area3D detection_area {#var-detection-area}
 
@@ -241,23 +255,23 @@ Detection area created at runtime
 
 ### void setup_for_interactable_objects( interactable: InteractableObject ) {#method-setup-for-interactable-objects}
 
-*Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
+Sets the trap up on its object: finds the nodes it needs and applies its starting state.
 
 ### bool can_interact( player: Player ) {#method-can-interact}
 
-*Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
+Can the player use the trap now (in range, the object is not broken, the requirements are met)?
 
 ### void start_interaction( player: Player ) {#method-start-interaction}
 
-Start the interaction with the given player *(from [Interaction](/advanced/entities/interactions/interaction))*
+The player uses the trap.
 
 ### void end_interaction() {#method-end-interaction}
 
-End the current interaction *(from [Interaction](/advanced/entities/interactions/interaction))*
+Does nothing: a trap has no end of interaction.
 
 ### void change_trap_state( new_state: TrapState ) {#method-change-trap-state}
 
-*No description yet.*
+Puts the trap in a state (armed, triggered, cooldown ...).
 
 ### bool trigger_trap( target: Variant = null ) {#method-trigger-trap}
 
@@ -265,7 +279,7 @@ Main trigger method - can be called externally
 
 ### void on_object_destroyed() {#method-on-object-destroyed}
 
-*No description yet.*
+Called when the object is destroyed: the trap goes to its destroyed state.
 
 ### void reset_trap() {#method-reset-trap}
 
@@ -301,13 +315,13 @@ Extend trap lifetime
 
 ### Dictionary save_state() {#method-save-state}
 
-*No description yet.*
+The state of the trap for a save.
 
 ### void load_state( state: Dictionary ) {#method-load-state}
 
-*No description yet.*
+Restores the state of the trap from a save.
 
 ### void cleanup() {#method-cleanup}
 
-*No description yet.*
+Gives its timers back and clears what it holds (the object is going away).
 

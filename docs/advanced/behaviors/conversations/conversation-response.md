@@ -33,7 +33,7 @@ A single response option in a conversation Now includes chat_id to track which c
 
 ### int id = 0 {#prop-id}
 
-*No description yet.*
+The id of the response.
 
 ### int chat_id = 0 {#prop-chat-id}
 

@@ -44,6 +44,8 @@ Enhanced animation selection for abilities with per-library animation mappings N
 
 ### enum AbilityCategory {#enum-abilitycategory}
 
+The options of ability category: casting, spell cast, weapon, aim, reload, special attack.
+
 - **CASTING** = `0`
 - **SPELL_CAST** = `1`
 - **WEAPON** = `2`
@@ -52,9 +54,13 @@ Enhanced animation selection for abilities with per-library animation mappings N
 
 ### enum WeaponAnimationMode {#enum-weaponanimationmode}
 
+The options of weapon animation mode: auto from equipped, specific weapon.
+
 - **AUTO_FROM_EQUIPPED** = `0`
 
 ### enum HandPreference {#enum-handpreference}
+
+The options of hand preference: auto, left hand, right hand, random, alternate.
 
 - **AUTO** = `0`
 - **LEFT_HAND** = `1`
@@ -65,7 +71,7 @@ Enhanced animation selection for abilities with per-library animation mappings N
 
 ### AbilityCategory category = AbilityCategory.CASTING {#prop-category}
 
-*No description yet.*
+Which kind of animation of the ability (casting, attack ...).
 
 ### Dictionary library_animations =  {#prop-library-animations}
 
@@ -81,11 +87,11 @@ Weapon-specific properties (only used for WEAPON, AIM, RELOAD categories)
 
 ### String specific_weapon_type = ""  # Only used if weapon_mode == SPECIFIC_WEAPON {#prop-specific-weapon-type}
 
-*No description yet.*
+Plays the animation of this weapon type instead of the one in hand (empty = the weapon in hand).
 
 ### HandPreference hand_preference = HandPreference.AUTO {#prop-hand-preference}
 
-*No description yet.*
+Which hand the animation is played with (auto, right, left).
 
 ### String reference_library = "" {#prop-reference-library}
 

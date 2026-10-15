@@ -57,7 +57,7 @@ Curve intensity (0.0 = straight, 1.0 = pronounced curve)
 
 ### CollisionLayerUtility.HitMode hit_mode = CollisionLayerUtility.HitMode.TARGET_ONLY {#prop-hit-mode}
 
-*No description yet.*
+What the projectile hits on its way (the target only, enemies, anyone ...).
 
 ### int pierce_count = -1 {#prop-pierce-count}
 
@@ -75,9 +75,9 @@ Continue past target to return
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Override this to provide complete effect description *(from [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect).*
+A short text for the effect editor that says what the effect does.
 

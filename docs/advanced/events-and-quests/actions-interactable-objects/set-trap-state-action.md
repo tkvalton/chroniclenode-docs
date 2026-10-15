@@ -42,7 +42,7 @@ State to set for trap
 
 ### InteractableObject target_trap = null {#var-target-trap}
 
-*No description yet.*
+Reference to the target trap
 
 ## Method descriptions
 

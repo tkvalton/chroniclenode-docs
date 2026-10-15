@@ -17,13 +17,15 @@ The title bar of a window: the name of the panel and, when `has_exit_button` is 
 
 ### exit_button_pressed() {#signal-exit-button-pressed}
 
+Emitted when the exit button is pressed.
+
 ## Property descriptions
 
 ### String title {#prop-title}
 
-*No description yet.*
+The name shown in the title bar.
 
 ### bool has_exit_button {#prop-has-exit-button}
 
-*No description yet.*
+True shows the button that closes the window.
 

@@ -42,7 +42,7 @@ State to set the switch to
 
 ### InteractableObject target_switch = null {#var-target-switch}
 
-*No description yet.*
+Reference to the target switch
 
 ## Method descriptions
 

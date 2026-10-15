@@ -84,21 +84,21 @@ Text for the decline quest button
 
 ### ConversationInstance active_conversation = null {#var-active-conversation}
 
-*No description yet.*
+========== RUNTIME STATE ==========
 
 ### ConversationInteraction active_interaction = null {#var-active-interaction}
 
-*No description yet.*
+The conversation interaction the panel shows.
 
 ### DiceRollPanel dice_roll_panel {#var-dice-roll-panel}
 
-*No description yet.*
+========== UI REFERENCES ==========
 
 ## Method descriptions
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [PanelUI](/advanced/user-interface/panels/panel-ui).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void open_conversation( conversation: ConversationInstance, starting_chat: ConversationChat, interaction: ConversationInteraction ) {#method-open-conversation}
 

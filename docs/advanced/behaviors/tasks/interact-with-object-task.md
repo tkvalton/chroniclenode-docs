@@ -80,27 +80,27 @@ Time to wait after interaction before completing (0 = complete immediately)
 
 ### InteractableObject target_interactable = null {#var-target-interactable}
 
-*No description yet.*
+The object the entity interacts with.
 
 ### Vector3 object_position = Vector3.ZERO {#var-object-position}
 
-*No description yet.*
+The position of the object.
 
 ### float interaction_range = 2.0 {#var-interaction-range}
 
-*No description yet.*
+How close the entity must be to use the object.
 
 ### bool movement_completed = false {#var-movement-completed}
 
-*No description yet.*
+True once the entity arrived.
 
 ### bool facing_completed = false {#var-facing-completed}
 
-*No description yet.*
+True once the entity faces the object.
 
 ### bool object_interaction_completed = false {#var-object-interaction-completed}
 
-*No description yet.*
+True once the interaction is done.
 
 ### Timer wait_timer = null {#var-wait-timer}
 
@@ -114,31 +114,31 @@ Whether we're currently waiting after interaction
 
 ### void execute_task_start() {#method-execute-task-start}
 
-Override this in subclasses to implement specific task behavior *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Starts the task.
 
 ### void execute_task_complete() {#method-execute-task-complete}
 
-Override this in subclasses for task completion logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task finishes well.
 
 ### void execute_task_interrupt() {#method-execute-task-interrupt}
 
-Override this in subclasses for task interruption logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when something interrupts the task.
 
 ### void execute_task_fail() {#method-execute-task-fail}
 
-Override this in subclasses for task failure logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task fails.
 
 ### InteractableObject get_target_interactable() {#method-get-target-interactable}
 
-*No description yet.*
+The object the entity interacts with.
 
 ### float get_distance_to_target() {#method-get-distance-to-target}
 
-*No description yet.*
+The distance to the object (-1 when there is none).
 
 ### bool is_in_interaction_range() {#method-is-in-interaction-range}
 
-*No description yet.*
+Is the entity close enough to use the object?
 
 ### void set_target_interactable_id( new_id: int ) {#method-set-target-interactable-id}
 
@@ -154,5 +154,5 @@ Set interaction distance dynamically
 
 ### void cleanup_timers() {#method-cleanup-timers}
 
-Clean up all timers and resources *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Frees the timers of the task.
 

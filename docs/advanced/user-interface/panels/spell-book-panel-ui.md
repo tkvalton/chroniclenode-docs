@@ -26,6 +26,8 @@ Spell Book Panel UI - Container for abilities and skill tree Follows the new arc
 
 ### enum DisplayMode {#enum-displaymode}
 
+State tracking for sub-panel visibility
+
 - **ABILITIES** = `0`
 - **SKILL_TREE** = `1`
 
@@ -33,13 +35,13 @@ Spell Book Panel UI - Container for abilities and skill tree Follows the new arc
 
 ### DisplayMode current_display_mode = DisplayMode.ABILITIES {#var-current-display-mode}
 
-*No description yet.*
+What the book shows: the abilities or the skill tree.
 
 ## Method descriptions
 
 ### void initialize_ui( system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [PanelUI](/advanced/user-interface/panels/panel-ui).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void set_display_mode( mode: DisplayMode ) {#method-set-display-mode}
 
@@ -51,7 +53,7 @@ Public methods for external access
 
 ### void show_skills() {#method-show-skills}
 
-*No description yet.*
+Shows the skill tree.
 
 ### void refresh_display() {#method-refresh-display}
 

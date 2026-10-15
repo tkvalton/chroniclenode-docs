@@ -28,6 +28,8 @@ Requirement that checks if a player has seen/selected a specific response Useful
 
 ### enum SourceType {#enum-sourcetype}
 
+The options of source type: npc, interactable.
+
 - **NPC** = `0`
 - **INTERACTABLE** = `1`
 

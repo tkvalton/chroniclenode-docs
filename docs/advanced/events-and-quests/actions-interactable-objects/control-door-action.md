@@ -32,6 +32,8 @@ Action to open or close a door
 
 ### enum DoorOperation {#enum-dooroperation}
 
+The options of door operation: open, close.
+
 - **OPEN** = `0` - Open the door
 - **CLOSE** = `1` - Close the door
 
@@ -49,7 +51,7 @@ Operation to perform on the door
 
 ### InteractableObject target_door = null {#var-target-door}
 
-*No description yet.*
+Reference to the target door
 
 ## Method descriptions
 

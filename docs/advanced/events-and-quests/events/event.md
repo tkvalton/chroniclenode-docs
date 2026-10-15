@@ -70,17 +70,29 @@ Self-managing event that handles its own trigger evaluation and condition checki
 
 ### state_changed( event: Event, new_state: int ) {#signal-state-changed}
 
+Emitted when the state of the event changes.
+
 ### trigger_activated( event: Event, trigger: EventTrigger, event_data: Dictionary ) {#signal-trigger-activated}
+
+Emitted when a trigger of the event fires, with its data.
 
 ### conditions_failed( event: Event ) {#signal-conditions-failed}
 
+Emitted when a trigger fired but the conditions of the event were not met.
+
 ### local_variable_changed( event: Event, key: String, old_value: Variant, new_value: Variant ) {#signal-local-variable-changed}
 
+Emitted when a local variable of the event changes: its name, the old and the new value.
+
 ### local_variable_removed( event: Event, key: String, old_value: Variant ) {#signal-local-variable-removed}
+
+Emitted when a local variable of the event is removed.
 
 ## Enumerations
 
 ### enum EventState {#enum-eventstate}
+
+The states of an event: not started, in progress, completed or failed.
 
 - **NOT_STARTED** = `0`
 - **IN_PROGRESS** = `1`
@@ -91,7 +103,7 @@ Self-managing event that handles its own trigger evaluation and condition checki
 
 ### bool enabled = true {#prop-enabled}
 
-*No description yet.*
+True when the event can run. A disabled event ignores its triggers.
 
 ### bool run_once = false {#prop-run-once}
 
@@ -99,39 +111,39 @@ Runs only once: after the event has completed, its triggers no longer start it (
 
 ### Array[EventTrigger] triggers = [] {#prop-triggers}
 
-*No description yet.*
+What starts the event (a signal, a place, a timer ...).
 
 ### Array[Condition] conditions = [] {#prop-conditions}
 
-*No description yet.*
+What must be true when a trigger fires for the event to run.
 
 ### Array[EventAction] actions = [] {#prop-actions}
 
-*No description yet.*
+What the event does, in order.
 
 ### LocalVariables local_variables = LocalVariables.new() {#prop-local-variables}
 
-*No description yet.*
+The variables of this event (see the Variables chapter).
 
 ## Variable descriptions
 
 ### EventState state = EventState.NOT_STARTED {#var-state}
 
-*No description yet.*
+The state of the event now.
 
 ### int current_action_index = 0 {#var-current-action-index}
 
-*No description yet.*
+The place of the action that runs now.
 
 ### EventAction current_action = null {#var-current-action}
 
-*No description yet.*
+The action that runs now.
 
 ## Method descriptions
 
 ### void set_system_hub( system_hub: GameHost.SystemHub ) {#method-set-system-hub}
 
-*No description yet.*
+Gives the triggers, conditions and actions the hub of the game systems.
 
 ### void setup_triggers() {#method-setup-triggers}
 
@@ -183,39 +195,39 @@ Get list of failed conditions for debugging
 
 ### Dictionary save() {#method-save}
 
-*No description yet.*
+The state of the event for a save: its state, the action that runs and its variables.
 
 ### void load_data( data: Dictionary ) {#method-load-data}
 
-*No description yet.*
+Restores the event from a save.
 
 ### void set_local_variable( key: String, value: Variant ) {#method-set-local-variable}
 
-*No description yet.*
+Sets a local variable of the event.
 
 ### Variant get_local_variable( key: String, default_value: Variant = null ) {#method-get-local-variable}
 
-*No description yet.*
+The value of a local variable, or the default when it does not exist.
 
 ### bool has_local_variable( key: String ) {#method-has-local-variable}
 
-*No description yet.*
+Does the event have this local variable?
 
 ### bool remove_local_variable( key: String ) {#method-remove-local-variable}
 
-*No description yet.*
+Removes a local variable. False when it did not exist.
 
 ### void clear_all_local_variables() {#method-clear-all-local-variables}
 
-*No description yet.*
+Removes every local variable of the event.
 
 ### Array get_all_local_variable_keys() {#method-get-all-local-variable-keys}
 
-*No description yet.*
+The names of the local variables of the event.
 
 ### int get_local_variable_count() {#method-get-local-variable-count}
 
-*No description yet.*
+How many local variables the event has.
 
 ### void increment_local_variable( key: String, amount: float = 1.0 ) {#method-increment-local-variable}
 

@@ -32,10 +32,14 @@ AbilityEffectsModifierEffect adds or removes effects from a target ability's pas
 
 ### enum EffectAction {#enum-effectaction}
 
+The options of effect action: add, remove.
+
 - **ADD** = `0` - Add an effect to the target ability
 - **REMOVE** = `1` - Remove an effect from the target ability
 
 ### enum EffectTarget {#enum-effecttarget}
+
+The options of effect target: on use, passive.
 
 - **ON_USE** = `0` - Modify the on-use effects array (copy-on-write, active abilities only)
 - **PASSIVE** = `1` - Modify the passive effects array (not supported at runtime - will warn)
@@ -52,7 +56,7 @@ The ID of the ability to modify
 
 ### EffectAction effect_action = EffectAction.ADD {#prop-effect-action}
 
-*No description yet.*
+Whether the effect adds an effect to the ability or removes one.
 
 ### EffectTarget effect_target = EffectTarget.ON_USE {#prop-effect-target}
 
@@ -66,33 +70,33 @@ Effect ID to add or remove
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+What the effect does to its target when it is applied.
 
 ### void modify_ability_effects( effect_instance: EffectInstance, mod_ability: AbilityInstance ) {#method-modify-ability-effects}
 
-*No description yet.*
+Changes the effects of an ability, remembering what they were.
 
 ### void store_original_effects_state( effect_instance: EffectInstance, mod_ability: AbilityInstance ) {#method-store-original-effects-state}
 
-*No description yet.*
+Remembers the effects of the ability before the change, to give them back.
 
 ### void apply_effects_modifications( effect_instance: EffectInstance, mod_ability: AbilityInstance ) {#method-apply-effects-modifications}
 
-*No description yet.*
+Adds or removes the effect on the ability.
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-Handles the finishing of the effect, including cleanup and VFX/SFX (override in child classes if needed, call .super for cleanup) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+Called when the effect ends: takes back what it did.
 
 ### void restore_ability_effects( effect_instance: EffectInstance ) {#method-restore-ability-effects}
 
-*No description yet.*
+Gives the ability its original effects back.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 

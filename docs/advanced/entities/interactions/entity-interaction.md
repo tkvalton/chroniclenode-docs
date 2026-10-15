@@ -23,5 +23,5 @@ Set the entity reference
 
 ### bool can_interact( _player: Player ) {#method-can-interact}
 
-Check if the player can interact with this interaction *(from [Interaction](/advanced/entities/interactions/interaction))*
+Only an entity can use this interaction.
 

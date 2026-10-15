@@ -39,11 +39,15 @@ AreaRandomizeTargetEffect with pure raycast collision detection Supports entity 
 
 ### enum TargetType {#enum-targettype}
 
+The options of target type: entities, positions, entity positions.
+
 - **ENTITIES** = `0`
 - **POSITIONS** = `1`
 - **ENTITY_POSITIONS** = `2`
 
 ### enum DistributionMode {#enum-distributionmode}
+
+The options of distribution mode: equally spaced, random intervals.
 
 - **EQUALLY_SPACED** = `0`
 - **RANDOM_INTERVALS** = `1`
@@ -122,17 +126,17 @@ Override to calculate required duration before EffectInstance creates timers
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-*Overrides this function of [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect).*
+What the effect does to its target when it is applied.
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-*Overrides this function of [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect).*
+Called when the effect ends: takes back what it did.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*Overrides this function of [MinimumApplicationAreaEffect](/advanced/abilities-and-effects/effects-area/minimum-application-area-effect).*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [MinimumApplicationAreaEffect](/advanced/abilities-and-effects/effects-area/minimum-application-area-effect).*
+A short text for the effect editor that says what the effect does.
 

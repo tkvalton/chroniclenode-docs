@@ -65,7 +65,7 @@ Check if effect would actually do anything useful
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*Overrides this function of [EqualizeAreaEffect](/advanced/abilities-and-effects/effects-area/equalize-area-effect).*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_detailed_description( effect_instance: EffectInstance ) {#method-get-detailed-description}
 
@@ -73,5 +73,5 @@ Get detailed description for tooltips
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [EqualizeAreaEffect](/advanced/abilities-and-effects/effects-area/equalize-area-effect).*
+A short text for the effect editor that says what the effect does.
 

@@ -12,8 +12,8 @@ ClassSelectionButton - Button for selecting a player class in character creation
 |---|---|---|
 | `Color` | [text_normal_color](#prop-text-normal-color) | `Color(0.8, 0.8, 0.8)` |
 | `Color` | [text_highlight_color](#prop-text-highlight-color) | `Color(1.0, 1.0, 1.0)` |
-| `Color` | [brackets_active_color](#prop-brackets-active-color) | `Color(1.0, 0.843, 0.0)  # Gold` |
-| `Color` | [brackets_inactive_color](#prop-brackets-inactive-color) | `Color(0.5, 0.5, 0.5)  # Grey` |
+| `Color` | [brackets_active_color](#prop-brackets-active-color) | `Color(1.0, 0.843, 0.0)` |
+| `Color` | [brackets_inactive_color](#prop-brackets-inactive-color) | `Color(0.5, 0.5, 0.5)` |
 | `Color` | [active_colour_highlight](#prop-active-colour-highlight) | `Color(0.4, 0.6, 0.7)` |
 
 ## Variables
@@ -35,29 +35,33 @@ ClassSelectionButton - Button for selecting a player class in character creation
 
 ### button_up( button: MarginContainer ) {#signal-button-up}
 
+Emitted when the button is released.
+
 ### class_selected( player_class: PlayerClassDefinition ) {#signal-class-selected}
+
+Emitted when the class is picked.
 
 ## Property descriptions
 
 ### Color text_normal_color = Color(0.8, 0.8, 0.8) {#prop-text-normal-color}
 
-*No description yet.*
+The color of the text.
 
 ### Color text_highlight_color = Color(1.0, 1.0, 1.0) {#prop-text-highlight-color}
 
-*No description yet.*
+The color of the text under the mouse.
 
-### Color brackets_active_color = Color(1.0, 0.843, 0.0)  # Gold {#prop-brackets-active-color}
+### Color brackets_active_color = Color(1.0, 0.843, 0.0) {#prop-brackets-active-color}
 
-*No description yet.*
+Gold
 
-### Color brackets_inactive_color = Color(0.5, 0.5, 0.5)  # Grey {#prop-brackets-inactive-color}
+### Color brackets_inactive_color = Color(0.5, 0.5, 0.5) {#prop-brackets-inactive-color}
 
-*No description yet.*
+Grey
 
 ### Color active_colour_highlight = Color(0.4, 0.6, 0.7) {#prop-active-colour-highlight}
 
-*No description yet.*
+The color of the button when it is the one picked.
 
 ## Variable descriptions
 
@@ -67,7 +71,7 @@ The PlayerClassDefinition this button represents
 
 ### bool active = false {#var-active}
 
-*No description yet.*
+True when this is the class picked.
 
 ## Method descriptions
 

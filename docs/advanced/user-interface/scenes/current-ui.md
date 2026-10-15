@@ -45,19 +45,31 @@ Emitted on tooltip requests
 
 ### show_skill_node_tooltip( node: SkillNode ) {#signal-show-skill-node-tooltip}
 
+Emitted to show the tooltip of a skill node.
+
 ### show_item_tooltip( item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary ) {#signal-show-item-tooltip}
+
+Emitted to show the tooltip of an item: the item, its definition, where it is and extra data.
 
 ### show_effect_tooltip( effect: EffectInstance ) {#signal-show-effect-tooltip}
 
+Emitted to show the tooltip of an effect.
+
 ### show_description_tooltip( object_name: String, description: String ) {#signal-show-description-tooltip}
 
+Emitted to show a tooltip with a name and a text.
+
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
+
+Asks the interface to hide the tooltip (force hides it at once).
 
 ### message_request( message: String ) {#signal-message-request}
 
 Emitted on message requests
 
 ### warning_message_request( message: String ) {#signal-warning-message-request}
+
+Emitted to show a warning.
 
 ### ui_sfx_request( sound: AudioManager.UISound, volume_modifier: float ) {#signal-ui-sfx-request}
 
@@ -73,9 +85,9 @@ SystemRefs
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*No description yet.*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void connect_signals_to_ui_manager() {#method-connect-signals-to-ui-manager}
 
-*No description yet.*
+Connects the tooltip and message signals of the interface to the UI manager.
 

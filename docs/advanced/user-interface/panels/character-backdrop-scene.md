@@ -27,11 +27,11 @@ This class represents the 3D scene setup for displaying character previews in th
 
 ### Array[Camera3D] cameras {#var-cameras}
 
-*No description yet.*
+The cameras of the preview.
 
 ## Method descriptions
 
 ### Array[Camera3D] setup_character_backdrops( system_hub: GameHost.SystemHub ) {#method-setup-character-backdrops}
 
-*No description yet.*
+Sets up character previews for all active player slots Returns: Array of cameras that can be used with subviewports
 

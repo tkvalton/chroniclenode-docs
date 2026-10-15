@@ -429,7 +429,7 @@ An effect covers a slot: it shows `ability` (null = the slot is empty and cannot
 
 ### void remove_action_bar_override( slot_index: int, source: Variant ) {#method-remove-action-bar-override}
 
-*No description yet.*
+Takes away what a source put on a slot of the action bar; the slot shows what was under it.
 
 ### bool is_action_bar_slot_covered( slot_index: int ) {#method-is-action-bar-slot-covered}
 

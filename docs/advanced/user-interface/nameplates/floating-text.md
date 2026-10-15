@@ -14,7 +14,7 @@ A short text that floats up from an entity's nameplate marker and fades out: dam
 
 ## Constants
 
-- `float` **DURATION** = `1.1`
+- `float` **DURATION** = `1.1` - How many seconds the text floats before it is gone.
 - `float` **RISE** = `48.0` - How far it rises, in pixels
 
 ## Method descriptions

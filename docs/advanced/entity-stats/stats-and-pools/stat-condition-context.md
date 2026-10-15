@@ -24,19 +24,19 @@ What the conditions on a stat effect can see: the entity that owns the stat, and
 
 ### Variant owner = null {#var-owner}
 
-*No description yet.*
+The entity that owns the stat.
 
 ### Variant opponent = null {#var-opponent}
 
-*No description yet.*
+The other side of the hit being worked out (the defender when the owner attacks, the attacker when it defends).
 
 ### GameHost.SystemHub system_hub = null {#var-system-hub}
 
-*No description yet.*
+The hub of the game systems.
 
 ## Method descriptions
 
 ### StatConditionContext create( p_owner: Variant, p_opponent: Variant = null, p_system_hub: GameHost.SystemHub = null ) {#method-create}
 
-*No description yet.*
+Makes a context for an owner, an opponent and the hub.
 

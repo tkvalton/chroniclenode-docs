@@ -11,17 +11,17 @@ Parametric curved movement strategy - uses mathematical curves with rotation con
 | | | |
 |---|---|---|
 | `CurveType` | [curve_type](#var-curve-type) | `CurveType.STRAIGHT` |
-| `float` | [curve_amplitude](#var-curve-amplitude) | `2.0  # How pronounced the curve is` |
-| `float` | [curve_frequency](#var-curve-frequency) | `1.0   # For wave patterns` |
-| `float` | [curve_progress](#var-curve-progress) | `0.0    # 0.0 to 1.0 progress along path` |
-| `Vector3        # Starting position for curve calculations` | [start_position](#var-start-position) |  |
-| `Vector3       # Base direction from start to target` | [curve_direction](#var-curve-direction) |  |
-| `float          # Total distance to travel` | [total_distance](#var-total-distance) |  |
+| `float` | [curve_amplitude](#var-curve-amplitude) | `2.0` |
+| `float` | [curve_frequency](#var-curve-frequency) | `1.0` |
+| `float` | [curve_progress](#var-curve-progress) | `0.0` |
+| `Vector3` | [start_position](#var-start-position) |  |
+| `Vector3` | [curve_direction](#var-curve-direction) |  |
+| `float` | [total_distance](#var-total-distance) |  |
 | `CurveRotationMode` | [curve_rotation_mode](#var-curve-rotation-mode) | `CurveRotationMode.UP` |
-| `float` | [fixed_curve_rotation](#var-fixed-curve-rotation) | `0.0      # Degrees from UP` |
-| `float` | [random_rotation_range](#var-random-rotation-range) | `90.0    # Degrees of random variation` |
-| `float` | [curve_rotation](#var-curve-rotation) | `0.0            # Calculated rotation in radians` |
-| `bool` | [use_left_curve](#var-use-left-curve) | `false           # Set externally for alternating mode` |
+| `float` | [fixed_curve_rotation](#var-fixed-curve-rotation) | `0.0` |
+| `float` | [random_rotation_range](#var-random-rotation-range) | `90.0` |
+| `float` | [curve_rotation](#var-curve-rotation) | `0.0` |
+| `bool` | [use_left_curve](#var-use-left-curve) | `false` |
 
 ## Methods
 
@@ -41,12 +41,16 @@ Parametric curved movement strategy - uses mathematical curves with rotation con
 
 ### enum CurveType {#enum-curvetype}
 
+The options of curve type: straight, arc, sine wave, spiral, bezier.
+
 - **STRAIGHT** = `0`
 - **ARC** = `1`
 - **SINE_WAVE** = `2`
 - **SPIRAL** = `3`
 
 ### enum CurveRotationMode {#enum-curverotationmode}
+
+The options of curve rotation mode: fixed, left, right, up, down, alternating, random full, random range.
 
 - **FIXED** = `0`
 - **LEFT** = `1`
@@ -60,51 +64,51 @@ Parametric curved movement strategy - uses mathematical curves with rotation con
 
 ### CurveType curve_type = CurveType.STRAIGHT {#var-curve-type}
 
-*No description yet.*
+The shape of the curve the projectile follows.
 
-### float curve_amplitude = 2.0  # How pronounced the curve is {#var-curve-amplitude}
+### float curve_amplitude = 2.0 {#var-curve-amplitude}
 
-*No description yet.*
+How pronounced the curve is
 
-### float curve_frequency = 1.0   # For wave patterns {#var-curve-frequency}
+### float curve_frequency = 1.0 {#var-curve-frequency}
 
-*No description yet.*
+For wave patterns
 
-### float curve_progress = 0.0    # 0.0 to 1.0 progress along path {#var-curve-progress}
+### float curve_progress = 0.0 {#var-curve-progress}
 
-*No description yet.*
+0.0 to 1.0 progress along path
 
-### Vector3        # Starting position for curve calculations start_position {#var-start-position}
+### Vector3 start_position {#var-start-position}
 
-*No description yet.*
+Starting position for curve calculations
 
-### Vector3       # Base direction from start to target curve_direction {#var-curve-direction}
+### Vector3 curve_direction {#var-curve-direction}
 
-*No description yet.*
+Base direction from start to target
 
-### float          # Total distance to travel total_distance {#var-total-distance}
+### float total_distance {#var-total-distance}
 
-*No description yet.*
+Total distance to travel
 
 ### CurveRotationMode curve_rotation_mode = CurveRotationMode.UP {#var-curve-rotation-mode}
 
-*No description yet.*
+How the curve is rotated for each projectile.
 
-### float fixed_curve_rotation = 0.0      # Degrees from UP {#var-fixed-curve-rotation}
+### float fixed_curve_rotation = 0.0 {#var-fixed-curve-rotation}
 
-*No description yet.*
+Degrees from UP
 
-### float random_rotation_range = 90.0    # Degrees of random variation {#var-random-rotation-range}
+### float random_rotation_range = 90.0 {#var-random-rotation-range}
 
-*No description yet.*
+Degrees of random variation
 
-### float curve_rotation = 0.0            # Calculated rotation in radians {#var-curve-rotation}
+### float curve_rotation = 0.0 {#var-curve-rotation}
 
-*No description yet.*
+Calculated rotation in radians
 
-### bool use_left_curve = false           # Set externally for alternating mode {#var-use-left-curve}
+### bool use_left_curve = false {#var-use-left-curve}
 
-*No description yet.*
+Set externally for alternating mode
 
 ## Method descriptions
 

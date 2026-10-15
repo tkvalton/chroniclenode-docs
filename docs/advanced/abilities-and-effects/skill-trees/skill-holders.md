@@ -53,9 +53,9 @@ A new game: every owner starts again
 
 ### Array to_save_data() {#method-to-save-data}
 
-*No description yet.*
+The owners (professions, factions) for a save.
 
 ### void restore_from_save_data( data: Array, player: Player = null ) {#method-restore-from-save-data}
 
-*No description yet.*
+Restores the owners from a save.
 

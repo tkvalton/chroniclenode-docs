@@ -54,6 +54,8 @@ Created by CombatManager.apply_healing, completed by the healer's calculation (h
 
 ### enum Outcome {#enum-outcome}
 
+The options of outcome: applied, failed.
+
 - **APPLIED** = `0` - The heal was processed (it may have restored 0 on a full pool)
 - **FAILED** = `1` - The pipeline could not process the heal (see `error`)
 
@@ -61,15 +63,15 @@ Created by CombatManager.apply_healing, completed by the healer's calculation (h
 
 ### Variant healer = null {#var-healer}
 
-*No description yet.*
+Who gave the heal.
 
 ### Variant target = null {#var-target}
 
-*No description yet.*
+Who got the heal.
 
 ### EffectInstance effect = null {#var-effect}
 
-*No description yet.*
+The effect that healed.
 
 ### String ability_name = "" {#var-ability-name}
 
@@ -81,7 +83,7 @@ Display name of the ability / effect
 
 ### int chain_depth = 0 {#var-chain-depth}
 
-*No description yet.*
+How many heals led to this one (a heal that triggers a heal).
 
 ### float raw = 0.0 {#var-raw}
 
@@ -109,31 +111,31 @@ What did not fit (taken - applied)
 
 ### Outcome outcome = Outcome.APPLIED {#var-outcome}
 
-*No description yet.*
+How the heal ended (applied ...).
 
 ### bool target_revived = false {#var-target-revived}
 
-*No description yet.*
+True when the heal brought a dead target back.
 
 ### String error = "" {#var-error}
 
-*No description yet.*
+What went wrong, when the heal could not be worked out.
 
 ### Array[TriggerRecord] triggers_done = [] {#var-triggers-done}
 
-*No description yet.*
+The triggers (a critical heal ...) that fired on the side of the healer.
 
 ### Array[TriggerRecord] triggers_taken = [] {#var-triggers-taken}
 
-*No description yet.*
+The triggers that fired on the side of the target.
 
 ### Array[ModifierStep] steps_done = [] {#var-steps-done}
 
-*No description yet.*
+The modifiers that changed the heal on the side of the healer.
 
 ### Array[ModifierStep] steps_taken = [] {#var-steps-taken}
 
-*No description yet.*
+The modifiers that changed the heal on the side of the target.
 
 ## Method descriptions
 

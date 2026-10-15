@@ -56,18 +56,28 @@ The loot goes to the bag or not at all: a gatherer whose bag has no room for the
 
 ### gathered( gatherer: Entity ) {#signal-gathered}
 
+Emitted when an entity gathers from the node.
+
 ### depleted() {#signal-depleted}
 
+Emitted when the node has no charges left.
+
 ### replenished() {#signal-replenished}
+
+Emitted when the node has charges again.
 
 ## Enumerations
 
 ### enum LootMode {#enum-lootmode}
 
+The options of loot mode: to the bag, window.
+
 - **TO_THE_BAG** = `0` - What a gather rolls goes straight to the bag of the gatherer (all of it, or nothing)
 - **WINDOW** = `1` - What a gather rolls goes into the inventory of the node and its window opens, like a chest. What is not taken stays: the next attempt opens the same window, with no new roll
 
 ### enum WhenDepleted {#enum-whendepleted}
+
+The options of when depleted: stays, disappears.
 
 - **STAYS** = `0` - The node stays where it is and plays its depleted animation, but cannot be used
 - **DISAPPEARS** = `1` - The node vanishes (it cannot be seen, hit or used) until it comes back
@@ -144,15 +154,15 @@ Uses left
 
 ### void setup_for_interactable_objects( interactable: InteractableObject ) {#method-setup-for-interactable-objects}
 
-*Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
+Sets the charges of the node.
 
 ### String get_interaction_prompt() {#method-get-interaction-prompt}
 
-*No description yet.*
+The text of the prompt above the node ("Gather").
 
 ### bool is_depleted() {#method-is-depleted}
 
-*No description yet.*
+Has the node run out of charges?
 
 ### bool can_interact( player: Player ) {#method-can-interact}
 
@@ -172,7 +182,7 @@ Why the node cannot be used ("" = it can)
 
 ### void start_interaction( player: Player ) {#method-start-interaction}
 
-Start the interaction with the given player *(from [Interaction](/advanced/entities/interactions/interaction))*
+The player gathers: uses up a charge and rolls the loot.
 
 ### void replenish() {#method-replenish}
 
@@ -180,17 +190,17 @@ The node is full again (its respawn time passed, or an event or a spawner brough
 
 ### Dictionary save_state() {#method-save-state}
 
-*No description yet.*
+The state of the node for a save (the charges and whether it is depleted).
 
 ### void load_state( state: Dictionary ) {#method-load-state}
 
-*No description yet.*
+Restores the state of the node from a save.
 
 ### void cleanup() {#method-cleanup}
 
-*No description yet.*
+Stops the timers of the node.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 

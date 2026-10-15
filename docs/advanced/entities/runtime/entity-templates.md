@@ -46,7 +46,7 @@ The game asks `resolve` for the definition to use, and the editors call `sync` w
 ## Constants
 
 - `Array[String]` **CORE_VALUES** = `["movement_speed_base", "attack_speed_base", "global_cooldown_duration_base",...` - The core stat values of a StatsData that follow like numbers
-- `float` **EPSILON** = `0.0001`
+- `float` **EPSILON** = `0.0001` - The difference below which two numbers count as equal when a value is compared with its template.
 
 ## Method descriptions
 

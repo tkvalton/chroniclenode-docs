@@ -37,12 +37,16 @@ One effect does one thing (`bonus_kind`); the number comes from the formula slot
 
 ### enum TagKindFilter {#enum-tagkindfilter}
 
+The options of tag kind filter: any, avoid, mitigate, boost.
+
 - **ANY** = `0` - Every tag
 - **AVOID** = `1` - Dodge, parry, miss ...
 - **MITIGATE** = `2` - Block ...
 - **BOOST** = `3` - Critical strike ...
 
 ### enum BonusKind {#enum-bonuskind}
+
+The options of bonus kind: chance bonus, magnitude bonus, magnitude more, force always, force never.
 
 - **CHANCE_BONUS** = `0` - Adds percentage points to the chance of the tag
 - **MAGNITUDE_BONUS** = `1` - Adds to the magnitude of the tag (crit: +1 per point = +1 % crit damage)
@@ -86,11 +90,11 @@ With no tag chosen: only the tags of this kind (all avoid tags: dodge, parry, mi
 
 ### EffectType get_effect_type() {#method-get-effect-type}
 
-Override in child classes to return effect type name *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== EFFECT IDENTIFICATION ==========
 
 ### String get_effect_category() {#method-get-effect-category}
 
-Override in child classes to return category *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+The group of the effect in the editor.
 
 ### void add_to_rules( rules: TriggerRuleSet, stat_points: float, formula_context: FormulaContext = null ) {#method-add-to-rules}
 
@@ -102,17 +106,17 @@ The TriggerRecord.Kind the rule is limited to when it names no tag (-1 = every k
 
 ### String get_short_description() {#method-get-short-description}
 
-Override in child classes for a one-line summary of what this effect does *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+A one line text about what the effect does.
 
 ### Dictionary get_preview_info( stat_points: float ) {#method-get-preview-info}
 
-*No description yet.*
+What the effect gives for a number of stat points, for the tooltip and the editor preview.
 
 ### String get_tooltip_text( stat_points: float ) {#method-get-tooltip-text}
 
-*No description yet.*
+The tooltip text of the effect for a number of stat points.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Validate this effect's configuration - override in child classes *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== VALIDATION ==========
 

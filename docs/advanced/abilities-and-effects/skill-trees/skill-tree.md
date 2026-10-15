@@ -63,7 +63,7 @@ What a tree shows when the player cannot spend points in it yet
 
 ### CompressedTexture2D background_texture {#prop-background-texture}
 
-Optional background image for the skill tree UI
+========== VISUAL THEMING (for UI display) ==========
 
 ### Color background_color = Color(0.15, 0.15, 0.15, 1.0) {#prop-background-color}
 
@@ -91,33 +91,33 @@ The points a tree of the dedication group needs before the others open
 
 ### Array[SkillNode] skill_nodes = [] {#prop-skill-nodes}
 
-*No description yet.*
+========== TREE STRUCTURE ==========
 
 ### Array[SkillConnection] node_connections = [] {#prop-node-connections}
 
-*No description yet.*
+The connections between the nodes of the tree.
 
 ### Dictionary visual_layout_data =   # Store any editor metadata {#prop-visual-layout-data}
 
-*No description yet.*
+========== VISUAL DATA (for future editor) ==========
 
 ## Method descriptions
 
 ### void add_node( node: SkillNode ) {#method-add-node}
 
-*No description yet.*
+========== TREE MANAGEMENT METHODS ==========
 
 ### bool remove_node( node_id: int ) {#method-remove-node}
 
-*No description yet.*
+Removes a node by its id. False when it is not in the tree.
 
 ### SkillNode get_node_by_id( node_id: int ) {#method-get-node-by-id}
 
-*No description yet.*
+The node with this id, or null.
 
 ### void add_connection( connection: SkillConnection ) {#method-add-connection}
 
-*No description yet.*
+Adds a connection between two nodes.
 
 ### bool remove_connection( connection: SkillConnection ) {#method-remove-connection}
 
@@ -141,7 +141,7 @@ Check if a connection exists between two nodes
 
 ### Array[SkillNode] get_prerequisite_nodes( node_id: int ) {#method-get-prerequisite-nodes}
 
-*No description yet.*
+========== PREREQUISITE ANALYSIS ==========
 
 ### Array[SkillNode] get_dependent_nodes( node_id: int ) {#method-get-dependent-nodes}
 
@@ -149,7 +149,7 @@ Get all nodes that have this node as a prerequisite
 
 ### Array[SkillNode] get_mutually_exclusive_nodes( node_id: int ) {#method-get-mutually-exclusive-nodes}
 
-*No description yet.*
+The nodes that cannot be taken together with this one.
 
 ### Array[SkillNode] get_root_nodes() {#method-get-root-nodes}
 
@@ -185,7 +185,7 @@ Get node position from visual layout data
 
 ### String get_summary() {#method-get-summary}
 
-*No description yet.*
+========== UTILITY METHODS ==========
 
 ### Dictionary get_detailed_info() {#method-get-detailed-info}
 
@@ -193,9 +193,9 @@ Get detailed information about the tree structure
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Is it free of errors?
 

@@ -29,6 +29,8 @@ Applies child effects based on a percentage chance, with optional advanced RNG m
 
 ### enum RngMode {#enum-rngmode}
 
+The options of rng mode: pure random, pity timer, streak breaker, weighted streak.
+
 - **PURE_RANDOM** = `0` - Each roll is fully independent
 - **PITY_TIMER** = `1` - Chance increases after each failure
 - **STREAK_BREAKER** = `2` - Guarantees success after N consecutive failures
@@ -46,7 +48,7 @@ Base percentage chance (0–100) for the effect to trigger
 
 ### RngMode rng_mode = RngMode.PURE_RANDOM {#prop-rng-mode}
 
-*No description yet.*
+How the chance is rolled: purely random, or a mode that evens out bad luck streaks.
 
 *Pity Timer Settings*
 
@@ -68,7 +70,7 @@ Consecutive failures before success is guaranteed (used by STREAK_BREAKER and WE
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-*Overrides this function of [ConditionalEffect](/advanced/abilities-and-effects/effects-base/conditional-effect).*
+What the effect does to its target when it is applied.
 
 ### float get_current_chance( effect_instance: EffectInstance ) {#method-get-current-chance}
 
@@ -80,5 +82,5 @@ Resets the RNG state for this effect instance (e.g. on combat state transitions)
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 

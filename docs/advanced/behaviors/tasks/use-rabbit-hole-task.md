@@ -82,73 +82,73 @@ Whether to fail if rabbit hole leads to different map and entity is not player
 
 ### InteractableObject target_rabbit_hole = null {#var-target-rabbit-hole}
 
-*No description yet.*
+The rabbit hole the entity uses.
 
 ### Timer teleport_timer = null {#var-teleport-timer}
 
-*No description yet.*
+The timer of the travel.
 
 ### bool teleportation_started = false {#var-teleportation-started}
 
-*No description yet.*
+True once the travel has started.
 
 ### bool teleportation_completed = false {#var-teleportation-completed}
 
-*No description yet.*
+True once the travel is done.
 
 ### Vector3 rabbit_hole_position = Vector3.ZERO {#var-rabbit-hole-position}
 
-*No description yet.*
+The position of the rabbit hole.
 
 ### float interaction_range = 2.0 {#var-interaction-range}
 
-*No description yet.*
+How close the entity must be to use the rabbit hole.
 
 ### bool movement_completed = false {#var-movement-completed}
 
-*No description yet.*
+True once the entity arrived.
 
 ### bool rabbit_hole_interaction_completed = false {#var-rabbit-hole-interaction-completed}
 
-*No description yet.*
+True once the rabbit hole was used.
 
 ## Method descriptions
 
 ### void execute_task_start() {#method-execute-task-start}
 
-Override this in subclasses to implement specific task behavior *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Starts the task.
 
 ### void execute_task_complete() {#method-execute-task-complete}
 
-Override this in subclasses for task completion logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task finishes well.
 
 ### void execute_task_interrupt() {#method-execute-task-interrupt}
 
-Override this in subclasses for task interruption logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when something interrupts the task.
 
 ### void execute_task_fail() {#method-execute-task-fail}
 
-Override this in subclasses for task failure logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task fails.
 
 ### InteractableObject get_target_rabbit_hole() {#method-get-target-rabbit-hole}
 
-*No description yet.*
+The rabbit hole the entity uses.
 
 ### bool is_teleportation_in_progress() {#method-is-teleportation-in-progress}
 
-*No description yet.*
+Is the entity travelling now?
 
 ### bool is_rabbit_hole_accessible() {#method-is-rabbit-hole-accessible}
 
-*No description yet.*
+Can the rabbit hole be used now?
 
 ### float get_distance_to_rabbit_hole() {#method-get-distance-to-rabbit-hole}
 
-*No description yet.*
+The distance to the rabbit hole (-1 when there is none).
 
 ### bool is_in_rabbit_hole_interaction_range() {#method-is-in-rabbit-hole-interaction-range}
 
-*No description yet.*
+Is the entity close enough to use the rabbit hole?
 
 ### void set_rabbit_hole_id( new_id: int ) {#method-set-rabbit-hole-id}
 
@@ -164,5 +164,5 @@ Set interaction distance dynamically
 
 ### void cleanup_timers() {#method-cleanup-timers}
 
-Clean up all timers and resources *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Frees the timers of the task.
 

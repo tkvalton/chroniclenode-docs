@@ -42,15 +42,27 @@ Clean VendorSlotUI that initializes everything in setup_vendor_slot() instead of
 
 ### purchase_requested( item_id: int, quantity: int ) {#signal-purchase-requested}
 
+Emitted when the player wants to buy: the item and how many.
+
 ### item_tooltip_requested( item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary ) {#signal-item-tooltip-requested}
+
+Tooltips
 
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
 
+Asks the interface to hide the tooltip (force hides it at once).
+
 ### message_requested( message: String ) {#signal-message-requested}
+
+Messages
 
 ### warning_message_requested( message: String ) {#signal-warning-message-requested}
 
+Asks the interface to show a warning.
+
 ### ui_sfx_request( sound: AudioManager.UISound, volume_modifier: float ) {#signal-ui-sfx-request}
+
+Audio Request
 
 ## Constants
 
@@ -60,51 +72,51 @@ Clean VendorSlotUI that initializes everything in setup_vendor_slot() instead of
 
 ### ItemDefinition item_definition {#var-item-definition}
 
-*No description yet.*
+The item the slot sells.
 
 ### VendorInventoryComponent vendor_inventory {#var-vendor-inventory}
 
-*No description yet.*
+The stock of the vendor.
 
 ### Entity player_entity {#var-player-entity}
 
-*No description yet.*
+The player who buys.
 
 ### int item_id {#var-item-id}
 
-*No description yet.*
+The id of the item.
 
 ### int stock_quantity {#var-stock-quantity}
 
-*No description yet.*
+How many are in stock.
 
 ### int item_price {#var-item-price}
 
-*No description yet.*
+The price of one.
 
 ### CurrencyDefinition currency_definition {#var-currency-definition}
 
-*No description yet.*
+The currency of the price.
 
 ### bool is_interactable = true {#var-is-interactable}
 
-*No description yet.*
+True when the player can buy from the slot.
 
 ### Color default_background_color = Color.WHITE {#var-default-background-color}
 
-*No description yet.*
+The color of the background.
 
 ### Color hover_background_color = Color(1.2, 1.2, 1.2, 1.0) {#var-hover-background-color}
 
-*No description yet.*
+The color of the background under the mouse.
 
 ### Color unavailable_background_color = Color(0.5, 0.5, 0.5, 1.0) {#var-unavailable-background-color}
 
-*No description yet.*
+The color of the background when the player cannot buy.
 
 ### Color out_of_stock_background_color = Color(0.3, 0.3, 0.3, 1.0) {#var-out-of-stock-background-color}
 
-*No description yet.*
+The color of the background when it is out of stock.
 
 ## Method descriptions
 
@@ -122,29 +134,29 @@ Get vendor's buy-back price for this item type
 
 ### bool has_item() {#method-has-item}
 
-*No description yet.*
+Does the slot sell something?
 
 ### String get_price_string() {#method-get-price-string}
 
-*No description yet.*
+The price as text, with the currency.
 
 ### bool can_purchase() {#method-can-purchase}
 
-*No description yet.*
+Can the player buy from the slot (it is in stock)?
 
 ### void update_stock_display( new_stock: int ) {#method-update-stock-display}
 
-*No description yet.*
+Shows a new stock quantity.
 
 ### int get_stock_quantity() {#method-get-stock-quantity}
 
-*No description yet.*
+How many are in stock.
 
 ### int get_item_price() {#method-get-item-price}
 
-*No description yet.*
+The price of one.
 
 ### void update_affordability() {#method-update-affordability}
 
-*No description yet.*
+Checks whether the player can pay, and updates the slot.
 

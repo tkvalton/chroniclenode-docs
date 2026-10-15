@@ -24,19 +24,19 @@ Specialized SFX selection for impact sound effects
 
 ### String audio_type = "" {#prop-audio-type}
 
-*No description yet.*
+The kind of impact sound.
 
 ## Method descriptions
 
 ### Array[String] get_available_audio_types() {#method-get-available-audio-types}
 
-*No description yet.*
+The kinds of sound the audio database has for this category (for the editor list).
 
 ### Array[String] get_available_files() {#method-get-available-files}
 
-*No description yet.*
+The sound files the database has for the settings now (for the editor list).
 
 ### AudioStream get_sound_resource() {#method-get-sound-resource}
 
-*Overrides this function of [SFXSelection](/advanced/assets/selections-sfx/sfx-selection).*
+The sound this selection points to, or null when it is not set.
 

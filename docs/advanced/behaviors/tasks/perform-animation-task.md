@@ -59,35 +59,35 @@ Position to move to before starting (Vector3.ZERO = current position)
 
 ### int loops_completed = 0 {#var-loops-completed}
 
-*No description yet.*
+How many times the animation has played.
 
 ### bool positioned_for_animation = false {#var-positioned-for-animation}
 
-*No description yet.*
+True once the entity is at the place of the animation.
 
 ### bool facing_complete = false {#var-facing-complete}
 
-*No description yet.*
+True once the entity faces the right way.
 
 ### bool animation_started = false {#var-animation-started}
 
-*No description yet.*
+True once the animation has started.
 
 ## Method descriptions
 
 ### void execute_task_start() {#method-execute-task-start}
 
-Override this in subclasses to implement specific task behavior *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Starts the task.
 
 ### void execute_task_complete() {#method-execute-task-complete}
 
-Override this in subclasses for task completion logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task finishes well.
 
 ### void execute_task_interrupt() {#method-execute-task-interrupt}
 
-Override this in subclasses for task interruption logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when something interrupts the task.
 
 ### void execute_task_fail() {#method-execute-task-fail}
 
-Override this in subclasses for task failure logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task fails.
 

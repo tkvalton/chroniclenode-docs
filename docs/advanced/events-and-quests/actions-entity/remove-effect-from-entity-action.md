@@ -48,7 +48,7 @@ Whether to remove all instances of the effect or just the first one
 
 ### Entity target_entity = null {#var-target-entity}
 
-*No description yet.*
+Reference to the target entity
 
 ## Method descriptions
 

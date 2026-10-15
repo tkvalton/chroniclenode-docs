@@ -67,19 +67,19 @@ The player who is looking at the lessons
 
 ### bool can_interact( player: Player ) {#method-can-interact}
 
-Check if the player can interact with this interaction *(from [Interaction](/advanced/entities/interactions/interaction))*
+Can the player use it: the trainer exists and the requirements are met?
 
 ### void start_interaction( player: Player ) {#method-start-interaction}
 
-Start the interaction with the given player *(from [Interaction](/advanced/entities/interactions/interaction))*
+Opens the list of lessons.
 
 ### void end_interaction() {#method-end-interaction}
 
-End the current interaction *(from [Interaction](/advanced/entities/interactions/interaction))*
+Closes the list of lessons.
 
 ### TrainerDefinition get_trainer_definition() {#method-get-trainer-definition}
 
-*No description yet.*
+The trainer this interaction opens.
 
 ### Array[Dictionary] get_offers( player: Player ) {#method-get-offers}
 

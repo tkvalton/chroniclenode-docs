@@ -32,6 +32,8 @@ Action to manipulate the game camera through the CameraController. Allows changi
 
 ### enum MovementType {#enum-movementtype}
 
+The options of movement type: instant, pan.
+
 - **INSTANT** = `0`
 - **PAN** = `1`
 
@@ -49,7 +51,7 @@ How the camera should move to the position (for SET_POSITION)
 
 ### CameraController camera_controller {#var-camera-controller}
 
-*No description yet.*
+Reference to the camera container
 
 ## Method descriptions
 

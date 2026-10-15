@@ -32,25 +32,45 @@ Parent class for all HUD UI elements contains useful exports for ui scaling opti
 
 ### ability_tooltip_requested( ability: AbilityInstance ) {#signal-ability-tooltip-requested}
 
+Tooltips
+
 ### skill_node_tooltip_requested( node: SkillNode ) {#signal-skill-node-tooltip-requested}
+
+Asks the interface to show the tooltip of a skill node.
 
 ### item_tooltip_requested( item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary ) {#signal-item-tooltip-requested}
 
+Asks the interface to show the tooltip of an item: the item, its definition, where it is and extra data.
+
 ### effect_tooltip_requested( effect: EffectInstance ) {#signal-effect-tooltip-requested}
+
+Asks the interface to show the tooltip of an effect.
 
 ### description_tooltip_requested( object_name: String, description: String ) {#signal-description-tooltip-requested}
 
+Asks the interface to show a tooltip with a name and a text.
+
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
+
+Asks the interface to hide the tooltip (force hides it at once).
 
 ### message_requested( message: String ) {#signal-message-requested}
 
+Messages
+
 ### warning_message_requested( message: String ) {#signal-warning-message-requested}
 
+Asks the interface to show a warning.
+
 ### ui_sfx_request( sound: AudioManager.UISound, volume_modifier: float ) {#signal-ui-sfx-request}
+
+Audio Request
 
 ## Enumerations
 
 ### enum PivotPosition {#enum-pivotposition}
+
+The options of pivot position: top left, top right, bottom left, bottom right, top, bottom, left, right, center, custom.
 
 - **TOP_LEFT** = `0`
 - **TOP_RIGHT** = `1`
@@ -83,7 +103,7 @@ SystemHub reference
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*No description yet.*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void apply_ui_scale( scale_value: float ) {#method-apply-ui-scale}
 

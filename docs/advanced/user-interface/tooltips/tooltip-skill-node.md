@@ -21,23 +21,23 @@ Tooltip display for skill nodes showing name, description, and rewards Handles d
 
 ### void set_systems_refs( system_hub: GameHost.SystemHub ) {#method-set-systems-refs}
 
-*Overrides this function of [TooltipBase](/advanced/user-interface/tooltips/tooltip-base).*
+Gives the tooltip the hub of the game systems.
 
 ### void skill_node_tooltip_show( skill_node: SkillNode ) {#method-skill-node-tooltip-show}
 
-*No description yet.*
+Shows the tooltip of a skill node.
 
 ### void skill_node_tooltip_hide( _value: bool ) {#method-skill-node-tooltip-hide}
 
-*No description yet.*
+Hides the tooltip of a skill node.
 
 ### void choice_tooltip_show( choice_node: ChoiceSkillNode, choice_index: int ) {#method-choice-tooltip-show}
 
-*No description yet.*
+Shows the tooltip of one choice of a choice node.
 
 ### void choice_tooltip_hide( _value: bool ) {#method-choice-tooltip-hide}
 
-*No description yet.*
+Hides the tooltip of a choice.
 
 ### void set_skill_node( node: SkillNode, _context: String = "", choice_index: int = -1 ) {#method-set-skill-node}
 

@@ -42,25 +42,25 @@ The highest rank (0 = no limit): an effect that is replaced by a better one abov
 
 ### bool check( _entity: Entity ) {#method-check}
 
-Check if the entity meets this requirement Returns true if requirement is satisfied, false otherwise *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+Does the entity meet the requirement?
 
 ### bool check_in_context( _entity: Entity, context: Dictionary ) {#method-check-in-context}
 
-The same checks with extra facts about what the requirement guards: &#123;"item_level": int&#125; for an item. Most requirements do not need them and give the plain answer *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+Is the ability at the rank? It passes when there is no rank in the context.
 
 ### String get_failure_message( _entity: Entity ) {#method-get-failure-message}
 
-Get the failure message with entity-specific context *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+The reason shown when the entity does not meet the requirement.
 
 ### String get_failure_message_in_context( _entity: Entity, context: Dictionary ) {#method-get-failure-message-in-context}
 
-*Overrides this function of [Requirement](/advanced/shared-systems/requirements/requirement).*
+The reason shown when the ability is not at the rank.
 
 ### String get_summary() {#method-get-summary}
 
-Get a summary of this requirement for tooltips/UI *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+A short text about the requirement and its settings.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Configuration problems of this requirement, as a list of &#123;"type", "message", "severity"&#125; ("warning" or "error"). An empty list is fine. Types override it to point out settings that make them useless. RequirementChecker.validate_requirements collects them for the editor *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+Checks the settings of the requirement. Gives the problems found (empty when it is fine).
 

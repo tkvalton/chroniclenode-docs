@@ -36,6 +36,8 @@ The loot table says WHAT can drop; the rule says WHEN (the trigger) and at what 
 
 ### enum Trigger {#enum-trigger}
 
+The options of trigger: on initialize, on death, on destroyed, on first access, on gathered.
+
 - **ON_INITIALIZE** = `0` - When the holder is made: an NPC spawns, an object is set up. What it gets is there to pickpocket, steal or open from the start
 - **ON_DEATH** = `1` - When an NPC dies. The loot is on the body
 - **ON_DESTROYED** = `2` - When an object with health is destroyed. The remains stay lootable
@@ -46,7 +48,7 @@ The loot table says WHAT can drop; the rule says WHEN (the trigger) and at what 
 
 ### Trigger trigger = Trigger.ON_DEATH {#prop-trigger}
 
-*No description yet.*
+When the rule rolls (on death, on first access, on initialize ...).
 
 ### int table_id = 0 {#prop-table-id}
 
@@ -72,11 +74,11 @@ The table the rule rolls (its own, else the shared one; null when it has none)
 
 ### bool has_table() {#method-has-table}
 
-*No description yet.*
+Does the rule have a loot table (its own or one by id)?
 
 ### String get_trigger_name( value: Trigger ) {#method-get-trigger-name}
 
-*No description yet.*
+The name of a trigger, for the editor.
 
 ### String describe() {#method-describe}
 

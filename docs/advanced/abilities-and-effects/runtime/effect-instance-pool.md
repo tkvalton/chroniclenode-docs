@@ -25,16 +25,16 @@ Global pool manager for EffectInstance objects and Projectile instances Handles 
 
 ## Constants
 
-- `int` **MAX_POOL_SIZE** = `500  # Maximum instances to keep in pool`
-- `int` **INITIAL_POOL_SIZE** = `50  # Pre-allocated instances`
-- `int` **MAX_PROJECTILE_POOL_SIZE** = `400  # Maximum projectiles per VFX type`
-- `int` **PROJECTILE_POOL_CLEANUP_THRESHOLD** = `500  # Clean up when total projectiles exceed this`
+- `int` **MAX_POOL_SIZE** = `500  # Maximum instances to keep in pool` - ========== CONFIGURATION ==========
+- `int` **INITIAL_POOL_SIZE** = `50` - Pre-allocated instances
+- `int` **MAX_PROJECTILE_POOL_SIZE** = `400` - Maximum projectiles per VFX type
+- `int` **PROJECTILE_POOL_CLEANUP_THRESHOLD** = `500` - Clean up when total projectiles exceed this
 
 ## Variable descriptions
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 
-*No description yet.*
+The hub of the game systems.
 
 ## Method descriptions
 

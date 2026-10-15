@@ -34,6 +34,8 @@ Action to set interaction Works with both NPC and InteractableObject
 
 ### enum SourceType {#enum-sourcetype}
 
+The options of source type: npc, interactable.
+
 - **NPC** = `0`
 - **INTERACTABLE** = `1`
 
@@ -59,11 +61,11 @@ interaction to set
 
 ### NPC target_npc = null {#var-target-npc}
 
-*No description yet.*
+Runtime references
 
 ### InteractableObject target_interactable = null {#var-target-interactable}
 
-*No description yet.*
+The object whose interaction is changed (found when the action runs).
 
 ## Method descriptions
 

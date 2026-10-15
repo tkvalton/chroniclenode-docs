@@ -17,11 +17,11 @@ Base class for all skill node types
 | `String` | [description](#prop-description) | `""` |
 | `CompressedTexture2D` | [icon](#prop-icon) |  |
 | `int` | [required_point_pool](#prop-required-point-pool) | `0  # Which pool to spend from (0 = no pool required)` |
-| `bool` | [can_refund](#prop-can-refund) | `true  # Whether this node can be refunded` |
+| `bool` | [can_refund](#prop-can-refund) | `true` |
 | `Array[int]` | [required_nodes](#prop-required-nodes) | `[]  # Node IDs that must be unlocked first` |
 | `int` | [required_level](#prop-required-level) | `1` |
-| `int` | [required_points_in_tree](#prop-required-points-in-tree) | `0  # Minimum points spent in this tree to unlock` |
-| `Array[int]` | [mutually_exclusive_nodes](#prop-mutually-exclusive-nodes) | `[]  # Can't have both` |
+| `int` | [required_points_in_tree](#prop-required-points-in-tree) | `0` |
+| `Array[int]` | [mutually_exclusive_nodes](#prop-mutually-exclusive-nodes) | `[]` |
 | `Vector2` | [editor_position](#prop-editor-position) | `Vector2.ZERO` |
 | `Color` | [node_color](#prop-node-color) | `Color.WHITE` |
 
@@ -47,51 +47,51 @@ Base class for all skill node types
 
 ### int id {#prop-id}
 
-*No description yet.*
+========== BASIC PROPERTIES ==========
 
 ### String display_name = "" {#prop-display-name}
 
-*No description yet.*
+The name of the node.
 
 ### String description = "" {#prop-description}
 
-*No description yet.*
+The text of the node.
 
 ### CompressedTexture2D icon {#prop-icon}
 
-*No description yet.*
+The icon of the node.
 
 ### int required_point_pool = 0  # Which pool to spend from (0 = no pool required) {#prop-required-point-pool}
 
-*No description yet.*
+========== POINT COST SYSTEM ==========
 
-### bool can_refund = true  # Whether this node can be refunded {#prop-can-refund}
+### bool can_refund = true {#prop-can-refund}
 
-*No description yet.*
+Whether this node can be refunded
 
 ### Array[int] required_nodes = []  # Node IDs that must be unlocked first {#prop-required-nodes}
 
-*No description yet.*
+========== PREREQUISITES ==========
 
 ### int required_level = 1 {#prop-required-level}
 
-*No description yet.*
+The level the player must have to take the node.
 
-### int required_points_in_tree = 0  # Minimum points spent in this tree to unlock {#prop-required-points-in-tree}
+### int required_points_in_tree = 0 {#prop-required-points-in-tree}
 
-*No description yet.*
+Minimum points spent in this tree to unlock
 
-### Array[int] mutually_exclusive_nodes = []  # Can't have both {#prop-mutually-exclusive-nodes}
+### Array[int] mutually_exclusive_nodes = [] {#prop-mutually-exclusive-nodes}
 
-*No description yet.*
+Can't have both
 
 ### Vector2 editor_position = Vector2.ZERO {#prop-editor-position}
 
-*No description yet.*
+========== VISUAL (for future editor) ==========
 
 ### Color node_color = Color.WHITE {#prop-node-color}
 
-*No description yet.*
+The color of the node in the tree window.
 
 ## Method descriptions
 
@@ -117,33 +117,33 @@ Calculate total cost to reach a specific rank (uses child class implementation)
 
 ### bool has_node_prerequisite( node_id_to_check: int ) {#method-has-node-prerequisite}
 
-*No description yet.*
+========== PREREQUISITE HELPERS ==========
 
 ### void add_node_prerequisite( prereq_node_id: int ) {#method-add-node-prerequisite}
 
-*No description yet.*
+Adds a node that must be taken before this one.
 
 ### bool remove_node_prerequisite( prereq_node_id: int ) {#method-remove-node-prerequisite}
 
-*No description yet.*
+Removes a prerequisite. False when it was not there.
 
 ### void add_mutually_exclusive_node( exclusive_node_id: int ) {#method-add-mutually-exclusive-node}
 
-*No description yet.*
+Adds a node that cannot be taken together with this one.
 
 ### bool remove_mutually_exclusive_node( exclusive_node_id: int ) {#method-remove-mutually-exclusive-node}
 
-*No description yet.*
+Removes a mutual exclusion. False when it was not there.
 
 ### String get_summary() {#method-get-summary}
 
-*No description yet.*
+========== UTILITY METHODS ==========
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Is it free of errors?
 

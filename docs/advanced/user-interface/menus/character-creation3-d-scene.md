@@ -55,7 +55,11 @@ CharacterCreation3DScene - Manages the 3D character preview in character creatio
 
 ### skeleton_changed( skeleton: CustomSkeleton ) {#signal-skeleton-changed}
 
+Emitted when the model changes.
+
 ### customization_applied( definition: CustomCharacterDefinition ) {#signal-customization-applied}
+
+Emitted when the choices of the player were applied to the model.
 
 ## Property descriptions
 
@@ -95,11 +99,11 @@ Current animation type for this character
 
 ### bool auto_rotate = false {#var-auto-rotate}
 
-*No description yet.*
+True when the model turns by itself.
 
 ### float current_rotation = 0.0 {#var-current-rotation}
 
-*No description yet.*
+How far the model has turned.
 
 ## Method descriptions
 

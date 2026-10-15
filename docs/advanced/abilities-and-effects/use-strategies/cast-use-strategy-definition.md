@@ -43,6 +43,8 @@ Definition for abilities that require a casting time before execution. Handles t
 
 ### enum SpeedSource {#enum-speedsource}
 
+The options of speed source: cast speed, attack speed, none.
+
 - **CAST_SPEED** = `0` - the Cast Speed stat (spells)
 - **ATTACK_SPEED** = `1` - the Attack Speed stat (aim and draw time of a weapon attack)
 - **NONE** = `2` - fixed duration

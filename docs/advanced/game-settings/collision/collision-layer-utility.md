@@ -53,6 +53,8 @@ Centralized collision layer management for ChronicleNode Provides consistent col
 
 ### enum CollisionLayer {#enum-collisionlayer}
 
+The options of collision layer: world terrain, player characters, all npcs, environmental destructibles, interactable objects, moveable objects, projectiles, items loot, player pets, area effects ....
+
 - **WORLD_TERRAIN** = `1`
 - **PLAYER_CHARACTERS** = `2`
 - **ALL_NPCS** = `3`
@@ -71,6 +73,8 @@ Centralized collision layer management for ChronicleNode Provides consistent col
 
 ### enum HitMode {#enum-hitmode}
 
+Targeting and collision settings
+
 - **TARGET_ONLY** = `0`
 - **ALL_ENTITIES** = `1`
 - **ENEMY_ENTITIES** = `2`
@@ -83,23 +87,23 @@ Centralized collision layer management for ChronicleNode Provides consistent col
 
 ### Dictionary default_collision_masks {#var-default-collision-masks}
 
-*No description yet.*
+Define what each layer should collide with by default
 
 ### CollisionLayerConfig collision_config = null {#var-collision-config}
 
-*No description yet.*
+Configuration resource (loaded from disk)
 
 ### Dictionary collision_mask_overrides =  {#var-collision-mask-overrides}
 
-*No description yet.*
+Runtime collision mask overrides (can be modified in settings)
 
 ### Dictionary collision_profiles {#var-collision-profiles}
 
-*No description yet.*
+Collision profiles for different game types
 
 ### String active_profile = "standard_rpg" {#var-active-profile}
 
-*No description yet.*
+Current active profile
 
 ## Method descriptions
 

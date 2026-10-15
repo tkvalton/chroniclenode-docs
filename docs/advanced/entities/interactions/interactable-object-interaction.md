@@ -24,9 +24,9 @@ Set the entity reference
 
 ### void setup_for_interactable_objects( interactable: InteractableObject ) {#method-setup-for-interactable-objects}
 
-*Overrides this function of [Interaction](/advanced/entities/interactions/interaction).*
+Sets the interaction up on its object.
 
 ### bool can_interact( _player: Player ) {#method-can-interact}
 
-Check if the player can interact with this interaction *(from [Interaction](/advanced/entities/interactions/interaction))*
+Only an interactable object can use this interaction.
 

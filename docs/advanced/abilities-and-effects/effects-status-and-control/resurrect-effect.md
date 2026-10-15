@@ -44,7 +44,7 @@ Get resurrection preview info for UI
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

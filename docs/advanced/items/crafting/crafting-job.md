@@ -44,9 +44,15 @@ Represents an active crafting operation with progress tracking Uses a single com
 
 ### item_completed( item_index: int, total_items: int ) {#signal-item-completed}
 
+========== SIGNALS ==========
+
 ### job_completed() {#signal-job-completed}
 
+Emitted when the crafting is done.
+
 ### job_cancelled() {#signal-job-cancelled}
+
+Emitted when the crafting is cancelled.
 
 ## Variable descriptions
 

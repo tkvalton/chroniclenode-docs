@@ -33,6 +33,8 @@ Switches stats on or off on the target entity: one stat, or every stat of a stat
 
 ### enum Targets {#enum-targets}
 
+The options of targets: single stat, stat group.
+
 - **SINGLE_STAT** = `0` - the stat chosen below
 - **STAT_GROUP** = `1` - every stat of a stat group the target has
 
@@ -46,7 +48,7 @@ One stat, or every stat of a stat group
 
 ### int stat_id = 0 {#prop-stat-id}
 
-*No description yet.*
+The stat that is switched (or the stat group, when the effect targets a group).
 
 ### int stat_group_id = 0 {#prop-stat-group-id}
 
@@ -58,7 +60,7 @@ Stats of the group that are left out (group mode)
 
 ### bool set_active = true {#prop-set-active}
 
-*No description yet.*
+True switches the stats on, false switches them off.
 
 ## Method descriptions
 
@@ -68,7 +70,7 @@ The stats this effect switches on its target: the chosen stat, or the stats of t
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+What the effect does to its target when it is applied.
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
@@ -76,11 +78,11 @@ Handle effect removal - restore previous state
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 
 ### bool is_valid_configuration() {#method-is-valid-configuration}
 

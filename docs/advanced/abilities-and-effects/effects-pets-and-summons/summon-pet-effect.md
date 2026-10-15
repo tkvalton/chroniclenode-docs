@@ -38,15 +38,15 @@ Spawn with random offset around user
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+What the effect does to its target when it is applied.
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-Handles the finishing of the effect, including cleanup and VFX/SFX (override in child classes if needed, call .super for cleanup) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+Called when the effect ends: takes back what it did.
 
 ### void create_summoned_entity( effect_instance: EffectInstance ) {#method-create-summoned-entity}
 
-*No description yet.*
+Makes the pet in the world for the user.
 
 ### void handle_stack_logic( effect_instance: EffectInstance, amount_to_add: int ) {#method-handle-stack-logic}
 
@@ -54,7 +54,7 @@ Handle effect-specific stacking logic (called by EffectInstance)
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

@@ -16,5 +16,5 @@ Ends the game now: the game over screen, whatever the death behaviour of the gam
 
 ### String get_function_description() {#method-get-function-description}
 
-Return a description of this action with parameter placeholders *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+The sentence the editor shows for the action, with &#123;placeholders&#125; for its values.
 

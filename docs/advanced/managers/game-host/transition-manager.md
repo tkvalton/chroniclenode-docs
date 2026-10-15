@@ -48,16 +48,22 @@ TransitionManager - Clean state machine for game state transitions Handles three
 
 ### enum GameState {#enum-gamestate}
 
+The part of the game that is on: main menu, character creation or the game itself.
+
 - **MAIN_MENU** = `0`
 - **CHARACTER_CREATION** = `1`
 - **MAIN_GAME** = `2`
 
 ### enum RuntimeMode {#enum-runtimemode}
 
+How the game runs: as a normal game, or as a world test started from the editor.
+
 - **NORMAL_GAME** = `0`
 - **EDITOR_WORLD_TEST** = `1`
 
 ### enum SetupStep {#enum-setupstep}
+
+The steps of loading a game, in order (core systems, world, party, NPCs, systems, audio, then the steps of a saved game).
 
 - **INITIALIZE_CORE_SYSTEMS** = `0`
 - **INITIALIZE_WORLD** = `1`
@@ -74,67 +80,67 @@ TransitionManager - Clean state machine for game state transitions Handles three
 
 ### GameState current_state = GameState.MAIN_MENU {#var-current-state}
 
-*No description yet.*
+The part of the game that is on now.
 
 ### GameState previous_state = GameState.MAIN_MENU {#var-previous-state}
 
-*No description yet.*
+The part of the game that was on before.
 
 ### bool is_transitioning = false {#var-is-transitioning}
 
-*No description yet.*
+True while the game moves from one part to another.
 
 ### RuntimeMode current_runtime_mode = RuntimeMode.NORMAL_GAME {#var-current-runtime-mode}
 
-*No description yet.*
+How the game runs now.
 
 ### bool vfx_initialized = false {#var-vfx-initialized}
 
-*No description yet.*
+True once the visual effects are ready.
 
 ### bool quest_system_initialized = false {#var-quest-system-initialized}
 
-*No description yet.*
+True once the quest system is ready.
 
 ### bool faction_manager_initialized = false {#var-faction-manager-initialized}
 
-*No description yet.*
+True once the faction manager is ready.
 
 ### bool game_systems_initialized = false {#var-game-systems-initialized}
 
-*No description yet.*
+True once the game systems are ready.
 
 ### WorldData current_world_data = null {#var-current-world-data}
 
-*No description yet.*
+The world that is loaded now.
 
 ### bool is_transitioning_map = false {#var-is-transitioning-map}
 
-*No description yet.*
+True while the player moves from one map to another.
 
 ### Array[SetupStep] setup_steps = [] {#var-setup-steps}
 
-*No description yet.*
+The steps left to load the game, in order.
 
 ### int current_setup_step = 0 {#var-current-setup-step}
 
-*No description yet.*
+The step of the loading that runs now.
 
 ### float setup_progress = 0.0 {#var-setup-progress}
 
-*No description yet.*
+How far the loading is (0 to 1), shown by the loading screen.
 
 ### Node test_scene_detected = null {#var-test-scene-detected}
 
-*No description yet.*
+The scene being tested, when the game was started from a scene in the editor.
 
 ### String original_main_scene = "" {#var-original-main-scene}
 
-*No description yet.*
+The main scene of the project, kept while a test scene runs.
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 
-*No description yet.*
+The hub of the game systems.
 
 ## Method descriptions
 

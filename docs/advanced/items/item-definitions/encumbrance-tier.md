@@ -42,5 +42,5 @@ The effect that is on the character while the step is on (an Effect of the Effec
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 

@@ -23,6 +23,8 @@ Proc effect that responds to its holder entering or leaving combat. "Out-of-comb
 
 ### enum TriggerType {#enum-triggertype}
 
+The options of trigger type: enter combat, leave combat.
+
 - **ENTER_COMBAT** = `0` - When the holder enters combat
 - **LEAVE_COMBAT** = `1` - When the holder leaves combat
 
@@ -38,9 +40,9 @@ Which change of combat state triggers this proc
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [ProcEffect](/advanced/abilities-and-effects/effects-base/proc-effect).*
+A short text for the effect editor that says what the effect does.
 

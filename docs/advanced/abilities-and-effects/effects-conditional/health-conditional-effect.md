@@ -25,10 +25,14 @@ Applies child effects based on the health percentage of the target or originator
 
 ### enum HealthTarget {#enum-healthtarget}
 
+The options of health target: target, originator.
+
 - **TARGET** = `0`
 - **ORIGINATOR** = `1`
 
 ### enum HealthComparison {#enum-healthcomparison}
+
+The options of health comparison: below, above.
 
 - **BELOW** = `0`
 - **ABOVE** = `1`
@@ -39,11 +43,11 @@ Applies child effects based on the health percentage of the target or originator
 
 ### HealthTarget health_target = HealthTarget.TARGET {#prop-health-target}
 
-*No description yet.*
+Whose health is checked (the target or the originator).
 
 ### HealthComparison health_comparison = HealthComparison.BELOW {#prop-health-comparison}
 
-*No description yet.*
+How the health is compared with the percentage (below, above ...).
 
 ### float threshold_percent = 50.0 {#prop-threshold-percent}
 
@@ -53,9 +57,9 @@ Health percentage threshold (0–100)
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-*Overrides this function of [ConditionalEffect](/advanced/abilities-and-effects/effects-base/conditional-effect).*
+What the effect does to its target when it is applied.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 

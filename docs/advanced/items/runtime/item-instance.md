@@ -132,7 +132,11 @@ Emitted when all sockets become filled or unfilled
 
 ### quest_item_used( item_instance: ItemInstance, quest_id: int, user: Entity ) {#signal-quest-item-used}
 
+Emitted when a quest item is used: the item, the quest and the user.
+
 ### readable_item_used( item_instance: ItemInstance, pages: Array[String] ) {#signal-readable-item-used}
+
+Emitted when a readable item is used: the item and its pages.
 
 ### enchant_applied( item_instance: ItemInstance, enchant_effect: Effect ) {#signal-enchant-applied}
 
@@ -288,7 +292,7 @@ What the whole stack weighs
 
 ### int get_max_stack_size() {#method-get-max-stack-size}
 
-*No description yet.*
+How many of the item fit in one stack.
 
 ### int get_item_level() {#method-get-item-level}
 
@@ -300,7 +304,7 @@ What was rolled for this item (empty for an item that was not generated)
 
 ### bool is_generated() {#method-is-generated}
 
-*No description yet.*
+Was the item generated (random affixes, a level)?
 
 ### float get_scale_factor() {#method-get-scale-factor}
 
@@ -312,15 +316,15 @@ The quality of the item: the one that was rolled for a generated item, else the 
 
 ### Color get_quality_color() {#method-get-quality-color}
 
-*No description yet.*
+The color of the quality of the item.
 
 ### String get_quality_name() {#method-get-quality-name}
 
-*No description yet.*
+The name of the quality of the item (Common when it has none).
 
 ### int get_quality_tier() {#method-get-quality-tier}
 
-*No description yet.*
+The tier of the quality of the item (higher is rarer).
 
 ### void apply_generated( data: Dictionary ) {#method-apply-generated}
 
@@ -400,15 +404,15 @@ Check if this is a specific item type
 
 ### bool is_consumable() {#method-is-consumable}
 
-*No description yet.*
+Is the item a consumable?
 
 ### bool is_weapon() {#method-is-weapon}
 
-*No description yet.*
+Is the item a weapon?
 
 ### bool is_socketable() {#method-is-socketable}
 
-*No description yet.*
+Is the item a gem or rune that fits a socket?
 
 ### bool add_enchant_effect( effect: Effect, duration: float = -1, source: String = "" ) {#method-add-enchant-effect}
 
@@ -436,11 +440,11 @@ The first enchant effect (null if none); `get_enchant_effects` lists them all
 
 ### Array[Effect] get_enchant_effects() {#method-get-enchant-effects}
 
-*No description yet.*
+The effects of the enchants on the item.
 
 ### Dictionary get_enchant_metadata( effect: Effect = null ) {#method-get-enchant-metadata}
 
-*No description yet.*
+The data of an enchant (the first one when no effect is given).
 
 ### float get_enchant_time_remaining( effect: Effect = null ) {#method-get-enchant-time-remaining}
 

@@ -179,7 +179,7 @@ SystemRefrences
 
 ### EventManager event_manager {#var-event-manager}
 
-*No description yet.*
+The event manager the reaction listens to.
 
 ## Method descriptions
 

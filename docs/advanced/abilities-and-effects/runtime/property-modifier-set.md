@@ -29,15 +29,15 @@ Takes away every modifier a source put on (one property, or all of its propertie
 
 ### bool has_property( property: String ) {#method-has-property}
 
-*No description yet.*
+Does a modifier change this property?
 
 ### bool is_empty() {#method-is-empty}
 
-*No description yet.*
+Does the set have no modifiers?
 
 ### void clear() {#method-clear}
 
-*No description yet.*
+Removes every modifier.
 
 ### float resolve( property: String, base: float, extra: Array = [] ) {#method-resolve}
 

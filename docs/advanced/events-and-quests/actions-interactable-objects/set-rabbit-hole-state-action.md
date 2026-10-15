@@ -42,7 +42,7 @@ State to set the rabbit hole to
 
 ### InteractableObject target_rabbit_hole = null {#var-target-rabbit-hole}
 
-*No description yet.*
+Reference to the target rabbit hole
 
 ## Method descriptions
 

@@ -54,11 +54,11 @@ For an item that is generated (it rolls or scales): its item level. 0 = the leve
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+What the effect does to its target when it is applied.
 
 ### void create_item( effect_instance: EffectInstance ) {#method-create-item}
 
-*No description yet.*
+Makes the item and puts it in the bag of the target, or drops it in the world.
 
 ### void on_stack_reapply( effect_instance: EffectInstance, old_stack_count: int, new_stack_count: int ) {#method-on-stack-reapply}
 
@@ -66,11 +66,11 @@ Handle effect-specific stacking logic
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### bool is_item_valid() {#method-is-item-valid}
 

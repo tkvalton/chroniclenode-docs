@@ -23,7 +23,7 @@ Centralized line of sight checking for abilities and AI detection
 
 ### int LOS_COLLISION_MASK = CollisionLayerUtility._get_mask([ {#var-los-collision-mask}
 
-*No description yet.*
+Line of sight collision mask - only things that block vision
 
 ## Method descriptions
 

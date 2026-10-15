@@ -26,6 +26,8 @@ Action to manipulate a local string variable
 
 ### enum StringOperation {#enum-stringoperation}
 
+The options of string operation: append, prepend, remove.
+
 - **APPEND** = `0`
 - **PREPEND** = `1`
 - **REMOVE** = `2`
@@ -34,27 +36,27 @@ Action to manipulate a local string variable
 
 ### String variable_key = "" {#prop-variable-key}
 
-*No description yet.*
+The name of the local variable.
 
 ### StringOperation operation = StringOperation.APPEND {#prop-operation}
 
-*No description yet.*
+What to do with the text (append, prepend or remove).
 
 ### String text = "" {#prop-text}
 
-*No description yet.*
+The text for the operation.
 
 ## Method descriptions
 
 ### String get_function_description() {#method-get-function-description}
 
-Return a description of this action with parameter placeholders *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+The sentence the editor shows for the action, with &#123;placeholders&#125; for its values.
 
 ### Dictionary save() {#method-save}
 
-Save action state to a dictionary *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+The state of the action for a save.
 
 ### void load_data( data: Dictionary ) {#method-load-data}
 
-Load action state from a dictionary *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+Restores the state of the action from a save.
 

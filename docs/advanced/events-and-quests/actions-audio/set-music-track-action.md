@@ -30,6 +30,8 @@ Action to control music track playback Uses TrackSelectionDialog to pick specifi
 
 ### enum MusicAction {#enum-musicaction}
 
+The options of music action: play track, stop, fade stop.
+
 - **PLAY_TRACK** = `0` - Play a specific music track
 - **STOP** = `1` - Stop music immediately
 - **FADE_STOP** = `2` - Fade out and stop music

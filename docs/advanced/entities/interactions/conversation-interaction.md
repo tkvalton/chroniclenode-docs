@@ -35,17 +35,19 @@ Interaction for dialogue/conversations with NPCs Uses the Conversation resource 
 
 ### conversation_ui_requested( conversation_instance: ConversationInstance, starting_chat: ConversationChat, interaction: ConversationInteraction ) {#signal-conversation-ui-requested}
 
+========== SIGNALS ==========
+
 ## Property descriptions
 
 ### int conversation_id {#prop-conversation-id}
 
-The conversation resource to use
+========== EXPORTED PROPERTIES ==========
 
 ## Variable descriptions
 
 ### ConversationInstance conversation_instance = null {#var-conversation-instance}
 
-Runtime instance wrapping the resource
+========== RUNTIME PROPERTIES ==========
 
 ## Method descriptions
 
@@ -55,11 +57,11 @@ Called by NPC when setting up interactions Creates the ConversationInstance here
 
 ### void start_interaction( player: Player ) {#method-start-interaction}
 
-Start the interaction with the given player *(from [Interaction](/advanced/entities/interactions/interaction))*
+Starts the conversation for the player (the conversation instance, then the first chat).
 
 ### void end_interaction() {#method-end-interaction}
 
-End the current interaction *(from [Interaction](/advanced/entities/interactions/interaction))*
+Ends the conversation if it is running.
 
 ### void on_response_selected( response: ConversationResponse ) {#method-on-response-selected}
 

@@ -35,6 +35,8 @@ Base class for conditions that evaluate entity state. Can target different entit
 
 ### enum EntityTarget {#enum-entitytarget}
 
+The options of entity target: argument entity, argument entity target, current player, any player, all player, summoner, unique id, opponent.
+
 - **ARGUMENT_ENTITY** = `0` - Use the entity passed as argument
 - **ARGUMENT_ENTITY_TARGET** = `1` - Use the argument entity's target
 - **CURRENT_PLAYER** = `2` - Use the current active player
@@ -96,7 +98,7 @@ Validate entity targeting configuration
 
 ### String get_expected_argument_type() {#method-get-expected-argument-type}
 
-Get the expected argument type for this condition (for editor hints) Override in subclasses to specify what argument type is expected *(from [Condition](/advanced/shared-systems/condition-bases/condition))*
+The kind of thing the condition is checked against (an entity, an encounter ...).
 
 ### void cleanup() {#method-cleanup}
 

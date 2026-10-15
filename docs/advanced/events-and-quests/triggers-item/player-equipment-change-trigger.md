@@ -30,6 +30,8 @@ Triggers when a specific player's equipment changes
 
 ### enum EquipmentChangeType {#enum-equipmentchangetype}
 
+The options of equipment change type: equipped, unequipped.
+
 - **EQUIPPED** = `0`
 - **UNEQUIPPED** = `1`
 

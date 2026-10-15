@@ -27,10 +27,14 @@ Proc effect that responds to ability usage
 
 ### enum TriggerType {#enum-triggertype}
 
+The options of trigger type: ability cast, auto attack.
+
 - **ABILITY_CAST** = `0` - When any ability is cast
 - **AUTO_ATTACK** = `1` - When auto-attack is cast
 
 ### enum AbilityFilter {#enum-abilityfilter}
+
+The options of ability filter: any ability, specific abilities, ability school, all except blacklist.
 
 - **ANY_ABILITY** = `0` - Affects all abilities
 - **SPECIFIC_ABILITIES** = `1` - Only abilities in the array
@@ -67,9 +71,9 @@ Apply child effects to the target of the triggering ability instead of the proc 
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [ProcEffect](/advanced/abilities-and-effects/effects-base/proc-effect).*
+A short text for the effect editor that says what the effect does.
 

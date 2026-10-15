@@ -29,31 +29,31 @@ The base of the movement states of an entity (idle, moving, falling, climbing ..
 
 ### MovementStateComponent manager = null {#var-manager}
 
-*No description yet.*
+Reference to managers
 
 ### Entity entity = null {#var-entity}
 
-*No description yet.*
+The entity this state moves.
 
 ### EntityAnimationPlayer animation_player = null {#var-animation-player}
 
-*No description yet.*
+Animation-related properties
 
 ## Method descriptions
 
 ### void setup_state( movement_manager: MovementStateComponent, state_entity: Entity ) {#method-setup-state}
 
-*No description yet.*
+Sets the manager reference for the new architecture
 
 ### void enter() {#method-enter}
 
-*No description yet.*
+Called when entering the state
 
 ### void exit() {#method-exit}
 
-*No description yet.*
+Called when exiting the state
 
 ### void return_all_timer() {#method-return-all-timer}
 
-*No description yet.*
+Timer clean up class
 

@@ -43,7 +43,7 @@ A popup was closed (by the player, by ESC, by itself, by the game)
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 
-*No description yet.*
+The hub of the game systems.
 
 ## Method descriptions
 
@@ -61,7 +61,7 @@ Close everything and forget what waits (a new game, a load)
 
 ### bool is_popup_open( popup_id: int ) {#method-is-popup-open}
 
-*No description yet.*
+Is this popup open now?
 
 ### bool is_popup_queued( popup_id: int ) {#method-is-popup-queued}
 
@@ -69,11 +69,11 @@ Is this popup waiting for the ones before it?
 
 ### Array[PopupUI] get_open_popups() {#method-get-open-popups}
 
-*No description yet.*
+The popups that are open now.
 
 ### PopupUI get_popup( popup_id: int ) {#method-get-popup}
 
-*No description yet.*
+The open popup with this id, or null.
 
 ### bool handle_escape() {#method-handle-escape}
 

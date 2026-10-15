@@ -12,7 +12,7 @@ Unified visual component for dragging both items AND abilities Pure display - NO
 |---|---|---|
 | `ContentType` | [current_content_type](#var-current-content-type) | `ContentType.NONE` |
 | `DisplayMode` | [current_mode](#var-current-mode) | `DisplayMode.NORMAL` |
-| `Variant` | [displayed_content](#var-displayed-content) | `null  # ItemInstance or AbilityInstance` |
+| `Variant` | [displayed_content](#var-displayed-content) | `null` |
 | `int` | [displayed_quantity](#var-displayed-quantity) | `1` |
 | `Color` | [normal_modulate](#var-normal-modulate) | `Color.WHITE` |
 | `Color` | [enchanting_modulate](#var-enchanting-modulate) | `Color(0.8, 1.0, 0.8, 0.9)` |
@@ -38,11 +38,15 @@ Unified visual component for dragging both items AND abilities Pure display - NO
 
 ### enum ContentType {#enum-contenttype}
 
+========== ENUMS ==========
+
 - **NONE** = `0`
 - **ITEM** = `1`
 - **ABILITY** = `2`
 
 ### enum DisplayMode {#enum-displaymode}
+
+The options of display mode: normal, enchanting.
 
 - **NORMAL** = `0`
 
@@ -50,31 +54,31 @@ Unified visual component for dragging both items AND abilities Pure display - NO
 
 ### ContentType current_content_type = ContentType.NONE {#var-current-content-type}
 
-*No description yet.*
+========== STATE ==========
 
 ### DisplayMode current_mode = DisplayMode.NORMAL {#var-current-mode}
 
-*No description yet.*
+How the dragged picture is shown (normal, enchanting or an error).
 
-### Variant displayed_content = null  # ItemInstance or AbilityInstance {#var-displayed-content}
+### Variant displayed_content = null {#var-displayed-content}
 
-*No description yet.*
+ItemInstance or AbilityInstance
 
 ### int displayed_quantity = 1 {#var-displayed-quantity}
 
-*No description yet.*
+The quantity shown on the dragged item.
 
 ### Color normal_modulate = Color.WHITE {#var-normal-modulate}
 
-*No description yet.*
+========== VISUAL FEEDBACK ==========
 
 ### Color enchanting_modulate = Color(0.8, 1.0, 0.8, 0.9) {#var-enchanting-modulate}
 
-*No description yet.*
+The tint of the picture while an enchant scroll is dragged.
 
 ### Color error_modulate = Color(1.0, 0.6, 0.6, 0.9) {#var-error-modulate}
 
-*No description yet.*
+The tint of the picture when the drop is not allowed.
 
 ## Method descriptions
 
@@ -100,25 +104,25 @@ Flash error feedback
 
 ### bool is_showing() {#method-is-showing}
 
-*No description yet.*
+Is something dragged and shown?
 
 ### ContentType get_content_type() {#method-get-content-type}
 
-*No description yet.*
+What is dragged: an item or an ability.
 
 ### DisplayMode get_display_mode() {#method-get-display-mode}
 
-*No description yet.*
+How the dragged picture is shown.
 
 ### Variant get_displayed_content() {#method-get-displayed-content}
 
-*No description yet.*
+The item or ability that is dragged.
 
 ### bool is_dragging_item() {#method-is-dragging-item}
 
-*No description yet.*
+Is an item dragged?
 
 ### bool is_dragging_ability() {#method-is-dragging-ability}
 
-*No description yet.*
+Is an ability dragged?
 

@@ -51,13 +51,21 @@ Rabbit hole teleportation system - supports both local and inter-map teleportati
 
 ### rabbit_hole_entered( entity: Entity, teleportation_type: String ) {#signal-rabbit-hole-entered}
 
+Emitted when an entity goes in: the entity and the kind of travel.
+
 ### rabbit_hole_exited( entity: Entity ) {#signal-rabbit-hole-exited}
 
+Emitted when an entity comes out of this rabbit hole.
+
 ### teleportation_failed( entity: Entity, reason: String ) {#signal-teleportation-failed}
+
+Emitted when the travel fails: the entity and why.
 
 ## Enumerations
 
 ### enum RabbitHoleState {#enum-rabbitholestate}
+
+The states of a rabbit hole: active, disabled for now, or broken for good.
 
 - **ACTIVE** = `0` - Ready for use
 - **DISABLED** = `1` - Temporarily disabled
@@ -83,55 +91,55 @@ Arrival rotation (euler angles)
 
 ### String idle_animation = "idle" {#prop-idle-animation}
 
-*No description yet.*
+The animation of an active rabbit hole.
 
 ### String disabled_animation = "disabled" {#prop-disabled-animation}
 
-*No description yet.*
+The animation of a disabled rabbit hole.
 
 ### String broken_animation = "broken" {#prop-broken-animation}
 
-*No description yet.*
+The animation of a broken rabbit hole.
 
 ## Variable descriptions
 
 ### RabbitHoleState current_state = RabbitHoleState.ACTIVE {#var-current-state}
 
-*No description yet.*
+The state of the rabbit hole now.
 
 ## Method descriptions
 
 ### void setup_for_interactable_objects( interactable: InteractableObject ) {#method-setup-for-interactable-objects}
 
-*Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
+Sets the rabbit hole up on its object: finds the nodes it needs and applies its starting state.
 
 ### bool can_interact( player: Player ) {#method-can-interact}
 
-*Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
+Can the player use the rabbit hole now (in range, the object is not broken, the requirements are met)?
 
 ### void start_interaction( player: Player ) {#method-start-interaction}
 
-Start the interaction with the given player *(from [Interaction](/advanced/entities/interactions/interaction))*
+The player uses the rabbit hole.
 
 ### void end_interaction() {#method-end-interaction}
 
-End the current interaction *(from [Interaction](/advanced/entities/interactions/interaction))*
+Does nothing: a rabbit hole has no end of interaction.
 
 ### String get_interaction_prompt() {#method-get-interaction-prompt}
 
-*No description yet.*
+The text of the prompt above the object for its state now ("Open", "Climb" ...).
 
 ### Vector3 get_spawn_position() {#method-get-spawn-position}
 
-*No description yet.*
+Where an entity appears when it comes out of this rabbit hole.
 
 ### Vector3 get_spawn_rotation() {#method-get-spawn-rotation}
 
-*No description yet.*
+The rotation of an entity that comes out of this rabbit hole.
 
 ### void set_rabbit_hole_state( new_state: RabbitHoleState ) {#method-set-rabbit-hole-state}
 
-*No description yet.*
+Sets the state of the rabbit hole and plays its animation.
 
 ### void set_destination_rabbit_hole( rabbit_hole_id: int ) {#method-set-destination-rabbit-hole}
 
@@ -167,13 +175,13 @@ Force teleport an entity (bypasses normal restrictions)
 
 ### Dictionary save_state() {#method-save-state}
 
-*No description yet.*
+The state of the rabbit hole for a save.
 
 ### void load_state( state: Dictionary ) {#method-load-state}
 
-*No description yet.*
+Restores the state of the rabbit hole from a save.
 
 ### void cleanup() {#method-cleanup}
 
-*No description yet.*
+Gives its timers back and clears what it holds (the object is going away).
 

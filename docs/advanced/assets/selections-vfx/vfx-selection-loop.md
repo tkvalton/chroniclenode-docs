@@ -26,7 +26,7 @@ Loop VFX selection - continuous effects like auras, channeling
 
 ### VFXSelection.VfxLocation location = VFXSelection.VfxLocation.BASE {#prop-location}
 
-*No description yet.*
+Where on the target the effect is placed.
 
 ### bool auto_stop_on_entity_death = true {#prop-auto-stop-on-entity-death}
 
@@ -40,13 +40,13 @@ Loop VFX uses target as-is (no special preparation needed)
 
 ### String get_description() {#method-get-description}
 
-Get a description of this VFX selection for UI *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+A short text about the visual effect, for the editor.
 
 ### String get_vfx_type() {#method-get-vfx-type}
 
-Get the VFX type for database queries *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+The kind of visual effect (beam, loop, one shot ...).
 
 ### String get_vfx_name() {#method-get-vfx-name}
 
-Get the VFX name for database queries *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+The name of the visual effect that is picked.
 

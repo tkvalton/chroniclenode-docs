@@ -33,5 +33,5 @@ The number of the objective in the quest (1 is the first)
 
 ### String get_function_description() {#method-get-function-description}
 
-Return a description of this action with parameter placeholders *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+The sentence the editor shows for the action, with &#123;placeholders&#125; for its values.
 

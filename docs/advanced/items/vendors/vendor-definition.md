@@ -68,11 +68,11 @@ Starting currency amounts for vendor [currency_id: int] = amount: int PreferredC
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Is it free of errors?
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 
 ### CurrencyDefinition get_preferred_currency() {#method-get-preferred-currency}
 

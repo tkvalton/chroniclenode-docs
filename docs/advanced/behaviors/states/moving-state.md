@@ -25,17 +25,17 @@ Simplified MovingState - passes movement data to animation player using blending
 
 ### Vector3 last_velocity = Vector3.ZERO {#var-last-velocity}
 
-*No description yet.*
+The velocity of the entity on the last step.
 
 ## Method descriptions
 
 ### void enter() {#method-enter}
 
-*Overrides this function of [MovementState](/advanced/behaviors/states/movement-state).*
+The entity starts to move.
 
 ### void exit() {#method-exit}
 
-*Overrides this function of [MovementState](/advanced/behaviors/states/movement-state).*
+Leaves the state.
 
 ### void update_from_navigation() {#method-update-from-navigation}
 

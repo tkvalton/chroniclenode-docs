@@ -46,19 +46,25 @@ Entity visibility is determined via spatial queries (RangeQueryUtil) and line-of
 
 ### fog_initialized() {#signal-fog-initialized}
 
+Emitted when the fog is ready.
+
 ### entity_fog_state_changed( entity: Entity, old_state: GameplayConfig.FogState, new_state: GameplayConfig.FogState ) {#signal-entity-fog-state-changed}
 
+Emitted when an entity moves between visible, explored and hidden.
+
 ### exploration_changed() {#signal-exploration-changed}
+
+Emitted when the explored area grows.
 
 ## Variable descriptions
 
 ### PartyManager party_manager {#var-party-manager}
 
-*No description yet.*
+The manager of the party (the vision sources).
 
 ### WorldContainer world_container {#var-world-container}
 
-*No description yet.*
+The container of the current world.
 
 ### float radius = 50.0 {#var-radius}
 
@@ -72,7 +78,7 @@ Entity visibility is determined via spatial queries (RangeQueryUtil) and line-of
 
 ### void initialize( map_size: Vector2, map_origin: Vector2 = Vector2.ZERO ) {#method-initialize}
 
-*No description yet.*
+Sets the fog up for a map: its size and the position of its corner.
 
 ### void update_fog_colors( shroud_alpha: float, fog_alpha: float ) {#method-update-fog-colors}
 
@@ -92,11 +98,11 @@ Apply current config settings (call after changing gameplay_config)
 
 ### void register_vision_source( entity: Entity ) {#method-register-vision-source}
 
-*No description yet.*
+Makes an entity see (it clears the fog around it).
 
 ### void unregister_vision_source( entity: Entity ) {#method-unregister-vision-source}
 
-*No description yet.*
+Stops an entity from seeing.
 
 ### void set_radius( new_radius: float ) {#method-set-radius}
 
@@ -104,33 +110,33 @@ Apply current config settings (call after changing gameplay_config)
 
 ### GameplayConfig.FogState get_fog_state_at_position( world_position: Vector3 ) {#method-get-fog-state-at-position}
 
-*No description yet.*
+Is this position visible, explored or hidden?
 
 ### bool is_position_visible( world_position: Vector3 ) {#method-is-position-visible}
 
-*No description yet.*
+Can the party see this position now?
 
 ### bool is_position_explored( world_position: Vector3 ) {#method-is-position-explored}
 
-*No description yet.*
+Has the party seen this position?
 
 ### Image get_exploration_image() {#method-get-exploration-image}
 
-*No description yet.*
+The picture of the explored area (for the map and for saves).
 
 ### void clear_exploration() {#method-clear-exploration}
 
-*No description yet.*
+Forgets everything the party explored.
 
 ### void reveal_all() {#method-reveal-all}
 
-*No description yet.*
+Marks the whole map as explored.
 
 ### void cleanup() {#method-cleanup}
 
-*No description yet.*
+Removes the fog and frees what it holds.
 
 ### void debug_save_viewport_textures() {#method-debug-save-viewport-textures}
 
-*No description yet.*
+Saves the textures of the fog to files, for debugging.
 

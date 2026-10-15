@@ -29,6 +29,8 @@ The target is whatever the user is aiming at (Entity.get_aim: the crosshair or m
 
 ### enum Filter {#enum-filter}
 
+The options of filter: enemies, allies, anyone.
+
 - **ENEMIES** = `0` - hostile entities (neutral ones too when the user can attack them)
 - **ALLIES** = `1` - friendly entities (a healing arrow)
 - **ANYONE** = `2` - any entity
@@ -69,9 +71,9 @@ The aim decides the target, whatever the controller passed (the basic attack pas
 
 ### Variant get_auto_target( _strategy_instance: TargetStrategyInstance, user: Variant ) {#method-get-auto-target}
 
-Virtual method for auto-target selection - override in subclasses to implement specific auto-targeting *(from [TargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/target-strategy-definition))*
+The target the user is aiming at.
 
 ### Variant get_property_value( strategy_instance: TargetStrategyInstance, property_name: String ) {#method-get-property-value}
 
-Virtual method for property getters with runtime override support - override in subclasses *(from [TargetStrategyDefinition](/advanced/abilities-and-effects/target-strategies/target-strategy-definition))*
+The value of a property of the strategy (a runtime override, else the definition).
 

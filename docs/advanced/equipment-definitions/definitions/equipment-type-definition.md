@@ -58,11 +58,11 @@ Which attachment points this equipment type uses for meshes
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Is it free of errors?
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 
 ### bool affects_body_part( body_part: GeneralSkeleton.BodySlot ) {#method-affects-body-part}
 

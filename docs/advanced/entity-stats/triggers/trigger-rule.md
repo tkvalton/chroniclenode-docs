@@ -28,6 +28,8 @@ A rule on an effect that changes how one tag behaves whenever that effect is use
 
 ### enum Force {#enum-force}
 
+The options of force: normal, always, never.
+
 - **NORMAL** = `0` - Roll as usual (only the bonuses below apply)
 - **ALWAYS** = `1` - The tag always fires, with no roll, even if nothing rolls it
 - **NEVER** = `2` - The tag never fires. Beats ALWAYS
@@ -58,7 +60,7 @@ The magnitude is multiplied by this after the bonuses are added ("more": 1.25 = 
 
 ### String get_tag_name() {#method-get-tag-name}
 
-*No description yet.*
+The name of the tag the rule is about (empty for every tag).
 
 ### Array[String] validate() {#method-validate}
 
@@ -66,5 +68,5 @@ Configuration problems as readable messages
 
 ### String describe() {#method-describe}
 
-*No description yet.*
+A text about what the rule does.
 

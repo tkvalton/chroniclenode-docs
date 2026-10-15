@@ -72,15 +72,15 @@ Signal emitted when an effect is updated (stacks changed, duration refreshed)
 
 ### Array[EffectInstance] active_effects = [] {#var-active-effects}
 
-*No description yet.*
+Array of all active effects currently applied to the entity
 
 ### Dictionary active_status_effects =  # Key: status effect id, Value: Array[EffectInstance] {#var-active-status-effects}
 
-*No description yet.*
+Fast lookup for active status effects - O(1) performance
 
 ### Dictionary status_effect_flags =  # Key: status effect id, Value: bool {#var-status-effect-flags}
 
-*No description yet.*
+Quick boolean cache for common status effect queries
 
 ### Array[EffectInstance] applied_effects = [] {#var-applied-effects}
 
@@ -158,11 +158,11 @@ Load effects manager state from save data
 
 ### int get_active_effect_count() {#method-get-active-effect-count}
 
-*No description yet.*
+How many effects are active on the entity.
 
 ### bool has_any_active_effects() {#method-has-any-active-effects}
 
-*No description yet.*
+Is any effect active on the entity?
 
 ### void remove_effects_on_death() {#method-remove-effects-on-death}
 
@@ -170,11 +170,11 @@ Death takes the effects off, except those of a group that persists through death
 
 ### void track_applied( effect_instance: EffectInstance ) {#method-track-applied}
 
-*No description yet.*
+Remembers an effect the entity put on someone else.
 
 ### void untrack_applied( effect_instance: EffectInstance ) {#method-untrack-applied}
 
-*No description yet.*
+Forgets an effect the entity put on someone else.
 
 ### void remove_effects_from_originator( originator: Variant ) {#method-remove-effects-from-originator}
 

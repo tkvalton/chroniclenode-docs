@@ -31,6 +31,8 @@ A loot rule has one, a loot table can have one that overrules the rule, and the 
 
 ### enum Source {#enum-source}
 
+The options of source: inherit, fixed, holder, receiver, party, world.
+
 - **INHERIT** = `0` - The next source in the order decides (table, then rule, then the project default)
 - **FIXED** = `1` - A level written here
 - **HOLDER** = `2` - The level of the NPC that holds the loot (an object has none: it falls back to the party)
@@ -42,7 +44,7 @@ A loot rule has one, a loot table can have one that overrules the rule, and the 
 
 ### Source source = Source.INHERIT {#prop-source}
 
-*No description yet.*
+Where the level comes from (the holder, a fixed value, the level of the party ...).
 
 ### int fixed_level = 1 {#prop-fixed-level}
 
@@ -68,5 +70,5 @@ A short text for the editor: "Holder level +3 (not above 40)"
 
 ### Array[String] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 

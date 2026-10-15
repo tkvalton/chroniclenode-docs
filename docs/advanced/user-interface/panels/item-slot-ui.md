@@ -54,13 +54,23 @@ Fully Unified Slot UI - handles ALL slot types (inventory, equipment, vendor) No
 
 ### item_right_clicked( slot: ItemSlotUI ) {#signal-item-right-clicked}
 
+Emitted when the slot is right clicked.
+
 ### item_left_clicked( slot: ItemSlotUI ) {#signal-item-left-clicked}
+
+Emitted when the slot is left clicked.
 
 ### item_double_clicked( slot: ItemSlotUI ) {#signal-item-double-clicked}
 
+Emitted when the slot is double clicked.
+
 ### item_hovered( slot: ItemSlotUI, is_hovering: bool ) {#signal-item-hovered}
 
+Emitted when the mouse enters or leaves the slot.
+
 ### socket_panel_requested( equipment_item: ItemInstance, slot: ItemSlotUI ) {#signal-socket-panel-requested}
+
+Emitted to open the socket window of the item in the slot.
 
 ### drag_requested( item: ItemInstance, quantity: int, slot_data: SlotInstance, slot_type: String ) {#signal-drag-requested}
 
@@ -68,9 +78,13 @@ Fully Unified Slot UI - handles ALL slot types (inventory, equipment, vendor) No
 
 ### split_drag_requested( item: ItemInstance, split_amount: int, slot_data: SlotInstance, slot_type: String ) {#signal-split-drag-requested}
 
+Asks the interface to start dragging part of a stack.
+
 ## Enumerations
 
 ### enum SlotVisualState {#enum-slotvisualstate}
+
+The options of slot visual state: empty, occupied, locked, hover, dragging, disabled.
 
 - **EMPTY** = `0`
 - **OCCUPIED** = `1`
@@ -83,11 +97,11 @@ Fully Unified Slot UI - handles ALL slot types (inventory, equipment, vendor) No
 
 ### SlotInstance slot_data {#var-slot-data}
 
-*No description yet.*
+The slot the control shows (an inventory slot or an equipment slot).
 
 ### SlotVisualState current_visual_state = SlotVisualState.EMPTY {#var-current-visual-state}
 
-*No description yet.*
+How the slot looks now (empty, filled, locked, hovered ...).
 
 ### bool allow_drag = true {#var-allow-drag}
 
@@ -95,19 +109,19 @@ Enhanced interaction controls
 
 ### bool allow_drop = true {#var-allow-drop}
 
-*No description yet.*
+True when items can be dropped on the slot.
 
 ### bool allow_right_click_use = true {#var-allow-right-click-use}
 
-*No description yet.*
+True when a right click uses the item.
 
 ### bool drag_enabled = true {#var-drag-enabled}
 
-*No description yet.*
+True when the item can be dragged out.
 
 ### bool interaction_enabled = true {#var-interaction-enabled}
 
-*No description yet.*
+True when the slot reacts to the mouse.
 
 ### Color default_color = Color(0.25, 0.25, 0.25) {#var-default-color}
 
@@ -115,11 +129,11 @@ Visual colors
 
 ### Color locked_color = Color(0.1, 0.1, 0.1, 0.8) {#var-locked-color}
 
-*No description yet.*
+The color of a locked slot.
 
 ### Color hover_color = Color(1.2, 1.2, 1.2, 1.0) {#var-hover-color}
 
-*No description yet.*
+The color of the slot under the mouse.
 
 ### float last_click_time = 0.0 {#var-last-click-time}
 
@@ -127,7 +141,7 @@ Double-click detection
 
 ### float double_click_threshold = 0.3 {#var-double-click-threshold}
 
-*No description yet.*
+The most seconds between two clicks of a double click.
 
 ### bool needs_display_update = false {#var-needs-display-update}
 
@@ -139,7 +153,7 @@ Slot type configuration
 
 ### String group_name = "" {#var-group-name}
 
-*No description yet.*
+The group of the slot (for the layout).
 
 ### bool is_showing_cooldown = false {#var-is-showing-cooldown}
 
@@ -147,11 +161,11 @@ Cooldown tracking
 
 ### EquipmentSlotDefinition equipment_slot_definition {#var-equipment-slot-definition}
 
-*No description yet.*
+The equipment slot the control stands for.
 
 ### int slot_instance_index = 0 {#var-slot-instance-index}
 
-*No description yet.*
+Which of the slots of this kind it is (an entity can have several).
 
 ## Method descriptions
 
@@ -169,53 +183,53 @@ Enable or disable drag functionality
 
 ### void set_slot_data( new_slot_data: SlotInstance ) {#method-set-slot-data}
 
-*No description yet.*
+Shows another slot (the control follows its changes).
 
 ### void update_display() {#method-update-display}
 
-*No description yet.*
+Draws the item, the quantity and the state again.
 
 ### void set_visual_state( new_state: SlotVisualState ) {#method-set-visual-state}
 
-*No description yet.*
+Sets how the slot looks.
 
 ### bool should_show_quantity() {#method-should-show-quantity}
 
-*No description yet.*
+Does the slot show a quantity (equipment slots do not)?
 
 ### ItemInstance get_equipped_item_instance() {#method-get-equipped-item-instance}
 
-*No description yet.*
+The item in the slot.
 
 ### EquipmentSlotDefinition get_equipment_slot_definition() {#method-get-equipment-slot-definition}
 
-*No description yet.*
+The equipment slot the control stands for.
 
 ### bool is_slot_empty() {#method-is-slot-empty}
 
-*No description yet.*
+Is the slot empty?
 
 ### bool is_slot_locked() {#method-is-slot-locked}
 
-*No description yet.*
+Is the slot locked?
 
 ### ItemInstance get_item_instance() {#method-get-item-instance}
 
-*No description yet.*
+The item in the slot, or null.
 
 ### int get_quantity() {#method-get-quantity}
 
-*No description yet.*
+How many items are in the slot.
 
 ### bool has_item() {#method-has-item}
 
-*No description yet.*
+Does the slot hold an item?
 
 ### SlotInstance get_slot_data() {#method-get-slot-data}
 
-*No description yet.*
+The slot the control shows.
 
 ### void set_interaction_permissions( drag: bool, drop: bool, right_click: bool ) {#method-set-interaction-permissions}
 
-*No description yet.*
+Sets whether the item can be dragged, dropped on, and used with a right click.
 

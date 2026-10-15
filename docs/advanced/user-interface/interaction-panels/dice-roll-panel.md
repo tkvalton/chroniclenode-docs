@@ -37,7 +37,11 @@ UI panel for displaying dice rolls with animation and player interaction
 
 ### roll_completed( roll_result: Dictionary ) {#signal-roll-completed}
 
+Emitted when the roll is done, with its result.
+
 ### panel_closed() {#signal-panel-closed}
+
+Emitted when the panel is closed.
 
 ## Property descriptions
 
@@ -53,37 +57,37 @@ How often to update the display during animation (in seconds)
 
 ### ConversationDiceRoll current_dice_roll = null {#var-current-dice-roll}
 
-*No description yet.*
+========== STATE ==========
 
 ### Entity current_player = null {#var-current-player}
 
-*No description yet.*
+The player who rolls.
 
 ### bool is_rolling = false {#var-is-rolling}
 
-*No description yet.*
+True while the dice animation plays.
 
 ### Dictionary roll_result =  {#var-roll-result}
 
-*No description yet.*
+The result of the roll.
 
 ### bool has_rolled = false {#var-has-rolled}
 
-*No description yet.*
+True once the roll was made.
 
 ### Timer roll_timer = null {#var-roll-timer}
 
-*No description yet.*
+Animation state
 
 ### float animation_elapsed = 0.0 {#var-animation-elapsed}
 
-*No description yet.*
+How many seconds the animation has played.
 
 ## Method descriptions
 
 ### void initialize_ui( _system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*No description yet.*
+========== INITIALIZATION ==========
 
 ### void show_dice_roll( dice_roll: ConversationDiceRoll, player: Entity ) {#method-show-dice-roll}
 

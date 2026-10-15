@@ -50,7 +50,11 @@ It listens to the player: a hit dealt with a weapon, a hit taken in armor and an
 
 ### experience_gained( proficiency_id: int, amount: float ) {#signal-experience-gained}
 
+Emitted when a proficiency gains experience.
+
 ### level_changed( proficiency_id: int, new_level: int, old_level: int ) {#signal-level-changed}
+
+Emitted when a proficiency changes level: the proficiency, the new and the old level.
 
 ### tier_changed( proficiency_id: int, new_tier: int, old_tier: int ) {#signal-tier-changed}
 
@@ -58,11 +62,13 @@ A tier or a specialization changed
 
 ### specialization_changed( proficiency_id: int, specialization_id: int, chosen: bool ) {#signal-specialization-changed}
 
+Emitted when a specialization is chosen or dropped.
+
 ## Variable descriptions
 
 ### Player player {#var-player}
 
-*No description yet.*
+The player the tracker belongs to.
 
 ## Method descriptions
 
@@ -132,7 +138,7 @@ The ids of the specializations the character has chosen
 
 ### bool has_specialization( proficiency_id: int, spec_id: int ) {#method-has-specialization}
 
-*No description yet.*
+Has the player chosen this specialization of the proficiency?
 
 ### String get_specialization_blocker( proficiency_id: int, spec_id: int ) {#method-get-specialization-blocker}
 
@@ -160,9 +166,9 @@ The points the proficiency gives now: its level while the player uses what it is
 
 ### Dictionary to_save_data() {#method-to-save-data}
 
-*No description yet.*
+========== SAVING ==========
 
 ### void load_save_data( saved: Dictionary ) {#method-load-save-data}
 
-*No description yet.*
+Restores the proficiencies from a save.
 

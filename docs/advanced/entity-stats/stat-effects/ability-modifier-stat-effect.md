@@ -39,6 +39,8 @@ Effect that modifies ability properties (cooldown, cost, gain, cast time, range)
 
 ### enum AbilityProperty {#enum-abilityproperty}
 
+The options of ability property: cooldown duration, cost amount, gain amount, cast duration, max range.
+
 - **COOLDOWN_DURATION** = `0`
 - **COST_AMOUNT** = `1`
 - **GAIN_AMOUNT** = `2`
@@ -46,6 +48,8 @@ Effect that modifies ability properties (cooldown, cost, gain, cast time, range)
 - **MAX_RANGE** = `4`
 
 ### enum AbilityFilterType {#enum-abilityfiltertype}
+
+The options of ability filter type: all abilities, specific abilities, ability school, all except blacklist.
 
 - **ALL_ABILITIES** = `0`
 - **SPECIFIC_ABILITIES** = `1`
@@ -82,55 +86,55 @@ How the value is applied to the property (a percentage decrease shortens a coold
 
 ### EffectType get_effect_type() {#method-get-effect-type}
 
-Override in child classes to return effect type name *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== EFFECT IDENTIFICATION ==========
 
 ### String get_effect_category() {#method-get-effect-category}
 
-Override in child classes to return category *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+The group of the effect in the editor.
 
 ### bool affects_ability( ability_def: AbilityDefinition ) {#method-affects-ability}
 
-*No description yet.*
+========== FILTER VALIDATION ==========
 
 ### String get_property_name() {#method-get-property-name}
 
-*No description yet.*
+========== PROPERTY HELPERS ==========
 
 ### bool is_cooldown_property() {#method-is-cooldown-property}
 
-*No description yet.*
+Does the effect change the cooldown?
 
 ### bool is_cost_property() {#method-is-cost-property}
 
-*No description yet.*
+Does the effect change the cost?
 
 ### bool is_gain_property() {#method-is-gain-property}
 
-*No description yet.*
+Does the effect change what the ability gains?
 
 ### float calculate_effect_value( stat_points: float ) {#method-calculate-effect-value}
 
-*No description yet.*
+========== EFFECT VALUE CALCULATION ==========
 
 ### Dictionary apply_to_ability( ability_def: AbilityDefinition, stat_points: float ) {#method-apply-to-ability}
 
-*No description yet.*
+========== EFFECT APPLICATION ==========
 
 ### Dictionary get_preview_info( stat_points: float ) {#method-get-preview-info}
 
-*No description yet.*
+========== DISPLAY ==========
 
 ### String get_short_description() {#method-get-short-description}
 
-Override in child classes for a one-line summary of what this effect does *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+A one line text about what the effect does.
 
 ### String get_tooltip_text( stat_points: float ) {#method-get-tooltip-text}
 
-*No description yet.*
+The tooltip text of the effect for a number of stat points.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Validate this effect's configuration - override in child classes *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== VALIDATION ==========
 
 ### String get_property_key() {#method-get-property-key}
 

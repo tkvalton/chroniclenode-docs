@@ -29,27 +29,35 @@ Popup UI for selecting between choice options in a ChoiceSkillNode Displays each
 
 ### choice_selected( choice_index: int ) {#signal-choice-selected}
 
+========== SIGNALS ==========
+
 ### skill_node_tooltip_requested( node: SkillNode ) {#signal-skill-node-tooltip-requested}
+
+Asks the interface to show the tooltip of a skill node.
 
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
 
+Asks the interface to hide the tooltip (force hides it at once).
+
 ### popup_closed() {#signal-popup-closed}
+
+Emitted when the popup is closed.
 
 ## Property descriptions
 
 ### PackedScene choice_button_scene {#prop-choice-button-scene}
 
-*No description yet.*
+The scene of one choice.
 
 ## Variable descriptions
 
 ### ChoiceSkillNode choice_node {#var-choice-node}
 
-*No description yet.*
+========== PROPERTIES ==========
 
 ### Array[ChoiceButtonUI] choice_buttons = [] {#var-choice-buttons}
 
-*No description yet.*
+The buttons of the choices.
 
 ## Method descriptions
 

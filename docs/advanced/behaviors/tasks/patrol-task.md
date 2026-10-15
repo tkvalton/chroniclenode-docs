@@ -55,6 +55,8 @@ FIXES APPLIED:
 
 ### enum PatrolPattern {#enum-patrolpattern}
 
+The options of patrol pattern: loop, ping pong, random, once.
+
 - **LOOP** = `0` - Start -&gt; End -&gt; Start -&gt; End...
 - **PING_PONG** = `1` - Start -&gt; End -&gt; End-1 -&gt; ... -&gt; Start -&gt; ...
 - **RANDOM** = `2` - Random waypoint selection
@@ -102,45 +104,45 @@ Whether we're currently waiting at a waypoint
 
 ### void execute_task_start() {#method-execute-task-start}
 
-Override this in subclasses to implement specific task behavior *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Starts the task.
 
 ### void execute_task_complete() {#method-execute-task-complete}
 
-Override this in subclasses for task completion logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task finishes well.
 
 ### void execute_task_interrupt() {#method-execute-task-interrupt}
 
-Override this in subclasses for task interruption logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when something interrupts the task.
 
 ### void execute_task_fail() {#method-execute-task-fail}
 
-Override this in subclasses for task failure logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task fails.
 
 ### void handle_path_failure() {#method-handle-path-failure}
 
-Handle path failure with recovery strategies *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+When a waypoint cannot be reached, the entity goes to the next one.
 
 ### Vector3 get_current_waypoint() {#method-get-current-waypoint}
 
-*No description yet.*
+The waypoint the entity goes to now.
 
 ### Vector3 get_next_waypoint() {#method-get-next-waypoint}
 
-*No description yet.*
+The waypoint after it.
 
 ### void add_waypoint( position: Vector3 ) {#method-add-waypoint}
 
-*No description yet.*
+Adds a waypoint at the end of the route.
 
 ### void insert_waypoint( index: int, position: Vector3 ) {#method-insert-waypoint}
 
-*No description yet.*
+Inserts a waypoint at a place of the route.
 
 ### void remove_waypoint( index: int ) {#method-remove-waypoint}
 
-*No description yet.*
+Removes a waypoint from the route.
 
 ### void clear_waypoints() {#method-clear-waypoints}
 
-*No description yet.*
+Removes every waypoint.
 

@@ -21,8 +21,8 @@ Point-to-Point Beam VFX - Direct beam/chain effects between targets Handles beam
 | | | |
 |---|---|---|
 | `Variant  # Node3D or Vector3` | [start_target](#var-start-target) |  |
-| `Variant    # Node3D or Vector3` | [end_target](#var-end-target) |  |
-| `Array[Variant]` | [chain_targets](#var-chain-targets) | `[]  # For multi-target chains` |
+| `Variant` | [end_target](#var-end-target) |  |
+| `Array[Variant]` | [chain_targets](#var-chain-targets) | `[]` |
 | `MeshInstance3D` | [beam_mesh](#var-beam-mesh) |  |
 | `Node3D` | [beam_rotation](#var-beam-rotation) |  |
 | `Material` | [beam_material](#var-beam-material) |  |
@@ -61,6 +61,8 @@ Point-to-Point Beam VFX - Direct beam/chain effects between targets Handles beam
 
 ### enum BeamState {#enum-beamstate}
 
+Beam animation state
+
 - **STARTING** = `0`
 - **LOOPING** = `1`
 - **ENDING** = `2`
@@ -72,93 +74,93 @@ Point-to-Point Beam VFX - Direct beam/chain effects between targets Handles beam
 
 ### float beam_width = 1.0 {#prop-beam-width}
 
-*No description yet.*
+The width of the beam.
 
 ### int beam_segments = 10 {#prop-beam-segments}
 
-*No description yet.*
+How many segments the beam has (more is smoother when it curves).
 
 ### float curve_intensity = 0.0 {#prop-curve-intensity}
 
-*No description yet.*
+How much the beam curves between its ends (0 = straight).
 
 ### bool follow_target_movement = true {#prop-follow-target-movement}
 
-*No description yet.*
+True when the beam follows a target that moves.
 
 ### bool update_continuously = true {#prop-update-continuously}
 
-*No description yet.*
+True when the beam is redrawn every frame.
 
 ## Variable descriptions
 
 ### Variant  # Node3D or Vector3 start_target {#var-start-target}
 
-*No description yet.*
+Beam targets and positioning - supports Variant (Node3D or Vector3)
 
-### Variant    # Node3D or Vector3 end_target {#var-end-target}
+### Variant end_target {#var-end-target}
 
-*No description yet.*
+Node3D or Vector3
 
-### Array[Variant] chain_targets = []  # For multi-target chains {#var-chain-targets}
+### Array[Variant] chain_targets = [] {#var-chain-targets}
 
-*No description yet.*
+For multi-target chains
 
 ### MeshInstance3D beam_mesh {#var-beam-mesh}
 
-*No description yet.*
+Beam visual components
 
 ### Node3D beam_rotation {#var-beam-rotation}
 
-*No description yet.*
+The node that turns the beam toward its end.
 
 ### Material beam_material {#var-beam-material}
 
-*No description yet.*
+The material of the beam.
 
 ### Array[VFXPointToPointBeam] chain_beams = [] {#var-chain-beams}
 
-*No description yet.*
+Chain management for multi-target beams
 
 ### bool supports_chaining = false {#var-supports-chaining}
 
-*No description yet.*
+True when the beam can jump from target to target.
 
 ### int max_chain_targets = 3 {#var-max-chain-targets}
 
-*No description yet.*
+How many targets the beam can jump to.
 
 ### float chain_range = 5.0 {#var-chain-range}
 
-*No description yet.*
+How far the beam can jump.
 
 ### Vector3 last_start_pos {#var-last-start-pos}
 
-*No description yet.*
+Update tracking
 
 ### Vector3 last_end_pos {#var-last-end-pos}
 
-*No description yet.*
+Where the beam ended on the last frame.
 
 ### BeamState beam_state = BeamState.STARTING {#var-beam-state}
 
-*No description yet.*
+Which part the beam plays: starting, looping or ending.
 
 ### bool manually_stopped = false {#var-manually-stopped}
 
-*No description yet.*
+True when something stopped the beam by hand.
 
 ### bool has_start_animation = false {#var-has-start-animation}
 
-*No description yet.*
+Animation discovery
 
 ### bool has_loop_animation = false {#var-has-loop-animation}
 
-*No description yet.*
+True when the beam has a loop animation.
 
 ### bool has_end_animation = false {#var-has-end-animation}
 
-*No description yet.*
+True when the beam has an end animation.
 
 ## Method descriptions
 

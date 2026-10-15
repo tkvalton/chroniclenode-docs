@@ -33,7 +33,7 @@ Transformation VFX selection - temporary visual transformations for entities TOD
 
 ### VFXTransformation.TransformationType transformation_type = VFXTransformation.TransformationType.SCALE {#prop-transformation-type}
 
-*No description yet.*
+Which change of look (a change of scale ...).
 
 ### float blend_time = 0.3 {#prop-blend-time}
 
@@ -69,19 +69,19 @@ Override spawn method - Transformation VFX returns empty array since it doesn't 
 
 ### Variant prepare_target_for_vfx_type( target: Variant, originator: Variant = null ) {#method-prepare-target-for-vfx-type}
 
-Prepare target based on VFX type - override in subclasses for special handling *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+Checks and converts the target for this kind of visual effect (it needs an entity).
 
 ### String get_description() {#method-get-description}
 
-Get a description of this VFX selection for UI *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+A short text about the visual effect, for the editor.
 
 ### String get_vfx_type() {#method-get-vfx-type}
 
-Get the VFX type for database queries *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+The kind of visual effect (beam, loop, one shot ...).
 
 ### String get_vfx_name() {#method-get-vfx-name}
 
-Get the VFX name for database queries *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+The name of the visual effect that is picked.
 
 ### Dictionary get_transformation_config() {#method-get-transformation-config}
 

@@ -80,6 +80,8 @@ AudioManager music requests
 
 ### resume_all_audio_request() {#signal-resume-all-audio-request}
 
+Emitted when the audio that was paused should play again.
+
 ## Constants
 
 - `float` **TRANSITION_DURATION** = `1.5` - Duration for fade transitions in seconds.
@@ -138,7 +140,7 @@ The popups of the game (tutorials, messages, toasts)
 
 ### void setup_signals( p_system_hub: GameHost.SystemHub ) {#method-setup-signals}
 
-*No description yet.*
+Connects the signals of the interface to the other managers.
 
 ### void fade_to_black() {#method-fade-to-black}
 

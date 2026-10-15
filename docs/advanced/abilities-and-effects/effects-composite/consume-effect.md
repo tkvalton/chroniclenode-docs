@@ -32,19 +32,19 @@ ConsumeEffect consumes another effect and applies child effects based on consume
 
 ### int effect_id {#prop-effect-id}
 
-*No description yet.*
+The effect that is consumed.
 
 ### bool only_consume_effects_owned_by_user = true {#prop-only-consume-effects-owned-by-user}
 
-*No description yet.*
+True when only the effects the user put on the target can be consumed.
 
 ### bool consume_all_stacks = true {#prop-consume-all-stacks}
 
-*No description yet.*
+True consumes every stack, false only the number below.
 
 ### int stacks_to_consume = 1 {#prop-stacks-to-consume}
 
-*No description yet.*
+How many stacks are consumed (when not all of them).
 
 ## Method descriptions
 
@@ -62,19 +62,19 @@ Find and consume the target effect, returning the number of stacks consumed
 
 ### bool can_consume_effect( target_entity: Entity, originator: Entity ) {#method-can-consume-effect}
 
-*No description yet.*
+Does the target have the effect to consume?
 
 ### int get_consumable_stack_count( target_entity: Entity, originator: Entity ) {#method-get-consumable-stack-count}
 
-*No description yet.*
+How many stacks of the effect can be consumed.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

@@ -86,6 +86,8 @@ Emitted when the schedule loops back to start
 
 ### enum FailureHandling {#enum-failurehandling}
 
+The options of failure handling: skip to next, retry task, restart schedule, abort schedule.
+
 - **SKIP_TO_NEXT** = `0` - Skip failed task and continue to next
 - **RETRY_TASK** = `1` - Retry the failed task
 - **RESTART_SCHEDULE** = `2` - Restart from beginning of schedule

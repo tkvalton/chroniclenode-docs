@@ -23,7 +23,7 @@ Applies the specific logic for this effect, interrupting the target's cast
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 
 ### String get_effect_description() {#method-get-effect-description}
 

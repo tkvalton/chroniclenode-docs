@@ -27,6 +27,8 @@ Action that puts an ability on a slot of the action bar of player(s), empties a 
 
 ### enum LockChange {#enum-lockchange}
 
+The options of lock change: keep, lock, unlock.
+
 - **KEEP** = `0` - The slot stays as it is (locked or not)
 - **LOCK** = `1` - The player cannot change the slot any more
 - **UNLOCK** = `2` - The player can change the slot again
@@ -49,17 +51,17 @@ Locks or unlocks the slot for the player
 
 ### String get_player_function_description() {#method-get-player-function-description}
 
-Get template description for child classes to extend *(from [PlayerEventAction](/advanced/events-and-quests/bases/player-event-action))*
+The sentence the editor shows for the action, with &#123;placeholders&#125; for its values.
 
 ### bool execute_on_players( players: Array[Player] ) {#method-execute-on-players}
 
-Override this in child classes to implement player-specific action logic @param players: Array of target players to execute the action on @return: true if action succeeded, false if it failed *(from [PlayerEventAction](/advanced/events-and-quests/bases/player-event-action))*
+Puts the ability on the slot (or empties or locks it) for each player. False when the slot number is not valid.
 
 ### Dictionary save() {#method-save}
 
-Save action state to a dictionary *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+The state of the action for a save.
 
 ### void load_data( data: Dictionary ) {#method-load-data}
 
-Load action state from a dictionary *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+Restores the state of the action from a save.
 

@@ -37,10 +37,10 @@ Each folder is a VFX TYPE (oneshot, loop, beam, path, weather, telegraph, materi
 
 ## Constants
 
-- `String` **VFX_RESOURCES_PATH** = `"res://src/data/vfx/"`
-- `const` **VFX_TYPES** = `{`
-- `const` **VFX_CLASS_MAPPING** = `{`
-- `Dictionary` **VFX_SCRIPT_MAP** = `{`
+- `String` **VFX_RESOURCES_PATH** = `"res://src/data/vfx/"` - The folder the visual effects are read from.
+- `const` **VFX_TYPES** = `{` - VFX type definitions - maps directly to VFX classes
+- `const` **VFX_CLASS_MAPPING** = `{` - ========== VFX SCRIPT MAPPING ==========
+- `Dictionary` **VFX_SCRIPT_MAP** = `{` - Which script each folder of visual effects (oneshot, loop, beam ...) uses.
 
 ## Method descriptions
 

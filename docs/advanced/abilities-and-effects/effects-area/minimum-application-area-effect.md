@@ -47,9 +47,9 @@ Every way a collision effect applies its child effects goes through here, so the
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Override description to include shape info *(from [AreaEffect](/advanced/abilities-and-effects/effects-area/area-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [AreaEffect](/advanced/abilities-and-effects/effects-area/area-effect).*
+A short text for the effect editor that says what the effect does.
 

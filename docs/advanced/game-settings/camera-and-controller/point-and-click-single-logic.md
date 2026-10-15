@@ -95,29 +95,29 @@ Auto-attack when target selected
 
 ### Variant pending_interaction_target = null {#var-pending-interaction-target}
 
-*No description yet.*
+Runtime state (not exported)
 
 ## Method descriptions
 
 ### void setup( pc: PlayerController ) {#method-setup}
 
-Setup controller behavior - override in child classes *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Sets the logic up when it becomes the one in use.
 
 ### void cleanup() {#method-cleanup}
 
-Cleanup when switching controllers - override in child classes *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Lets go of what the logic holds when it is replaced.
 
 ### void handle_input_event( event: InputEvent ) {#method-handle-input-event}
 
-Handle input events - override in child classes *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Handles one input event (a click, a key).
 
 ### void process_input( delta: float ) {#method-process-input}
 
-Per-frame input processing - override in child classes *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Handles the input of one frame.
 
 ### Player get_current_player() {#method-get-current-player}
 
-Get the primary controlled player *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+The player the logic controls now.
 
 ### Array[LookBinding] get_look_bindings() {#method-get-look-bindings}
 
@@ -125,17 +125,17 @@ With RELEASE_WITHOUT_DRAG: report a right-click only if the pointer was not drag
 
 ### void on_click_completed( button_index: int, position: Vector2 ) {#method-on-click-completed}
 
-A look binding that requires a drag was released before it became a drag (a plain click) *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Called when a click ends (the button and the place on the screen).
 
 ### Array[Entity] get_selected_units() {#method-get-selected-units}
 
-Get currently selected units (RTS mode) *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+The entities the player has selected.
 
 ### void select_single_player( player: Entity ) {#method-select-single-player}
 
-Select a single player (called by UI/external systems) *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Selects one player.
 
 ### String get_type_display_name() {#method-get-type-display-name}
 
-Get display name for editor *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+The name of the logic in the editor.
 

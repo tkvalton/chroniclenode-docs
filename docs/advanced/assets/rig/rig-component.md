@@ -53,6 +53,8 @@ Base runtime rig class shared by EntityRigComponent and InteractableRigComponent
 
 ### enum RemoteSlotIndex {#enum-remoteslotindex}
 
+The places on the model where a visual effect can attach (base, hands, head, chest, weapon, feet, overhead).
+
 - **BASE** = `0`
 - **LEFT_HAND** = `1`
 - **RIGHT_HAND** = `2`
@@ -64,6 +66,8 @@ Base runtime rig class shared by EntityRigComponent and InteractableRigComponent
 
 ### enum HighlightType {#enum-highlighttype}
 
+The highlights of the mesh: default, hover, none or target selected.
+
 - **DEFAULT** = `0`
 - **HOVER** = `1`
 - **NONE** = `2`
@@ -71,17 +75,17 @@ Base runtime rig class shared by EntityRigComponent and InteractableRigComponent
 
 ## Constants
 
-- `const` **DEFAULT_REMOTE_POOL_SIZE** = `10`
+- `const` **DEFAULT_REMOTE_POOL_SIZE** = `10` - How many remote transforms are made for each slot.
 
 ## Variable descriptions
 
 ### bool outline_eligible = true {#var-outline-eligible}
 
-*No description yet.*
+True when the rig may get an outline (a target highlight).
 
 ### bool is_transparent = false {#var-is-transparent}
 
-*No description yet.*
+True while the rig is faded out (in fog, or hidden).
 
 ### Node3D rig_owner = null {#var-rig-owner}
 
@@ -93,23 +97,23 @@ Animation player reference (populated by subclass during initialize_rig)
 
 ### Decal hitbox_outline {#var-hitbox-outline}
 
-*No description yet.*
+The decal under the entity that shows its hitbox.
 
 ### Decal target_marker {#var-target-marker}
 
-*No description yet.*
+The decal that marks the entity as the target.
 
 ### Decal selection_marker {#var-selection-marker}
 
-*No description yet.*
+The decal that marks the entity as selected.
 
 ### Array[Array] remote_transforms = [[], [], [], [], [], [], [], []] {#var-remote-transforms}
 
-*No description yet.*
+The remote transforms of each slot, ready for a visual effect to use.
 
 ### Array[RemoteTransform3D] active_remotes = [] {#var-active-remotes}
 
-*No description yet.*
+The remote transforms a visual effect uses now.
 
 ## Method descriptions
 
@@ -131,73 +135,73 @@ Clean up a previously applied material effect. Returns success.
 
 ### void create_remotes_for_slot_index( slot_index: RemoteSlotIndex, parent: Node3D, count: int ) {#method-create-remotes-for-slot-index}
 
-*No description yet.*
+Makes remote transforms for a slot on a parent node.
 
 ### void create_remotes_for_slot_index_with_offset( slot_index: RemoteSlotIndex, parent: Node3D, count: int, offset: Vector3 ) {#method-create-remotes-for-slot-index-with-offset}
 
-*No description yet.*
+Makes remote transforms for a slot on a parent node, moved by an offset.
 
 ### RemoteTransform3D find_available_remote( slot_index: RemoteSlotIndex ) {#method-find-available-remote}
 
-*No description yet.*
+A remote transform of the slot that no effect uses, or null.
 
 ### RemoteTransform3D assign_remote_transform( effect_vfx: VFX, location: VFXSelection.VfxLocation ) {#method-assign-remote-transform}
 
-*No description yet.*
+Gives a visual effect a remote transform at a place on the model. Hands are made through assign_remote_transforms_for_hands.
 
 ### Array[RemoteTransform3D] assign_remote_transforms_for_hands( right_hand_vfx: VFX, left_hand_vfx: VFX ) {#method-assign-remote-transforms-for-hands}
 
-*No description yet.*
+Gives the effects of the right and the left hand a remote transform each.
 
 ### void release_remote( remote: RemoteTransform3D ) {#method-release-remote}
 
-*No description yet.*
+Gives a remote transform back when its effect ends.
 
 ### void animate_transparency( target_alpha: float, duration: float = 3.5 ) {#method-animate-transparency}
 
-*No description yet.*
+Fades the rig to a transparency (0 = visible, 1 = invisible) over some seconds.
 
 ### void show_rig( duration: float = 3.5 ) {#method-show-rig}
 
-*No description yet.*
+Fades the rig in.
 
 ### void hide_rig( duration: float = 3.5 ) {#method-hide-rig}
 
-*No description yet.*
+Fades the rig out.
 
 ### void apply_fog_of_war_state( in_fog: bool ) {#method-apply-fog-of-war-state}
 
-*No description yet.*
+Hides the rig when it is in fog, shows it when it is not.
 
 ### void set_hitbox_color( color: Color ) {#method-set-hitbox-color}
 
-*No description yet.*
+Sets the color of the hitbox and selection decals.
 
 ### void set_combat_outline( in_combat: bool, combat_color: Color = Color.RED ) {#method-set-combat-outline}
 
-*No description yet.*
+Shows the outline of the entity in the combat color while it fights.
 
 ### void set_selection_state( is_current: bool, is_selected: bool, current_color: Color = Color.CYAN, selected_color: Color = Color.GREEN ) {#method-set-selection-state}
 
-*No description yet.*
+Shows whether the entity is the current or a selected party member, in the colors given.
 
 ### void set_mesh_overlay( highlight_type: HighlightType ) {#method-set-mesh-overlay}
 
-*No description yet.*
+Sets the highlight of the mesh (default, hover, none or target selected).
 
 ### void set_target_highlight_with_color( target_color: Color ) {#method-set-target-highlight-with-color}
 
-*No description yet.*
+Highlights the entity as the target, in a color.
 
 ### void clear_target_marker() {#method-clear-target-marker}
 
-*No description yet.*
+Hides the target marker.
 
 ### void apply_selection_outline( selection_color: Color, power: float = 3.0, intensity: float = 0.5, threshold: float = 0.0 ) {#method-apply-selection-outline}
 
-*No description yet.*
+Draws an outline on the mesh: color, power, intensity and threshold.
 
 ### void set_visual_layer( layer: int ) {#method-set-visual-layer}
 
-*No description yet.*
+Puts the meshes of the rig on a visual layer (1 to 20).
 

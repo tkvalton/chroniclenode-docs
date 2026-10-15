@@ -28,5 +28,5 @@ Use the screen centre even when the mouse is not captured (a game with a fixed c
 
 ### Dictionary get_aim( entity: Entity, max_range: float ) {#method-get-aim}
 
-*Overrides this function of [AimProvider](/advanced/game-settings/camera-and-controller/aim-provider).*
+Where the entity aims through the camera (the crosshair, or the mouse), up to a maximum range.
 

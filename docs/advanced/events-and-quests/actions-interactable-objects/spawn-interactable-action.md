@@ -52,11 +52,11 @@ Optional summoner entity (for effect-created interactables)
 
 ### InteractableObject spawned_interactable = null {#var-spawned-interactable}
 
-*No description yet.*
+Reference to the spawned interactable
 
 ### Entity summoner = null {#var-summoner}
 
-*No description yet.*
+The entity that summons the object, if any (found when the action runs).
 
 ## Method descriptions
 

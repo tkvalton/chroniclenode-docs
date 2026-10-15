@@ -25,11 +25,11 @@ The list of lessons of a trainer: what each teaches, what it costs, a Learn butt
 
 ### TrainerInteraction interaction = null {#var-interaction}
 
-*No description yet.*
+The trainer interaction the panel shows.
 
 ### Player learner = null {#var-learner}
 
-*No description yet.*
+The player who learns.
 
 ## Method descriptions
 
@@ -43,5 +43,5 @@ Show the lessons again (after a purchase, or when something about the player cha
 
 ### void close_panel() {#method-close-panel}
 
-Signal handlers for UI elements *(from [PanelUI](/advanced/user-interface/panels/panel-ui))*
+Closes the window.
 

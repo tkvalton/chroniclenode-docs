@@ -72,10 +72,14 @@ The Effect class also manages its lifecycle, including initialization, applicati
 
 ### enum AppliedTo {#enum-appliedto}
 
+The options of applied to: target, self.
+
 - **TARGET** = `0`
 - **SELF** = `1`
 
 ### enum TimeStrategy {#enum-timestrategy}
+
+The options of time strategy: immediate time strategy, persistent time strategy, persistent ticking time strategy, temporary time strategy, temporary ticking time strategy.
 
 - **ImmediateTimeStrategy** = `0`
 - **PersistentTimeStrategy** = `1`
@@ -85,10 +89,14 @@ The Effect class also manages its lifecycle, including initialization, applicati
 
 ### enum AuraType {#enum-auratype}
 
+The options of aura type: buff, debuff.
+
 - **BUFF** = `0`
 - **DEBUFF** = `1`
 
 ### enum UseCount {#enum-usecount}
+
+The options of use count: any ability, basic attack, abilities in group, abilities of school, specific ability.
 
 - **ANY_ABILITY** = `0` - every ability the entity uses
 - **BASIC_ATTACK** = `1` - its basic attack
@@ -97,6 +105,8 @@ The Effect class also manages its lifecycle, including initialization, applicati
 - **SPECIFIC_ABILITY** = `4` - one ability (uses_filter_id)
 
 ### enum StackingRule {#enum-stackingrule}
+
+The options of stacking rule: no limits, per originator, global.
 
 - **NO_LIMITS** = `0`
 - **PER_ORIGINATOR** = `1`
@@ -240,7 +250,7 @@ The text of the aura tooltip. The Description written for the effect when there 
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*No description yet.*
+A short text for the effect editor that says what the effect does.
 
 ### bool has_vfx() {#method-has-vfx}
 

@@ -59,13 +59,13 @@ Whether the door must be accessible (not destroyed)
 
 ### bool evaluate( argument: Variant = null ) {#method-evaluate}
 
-Evaluate this condition with an optional argument Override this in subclasses to implement specific logic @param argument: Optional data needed for evaluation (Entity, Encounter, etc.) @return: true if condition is met, false otherwise *(from [Condition](/advanced/shared-systems/condition-bases/condition))*
+Is the condition met?
 
 ### String get_description() {#method-get-description}
 
-Get a human-readable description of this condition (for editor/debugging) Override in subclasses to provide meaningful descriptions *(from [Condition](/advanced/shared-systems/condition-bases/condition))*
+A short text about what the condition checks.
 
 ### String get_function_description() {#method-get-function-description}
 
-Get function description with placeholders for EventTypeSelectionDialog inline editing Override in subclasses to provide template with &#123;parameter_name&#125; placeholders Falls back to get_description() if not overridden *(from [Condition](/advanced/shared-systems/condition-bases/condition))*
+The sentence the editor shows for the condition, with &#123;placeholders&#125; for its values.
 

@@ -48,11 +48,11 @@ Every `.tscn` file in those folders is an entry, named by its file name. For a s
 
 ## Constants
 
-- `String` **SKELETONS_PATH** = `"res://src/data/meshes/skeletons/"`
-- `String` **INTERACTABLE_MODELS_PATH** = `"res://src/data/meshes/interactable_models/"`
-- `Array[String]` **SKELETON_EXTENSIONS** = `[".tscn"]`
-- `Array[String]` **INTERACTABLE_MODEL_EXTENSIONS** = `[".tscn"]`
-- `Dictionary` **SKELETON_TYPE_MAPPING** = `{`
+- `String` **SKELETONS_PATH** = `"res://src/data/meshes/skeletons/"` - ========== PATHS ==========
+- `String` **INTERACTABLE_MODELS_PATH** = `"res://src/data/meshes/interactable_models/"` - The folder of the model scenes of objects.
+- `Array[String]` **SKELETON_EXTENSIONS** = `[".tscn"]` - ========== FILE EXTENSIONS ==========
+- `Array[String]` **INTERACTABLE_MODEL_EXTENSIONS** = `[".tscn"]` - The file types that count as model scenes.
+- `Dictionary` **SKELETON_TYPE_MAPPING** = `{` - ========== SKELETON TYPE MAPPING ==========
 
 ## Method descriptions
 

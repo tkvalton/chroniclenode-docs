@@ -44,6 +44,8 @@ The definition of one stat (Strength, Armor, Haste): its name, color and icon, w
 
 ### enum ValueType {#enum-valuetype}
 
+The options of value type: integer, float.
+
 - **INTEGER** = `0`
 
 ## Constants
@@ -128,7 +130,7 @@ Is this the hidden stat of a proficiency?
 
 ### bool is_in_group( group_id: int ) {#method-is-in-group}
 
-*No description yet.*
+Is the stat in this stat group?
 
 ### String format_display_value( raw_value: float ) {#method-format-display-value}
 
@@ -156,7 +158,7 @@ Calculate final stat value from instance data
 
 ### StatInstance create_instance( initial_base: float = -1.0 ) {#method-create-instance}
 
-*No description yet.*
+Makes the instance of the stat for an entity (with a starting base value, or the default).
 
 ### String format_tooltip( instance_data: Dictionary ) {#method-format-tooltip}
 

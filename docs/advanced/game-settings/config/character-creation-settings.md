@@ -32,8 +32,8 @@ CharacterCreationSettings - Main configuration for the character creation system
 
 ## Constants
 
-- `const` **CONFIG_PATH** = `"res://src/data/config_data/character_creation_config.tres"`
-- `Dictionary` **SETTING_DESCRIPTIONS** = `{`
+- `const` **CONFIG_PATH** = `"res://src/data/config_data/character_creation_config.tres"` - The file the settings are saved in.
+- `Dictionary` **SETTING_DESCRIPTIONS** = `{` - The text the settings editor shows for each setting.
 
 ## Property descriptions
 
@@ -93,5 +93,5 @@ Check if configuration is valid
 
 ### CharacterCreationSettings get_config() {#method-get-config}
 
-*No description yet.*
+The character creation settings of the project (loaded from the file).
 

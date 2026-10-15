@@ -34,6 +34,8 @@ Unified component manager for Entity - combines registry and factory Provides ty
 
 ### enum ComponentType {#enum-componenttype}
 
+The options of component type: stats, effects, abilities, equipment, inventory, audio, rig, animation, states, pets ....
+
 - **STATS** = `0`
 - **EFFECTS** = `1`
 - **ABILITIES** = `2`
@@ -62,7 +64,7 @@ Check if component exists
 
 ### void create_mediator( system_hub: GameHost.SystemHub, owner_entity: Entity ) {#method-create-mediator}
 
-*No description yet.*
+Makes the mediator that connects the components of the entity.
 
 ### StatsComponent stats() {#method-stats}
 

@@ -54,17 +54,17 @@ Timer for the initial summon animation/effect
 
 ### void initialize_entity( system_hub: GameHost.SystemHub ) {#method-initialize-entity}
 
-*Overrides this function of [Entity](/advanced/entities/runtime/entity).*
+Called when the node enters the scene tree
 
 ### void summon_timer_timeout() {#method-summon-timer-timeout}
 
-*No description yet.*
+Called when the summon timer completes
 
 ### void summon_finished() {#method-summon-finished}
 
-*No description yet.*
+Handles pet despawn/removal when effect ends or summoner dies
 
 ### void entity_death( announce: bool = true ) {#method-entity-death}
 
-`announce` false puts a saved corpse back (loading): the entity becomes a corpse but nobody is told it died *(from [Entity](/advanced/entities/runtime/entity))*
+Override of the base entity_death method to handle pet-specific death
 

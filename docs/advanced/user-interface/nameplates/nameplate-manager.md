@@ -27,7 +27,7 @@ The manager uses a deferred removal system to prevent modifying collections duri
 | `Dictionary` | [nameplates](#var-nameplates) | `{}` |
 | `Array` | [pending_removal](#var-pending-removal) | `[]` |
 | `bool` | [combat_visibility_enabled](#var-combat-visibility-enabled) | `false  # Whether "show in combat only" is active` |
-| `int` | [active_combat_count](#var-active-combat-count) | `0  # Track number of active encounters` |
+| `int` | [active_combat_count](#var-active-combat-count) | `0` |
 | `CameraController` | [camera_controller](#var-camera-controller) |  |
 | `WorldContainer` | [world_container](#var-world-container) |  |
 | `PartyManager` | [party_manager](#var-party-manager) |  |
@@ -52,6 +52,8 @@ Tooltip signals - route from nameplates to UIManager
 
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
 
+Asks the interface to hide the tooltip (force hides it at once).
+
 ## Variable descriptions
 
 ### Dictionary nameplates =  {#var-nameplates}
@@ -66,9 +68,9 @@ Array for safely queuing owners for removal without modifying the dictionary dur
 
 Combat visibility tracking
 
-### int active_combat_count = 0  # Track number of active encounters {#var-active-combat-count}
+### int active_combat_count = 0 {#var-active-combat-count}
 
-*No description yet.*
+Track number of active encounters
 
 ### CameraController camera_controller {#var-camera-controller}
 
@@ -76,11 +78,11 @@ SystemRefs
 
 ### WorldContainer world_container {#var-world-container}
 
-*No description yet.*
+The container of the current world.
 
 ### PartyManager party_manager {#var-party-manager}
 
-*No description yet.*
+The manager of the party.
 
 ## Method descriptions
 

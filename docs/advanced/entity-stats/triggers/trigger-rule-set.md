@@ -31,7 +31,7 @@ Adds raw values for a tag (null definition = every tag). Used by stat effects to
 
 ### bool is_empty() {#method-is-empty}
 
-*No description yet.*
+Does the set have no rules?
 
 ### bool is_never( tag: String, kind: int = -1 ) {#method-is-never}
 

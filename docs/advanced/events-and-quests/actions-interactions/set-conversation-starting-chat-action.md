@@ -35,6 +35,8 @@ Action to set which chat a conversation starts from on next interaction Works wi
 
 ### enum SourceType {#enum-sourcetype}
 
+The options of source type: npc, interactable.
+
 - **NPC** = `0`
 - **INTERACTABLE** = `1`
 
@@ -60,15 +62,15 @@ ID of the chat to start from next time
 
 ### NPC target_npc = null {#var-target-npc}
 
-*No description yet.*
+Runtime references
 
 ### InteractableObject target_interactable = null {#var-target-interactable}
 
-*No description yet.*
+The object whose conversation is changed (found when the action runs).
 
 ### ConversationInteraction target_conversation_interaction = null {#var-target-conversation-interaction}
 
-*No description yet.*
+The conversation interaction that is changed (found when the action runs).
 
 ## Method descriptions
 

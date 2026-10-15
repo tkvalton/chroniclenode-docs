@@ -41,10 +41,14 @@ The stat points go through the formula slots (StatEffect) and the value they giv
 
 ### enum TriggerType {#enum-triggertype}
 
+The options of trigger type: on damage dealt, on damage taken, on kill.
+
 - **ON_DAMAGE_DEALT** = `0`
 - **ON_DAMAGE_TAKEN** = `1`
 
 ### enum ScalingType {#enum-scalingtype}
+
+The options of scaling type: flat, percent of damage, percent of max.
 
 - **FLAT** = `0`
 - **PERCENT_OF_DAMAGE** = `1`
@@ -85,15 +89,15 @@ Only react to hits of this damage type (0 = any)
 
 ### EffectType get_effect_type() {#method-get-effect-type}
 
-Override in child classes to return effect type name *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== EFFECT IDENTIFICATION ==========
 
 ### String get_effect_category() {#method-get-effect-category}
 
-Override in child classes to return category *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+The group of the effect in the editor.
 
 ### bool matches_trigger( event_type: String ) {#method-matches-trigger}
 
-*No description yet.*
+========== TRIGGER MATCHING ==========
 
 ### bool accepts_hit( result: DamageResult ) {#method-accepts-hit}
 
@@ -105,25 +109,25 @@ How much to restore. `result` is the hit reacted to (null for a kill), `pool_max
 
 ### String get_trigger_description() {#method-get-trigger-description}
 
-*No description yet.*
+========== DISPLAY ==========
 
 ### String get_scaling_description() {#method-get-scaling-description}
 
-*No description yet.*
+A text about how the effect scales.
 
 ### String get_short_description() {#method-get-short-description}
 
-Override in child classes for a one-line summary of what this effect does *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+A one line text about what the effect does.
 
 ### Dictionary get_preview_info( stat_points: float ) {#method-get-preview-info}
 
-*No description yet.*
+What the effect gives for a number of stat points, for the tooltip and the editor preview.
 
 ### String get_tooltip_text( stat_points: float ) {#method-get-tooltip-text}
 
-*No description yet.*
+The tooltip text of the effect for a number of stat points.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Validate this effect's configuration - override in child classes *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== VALIDATION ==========
 

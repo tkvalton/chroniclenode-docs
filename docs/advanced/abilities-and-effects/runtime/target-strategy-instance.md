@@ -119,43 +119,43 @@ Convenience getters for common properties
 
 ### bool get_requires_targeting_input() {#method-get-requires-targeting-input}
 
-*No description yet.*
+The current value of requires targeting input: the one of the definition, unless a modifier changed it.
 
 ### bool get_has_auto_target() {#method-get-has-auto-target}
 
-*No description yet.*
+The current value of has auto target: the one of the definition, unless a modifier changed it.
 
 ### bool get_can_target_dead() {#method-get-can-target-dead}
 
-*No description yet.*
+The current value of can target dead: the one of the definition, unless a modifier changed it.
 
 ### int get_target_collision_layer() {#method-get-target-collision-layer}
 
-*No description yet.*
+The current value of target collision layer: the one of the definition, unless a modifier changed it.
 
 ### float get_target_collision_radius() {#method-get-target-collision-radius}
 
-*No description yet.*
+The current value of target collision radius: the one of the definition, unless a modifier changed it.
 
 ### bool get_has_marker() {#method-get-has-marker}
 
-*No description yet.*
+The current value of has marker: the one of the definition, unless a modifier changed it.
 
 ### TargetStrategyDefinition.AbilityMarkerLocation get_marker_location() {#method-get-marker-location}
 
-*No description yet.*
+The current value of marker location: the one of the definition, unless a modifier changed it.
 
 ### bool get_marker_is_friendly() {#method-get-marker-is-friendly}
 
-*No description yet.*
+The current value of marker is friendly: the one of the definition, unless a modifier changed it.
 
 ### bool get_can_target_self() {#method-get-can-target-self}
 
-*No description yet.*
+The current value of can target self: the one of the definition, unless a modifier changed it.
 
 ### int get_points_expected() {#method-get-points-expected}
 
-*No description yet.*
+The current value of points expected: the one of the definition, unless a modifier changed it.
 
 ### Dictionary add_multi_point( point: Vector3, user: Entity ) {#method-add-multi-point}
 

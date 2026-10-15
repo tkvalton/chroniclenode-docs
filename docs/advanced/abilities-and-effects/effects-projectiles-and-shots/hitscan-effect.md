@@ -29,6 +29,8 @@ An instant shot: a line from the muzzle of the originator towards the target (an
 
 ### enum Targets {#enum-targets}
 
+The options of targets: enemies, allies, everyone, target only.
+
 - **ENEMIES** = `0` - hostile entities; allies and neutrals are passed through
 - **ALLIES** = `1` - friendly entities
 - **EVERYONE** = `2` - any entity
@@ -62,15 +64,15 @@ Where the line starts on the originator
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Apply all child effects using the simplified system *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+What the effect does to its target when it is applied.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

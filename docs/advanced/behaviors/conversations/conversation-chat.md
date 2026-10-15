@@ -37,7 +37,7 @@ A single chat in a conversation References responses by ID instead of nesting th
 
 ### int id = 0 {#prop-id}
 
-*No description yet.*
+The id of the chat.
 
 ### Array[String] text {#prop-text}
 
@@ -63,29 +63,29 @@ Adds &lt;End Conversation&gt; default ConversationResponse to chat
 
 ### int get_response_count() {#method-get-response-count}
 
-*No description yet.*
+========== HELPER METHODS ==========
 
 ### int add_response_slot() {#method-add-response-slot}
 
-*No description yet.*
+Adds an empty response slot. Gives its place.
 
 ### void remove_response_slot( slot_index: int ) {#method-remove-response-slot}
 
-*No description yet.*
+Removes a response slot.
 
 ### void set_response_at_slot( slot_index: int, response_id: int ) {#method-set-response-at-slot}
 
-*No description yet.*
+Puts a response in a slot.
 
 ### int get_response_id_at_slot( slot_index: int ) {#method-get-response-id-at-slot}
 
-*No description yet.*
+The response in a slot (0 when it is empty).
 
 ### bool is_slot_connected( slot_index: int ) {#method-is-slot-connected}
 
-*No description yet.*
+Does the slot hold a response?
 
 ### int find_slot_for_response( response_id: int ) {#method-find-slot-for-response}
 
-*No description yet.*
+The slot that holds this response (-1 when none).
 

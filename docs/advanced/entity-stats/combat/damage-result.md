@@ -100,15 +100,15 @@ Which number a consumer wants (threat, leech, damage reflection ...): a dev choi
 
 ### Variant attacker = null {#var-attacker}
 
-*No description yet.*
+Who dealt the hit.
 
 ### Variant target = null {#var-target}
 
-*No description yet.*
+Who took the hit.
 
 ### EffectInstance effect = null {#var-effect}
 
-*No description yet.*
+The effect that hit.
 
 ### String ability_name = "" {#var-ability-name}
 
@@ -116,11 +116,11 @@ Display name of the ability / effect (captured so the log does not depend on the
 
 ### int damage_type = 0 {#var-damage-type}
 
-*No description yet.*
+The damage type of the hit.
 
 ### bool can_be_avoided = true {#var-can-be-avoided}
 
-*No description yet.*
+True when the hit can be dodged, parried or blocked.
 
 ### int chain_depth = 0 {#var-chain-depth}
 
@@ -152,7 +152,7 @@ What actually reached health
 
 ### Outcome outcome = Outcome.HIT {#var-outcome}
 
-*No description yet.*
+How the hit ended (hit, miss, dodge ...).
 
 ### bool glancing = false {#var-glancing}
 
@@ -164,11 +164,11 @@ The tag of the avoid trigger that fired (only for Outcome.AVOIDED and Outcome.MI
 
 ### bool target_died = false {#var-target-died}
 
-*No description yet.*
+True when the hit killed the target.
 
 ### bool target_was_dead = false {#var-target-was-dead}
 
-*No description yet.*
+True when the target was already dead.
 
 ### int immunity_id = 0 {#var-immunity-id}
 
@@ -176,7 +176,7 @@ Why the pipeline failed (only for Outcome.FAILED) The immunity that blocked the 
 
 ### String error = "" {#var-error}
 
-*No description yet.*
+What went wrong, when the hit could not be worked out.
 
 ### Array[TriggerRecord] triggers_done = [] {#var-triggers-done}
 

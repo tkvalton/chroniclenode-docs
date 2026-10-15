@@ -23,15 +23,15 @@ The experience bar of the action bar: a progress bar and a label that follow the
 
 ### Player bars_player {#var-bars-player}
 
-*No description yet.*
+The player whose experience the bar shows.
 
 ## Method descriptions
 
 ### void setup() {#method-setup}
 
-*No description yet.*
+Connects the bar to the experience of its player.
 
 ### void update_xp( player: Player, experience: int, experience_requirement: int ) {#method-update-xp}
 
-*No description yet.*
+Updates the bar: the player, the experience and what the next level needs.
 

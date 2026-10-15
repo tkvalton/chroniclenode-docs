@@ -30,6 +30,8 @@ Action to control ambient track playback Uses TrackSelectionDialog to pick speci
 
 ### enum AmbientAction {#enum-ambientaction}
 
+The options of ambient action: play track, stop, fade stop.
+
 - **PLAY_TRACK** = `0` - Play a specific ambient track
 - **STOP** = `1` - Stop ambient immediately
 - **FADE_STOP** = `2` - Fade out and stop ambient

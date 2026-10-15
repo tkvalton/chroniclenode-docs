@@ -30,6 +30,8 @@ Changes threat: adds, reduces or clears the threat an entity has on hostile NPCs
 
 ### enum Mode {#enum-mode}
 
+The options of mode: add, reduce, clear, set to top, redirect.
+
 - **ADD** = `0` - adds `value` threat
 - **REDUCE** = `1` - takes `value` threat away (never below 0)
 - **CLEAR** = `2` - takes all of the threat away (a vanish, a feign)
@@ -38,10 +40,14 @@ Changes threat: adds, reduces or clears the threat an entity has on hostile NPCs
 
 ### enum Whose {#enum-whose}
 
+The options of whose: originator, target.
+
 - **ORIGINATOR** = `0`
 - **TARGET** = `1`
 
 ### enum OnEnemies {#enum-onenemies}
+
+The options of on enemies: target npc, all engaged.
 
 - **TARGET_NPC** = `0`
 - **ALL_ENGAGED** = `1`
@@ -52,7 +58,7 @@ Changes threat: adds, reduces or clears the threat an entity has on hostile NPCs
 
 ### Mode mode = Mode.ADD {#prop-mode}
 
-*No description yet.*
+What the effect does to threat (add, reduce, clear, top of the list or redirect).
 
 ### float value = 100.0 {#prop-value}
 
@@ -78,15 +84,15 @@ REDIRECT: the share of the threat that goes to the other party, in percent (100 
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+What the effect does to its target when it is applied.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

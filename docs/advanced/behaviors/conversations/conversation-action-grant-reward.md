@@ -30,13 +30,13 @@ The reward to grant
 
 ### void execute( player: Entity, conversation_instance: ConversationInstance ) {#method-execute}
 
-Execute this action with the given context Must be overridden in child classes player: The entity (player) involved in the conversation conversation_instance: The runtime ConversationInstance (not the resource) *(from [ConversationAction](/advanced/behaviors/conversations/conversation-action))*
+Runs the action in the conversation.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Validate that this action is properly configured Returns an array of error dictionaries if invalid *(from [ConversationAction](/advanced/behaviors/conversations/conversation-action))*
+Checks the settings of the action. Gives the problems found (empty when it is fine).
 
 ### String get_description() {#method-get-description}
 
-Get a human-readable description of this action for editor display *(from [ConversationAction](/advanced/behaviors/conversations/conversation-action))*
+A short text about what the action does, for the editor.
 

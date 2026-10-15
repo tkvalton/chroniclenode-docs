@@ -37,31 +37,31 @@ Moves the camera of the player: it holds the current camera logic, the camera so
 
 ### bool camera_can_process = false {#var-camera-can-process}
 
-*No description yet.*
+Camera state
 
 ### CameraLogic current_camera_logic {#var-current-camera-logic}
 
-*No description yet.*
+Camera logic
 
 ### Node3D camera_socket {#var-camera-socket}
 
-*No description yet.*
+Node references
 
 ### Camera3D camera {#var-camera}
 
-*No description yet.*
+The camera of the player.
 
 ### RemoteTransform3D minimap_transform {#var-minimap-transform}
 
-*No description yet.*
+The remote transform that moves the mini map camera with the player camera.
 
 ### DirectionalLight3D mini_map_light {#var-mini-map-light}
 
-*No description yet.*
+The light of the mini map.
 
 ### RemoteTransform3D weather_transform {#var-weather-transform}
 
-*No description yet.*
+The remote transform that moves the weather with the player camera.
 
 ## Method descriptions
 
@@ -71,7 +71,7 @@ Raw input for camera logics that have NOT been migrated to the InputManager cont
 
 ### void set_camera_position( target: Variant, use_pan: bool = true ) {#method-set-camera-position}
 
-*No description yet.*
+Public interface methods
 
 ### float get_view_yaw() {#method-get-view-yaw}
 
@@ -79,29 +79,29 @@ The yaw the camera is facing (radians, Node3D.rotation.y convention). Read-only.
 
 ### void camera_process_off() {#method-camera-process-off}
 
-*No description yet.*
+Stops the camera logic from running.
 
 ### void camera_process_on() {#method-camera-process-on}
 
-*No description yet.*
+Lets the camera logic run.
 
 ### RemoteTransform3D get_remote_transform() {#method-get-remote-transform}
 
-*No description yet.*
+Minimap functionality
 
 ### void set_minimap_remote_path( path: NodePath ) {#method-set-minimap-remote-path}
 
-*No description yet.*
+Sets the node the mini map camera follows.
 
 ### void map_zoom( direction: int ) {#method-map-zoom}
 
-*No description yet.*
+Zooms the mini map in or out.
 
 ### RemoteTransform3D get_weather_transform() {#method-get-weather-transform}
 
-*No description yet.*
+Weather functionality
 
 ### void set_weather_remote_path( path: NodePath ) {#method-set-weather-remote-path}
 
-*No description yet.*
+Sets the node the weather follows.
 

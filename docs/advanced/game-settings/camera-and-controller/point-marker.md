@@ -59,8 +59,8 @@ Key features:
 ## Constants
 
 - `float` **ATTACK_RIBBON_WIDTH** = `0.5` - Attack ribbon constants - loaded from GameplayConfig
-- `int` **ATTACK_RIBBON_SEGMENTS** = `20`
-- `float` **ATTACK_RIBBON_HEIGHT_OFFSET** = `1.5`
+- `int` **ATTACK_RIBBON_SEGMENTS** = `20` - How many segments the attack ribbon has.
+- `float` **ATTACK_RIBBON_HEIGHT_OFFSET** = `1.5` - How high above the ground the attack ribbon is.
 - `float` **ATTACK_RIBBON_ARC_HEIGHT** = `2.0` - How high the middle of the arc should be
 - `int` **TERRAIN_MASK** = `1 << 5` - Terrain layer mask (layer 6 in Godot is 1&lt;&lt;5)
 
@@ -132,7 +132,7 @@ Attack ribbon mesh instance and material
 
 ### StandardMaterial3D attack_ribbon_material {#var-attack-ribbon-material}
 
-*No description yet.*
+The material of the ribbon that shows an attack.
 
 ### PartyManager party_manager {#var-party-manager}
 
@@ -142,7 +142,7 @@ System Ref
 
 ### void setup_mouse_area( area: Area3D ) {#method-setup-mouse-area}
 
-*No description yet.*
+Sets up the area that follows the mouse.
 
 ### void connect_signals() {#method-connect-signals}
 

@@ -31,17 +31,17 @@ EntityRigComponent manages visual representation and effects for entities. Exten
 
 ### GeneralSkeleton skeleton_3d {#var-skeleton-3d}
 
-*No description yet.*
+The skeleton of the model of the entity.
 
 ## Method descriptions
 
 ### void initialize_rig( owner_node: Node3D ) {#method-initialize-rig}
 
-Single entry point. Stores the owner, creates decals, defers remote setup. Subclasses call super then add their own model instantiation. *(from [RigComponent](/advanced/assets/rig/rig-component))*
+Builds the rig of the entity: its model, equipment and animation player.
 
 ### void look_at_object( object: Node3D, speed: int = Entity.FaceTargetSpeed.INSTANT ) {#method-look-at-object}
 
-*No description yet.*
+Turns the head of the entity toward a node, at a speed.
 
 ### void apply_equipment( equipment: ItemInstance, slot_definition: EquipmentSlotDefinition = null, is_equipping: bool = true ) {#method-apply-equipment}
 
@@ -49,29 +49,29 @@ Main equipment interface — handles ALL visual processing
 
 ### EntityAnimationPlayer setup_entity_animation_player() {#method-setup-entity-animation-player}
 
-*No description yet.*
+Makes the animation player of the entity.
 
 ### void set_head_tracking_target( target: Node3D = null, transition_duration: float = 0.5 ) {#method-set-head-tracking-target}
 
-*No description yet.*
+Makes the head follow a node (or nothing), blending over some seconds.
 
 ### bool apply_vfx_material_effect( selection: VFXSelectionMaterial, timer: Timer = null ) {#method-apply-vfx-material-effect}
 
-Apply a material effect to the rig's meshes. Returns success. *(from [RigComponent](/advanced/assets/rig/rig-component))*
+Puts a material effect on the model. False when there is no skeleton.
 
 ### bool cleanup_vfx_material_effect( selection: VFXSelectionMaterial ) {#method-cleanup-vfx-material-effect}
 
-Clean up a previously applied material effect. Returns success. *(from [RigComponent](/advanced/assets/rig/rig-component))*
+Takes a material effect off the model.
 
 ### Node3D get_attachment_point_node( location: VFXSelection.VfxLocation ) {#method-get-attachment-point-node}
 
-Return the Node3D that physically represents a VfxLocation attachment point. *(from [RigComponent](/advanced/assets/rig/rig-component))*
+The node of the model where a visual effect attaches.
 
 ### void set_skeleton_invisible() {#method-set-skeleton-invisible}
 
-*No description yet.*
+Hides the model.
 
 ### void set_skeleton_visible() {#method-set-skeleton-visible}
 
-*No description yet.*
+Shows the model.
 

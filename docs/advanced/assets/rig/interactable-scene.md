@@ -73,11 +73,11 @@ Optional markers for VFX attachment points
 
 ### Marker3D overhead_marker {#var-overhead-marker}
 
-*No description yet.*
+The marker above the object (for nameplates and effects).
 
 ### Array[MeshInstance3D] mesh_instances = [] {#var-mesh-instances}
 
-*No description yet.*
+Every mesh of the object (for outlines).
 
 ## Method descriptions
 
@@ -115,5 +115,5 @@ Clear target marker visibility
 
 ### void apply_selection_outline( selection_color: Color, power: float = 3.0, intensity: float = 0.5, threshold: float = 0.0 ) {#method-apply-selection-outline}
 
-*No description yet.*
+Draws an outline on every mesh: color, power, intensity and threshold.
 

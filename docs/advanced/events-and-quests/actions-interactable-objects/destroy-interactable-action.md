@@ -37,7 +37,7 @@ ID of the destructible object to destroy
 
 ### InteractableObject target_destructible = null {#var-target-destructible}
 
-*No description yet.*
+Reference to the target destructible
 
 ## Method descriptions
 

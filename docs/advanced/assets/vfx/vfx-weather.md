@@ -43,7 +43,7 @@ Wind intensity (float 0.0 to 1.0)
 
 ### bool has_set_shader_globals = false {#var-has-set-shader-globals}
 
-*No description yet.*
+Track if we've set the shader globals (for cleanup)
 
 ## Method descriptions
 

@@ -19,7 +19,7 @@ Clean equipment panel using the unified ItemSlotUI system
 | `Player` | [panel_player](#var-panel-player) |  |
 | `EquipmentInventoryComponent` | [current_equipment_data](#var-current-equipment-data) |  |
 | `Array[ItemSlotUI]` | [equipment_slot_uis](#var-equipment-slot-uis) | `[]` |
-| `Dictionary` | [slot_ui_lookup](#var-slot-ui-lookup) | `{} # slot_identifier -> ItemSlotUI` |
+| `Dictionary` | [slot_ui_lookup](#var-slot-ui-lookup) | `{}` |
 | `PlayerController` | [player_controller](#var-player-controller) |  |
 
 ## Methods
@@ -48,39 +48,51 @@ Clean equipment panel using the unified ItemSlotUI system
 
 ### socket_panel_requested( equipment_item: ItemInstance ) {#signal-socket-panel-requested}
 
+========== SIGNALS ==========
+
 ### item_tooltip_requested( item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary ) {#signal-item-tooltip-requested}
+
+Asks the interface to show the tooltip of an item: the item, its definition, where it is and extra data.
 
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
 
+Asks the interface to hide the tooltip (force hides it at once).
+
 ### message_requested( message: String ) {#signal-message-requested}
+
+Asks the interface to show a message.
 
 ### warning_message_requested( message: String ) {#signal-warning-message-requested}
 
+Asks the interface to show a warning.
+
 ### drag_from_equipment_requested( item: ItemInstance, slot_data: SlotInstance ) {#signal-drag-from-equipment-requested}
+
+========== DRAG SIGNALS ==========
 
 ## Property descriptions
 
 ### PackedScene item_slot_scene {#prop-item-slot-scene}
 
-*No description yet.*
+The scene of one slot.
 
 ## Variable descriptions
 
 ### Player panel_player {#var-panel-player}
 
-*No description yet.*
+The player whose equipment the panel shows.
 
 ### EquipmentInventoryComponent current_equipment_data {#var-current-equipment-data}
 
-*No description yet.*
+The equipment the panel shows.
 
 ### Array[ItemSlotUI] equipment_slot_uis = [] {#var-equipment-slot-uis}
 
-*No description yet.*
+UI slot tracking
 
-### Dictionary slot_ui_lookup =  # slot_identifier -&gt; ItemSlotUI {#var-slot-ui-lookup}
+### Dictionary slot_ui_lookup =  {#var-slot-ui-lookup}
 
-*No description yet.*
+slot_identifier -&gt; ItemSlotUI
 
 ### PlayerController player_controller {#var-player-controller}
 
@@ -90,11 +102,11 @@ SystemRefs
 
 ### void initialize_ui( system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*No description yet.*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void set_inventory_data( equipment_data: EquipmentInventoryComponent ) {#method-set-inventory-data}
 
-*No description yet.*
+Shows the equipment of a player (the slots are made or updated).
 
 ### ItemSlotUI get_equipment_slot_ui( slot_definition: EquipmentSlotDefinition, instance_index: int = 0 ) {#method-get-equipment-slot-ui}
 

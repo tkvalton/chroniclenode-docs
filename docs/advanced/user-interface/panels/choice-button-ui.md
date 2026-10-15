@@ -16,10 +16,10 @@ Individual button UI for a choice option in ChoiceSelectionPopup Similar to Skil
 
 ## Constants
 
-- `Color` **BORDER_NORMAL** = `Color(1.0, 1.0, 1.0, 1.0)`
-- `Color` **BORDER_HOVER** = `Color(1.2, 1.2, 1.2, 1.0)`
-- `Color` **ICON_NORMAL** = `Color(1.0, 1.0, 1.0, 1.0)`
-- `Color` **ICON_HOVER** = `Color(1.1, 1.1, 1.1, 1.0)`
+- `Color` **BORDER_NORMAL** = `Color(1.0, 1.0, 1.0, 1.0)` - ========== CONSTANTS ==========
+- `Color` **BORDER_HOVER** = `Color(1.2, 1.2, 1.2, 1.0)` - The tint of the border under the mouse.
+- `Color` **ICON_NORMAL** = `Color(1.0, 1.0, 1.0, 1.0)` - The tint of the icon.
+- `Color` **ICON_HOVER** = `Color(1.1, 1.1, 1.1, 1.0)` - The tint of the icon under the mouse.
 
 ## Method descriptions
 

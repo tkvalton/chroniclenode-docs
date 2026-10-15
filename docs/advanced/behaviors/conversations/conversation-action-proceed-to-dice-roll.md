@@ -26,6 +26,8 @@ Action that proceeds to a dice roll / skill check Evaluates the dice roll and pr
 
 ### dice_roll_requested( dice_roll: ConversationDiceRoll, player: Entity, conversation_instance: ConversationInstance ) {#signal-dice-roll-requested}
 
+Emitted to ask for the dice roll: the roll, the player and the conversation.
+
 ## Property descriptions
 
 ### int dice_roll_id = 0 {#prop-dice-roll-id}
@@ -36,21 +38,21 @@ ID of the dice roll to execute
 
 ### void execute( player: Entity, conversation_instance: ConversationInstance ) {#method-execute}
 
-Execute this action with the given context Must be overridden in child classes player: The entity (player) involved in the conversation conversation_instance: The runtime ConversationInstance (not the resource) *(from [ConversationAction](/advanced/behaviors/conversations/conversation-action))*
+Runs the action in the conversation.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Validate that this action is properly configured Returns an array of error dictionaries if invalid *(from [ConversationAction](/advanced/behaviors/conversations/conversation-action))*
+Checks the settings of the action. Gives the problems found (empty when it is fine).
 
 ### String get_description() {#method-get-description}
 
-Get a human-readable description of this action for editor display *(from [ConversationAction](/advanced/behaviors/conversations/conversation-action))*
+A short text about what the action does, for the editor.
 
 ### String get_action_type_name() {#method-get-action-type-name}
 
-*No description yet.*
+The name of the kind of action, for the editor.
 
 ### String get_action_icon() {#method-get-action-icon}
 
-*No description yet.*
+The symbol of the kind of action, for the editor.
 

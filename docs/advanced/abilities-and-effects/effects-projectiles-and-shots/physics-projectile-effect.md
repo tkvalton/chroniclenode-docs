@@ -42,7 +42,7 @@ Physics projectile effect - ballistic movement with selectable trigger Can use c
 
 ### TriggerType trigger_type = TriggerType.COLLISION {#prop-trigger-type}
 
-*No description yet.*
+What makes the projectile apply its effects: a collision, reaching the destination, or a timer.
 
 *Physics Settings*
 
@@ -74,7 +74,7 @@ Air resistance
 
 ### CollisionLayerUtility.HitMode hit_mode = CollisionLayerUtility.HitMode.TARGET_ONLY {#prop-hit-mode}
 
-*No description yet.*
+What the projectile hits on its way.
 
 ### int pierce_count = 0 {#prop-pierce-count}
 
@@ -82,11 +82,11 @@ Air resistance
 
 ### bool stop_on_world_hit = true {#prop-stop-on-world-hit}
 
-*No description yet.*
+True when the projectile stops when it hits the world.
 
 ### bool stop_on_target_hit = true {#prop-stop-on-target-hit}
 
-*No description yet.*
+True when the projectile stops when it hits a target.
 
 *Destination Settings*
 
@@ -128,5 +128,5 @@ Get effect description for tooltips
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect).*
+A short text for the effect editor that says what the effect does.
 

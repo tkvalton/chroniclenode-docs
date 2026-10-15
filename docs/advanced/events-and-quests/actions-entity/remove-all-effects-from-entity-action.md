@@ -46,7 +46,7 @@ Whether to remove harmful effects (debuffs)
 
 ### Entity target_entity = null {#var-target-entity}
 
-*No description yet.*
+Reference to the target entity
 
 ## Method descriptions
 

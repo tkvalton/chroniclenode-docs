@@ -40,19 +40,25 @@ Manages StatusEffectDefinition processing, diminishing returns, and immunity req
 
 ### immunity_requested( immunity_id: int, duration: float ) {#signal-immunity-requested}
 
+========== SIGNALS ========== Immunity request signal - Entity should connect this to ImmunityComponent
+
 ### status_effect_blocked_by_immunity( status_effect_id: int, immunity_id: int, source_entity: Variant, effect: EffectInstance ) {#signal-status-effect-blocked-by-immunity}
 
+Enhanced status effect blocking events with context
+
 ### status_effect_application_tracked( status_effect_id: int, application_count: int, effective_duration: float, source_entity: Variant, effect: EffectInstance ) {#signal-status-effect-application-tracked}
+
+Enhanced application tracking events (for diminishing returns) with context
 
 ## Variable descriptions
 
 ### Dictionary active_immunities =  # Key: status_effect_id, Value: number of active immunities {#var-active-immunities}
 
-*No description yet.*
+========== CORE PROPERTIES ========== Current immunity status (updated by Entity via ImmunityComponent signals)
 
 ### Dictionary status_effect_applications =  # Key: status_effect_id, Value: ApplicationTracker {#var-status-effect-applications}
 
-*No description yet.*
+Application tracking for diminishing returns - NO LONGER USES DELTA PROCESSING
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 

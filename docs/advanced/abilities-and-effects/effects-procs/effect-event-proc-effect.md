@@ -28,11 +28,15 @@ Proc effect that responds to effect lifecycle events (gained, updated, lost)
 
 ### enum TriggerType {#enum-triggertype}
 
+The options of trigger type: effect gained, effect updated, effect lost.
+
 - **EFFECT_GAINED** = `0` - When an effect is applied
 - **EFFECT_UPDATED** = `1` - When effect stacks change
 - **EFFECT_LOST** = `2` - When an effect expires/is removed
 
 ### enum EffectFilter {#enum-effectfilter}
+
+The options of effect filter: any effect, specific effects.
 
 - **ANY_EFFECT** = `0` - Any effect triggers this
 - **SPECIFIC_EFFECTS** = `1` - Only specific effects
@@ -73,9 +77,9 @@ Apply child effects to the target of the triggering effect instead of this effec
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [ProcEffect](/advanced/abilities-and-effects/effects-base/proc-effect).*
+A short text for the effect editor that says what the effect does.
 

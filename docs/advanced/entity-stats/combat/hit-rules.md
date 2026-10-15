@@ -39,20 +39,22 @@ Everything is set in Game settings, Gameplay Config, Combat, Hit Rules, on the a
 
 ### enum Outcome {#enum-outcome}
 
+The options of outcome: hit, glancing, miss.
+
 - **HIT** = `0`
 - **GLANCING** = `1`
 - **MISS** = `2`
 
 ## Constants
 
-- `int` **SIDE_ACCURACY** = `0`
-- `int` **SIDE_EVASION** = `1`
+- `int` **SIDE_ACCURACY** = `0` - The values of HitChanceStatEffect.HitSide (kept as numbers here so this script does not depend on the effect class)
+- `int` **SIDE_EVASION** = `1` - The side of the roll that is the evasion of the target.
 
 ## Method descriptions
 
 ### GameplayConfig config() {#method-config}
 
-*No description yet.*
+========== THE PROJECT'S SETTINGS ==========
 
 ### bool is_system_on() {#method-is-system-on}
 

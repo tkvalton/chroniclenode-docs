@@ -30,6 +30,8 @@ Perfect for support life-saving swaps, trickster position exchanges, chaos mage 
 
 ### enum SwapChildTarget {#enum-swapchildtarget}
 
+The options of swap child target: both, target only, self only.
+
 - **BOTH** = `0` - Apply child effects to both originator and target
 - **TARGET_ONLY** = `1` - Apply child effects only to the target
 - **SELF_ONLY** = `2` - Apply child effects only to the originator
@@ -54,13 +56,13 @@ Swap is always instant
 
 ### void apply_movement_to_point( effect_instance: EffectInstance, entity: Entity, _target_position: Vector3 ) {#method-apply-movement-to-point}
 
-Virtual method for child classes to implement their movement logic *(from [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect))*
+Moves the entity to the target point.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*Overrides this function of [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect).*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 

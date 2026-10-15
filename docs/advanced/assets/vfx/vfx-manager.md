@@ -67,39 +67,39 @@ TRACKING:
 
 ## Constants
 
-- `int` **MAX_POOL_SIZE** = `500`
+- `int` **MAX_POOL_SIZE** = `500` - The most effects the pool keeps.
 
 ## Variable descriptions
 
 ### Array[VFX] active_vfx = [] {#var-active-vfx}
 
-*No description yet.*
+========== VFX TRACKING ==========
 
 ### Array[VFXMaterial] active_material_effects = [] {#var-active-material-effects}
 
-*No description yet.*
+The material effects on entities now.
 
 ### Node3D vfx_container {#var-vfx-container}
 
-*No description yet.*
+The node the effects are placed under.
 
 ### Dictionary vfx_pools =  # "type/name" -&gt; Array[VFX] {#var-vfx-pools}
 
-*No description yet.*
+========== POOLING ==========
 
 ### int total_pooled = 0 {#var-total-pooled}
 
-*No description yet.*
+How many effects wait in the pool.
 
 ### bool is_initialized = false {#var-is-initialized}
 
-*No description yet.*
+========== INITIALIZATION ==========
 
 ## Method descriptions
 
 ### void initialize( system_hub: GameHost.SystemHub ) {#method-initialize}
 
-*No description yet.*
+Sets the manager up with the hub of the game systems.
 
 ### void preload_all_vfx( system_hub: GameHost.SystemHub ) {#method-preload-all-vfx}
 
@@ -107,7 +107,7 @@ Preload ALL VFX during loading screen and report memory usage
 
 ### Array[VFX] play_vfx_from_selection( selection: VFXSelection, target: Variant = null, timer: Timer = null ) {#method-play-vfx-from-selection}
 
-*No description yet.*
+Starts the effect of a selection on a target. Gives the effects made.
 
 ### void stop_material_effects_on_entity( entity: Entity ) {#method-stop-material-effects-on-entity}
 
@@ -131,13 +131,13 @@ Get material effect count for debugging
 
 ### void stop_vfx( vfx: VFX ) {#method-stop-vfx}
 
-*No description yet.*
+Stops one effect.
 
 ### void stop_vfx_array( vfx_array: Array ) {#method-stop-vfx-array}
 
-*No description yet.*
+Stops a list of effects.
 
 ### void cleanup_everything() {#method-cleanup-everything}
 
-*No description yet.*
+Stops every effect and empties the pool.
 

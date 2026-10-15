@@ -45,15 +45,15 @@ ThreatTableComponent manages the aggression (threat) system for NPC entities. It
 
 ### Entity entity {#var-entity}
 
-*No description yet.*
+The entity (NPC) that owns this threat table
 
 ### Dictionary threat_table =  {#var-threat-table}
 
-*No description yet.*
+Dictionary to store player threat amounts
 
 ### Dictionary connected_entities =  {#var-connected-entities}
 
-*No description yet.*
+Dictionary to track which entities we're connected to
 
 ### Array[Entity] forced_targets = [] {#var-forced-targets}
 
@@ -63,19 +63,19 @@ Entities that forced this NPC to target them (a taunt), the latest last: while t
 
 ### void threat_table_component_setup( system_hub: GameHost.SystemHub, parent_entity: Entity ) {#method-threat-table-component-setup}
 
-*No description yet.*
+Initializes the ThreatTableComponent
 
 ### void receive_threat_from_player( player: Entity, threat_amount: int ) {#method-receive-threat-from-player}
 
-*No description yet.*
+Adds threat for a player and updates the entity's target
 
 ### void force_target( source: Entity ) {#method-force-target}
 
-*No description yet.*
+Makes the NPC attack this source (a taunt).
 
 ### void release_forced_target( source: Entity ) {#method-release-forced-target}
 
-*No description yet.*
+Lets the NPC choose its target again.
 
 ### float get_threat( source: Entity ) {#method-get-threat}
 
@@ -91,25 +91,25 @@ The highest threat any entity has on this NPC
 
 ### Entity select_target_player() {#method-select-target-player}
 
-*No description yet.*
+Selects the player with the highest threat as the target
 
 ### void decay_threat( decay_factor: float = 0.95 ) {#method-decay-threat}
 
-*No description yet.*
+Reduces threat for all players over time
 
 ### void reset_target_threat( player: Entity ) {#method-reset-target-threat}
 
-*No description yet.*
+Resets the threat for a specific player
 
 ### bool all_threat_null() {#method-all-threat-null}
 
-*No description yet.*
+Checks if all threat values are null (no targets)
 
 ### Entity get_highest_threat_target() {#method-get-highest-threat-target}
 
-*No description yet.*
+Returns the player with the highest threat
 
 ### void clear_threat() {#method-clear-threat}
 
-*No description yet.*
+Clears all threat values
 

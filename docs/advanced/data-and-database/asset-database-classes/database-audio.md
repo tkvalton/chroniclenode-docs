@@ -58,11 +58,11 @@ SFX_CATEGORIES lists the categories (music, ambience, UI, voices, voicelines, fo
 
 ## Constants
 
-- `String` **AUDIO_RESOURCES_PATH** = `"res://src/data/audio/"`
-- `String` **ALBUMS_BASE_PATH** = `"res://src/data/audio/albums/"`
-- `String` **UI_ALBUMS_PATH** = `"res://src/data/audio/albums/ui_albums/"`
-- `String` **WORLD_ALBUMS_PATH** = `"res://src/data/audio/albums/world_albums/"`
-- `Dictionary` **SFX_CATEGORIES** = `{`
+- `String` **AUDIO_RESOURCES_PATH** = `"res://src/data/audio/"` - ========== PATHS ==========
+- `String` **ALBUMS_BASE_PATH** = `"res://src/data/audio/albums/"` - The folder of the albums.
+- `String` **UI_ALBUMS_PATH** = `"res://src/data/audio/albums/ui_albums/"` - The folder of the interface albums.
+- `String` **WORLD_ALBUMS_PATH** = `"res://src/data/audio/albums/world_albums/"` - The folder of the world albums.
+- `Dictionary` **SFX_CATEGORIES** = `{` - ========== Audio CATEGORY DEFINITIONS ========== Organized by source/origin: Tracks, UI, Character Audio, Ability Audio, World Audio
 
 ## Method descriptions
 

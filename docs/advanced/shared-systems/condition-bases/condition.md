@@ -29,6 +29,8 @@ Base class for all conditions that evaluate game state. Conditions return true o
 
 ### enum CheckLogic {#enum-checklogic}
 
+The options of check logic: equal, greater, less, greater equal, less equal, not equal, contains, not contains.
+
 - **EQUAL** = `0`
 - **GREATER** = `1`
 - **LESS** = `2`
@@ -48,7 +50,7 @@ GameHost access for condition flexability
 
 ### void set_system_hub( p_system_hub: GameHost.SystemHub ) {#method-set-system-hub}
 
-*No description yet.*
+Gives the condition the hub of the game systems.
 
 ### bool evaluate( argument: Variant = null ) {#method-evaluate}
 

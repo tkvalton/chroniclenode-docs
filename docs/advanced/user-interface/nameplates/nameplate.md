@@ -52,6 +52,8 @@ Tooltip signals - emit upward to NameplateManager
 
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
 
+Asks the interface to hide the tooltip (force hides it at once).
+
 ## Property descriptions
 
 ### PackedScene nameplate_pool_bar_scene {#prop-nameplate-pool-bar-scene}

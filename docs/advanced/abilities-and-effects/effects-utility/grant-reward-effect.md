@@ -32,6 +32,8 @@ NOTE: QuestReward is not allowed as it cannot be reversed
 
 ### enum NoRoomRule {#enum-noroomrule}
 
+The options of no room rule: wait, refuse.
+
 - **WAIT** = `0` - The reward waits and is given as soon as there is room (Player.grant_reward); a waiting reward is never reverted by this effect
 - **REFUSE** = `1` - Nothing is given and the effect fails with a warning to the player
 
@@ -57,11 +59,11 @@ When effect is removed, unapply the reward if it supports it
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 
 ### Array[Dictionary] validate() {#method-validate}
 

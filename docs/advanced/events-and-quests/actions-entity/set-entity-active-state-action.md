@@ -41,7 +41,7 @@ Whether to activate (true) or deactivate (false) the entity
 
 ### Entity target_entity = null {#var-target-entity}
 
-*No description yet.*
+Reference to the target entity
 
 ## Method descriptions
 

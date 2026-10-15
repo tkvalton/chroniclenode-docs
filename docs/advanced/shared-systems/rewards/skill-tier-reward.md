@@ -33,6 +33,8 @@ It only raises: a character already in that tier, or a higher one, keeps it. The
 
 ### enum Kind {#enum-kind}
 
+The options of kind: proficiency, profession.
+
 - **PROFICIENCY** = `0` - A proficiency (swords, lockpicking)
 - **PROFESSION** = `1` - A profession (a craft school: blacksmithing)
 
@@ -54,20 +56,15 @@ The tier to put it in: a number from 0 (0 = the first tier)
 
 ### Dictionary apply_to_player( player: Player ) {#method-apply-to-player}
 
-Apply this reward to a player - override in child classes Returns a Dictionary with:
-
-- "success": bool - whether the application succeeded
-- Additional tracking data needed for unapply (e.g., instance IDs, amounts)
-
-Example: &#123;"success": true, "ability_instance_id": 12345, "ability_definition_id": 42&#125; *(from [Reward](/advanced/shared-systems/rewards/reward))*
+Gives the reward to the player. Gives back how it went and what it needs to take the reward back.
 
 ### bool unapply_from_player( player: Player, tracking_data: Dictionary ) {#method-unapply-from-player}
 
-Unapply this reward from a player using tracking data from apply tracking_data: The dictionary returned from apply_to_player() Returns true if the unapply was successful NOTE: Only called if supports_unapply() returns true *(from [Reward](/advanced/shared-systems/rewards/reward))*
+Takes the reward back from the player (only for a reward that supports it).
 
 ### bool supports_unapply() {#method-supports-unapply}
 
-Returns true if this reward type can be removed/undone Override to return true for reversible rewards Default is false for safety - rewards must explicitly opt-in to removal *(from [Reward](/advanced/shared-systems/rewards/reward))*
+Can the reward be taken back?
 
 ### Array[SkillTier] get_tiers() {#method-get-tiers}
 
@@ -75,9 +72,9 @@ The tiers of the target
 
 ### String get_summary() {#method-get-summary}
 
-Get a user-facing summary of what this reward grants Override in child classes to provide meaningful descriptions Example: "Ability: Fireball (Active)" or "Skill Points: +5 Combat" *(from [Reward](/advanced/shared-systems/rewards/reward))*
+A short text about the reward and its settings.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Validate reward configuration - override in child classes *(from [Reward](/advanced/shared-systems/rewards/reward))*
+Checks the settings of the reward. Gives the problems found (empty when it is fine).
 

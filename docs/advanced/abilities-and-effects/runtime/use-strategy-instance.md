@@ -143,35 +143,35 @@ Convenience getters for common properties
 
 ### float get_channel_duration() {#method-get-channel-duration}
 
-*No description yet.*
+The current value of channel duration: the one of the definition, unless a modifier changed it.
 
 ### float get_channel_tick_rate() {#method-get-channel-tick-rate}
 
-*No description yet.*
+The current value of channel tick rate: the one of the definition, unless a modifier changed it.
 
 ### bool get_immobile_during_cast() {#method-get-immobile-during-cast}
 
-*No description yet.*
+The current value of immobile during cast: the one of the definition, unless a modifier changed it.
 
 ### bool get_interruptable_cast() {#method-get-interruptable-cast}
 
-*No description yet.*
+The current value of interruptable cast: the one of the definition, unless a modifier changed it.
 
 ### int get_interrupt_shield_level() {#method-get-interrupt-shield-level}
 
-*No description yet.*
+The current value of interrupt shield level: the one of the definition, unless a modifier changed it.
 
 ### float get_drain_per_second() {#method-get-drain-per-second}
 
-*No description yet.*
+The current value of drain per second: the one of the definition, unless a modifier changed it.
 
 ### float get_min_active_duration() {#method-get-min-active-duration}
 
-*No description yet.*
+The current value of min active duration: the one of the definition, unless a modifier changed it.
 
 ### float get_max_active_duration() {#method-get-max-active-duration}
 
-*No description yet.*
+The current value of max active duration: the one of the definition, unless a modifier changed it.
 
 ### int get_interrupt_shield() {#method-get-interrupt-shield}
 

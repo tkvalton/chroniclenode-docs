@@ -42,11 +42,11 @@ ID of the combat script from DatabaseBehaviors
 
 ### Entity target_entity = null {#var-target-entity}
 
-*No description yet.*
+References
 
 ### ModularCombatScript new_combat_script = null {#var-new-combat-script}
 
-*No description yet.*
+The combat script the entity gets.
 
 ## Method descriptions
 

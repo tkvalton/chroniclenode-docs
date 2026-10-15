@@ -17,9 +17,9 @@ Ends the current conversation This signals the conversation system to close the 
 
 ### void execute( player: Entity, conversation_instance: ConversationInstance ) {#method-execute}
 
-Execute this action with the given context Must be overridden in child classes player: The entity (player) involved in the conversation conversation_instance: The runtime ConversationInstance (not the resource) *(from [ConversationAction](/advanced/behaviors/conversations/conversation-action))*
+Runs the action in the conversation.
 
 ### String get_description() {#method-get-description}
 
-Get a human-readable description of this action for editor display *(from [ConversationAction](/advanced/behaviors/conversations/conversation-action))*
+A short text about what the action does, for the editor.
 

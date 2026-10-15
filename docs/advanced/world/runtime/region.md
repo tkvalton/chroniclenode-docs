@@ -78,19 +78,19 @@ The bodies inside the region right now. An area that is not watched (inactive) d
 
 ### bool matches_id( target_id: int ) {#method-matches-id}
 
-*No description yet.*
+Is this the region with this id?
 
 ### void set_active( active: bool ) {#method-set-active}
 
-*No description yet.*
+Turns the region on or off (it shows and detects only while on).
 
 ### void add_reference() {#method-add-reference}
 
-*No description yet.*
+A trigger that needs the region asks for it: it turns on.
 
 ### void remove_reference() {#method-remove-reference}
 
-*No description yet.*
+A trigger lets the region go: it turns off when nobody needs it.
 
 ### int get_region_id() {#method-get-region-id}
 

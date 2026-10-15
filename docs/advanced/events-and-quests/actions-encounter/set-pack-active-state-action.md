@@ -43,7 +43,7 @@ Whether to activate (true) or deactivate (false) the encounter
 
 ### Encounter encounter {#var-encounter}
 
-*No description yet.*
+Reference to the special encounter
 
 ## Method descriptions
 

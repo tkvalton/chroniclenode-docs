@@ -66,17 +66,17 @@ All the resources extend DatabaseResource. The database also makes the few resou
 
 ## Constants
 
-- `String` **TOGGLE_GROUPS_PATH** = `"res://src/data/abilities/toggle_groups/toggle_groups.tres"`
+- `String` **TOGGLE_GROUPS_PATH** = `"res://src/data/abilities/toggle_groups/toggle_groups.tres"` - The file that holds the toggle groups of abilities.
 - `int` **ID_ENVIRONMENTAL_FACTION** = `1000001` - Built in DatabaseResources
-- `int` **ID_PLAYER_FACTION** = `1000002`
-- `int` **ID_HEALTH_POOL** = `1000001`
+- `int` **ID_PLAYER_FACTION** = `1000002` - The id of the built-in faction of the player.
+- `int` **ID_HEALTH_POOL** = `1000001` - The id of the built-in health pool.
 - `int` **ID_SHIELD_POOL** = `1000002` - The shield pool: a protective pool that absorbs damage before health and is never healed. The default pool of "Add Health Pool"
-- `int` **ID_DEFAULT_TIME_CONFIG** = `1000001`
-- `int` **ID_DEFAULT_SUN_CONFIG** = `1000001`
-- `int` **ID_DEFAULT_SKY_CONFIG** = `1000001`
-- `int` **ID_DEFAULT_ENVIRONMENT_CONFIG** = `1000001`
+- `int` **ID_DEFAULT_TIME_CONFIG** = `1000001` - Default environment config IDs
+- `int` **ID_DEFAULT_SUN_CONFIG** = `1000001` - The id of the built-in sun setup.
+- `int` **ID_DEFAULT_SKY_CONFIG** = `1000001` - The id of the built-in sky setup.
+- `int` **ID_DEFAULT_ENVIRONMENT_CONFIG** = `1000001` - The id of the built-in environment setup.
 - `int` **ID_DEFAULT_POPUP** = `1000001` - The popup that comes with the toolkit (title, text, icon, button)
-- `String` **DEFAULT_POPUP_SCENE** = `"res://addons/chroniclenode/ui_scenes/in_game/popups/default_popup_ui.tscn"`
+- `String` **DEFAULT_POPUP_SCENE** = `"res://addons/chroniclenode/ui_scenes/in_game/popups/default_popup_ui.tscn"` - The scene a popup uses when it has none of its own.
 
 ## Variable descriptions
 

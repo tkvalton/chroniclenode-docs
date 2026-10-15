@@ -17,9 +17,9 @@ One objective in the quest log: an icon, its text, its progress and a mark when 
 
 ### void set_objective_text( objective_title: String, progress: String ) {#method-set-objective-text}
 
-*No description yet.*
+Sets the text and the progress of the objective.
 
 ### void set_completed( compelted: bool ) {#method-set-completed}
 
-*No description yet.*
+Greys the objective out and marks it done.
 

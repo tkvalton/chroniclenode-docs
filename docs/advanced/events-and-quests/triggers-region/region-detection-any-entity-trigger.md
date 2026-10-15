@@ -38,6 +38,8 @@ Triggers when any entity enters or exits a detection region
 
 ### enum TriggerMode {#enum-triggermode}
 
+The options of trigger mode: on enter, on exit, on both.
+
 - **ON_ENTER** = `0`
 - **ON_EXIT** = `1`
 - **ON_BOTH** = `2`
@@ -66,37 +68,37 @@ Reference to the target Region
 
 ### String get_display_name() {#method-get-display-name}
 
-Return the display name of this Trigger *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The name of the trigger in the editor.
 
 ### String get_function_description() {#method-get-function-description}
 
-Return a description of this trigger with parameter placeholders *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The sentence the editor shows for the trigger, with &#123;placeholders&#125; for its values.
 
 ### void setup() {#method-setup}
 
-Set up any listeners or connections needed by this trigger *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+Starts listening: connects the signals the trigger waits for.
 
 ### void cleanup() {#method-cleanup}
 
-Clean up any listeners or connections *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+Stops listening: disconnects the signals of the trigger.
 
 ### void find_target_region() {#method-find-target-region}
 
-*No description yet.*
+Finds the region the trigger watches by its id.
 
 ### void connect_region_signals() {#method-connect-region-signals}
 
-*No description yet.*
+Connects the signals of the region (an entity enters, an entity leaves).
 
 ### void disconnect_region_signals() {#method-disconnect-region-signals}
 
-*No description yet.*
+Disconnects the signals of the region.
 
 ### bool is_triggered( event_data: Dictionary ) {#method-is-triggered}
 
-Check if this trigger is currently active *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+Does this event data satisfy the trigger? Called when the signal the trigger listens to fires.
 
 ### String generate_objective_description() {#method-generate-objective-description}
 
-Generate quest objective description *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The line of the quest objective this trigger makes ("Kill 5 wolves").
 

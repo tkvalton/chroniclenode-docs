@@ -38,5 +38,5 @@ The player cannot put anything on this slot or take anything off it. A locked sl
 
 ### String describe() {#method-describe}
 
-*No description yet.*
+A short text for the editor: the ability on the slot, and whether the slot is locked.
 

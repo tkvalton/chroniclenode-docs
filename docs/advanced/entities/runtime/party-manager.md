@@ -247,7 +247,7 @@ Get the current player
 
 ### Node3D get_current_player_target() {#method-get-current-player-target}
 
-*No description yet.*
+The target of the current player.
 
 ### String get_switch_denial( player: Player ) {#method-get-switch-denial}
 
@@ -275,7 +275,7 @@ How many companions can wait in the reserve
 
 ### bool is_reserve_full() {#method-is-reserve-full}
 
-*No description yet.*
+Is the reserve full?
 
 ### bool can_recruit() {#method-can-recruit}
 

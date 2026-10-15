@@ -34,11 +34,15 @@ Not gated on SystemHub.ui_menu_open: that flag means "a window panel is open", a
 
 ### look_started( kind: LookBinding.Kind ) {#signal-look-started}
 
+Emitted when a look gesture starts (a button held, dragged past the threshold).
+
 ### look_delta( kind: LookBinding.Kind, delta_rad: Vector2 ) {#signal-look-delta}
 
 delta_rad is screen-space radians with the player's invert settings applied: x &gt; 0 = mouse right, y &gt; 0 = mouse down
 
 ### look_ended( kind: LookBinding.Kind ) {#signal-look-ended}
+
+Emitted when a look gesture ends.
 
 ### click_completed( button_index: int, position: Vector2 ) {#signal-click-completed}
 
@@ -50,12 +54,12 @@ Mouse wheel notches (press events only). &gt; 0 = zoom in, &lt; 0 = zoom out
 
 ## Constants
 
-- `float` **DEFAULT_DRAG_THRESHOLD** = `10.0`
-- `float` **FALLBACK_SENSITIVITY** = `0.22`
+- `float` **DEFAULT_DRAG_THRESHOLD** = `10.0` - How many pixels the mouse must move before a held button counts as a drag.
+- `float` **FALLBACK_SENSITIVITY** = `0.22` - The look sensitivity when the settings have none.
 
 ## Variable descriptions
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 
-*No description yet.*
+The hub of the game systems.
 

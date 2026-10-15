@@ -21,7 +21,7 @@ Lightweight runtime instance of an effect that references an EffectDefinition fo
 | `ObjectRegistry` | [object_registry](#var-object-registry) |  |
 | `GameHost.SystemHub` | [hub](#var-hub) |  |
 | `String` | [registered_with](#var-registered-with) | `""  # "entity", "world", or "none"` |
-| `Variant` | [registered_manager](#var-registered-manager) | `null  # Reference to the manager` |
+| `Variant` | [registered_manager](#var-registered-manager) | `null` |
 | `bool` | [active](#var-active) | `false` |
 | `int` | [stack_count](#var-stack-count) | `1` |
 | `float` | [time_started](#var-time-started) |  |
@@ -88,13 +88,15 @@ Emitted when external inventory UI needs to be opened
 
 ### enum SourceType {#enum-sourcetype}
 
+The options of source type: intrinsic, external, stateful, persistent.
+
 - **INTRINSIC** = `0`
 - **EXTERNAL** = `1`
 - **STATEFUL** = `2`
 
 ## Constants
 
-- `float` **MIN_DURATION** = `0.1`
+- `float` **MIN_DURATION** = `0.1` - ========== TIMING MANAGEMENT ==========
 
 ## Variable descriptions
 
@@ -128,11 +130,11 @@ SystemManager refs
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
-*No description yet.*
+The manager of timers the effect takes its timers from.
 
 ### ObjectRegistry object_registry {#var-object-registry}
 
-*No description yet.*
+The registry of the objects of the world.
 
 ### GameHost.SystemHub hub {#var-hub}
 
@@ -142,9 +144,9 @@ The systems of the game, for the effects that evaluate conditions (a condition m
 
 Track where this effect is registered for proper cleanup
 
-### Variant registered_manager = null  # Reference to the manager {#var-registered-manager}
+### Variant registered_manager = null {#var-registered-manager}
 
-*No description yet.*
+Reference to the manager
 
 ### bool active = false {#var-active}
 

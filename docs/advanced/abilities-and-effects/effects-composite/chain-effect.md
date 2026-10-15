@@ -30,6 +30,8 @@ ChainEffect applies child effects in a chain between multiple targets
 
 ### enum ChainTargetType {#enum-chaintargettype}
 
+The options of chain target type: enamy, ally, all.
+
 - **ENAMY** = `0`
 - **ALLY** = `1`
 - **ALL** = `2`
@@ -38,19 +40,19 @@ ChainEffect applies child effects in a chain between multiple targets
 
 ### float chain_range = 5.0 {#prop-chain-range}
 
-*No description yet.*
+How far the effect can jump to the next target.
 
 ### int max_chains = 3 {#prop-max-chains}
 
-*No description yet.*
+How many times the effect can jump.
 
 ### bool chain_previous_target = true {#prop-chain-previous-target}
 
-*No description yet.*
+True when the effect can jump back to a target it already hit.
 
 ### ChainTargetType chain_target_type = ChainTargetType.ENAMY {#prop-chain-target-type}
 
-*No description yet.*
+Which targets the effect jumps to (enemies, allies ...).
 
 ## Method descriptions
 
@@ -68,11 +70,11 @@ Clean up beam VFX when effect ends
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+========== DESCRIPTION ==========
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

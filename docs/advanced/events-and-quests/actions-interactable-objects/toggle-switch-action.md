@@ -37,7 +37,7 @@ ID of the switch/light to toggle
 
 ### InteractableObject target_switch = null {#var-target-switch}
 
-*No description yet.*
+Reference to the target switch
 
 ## Method descriptions
 

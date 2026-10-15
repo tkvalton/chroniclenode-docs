@@ -121,7 +121,7 @@ Tracking for progressive objectives
 
 ### int target_progress = 1 {#var-target-progress}
 
-*No description yet.*
+The count the objective needs (1 for a plain one).
 
 ## Method descriptions
 
@@ -147,11 +147,11 @@ State checking helper functions
 
 ### bool is_failed() {#method-is-failed}
 
-*No description yet.*
+Has the objective failed?
 
 ### bool is_active() {#method-is-active}
 
-*No description yet.*
+Is the objective active now?
 
 ### void connect_signals() {#method-connect-signals}
 
@@ -159,7 +159,7 @@ Signal management - connects to the event trigger
 
 ### void disconnect_signals() {#method-disconnect-signals}
 
-*No description yet.*
+Stops listening to the trigger of the objective.
 
 ### void update_description() {#method-update-description}
 
@@ -171,15 +171,15 @@ Progress tracking interface
 
 ### int get_progress() {#method-get-progress}
 
-*No description yet.*
+The count so far.
 
 ### int get_total() {#method-get-total}
 
-*No description yet.*
+The count the objective needs.
 
 ### float get_progress_percentage() {#method-get-progress-percentage}
 
-*No description yet.*
+The progress as a percentage of the total.
 
 ### bool update_progress( event_data: Variant = null ) {#method-update-progress}
 

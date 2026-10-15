@@ -10,8 +10,8 @@ OneShot VFX - Fire-and-forget effects like explosions, impacts, hits Can be posi
 
 | | | |
 |---|---|---|
-| `float` | [delay_start](#prop-delay-start) | `0.0  # Optional delay before starting VFX` |
-| `bool` | [follow_target_on_death](#prop-follow-target-on-death) | `false  # Continue following even if target dies` |
+| `float` | [delay_start](#prop-delay-start) | `0.0` |
+| `bool` | [follow_target_on_death](#prop-follow-target-on-death) | `false` |
 
 ## Variables
 
@@ -35,19 +35,19 @@ OneShot VFX - Fire-and-forget effects like explosions, impacts, hits Can be posi
 
 *OneShot Settings*
 
-### float delay_start = 0.0  # Optional delay before starting VFX {#prop-delay-start}
+### float delay_start = 0.0 {#prop-delay-start}
 
-*No description yet.*
+Optional delay before starting VFX
 
-### bool follow_target_on_death = false  # Continue following even if target dies {#prop-follow-target-on-death}
+### bool follow_target_on_death = false {#prop-follow-target-on-death}
 
-*No description yet.*
+Continue following even if target dies
 
 ## Variable descriptions
 
 ### Timer delay_timer {#var-delay-timer}
 
-*No description yet.*
+Delay timer for start delay
 
 ## Method descriptions
 

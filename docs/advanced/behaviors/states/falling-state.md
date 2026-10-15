@@ -22,9 +22,9 @@ FallingState represents the state when an entity is in mid-air, typically after 
 
 ### void enter() {#method-enter}
 
-*Overrides this function of [MovementState](/advanced/behaviors/states/movement-state).*
+Called when entering the falling state
 
 ### void exit() {#method-exit}
 
-*Overrides this function of [MovementState](/advanced/behaviors/states/movement-state).*
+Called when exiting the falling state
 

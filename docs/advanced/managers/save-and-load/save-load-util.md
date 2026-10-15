@@ -21,8 +21,8 @@ SaveLoadUtil - Manages saving and loading game state to/from JSON files Coordina
 
 ## Constants
 
-- `String` **SAVE_FILE_PATH** = `"user://saves"`
-- `String` **SAVE_FILE_EXTENSION** = `".json"`
+- `String` **SAVE_FILE_PATH** = `"user://saves"` - The folder the saves go in.
+- `String` **SAVE_FILE_EXTENSION** = `".json"` - The extension of a save file.
 
 ## Method descriptions
 

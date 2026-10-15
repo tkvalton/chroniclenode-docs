@@ -16,7 +16,7 @@ Visual and logical links between skill nodes
 | `Color` | [line_color](#prop-line-color) | `Color.WHITE` |
 | `float` | [line_width](#prop-line-width) | `2.0` |
 | `bool` | [is_curved](#prop-is-curved) | `false` |
-| `float` | [curve_strength](#prop-curve-strength) | `0.5  # How much curve if is_curved is true` |
+| `float` | [curve_strength](#prop-curve-strength) | `0.5` |
 
 ## Methods
 
@@ -37,6 +37,8 @@ Visual and logical links between skill nodes
 
 ### enum ConnectionType {#enum-connectiontype}
 
+The options of connection type: prerequisite, visual only, mutual exclusive.
+
 - **PREREQUISITE** = `0`
 - **VISUAL_ONLY** = `1`
 
@@ -44,71 +46,71 @@ Visual and logical links between skill nodes
 
 ### int from_node_id {#prop-from-node-id}
 
-*No description yet.*
+========== CONNECTION PROPERTIES ==========
 
 ### int to_node_id {#prop-to-node-id}
 
-*No description yet.*
+The node the connection goes to.
 
 ### ConnectionType connection_type = ConnectionType.PREREQUISITE {#prop-connection-type}
 
-*No description yet.*
+What the connection means (a prerequisite, or a mutual exclusion).
 
 ### Color line_color = Color.WHITE {#prop-line-color}
 
-*No description yet.*
+========== VISUAL STYLING ==========
 
 ### float line_width = 2.0 {#prop-line-width}
 
-*No description yet.*
+The width of the line in the tree window.
 
 ### bool is_curved = false {#prop-is-curved}
 
-*No description yet.*
+True when the line is drawn as a curve.
 
-### float curve_strength = 0.5  # How much curve if is_curved is true {#prop-curve-strength}
+### float curve_strength = 0.5 {#prop-curve-strength}
 
-*No description yet.*
+How much curve if is_curved is true
 
 ## Method descriptions
 
 ### bool is_logical_connection() {#method-is-logical-connection}
 
-*No description yet.*
+========== CONNECTION LOGIC ==========
 
 ### bool is_prerequisite_connection() {#method-is-prerequisite-connection}
 
-*No description yet.*
+Is the connection a prerequisite?
 
 ### bool is_mutual_exclusion() {#method-is-mutual-exclusion}
 
-*No description yet.*
+Is the connection a mutual exclusion (both ways)?
 
 ### bool is_blocking_connection() {#method-is-blocking-connection}
 
-*No description yet.*
+Does the connection keep two nodes from being taken together?
 
 ### bool affects_node( id: int ) {#method-affects-node}
 
-*No description yet.*
+Is this node one of the two ends of the connection?
 
 ### int get_other_node_id( id: int ) {#method-get-other-node-id}
 
-*No description yet.*
+The node at the other end of the connection (-1 when this node is not one of them).
 
 ### String get_connection_direction() {#method-get-connection-direction}
 
-*No description yet.*
+A text about the direction of the connection.
 
 ### String get_summary() {#method-get-summary}
 
-*No description yet.*
+========== UTILITY METHODS ==========
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Is it free of errors?
 

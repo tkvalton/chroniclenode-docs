@@ -41,6 +41,8 @@ Triggers when the player gains or spends an amount of a currency. It counts what
 
 ### enum Direction {#enum-direction}
 
+The options of direction: gained, lost, either.
+
 - **GAINED** = `0` - Counts what the player gains
 - **LOST** = `1` - Counts what the player spends or loses
 - **EITHER** = `2` - Counts both
@@ -73,19 +75,19 @@ What has been counted so far
 
 ### String get_display_name() {#method-get-display-name}
 
-Return the display name of this Trigger *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The name of the trigger in the editor.
 
 ### String get_function_description() {#method-get-function-description}
 
-Return a description of this trigger with parameter placeholders *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The sentence the editor shows for the trigger, with &#123;placeholders&#125; for its values.
 
 ### int get_tally_target() {#method-get-tally-target}
 
-How far a counting trigger has to count (0 = it does not count: a quest objective of it is done or not). An objective shows the tally "3/10" for it *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The number the quest objective counts up to (0 when it does not count).
 
 ### int get_tally_progress() {#method-get-tally-progress}
 
-How far a counting trigger has counted *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+How far the count of the quest objective is now.
 
 ### void reset() {#method-reset}
 
@@ -97,11 +99,11 @@ The count from a save
 
 ### void setup_player_connection( player: Player ) {#method-setup-player-connection}
 
-Override this in child classes to set up signal connections for a player *(from [PlayerEventTrigger](/advanced/events-and-quests/bases/player-event-trigger))*
+Connects the signal of a player this trigger listens to.
 
 ### void cleanup_player_connection( player: Player ) {#method-cleanup-player-connection}
 
-Override this in child classes to clean up signal connections for a player *(from [PlayerEventTrigger](/advanced/events-and-quests/bases/player-event-trigger))*
+Disconnects the signal of a player.
 
 ### void poll() {#method-poll}
 
@@ -109,9 +111,9 @@ What a start of the count that already holds enough says (an objective asks once
 
 ### bool is_triggered( event_data: Dictionary ) {#method-is-triggered}
 
-Check if this trigger is currently active *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+Does this event data satisfy the trigger? Called when the signal the trigger listens to fires.
 
 ### String generate_objective_description() {#method-generate-objective-description}
 
-Generate quest objective description *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The line of the quest objective this trigger makes ("Kill 5 wolves").
 

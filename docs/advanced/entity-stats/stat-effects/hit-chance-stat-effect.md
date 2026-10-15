@@ -27,6 +27,8 @@ Changes the chance to hit. **Accuracy** raises the chance of the attacks of the 
 
 ### enum HitSide {#enum-hitside}
 
+The options of hit side: accuracy, evasion.
+
 - **ACCURACY** = `0` - Raises the chance of the attacks of the owner
 - **EVASION** = `1` - Lowers the chance of the attacks against the owner
 
@@ -42,25 +44,25 @@ Accuracy raises the chance to hit of the owner's own attacks. Evasion lowers the
 
 ### EffectType get_effect_type() {#method-get-effect-type}
 
-Override in child classes to return effect type name *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== EFFECT IDENTIFICATION ==========
 
 ### String get_effect_category() {#method-get-effect-category}
 
-Override in child classes to return category *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+The group of the effect in the editor.
 
 ### String get_short_description() {#method-get-short-description}
 
-Override in child classes for a one-line summary of what this effect does *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== DISPLAY ==========
 
 ### Dictionary get_preview_info( stat_points: float ) {#method-get-preview-info}
 
-*No description yet.*
+What the effect gives for a number of stat points, for the tooltip and the editor preview.
 
 ### String get_tooltip_text( stat_points: float ) {#method-get-tooltip-text}
 
-*No description yet.*
+The tooltip text of the effect for a number of stat points.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Validate this effect's configuration - override in child classes *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== VALIDATION ==========
 

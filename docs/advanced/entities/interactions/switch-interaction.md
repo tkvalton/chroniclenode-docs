@@ -59,13 +59,21 @@ Switch interaction - handles ON/OFF toggle with lock mechanics and audio feedbac
 
 ### switch_turned_on( entity: Entity ) {#signal-switch-turned-on}
 
+Emitted when the switch is turned on.
+
 ### switch_turned_off( entity: Entity ) {#signal-switch-turned-off}
 
+Emitted when the switch is turned off.
+
 ### switch_state_changed( new_state: SwitchState, entity: Entity ) {#signal-switch-state-changed}
+
+Emitted when the state of the switch changes: the new state and who changed it.
 
 ## Enumerations
 
 ### enum SwitchState {#enum-switchstate}
+
+The states of a switch: on, off, broken or in cooldown.
 
 - **ON** = `0`
 - **OFF** = `1`
@@ -76,89 +84,89 @@ Switch interaction - handles ON/OFF toggle with lock mechanics and audio feedbac
 
 ### SwitchState current_state = SwitchState.OFF {#prop-current-state}
 
-*No description yet.*
+The state of the switch now.
 
 ### bool starts_on = false {#prop-starts-on}
 
-*No description yet.*
+True when the switch is on when the game starts.
 
 *Cooldown*
 
 ### bool cooldown_enabled = false {#prop-cooldown-enabled}
 
-*No description yet.*
+True when the switch cannot be used again for a while after a use.
 
 ### float cooldown_duration = 2.0 {#prop-cooldown-duration}
 
-*No description yet.*
+How many seconds the switch waits after a use (when the cooldown is on).
 
 *Animations*
 
 ### String switch_on_animation = "switch_on" {#prop-switch-on-animation}
 
-*No description yet.*
+The animation of turning the switch on.
 
 ### String switch_off_animation = "switch_off" {#prop-switch-off-animation}
 
-*No description yet.*
+The animation of turning the switch off.
 
 ### String broken_animation = "broken" {#prop-broken-animation}
 
-*No description yet.*
+The animation of a broken switch.
 
 ### String locked_animation = "locked" {#prop-locked-animation}
 
-*No description yet.*
+The animation of trying a locked switch.
 
 *Audio*
 
 ### SFXSelection switch_on_sound {#prop-switch-on-sound}
 
-*No description yet.*
+The sound of turning the switch on.
 
 ### SFXSelection switch_off_sound {#prop-switch-off-sound}
 
-*No description yet.*
+The sound of turning the switch off.
 
 ### SFXSelection locked_sound {#prop-locked-sound}
 
-*No description yet.*
+The sound of trying a locked switch.
 
 ## Variable descriptions
 
 ### Timer cooldown_timer {#var-cooldown-timer}
 
-*No description yet.*
+The timer of the cooldown.
 
 ## Method descriptions
 
 ### void setup_for_interactable_objects( interactable: InteractableObject ) {#method-setup-for-interactable-objects}
 
-*Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
+Sets the switch up on its object: finds the nodes it needs and applies its starting state.
 
 ### bool can_interact( player: Player ) {#method-can-interact}
 
-*Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
+Can the player use the switch now (in range, the object is not broken, the requirements are met)?
 
 ### void start_interaction( player: Player ) {#method-start-interaction}
 
-Start the interaction with the given player *(from [Interaction](/advanced/entities/interactions/interaction))*
+The player uses the switch.
 
 ### void end_interaction() {#method-end-interaction}
 
-End the current interaction *(from [Interaction](/advanced/entities/interactions/interaction))*
+Does nothing: a switch has no end of interaction.
 
 ### String get_interaction_prompt() {#method-get-interaction-prompt}
 
-*No description yet.*
+The text of the prompt above the object for its state now ("Open", "Climb" ...).
 
 ### void on_locked_reaction() {#method-on-locked-reaction}
 
-*No description yet.*
+Called when someone tries the object while it is locked: plays the locked sound and animation.
 
 ### float get_cooldown_remaining() {#method-get-cooldown-remaining}
 
-*No description yet.*
+How many seconds of the cooldown are left.
 
 ### void set_switch_state( new_state: SwitchState, triggering_entity: Entity = null ) {#method-set-switch-state}
 
@@ -202,13 +210,13 @@ Toggle switch state
 
 ### Dictionary save_state() {#method-save-state}
 
-*No description yet.*
+The state of the switch for a save.
 
 ### void load_state( state: Dictionary ) {#method-load-state}
 
-*No description yet.*
+Restores the state of the switch from a save.
 
 ### void cleanup() {#method-cleanup}
 
-*No description yet.*
+Gives its timers back and clears what it holds (the object is going away).
 

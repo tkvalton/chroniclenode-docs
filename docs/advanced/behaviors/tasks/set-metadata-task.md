@@ -39,6 +39,8 @@ Set, modify, or manipulate entity metadata with flexible operations
 
 ### enum MetadataOperation {#enum-metadataoperation}
 
+The options of metadata operation: set, delete, increment, decrement, multiply, append, prepend, toggle, array add, array remove ....
+
 - **SET** = `0`
 - **DELETE** = `1`
 - **INCREMENT** = `2`
@@ -55,6 +57,8 @@ Set, modify, or manipulate entity metadata with flexible operations
 - **TIMESTAMP** = `13`
 
 ### enum ValueType {#enum-valuetype}
+
+The options of value type: auto, string, int, float, bool, array.
 
 - **AUTO** = `0`
 - **STRING** = `1`
@@ -118,33 +122,33 @@ Quick setup methods for common operations
 
 ### void setup_increment( key: String, amount: String = "1" ) {#method-setup-increment}
 
-*No description yet.*
+Makes the task add to a number of the metadata.
 
 ### void setup_toggle( key: String ) {#method-setup-toggle}
 
-*No description yet.*
+Makes the task flip a yes/no value of the metadata.
 
 ### void setup_append( key: String, text: String ) {#method-setup-append}
 
-*No description yet.*
+Makes the task append text to a value of the metadata.
 
 ### void setup_array_add( key: String, item: String ) {#method-setup-array-add}
 
-*No description yet.*
+Makes the task add an item to a list of the metadata.
 
 ### void setup_clamp( key: String, min_val: String, max_val: String ) {#method-setup-clamp}
 
-*No description yet.*
+Makes the task keep a number of the metadata between a minimum and a maximum.
 
 ### void setup_random( key: String, min_val: String, max_val: String ) {#method-setup-random}
 
-*No description yet.*
+Makes the task set a random whole number between a minimum and a maximum.
 
 ### void setup_timestamp( key: String ) {#method-setup-timestamp}
 
-*No description yet.*
+Makes the task store the current time.
 
 ### void setup_copy( target_key: String, source_key: String ) {#method-setup-copy}
 
-*No description yet.*
+Makes the task copy a value of the metadata into another.
 

@@ -54,17 +54,31 @@ Modern action bar button that handles both abilities and items
 
 ### content_changed( slot_number: int, slot_data: ActionBarSlotData ) {#signal-content-changed}
 
+Emitted when the slot gets another content: the slot number and its data.
+
 ### ability_tooltip_requested( ability: AbilityInstance ) {#signal-ability-tooltip-requested}
+
+Asks the interface to show the tooltip of an ability.
 
 ### item_tooltip_requested( item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary ) {#signal-item-tooltip-requested}
 
+Asks the interface to show the tooltip of an item: the item, its definition, where it is and extra data.
+
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
+
+Asks the interface to hide the tooltip (force hides it at once).
 
 ### warning_message_requested( message: String ) {#signal-warning-message-requested}
 
+Asks the interface to show a warning.
+
 ### ability_drag_requested( ability: AbilityInstance ) {#signal-ability-drag-requested}
 
+========== DRAG SIGNALS ==========
+
 ### item_drag_requested( item: ItemInstance ) {#signal-item-drag-requested}
+
+Asks the interface to start dragging the item of the slot.
 
 ## Property descriptions
 
@@ -132,7 +146,7 @@ SystemRefs
 
 ### PlayerController player_controller {#var-player-controller}
 
-*No description yet.*
+The controller that uses the slot.
 
 ### bool rearrange_allowed = true {#var-rearrange-allowed}
 
@@ -142,7 +156,7 @@ The bar this button is on lets the player rearrange it (a bar that only shows se
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*No description yet.*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void set_player_owner( player: Player ) {#method-set-player-owner}
 
@@ -178,7 +192,7 @@ Check if slot is empty
 
 ### void use_content() {#method-use-content}
 
-*No description yet.*
+Uses what the slot holds (the controller does it).
 
 ### void right_click_use_content() {#method-right-click-use-content}
 
@@ -186,5 +200,5 @@ REFACTORED: Right-click now properly uses inventory system for item consumption
 
 ### void set_keybind_key() {#method-set-keybind-key}
 
-*No description yet.*
+Shows the key that is bound to the slot.
 

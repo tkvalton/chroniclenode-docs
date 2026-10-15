@@ -28,7 +28,7 @@ Follow an entity by unique ID with proper validation and error handling. Uses Ob
 | `Vector3` | [last_target_position](#var-last-target-position) | `Vector3.ZERO` |
 | `bool` | [is_following](#var-is-following) | `false` |
 | `float` | [last_validation_check](#var-last-validation-check) | `0.0` |
-| `float` | [validation_interval](#var-validation-interval) | `5.0  # Check target validity every 5 seconds` |
+| `float` | [validation_interval](#var-validation-interval) | `5.0` |
 
 ## Methods
 
@@ -85,45 +85,45 @@ How often to update follow position (seconds)
 
 ### Timer follow_timer = null {#var-follow-timer}
 
-*No description yet.*
+The timer that checks the followed entity.
 
 ### Entity target_entity = null {#var-target-entity}
 
-*No description yet.*
+The entity being followed.
 
 ### Vector3 last_target_position = Vector3.ZERO {#var-last-target-position}
 
-*No description yet.*
+Where the followed entity was on the last check.
 
 ### bool is_following = false {#var-is-following}
 
-*No description yet.*
+True while the entity follows.
 
 ### float last_validation_check = 0.0 {#var-last-validation-check}
 
-*No description yet.*
+The time of the last check that the followed entity is still there.
 
-### float validation_interval = 5.0  # Check target validity every 5 seconds {#var-validation-interval}
+### float validation_interval = 5.0 {#var-validation-interval}
 
-*No description yet.*
+Check target validity every 5 seconds
 
 ## Method descriptions
 
 ### void execute_task_start() {#method-execute-task-start}
 
-Override this in subclasses to implement specific task behavior *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Starts the task.
 
 ### void execute_task_complete() {#method-execute-task-complete}
 
-Override this in subclasses for task completion logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task finishes well.
 
 ### void execute_task_interrupt() {#method-execute-task-interrupt}
 
-Override this in subclasses for task interruption logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when something interrupts the task.
 
 ### void execute_task_fail() {#method-execute-task-fail}
 
-Override this in subclasses for task failure logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task fails.
 
 ### Entity get_target_entity() {#method-get-target-entity}
 
@@ -139,5 +139,5 @@ Get current distance to target
 
 ### void cleanup_timers() {#method-cleanup-timers}
 
-Clean up all timers and resources *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Frees the timers of the task.
 

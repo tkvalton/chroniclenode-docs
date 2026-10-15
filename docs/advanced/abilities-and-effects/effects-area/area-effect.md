@@ -90,5 +90,5 @@ Override description to include shape info
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CollisionEffect](/advanced/abilities-and-effects/effects-base/collision-effect).*
+A short text for the effect editor that says what the effect does.
 

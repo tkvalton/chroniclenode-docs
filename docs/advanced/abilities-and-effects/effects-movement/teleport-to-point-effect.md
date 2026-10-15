@@ -18,13 +18,13 @@ TeleportToPointEffect: Instant teleportation to target position Perfect for blin
 
 ### void apply_movement_to_point( effect_instance: EffectInstance, entity: Entity, target_position: Vector3 ) {#method-apply-movement-to-point}
 
-Virtual method for child classes to implement their movement logic *(from [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect))*
+Moves the entity to the target point.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*Overrides this function of [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect).*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 

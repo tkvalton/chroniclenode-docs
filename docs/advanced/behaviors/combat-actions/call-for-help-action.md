@@ -18,6 +18,8 @@ A combat action: the NPC shouts and calls the allies in range into the fight. `s
 
 ### enum SearchScope {#enum-searchscope}
 
+The options of search scope: any entity, encounter only, encounter preferred.
+
 - **ANY_ENTITY** = `0` - Search all entities in range (original behavior)
 - **ENCOUNTER_ONLY** = `1` - Only search within current encounter
 - **ENCOUNTER_PREFERRED** = `2` - Prefer encounter entities, fallback to any if encounter empty

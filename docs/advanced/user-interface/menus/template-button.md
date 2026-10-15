@@ -14,8 +14,8 @@ TemplateButton - Button for selecting character templates or custom creation Use
 | `Color` | [text_highlight_color](#prop-text-highlight-color) | `Color(1.0, 1.0, 1.0)` |
 | `Color` | [active_background_color](#prop-active-background-color) | `Color(0.333, 0.486, 0.574)` |
 | `Color` | [inactive_background_color](#prop-inactive-background-color) | `Color(0.274, 0.4, 0.473)` |
-| `Color` | [border_selected_color](#prop-border-selected-color) | `Color(1.0, 0.843, 0.0)  # Gold` |
-| `Color` | [border_unselected_color](#prop-border-unselected-color) | `Color(0.5, 0.5, 0.5)  # Grey` |
+| `Color` | [border_selected_color](#prop-border-selected-color) | `Color(1.0, 0.843, 0.0)` |
+| `Color` | [border_unselected_color](#prop-border-unselected-color) | `Color(0.5, 0.5, 0.5)` |
 | `bool` | [uses_icon](#prop-uses-icon) | `false` |
 
 ## Variables
@@ -39,37 +39,41 @@ TemplateButton - Button for selecting character templates or custom creation Use
 
 ### pressed() {#signal-pressed}
 
+Emitted when the button is pressed.
+
 ### template_selected( is_custom: bool, template: CharacterDefinition ) {#signal-template-selected}
+
+Emitted when a template is picked (or the custom character).
 
 ## Property descriptions
 
 ### Color text_normal_color = Color(0.8, 0.8, 0.8) {#prop-text-normal-color}
 
-*No description yet.*
+The color of the text.
 
 ### Color text_highlight_color = Color(1.0, 1.0, 1.0) {#prop-text-highlight-color}
 
-*No description yet.*
+The color of the text under the mouse.
 
 ### Color active_background_color = Color(0.333, 0.486, 0.574) {#prop-active-background-color}
 
-*No description yet.*
+The color of the background when it is the one picked.
 
 ### Color inactive_background_color = Color(0.274, 0.4, 0.473) {#prop-inactive-background-color}
 
-*No description yet.*
+The color of the background when it is not.
 
-### Color border_selected_color = Color(1.0, 0.843, 0.0)  # Gold {#prop-border-selected-color}
+### Color border_selected_color = Color(1.0, 0.843, 0.0) {#prop-border-selected-color}
 
-*No description yet.*
+Gold
 
-### Color border_unselected_color = Color(0.5, 0.5, 0.5)  # Grey {#prop-border-unselected-color}
+### Color border_unselected_color = Color(0.5, 0.5, 0.5) {#prop-border-unselected-color}
 
-*No description yet.*
+Grey
 
 ### bool uses_icon = false {#prop-uses-icon}
 
-*No description yet.*
+True when the button shows an icon.
 
 ## Variable descriptions
 
@@ -83,7 +87,7 @@ Whether this is the "Custom Character" option
 
 ### bool selected = false {#var-selected}
 
-*No description yet.*
+True when this is the template picked.
 
 ## Method descriptions
 

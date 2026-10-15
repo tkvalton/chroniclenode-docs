@@ -43,7 +43,11 @@ Enhanced crafting panel that integrates with the existing UI system Handles mult
 
 ### crafting_started( recipe: CraftingRecipeDefinition, quantity: int ) {#signal-crafting-started}
 
+========== SIGNALS ========== Note: window_closed signal is now inherited from PanelUI
+
 ### crafting_cancelled() {#signal-crafting-cancelled}
+
+Emitted when the crafting is cancelled.
 
 ## Property descriptions
 
@@ -53,7 +57,7 @@ Enhanced crafting panel that integrates with the existing UI system Handles mult
 
 ### PackedScene recipe_button_scene {#prop-recipe-button-scene}
 
-*No description yet.*
+The scene of one recipe in the list.
 
 ## Variable descriptions
 
@@ -63,31 +67,31 @@ Enhanced crafting panel that integrates with the existing UI system Handles mult
 
 ### Player current_player = null {#var-current-player}
 
-*No description yet.*
+The player who crafts.
 
 ### CraftSchoolDefinition current_school = null {#var-current-school}
 
-*No description yet.*
+The craft school shown.
 
 ### CraftingRecipeDefinition selected_recipe = null {#var-selected-recipe}
 
-*No description yet.*
+The recipe picked.
 
 ### Array[Button] recipe_buttons = [] {#var-recipe-buttons}
 
-*No description yet.*
+The buttons of the recipes in the list.
 
 ### Array[Node] recipe_button_scenes = [] {#var-recipe-button-scenes}
 
-*No description yet.*
+The recipe scenes in the list.
 
 ### Array[CraftMaterialIconUI] material_icons = [] {#var-material-icons}
 
-*No description yet.*
+The icons of the materials of the recipe.
 
 ### CraftingJob active_craft_job = null {#var-active-craft-job}
 
-*No description yet.*
+The job that is crafting now.
 
 ### Tween progress_tween = null {#var-progress-tween}
 
@@ -105,7 +109,7 @@ SystemRefs
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [PanelUI](/advanced/user-interface/panels/panel-ui).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void setup_crafting_panel( interaction: CraftingInteraction, player: Player, school: CraftSchoolDefinition ) {#method-setup-crafting-panel}
 

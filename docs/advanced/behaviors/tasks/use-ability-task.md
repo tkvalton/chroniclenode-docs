@@ -60,39 +60,39 @@ Minimum distance to maintain from target
 
 ### AbilityInstance ability_instance = null {#var-ability-instance}
 
-*No description yet.*
+The ability the entity uses.
 
 ### bool positioned_for_ability = false {#var-positioned-for-ability}
 
-*No description yet.*
+True once the entity is in place to use the ability.
 
 ### bool facing_complete = false {#var-facing-complete}
 
-*No description yet.*
+True once the entity faces the target.
 
 ## Method descriptions
 
 ### void execute_task_start() {#method-execute-task-start}
 
-Override this in subclasses to implement specific task behavior *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Starts the task.
 
 ### void execute_task_complete() {#method-execute-task-complete}
 
-Override this in subclasses for task completion logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task finishes well.
 
 ### void execute_task_interrupt() {#method-execute-task-interrupt}
 
-Override this in subclasses for task interruption logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when something interrupts the task.
 
 ### void execute_task_fail() {#method-execute-task-fail}
 
-Override this in subclasses for task failure logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task fails.
 
 ### AbilityInstance get_ability_instance() {#method-get-ability-instance}
 
-*No description yet.*
+The ability the entity uses.
 
 ### float get_target_distance() {#method-get-target-distance}
 
-*No description yet.*
+The distance to the target (-1 when there is none).
 

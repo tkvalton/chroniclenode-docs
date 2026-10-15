@@ -11,11 +11,13 @@ Forces all group members to target the same enemy based on selection criteria
 | | | |
 |---|---|---|
 | `TargetSelection` | [target_selection](#prop-target-selection) | `TargetSelection.NEAREST_PLAYER` |
-| `bool` | [force_retarget](#prop-force-retarget) | `true  # If false, only affects entities without targets` |
+| `bool` | [force_retarget](#prop-force-retarget) | `true` |
 
 ## Enumerations
 
 ### enum TargetSelection {#enum-targetselection}
+
+The options of target selection: nearest player, farthest player, lowest health player, highest health player, current target, random player.
 
 - **NEAREST_PLAYER** = `0`
 - **FARTHEST_PLAYER** = `1`
@@ -28,9 +30,9 @@ Forces all group members to target the same enemy based on selection criteria
 
 ### TargetSelection target_selection = TargetSelection.NEAREST_PLAYER {#prop-target-selection}
 
-*No description yet.*
+Which enemy the group is told to target.
 
-### bool force_retarget = true  # If false, only affects entities without targets {#prop-force-retarget}
+### bool force_retarget = true {#prop-force-retarget}
 
-*No description yet.*
+If false, only affects entities without targets
 

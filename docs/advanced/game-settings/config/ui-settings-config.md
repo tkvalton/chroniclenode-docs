@@ -60,7 +60,7 @@ Stores all customizable UI settings including:
 
 ## Constants
 
-- `const` **CONFIG_PATH** = `"res://src/data/config_data/ui_settings_config.tres"`
+- `const` **CONFIG_PATH** = `"res://src/data/config_data/ui_settings_config.tres"` - The file the settings are saved in.
 - `Dictionary` **REQUIRED_ROOT_CLASSES** = `{` - The class each UI scene must have as its root: the game calls the methods of that class. A scene of another class cannot do the job. Property name -&gt; class name (a scene can extend the class: a root of a class that extends it is fine)
 
 ## Property descriptions
@@ -207,5 +207,5 @@ Create default configuration
 
 ### UISettingsConfig get_config() {#method-get-config}
 
-*No description yet.*
+The interface settings of the project (loaded from the file).
 

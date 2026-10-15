@@ -17,9 +17,9 @@ MovementState for when entity is being moved by MoveDirectionalEffect Handles di
 
 ### void enter() {#method-enter}
 
-*Overrides this function of [MovementState](/advanced/behaviors/states/movement-state).*
+The entity is moved by an effect: plays the animation of that movement.
 
 ### void exit() {#method-exit}
 
-*Overrides this function of [MovementState](/advanced/behaviors/states/movement-state).*
+Leaves the state (the animation blends to the next state).
 

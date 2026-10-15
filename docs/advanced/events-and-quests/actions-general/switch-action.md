@@ -76,11 +76,11 @@ Tracks which actions have completed
 
 ### void set_system_hub( p_system_hub: GameHost.SystemHub ) {#method-set-system-hub}
 
-*Overrides this function of [EventAction](/advanced/events-and-quests/bases/event-action).*
+Gives the action, its conditions and its branches the hub of the game systems.
 
 ### String get_function_description() {#method-get-function-description}
 
-Return a description of this action with parameter placeholders *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+The sentence the editor shows for the action, with &#123;placeholders&#125; for its values.
 
 ### void set_parent_event( event: Event ) {#method-set-parent-event}
 

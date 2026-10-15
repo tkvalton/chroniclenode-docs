@@ -46,11 +46,15 @@ CollisionEffect using pure raycast collision detection for reliability
 
 ### enum AffectedTargets {#enum-affectedtargets}
 
+The options of affected targets: all, enemies, allies.
+
 - **ALL** = `0`
 - **ENEMIES** = `1`
 - **ALLIES** = `2`
 
 ### enum TargetPriority {#enum-targetpriority}
+
+The options of target priority: none, closest to center, closest to originator, random, lowest health percent, highest health percent.
 
 - **NONE** = `0` - Take whatever order the physics query returns
 - **CLOSEST_TO_CENTER** = `1` - Closest to the collision shape's origin first
@@ -61,10 +65,14 @@ CollisionEffect using pure raycast collision detection for reliability
 
 ### enum CapRule {#enum-caprule}
 
+The options of cap rule: concurrent, total.
+
 - **CONCURRENT** = `0` - At most max_targets entities are affected at once; exits free a slot
 - **TOTAL** = `1` - Once max_targets entities have been hit the cap locks — exits do not free slots
 
 ### enum InteractableRule {#enum-interactablerule}
+
+The options of interactable rule: ignore, treat as equals, treat after entities.
 
 - **IGNORE** = `0` - Exclude InteractableObjects from targeting entirely
 - **TREAT_AS_EQUALS** = `1` - Include in the same pool as entities; sorted and capped together
@@ -74,7 +82,7 @@ CollisionEffect using pure raycast collision detection for reliability
 
 ### AffectedTargets affected_targets = AffectedTargets.ALL {#prop-affected-targets}
 
-*No description yet.*
+Which entities in the area are affected (all, enemies, allies ...).
 
 ### bool affects_neutrals = false {#prop-affects-neutrals}
 
@@ -82,11 +90,11 @@ Does an "enemies" area also hit neutral entities (not hostile, not friendly)? Of
 
 ### bool gain_on_enter = false {#prop-gain-on-enter}
 
-*No description yet.*
+True when an entity gets the child effects when it enters the area.
 
 ### bool remove_on_exit = false {#prop-remove-on-exit}
 
-*No description yet.*
+True when the child effects end when the entity leaves the area.
 
 ### bool prevent_duplicate_hits = true {#prop-prevent-duplicate-hits}
 
@@ -114,43 +122,43 @@ How InteractableObjects are treated relative to entities during filtering.
 
 ### float collision_poll_interval = 0.5 {#var-collision-poll-interval}
 
-*No description yet.*
+How many seconds between checks of who is in the area.
 
 ## Method descriptions
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Apply all child effects using the simplified system *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+What the effect does to its target when it is applied.
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-Handle effect completion *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+Called when the effect ends: takes back what it did.
 
 ### Array[Variant] get_entities_in_area( effect_instance: EffectInstance ) {#method-get-entities-in-area}
 
-*No description yet.*
+The entities in the area of the effect now.
 
 ### bool is_entity_in_area( effect_instance: EffectInstance, entity: Variant ) {#method-is-entity-in-area}
 
-*No description yet.*
+Is the entity in the area now?
 
 ### int get_entity_count_in_area( effect_instance: EffectInstance ) {#method-get-entity-count-in-area}
 
-*No description yet.*
+How many entities are in the area now.
 
 ### void force_collision_check( effect_instance: EffectInstance ) {#method-force-collision-check}
 
-*No description yet.*
+Checks who is in the area now, without waiting for the interval.
 
 ### void set_collision_poll_interval( interval: float ) {#method-set-collision-poll-interval}
 
-*No description yet.*
+Sets the seconds between checks (at least 0.1).
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 

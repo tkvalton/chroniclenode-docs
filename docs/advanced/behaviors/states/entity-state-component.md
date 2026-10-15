@@ -79,13 +79,19 @@ Entity lifecycle signals
 
 ### entity_state_component_deactivated() {#signal-entity-state-component-deactivated}
 
+Emitted when the states of the entity are turned off.
+
 ### behavior_paused() {#signal-behavior-paused}
 
 Behavior system signals
 
 ### behavior_resumed() {#signal-behavior-resumed}
 
+Emitted when the behavior of the entity runs again.
+
 ### behavior_schedule_changed( old_schedule: TaskSchedule, new_schedule: TaskSchedule ) {#signal-behavior-schedule-changed}
+
+Emitted when the entity switches to another schedule of tasks.
 
 ### combat_state_changed( old_state: String, new_state: String ) {#signal-combat-state-changed}
 
@@ -96,6 +102,8 @@ Combat system signals
 Detection signals
 
 ### player_lost() {#signal-player-lost}
+
+Emitted when the entity loses sight of the player it was after.
 
 ## Variable descriptions
 

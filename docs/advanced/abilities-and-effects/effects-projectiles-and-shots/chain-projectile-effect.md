@@ -52,7 +52,7 @@ Range to find next chain target
 
 ### ChainEffect.ChainTargetType chain_target_filter = ChainEffect.ChainTargetType.ENAMY {#prop-chain-target-filter}
 
-*No description yet.*
+Which targets the projectile bounces to.
 
 ### bool allow_repeat_targets = false {#prop-allow-repeat-targets}
 
@@ -66,45 +66,45 @@ Distance to consider target reached
 
 ### CollisionLayerUtility.HitMode hit_mode = CollisionLayerUtility.HitMode.ENEMY_ENTITIES {#prop-hit-mode}
 
-*No description yet.*
+What the projectile hits on its way.
 
 ### int pierce_count = 0 {#prop-pierce-count}
 
-*No description yet.*
+How many targets the projectile passes through.
 
 ### bool stop_on_world_hit = true {#prop-stop-on-world-hit}
 
-*No description yet.*
+True when the projectile stops when it hits the world.
 
 ### bool stop_on_target_hit = false {#prop-stop-on-target-hit}
 
-*No description yet.*
+True when the projectile stops when it hits a target.
 
 *Timer Settings*
 
 ### float detonation_timer = 3.0 {#prop-detonation-timer}
 
-*No description yet.*
+How many seconds the projectile lives before it detonates.
 
 ### bool trigger_on_expire = true {#prop-trigger-on-expire}
 
-*No description yet.*
+True when the effects apply when the projectile runs out of time.
 
 ### bool trigger_on_cancelled = false {#prop-trigger-on-cancelled}
 
-*No description yet.*
+True when the effects apply when the projectile is cancelled.
 
 ### bool also_trigger_on_collision_timer = false {#prop-also-trigger-on-collision-timer}
 
-*No description yet.*
+True when a collision also applies the effects when the timer trigger is chosen.
 
 ## Method descriptions
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Override this to provide complete effect description *(from [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect).*
+A short text for the effect editor that says what the effect does.
 

@@ -38,7 +38,7 @@ Effects applied when the condition is NOT met ("if undead apply A, else apply B"
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Apply all child effects using the simplified system *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+What the effect does to its target when it is applied.
 
 ### void apply_else_effects( effect_instance: EffectInstance ) {#method-apply-else-effects}
 

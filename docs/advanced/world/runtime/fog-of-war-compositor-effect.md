@@ -22,7 +22,7 @@ CompositorEffect that renders fog of war as a post-process. Uses depth buffer re
 | `float` | [fog_alpha](#var-fog-alpha) | `0.2` |
 | `float` | [edge_threshold](#var-edge-threshold) | `0.3` |
 | `float` | [edge_softness](#var-edge-softness) | `1.0` |
-| `float` | [blur_radius](#var-blur-radius) | `1.0  # Multiplier for blur sampling distance (1.0 = norma...` |
+| `float` | [blur_radius](#var-blur-radius) | `1.0` |
 
 ## Methods
 
@@ -37,85 +37,85 @@ CompositorEffect that renders fog of war as a post-process. Uses depth buffer re
 
 ## Constants
 
-- `String` **SHADER_PATH** = `"res://addons/chroniclenode/runtime_classes/world/fog/fog_of_war.glsl"`
+- `String` **SHADER_PATH** = `"res://addons/chroniclenode/runtime_classes/world/fog/fog_of_war.glsl"` - The compute shader that draws the fog.
 
 ## Variable descriptions
 
 ### RenderingDevice rd {#var-rd}
 
-*No description yet.*
+The rendering device the effect draws with.
 
 ### RID shader {#var-shader}
 
-*No description yet.*
+The compiled shader.
 
 ### RID pipeline {#var-pipeline}
 
-*No description yet.*
+The compute pipeline of the shader.
 
 ### RID sampler_linear {#var-sampler-linear}
 
-*No description yet.*
+The sampler of the fog textures.
 
 ### RID shroud_texture_rid {#var-shroud-texture-rid}
 
-*No description yet.*
+The texture of the shroud (the places that were never seen).
 
 ### RID vision_texture_rid {#var-vision-texture-rid}
 
-*No description yet.*
+The texture of the places seen now.
 
 ### Vector2 map_min = Vector2(-256, -256) {#var-map-min}
 
-*No description yet.*
+The corner of the map with the lowest coordinates.
 
 ### Vector2 map_max = Vector2(256, 256) {#var-map-max}
 
-*No description yet.*
+The corner of the map with the highest coordinates.
 
 ### float shroud_alpha = 1.0 {#var-shroud-alpha}
 
-*No description yet.*
+How dark the shroud is (1 = fully dark).
 
 ### float fog_alpha = 0.2 {#var-fog-alpha}
 
-*No description yet.*
+How dark the places that were seen but are not in view are.
 
 ### float edge_threshold = 0.3 {#var-edge-threshold}
 
-*No description yet.*
+Where the soft edge of the fog starts.
 
 ### float edge_softness = 1.0 {#var-edge-softness}
 
-*No description yet.*
+How soft the edge of the fog is.
 
-### float blur_radius = 1.0  # Multiplier for blur sampling distance (1.0 = normal,  {#var-blur-radius}
+### float blur_radius = 1.0 {#var-blur-radius}
 
-*No description yet.*
+Multiplier for blur sampling distance (1.0 = normal, 1.5 = wider blur)
 
 ## Method descriptions
 
 ### void set_fog_textures( shroud_rid: RID, vision_rid: RID ) {#method-set-fog-textures}
 
-*No description yet.*
+Gives the effect the shroud and the vision textures.
 
 ### void set_map_bounds( min_bounds: Vector2, max_bounds: Vector2 ) {#method-set-map-bounds}
 
-*No description yet.*
+Sets the corners of the map the fog covers.
 
 ### void set_fog_colors( p_shroud_alpha: float, p_fog_alpha: float ) {#method-set-fog-colors}
 
-*No description yet.*
+Sets how dark the shroud and the fog are.
 
 ### void set_edge_params( p_threshold: float, p_softness: float ) {#method-set-edge-params}
 
-*No description yet.*
+Sets the threshold and the softness of the edge of the fog.
 
 ### void set_blur_radius( p_blur_radius: float ) {#method-set-blur-radius}
 
-*No description yet.*
+Sets how wide the blur of the edge is (0.5 to 3).
 
 ### void set_debug( enabled: bool ) {#method-set-debug}
 
-*No description yet.*
+Turns the debug output on or off.
 

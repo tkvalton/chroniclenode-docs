@@ -27,10 +27,14 @@ Proc effect that responds to a status condition (a stun, a root, a silence ...) 
 
 ### enum TriggerType {#enum-triggertype}
 
+The options of trigger type: status applied, status ended.
+
 - **STATUS_APPLIED** = `0` - When a status lands on the holder
 - **STATUS_ENDED** = `1` - When a status ends on the holder
 
 ### enum StatusFilter {#enum-statusfilter}
+
+The options of status filter: any status, base types, specific statuses.
 
 - **ANY_STATUS** = `0` - Every status
 - **BASE_TYPES** = `1` - Statuses of the base status types listed below (Incapacitate, Root ...)
@@ -66,9 +70,9 @@ Apply the child effects to whoever put the status on the holder instead of to th
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [ProcEffect](/advanced/abilities-and-effects/effects-base/proc-effect).*
+A short text for the effect editor that says what the effect does.
 

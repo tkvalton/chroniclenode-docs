@@ -35,29 +35,33 @@ Tracks applications of a status effect for diminishing returns
 
 ### applications_reset( tracker: ApplicationTracker ) {#signal-applications-reset}
 
+========== SIGNALS ==========
+
 ### application_added( tracker: ApplicationTracker, new_count: int ) {#signal-application-added}
+
+Emitted when the status is applied again: the tracker and the new count.
 
 ## Variable descriptions
 
 ### int status_effect_id {#var-status-effect-id}
 
-*No description yet.*
+========== CORE PROPERTIES ==========
 
 ### int application_count = 0 {#var-application-count}
 
-*No description yet.*
+How many times the status was applied recently.
 
 ### float last_application_time = 0.0 {#var-last-application-time}
 
-*No description yet.*
+The time of the last application.
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
-*No description yet.*
+The manager of timers.
 
 ### Timer reset_timer {#var-reset-timer}
 
-*No description yet.*
+The timer that sets the count back to zero when nothing was applied for a while.
 
 ## Method descriptions
 

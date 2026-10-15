@@ -49,6 +49,8 @@ Definition for abilities that can be turned on and off (stance abilities, auras,
 
 ### enum PoolType {#enum-pooltype}
 
+The options of pool type: health pool, resource pool.
+
 - **HEALTH_POOL** = `0`
 - **RESOURCE_POOL** = `1`
 

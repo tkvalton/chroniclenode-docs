@@ -35,6 +35,8 @@ Triggers when an entity interacts with a ladder (starts climbing, finishes, or i
 
 ### enum LadderClimbTriggerType {#enum-ladderclimbtriggertype}
 
+The options of ladder climb trigger type: climb started, climb finished, climb interrupted.
+
 - **CLIMB_STARTED** = `0`
 - **CLIMB_FINISHED** = `1`
 

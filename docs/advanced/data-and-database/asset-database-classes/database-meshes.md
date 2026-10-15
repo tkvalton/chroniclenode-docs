@@ -67,6 +67,8 @@ It holds weapons (`equipment/weapons/<category>/`), the parts of modular charact
 
 ### enum MeshType {#enum-meshtype}
 
+========== ENUMS ==========
+
 - **SKELETON** = `0`
 - **WEAPON** = `1`
 - **BODY_PART** = `2`
@@ -76,22 +78,22 @@ It holds weapons (`equipment/weapons/<category>/`), the parts of modular charact
 
 ## Constants
 
-- `String` **EQUIPMENT_PATH** = `"res://src/data/meshes/equipment/"`
-- `String` **WEAPONS_PATH** = `"res://src/data/meshes/equipment/weapons/"`
-- `String` **BODY_PARTS_PATH** = `"res://src/data/meshes/equipment/body_parts/"`
-- `String` **ATTACHMENTS_PATH** = `"res://src/data/meshes/equipment/attachments/"`
-- `String` **FACIAL_PATH** = `"res://src/data/meshes/facial/"`
-- `String` **MATERIALS_PATH** = `"res://src/data/meshes/materials/"`
-- `Array[String]` **MESH_EXTENSIONS** = `[".tres", ".res", ".obj"]`
-- `Array[String]` **MATERIAL_EXTENSIONS** = `[".tres", ".res"]`
-- `String` **METADATA_ALLOWED_MATERIALS** = `"allowed_materials"`
-- `String` **METADATA_PREFERRED_MATERIAL** = `"preferred_material"`
-- `String` **METADATA_MATERIAL_CATEGORIES** = `"material_categories"`
-- `Array[String]` **BODY_PART_TYPES** = `[`
-- `Array[String]` **ATTACHMENT_TYPES** = `[`
-- `String` **THUMBNAILS_PATH** = `"res://src/data/meshes/.thumbnails/"`
-- `int` **THUMBNAIL_SIZE** = `64`
-- `String` **THUMBNAIL_EXTENSION** = `".png"`
+- `String` **EQUIPMENT_PATH** = `"res://src/data/meshes/equipment/"` - ========== PATHS ==========
+- `String` **WEAPONS_PATH** = `"res://src/data/meshes/equipment/weapons/"` - The folder of the weapon meshes.
+- `String` **BODY_PARTS_PATH** = `"res://src/data/meshes/equipment/body_parts/"` - The folder of the body part meshes.
+- `String` **ATTACHMENTS_PATH** = `"res://src/data/meshes/equipment/attachments/"` - The folder of the attachment meshes.
+- `String` **FACIAL_PATH** = `"res://src/data/meshes/facial/"` - The folder of the facial meshes.
+- `String` **MATERIALS_PATH** = `"res://src/data/meshes/materials/"` - The folder of the materials.
+- `Array[String]` **MESH_EXTENSIONS** = `[".tres", ".res", ".obj"]` - ========== FILE EXTENSIONS ==========
+- `Array[String]` **MATERIAL_EXTENSIONS** = `[".tres", ".res"]` - The file types that count as materials.
+- `String` **METADATA_ALLOWED_MATERIALS** = `"allowed_materials"` - ========== METADATA KEYS ==========
+- `String` **METADATA_PREFERRED_MATERIAL** = `"preferred_material"` - The metadata key of the material a mesh prefers.
+- `String` **METADATA_MATERIAL_CATEGORIES** = `"material_categories"` - The metadata key of the material categories a mesh accepts.
+- `Array[String]` **BODY_PART_TYPES** = `[` - ========== DEFINITIONS ==========
+- `Array[String]` **ATTACHMENT_TYPES** = `[` - The kinds of attachment mesh the folder can hold.
+- `String` **THUMBNAILS_PATH** = `"res://src/data/meshes/.thumbnails/"` - ========== THUMBNAIL MANAGEMENT ==========
+- `int` **THUMBNAIL_SIZE** = `64` - The size of the thumbnails, in pixels.
+- `String` **THUMBNAIL_EXTENSION** = `".png"` - The file type of the thumbnails.
 
 ## Method descriptions
 

@@ -27,31 +27,31 @@ Specialized SFX selection for motion sound effects (footsteps, movement)
 
 ### String entity_type = "humanoid" {#prop-entity-type}
 
-*No description yet.*
+The kind of entity that walks (humanoid ...).
 
 ### String surface = "stone" {#prop-surface}
 
-*No description yet.*
+The ground it walks on (stone ...).
 
 ### String movement = "walk" {#prop-movement}
 
-*No description yet.*
+The kind of movement (walk, run ...).
 
 ## Method descriptions
 
 ### Array[String] get_available_entity_types() {#method-get-available-entity-types}
 
-*No description yet.*
+The kinds of entity the database has footsteps for.
 
 ### Array[String] get_available_surfaces() {#method-get-available-surfaces}
 
-*No description yet.*
+The surfaces the database has footsteps for, for the entity type chosen.
 
 ### Array[String] get_available_movements() {#method-get-available-movements}
 
-*No description yet.*
+The movements the database has footsteps for, for the entity type and surface chosen.
 
 ### AudioStream get_sound_resource() {#method-get-sound-resource}
 
-*Overrides this function of [SFXSelection](/advanced/assets/selections-sfx/sfx-selection).*
+The sound this selection points to, or null when it is not set.
 

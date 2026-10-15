@@ -97,7 +97,7 @@ The lessons of a trainer (made in code: there is no scene node for it)
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [CurrentUI](/advanced/user-interface/scenes/current-ui).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void setup_window_interfaces( system_hub: GameHost.SystemHub ) {#method-setup-window-interfaces}
 
@@ -113,11 +113,11 @@ Handles changes in menu pause state
 
 ### void set_ui_scale( ui_scale: float ) {#method-set-ui-scale}
 
-*No description yet.*
+Scales the HUD elements that are affected by the scale of the interface.
 
 ### void show_hud( value: bool ) {#method-show-hud}
 
-*No description yet.*
+Shows or hides the HUD.
 
 ### void toggle_panel( panel_name: String ) {#method-toggle-panel}
 
@@ -153,7 +153,7 @@ Update the UI menu state based on open windows
 
 ### void close_all_windows() {#method-close-all-windows}
 
-*No description yet.*
+Closes all open windows
 
 ### void toggle_conversation_panel( conversation: ConversationInstance = null, starting_chat: ConversationChat = null, interaction: ConversationInteraction = null ) {#method-toggle-conversation-panel}
 

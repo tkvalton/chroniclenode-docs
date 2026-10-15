@@ -19,11 +19,11 @@ The tooltip of an effect on an entity (a buff or a debuff): its name and its des
 
 ### void set_systems_refs( system_hub: GameHost.SystemHub ) {#method-set-systems-refs}
 
-*Overrides this function of [TooltipBase](/advanced/user-interface/tooltips/tooltip-base).*
+Gives the tooltip the hub of the game systems.
 
 ### void set_tooltip_data( data: EffectInstance ) {#method-set-tooltip-data}
 
-*No description yet.*
+Sets the effect the tooltip shows.
 
 ### void set_effect( data: Effect, context: String = "" ) {#method-set-effect}
 
@@ -31,5 +31,5 @@ Set effect with context support (for embedding in other tooltips)
 
 ### String strip_bbcode( text: String ) {#method-strip-bbcode}
 
-*No description yet.*
+The text without its BBCode tags.
 

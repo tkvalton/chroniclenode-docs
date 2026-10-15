@@ -25,6 +25,8 @@ Checks whether the entity is standing still, moving, in the air or on the ground
 
 ### enum State {#enum-state}
 
+The options of state: standing still, moving, airborne, on ground.
+
 - **STANDING_STILL** = `0` - Not moving on the ground plane
 - **MOVING** = `1` - Moving on the ground plane
 - **AIRBORNE** = `2` - Not on the floor (jumping or falling)
@@ -46,13 +48,13 @@ Standing still / moving only: for at least this long (seconds). 0 = as soon as t
 
 ### bool evaluate_entity( entity: Entity ) {#method-evaluate-entity}
 
-Override this in subclasses to implement entity-specific evaluation @param entity: The target entity to evaluate @return: true if condition is met for this entity *(from [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition))*
+Is the condition met for this entity?
 
 ### String get_entity_description() {#method-get-entity-description}
 
-Override this in subclasses to describe the specific entity condition *(from [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition))*
+A short text about what the condition checks on the entity.
 
 ### String get_entity_function_description() {#method-get-entity-function-description}
 
-Override this in subclasses to provide template for inline editing *(from [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition))*
+The sentence the editor shows for the condition, with &#123;placeholders&#125; for its values.
 

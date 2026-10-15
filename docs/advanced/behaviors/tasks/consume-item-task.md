@@ -69,11 +69,11 @@ Whether to fail if the item cannot be consumed (not consumable)
 
 ### ItemDefinitionConsumable target_item = null {#var-target-item}
 
-*No description yet.*
+The consumable the entity uses.
 
 ### int items_consumed = 0 {#var-items-consumed}
 
-*No description yet.*
+How many items were used so far.
 
 ## Method descriptions
 

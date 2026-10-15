@@ -34,7 +34,7 @@ USAGE:
 
 | | | |
 |---|---|---|
-| `Dictionary` | [events](#var-events) | `{}  # int -> Event` |
+| `Dictionary` | [events](#var-events) | `{}` |
 | `Array` | [active_events](#var-active-events) | `[]` |
 | `Array` | [completed_events](#var-completed-events) | `[]` |
 | `Array` | [failed_events](#var-failed-events) | `[]` |
@@ -143,21 +143,21 @@ Emitted when a quest's tracking status changes
 
 ## Variable descriptions
 
-### Dictionary events =   # int -&gt; Event {#var-events}
+### Dictionary events =  {#var-events}
 
-*No description yet.*
+int -&gt; Event
 
 ### Array active_events = [] {#var-active-events}
 
-*No description yet.*
+The ids of the events that are in progress.
 
 ### Array completed_events = [] {#var-completed-events}
 
-*No description yet.*
+The ids of the events that are done.
 
 ### Array failed_events = [] {#var-failed-events}
 
-*No description yet.*
+The ids of the events that failed.
 
 ### Dictionary quest_lines =   # int -&gt; QuestLine {#var-quest-lines}
 
@@ -247,19 +247,19 @@ Manually trigger an event with condition checking
 
 ### Event get_event( event_id: int ) {#method-get-event}
 
-*No description yet.*
+The event with this id, or null.
 
 ### bool is_event_completed( event_id: int ) {#method-is-event-completed}
 
-*No description yet.*
+Is the event done?
 
 ### bool is_event_active( event_id: int ) {#method-is-event-active}
 
-*No description yet.*
+Is the event in progress?
 
 ### bool is_event_failed( event_id: int ) {#method-is-event-failed}
 
-*No description yet.*
+Did the event fail?
 
 ### bool can_accept_quest( quest_id: int ) {#method-can-accept-quest}
 
@@ -299,7 +299,7 @@ Was this popup shown in this game? (only popups that are shown once are remember
 
 ### void mark_popup_seen( popup_id: int ) {#method-mark-popup-seen}
 
-*No description yet.*
+Remembers that a popup was shown (a popup that shows once does not show again).
 
 ### bool has_quest( quest_id: int ) {#method-has-quest}
 
@@ -347,5 +347,5 @@ Load complete event manager state (events, quests, questlines, variables). Every
 
 ### void cleanup_event_triggers() {#method-cleanup-event-triggers}
 
-*No description yet.*
+Stops the triggers of every event.
 

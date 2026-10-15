@@ -51,7 +51,7 @@ Do the ticks of a damage-over-time effect apply them too? Off by default: a burn
 
 ### int get_id() {#method-get-id}
 
-*No description yet.*
+Get unique identifier
 
 ### bool applies_effects() {#method-applies-effects}
 

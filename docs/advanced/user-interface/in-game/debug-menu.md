@@ -34,63 +34,65 @@ Comprehensive debug menu for testing and debugging game systems Provides access 
 
 ### menu_closed() {#signal-menu-closed}
 
+========== SIGNALS ==========
+
 ## Variable descriptions
 
 ### PanelContainer main_panel {#var-main-panel}
 
-*No description yet.*
+========== UI REFERENCES ==========
 
 ### TabContainer tab_container {#var-tab-container}
 
-*No description yet.*
+The tabs of the debug menu.
 
 ### Button close_button {#var-close-button}
 
-*No description yet.*
+The button that closes the menu.
 
 ### Control world_tab {#var-world-tab}
 
-*No description yet.*
+Tab content containers
 
 ### Control time_tab {#var-time-tab}
 
-*No description yet.*
+The tab for the game time.
 
 ### Control player_tab {#var-player-tab}
 
-*No description yet.*
+The tab for the player.
 
 ### Control spawn_tab {#var-spawn-tab}
 
-*No description yet.*
+The tab for spawning.
 
 ### Control quest_tab {#var-quest-tab}
 
-*No description yet.*
+The tab for quests.
 
 ### Control crafting_tab {#var-crafting-tab}
 
-*No description yet.*
+The tab for crafting.
 
 ### Control effects_tab {#var-effects-tab}
 
-*No description yet.*
+The tab for effects.
 
 ### Control system_tab {#var-system-tab}
 
-*No description yet.*
+The tab for the systems.
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 
-*No description yet.*
+========== SYSTEM REFERENCES ==========
 
 ## Method descriptions
 
 ### void initialize( p_system_hub: GameHost.SystemHub ) {#method-initialize}
 
-*No description yet.*
+Builds the tabs with the hub of the game systems.
 
 ### void toggle_visibility() {#method-toggle-visibility}
 
-*No description yet.*
+Shows the menu, or hides it.
 

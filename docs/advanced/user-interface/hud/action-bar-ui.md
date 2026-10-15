@@ -44,7 +44,11 @@ This class manages the action bar UI, including ability/items slots, resource ba
 
 ### ability_drag_requested( ability: AbilityInstance ) {#signal-ability-drag-requested}
 
+========== DRAG SIGNALS ==========
+
 ### item_drag_requested( item: ItemInstance ) {#signal-item-drag-requested}
+
+Asks the interface to start dragging an item out of a slot of the bar.
 
 ## Property descriptions
 
@@ -126,5 +130,5 @@ Array of active debuff aura UI elements
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [HUDUIElement](/advanced/user-interface/hud/hudui-element).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 

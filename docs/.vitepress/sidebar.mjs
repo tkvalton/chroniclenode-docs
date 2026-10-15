@@ -334,7 +334,7 @@ const advancedSystems = [
   ['World', 'world'], ['Events & Quests', 'events-and-quests'], ['Entities', 'entities'], ['Abilities & Effects', 'abilities-and-effects'],
   ['Behaviors', 'behaviors'], ['Entity Stats', 'entity-stats'], ['Types & Groups', 'types-and-groups'], ['Items', 'items'],
   ['Equipment Definitions', 'equipment-definitions'], ['Assets', 'assets'], ['Game Settings', 'game-settings'],
-  ['User Interface', 'user-interface'], ['Managers', 'managers'], ['Editor', 'editor'],
+  ['User Interface', 'user-interface'], ['Managers', 'managers'], ['Editor (for tool authors)', 'editor'],
 ].map(([text, slug]) => slug === 'abilities-and-effects'
   ? withPages(classSystem(text, slug, abilitiesAndEffectsClasses), [page('Ability ranks', '/advanced/abilities-and-effects/ranks', { title: 'Ability ranks: how they are built' }), page('The effect amount', '/advanced/abilities-and-effects/effect-amount', { title: 'The effect amount: how it is built' }),page('Immunities', '/advanced/abilities-and-effects/immunities', { title: 'Immunities: how they are built' }), page('Skill trees', '/advanced/abilities-and-effects/skill-trees', { title: 'Skill trees: how they are built' })])
   : slug === 'world'

@@ -29,7 +29,7 @@ Configuration resource for collision layer masks Stores the collision masks for 
 
 ## Constants
 
-- `const` **CONFIG_PATH** = `"res://src/data/config_data/collision_layer_config.tres"`
+- `const` **CONFIG_PATH** = `"res://src/data/config_data/collision_layer_config.tres"` - The file the setup is saved in.
 
 ## Property descriptions
 
@@ -77,5 +77,5 @@ Validate the configuration
 
 ### CollisionLayerConfig get_config() {#method-get-config}
 
-*No description yet.*
+The collision layer setup of the project (loaded from the file).
 

@@ -48,11 +48,11 @@ Is the currency listed with the money of the player (the inventory window, the t
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Is it free of errors?
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 
 ### bool is_valid_amount( amount: int ) {#method-is-valid-amount}
 

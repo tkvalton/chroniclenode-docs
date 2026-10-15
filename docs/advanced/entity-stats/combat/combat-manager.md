@@ -316,9 +316,9 @@ Complete system cleanup - clear all encounters, effects, and environmental effec
 
 ### Dictionary save_data() {#method-save-data}
 
-*No description yet.*
+The state of the combat system for a save (the combat music, the world effects).
 
 ### void load_data( save_data: Dictionary, system_hub: GameHost.SystemHub ) {#method-load-data}
 
-*No description yet.*
+Restores the combat system from a save.
 

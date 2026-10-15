@@ -113,7 +113,7 @@ Unload the current world
 
 ### void apply_world_environment_overrides( system_hub: GameHost.SystemHub, world_data: WorldData ) {#method-apply-world-environment-overrides}
 
-*No description yet.*
+Applies the environment of a world (its sky, light, weather), the override of the world or the default one.
 
 ### InteractableObject find_rabbit_hole_by_unique_id( unique_id: int ) {#method-find-rabbit-hole-by-unique-id}
 

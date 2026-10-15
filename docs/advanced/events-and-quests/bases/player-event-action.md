@@ -30,6 +30,8 @@ Base class for actions that target player(s). Child classes should override exec
 
 ### enum PlayerTarget {#enum-playertarget}
 
+The options of player target: current player, player 1, player 2, player 3, player 4, player 5, player 6, player 7, player 8, player 9 ....
+
 - **CURRENT_PLAYER** = `0` - The currently controlled player
 - **PLAYER_1** = `1` - Player in slot 1
 - **PLAYER_2** = `2` - Player in slot 2

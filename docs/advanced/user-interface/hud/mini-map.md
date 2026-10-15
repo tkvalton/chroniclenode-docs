@@ -39,5 +39,5 @@ Ref to the camrea container
 
 ### void initialize_ui( system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [HUDUIElement](/advanced/user-interface/hud/hudui-element).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 

@@ -17,13 +17,15 @@ The credits scroll of the main menu: an animation that rolls, with `credits_fini
 
 ### credits_finish() {#signal-credits-finish}
 
+Emitted when the credits end.
+
 ## Method descriptions
 
 ### void play_credits() {#method-play-credits}
 
-*No description yet.*
+Starts the credits.
 
 ### void credits_ended() {#method-credits-ended}
 
-*No description yet.*
+Called when the roll ends: stops it and tells everyone.
 

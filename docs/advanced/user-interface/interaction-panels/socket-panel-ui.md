@@ -41,17 +41,17 @@ Custom Scenes
 
 ### ItemInstance current_equipment = null {#var-current-equipment}
 
-*No description yet.*
+========== PROPERTIES ==========
 
 ### Array[SocketSlotUI] socket_slot_uis = [] {#var-socket-slot-uis}
 
-*No description yet.*
+The slots of the sockets shown.
 
 ## Method descriptions
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [PanelUI](/advanced/user-interface/panels/panel-ui).*
+========== INITIALIZATION ==========
 
 ### void open_for_equipment( equipment_item: ItemInstance ) {#method-open-for-equipment}
 
@@ -63,15 +63,15 @@ Close the socket panel - overrides PanelUI's close_panel
 
 ### String strip_bbcode( text: String ) {#method-strip-bbcode}
 
-*No description yet.*
+The text without its BBCode tags.
 
 ### ItemInstance get_current_equipment() {#method-get-current-equipment}
 
-*No description yet.*
+========== PUBLIC GETTERS ==========
 
 ### bool is_panel_open() {#method-is-panel-open}
 
-*No description yet.*
+Is the panel open on an item?
 
 ### bool is_showing_equipment( equipment_item: ItemInstance ) {#method-is-showing-equipment}
 

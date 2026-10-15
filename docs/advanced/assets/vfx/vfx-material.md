@@ -11,9 +11,9 @@ VFX Material - Handles temporary material overrides for entities Perfect for buf
 | | | |
 |---|---|---|
 | `Entity  # The entity this material effect is applied to` | [target_entity](#var-target-entity) |  |
-| `VFXSelectionMaterial  # The selection config that created this` | [material_selection](#var-material-selection) |  |
-| `Dictionary` | [applied_materials](#var-applied-materials) | `{}  # mesh_instance -> original_material backup` |
-| `Timer  # Timer controlling the effect duration` | [effect_timer](#var-effect-timer) |  |
+| `VFXSelectionMaterial` | [material_selection](#var-material-selection) |  |
+| `Dictionary` | [applied_materials](#var-applied-materials) | `{}` |
+| `Timer` | [effect_timer](#var-effect-timer) |  |
 | `bool` | [is_active](#var-is-active) | `false` |
 | `bool` | [is_finished](#var-is-finished) | `false` |
 | `VFXSelectionMaterial.MaterialBlendMode` | [blend_mode](#var-blend-mode) | `VFXSelectionMaterial.MaterialBlendMode.OVERLAY` |
@@ -35,31 +35,31 @@ VFX Material - Handles temporary material overrides for entities Perfect for buf
 
 ### Entity  # The entity this material effect is applied to target_entity {#var-target-entity}
 
-*No description yet.*
+========== CORE PROPERTIES ==========
 
-### VFXSelectionMaterial  # The selection config that created this material_selection {#var-material-selection}
+### VFXSelectionMaterial material_selection {#var-material-selection}
 
-*No description yet.*
+The selection config that created this
 
-### Dictionary applied_materials =   # mesh_instance -&gt; original_material backup {#var-applied-materials}
+### Dictionary applied_materials =  {#var-applied-materials}
 
-*No description yet.*
+mesh_instance -&gt; original_material backup
 
-### Timer  # Timer controlling the effect duration effect_timer {#var-effect-timer}
+### Timer effect_timer {#var-effect-timer}
 
-*No description yet.*
+Timer controlling the effect duration
 
 ### bool is_active = false {#var-is-active}
 
-*No description yet.*
+========== STATE TRACKING ==========
 
 ### bool is_finished = false {#var-is-finished}
 
-*No description yet.*
+True when the material effect is done.
 
 ### VFXSelectionMaterial.MaterialBlendMode blend_mode = VFXSelectionMaterial.MaterialBlendMode.OVERLAY {#var-blend-mode}
 
-*No description yet.*
+How the material is combined with the material of the entity.
 
 ## Method descriptions
 

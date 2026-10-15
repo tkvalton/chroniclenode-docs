@@ -16,5 +16,5 @@ The popup that comes with the toolkit: a title, a text (with BBCode and the &lt;
 
 ### void setup( p_data: Dictionary ) {#method-setup}
 
-Called with what the caller passed (title, text, anything: it is up to the scene). Override it *(from [PopupUI](/advanced/user-interface/in-game/popup-ui))*
+Fills the popup from its data (title, text, icon, button).
 

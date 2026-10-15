@@ -26,15 +26,15 @@ MouseUtility provides centralized functions for handling mouse interaction with 
 
 ### void freeze_pointer( screen_position: Vector2 ) {#method-freeze-pointer}
 
-*No description yet.*
+Holds the pointer at a screen position (while the mouse is used to look around).
 
 ### void unfreeze_pointer() {#method-unfreeze-pointer}
 
-*No description yet.*
+Lets the pointer move again.
 
 ### bool is_pointer_frozen() {#method-is-pointer-frozen}
 
-*No description yet.*
+Is the pointer held?
 
 ### Vector2 get_pointer_position() {#method-get-pointer-position}
 

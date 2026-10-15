@@ -16,5 +16,5 @@ Activates a specific quest during combat
 
 ### int quest_id = 0 {#prop-quest-id}
 
-*No description yet.*
+The quest to activate.
 

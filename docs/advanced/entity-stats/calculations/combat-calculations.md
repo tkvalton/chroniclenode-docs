@@ -33,15 +33,15 @@ Calculation configs
 
 ### DamageTakenCalculation damage_taken_config {#var-damage-taken-config}
 
-*No description yet.*
+The setup of the damage taken calculation.
 
 ### HealingDoneCalculation healing_done_config {#var-healing-done-config}
 
-*No description yet.*
+The setup of the healing done calculation.
 
 ### HealingTakenCalculation healing_taken_config {#var-healing-taken-config}
 
-*No description yet.*
+The setup of the healing taken calculation.
 
 ## Method descriptions
 

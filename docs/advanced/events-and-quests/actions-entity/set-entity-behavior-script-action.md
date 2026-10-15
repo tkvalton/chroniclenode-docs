@@ -42,11 +42,11 @@ ID of the behavior script from DatabaseBehaviors
 
 ### Entity target_entity = null {#var-target-entity}
 
-*No description yet.*
+References
 
 ### ModularBehaviorScript new_behavior_script = null {#var-new-behavior-script}
 
-*No description yet.*
+The behavior script the entity gets.
 
 ## Method descriptions
 

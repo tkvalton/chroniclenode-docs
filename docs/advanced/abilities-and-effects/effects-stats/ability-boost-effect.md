@@ -37,6 +37,8 @@ It names the abilities and effects it is about. An effect id also counts for the
 
 ### enum Boosts {#enum-boosts}
 
+The options of boosts: damage, healing, both.
+
 - **DAMAGE** = `0` - Damage done
 - **HEALING** = `1` - Healing done
 - **BOTH** = `2` - Damage done and healing done
@@ -69,11 +71,11 @@ A flat amount added before the percentage, for each stack
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+What the effect does to its target when it is applied.
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-Handles the finishing of the effect, including cleanup and VFX/SFX (override in child classes if needed, call .super for cleanup) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+Called when the effect ends: takes back what it did.
 
 ### bool matches( hit_ability_id: int, hit_effect_ids: Array ) {#method-matches}
 
@@ -81,21 +83,21 @@ Does the boost apply to what the doer is doing? The ability and the effects come
 
 ### bool boosts_damage() {#method-boosts-damage}
 
-*No description yet.*
+Does the boost raise damage?
 
 ### bool boosts_healing() {#method-boosts-healing}
 
-*No description yet.*
+Does the boost raise healing?
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings of the effect. Gives the problems found (empty when it is fine).
 

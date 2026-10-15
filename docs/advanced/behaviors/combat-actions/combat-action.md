@@ -66,7 +66,7 @@ SystemRefs
 
 ### void set_system_refs( p_system_hub: GameHost.SystemHub ) {#method-set-system-refs}
 
-*No description yet.*
+Gives the action and its conditions the hub of the game systems.
 
 ### bool can_execute( entity: Entity ) {#method-can-execute}
 

@@ -12,7 +12,7 @@ Visual representation of a skill node for player UI (runtime) Follows ActionBarB
 |---|---|---|
 | `SkillNode` | [skill_node](#var-skill-node) |  |
 | `SkillTreeInstance` | [tree_instance](#var-tree-instance) |  |
-| `Dictionary` | [pool_instances](#var-pool-instances) | `{}  # pool_id -> SkillPointPoolInstance` |
+| `Dictionary` | [pool_instances](#var-pool-instances) | `{}` |
 | `Player` | [current_player](#var-current-player) |  |
 | `NodeState` | [current_state](#var-current-state) | `NodeState.LOCKED` |
 | `int` | [current_rank](#var-current-rank) | `0` |
@@ -36,15 +36,25 @@ Visual representation of a skill node for player UI (runtime) Follows ActionBarB
 
 ### node_clicked( node: SkillNode ) {#signal-node-clicked}
 
+========== SIGNALS ==========
+
 ### node_right_clicked( node: SkillNode ) {#signal-node-right-clicked}
+
+Emitted when the node is right clicked (to refund it).
 
 ### node_hover_started( node: SkillNode ) {#signal-node-hover-started}
 
+Emitted when the mouse enters the node.
+
 ### node_hover_ended( node: SkillNode ) {#signal-node-hover-ended}
+
+Emitted when the mouse leaves the node.
 
 ## Enumerations
 
 ### enum NodeState {#enum-nodestate}
+
+========== NODE STATES ==========
 
 - **LOCKED** = `0`
 - **AVAILABLE** = `1`
@@ -53,45 +63,45 @@ Visual representation of a skill node for player UI (runtime) Follows ActionBarB
 
 ## Constants
 
-- `Vector2` **NODE_SIZE** = `Vector2(50, 50)`
-- `Color` **BORDER_LOCKED** = `Color(0.3, 0.3, 0.3, 1.0)         # Dark gray`
-- `Color` **BORDER_AVAILABLE** = `Color(1.0, 0.9, 0.3, 1.0)      # Bright gold`
-- `Color` **BORDER_UNLOCKED** = `Color(0.4, 0.9, 0.5, 1.0)       # Bright green`
-- `Color` **BORDER_MAXED** = `Color(0.4, 0.9, 1.0, 1.0)          # Bright cyan`
-- `Color` **BORDER_INSUFFICIENT** = `Color(0.6, 0.5, 0.3, 1.0)   # Dim gold`
-- `Color` **ICON_LOCKED_MODULATE** = `Color(0.4, 0.4, 0.4, 1.0)  # Dimmed`
-- `Color` **ICON_NORMAL_MODULATE** = `Color(1.0, 1.0, 1.0, 1.0)  # Normal`
-- `Color` **ICON_HOVER_MODULATE** = `Color(1.2, 1.2, 1.2, 1.0)   # Brighter on hover`
+- `Vector2` **NODE_SIZE** = `Vector2(50, 50)` - ========== VISUAL CONSTANTS ==========
+- `Color` **BORDER_LOCKED** = `Color(0.3, 0.3, 0.3, 1.0)         # Dark gray` - ========== COLORS ==========
+- `Color` **BORDER_AVAILABLE** = `Color(1.0, 0.9, 0.3, 1.0)` - Bright gold
+- `Color` **BORDER_UNLOCKED** = `Color(0.4, 0.9, 0.5, 1.0)` - Bright green
+- `Color` **BORDER_MAXED** = `Color(0.4, 0.9, 1.0, 1.0)` - Bright cyan
+- `Color` **BORDER_INSUFFICIENT** = `Color(0.6, 0.5, 0.3, 1.0)` - Dim gold
+- `Color` **ICON_LOCKED_MODULATE** = `Color(0.4, 0.4, 0.4, 1.0)` - Dimmed
+- `Color` **ICON_NORMAL_MODULATE** = `Color(1.0, 1.0, 1.0, 1.0)` - Normal
+- `Color` **ICON_HOVER_MODULATE** = `Color(1.2, 1.2, 1.2, 1.0)` - Brighter on hover
 
 ## Variable descriptions
 
 ### SkillNode skill_node {#var-skill-node}
 
-*No description yet.*
+========== PROPERTIES ==========
 
 ### SkillTreeInstance tree_instance {#var-tree-instance}
 
-*No description yet.*
+The tree the node belongs to.
 
-### Dictionary pool_instances =   # pool_id -&gt; SkillPointPoolInstance {#var-pool-instances}
+### Dictionary pool_instances =  {#var-pool-instances}
 
-*No description yet.*
+pool_id -&gt; SkillPointPoolInstance
 
 ### Player current_player {#var-current-player}
 
-*No description yet.*
+The player who owns the tree.
 
 ### NodeState current_state = NodeState.LOCKED {#var-current-state}
 
-*No description yet.*
+The state of the node (locked, available, taken ...).
 
 ### int current_rank = 0 {#var-current-rank}
 
-*No description yet.*
+The rank taken.
 
 ### int max_ranks = 1 {#var-max-ranks}
 
-*No description yet.*
+The most ranks the node has.
 
 ## Method descriptions
 
@@ -117,11 +127,11 @@ Check if player can afford the next rank
 
 ### SkillNode get_node_data() {#method-get-node-data}
 
-*No description yet.*
+========== UTILITY METHODS ==========
 
 ### Vector2 get_center_position() {#method-get-center-position}
 
-*No description yet.*
+The center of the node on its canvas.
 
 ### NodeState get_current_state() {#method-get-current-state}
 

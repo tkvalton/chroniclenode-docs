@@ -42,20 +42,20 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_
 | | | |
 |---|---|---|
 | `Dictionary` | [ui_sfx_cache](#var-ui-sfx-cache) | `{}           # UI sound effects only` |
-| `Dictionary` | [gameplay_sfx_cache](#var-gameplay-sfx-cache) | `{}     # Gameplay SFX (abilities, footsteps, voices)` |
+| `Dictionary` | [gameplay_sfx_cache](#var-gameplay-sfx-cache) | `{}` |
 | `Array[AudioStreamPlayer3D]` | [sfx_3d_players](#var-sfx-3d-players) | `[]      # For positional SFX` |
-| `Array[AudioStreamPlayer]` | [sfx_2d_players](#var-sfx-2d-players) | `[]        # For UI/global SFX` |
-| `Array[AudioStreamPlayer]` | [ui_audio_players](#var-ui-audio-players) | `[]      # Dedicated UI audio players` |
+| `Array[AudioStreamPlayer]` | [sfx_2d_players](#var-sfx-2d-players) | `[]` |
+| `Array[AudioStreamPlayer]` | [ui_audio_players](#var-ui-audio-players) | `[]` |
 | `AudioStreamPlayer                    # Music player A (for crossfading)` | [music_player_a](#var-music-player-a) |  |
-| `AudioStreamPlayer                    # Music player B (for crossfading)` | [music_player_b](#var-music-player-b) |  |
-| `AudioStreamPlayer                 # Ambiance player A (for crossfading)` | [ambiance_player_a](#var-ambiance-player-a) |  |
-| `AudioStreamPlayer                 # Ambiance player B (for crossfading)` | [ambiance_player_b](#var-ambiance-player-b) |  |
+| `AudioStreamPlayer` | [music_player_b](#var-music-player-b) |  |
+| `AudioStreamPlayer` | [ambiance_player_a](#var-ambiance-player-a) |  |
+| `AudioStreamPlayer` | [ambiance_player_b](#var-ambiance-player-b) |  |
 | `AudioStreamPlayer` | [active_music_player](#var-active-music-player) |  |
 | `AudioStreamPlayer` | [active_ambiance_player](#var-active-ambiance-player) |  |
 | `Tween` | [music_crossfade_tween](#var-music-crossfade-tween) |  |
 | `Tween` | [ambiance_crossfade_tween](#var-ambiance-crossfade-tween) |  |
 | `UIAlbum                            # Currently loaded UI album` | [current_ui_album](#var-current-ui-album) |  |
-| `AudioAlbum                        # Currently loaded world album` | [current_world_album](#var-current-world-album) |  |
+| `AudioAlbum` | [current_world_album](#var-current-world-album) |  |
 | `Array[AudioStream]` | [loaded_ui_music_tracks](#var-loaded-ui-music-tracks) | `[]` |
 | `Array[AudioStream]` | [loaded_ui_ambient_tracks](#var-loaded-ui-ambient-tracks) | `[]` |
 | `Array[AudioStream]` | [loaded_ui_transition_tracks](#var-loaded-ui-transition-tracks) | `[]` |
@@ -127,6 +127,8 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_
 
 ### enum UISound {#enum-uisound}
 
+========== UI SOUND ENUMS ==========
+
 - **CLICK** = `0`
 - **ERROR_CLICK** = `1`
 - **HOVER** = `2`
@@ -152,136 +154,136 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_
 
 ## Constants
 
-- `int` **SFX_3D_POOL_SIZE** = `50`
-- `int` **SFX_2D_POOL_SIZE** = `20`
-- `int` **UI_AUDIO_POOL_SIZE** = `5`
-- `float` **FADE_DURATION** = `3.0`
+- `int` **SFX_3D_POOL_SIZE** = `50` - Pool sizes
+- `int` **SFX_2D_POOL_SIZE** = `20` - How many players of 2D sound effects are made.
+- `int` **UI_AUDIO_POOL_SIZE** = `5` - How many players of interface sounds are made.
+- `float` **FADE_DURATION** = `3.0` - How many seconds a crossfade takes.
 
 ## Variable descriptions
 
 ### Dictionary ui_sfx_cache =            # UI sound effects only {#var-ui-sfx-cache}
 
-*No description yet.*
+========== CACHE STORAGE ==========
 
-### Dictionary gameplay_sfx_cache =      # Gameplay SFX (abilities, footsteps, voices) {#var-gameplay-sfx-cache}
+### Dictionary gameplay_sfx_cache =  {#var-gameplay-sfx-cache}
 
-*No description yet.*
+Gameplay SFX (abilities, footsteps, voices)
 
 ### Array[AudioStreamPlayer3D] sfx_3d_players = []      # For positional SFX {#var-sfx-3d-players}
 
-*No description yet.*
+========== AUDIO PLAYER POOLS ==========
 
-### Array[AudioStreamPlayer] sfx_2d_players = []        # For UI/global SFX {#var-sfx-2d-players}
+### Array[AudioStreamPlayer] sfx_2d_players = [] {#var-sfx-2d-players}
 
-*No description yet.*
+For UI/global SFX
 
-### Array[AudioStreamPlayer] ui_audio_players = []      # Dedicated UI audio players {#var-ui-audio-players}
+### Array[AudioStreamPlayer] ui_audio_players = [] {#var-ui-audio-players}
 
-*No description yet.*
+Dedicated UI audio players
 
 ### AudioStreamPlayer                    # Music player A (for crossfading) music_player_a {#var-music-player-a}
 
-*No description yet.*
+========== GLOBAL MUSIC &amp; AMBIANCE PLAYERS ==========
 
-### AudioStreamPlayer                    # Music player B (for crossfading) music_player_b {#var-music-player-b}
+### AudioStreamPlayer music_player_b {#var-music-player-b}
 
-*No description yet.*
+Music player B (for crossfading)
 
-### AudioStreamPlayer                 # Ambiance player A (for crossfading) ambiance_player_a {#var-ambiance-player-a}
+### AudioStreamPlayer ambiance_player_a {#var-ambiance-player-a}
 
-*No description yet.*
+Ambiance player A (for crossfading)
 
-### AudioStreamPlayer                 # Ambiance player B (for crossfading) ambiance_player_b {#var-ambiance-player-b}
+### AudioStreamPlayer ambiance_player_b {#var-ambiance-player-b}
 
-*No description yet.*
+Ambiance player B (for crossfading)
 
 ### AudioStreamPlayer active_music_player {#var-active-music-player}
 
-*No description yet.*
+Track which players are currently active
 
 ### AudioStreamPlayer active_ambiance_player {#var-active-ambiance-player}
 
-*No description yet.*
+The ambiance player that plays now (the other one fades in).
 
 ### Tween music_crossfade_tween {#var-music-crossfade-tween}
 
-*No description yet.*
+Crossfade tweens
 
 ### Tween ambiance_crossfade_tween {#var-ambiance-crossfade-tween}
 
-*No description yet.*
+The tween of the ambiance crossfade.
 
 ### UIAlbum                            # Currently loaded UI album current_ui_album {#var-current-ui-album}
 
-*No description yet.*
+========== CURRENT ALBUMS ==========
 
-### AudioAlbum                        # Currently loaded world album current_world_album {#var-current-world-album}
+### AudioAlbum current_world_album {#var-current-world-album}
 
-*No description yet.*
+Currently loaded world album
 
 ### Array[AudioStream] loaded_ui_music_tracks = [] {#var-loaded-ui-music-tracks}
 
-*No description yet.*
+UI Album tracks (loaded on demand)
 
 ### Array[AudioStream] loaded_ui_ambient_tracks = [] {#var-loaded-ui-ambient-tracks}
 
-*No description yet.*
+The ambient tracks of the interface album that are loaded.
 
 ### Array[AudioStream] loaded_ui_transition_tracks = [] {#var-loaded-ui-transition-tracks}
 
-*No description yet.*
+The transition sounds of the interface album that are loaded.
 
 ### Array[AudioStream] loaded_world_music_tracks = [] {#var-loaded-world-music-tracks}
 
-*No description yet.*
+Map Album tracks (loaded on world change)
 
 ### Array[AudioStream] loaded_world_combat_tracks = [] {#var-loaded-world-combat-tracks}
 
-*No description yet.*
+The combat tracks of the world album that are loaded.
 
 ### Array[AudioStream] loaded_world_ambient_tracks = [] {#var-loaded-world-ambient-tracks}
 
-*No description yet.*
+The ambient tracks of the world album that are loaded.
 
 ### bool ui_sfx_initialized = false {#var-ui-sfx-initialized}
 
-*No description yet.*
+========== INITIALIZATION FLAGS ==========
 
 ### bool gameplay_sfx_initialized = false {#var-gameplay-sfx-initialized}
 
-*No description yet.*
+True once the sound effects of the game are ready.
 
 ### bool world_audio_initialized = false {#var-world-audio-initialized}
 
-*No description yet.*
+True once the audio of the world is ready.
 
 ### bool ui_album_initialized = false {#var-ui-album-initialized}
 
-*No description yet.*
+True once the album of the interface is ready.
 
 ### bool in_combat = false {#var-in-combat}
 
-*No description yet.*
+========== STATE VARIABLES ==========
 
 ### String current_game_state = "main_menu" {#var-current-game-state}
 
-*No description yet.*
+The part of the game that is on ("main_menu", ...), which picks the album.
 
 ### String active_album_type = "ui"  # "ui" or "world" {#var-active-album-type}
 
-*No description yet.*
+Which album plays: "ui" or "world".
 
 ### float music_volume_db = 0.0 : set = set_music_volume {#var-music-volume-db}
 
-*No description yet.*
+Volume settings
 
 ### float ambiance_volume_db = 0.0 : set = set_ambiance_volume {#var-ambiance-volume-db}
 
-*No description yet.*
+The volume of the ambiance, in decibels.
 
 ### float ui_sfx_volume_db = -10.0 : set = set_ui_sfx_volume {#var-ui-sfx-volume-db}
 
-*No description yet.*
+The volume of the sounds of the interface, in decibels.
 
 ## Method descriptions
 

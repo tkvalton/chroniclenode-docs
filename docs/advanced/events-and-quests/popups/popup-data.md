@@ -68,5 +68,5 @@ What happens when another popup is open
 
 ### PackedScene get_scene() {#method-get-scene}
 
-*No description yet.*
+The scene of the popup, or null when it does not exist.
 

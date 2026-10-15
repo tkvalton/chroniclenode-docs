@@ -46,6 +46,8 @@ TargetStrategyDefinition contains all logic for ability targeting strategies. Su
 
 ### enum AbilityTargetStrategy {#enum-abilitytargetstrategy}
 
+The options of ability target strategy: enemy, ally, any entity, self, point, multi point, none, aimed.
+
 - **ENEMY** = `0`
 - **ALLY** = `1`
 - **ANY_ENTITY** = `2`
@@ -56,6 +58,8 @@ TargetStrategyDefinition contains all logic for ability targeting strategies. Su
 - **AIMED** = `7`
 
 ### enum AbilityMarkerLocation {#enum-abilitymarkerlocation}
+
+The options of ability marker location: mouse, user.
 
 - **MOUSE** = `0`
 - **USER** = `1`

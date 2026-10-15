@@ -38,17 +38,17 @@ Name of the Encounter to manipulate
 
 ### bool force_into_combat = true {#prop-force-into-combat}
 
-*No description yet.*
+True puts the encounter in combat, false takes it out.
 
 ### bool target_nearest_player = true {#prop-target-nearest-player}
 
-*No description yet.*
+True when the encounter attacks the nearest player.
 
 ## Variable descriptions
 
 ### Encounter encounter {#var-encounter}
 
-*No description yet.*
+Reference to the special encounter
 
 ## Method descriptions
 

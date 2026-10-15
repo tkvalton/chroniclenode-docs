@@ -17,7 +17,7 @@ Container for movement information used to select appropriate animations Works w
 | `bool` | [is_crouched](#var-is-crouched) | `false` |
 | `bool` | [is_swimming](#var-is-swimming) | `false` |
 | `bool` | [is_falling](#var-is-falling) | `false` |
-| `bool` | [is_turning_only](#var-is-turning-only) | `false  # turning in place without movement` |
+| `bool` | [is_turning_only](#var-is-turning-only) | `false` |
 | `bool` | [is_in_combat](#var-is-in-combat) | `false` |
 | `bool` | [has_directional_effect](#var-has-directional-effect) | `false` |
 | `String` | [directional_effect_type](#var-directional-effect-type) | `""` |
@@ -36,6 +36,8 @@ Container for movement information used to select appropriate animations Works w
 
 ### enum DirectionType {#enum-directiontype}
 
+The options of direction type: none, forward, backward, left, right, forward left, forward right, backward left, backward right.
+
 - **NONE** = `0`
 - **FORWARD** = `1`
 - **BACKWARD** = `2`
@@ -50,51 +52,51 @@ Container for movement information used to select appropriate animations Works w
 
 ### Vector2 movement_direction = Vector2.ZERO {#var-movement-direction}
 
-*No description yet.*
+Movement vector (normalized, in entity's local space)
 
 ### float movement_speed = 0.0 {#var-movement-speed}
 
-*No description yet.*
+How fast the entity moves.
 
 ### bool is_moving = false {#var-is-moving}
 
-*No description yet.*
+Movement states
 
 ### bool is_walking = false  # false = running {#var-is-walking}
 
-*No description yet.*
+True when the entity walks.
 
 ### bool is_crouched = false {#var-is-crouched}
 
-*No description yet.*
+True when the entity is crouched.
 
 ### bool is_swimming = false {#var-is-swimming}
 
-*No description yet.*
+True when the entity swims.
 
 ### bool is_falling = false {#var-is-falling}
 
-*No description yet.*
+True when the entity falls.
 
-### bool is_turning_only = false  # turning in place without movement {#var-is-turning-only}
+### bool is_turning_only = false {#var-is-turning-only}
 
-*No description yet.*
+turning in place without movement
 
 ### bool is_in_combat = false {#var-is-in-combat}
 
-*No description yet.*
+Combat state
 
 ### bool has_directional_effect = false {#var-has-directional-effect}
 
-*No description yet.*
+Directional movement effect
 
 ### String directional_effect_type = "" {#var-directional-effect-type}
 
-*No description yet.*
+The kind of movement effect that moves the entity (empty when none).
 
 ### Vector3 entity_forward = Vector3.FORWARD {#var-entity-forward}
 
-*No description yet.*
+Entity facing direction (for relative movement calculation)
 
 ## Method descriptions
 
@@ -108,7 +110,7 @@ Create movement data from navigation target
 
 ### MovementData from_navigation_directional( velocity: Vector3, entity_forward: Vector3, is_walking: bool = false ) {#method-from-navigation-directional}
 
-*No description yet.*
+Makes the data from the velocity of a path and the way the entity faces.
 
 ### DirectionType get_primary_direction() {#method-get-primary-direction}
 

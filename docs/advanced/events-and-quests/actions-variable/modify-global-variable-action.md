@@ -28,6 +28,8 @@ Universal action to modify a global variable (numeric operations and string mani
 
 ### enum Operation {#enum-operation}
 
+The options of operation: add, subtract, multiply, divide, append, toggle.
+
 - **ADD** = `0`
 - **SUBTRACT** = `1`
 - **MULTIPLY** = `2`
@@ -38,39 +40,39 @@ Universal action to modify a global variable (numeric operations and string mani
 
 ### String variable_key = "" {#prop-variable-key}
 
-*No description yet.*
+The name of the global variable.
 
 ### Operation operation = Operation.ADD {#prop-operation}
 
-*No description yet.*
+What to do with the variable (add, subtract, multiply, divide, append or toggle).
 
 *Numeric Values*
 
 ### int amount_int = 1 {#prop-amount-int}
 
-*No description yet.*
+The whole number for the operation.
 
 ### float amount_float = 1.0 {#prop-amount-float}
 
-*No description yet.*
+The decimal number for the operation.
 
 *String Values*
 
 ### String append_text = "" {#prop-append-text}
 
-*No description yet.*
+The text to add to a text variable.
 
 ## Method descriptions
 
 ### String get_function_description() {#method-get-function-description}
 
-Return a description of this action with parameter placeholders *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+The sentence the editor shows for the action, with &#123;placeholders&#125; for its values.
 
 ### Dictionary save() {#method-save}
 
-Save action state to a dictionary *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+The state of the action for a save.
 
 ### void load_data( data: Dictionary ) {#method-load-data}
 
-Load action state from a dictionary *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+Restores the state of the action from a save.
 

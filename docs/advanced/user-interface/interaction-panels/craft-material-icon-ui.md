@@ -15,7 +15,7 @@ Enhanced material icon UI with visual feedback for material availability
 | `int` | [available_quantity](#var-available-quantity) | `0` |
 | `ItemDefinition` | [item_definition](#var-item-definition) | `null` |
 | `Color` | [normal_modulate](#var-normal-modulate) | `Color.WHITE` |
-| `Color` | [insufficient_modulate](#var-insufficient-modulate) | `Color(0.5, 0.5, 0.5, 0.8)  # Greyed out` |
+| `Color` | [insufficient_modulate](#var-insufficient-modulate) | `Color(0.5, 0.5, 0.5, 0.8)` |
 | `Color` | [normal_label_color](#var-normal-label-color) | `Color.WHITE` |
 | `Color` | [insufficient_label_color](#var-insufficient-label-color) | `Color.RED` |
 | `Color` | [sufficient_label_color](#var-sufficient-label-color) | `Color.GREEN` |
@@ -36,39 +36,39 @@ Enhanced material icon UI with visual feedback for material availability
 
 ### bool has_sufficient_materials = true {#var-has-sufficient-materials}
 
-*No description yet.*
+Material availability state
 
 ### int required_quantity = 1 {#var-required-quantity}
 
-*No description yet.*
+How many the recipe needs.
 
 ### int available_quantity = 0 {#var-available-quantity}
 
-*No description yet.*
+How many the player has.
 
 ### ItemDefinition item_definition = null {#var-item-definition}
 
-*No description yet.*
+The material.
 
 ### Color normal_modulate = Color.WHITE {#var-normal-modulate}
 
-*No description yet.*
+Visual states
 
-### Color insufficient_modulate = Color(0.5, 0.5, 0.5, 0.8)  # Greyed out {#var-insufficient-modulate}
+### Color insufficient_modulate = Color(0.5, 0.5, 0.5, 0.8) {#var-insufficient-modulate}
 
-*No description yet.*
+Greyed out
 
 ### Color normal_label_color = Color.WHITE {#var-normal-label-color}
 
-*No description yet.*
+The color of the label before it is checked.
 
 ### Color insufficient_label_color = Color.RED {#var-insufficient-label-color}
 
-*No description yet.*
+The color of the label when the player has too few.
 
 ### Color sufficient_label_color = Color.GREEN {#var-sufficient-label-color}
 
-*No description yet.*
+The color of the label when the player has enough.
 
 ## Method descriptions
 

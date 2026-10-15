@@ -31,9 +31,9 @@ Maximum distance (in units) for the condition to pass
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-*Overrides this function of [ConditionalEffect](/advanced/abilities-and-effects/effects-base/conditional-effect).*
+What the effect does to its target when it is applied.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 

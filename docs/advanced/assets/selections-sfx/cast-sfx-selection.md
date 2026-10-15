@@ -24,19 +24,19 @@ Specialized SFX selection for cast sound effects
 
 ### String audio_type = "" {#prop-audio-type}
 
-*No description yet.*
+The cast sound type to use (now dynamic based on discovered folders)
 
 ## Method descriptions
 
 ### Array[String] get_available_audio_types() {#method-get-available-audio-types}
 
-*No description yet.*
+Get available cast sound types (for editor dropdown)
 
 ### Array[String] get_available_files() {#method-get-available-files}
 
-*No description yet.*
+Get available file names for current audio type (for specific selection)
 
 ### AudioStream get_sound_resource() {#method-get-sound-resource}
 
-*Overrides this function of [SFXSelection](/advanced/assets/selections-sfx/sfx-selection).*
+The sound this selection points to, or null when it is not set.
 

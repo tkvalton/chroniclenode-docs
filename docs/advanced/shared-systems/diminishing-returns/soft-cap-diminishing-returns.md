@@ -37,21 +37,21 @@ The share of each point above the threshold that counts (0 = a hard cap, 1 = no 
 
 ### float apply( points: float, context: FormulaContext = null ) {#method-apply}
 
-Points in, effective points out. The base class changes nothing *(from [DiminishingReturns](/advanced/shared-systems/diminishing-returns/diminishing-returns))*
+The stat points that count after the diminishing returns.
 
 ### String get_label() {#method-get-label}
 
-*Overrides this function of [DiminishingReturns](/advanced/shared-systems/diminishing-returns/diminishing-returns).*
+The name of the diminishing returns in the editor.
 
 ### String get_description() {#method-get-description}
 
-One-line description with the current numbers *(from [DiminishingReturns](/advanced/shared-systems/diminishing-returns/diminishing-returns))*
+A sentence about the diminishing returns and its values.
 
 ### Vector2 get_preview_range() {#method-get-preview-range}
 
-The points range the editor graph and table draw (x from, x to) *(from [DiminishingReturns](/advanced/shared-systems/diminishing-returns/diminishing-returns))*
+The range of points the editor graph shows.
 
 ### Array[String] validate() {#method-validate}
 
-Configuration problems, as readable messages (empty = fine) *(from [DiminishingReturns](/advanced/shared-systems/diminishing-returns/diminishing-returns))*
+Checks the settings. Gives the warnings (empty when it is fine).
 

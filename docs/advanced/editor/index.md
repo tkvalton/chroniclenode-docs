@@ -1,5 +1,7 @@
 # Editor: how it is built
 
+**Who this is for.** You do not need this section to *use* the editor, or to make a game with it (the Basic chapters cover that). It is for developers who want to **add to the editor or change it**: a new tab in the Database editor, a new kind of property field, a new dialog, a tool in the 3D viewport. If you only want to add your own abilities, effects, items or interface scenes, see [Extending the toolkit](/advanced/extending) instead.
+
 The editor side of the toolkit is an `EditorPlugin` (`plugin.gd`, "Unified Game Editor") that adds a main-screen **Database** editor, an **Add Object** menu to the 3D viewport and a **Unique Object** panel to the bottom dock. All of its code is in `addons/chroniclenode/editor_components/`. None of it runs in an exported game.
 
 The pages after this one are the class reference, grouped by what the class is for. This page explains how the parts fit.

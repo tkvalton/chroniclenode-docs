@@ -40,11 +40,11 @@ The same checks with extra facts about what the requirement guards: &#123;"item_
 
 ### String get_failure_message_in_context( entity: Entity, _context: Dictionary ) {#method-get-failure-message-in-context}
 
-*No description yet.*
+The reason shown when the requirement fails, with the context (a rank, a level). The plain message by default.
 
 ### String get_summary_in_context( _context: Dictionary ) {#method-get-summary-in-context}
 
-*No description yet.*
+The text of the requirement for the tooltip, with the context. The plain summary by default.
 
 ### String get_failure_message( entity: Entity ) {#method-get-failure-message}
 

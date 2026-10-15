@@ -16,5 +16,5 @@ A stack of an item that is kept aside (see ItemDefinition.is_kept_aside): it liv
 
 ### bool can_accept_item( _item: ItemInstance ) {#method-can-accept-item}
 
-Check if this slot can accept a specific item instance *(from [InventorySlotInstance](/advanced/items/runtime/inventory-slot-instance))*
+Always false: nothing is put in a kept aside stack by hand.
 

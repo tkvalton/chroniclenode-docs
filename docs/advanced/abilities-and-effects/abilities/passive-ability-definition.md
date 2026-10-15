@@ -56,5 +56,5 @@ No special cleanup needed - AbilityInstance handles effect removal.
 
 ### String get_tooltip_description() {#method-get-tooltip-description}
 
-Get formatted description for tooltips with effect placeholder replacement *(from [AbilityDefinition](/advanced/abilities-and-effects/abilities/ability-definition))*
+The text of the tooltip.
 

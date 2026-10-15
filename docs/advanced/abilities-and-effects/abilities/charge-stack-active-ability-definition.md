@@ -42,6 +42,8 @@ SHARED mode (default): Sequential charge regeneration like most games. INDEPENDE
 
 ### enum StackCooldownType {#enum-stackcooldowntype}
 
+The options of stack cooldown type: shared, independent.
+
 - **SHARED** = `0` - One shared cooldown - charges regenerate sequentially (default)
 - **INDEPENDENT** = `1` - Each charge has its own timer - charges can regenerate simultaneously
 
@@ -61,65 +63,65 @@ Whether to start with full charges (true) or build them up over time (false = st
 
 ### StackCooldownType charge_regeneration_mode = StackCooldownType.SHARED {#prop-charge-regeneration-mode}
 
-*No description yet.*
+How charges come back: shared (one after the other) or independent (each has its own timer).
 
 ## Method descriptions
 
 ### void handle_completion( ability_instance: AbilityInstance ) {#method-handle-completion}
 
-Override to add active ability specific validation Active abilities complete the standard way (cooldown, resource gain, state, ability_used); the passive base class that this extends has no completion logic *(from [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition))*
+Uses up a charge and starts its regeneration.
 
 ### AbilityInstance.AbilityUseAttemptResult validate_ability_usage( ability_instance: AbilityInstance, from_action: bool ) {#method-validate-ability-usage}
 
-*Overrides this function of [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition).*
+Checks whether the user can use the ability: it needs a charge.
 
 ### void cleanup_ability_logic( ability_instance: AbilityInstance ) {#method-cleanup-ability-logic}
 
-No special cleanup needed - AbilityInstance handles effect removal. *(from [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition))*
+Stops the charge timers.
 
 ### void initialize_charge_system( ability_instance: AbilityInstance ) {#method-initialize-charge-system}
 
-*No description yet.*
+Sets the charges and their timers up for an ability instance.
 
 ### float get_next_charge_time_remaining( ability_instance: AbilityInstance ) {#method-get-next-charge-time-remaining}
 
-*No description yet.*
+How many seconds until the next charge comes back.
 
 ### bool has_charges_available( ability_instance: AbilityInstance ) {#method-has-charges-available}
 
-*No description yet.*
+Does the ability have a charge to use?
 
 ### bool is_at_max_charges( ability_instance: AbilityInstance ) {#method-is-at-max-charges}
 
-*No description yet.*
+Does the ability have all its charges?
 
 ### float get_full_recharge_time( ability_instance: AbilityInstance ) {#method-get-full-recharge-time}
 
-*No description yet.*
+How many seconds until every charge is back.
 
 ### float get_charge_utilization_percent( ability_instance: AbilityInstance ) {#method-get-charge-utilization-percent}
 
-*No description yet.*
+The charges left as a percentage of the maximum.
 
 ### void force_regenerate_charges( ability_instance: AbilityInstance, charge_count: int ) {#method-force-regenerate-charges}
 
-*No description yet.*
+Gives charges back at once (not above the maximum).
 
 ### void reset_charges_to_max( ability_instance: AbilityInstance ) {#method-reset-charges-to-max}
 
-*No description yet.*
+Gives every charge back and stops the timers.
 
 ### Dictionary get_charge_system_info( ability_instance: AbilityInstance ) {#method-get-charge-system-info}
 
-*No description yet.*
+The state of the charges as a dictionary (current, maximum, regenerating ...).
 
 ### bool should_show_cooldown_ui( ability_instance: AbilityInstance ) {#method-should-show-cooldown-ui}
 
-*No description yet.*
+Should the interface show a cooldown (a charge is missing and one is coming back)?
 
 ### String get_tooltip_description() {#method-get-tooltip-description}
 
-*Overrides this function of [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition).*
+The text of the tooltip, with the charges.
 
 ### void restore_regeneration( ability_instance: AbilityInstance, cooldown_remaining: float, independent_remaining: Array ) {#method-restore-regeneration}
 

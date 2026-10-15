@@ -30,6 +30,8 @@ Triggers when a specific game time is reached
 
 ### enum TimeEventType {#enum-timeeventtype}
 
+The options of time event type: minute passed, hour passed.
+
 - **MINUTE_PASSED** = `0`
 - **HOUR_PASSED** = `1`
 

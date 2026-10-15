@@ -48,7 +48,7 @@ Skill points that are spent: skill pool id -&gt; points
 
 ### bool is_free() {#method-is-free}
 
-*No description yet.*
+Does the lesson cost nothing?
 
 ### int scaled( amount: int, multiplier: float ) {#method-scaled}
 
@@ -72,5 +72,5 @@ The cost as text: "5 Gold, 2 Iron Ore, 1 Training point". "Free" when there is n
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 

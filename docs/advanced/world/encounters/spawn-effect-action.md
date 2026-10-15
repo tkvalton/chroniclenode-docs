@@ -12,24 +12,24 @@ Spawns a world effect at a specific position during an encounter
 |---|---|---|
 | `int` | [effect_id](#prop-effect-id) | `0` |
 | `Vector3` | [spawn_position](#prop-spawn-position) | `Vector3.ZERO` |
-| `bool` | [use_encounter_center](#prop-use-encounter-center) | `true  # Use encounter center instead of spawn_position` |
-| `Vector3` | [position_offset](#prop-position-offset) | `Vector3.ZERO  # Offset from the chosen position` |
+| `bool` | [use_encounter_center](#prop-use-encounter-center) | `true` |
+| `Vector3` | [position_offset](#prop-position-offset) | `Vector3.ZERO` |
 
 ## Property descriptions
 
 ### int effect_id = 0 {#prop-effect-id}
 
-*No description yet.*
+The world effect to spawn.
 
 ### Vector3 spawn_position = Vector3.ZERO {#prop-spawn-position}
 
-*No description yet.*
+Where the effect appears.
 
-### bool use_encounter_center = true  # Use encounter center instead of spawn_position {#prop-use-encounter-center}
+### bool use_encounter_center = true {#prop-use-encounter-center}
 
-*No description yet.*
+Use encounter center instead of spawn_position
 
-### Vector3 position_offset = Vector3.ZERO  # Offset from the chosen position {#prop-position-offset}
+### Vector3 position_offset = Vector3.ZERO {#prop-position-offset}
 
-*No description yet.*
+Offset from the chosen position
 

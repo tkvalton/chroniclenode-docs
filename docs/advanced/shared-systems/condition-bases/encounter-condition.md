@@ -37,6 +37,8 @@ Base class for conditions that evaluate encounter state. Can target different en
 
 ### enum EncounterTarget {#enum-encountertarget}
 
+The options of encounter target: argument encounter, current active, nearest, unique id.
+
 - **ARGUMENT_ENCOUNTER** = `0` - Use the encounter passed as argument
 - **CURRENT_ACTIVE** = `1` - Use the currently active encounter
 - **NEAREST** = `2` - Use the encounter nearest to argument entity
@@ -90,7 +92,7 @@ Validate encounter targeting configuration
 
 ### String get_expected_argument_type() {#method-get-expected-argument-type}
 
-Get the expected argument type for this condition (for editor hints) Override in subclasses to specify what argument type is expected *(from [Condition](/advanced/shared-systems/condition-bases/condition))*
+The kind of thing the condition is checked against (an entity, an encounter ...).
 
 ### Array[Entity] get_alive_group_members( encounter: Encounter ) {#method-get-alive-group-members}
 

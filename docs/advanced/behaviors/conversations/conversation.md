@@ -48,7 +48,7 @@ All runtime state is managed by ConversationInstance.
 
 ### Array[ConversationChat] conversation_chats = [] {#prop-conversation-chats}
 
-*No description yet.*
+========== EXPORTED PROPERTIES ==========
 
 ### Array[ConversationResponse] conversation_responses = [] {#prop-conversation-responses}
 
@@ -82,63 +82,63 @@ The conversations that take this quest in (it is in their hand-in list)
 
 ### int get_id() {#method-get-id}
 
-*No description yet.*
+========== PUBLIC API - CHATS ==========
 
 ### ConversationChat get_chat_by_id( chat_id: int ) {#method-get-chat-by-id}
 
-*No description yet.*
+The chat with this id, or null.
 
 ### ConversationChat get_first_chat() {#method-get-first-chat}
 
-*No description yet.*
+The chat the conversation starts with.
 
 ### void add_chat( chat: ConversationChat ) {#method-add-chat}
 
-*No description yet.*
+Adds a chat.
 
 ### bool remove_chat( chat_id: int ) {#method-remove-chat}
 
-*No description yet.*
+Removes a chat by id. False when it is not there.
 
 ### int get_next_chat_id() {#method-get-next-chat-id}
 
-*No description yet.*
+The next free chat id.
 
 ### ConversationResponse get_response_by_id( response_id: int ) {#method-get-response-by-id}
 
-*No description yet.*
+========== PUBLIC API - RESPONSES ==========
 
 ### void add_response( response: ConversationResponse ) {#method-add-response}
 
-*No description yet.*
+Adds a response.
 
 ### bool remove_response( response_id: int ) {#method-remove-response}
 
-*No description yet.*
+Removes a response by id. False when it is not there.
 
 ### int get_next_response_id() {#method-get-next-response-id}
 
-*No description yet.*
+The next free response id.
 
 ### Array[ConversationResponse] get_responses_for_chat( chat_id: int ) {#method-get-responses-for-chat}
 
-*No description yet.*
+The responses of a chat.
 
 ### ConversationDiceRoll get_dice_roll_by_id( dice_roll_id: int ) {#method-get-dice-roll-by-id}
 
-*No description yet.*
+========== PUBLIC API - DICE ROLLS ==========
 
 ### void add_dice_roll( dice_roll: ConversationDiceRoll ) {#method-add-dice-roll}
 
-*No description yet.*
+Adds a dice roll.
 
 ### bool remove_dice_roll( dice_roll_id: int ) {#method-remove-dice-roll}
 
-*No description yet.*
+Removes a dice roll by id. False when it is not there.
 
 ### int get_next_dice_roll_id() {#method-get-next-dice-roll-id}
 
-*No description yet.*
+The next free dice roll id.
 
 ### int get_starting_chat_id() {#method-get-starting-chat-id}
 

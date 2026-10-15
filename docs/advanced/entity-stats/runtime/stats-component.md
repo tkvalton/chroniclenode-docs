@@ -29,7 +29,7 @@ Every Entity owns one (`entity.components.stats()`), built from a StatsData. It 
 | `Variant` | [owner_entity](#var-owner-entity) | `null` |
 | `int` | [level](#var-level) | `1` |
 | `Array[int]` | [multiplier_stats](#var-multiplier-stats) | `[]  # Cache of multiplier stat names` |
-| `Dictionary` | [multiplier_bonuses](#var-multiplier-bonuses) | `{}  # Track which stats have multiplier bonuses applied` |
+| `Dictionary` | [multiplier_bonuses](#var-multiplier-bonuses) | `{}` |
 | `int` | [default_growth_profile_id](#var-default-growth-profile-id) | `0` |
 | `Array[DamageLayer]` | [damage_layers](#var-damage-layers) | `[]` |
 | `Array[Dictionary]` | [heal_absorbs](#var-heal-absorbs) | `[]` |
@@ -118,21 +118,35 @@ Pool events
 
 ### pool_removed( pool_id: int, pool_type: String ) {#signal-pool-removed}
 
+Emitted when a pool is removed.
+
 ### pool_value_changed( pool_id: int, current_value: float, max_value: float ) {#signal-pool-value-changed}
+
+Emitted when the value of a pool changes: the pool, the current and the maximum value.
 
 ### pool_overfill_changed( pool_id: int, overfill_amount: float ) {#signal-pool-overfill-changed}
 
+Emitted when the overfill of a pool changes.
+
 ### pool_depleted( pool_id: int ) {#signal-pool-depleted}
+
+Emitted when a pool reaches zero.
 
 ### pool_restored( pool_id: int ) {#signal-pool-restored}
 
+Emitted when a pool goes up from zero.
+
 ### master_pool_depleted() {#signal-master-pool-depleted}
+
+Emitted when the master pool (health) reaches zero: the entity dies.
 
 ### damage_incoming( damage_amount: float, damage_type: int, damage_source: Entity, effect: EffectInstance ) {#signal-damage-incoming}
 
 Combat signals
 
 ### damage_taken( damage_amount: float, damage_source: Entity, effect: EffectInstance, damage_type: int ) {#signal-damage-taken}
+
+Emitted when the entity takes damage: the amount, the source, the effect and the damage type.
 
 ### damage_absorbed_by_pool() {#signal-damage-absorbed-by-pool}
 
@@ -156,6 +170,8 @@ Immunity signals (forwarded from ImmunityComponent)
 
 ### immunity_deactivated( immunity_id: int, immunity_type: ImmunityDefinition.ImmunityType, protected_targets: Array[int] ) {#signal-immunity-deactivated}
 
+Emitted when a temporary immunity ends.
+
 ### school_effect_blocked_by_immunity( school_name: String, immunity_id: int, source_entity: Entity, effect: EffectInstance ) {#signal-school-effect-blocked-by-immunity}
 
 School effect blocking (forwarded from ImmunityComponent)
@@ -163,6 +179,8 @@ School effect blocking (forwarded from ImmunityComponent)
 ## Enumerations
 
 ### enum CoreStats {#enum-corestats}
+
+The options of core stats: movement speed, attack speed, global cooldown duration, weapon speed, cast speed, bag slots, sight range, weapon damage, weapon damage variance, carry capacity.
 
 - **MOVEMENT_SPEED** = `1`
 - **ATTACK_SPEED** = `2`
@@ -177,33 +195,33 @@ School effect blocking (forwarded from ImmunityComponent)
 
 ## Constants
 
-- `int` **MAX_MULTIPLIER_ITERATIONS** = `10  # Safety limit for convergence`
+- `int` **MAX_MULTIPLIER_ITERATIONS** = `10` - Safety limit for convergence
 
 ## Variable descriptions
 
 ### CombatManager combat_manager {#var-combat-manager}
 
-*No description yet.*
+========== CORE PROPERTIES ==========
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
-*No description yet.*
+The manager of timers.
 
 ### Dictionary stat_instances =  {#var-stat-instances}
 
-*No description yet.*
+The stats of the entity, by stat id.
 
 ### Array[EffectInstance] active_redirection_effects = [] {#var-active-redirection-effects}
 
-*No description yet.*
+The effects that send damage to someone else.
 
 ### Array[PoolInstance] health_pools = [] {#var-health-pools}
 
-*No description yet.*
+Pool systems
 
 ### Dictionary resource_pools =  {#var-resource-pools}
 
-*No description yet.*
+The resource pools of the entity, by pool id.
 
 ### Dictionary: core_stats {#var-core-stats}
 
@@ -211,27 +229,27 @@ The totals of all core stats (read-only snapshot)
 
 ### ImmunityComponent immunity_component {#var-immunity-component}
 
-*No description yet.*
+Immunity systems
 
 ### StatusEffectComponent status_effect_component {#var-status-effect-component}
 
-*No description yet.*
+The component that tracks the status effects.
 
 ### int master_pool_id = 0 {#var-master-pool-id}
 
-*No description yet.*
+Configuration
 
 ### bool is_dead = false {#var-is-dead}
 
-*No description yet.*
+True when the master pool is empty.
 
 ### bool current_combat_state = false {#var-current-combat-state}
 
-*No description yet.*
+Combat state tracking (updated by mediator)
 
 ### Variant owner_entity = null {#var-owner-entity}
 
-*No description yet.*
+The entity this component belongs to (set by the component registry). Formulas read its level from it
 
 ### int level = 1 {#var-level}
 
@@ -239,11 +257,11 @@ The level growth and level-scaled formulas read (set by set_level; level 1 until
 
 ### Array[int] multiplier_stats = []  # Cache of multiplier stat names {#var-multiplier-stats}
 
-*No description yet.*
+========== MULTIPLIER TRACKING ==========
 
-### Dictionary multiplier_bonuses =   # Track which stats have multiplier bonuses applied {#var-multiplier-bonuses}
+### Dictionary multiplier_bonuses =  {#var-multiplier-bonuses}
 
-*No description yet.*
+Track which stats have multiplier bonuses applied
 
 ### int default_growth_profile_id = 0 {#var-default-growth-profile-id}
 

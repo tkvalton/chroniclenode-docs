@@ -98,65 +98,65 @@ If true, creates new items instead of taking from entity inventory
 
 ### InteractableObject target_container = null {#var-target-container}
 
-*No description yet.*
+The container the entity opens.
 
 ### bool initial_container_state = false {#var-initial-container-state}
 
-*No description yet.*
+Whether the container was open when the task began.
 
 ### bool container_was_opened_by_us = false {#var-container-was-opened-by-us}
 
-*No description yet.*
+True when the task opened it (so it closes it again).
 
 ### bool items_processed = false {#var-items-processed}
 
-*No description yet.*
+True once the items were taken or put.
 
 ### Vector3 container_position = Vector3.ZERO {#var-container-position}
 
-*No description yet.*
+The position of the container.
 
 ### float interaction_range = 2.0 {#var-interaction-range}
 
-*No description yet.*
+How close the entity must be to open the container.
 
 ### bool movement_completed = false {#var-movement-completed}
 
-*No description yet.*
+True once the entity arrived.
 
 ### bool container_interaction_completed = false {#var-container-interaction-completed}
 
-*No description yet.*
+True once the container was used.
 
 ## Method descriptions
 
 ### void execute_task_start() {#method-execute-task-start}
 
-Override this in subclasses to implement specific task behavior *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Starts the task.
 
 ### void execute_task_interrupt() {#method-execute-task-interrupt}
 
-Override this in subclasses for task interruption logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when something interrupts the task.
 
 ### void execute_task_fail() {#method-execute-task-fail}
 
-Override this in subclasses for task failure logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task fails.
 
 ### InteractableObject get_target_container() {#method-get-target-container}
 
-*No description yet.*
+The container the entity opens.
 
 ### bool is_container_accessible() {#method-is-container-accessible}
 
-*No description yet.*
+Can the container be opened now?
 
 ### float get_distance_to_container() {#method-get-distance-to-container}
 
-*No description yet.*
+The distance to the container (-1 when there is none).
 
 ### bool is_in_container_interaction_range() {#method-is-in-container-interaction-range}
 
-*No description yet.*
+Is the entity close enough to open the container?
 
 ### void set_container_id( new_id: int ) {#method-set-container-id}
 

@@ -76,6 +76,8 @@ Whether an attack is melee or ranged: it picks the base chance to hit and the st
 
 ### enum AmmoSource {#enum-ammosource}
 
+The options of ammo source: none, equipped ammo, item, item group, currency.
+
 - **NONE** = `0` - no ammo or reagent is spent
 - **EQUIPPED_AMMO** = `1` - the ammo equipped in the ammo slot (the player chooses it), of the group the weapon shoots
 - **ITEM** = `2` - a specific item from the inventory (a reagent)
@@ -194,7 +196,7 @@ Override to add active ability specific validation Active abilities complete the
 
 ### AbilityInstance.AbilityUseAttemptResult validate_ability_usage( ability_instance: AbilityInstance, from_action: bool ) {#method-validate-ability-usage}
 
-Passive abilities cannot be actively used. *(from [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition))*
+Checks whether the user can use the ability now (not incapacitated, silenced ...). Gives the result.
 
 ### float get_effective_cooldown_duration( ability_instance: AbilityInstance ) {#method-get-effective-cooldown-duration}
 
@@ -246,5 +248,5 @@ Check if this ability grants any resources
 
 ### String get_tooltip_description() {#method-get-tooltip-description}
 
-*Overrides this function of [PassiveAbilityDefinition](/advanced/abilities-and-effects/abilities/passive-ability-definition).*
+The text of the tooltip, with the cost and the cooldown.
 

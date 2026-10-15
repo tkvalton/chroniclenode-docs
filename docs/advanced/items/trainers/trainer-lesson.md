@@ -157,11 +157,11 @@ The name for the list
 
 ### String get_lesson_description() {#method-get-lesson-description}
 
-*No description yet.*
+The text of the lesson: the one set, else one made from what it teaches.
 
 ### Texture2D get_lesson_icon() {#method-get-lesson-icon}
 
-*No description yet.*
+The icon of the lesson: the one set, else the icon of what it teaches.
 
 ### Dictionary get_steps( player: Player ) {#method-get-steps}
 
@@ -189,5 +189,5 @@ Buys the lesson for the character: checks that it can be bought, takes the cost,
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+========== CHECKS FOR THE EDITOR ==========
 

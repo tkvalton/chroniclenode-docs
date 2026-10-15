@@ -265,5 +265,5 @@ Configure as non-targetable (pure interaction objects)
 
 ### bool is_template() {#method-is-template}
 
-*No description yet.*
+Is this definition a template?
 

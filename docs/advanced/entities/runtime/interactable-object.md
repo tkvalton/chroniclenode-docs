@@ -124,11 +124,19 @@ Signals
 
 ### object_locked( object_id: int ) {#signal-object-locked}
 
+Emitted when the object is locked.
+
 ### object_unlocked( object_id: int ) {#signal-object-unlocked}
+
+Emitted when the object is unlocked.
 
 ### object_damaged( damage_amount: int, damage_source: Entity ) {#signal-object-damaged}
 
+Emitted when the object is damaged (an object with stats can be hit).
+
 ### object_destroyed() {#signal-object-destroyed}
+
+Emitted when the object is destroyed.
 
 ### use_started( user: Entity, duration: float ) {#signal-use-started}
 
@@ -144,15 +152,17 @@ Somebody tried to use the object and was refused (requirements, no room), with w
 
 ### object_health_changed( new_health: int ) {#signal-object-health-changed}
 
+Emitted when the health of the object changes, with the new health.
+
 ## Property descriptions
 
 ### UniqueInteractableData unique_data {#prop-unique-data}
 
-*No description yet.*
+The record of this object in the world (a placed object): its overrides, state and position.
 
 ### InteractableDefinition : definition {#prop-definition}
 
-*No description yet.*
+What kind of object this is: the interactable definition it was made from.
 
 ## Variable descriptions
 
@@ -162,7 +172,7 @@ Core Properties
 
 ### bool is_initialized = false {#var-is-initialized}
 
-*No description yet.*
+True once initialize_interactable has run.
 
 ### Node3D editor_visual {#var-editor-visual}
 
@@ -170,19 +180,19 @@ State Properties (from definition, can be overridden by unique_data)
 
 ### int locked_by_item_id = -1 {#var-locked-by-item-id}
 
-*No description yet.*
+The id of the item that opens the object, or -1 when it is not locked.
 
 ### bool is_interactable = false {#var-is-interactable}
 
-*No description yet.*
+True while the object can be used.
 
 ### FactionDefinition faction {#var-faction}
 
-*No description yet.*
+The faction of the object. It decides who may attack it and who it fights for.
 
 ### is_dead = false {#var-is-dead}
 
-*No description yet.*
+True when the object has been destroyed.
 
 ### bool object_targetable_directly = false {#var-object-targetable-directly}
 
@@ -190,11 +200,11 @@ Targeting flags (from definition)
 
 ### bool object_targetable_by_aoe = false {#var-object-targetable-by-aoe}
 
-*No description yet.*
+True when area effects hit the object (from the definition).
 
 ### bool object_has_stats = false {#var-object-has-stats}
 
-*No description yet.*
+True when the object has stats and pools of its own, so it can be hit (from the definition).
 
 ### bool wants_nameplate = false {#var-wants-nameplate}
 
@@ -202,11 +212,11 @@ Nameplate support
 
 ### Marker3D nameplate_marker {#var-nameplate-marker}
 
-*No description yet.*
+The marker where the nameplate of the object is placed.
 
 ### Nameplate nameplate {#var-nameplate}
 
-*No description yet.*
+The nameplate of the object, if it has one.
 
 ### CollisionShape3D object_collision {#var-object-collision}
 
@@ -214,11 +224,11 @@ Scene Structure References
 
 ### AnimationPlayer animation_player {#var-animation-player}
 
-*No description yet.*
+The animation player of the scene of the object.
 
 ### Label3D interact_prompt_label {#var-interact-prompt-label}
 
-*No description yet.*
+The label above the object that tells the player what the key does.
 
 ### Entity summoner = null {#var-summoner}
 
@@ -226,7 +236,7 @@ Effect refs
 
 ### Effect creating_effect = null {#var-creating-effect}
 
-*No description yet.*
+The effect that made the object (a summoned object), if any.
 
 ### Timer interaction_cooldown_timer {#var-interaction-cooldown-timer}
 
@@ -234,11 +244,11 @@ Interactions
 
 ### bool is_on_interaction_cooldown = false {#var-is-on-interaction-cooldown}
 
-*No description yet.*
+True while the object cannot be used again because of its cooldown.
 
 ### Interaction interaction = null {#var-interaction}
 
-*No description yet.*
+The interaction of the object (a door, a container, a trap ...), made from its definition.
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
@@ -250,29 +260,29 @@ The numbers of the loot rules that have rolled (a rule on Initialize or First Ac
 
 ### ComponentsManager components {#var-components}
 
-*No description yet.*
+The components of the object (stats, effects, inventory, rig ...), made when it is initialized.
 
 ## Method descriptions
 
 ### void initialize_interactable( system_hub: GameHost.SystemHub ) {#method-initialize-interactable}
 
-*No description yet.*
+Builds the object from its definition: resolves its template, makes its components, interaction, faction and stats, and sets it up. Called once when the object is made.
 
 ### void show_interact_prompt() {#method-show-interact-prompt}
 
-*No description yet.*
+Shows the prompt above the object (only to a player who can use it).
 
 ### void hide_interact_prompt() {#method-hide-interact-prompt}
 
-*No description yet.*
+Hides the prompt above the object.
 
 ### void handle_destruction() {#method-handle-destruction}
 
-*No description yet.*
+Destroys the object: plays its death, drops what it drops and tells everyone.
 
 ### bool is_destroyed() {#method-is-destroyed}
 
-*No description yet.*
+Has the object been destroyed?
 
 ### Array[LootRule] get_loot_rules() {#method-get-loot-rules}
 
@@ -292,7 +302,7 @@ Does a destroyed object still hold something to take (loot in its inventory, or 
 
 ### void process_interaction( entity: Entity ) {#method-process-interaction}
 
-*No description yet.*
+Runs the interaction of the object for an entity (checks, then does what the interaction does).
 
 ### String get_requirements_blocker( entity: Entity ) {#method-get-requirements-blocker}
 
@@ -300,7 +310,7 @@ Why the user cannot use the object ("" = they can): what the object asks for (se
 
 ### bool is_in_use() {#method-is-in-use}
 
-*No description yet.*
+Is somebody using the object now (a use that takes time)?
 
 ### void cancel_use() {#method-cancel-use}
 
@@ -308,7 +318,7 @@ The use that takes time is cancelled (the user moved, was hurt, cast an ability,
 
 ### bool is_locked() {#method-is-locked}
 
-*No description yet.*
+Is the object locked?
 
 ### Interaction get_interaction_by_type( type_name: String ) {#method-get-interaction-by-type}
 
@@ -316,99 +326,99 @@ The interaction of this object when it is of the type asked for (the name of its
 
 ### bool unlock_from_external() {#method-unlock-from-external}
 
-*No description yet.*
+Unlocks the object without its key (a script, a switch). False when it was not locked.
 
 ### bool play_animation( anim_name: String ) {#method-play-animation}
 
-*No description yet.*
+Plays an animation on the rig of the object. False when there is none.
 
 ### bool has_animation( anim_name: String ) {#method-has-animation}
 
-*No description yet.*
+Does the rig of the object have this animation?
 
 ### Array[String] get_available_animations() {#method-get-available-animations}
 
-*No description yet.*
+The names of the animations of the rig of the object.
 
 ### void play_sound_stream( stream: AudioStream ) {#method-play-sound-stream}
 
-*No description yet.*
+Plays a sound from the object.
 
 ### Node3D get_attachment_point_node( location: VFXSelection.VfxLocation ) {#method-get-attachment-point-node}
 
-*No description yet.*
+The node where a visual effect attaches (the object itself when it has no rig).
 
 ### int get_unique_id() {#method-get-unique-id}
 
-*No description yet.*
+The id of the unique record of the object (its place in the world), or -1 when it has none.
 
 ### int get_object_id() {#method-get-object-id}
 
-*No description yet.*
+The same as get_unique_id.
 
 ### String get_object_name() {#method-get-object-name}
 
-*No description yet.*
+The name of the object: its display name, else its node name.
 
 ### void set_faction_id( new_faction: FactionDefinition ) {#method-set-faction-id}
 
-*No description yet.*
+Sets the faction of the object.
 
 ### int get_faction_id() {#method-get-faction-id}
 
-*No description yet.*
+The id of the faction of the object.
 
 ### void set_summoner( new_summoner: Entity, effect: Effect = null ) {#method-set-summoner}
 
-*No description yet.*
+Marks the object as summoned by an entity (and by an effect): it takes the faction of the summoner and goes when the summoner dies.
 
 ### void summon_finished() {#method-summon-finished}
 
-*No description yet.*
+Ends the life of a summoned object (it is removed).
 
 ### InventoryComponent get_inventory() {#method-get-inventory}
 
-*No description yet.*
+The inventory component of the object.
 
 ### bool has_inventory() {#method-has-inventory}
 
-*No description yet.*
+Does the object have an inventory?
 
 ### EffectInstance get_effect( effect_id: int ) {#method-get-effect}
 
-*No description yet.*
+The effect of the object with this effect id, or null.
 
 ### EffectInstance get_effect_from_caller( effect_id: int, originator: Entity ) {#method-get-effect-from-caller}
 
-*No description yet.*
+The effect with this id that this originator put on the object, or null.
 
 ### void reduce_effect_stacks( effect_instance: EffectInstance, stacks_to_remove: int ) {#method-reduce-effect-stacks}
 
-*No description yet.*
+Takes stacks off an effect (the effect ends when none is left).
 
 ### Array[EffectInstance] get_active_effects_by_type( effect_type: String ) {#method-get-active-effects-by-type}
 
-*No description yet.*
+The active effects of one effect type (the class name of the type).
 
 ### Array[EffectInstance] get_all_active_effects() {#method-get-all-active-effects}
 
-*No description yet.*
+A copy of the list of the active effects of the object.
 
 ### int get_active_effect_count() {#method-get-active-effect-count}
 
-*No description yet.*
+How many effects are active on the object.
 
 ### bool has_any_active_effects() {#method-has-any-active-effects}
 
-*No description yet.*
+Is any effect active on the object?
 
 ### void remove_all_effects() {#method-remove-all-effects}
 
-*No description yet.*
+Removes every effect from the object.
 
 ### void remove_effects_from_originator( originator: Entity ) {#method-remove-effects-from-originator}
 
-*No description yet.*
+Removes the effects an entity put on the object.
 
 ### DamageResult take_damage( result: DamageResult ) {#method-take-damage}
 
@@ -420,107 +430,107 @@ Completes the HealingResult for a heal on this object (see StatsComponent.take_h
 
 ### bool can_apply_school_effect( school_id: int, source_entity: Variant = null, effect: EffectInstance = null ) {#method-can-apply-school-effect}
 
-*No description yet.*
+Can an effect of this school land on the object?
 
 ### float get_current_health() {#method-get-current-health}
 
-*No description yet.*
+The current health (the current value of the master pool).
 
 ### float get_max_health() {#method-get-max-health}
 
-*No description yet.*
+The maximum health (the maximum of the master pool).
 
 ### float get_health_percentage() {#method-get-health-percentage}
 
-*No description yet.*
+The health as a percentage of the maximum.
 
 ### bool is_health_below( threshold: float ) {#method-is-health-below}
 
-*No description yet.*
+Is the health percentage below the threshold?
 
 ### bool is_health_above( threshold: float ) {#method-is-health-above}
 
-*No description yet.*
+Is the health percentage above the threshold?
 
 ### float get_pool_current( pool_id: int ) {#method-get-pool-current}
 
-*No description yet.*
+The current value of a pool.
 
 ### float get_pool_max( pool_id: int ) {#method-get-pool-max}
 
-*No description yet.*
+The maximum value of a pool.
 
 ### float get_pool_percentage( pool_id: int ) {#method-get-pool-percentage}
 
-*No description yet.*
+The value of a pool as a percentage of its maximum.
 
 ### bool has_pool( pool_id: int ) {#method-has-pool}
 
-*No description yet.*
+Does the object have this pool?
 
 ### bool is_master_pool( pool_id: int ) {#method-is-master-pool}
 
-*No description yet.*
+Is this the master pool of the object (the one whose emptying destroys it)?
 
 ### PoolInstance get_master_pool() {#method-get-master-pool}
 
-*No description yet.*
+The master pool of the object (health).
 
 ### float add_pool_value( pool_id: int, amount: float ) {#method-add-pool-value}
 
-*No description yet.*
+Adds an amount to a pool, up to its maximum. Gives back what was added.
 
 ### bool remove_pool_value( pool_id: int, amount: float ) {#method-remove-pool-value}
 
-*No description yet.*
+Takes an amount from a pool. False when the object has no such pool.
 
 ### bool is_resource_pool( pool_id: int ) {#method-is-resource-pool}
 
-*No description yet.*
+Is the pool a resource pool and not a health pool?
 
 ### float get_stat( stat_id: int ) {#method-get-stat}
 
-*No description yet.*
+The current value of a stat, with every bonus and multiplier.
 
 ### bool has_stat( stat_id: int ) {#method-has-stat}
 
-*No description yet.*
+Does the object have this stat?
 
 ### Array[int] get_stat_ids_in_group( group_id: int ) {#method-get-stat-ids-in-group}
 
-*No description yet.*
+The ids of the stats the object has in a stat group.
 
 ### bool add_stat_bonus( stat_id: int, amount: float ) {#method-add-stat-bonus}
 
-*No description yet.*
+Adds a flat amount to a stat (a negative amount takes away).
 
 ### bool add_stat_multiplier( stat_id: int, amount: float ) {#method-add-stat-multiplier}
 
-*No description yet.*
+Adds to the multiplier of a stat.
 
 ### bool set_stat_base( stat_id: int, value: float ) {#method-set-stat-base}
 
-*No description yet.*
+Sets the base value of a stat.
 
 ### void sync_to_unique_data() {#method-sync-to-unique-data}
 
-*No description yet.*
+Writes the state of the object (locked, destroyed, health, interaction state) into its unique record, so a save keeps it.
 
 ### void set_current_target_hover() {#method-set-current-target-hover}
 
-*No description yet.*
+Shows the hover highlight on the object (the mouse is over it).
 
 ### void set_current_target_on() {#method-set-current-target-on}
 
-*No description yet.*
+Shows the target highlight, in the color of the relation of the object to the player.
 
 ### void set_current_target_off() {#method-set-current-target-off}
 
-*No description yet.*
+Takes the target highlight off.
 
 ### void set_map_marker_icon( type: Entity.MapMarkerType ) {#method-set-map-marker-icon}
 
-*No description yet.*
+Sets the picture of the mini map mark of the object.
 
 ### Dictionary to_save_data() {#method-to-save-data}
 

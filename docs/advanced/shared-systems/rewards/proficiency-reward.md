@@ -26,6 +26,8 @@ Trains the player in a proficiency: experience towards the next level, or whole 
 
 ### enum Mode {#enum-mode}
 
+The options of mode: experience, levels.
+
 - **EXPERIENCE** = `0` - The amount is experience; levels follow when it is enough
 - **LEVELS** = `1` - The amount is whole levels
 
@@ -47,18 +49,13 @@ How much
 
 ### Dictionary apply_to_player( player: Player ) {#method-apply-to-player}
 
-Apply this reward to a player - override in child classes Returns a Dictionary with:
-
-- "success": bool - whether the application succeeded
-- Additional tracking data needed for unapply (e.g., instance IDs, amounts)
-
-Example: &#123;"success": true, "ability_instance_id": 12345, "ability_definition_id": 42&#125; *(from [Reward](/advanced/shared-systems/rewards/reward))*
+Gives the reward to the player. Gives back how it went and what it needs to take the reward back.
 
 ### String get_summary() {#method-get-summary}
 
-Get a user-facing summary of what this reward grants Override in child classes to provide meaningful descriptions Example: "Ability: Fireball (Active)" or "Skill Points: +5 Combat" *(from [Reward](/advanced/shared-systems/rewards/reward))*
+A short text about the reward and its settings.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Validate reward configuration - override in child classes *(from [Reward](/advanced/shared-systems/rewards/reward))*
+Checks the settings of the reward. Gives the problems found (empty when it is fine).
 

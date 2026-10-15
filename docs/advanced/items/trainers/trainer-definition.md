@@ -74,5 +74,5 @@ Does the trainer refuse to teach this player?
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 

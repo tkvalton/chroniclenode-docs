@@ -78,23 +78,43 @@ Runtime instance of a Conversation resource Keeps the underlying resource immuta
 
 ### conversation_started( starting_chat: ConversationChat ) {#signal-conversation-started}
 
+========== SIGNALS ==========
+
 ### conversation_ended() {#signal-conversation-ended}
+
+Emitted when the conversation ends.
 
 ### chat_changed( new_chat: ConversationChat ) {#signal-chat-changed}
 
+Emitted when the conversation moves to another chat (a line of the NPC).
+
 ### dice_roll_completed( roll_result: Dictionary ) {#signal-dice-roll-completed}
+
+Emitted when a dice roll of the conversation is rolled, with its result.
 
 ### switch_interaction_requested( target_interaction: Interaction, player: Entity ) {#signal-switch-interaction-requested}
 
+Emitted when the conversation asks to continue in another interaction of the NPC (a vendor, a trainer ...).
+
 ### quest_hand_in_started( quest: Quest ) {#signal-quest-hand-in-started}
+
+Emitted when the player starts to hand in a quest in the conversation.
 
 ### quest_hand_in_completed( quest: Quest ) {#signal-quest-hand-in-completed}
 
+Emitted when the quest is handed in.
+
 ### quest_offer_started( quest: Quest ) {#signal-quest-offer-started}
+
+Emitted when the NPC offers a quest.
 
 ### quest_offer_accepted( quest: Quest ) {#signal-quest-offer-accepted}
 
+Emitted when the player accepts the offered quest.
+
 ### quest_offer_declined( quest: Quest ) {#signal-quest-offer-declined}
+
+Emitted when the player declines the offered quest.
 
 ## Variable descriptions
 
@@ -120,7 +140,7 @@ Current conversation state
 
 ### Entity active_player = null {#var-active-player}
 
-*No description yet.*
+The player who is talking.
 
 ### Variant source_entity = null {#var-source-entity}
 
@@ -128,7 +148,7 @@ The NPC or entity this conversation belongs to
 
 ### bool is_active = false {#var-is-active}
 
-*No description yet.*
+True while the conversation runs.
 
 ### Quest active_hand_in_quest = null {#var-active-hand-in-quest}
 
@@ -210,39 +230,39 @@ Clear the starting chat override (revert to start_entries evaluation)
 
 ### int get_id() {#method-get-id}
 
-*No description yet.*
+The id of the conversation.
 
 ### ConversationChat get_chat_by_id( chat_id: int ) {#method-get-chat-by-id}
 
-*No description yet.*
+The chat (a line of the NPC) with this id.
 
 ### ConversationChat get_first_chat() {#method-get-first-chat}
 
-*No description yet.*
+The chat the conversation starts with.
 
 ### int get_next_chat_id() {#method-get-next-chat-id}
 
-*No description yet.*
+The next free chat id (for the editor).
 
 ### ConversationResponse get_response_by_id( response_id: int ) {#method-get-response-by-id}
 
-*No description yet.*
+The response (an answer of the player) with this id.
 
 ### int get_next_response_id() {#method-get-next-response-id}
 
-*No description yet.*
+The next free response id (for the editor).
 
 ### Array[ConversationResponse] get_responses_for_chat( chat_id: int ) {#method-get-responses-for-chat}
 
-*No description yet.*
+The responses of a chat.
 
 ### ConversationDiceRoll get_dice_roll_by_id( dice_roll_id: int ) {#method-get-dice-roll-by-id}
 
-*No description yet.*
+The dice roll with this id.
 
 ### int get_next_dice_roll_id() {#method-get-next-dice-roll-id}
 
-*No description yet.*
+The next free dice roll id (for the editor).
 
 ### Array[Quest] get_available_hand_in_quests() {#method-get-available-hand-in-quests}
 

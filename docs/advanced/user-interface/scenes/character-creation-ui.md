@@ -202,7 +202,7 @@ Currently instantiated skeleton in preview
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [CurrentUI](/advanced/user-interface/scenes/current-ui).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void clear_preview_equipment() {#method-clear-preview-equipment}
 

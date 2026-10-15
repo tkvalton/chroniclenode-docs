@@ -38,10 +38,14 @@ Perfect for whirlwind attacks circling an enemy, satellite guard abilities, spir
 
 ### enum OrbitDirection {#enum-orbitdirection}
 
+The options of orbit direction: clockwise, counter clockwise.
+
 - **CLOCKWISE** = `0`
 - **COUNTER_CLOCKWISE** = `1`
 
 ### enum OrbitEndBehavior {#enum-orbitendbehavior}
+
+The options of orbit end behavior: stop in place, return to start, move to target.
 
 - **STOP_IN_PLACE** = `0` - Entity stops wherever it is when orbit ends
 - **RETURN_TO_START** = `1` - Entity teleports back to starting position
@@ -93,21 +97,21 @@ Final radius when spiraling inward (0 = reach the center)
 
 ### void process_before_start( effect_instance: EffectInstance ) {#method-process-before-start}
 
-Override duration setup — point movement effects own their lifecycle via movement completion. Set duration to permanent (0.0) so start_effect() won't create competing duration timers. Child classes that need immediate mode override this themselves. *(from [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect))*
+Called just before the effect starts: sets what must be known first (a permanent duration).
 
 ### void apply_movement_to_point( effect_instance: EffectInstance, entity: Entity, _target_position: Vector3 ) {#method-apply-movement-to-point}
 
-Virtual method for child classes to implement their movement logic *(from [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect))*
+Moves the entity to the target point.
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-*Overrides this function of [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect).*
+Called when the effect ends: takes back what it did.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*Overrides this function of [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect).*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 

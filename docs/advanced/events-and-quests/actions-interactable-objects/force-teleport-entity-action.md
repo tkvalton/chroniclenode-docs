@@ -43,11 +43,11 @@ ID of the entity to teleport
 
 ### InteractableObject target_rabbit_hole = null {#var-target-rabbit-hole}
 
-*No description yet.*
+References
 
 ### Entity target_entity = null {#var-target-entity}
 
-*No description yet.*
+The entity that is sent (found when the action runs).
 
 ## Method descriptions
 

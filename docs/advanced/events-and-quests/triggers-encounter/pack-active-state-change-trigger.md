@@ -35,6 +35,8 @@ Triggers when an encounter is activated or deactivated
 
 ### enum ActiveStateTriggerType {#enum-activestatetriggertype}
 
+The options of active state trigger type: active, inactive.
+
 - **ACTIVE** = `0`
 - **INACTIVE** = `1`
 
@@ -42,17 +44,17 @@ Triggers when an encounter is activated or deactivated
 
 ### int encounter_id = 0 {#prop-encounter-id}
 
-*No description yet.*
+The encounter to watch.
 
 ### ActiveStateTriggerType active_state = ActiveStateTriggerType.ACTIVE {#prop-active-state}
 
-*No description yet.*
+Fire when the encounter becomes active or inactive.
 
 ## Variable descriptions
 
 ### Encounter encounter {#var-encounter}
 
-*No description yet.*
+Reference to the special encounter
 
 ## Method descriptions
 

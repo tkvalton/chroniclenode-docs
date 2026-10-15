@@ -22,11 +22,11 @@ Tells which surface type the ground is at a position on a Terrain3D terrain: the
 
 ### Dictionary[int, String] texture_surface_map =  {#prop-texture-surface-map}
 
-*No description yet.*
+Which surface type each texture of the terrain stands for.
 
 ## Method descriptions
 
 ### String get_surface_type( position: Vector3 ) {#method-get-surface-type}
 
-To be overridden by specific plugin implementations *(from [TerrainProvider](/advanced/world/runtime/terrain-provider))*
+The surface type of the ground at a position (the default when it is not known).
 

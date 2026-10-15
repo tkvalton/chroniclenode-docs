@@ -113,49 +113,49 @@ Auto-face target when attacking
 
 ### Array[Entity] selected_units = [] {#var-selected-units}
 
-*No description yet.*
+Runtime state (not exported)
 
 ### FormationSystem formation_system {#var-formation-system}
 
-*No description yet.*
+Places the selected units in a formation when they are sent somewhere.
 
 ### bool mouse_left_click = false {#var-mouse-left-click}
 
-*No description yet.*
+True while the left button is held.
 
 ### Vector3 drag_start_position_3d {#var-drag-start-position-3d}
 
-*No description yet.*
+Where in the world the drag selection started.
 
 ### Vector2 drag_start_position_2d {#var-drag-start-position-2d}
 
-*No description yet.*
+Where on the screen the drag selection started.
 
 ### Dictionary pending_interaction_targets =  {#var-pending-interaction-targets}
 
-*No description yet.*
+What each unit goes to interact with, by unit.
 
 ## Method descriptions
 
 ### void setup( pc: PlayerController ) {#method-setup}
 
-Setup controller behavior - override in child classes *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Sets the logic up when it becomes the one in use.
 
 ### void cleanup() {#method-cleanup}
 
-Cleanup when switching controllers - override in child classes *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Lets go of what the logic holds when it is replaced.
 
 ### void handle_input_event( event: InputEvent ) {#method-handle-input-event}
 
-Handle input events - override in child classes *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Handles one input event (a click, a key).
 
 ### void process_input( delta: float ) {#method-process-input}
 
-Per-frame input processing - override in child classes *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Handles the input of one frame.
 
 ### Array[Entity] get_selected_units() {#method-get-selected-units}
 
-Get currently selected units (RTS mode) *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+The entities the player has selected.
 
 ### Array[LookBinding] get_look_bindings() {#method-get-look-bindings}
 
@@ -163,7 +163,7 @@ With RELEASE_WITHOUT_DRAG: report a right-click only if the pointer was not drag
 
 ### void on_click_completed( button_index: int, position: Vector2 ) {#method-on-click-completed}
 
-A look binding that requires a drag was released before it became a drag (a plain click) *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Called when a click ends (the button and the place on the screen).
 
 ### Array[int] get_exclusive_buttons() {#method-get-exclusive-buttons}
 
@@ -171,17 +171,17 @@ LMB press/drag/release is this controller's own drag-box selection, so no camera
 
 ### Entity get_current_player() {#method-get-current-player}
 
-Get the primary controlled player *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+The player the logic controls now.
 
 ### void select_single_player( player: Entity ) {#method-select-single-player}
 
-Select a single player (called by UI/external systems) *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Selects one player.
 
 ### void toggle_player_selection( player: Entity ) {#method-toggle-player-selection}
 
-Toggle player selection (called by UI/external systems) *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+Adds the player to the selection, or takes it out.
 
 ### String get_type_display_name() {#method-get-type-display-name}
 
-Get display name for editor *(from [ControllerLogic](/advanced/game-settings/camera-and-controller/controller-logic))*
+The name of the logic in the editor.
 

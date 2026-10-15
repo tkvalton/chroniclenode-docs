@@ -49,7 +49,11 @@ DisplaySettingsManager handles video and graphics settings in the game. It contr
 
 ### window_mode_changed( window_mode_option: SettingsConfig.WindowModeOption ) {#signal-window-mode-changed}
 
+Signal, emitted when the window mode has changed
+
 ### resolution_changed( resolution_option: SettingsConfig.ResolutionOption ) {#signal-resolution-changed}
+
+Signal, emitted when the resolution has changed
 
 ## Variable descriptions
 
@@ -59,7 +63,7 @@ WorldEnviroment ref
 
 ### Viewport viewport {#var-viewport}
 
-*No description yet.*
+The viewport the display settings apply to.
 
 ## Method descriptions
 
@@ -77,11 +81,11 @@ Apply settings specifically for the world environment
 
 ### void set_window_mode( settings: SettingsConfig, window_mode_option: SettingsConfig.WindowModeOption ) {#method-set-window-mode}
 
-*No description yet.*
+Sets the window mode
 
 ### SettingsConfig.WindowModeOption get_window_mode_option( settings: SettingsConfig ) {#method-get-window-mode-option}
 
-*No description yet.*
+Gets the selected window mode option
 
 ### void set_resolution( settings: SettingsConfig, resolution_option: SettingsConfig.ResolutionOption ) {#method-set-resolution}
 
@@ -89,85 +93,85 @@ Sets the resolution
 
 ### SettingsConfig.ResolutionOption get_resolution_option( settings: SettingsConfig ) {#method-get-resolution-option}
 
-*No description yet.*
+Gets the selected resolution option
 
 ### float get_resolution_scale_factor_value( settings: SettingsConfig ) {#method-get-resolution-scale-factor-value}
 
-*No description yet.*
+Gets the resolution scale factor value
 
 ### SettingsConfig.ResolutionScalingOption get_resolution_scaling_mode_option( settings: SettingsConfig ) {#method-get-resolution-scaling-mode-option}
 
-*No description yet.*
+Gets the resolution scaling mode option
 
 ### float get_fsr_sharpness_value( settings: SettingsConfig ) {#method-get-fsr-sharpness-value}
 
-*No description yet.*
+Gets the FSR sharpness value
 
 ### SettingsConfig.VsyncOption get_vsync_option( settings: SettingsConfig ) {#method-get-vsync-option}
 
-*No description yet.*
+Gets the V-Sync option
 
 ### float get_max_fps_value( settings: SettingsConfig ) {#method-get-max-fps-value}
 
-*No description yet.*
+Gets the maximum FPS value
 
 ### SettingsConfig.MSAAOption get_msaa_option( settings: SettingsConfig ) {#method-get-msaa-option}
 
-*No description yet.*
+Gets the MSAA option
 
 ### SettingsConfig.PostProcessAAOption get_post_process_aa_option( settings: SettingsConfig ) {#method-get-post-process-aa-option}
 
-*No description yet.*
+Gets the post-process AA option
 
 ### SettingsConfig.ShadowSizeOption get_shadow_size_option( settings: SettingsConfig ) {#method-get-shadow-size-option}
 
-*No description yet.*
+Gets the shadow size option
 
 ### SettingsConfig.ShadowQualityOption get_shadow_quality_option( settings: SettingsConfig ) {#method-get-shadow-quality-option}
 
-*No description yet.*
+Gets the shadow quality option
 
 ### SettingsConfig.MeshLodOption get_mesh_lod_option( settings: SettingsConfig ) {#method-get-mesh-lod-option}
 
-*No description yet.*
+Gets the mesh LOD option
 
 ### SettingsConfig.SSROption get_ssr_option( settings: SettingsConfig ) {#method-get-ssr-option}
 
-*No description yet.*
+Gets the SSR option
 
 ### SettingsConfig.SSAOOption get_ssao_option( settings: SettingsConfig ) {#method-get-ssao-option}
 
-*No description yet.*
+Gets the SSAO option
 
 ### SettingsConfig.SSILOption get_ssil_option( settings: SettingsConfig ) {#method-get-ssil-option}
 
-*No description yet.*
+Gets the SSIL option
 
 ### SettingsConfig.SDFGIOption get_sdfgi_option( settings: SettingsConfig ) {#method-get-sdfgi-option}
 
-*No description yet.*
+Gets the SDFGI option
 
 ### SettingsConfig.GlowOption get_glow_option( settings: SettingsConfig ) {#method-get-glow-option}
 
-*No description yet.*
+Gets the glow option
 
 ### SettingsConfig.VolumetricFogOption get_volumetric_fog_option( settings: SettingsConfig ) {#method-get-volumetric-fog-option}
 
-*No description yet.*
+Gets the volumetric fog option
 
 ### float get_brightness_value( settings: SettingsConfig ) {#method-get-brightness-value}
 
-*No description yet.*
+Gets the brightness value
 
 ### float get_contrast_value( settings: SettingsConfig ) {#method-get-contrast-value}
 
-*No description yet.*
+Gets the contrast value
 
 ### float get_saturation_value( settings: SettingsConfig ) {#method-get-saturation-value}
 
-*No description yet.*
+Gets the saturation value
 
 ### void apply_all_settings( settings: SettingsConfig ) {#method-apply-all-settings}
 
-*No description yet.*
+Applies all settings from the provided SettingsConfig object
 

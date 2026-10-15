@@ -47,15 +47,15 @@ Custom interaction name (if empty, uses quest display name)
 
 ### bool can_interact( player: Player ) {#method-can-interact}
 
-Check if the player can interact with this interaction *(from [Interaction](/advanced/entities/interactions/interaction))*
+Can the player use it: the quest is not granted yet and the requirements are met?
 
 ### void start_interaction( player: Player ) {#method-start-interaction}
 
-Start the interaction with the given player *(from [Interaction](/advanced/entities/interactions/interaction))*
+Activates the quest for the player.
 
 ### String get_interaction_name() {#method-get-interaction-name}
 
-*No description yet.*
+The name of the interaction in the menu: the custom one, else a default.
 
 ### Dictionary save_state() {#method-save-state}
 
@@ -63,5 +63,5 @@ What is saved of this interaction
 
 ### void load_state( state: Dictionary ) {#method-load-state}
 
-*No description yet.*
+Restores whether the quest was granted.
 

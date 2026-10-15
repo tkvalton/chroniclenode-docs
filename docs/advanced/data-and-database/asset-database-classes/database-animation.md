@@ -37,8 +37,8 @@ The first folder level is an ENTITY TYPE (humanoid, monster ...). Inside it are 
 
 ## Constants
 
-- `String` **ANIMATIONS_RESOURCES_PATH** = `"res://src/data/animations/"`
-- `Dictionary` **ANIMATION_PACKAGES** = `{`
+- `String` **ANIMATIONS_RESOURCES_PATH** = `"res://src/data/animations/"` - The folder the animations are read from.
+- `Dictionary` **ANIMATION_PACKAGES** = `{` - Animation package definitions - simplified structure Updated: weapon_melee and weapon_ranged merged into "weapon", added "aim" and "reload"
 
 ## Method descriptions
 

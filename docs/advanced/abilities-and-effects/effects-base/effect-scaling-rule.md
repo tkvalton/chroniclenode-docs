@@ -32,6 +32,8 @@ One rule that scales the damage or healing of an effect by something about the t
 
 ### enum Source {#enum-source}
 
+The options of source: target health percent, target missing health percent, target pool value, target pool percent, target has protective pool, target effect stacks, target has tag, originator health percent, originator pool percent.
+
 - **TARGET_HEALTH_PERCENT** = `0` - the target's health as a percentage (0 to 100)
 - **TARGET_MISSING_HEALTH_PERCENT** = `1` - 100 minus that
 - **TARGET_POOL_VALUE** = `2` - the current value of one of the target's pools
@@ -44,6 +46,8 @@ One rule that scales the damage or healing of an effect by something about the t
 
 ### enum Applies {#enum-applies}
 
+The options of applies: always, below, above.
+
 - **ALWAYS** = `0` - the rule always applies
 - **BELOW** = `1` - only while the measured value is below the threshold
 - **ABOVE** = `2` - only while it is above the threshold
@@ -52,7 +56,7 @@ One rule that scales the damage or healing of an effect by something about the t
 
 ### Source source = Source.TARGET_HEALTH_PERCENT {#prop-source}
 
-*No description yet.*
+What the rule looks at (the health of the target, the health of the originator ...).
 
 ### int pool_id = 0 {#prop-pool-id}
 
@@ -72,7 +76,7 @@ The entity type looked for (tag source)
 
 ### Applies applies_when = Applies.ALWAYS {#prop-applies-when}
 
-*No description yet.*
+When the rule applies (always, or only when a condition holds).
 
 ### float threshold = 0.0 {#prop-threshold}
 
@@ -98,5 +102,5 @@ The bonus percent this rule gives for the effect instance (0 when its condition 
 
 ### String get_summary() {#method-get-summary}
 
-*No description yet.*
+A short text about what the rule scales from and when it applies.
 

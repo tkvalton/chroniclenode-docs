@@ -72,49 +72,61 @@ AbilityComponent orchestrates ability instances for an entity. Manages collectio
 
 ### ability_use_attempt_rejected( user: Entity, ability_instance: AbilityInstance, use_result: AbilityInstance.AbilityUseAttemptResult ) {#signal-ability-use-attempt-rejected}
 
+========== SIGNALS ==========
+
 ### ability_use_attempt_approved( user: Entity, ability_instance: AbilityInstance ) {#signal-ability-use-attempt-approved}
+
+Emitted when an attempt to use an ability passed every check and the ability is going to run.
 
 ### global_cooldown_started() {#signal-global-cooldown-started}
 
+Emitted when the global cooldown starts.
+
 ### global_cooldown_ended() {#signal-global-cooldown-ended}
+
+Emitted when the global cooldown ends.
 
 ### ability_learned( ability_instance: AbilityInstance, ability_type: String ) {#signal-ability-learned}
 
+Emitted when the entity learns an ability: the instance and its type (active or passive).
+
 ### ability_forgotten( ability_instance: AbilityInstance, ability_type: String ) {#signal-ability-forgotten}
+
+Emitted when the entity loses an ability: the instance and its type.
 
 ## Variable descriptions
 
 ### Entity user = null {#var-user}
 
-*No description yet.*
+========== PROPERTIES ==========
 
 ### AbilityInstance basic_attack = null {#var-basic-attack}
 
-*No description yet.*
+The basic attack the entity uses now.
 
 ### AbilityInstance original_basic_attack_instance = null {#var-original-basic-attack-instance}
 
-*No description yet.*
+The basic attack the entity started with, kept so a swapped one can be taken off again.
 
 ### Array[AbilityInstance] active_abilities = [] {#var-active-abilities}
 
-*No description yet.*
+The active abilities the entity knows.
 
 ### Array[AbilityInstance] passive_abilities = [] {#var-passive-abilities}
 
-*No description yet.*
+The passive abilities the entity knows.
 
 ### Timer global_cooldown_timer = null {#var-global-cooldown-timer}
 
-*No description yet.*
+The timer of the global cooldown (stopped when there is none).
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
-*No description yet.*
+The manager of timers the component takes its timers from.
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 
-*No description yet.*
+The hub of the game systems.
 
 ### Dictionary group_cooldown_timers =  {#var-group-cooldown-timers}
 
@@ -148,23 +160,23 @@ The ranks that all the sources together add to an ability
 
 ### void setup_starting_abilites() {#method-setup-starting-abilites}
 
-*No description yet.*
+Gives the entity the abilities of its definition (and of its template and class): its basic attack, active and passive abilities.
 
 ### bool add_basic_attack_instance( ability_instance: AbilityInstance ) {#method-add-basic-attack-instance}
 
-*No description yet.*
+Sets the basic attack of the entity. False for an empty instance.
 
 ### bool swap_basic_attack( ability_instance: AbilityInstance ) {#method-swap-basic-attack}
 
-*No description yet.*
+Replaces the basic attack (a weapon that has its own). The original is kept for remove_basic_attack.
 
 ### bool remove_basic_attack() {#method-remove-basic-attack}
 
-*No description yet.*
+Takes the swapped basic attack away and gives the original back.
 
 ### bool add_active_ability_instance( ability_instance: AbilityInstance ) {#method-add-active-ability-instance}
 
-*No description yet.*
+Adds an active ability. False when the entity already has it or the instance is empty.
 
 ### bool add_passive_ability_instance( ability_instance: AbilityInstance ) {#method-add-passive-ability-instance}
 
@@ -172,19 +184,19 @@ Add a passive ability instance. AbilityInstance manages its own passive effect a
 
 ### bool remove_active_ability_by_id( ability_id: int ) {#method-remove-active-ability-by-id}
 
-*No description yet.*
+Removes an active ability by its id. False when the entity does not know it.
 
 ### bool remove_active_ability_instance( ability_instance: AbilityInstance ) {#method-remove-active-ability-instance}
 
-*No description yet.*
+Removes an active ability instance.
 
 ### bool remove_passive_ability_by_id( ability_id: int ) {#method-remove-passive-ability-by-id}
 
-*No description yet.*
+Removes a passive ability by its id. False when the entity does not know it.
 
 ### bool remove_passive_ability_instance( ability_instance: AbilityInstance ) {#method-remove-passive-ability-instance}
 
-*No description yet.*
+Removes a passive ability instance.
 
 ### void deactivate_all_toggles() {#method-deactivate-all-toggles}
 
@@ -192,35 +204,35 @@ Switches every toggle ability of this entity off (death, a dispel, a stance rese
 
 ### AbilityInstance get_ability_instance_by_id( ability_id: int ) {#method-get-ability-instance-by-id}
 
-*No description yet.*
+The ability (basic attack, active or passive) with this id, or null.
 
 ### AbilityInstance get_active_ability_instance_by_id( ability_id: int ) {#method-get-active-ability-instance-by-id}
 
-*No description yet.*
+The active ability with this id, or null.
 
 ### AbilityInstance get_passive_ability_instance_by_id( ability_id: int ) {#method-get-passive-ability-instance-by-id}
 
-*No description yet.*
+The passive ability with this id, or null.
 
 ### AbilityInstance get_ability_instance_by_name( ability_name: String ) {#method-get-ability-instance-by-name}
 
-*No description yet.*
+The ability (basic attack, active or passive) with this display name, or null.
 
 ### AbilityInstance get_active_ability_instance_by_name( ability_name: String ) {#method-get-active-ability-instance-by-name}
 
-*No description yet.*
+The active ability with this display name, or null.
 
 ### AbilityInstance get_passive_ability_instance_by_name( ability_name: String ) {#method-get-passive-ability-instance-by-name}
 
-*No description yet.*
+The passive ability with this display name, or null.
 
 ### Array[AbilityInstance] get_all_ability_instances() {#method-get-all-ability-instances}
 
-*No description yet.*
+Every ability of the entity: the basic attack, the active ones and the passive ones.
 
 ### void modify_ability_property( ability_name: String, property_name: String, effect_value: float, calculation_type: int, source: Variant = "stat" ) {#method-modify-ability-property}
 
-*No description yet.*
+Changes a property of an ability by name ("*" for all of them): the amount, how it is applied (add, multiply ...) and where it comes from.
 
 ### void clear_ability_property_modifiers( source: Variant ) {#method-clear-ability-property-modifiers}
 
@@ -228,39 +240,39 @@ Takes away everything one source (an effect instance, a stat effect) modified on
 
 ### AbilityInstance.AbilityUseAttemptResult attempt_use_basic_attack() {#method-attempt-use-basic-attack}
 
-*No description yet.*
+Tries to use the basic attack. The result says whether it ran or why not.
 
 ### AbilityInstance.AbilityUseAttemptResult attempt_use_ability_instance( ability_instance: AbilityInstance, target: Variant, from_action: bool ) {#method-attempt-use-ability-instance}
 
-*No description yet.*
+Tries to use an ability on a target (an entity or a point). From action says whether a key press asked for it. The result says whether it ran or why not.
 
 ### AbilityInstance.AbilityUseAttemptResult attempt_use_ability_by_id( ability_id: int, target: Variant, from_action: bool ) {#method-attempt-use-ability-by-id}
 
-*No description yet.*
+Tries to use the ability with this id (the same as attempt_use_ability_instance).
 
 ### bool is_on_global_cooldown() {#method-is-on-global-cooldown}
 
-*No description yet.*
+Is the global cooldown running?
 
 ### float get_global_cooldown_remaining() {#method-get-global-cooldown-remaining}
 
-*No description yet.*
+How many seconds of the global cooldown are left.
 
 ### Dictionary to_save_data() {#method-to-save-data}
 
-*No description yet.*
+The abilities of the entity for a save: the global cooldown, the basic attack and each ability with its cooldowns and charges.
 
 ### void from_save_data( save_data: Dictionary ) {#method-from-save-data}
 
-*No description yet.*
+Restores the abilities from a save.
 
 ### void cleanup_timers() {#method-cleanup-timers}
 
-*No description yet.*
+Returns the cooldown timers to the manager.
 
 ### void cleanup() {#method-cleanup}
 
-*No description yet.*
+Cleans up every ability and timer of the component (the entity is going away).
 
 ### AbilityInstance get_passive_ability_by_id( ability_id: int ) {#method-get-passive-ability-by-id}
 
@@ -268,15 +280,15 @@ Alias used by the item classes (armor and weapon class passives)
 
 ### void lock_school( school_id: int ) {#method-lock-school}
 
-*No description yet.*
+Locks a school: abilities of it cannot be used. It counts, so two locks need two unlocks.
 
 ### void unlock_school( school_id: int ) {#method-unlock-school}
 
-*No description yet.*
+Takes one lock off a school.
 
 ### bool is_school_locked( school_id: int ) {#method-is-school-locked}
 
-*No description yet.*
+Is the school locked now?
 
 ### void start_group_cooldowns( group_ids: Array[int], own_duration: float, source: Variant = null ) {#method-start-group-cooldowns}
 
@@ -288,9 +300,9 @@ The longest time left on a shared cooldown among these groups (0 = none running)
 
 ### void set_weapon_basic_attack( ability_id: int ) {#method-set-weapon-basic-attack}
 
-*No description yet.*
+Makes the basic attack of the weapon the basic attack of the entity (0 clears it).
 
 ### void clear_weapon_basic_attack() {#method-clear-weapon-basic-attack}
 
-*No description yet.*
+Takes the weapon basic attack away: the entity uses its own again.
 

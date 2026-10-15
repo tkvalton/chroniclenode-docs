@@ -33,5 +33,5 @@ Tier level for crafting system progression - higher tiers enable more advanced r
 
 ### bool can_use( _user: Entity, _item_instance: ItemInstance = null ) {#method-can-use}
 
-Check if this item can be used by a specific user Pure validation - no side effects item_instance parameter is optional but needed for quest items *(from [ItemDefinition](/advanced/items/item-definitions/item-definition))*
+Materials cannot be "used" directly - they serve as crafting components or vendor items
 

@@ -17,9 +17,9 @@ The plain-text tooltip: a name and a description. Shown for a setting, a button 
 
 ### void set_systems_refs( system_hub: GameHost.SystemHub ) {#method-set-systems-refs}
 
-*Overrides this function of [TooltipBase](/advanced/user-interface/tooltips/tooltip-base).*
+Gives the tooltip the hub of the game systems.
 
 ### void set_tooltip_data( tooltip_name: String, tooltip_text_a: String ) {#method-set-tooltip-data}
 
-*No description yet.*
+Sets the name and the text.
 

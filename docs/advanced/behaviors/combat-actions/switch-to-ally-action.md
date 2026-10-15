@@ -12,7 +12,7 @@ Switches target to ally based on various criteria
 |---|---|---|
 | `float` | [search_range](#prop-search-range) | `15.0` |
 | `TargetCriteria` | [target_criteria](#prop-target-criteria) | `TargetCriteria.NEAREST` |
-| `float` | [health_threshold_percent](#prop-health-threshold-percent) | `-1.0  # -1 = ignore health threshold` |
+| `float` | [health_threshold_percent](#prop-health-threshold-percent) | `-1.0` |
 | `int` | [required_effect_id](#prop-required-effect-id) | `0  # 0 = no effect requirement` |
 | `bool` | [exclude_self](#prop-exclude-self) | `true` |
 
@@ -32,21 +32,21 @@ Switches target to ally based on various criteria
 
 ### float search_range = 15.0 {#prop-search-range}
 
-*No description yet.*
+How far to look for an ally.
 
 ### TargetCriteria target_criteria = TargetCriteria.NEAREST {#prop-target-criteria}
 
-*No description yet.*
+Which ally to pick (the nearest, the weakest ...).
 
-### float health_threshold_percent = -1.0  # -1 = ignore health threshold {#prop-health-threshold-percent}
+### float health_threshold_percent = -1.0 {#prop-health-threshold-percent}
 
-*No description yet.*
+-1 = ignore health threshold
 
 ### int required_effect_id = 0  # 0 = no effect requirement {#prop-required-effect-id}
 
-*No description yet.*
+Only allies with this effect count (0 = no filter).
 
 ### bool exclude_self = true {#prop-exclude-self}
 
-*No description yet.*
+True when the entity cannot pick itself.
 

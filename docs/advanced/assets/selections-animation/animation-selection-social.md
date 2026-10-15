@@ -26,6 +26,8 @@ Animation selection for social/behavior animations - supports three different st
 
 ### enum SocialCategory {#enum-socialcategory}
 
+The options of social category: emote, random, action.
+
 - **EMOTE** = `0`
 - **RANDOM** = `1`
 
@@ -33,15 +35,15 @@ Animation selection for social/behavior animations - supports three different st
 
 ### SocialCategory category = SocialCategory.EMOTE {#prop-category}
 
-*No description yet.*
+Which kind of social animation (an emote ...).
 
 ### String subcategory = ""  # e.g., "wave", "dance", "sit" {#prop-subcategory}
 
-*No description yet.*
+The group inside the category.
 
 ### String reference_library = ""  # What entity library was used {#prop-reference-library}
 
-*No description yet.*
+The animation library the animation comes from.
 
 ## Method descriptions
 

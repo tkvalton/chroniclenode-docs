@@ -33,6 +33,8 @@ A phase runs in two steps. Phase 1, triggers: every stat the entity has points i
 
 ### enum CalculationType {#enum-calculationtype}
 
+The options of calculation type: damage done, damage taken, healing done, healing taken.
+
 - **DAMAGE_DONE** = `0`
 - **DAMAGE_TAKEN** = `1`
 - **HEALING_DONE** = `2`
@@ -46,15 +48,15 @@ A phase runs in two steps. Phase 1, triggers: every stat the entity has points i
 
 ### String calculation_name = "" {#var-calculation-name}
 
-*No description yet.*
+The name of the calculation (damage done, healing taken ...).
 
 ### CalculationType calculation_type = CalculationType.DAMAGE_DONE {#var-calculation-type}
 
-*No description yet.*
+Which of the four calculations this is.
 
 ### CombatManager combat_manager {#var-combat-manager}
 
-*No description yet.*
+The manager of combat of the game.
 
 ## Method descriptions
 
@@ -68,9 +70,9 @@ Adds what the stat effects can filter a hit by to the context: the school of the
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+========== VALIDATION ==========
 
 ### Dictionary get_debug_info() {#method-get-debug-info}
 
-*No description yet.*
+========== UTILITY METHODS ==========
 

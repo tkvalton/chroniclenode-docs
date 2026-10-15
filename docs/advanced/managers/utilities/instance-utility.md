@@ -30,7 +30,7 @@ Utility script to help item/ability creation anywhere.
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 
-*No description yet.*
+The hub of the game systems.
 
 ## Method descriptions
 
@@ -56,7 +56,7 @@ Create multiple item instances (for stacking items)
 
 ### InventoryComponent get_current_player_inventory() {#method-get-current-player-inventory}
 
-*No description yet.*
+The inventory of the current player, or null.
 
 ### bool add_item_to_inventory( inventory: InventoryComponent, item_id: int, quantity: int = 1 ) {#method-add-item-to-inventory}
 
@@ -68,5 +68,5 @@ Remove item by ID from any inventory (finds and removes instances)
 
 ### AbilityInstance create_ability_instance( definition: AbilityDefinition, user: Entity ) {#method-create-ability-instance}
 
-*No description yet.*
+Makes an ability instance of a definition for a user.
 

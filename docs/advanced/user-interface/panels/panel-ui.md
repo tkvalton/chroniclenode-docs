@@ -39,35 +39,67 @@ The base of every window of the interface (the character sheet, the spellbook, t
 
 ### window_closed() {#signal-window-closed}
 
+========== COMMON SIGNALS ========== Window management
+
 ### ability_tooltip_requested( ability: AbilityInstance ) {#signal-ability-tooltip-requested}
+
+Tooltips
 
 ### skill_node_tooltip_requested( node: SkillNode ) {#signal-skill-node-tooltip-requested}
 
+Asks the interface to show the tooltip of a skill node.
+
 ### item_tooltip_requested( item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary ) {#signal-item-tooltip-requested}
+
+Asks the interface to show the tooltip of an item: the item, its definition, where it is and extra data.
 
 ### effect_tooltip_requested( effect: EffectInstance ) {#signal-effect-tooltip-requested}
 
+Asks the interface to show the tooltip of an effect.
+
 ### description_tooltip_requested( object_name: String, description: String ) {#signal-description-tooltip-requested}
+
+Asks the interface to show a tooltip with a name and a text.
 
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
 
+Asks the interface to hide the tooltip (force hides it at once).
+
 ### message_requested( message: String ) {#signal-message-requested}
+
+Messages
 
 ### warning_message_requested( message: String ) {#signal-warning-message-requested}
 
+Asks the interface to show a warning.
+
 ### ui_sfx_request( sound: AudioManager.UISound, volume_modifier: float ) {#signal-ui-sfx-request}
+
+Audio Request
 
 ### socket_panel_requested( item: ItemInstance ) {#signal-socket-panel-requested}
 
+Panels
+
 ### drag_from_inventory_requested( item: ItemInstance, quantity: int, slot_data: SlotInstance ) {#signal-drag-from-inventory-requested}
+
+Dragged signals
 
 ### split_drag_from_inventory_requested( item: ItemInstance, split_amount: int, slot_data: SlotInstance ) {#signal-split-drag-from-inventory-requested}
 
+Asks the interface to start dragging part of a stack from the inventory.
+
 ### drag_from_equipment_requested( item: ItemInstance, slot_data: SlotInstance ) {#signal-drag-from-equipment-requested}
+
+Asks the interface to start dragging an item out of an equipment slot.
 
 ### enchant_scroll_use_requested( scroll: ItemInstance, player: Entity ) {#signal-enchant-scroll-use-requested}
 
+Asks the interface to use an enchant scroll on an item.
+
 ### ability_drag_requested( ability: AbilityInstance ) {#signal-ability-drag-requested}
+
+Asks the interface to start dragging an ability (onto the action bar).
 
 ## Property descriptions
 
@@ -107,7 +139,7 @@ Window dragging
 
 ### Vector2 drag_offset {#var-drag-offset}
 
-*No description yet.*
+Where in the window the player grabbed it, while it is dragged.
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 
@@ -117,7 +149,7 @@ SystemHubRef for ease of ui creation
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*No description yet.*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void close_panel() {#method-close-panel}
 

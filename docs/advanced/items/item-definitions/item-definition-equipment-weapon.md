@@ -97,43 +97,43 @@ Override to include weapon combat stats in the stat bonuses
 
 ### float get_average_damage() {#method-get-average-damage}
 
-*No description yet.*
+Get average damage for calculations
 
 ### float get_damage_variance() {#method-get-damage-variance}
 
-*No description yet.*
+Get damage variance (±amount around average)
 
 ### int get_weapon_damage() {#method-get-weapon-damage}
 
-*No description yet.*
+Get random damage within the weapon's range (for direct weapon attacks)
 
 ### String get_damage_range_text() {#method-get-damage-range-text}
 
-*No description yet.*
+Get damage range as string for UI
 
 ### float get_weapon_speed() {#method-get-weapon-speed}
 
-*No description yet.*
+Get the weapon's base swing speed in seconds
 
 ### void set_weapon_speed( new_speed: float ) {#method-set-weapon-speed}
 
-*No description yet.*
+Set the weapon's swing speed
 
 ### float get_base_attacks_per_second() {#method-get-base-attacks-per-second}
 
-*No description yet.*
+Get base attacks per second (before character modifiers)
 
 ### float get_attacks_per_minute() {#method-get-attacks-per-minute}
 
-*No description yet.*
+Get attacks per minute for display
 
 ### float get_base_damage_per_second() {#method-get-base-damage-per-second}
 
-*No description yet.*
+Calculate base DPS (before character bonuses)
 
 ### String get_speed_category() {#method-get-speed-category}
 
-*No description yet.*
+Get weapon speed category for UI display
 
 ### int get_weapon_damage_type() {#method-get-weapon-damage-type}
 
@@ -161,11 +161,11 @@ Get damage type for display (capitalize first letter)
 
 ### Shape3D get_weapon_collision_shape() {#method-get-weapon-collision-shape}
 
-*No description yet.*
+The collision shape of the weapon, from its template.
 
 ### bool validate_collision_template() {#method-validate-collision-template}
 
-*No description yet.*
+Does the collision template of the weapon exist?
 
 ### int get_weapon_hand_requirement() {#method-get-weapon-hand-requirement}
 
@@ -173,15 +173,15 @@ How many hands the weapon takes: 2 when its weapon type blocks other slots (a tw
 
 ### WeaponTypeDefinition get_weapon_type_definition() {#method-get-weapon-type-definition}
 
-*No description yet.*
+The weapon type of the class of the weapon, or null.
 
 ### Array[EquipmentSlotDefinition] get_blocked_equipment_slots() {#method-get-blocked-equipment-slots}
 
-*No description yet.*
+The slots this weapon blocks while it is worn.
 
 ### WeaponClassDefinition get_weapon_class() {#method-get-weapon-class}
 
-*No description yet.*
+The weapon class of the weapon, or null.
 
 ### bool has_valid_weapon_type() {#method-has-valid-weapon-type}
 
@@ -189,11 +189,11 @@ Check if weapon type is valid
 
 ### float get_weapon_scale() {#method-get-weapon-scale}
 
-*No description yet.*
+Get the weapon scale
 
 ### void set_weapon_scale( new_scale: float ) {#method-set-weapon-scale}
 
-*No description yet.*
+Set the weapon scale
 
 ### bool can_use( user: Entity, item_instance: ItemInstance = null ) {#method-can-use}
 

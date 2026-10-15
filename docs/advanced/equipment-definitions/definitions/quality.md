@@ -91,7 +91,7 @@ How many prefix affixes roll (picked from the affixes the item can have)
 
 ### int prefixes_max = 0 {#prop-prefixes-max}
 
-*No description yet.*
+The most prefixes a generated item of this quality can get.
 
 ### int suffixes_min = 0 {#prop-suffixes-min}
 
@@ -99,7 +99,7 @@ How many suffix affixes roll
 
 ### int suffixes_max = 0 {#prop-suffixes-max}
 
-*No description yet.*
+The most suffixes a generated item of this quality can get.
 
 ### int silent_min = 0 {#prop-silent-min}
 
@@ -107,7 +107,7 @@ How many silent affixes roll (affixes with no name: extra stats that do not chan
 
 ### int silent_max = 0 {#prop-silent-max}
 
-*No description yet.*
+The most silent affixes (without a name) a generated item of this quality can get.
 
 ### int effects_min = 0 {#prop-effects-min}
 
@@ -115,7 +115,7 @@ How many effect affixes roll (affixes that give an effect)
 
 ### int effects_max = 0 {#prop-effects-max}
 
-*No description yet.*
+The most effects a generated item of this quality can get.
 
 *Sockets*
 
@@ -125,7 +125,7 @@ Extra sockets the item gets
 
 ### int sockets_max = 0 {#prop-sockets-max}
 
-*No description yet.*
+The most sockets a generated item of this quality can get.
 
 ### Array[int] socket_pool = [] {#prop-socket-pool}
 
@@ -153,25 +153,25 @@ A random number of affixes between a minimum and a maximum (a maximum below the 
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Validation
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 
 ### String get_id() {#method-get-id}
 
-*No description yet.*
+Get ID from filename
 
 ### bool is_higher_than( other: Quality ) {#method-is-higher-than}
 
-*No description yet.*
+Helper method to check if this quality is higher than another
 
 ### bool is_lower_than( other: Quality ) {#method-is-lower-than}
 
-*No description yet.*
+Helper method to check if this quality is lower than another
 
 ### String get_quality_description() {#method-get-quality-description}
 
-*No description yet.*
+Get quality description including tier information
 

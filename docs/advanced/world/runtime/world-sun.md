@@ -44,57 +44,57 @@ Chronomanager ref
 
 ### bool day_night_cycle = true {#var-day-night-cycle}
 
-*No description yet.*
+Fallback/default values (used if no config is applied)
 
 ### float sun_rise_hour = 6.0 {#var-sun-rise-hour}
 
-*No description yet.*
+The hour of the day the sun rises.
 
 ### float sun_set_hour = 20.5 {#var-sun-set-hour}
 
-*No description yet.*
+The hour of the day the sun sets.
 
 ### float max_light_energy = 2.0 {#var-max-light-energy}
 
-*No description yet.*
+The light energy at noon.
 
 ### float min_light_energy = 0.5 {#var-min-light-energy}
 
-*No description yet.*
+The light energy at night.
 
 ### float dawn_dusk_light = 1.0 {#var-dawn-dusk-light}
 
-*No description yet.*
+The light energy at dawn and dusk.
 
 ### Color day_light_color = Color("fffff2ff") {#var-day-light-color}
 
-*No description yet.*
+The color of the light by day.
 
 ### Color dawn_light_color = Color("ffcc99ff") {#var-dawn-light-color}
 
-*No description yet.*
+The color of the light at dawn.
 
 ### Color dusk_light_color = Color("ffb380ff") {#var-dusk-light-color}
 
-*No description yet.*
+The color of the light at dusk.
 
 ### Color night_light_color = Color("333380ff") {#var-night-light-color}
 
-*No description yet.*
+The color of the light at night.
 
 ## Method descriptions
 
 ### void update_sun_position( current_time: float ) {#method-update-sun-position}
 
-*No description yet.*
+Update the sun's position based on the current game time
 
 ### void update_light_energy( current_time: float ) {#method-update-light-energy}
 
-*No description yet.*
+Update the light energy (brightness) based on time of day
 
 ### void update_light_color( current_time: float ) {#method-update-light-color}
 
-*No description yet.*
+Update the light color based on time of day
 
 ### void apply_sun_config( config: SunConfig ) {#method-apply-sun-config}
 

@@ -11,8 +11,8 @@ ColorButton - Button that displays and selects a color Used in character creatio
 | | | |
 |---|---|---|
 | `Color` | [button_color](#prop-button-color) | `Color.WHITE:` |
-| `Color` | [border_selected_color](#prop-border-selected-color) | `Color(1.0, 0.843, 0.0)  # Gold` |
-| `Color` | [border_unselected_color](#prop-border-unselected-color) | `Color(0.5, 0.5, 0.5)  # Grey` |
+| `Color` | [border_selected_color](#prop-border-selected-color) | `Color(1.0, 0.843, 0.0)` |
+| `Color` | [border_unselected_color](#prop-border-unselected-color) | `Color(0.5, 0.5, 0.5)` |
 
 ## Variables
 
@@ -33,27 +33,31 @@ ColorButton - Button that displays and selects a color Used in character creatio
 
 ### pressed() {#signal-pressed}
 
+Emitted when the button is pressed.
+
 ### color_selected( color: Color ) {#signal-color-selected}
+
+Emitted when the color is picked.
 
 ## Property descriptions
 
 ### Color button_color = Color.WHITE: {#prop-button-color}
 
-*No description yet.*
+The color the button shows and picks.
 
-### Color border_selected_color = Color(1.0, 0.843, 0.0)  # Gold {#prop-border-selected-color}
+### Color border_selected_color = Color(1.0, 0.843, 0.0) {#prop-border-selected-color}
 
-*No description yet.*
+Gold
 
-### Color border_unselected_color = Color(0.5, 0.5, 0.5)  # Grey {#prop-border-unselected-color}
+### Color border_unselected_color = Color(0.5, 0.5, 0.5) {#prop-border-unselected-color}
 
-*No description yet.*
+Grey
 
 ## Variable descriptions
 
 ### bool selected = false: {#var-selected}
 
-*No description yet.*
+True when this is the color picked.
 
 ## Method descriptions
 

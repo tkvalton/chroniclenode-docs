@@ -31,6 +31,8 @@ One part of an EffectAmount: a number that is read from the situation when the e
 
 ### enum Kind {#enum-kind}
 
+The options of kind: stat, weapon damage, target max health, target health, user max health, cast damage, cast healing, cast absorbed, ability rank, user level ....
+
 - **STAT** = `0` - A stat of the user: points x multiplier, or through a formula
 - **WEAPON_DAMAGE** = `1` - The damage of the weapon the user holds x multiplier (1 = 100 %)
 - **TARGET_MAX_HEALTH** = `2` - The maximum health of the target x multiplier
@@ -89,5 +91,5 @@ A short readable text: "1.50x Attack Power", "50% of the damage dealt so far"
 
 ### Array[String] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings of the effect. Gives the problems found (empty when it is fine).
 

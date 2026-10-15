@@ -33,6 +33,8 @@ Universal trigger for global variable changes Can trigger on any change, reachin
 
 ### enum TriggerMode {#enum-triggermode}
 
+The options of trigger mode: any change, reach value, leave value, cross threshold.
+
 - **ANY_CHANGE** = `0`
 - **REACH_VALUE** = `1`
 - **LEAVE_VALUE** = `2`
@@ -55,25 +57,25 @@ Target value for REACH_VALUE, LEAVE_VALUE modes
 
 ### float target_float = 0.0 {#prop-target-float}
 
-*No description yet.*
+The decimal value to wait for.
 
 ### bool target_bool = false {#prop-target-bool}
 
-*No description yet.*
+The yes/no value to wait for.
 
 ### String target_string = "" {#prop-target-string}
 
-*No description yet.*
+The text to wait for.
 
 *Threshold (for CROSS_THRESHOLD)*
 
 ### float threshold_value = 0.0 {#prop-threshold-value}
 
-*No description yet.*
+The number the variable must cross.
 
 ### bool trigger_on_increase = true  # True = trigger when crossing upward, False = downwar {#prop-trigger-on-increase}
 
-*No description yet.*
+True fires when the variable crosses the threshold upward, false when it crosses it downward.
 
 ## Method descriptions
 

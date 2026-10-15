@@ -12,29 +12,29 @@ Spawns an NPC during combat at a specific position
 |---|---|---|
 | `int` | [entity_id](#prop-entity-id) | `0` |
 | `Vector3` | [spawn_position](#prop-spawn-position) | `Vector3.ZERO` |
-| `bool` | [use_entity_position](#prop-use-entity-position) | `false  # Use entity's position instead of spawn_position` |
-| `Vector3` | [position_offset](#prop-position-offset) | `Vector3.ZERO  # Offset from the chosen position` |
-| `bool` | [copy_target](#prop-copy-target) | `true  # Should spawned NPC target the same entity` |
+| `bool` | [use_entity_position](#prop-use-entity-position) | `false` |
+| `Vector3` | [position_offset](#prop-position-offset) | `Vector3.ZERO` |
+| `bool` | [copy_target](#prop-copy-target) | `true` |
 
 ## Property descriptions
 
 ### int entity_id = 0 {#prop-entity-id}
 
-*No description yet.*
+The NPC to spawn.
 
 ### Vector3 spawn_position = Vector3.ZERO {#prop-spawn-position}
 
-*No description yet.*
+Where the NPC appears.
 
-### bool use_entity_position = false  # Use entity's position instead of spawn_position {#prop-use-entity-position}
+### bool use_entity_position = false {#prop-use-entity-position}
 
-*No description yet.*
+Use entity's position instead of spawn_position
 
-### Vector3 position_offset = Vector3.ZERO  # Offset from the chosen position {#prop-position-offset}
+### Vector3 position_offset = Vector3.ZERO {#prop-position-offset}
 
-*No description yet.*
+Offset from the chosen position
 
-### bool copy_target = true  # Should spawned NPC target the same entity {#prop-copy-target}
+### bool copy_target = true {#prop-copy-target}
 
-*No description yet.*
+Should spawned NPC target the same entity
 

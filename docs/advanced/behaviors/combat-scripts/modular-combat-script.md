@@ -101,19 +101,19 @@ Which states this combat script uses (determines valid transitions)
 
 ### bool uses_chasing = true {#prop-uses-chasing}
 
-*No description yet.*
+True when the script has a chasing state.
 
 ### bool uses_attacking = true {#prop-uses-attacking}
 
-*No description yet.*
+True when the script has an attacking state.
 
 ### bool uses_following = false {#prop-uses-following}
 
-*No description yet.*
+True when the script has a following state (a companion follows its leader).
 
 ### bool uses_player_command = false {#prop-uses-player-command}
 
-*No description yet.*
+True when the script has a state where the player gives the orders.
 
 *Combat Behavior*
 
@@ -171,11 +171,11 @@ Set the current encounter and notify all combat reactions
 
 ### void start_combat() {#method-start-combat}
 
-*No description yet.*
+Starts the script: the phase system is told and the script is enabled.
 
 ### void end_combat() {#method-end-combat}
 
-*No description yet.*
+Ends the combat part of the script.
 
 ### void process_combat( delta: float ) {#method-process-combat}
 

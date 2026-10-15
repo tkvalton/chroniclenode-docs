@@ -50,6 +50,8 @@ Complete MoveToPointTask with all Phase 1-3 enhancements. Features robust naviga
 
 ### enum MovementStyle {#enum-movementstyle}
 
+The options of movement style: normal, keep facing, backpedal.
+
 - **NORMAL** = `0` - Regular movement with turning
 - **KEEP_FACING** = `1` - Move without changing facing direction
 - **BACKPEDAL** = `2` - Move backwards while keeping current facing
@@ -134,31 +136,31 @@ Whether we're currently waiting at the destination
 
 ### void execute_task_start() {#method-execute-task-start}
 
-Override this in subclasses to implement specific task behavior *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Starts the task.
 
 ### void execute_task_complete() {#method-execute-task-complete}
 
-Override this in subclasses for task completion logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task finishes well.
 
 ### void execute_task_interrupt() {#method-execute-task-interrupt}
 
-Override this in subclasses for task interruption logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when something interrupts the task.
 
 ### void execute_task_fail() {#method-execute-task-fail}
 
-Override this in subclasses for task failure logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task fails.
 
 ### void set_target_position( new_position: Vector3 ) {#method-set-target-position}
 
-*No description yet.*
+Sets the point the entity moves to.
 
 ### float get_distance_to_target() {#method-get-distance-to-target}
 
-*No description yet.*
+The distance to the point (-1 when there is no entity).
 
 ### bool is_movement_complete() {#method-is-movement-complete}
 
-*No description yet.*
+Did the entity arrive (and wait there, if the task waits)?
 
 ### void set_simplified_mode( enable: bool ) {#method-set-simplified-mode}
 
@@ -166,5 +168,5 @@ Check if we can modify this task for simplified behavior (LOD system support)
 
 ### void cleanup_timers() {#method-cleanup-timers}
 
-Clean up all timers and resources *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Frees the timers of the task.
 

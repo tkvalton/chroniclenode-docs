@@ -31,31 +31,33 @@ CustomSlider - Labeled slider control for blend shape and other value adjustment
 
 ### value_changed( value: float ) {#signal-value-changed}
 
+Emitted when the slider moves: the new value.
+
 ## Property descriptions
 
 ### String label_text = "": {#prop-label-text}
 
-*No description yet.*
+The text of the label.
 
 ### float min_value = 0.0: {#prop-min-value}
 
-*No description yet.*
+The lowest value.
 
 ### float max_value = 1.0: {#prop-max-value}
 
-*No description yet.*
+The highest value.
 
 ### float step = 0.01: {#prop-step}
 
-*No description yet.*
+How much the value changes in a step.
 
 ### float initial_value = 0.5: {#prop-initial-value}
 
-*No description yet.*
+The value the slider starts with.
 
 ### bool show_value_label = true {#prop-show-value-label}
 
-*No description yet.*
+True shows the number next to the slider.
 
 ## Method descriptions
 

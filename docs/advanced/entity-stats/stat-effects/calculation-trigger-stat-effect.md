@@ -45,6 +45,8 @@ Effect that rolls a percentage chance to set trigger tags in calculations Exampl
 
 ### enum SpecialEffectAnimation {#enum-specialeffectanimation}
 
+The options of special effect animation: none, hit, dodge, block.
+
 - **NONE** = `0`
 - **HIT** = `1`
 - **DODGE** = `2`
@@ -99,11 +101,11 @@ Empty = affects all damage types
 
 ### EffectType get_effect_type() {#method-get-effect-type}
 
-Override in child classes to return effect type name *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== EFFECT IDENTIFICATION ==========
 
 ### String get_effect_category() {#method-get-effect-category}
 
-Override in child classes to return category *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+The group of the effect in the editor.
 
 ### String get_tag() {#method-get-tag}
 
@@ -119,23 +121,23 @@ The magnitude the tag carries before rules and stats add to it
 
 ### bool applies_to_context( context: Dictionary ) {#method-applies-to-context}
 
-Check if this effect applies to the given context *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== CONTEXT VALIDATION ==========
 
 ### bool affects_calculation( calc_type: CalculationBase.CalculationType ) {#method-affects-calculation}
 
-*No description yet.*
+========== TARGET VALIDATION ==========
 
 ### float get_effective_trigger_chance( stat_points: float, formula_context: FormulaContext = null ) {#method-get-effective-trigger-chance}
 
-*No description yet.*
+========== TRIGGER CHANCE CALCULATION ==========
 
 ### Dictionary roll_trigger( stat_points: float, formula_context: FormulaContext = null, chance_bonus: float = 0.0, always: bool = false ) {#method-roll-trigger}
 
-*No description yet.*
+Rolls whether the trigger fires. Gives the result with the chance used. Always forces it to fire.
 
 ### Dictionary apply_to_calculation( current_value: float, stat_points: float, context: Dictionary = &#123;&#125;, formula_context: FormulaContext = null, rules: TriggerRuleSet = null ) {#method-apply-to-calculation}
 
-*No description yet.*
+========== EFFECT APPLICATION ==========
 
 ### TriggerRecord create_record( stat_id: int, stat_name: String, magnitude: float = 0.0 ) {#method-create-record}
 
@@ -143,25 +145,25 @@ The record a DamageResult / HealingResult keeps when this trigger fires
 
 ### Dictionary get_preview_info( stat_points: float ) {#method-get-preview-info}
 
-*No description yet.*
+========== DISPLAY ==========
 
 ### String get_short_description() {#method-get-short-description}
 
-Override in child classes for a one-line summary of what this effect does *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+A one line text about what the effect does.
 
 ### String get_tooltip_text( stat_points: float ) {#method-get-tooltip-text}
 
-*No description yet.*
+The tooltip text of the effect for a number of stat points.
 
 ### bool has_special_effect() {#method-has-special-effect}
 
-*No description yet.*
+========== SPECIAL EFFECT HELPERS ==========
 
 ### bool is_visual_mitigation_trigger() {#method-is-visual-mitigation-trigger}
 
-*No description yet.*
+Is this a trigger that shows on screen as a dodge, a parry or a block?
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Validate this effect's configuration - override in child classes *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== VALIDATION ==========
 

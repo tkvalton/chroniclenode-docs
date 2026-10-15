@@ -35,17 +35,17 @@ Triggers after a specific time has elapsed
 
 ### float timer_duration = 5.0 {#prop-timer-duration}
 
-*No description yet.*
+Exported properties that will be editable in the UI
 
 ### bool repeating = false {#prop-repeating}
 
-*No description yet.*
+True when the timer starts again after it fires.
 
 ## Variable descriptions
 
 ### Timer timer {#var-timer}
 
-*No description yet.*
+Internal state
 
 ## Method descriptions
 

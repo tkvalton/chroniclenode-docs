@@ -91,6 +91,8 @@ Emitted when questline needs a quest activated (handled by EventManager)
 
 ### enum QuestLineState {#enum-questlinestate}
 
+The options of quest line state: inactive, active, completed, failed.
+
 - **INACTIVE** = `0`
 - **ACTIVE** = `1`
 - **COMPLETED** = `2`
@@ -260,11 +262,11 @@ Delete a step and all its quests
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the quest line. Gives the problems found (empty when it is fine).
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Is the quest line free of errors?
 
 ### Dictionary save_questline_data() {#method-save-questline-data}
 
@@ -276,5 +278,5 @@ Load questline state from saved data
 
 ### Dictionary get_summary() {#method-get-summary}
 
-*No description yet.*
+A short summary of the quest line (id, name, steps ...) as a dictionary.
 

@@ -59,13 +59,21 @@ Light interaction - extends SwitchInteraction to control lighting Creates Light3
 
 ### light_turned_on( entity: Entity ) {#signal-light-turned-on}
 
+Emitted when the light is turned on.
+
 ### light_turned_off( entity: Entity ) {#signal-light-turned-off}
 
+Emitted when the light is turned off.
+
 ### light_state_changed( is_on: bool, entity: Entity ) {#signal-light-state-changed}
+
+Emitted when the light changes: whether it is on, and who changed it.
 
 ## Enumerations
 
 ### enum LightType {#enum-lighttype}
+
+The options of light type: omni, spot.
 
 - **OMNI** = `0` - OmniLight3D - emits in all directions
 - **SPOT** = `1` - SpotLight3D - emits in cone shape
@@ -76,7 +84,7 @@ Light interaction - extends SwitchInteraction to control lighting Creates Light3
 
 ### LightType light_type = LightType.OMNI {#prop-light-type}
 
-*No description yet.*
+The kind of light (omni or spot).
 
 *Light Properties*
 
@@ -146,17 +154,17 @@ Optional VFX selection to play when light is on (sparks, particles, etc.)
 
 ### Light3D light_node {#var-light-node}
 
-*No description yet.*
+The light that was made for the object.
 
 ### Node3D vfx_instance {#var-vfx-instance}
 
-*No description yet.*
+The visual effect that shows with the light.
 
 ## Method descriptions
 
 ### void setup_for_interactable_objects( interactable: InteractableObject ) {#method-setup-for-interactable-objects}
 
-*Overrides this function of [SwitchInteraction](/advanced/entities/interactions/switch-interaction).*
+Sets up the switch and makes the light.
 
 ### void set_switch_state( new_state: SwitchState, triggering_entity: Entity = null ) {#method-set-switch-state}
 
@@ -212,13 +220,13 @@ Toggle shadows (for settings system integration)
 
 ### Dictionary save_state() {#method-save-state}
 
-*Overrides this function of [SwitchInteraction](/advanced/entities/interactions/switch-interaction).*
+The state of the light for a save (the switch and the light).
 
 ### void load_state( state: Dictionary ) {#method-load-state}
 
-*Overrides this function of [SwitchInteraction](/advanced/entities/interactions/switch-interaction).*
+Restores the light from a save.
 
 ### void cleanup() {#method-cleanup}
 
-*Overrides this function of [SwitchInteraction](/advanced/entities/interactions/switch-interaction).*
+Removes the light and the visual effect.
 

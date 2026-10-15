@@ -158,5 +158,5 @@ The requirements the proficiencies put on an item: for every proficiency that ga
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the proficiency. Gives the problems found (empty when it is fine).
 

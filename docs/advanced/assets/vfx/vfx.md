@@ -13,24 +13,24 @@ Base class for all VFX nodes - handles pooling, lifecycle, and common functional
 | | | |
 |---|---|---|
 | `String` | [vfx_type](#prop-vfx-type) | `""  # The VFX type identifier (from database)` |
-| `bool` | [auto_cleanup](#prop-auto-cleanup) | `true  # Automatically return to pool when finished` |
-| `bool` | [on_top_level](#prop-on-top-level) | `false  # Set top_level = true when activated (for world-s...` |
+| `bool` | [auto_cleanup](#prop-auto-cleanup) | `true` |
+| `bool` | [on_top_level](#prop-on-top-level) | `false` |
 
 ## Variables
 
 | | | |
 |---|---|---|
 | `bool` | [is_pooled](#var-is-pooled) | `false  # Is this instance from a pool?` |
-| `bool` | [is_active](#var-is-active) | `false  # Is the VFX currently playing?` |
-| `bool` | [is_finished](#var-is-finished) | `false  # Has the VFX completed?` |
-| `bool` | [original_top_level](#var-original-top-level) | `false  # Store original top_level state for restoration` |
+| `bool` | [is_active](#var-is-active) | `false` |
+| `bool` | [is_finished](#var-is-finished) | `false` |
+| `bool` | [original_top_level](#var-original-top-level) | `false` |
 | `VFXSelection` | [source_selection](#var-source-selection) |  |
 | `Callable` | [pool_return_callback](#var-pool-return-callback) |  |
 | `Dictionary` | [attachment_info](#var-attachment-info) | `{}  # Stores entity, remote, rig references` |
 | `AnimationPlayer` | [animation_player](#var-animation-player) |  |
-| `Node  # The particle system we're listening to for completion` | [primary_particle_system](#var-primary-particle-system) |  |
+| `Node` | [primary_particle_system](#var-primary-particle-system) |  |
 | `Timer` | [duration_timer](#var-duration-timer) |  |
-| `Timer  # Timer for particle lifetime tracking` | [particle_finish_timer](#var-particle-finish-timer) |  |
+| `Timer` | [particle_finish_timer](#var-particle-finish-timer) |  |
 | `Label3D` | [debug_label](#var-debug-label) |  |
 | `MeshInstance3D` | [debug_sphere](#var-debug-sphere) |  |
 | `ChronoManager` | [chrono_manager](#var-chrono-manager) |  |
@@ -56,17 +56,25 @@ Base class for all VFX nodes - handles pooling, lifecycle, and common functional
 
 ### vfx_started() {#signal-vfx-started}
 
+========== SIGNALS ==========
+
 ### vfx_finished() {#signal-vfx-finished}
+
+Emitted when the effect is done.
 
 ### vfx_cleanup_requested() {#signal-vfx-cleanup-requested}
 
+Emitted when the effect asks the manager to take it back into the pool.
+
 ### remote_cleanup_requested( remote: RemoteTransform3D ) {#signal-remote-cleanup-requested}
+
+Emitted when the effect gives back the remote transform it used.
 
 ## Constants
 
-- `Array[String]` **START_ANIMATION_NAMES** = `["start", "Start", "Init", "init", "BEGIN", "Begin"]`
-- `Array[String]` **LOOP_ANIMATION_NAMES** = `["loop", "Loop", "Idle", "idle", "Idle_Loop", "idle_loop", "LOOP"]`
-- `Array[String]` **END_ANIMATION_NAMES** = `["end", "End", "Finish", "finish", "Stop", "stop", "EXIT", "Exit"]`
+- `Array[String]` **START_ANIMATION_NAMES** = `["start", "Start", "Init", "init", "BEGIN", "Begin"]` - Animation name variations (constants) - shared across all VFX types
+- `Array[String]` **LOOP_ANIMATION_NAMES** = `["loop", "Loop", "Idle", "idle", "Idle_Loop", "idle_loop", "LOOP"]` - The animation names that count as the loop part of an effect.
+- `Array[String]` **END_ANIMATION_NAMES** = `["end", "End", "Finish", "finish", "Stop", "stop", "EXIT", "Exit"]` - The animation names that count as the end part of an effect.
 
 ## Property descriptions
 
@@ -74,69 +82,69 @@ Base class for all VFX nodes - handles pooling, lifecycle, and common functional
 
 ### String vfx_type = ""  # The VFX type identifier (from database) {#prop-vfx-type}
 
-*No description yet.*
+The name of the effect in the database.
 
-### bool auto_cleanup = true  # Automatically return to pool when finished {#prop-auto-cleanup}
+### bool auto_cleanup = true {#prop-auto-cleanup}
 
-*No description yet.*
+Automatically return to pool when finished
 
-### bool on_top_level = false  # Set top_level = true when activated (for world-spac {#prop-on-top-level}
+### bool on_top_level = false {#prop-on-top-level}
 
-*No description yet.*
+Set top_level = true when activated (for world-space positioning)
 
 ## Variable descriptions
 
 ### bool is_pooled = false  # Is this instance from a pool? {#var-is-pooled}
 
-*No description yet.*
+========== RUNTIME STATE ==========
 
-### bool is_active = false  # Is the VFX currently playing? {#var-is-active}
+### bool is_active = false {#var-is-active}
 
-*No description yet.*
+Is the VFX currently playing?
 
-### bool is_finished = false  # Has the VFX completed? {#var-is-finished}
+### bool is_finished = false {#var-is-finished}
 
-*No description yet.*
+Has the VFX completed?
 
-### bool original_top_level = false  # Store original top_level state for restoration {#var-original-top-level}
+### bool original_top_level = false {#var-original-top-level}
 
-*No description yet.*
+Store original top_level state for restoration
 
 ### VFXSelection source_selection {#var-source-selection}
 
-*No description yet.*
+Selection that spawned this VFX (for reference)
 
 ### Callable pool_return_callback {#var-pool-return-callback}
 
-*No description yet.*
+Pool management
 
 ### Dictionary attachment_info =   # Stores entity, remote, rig references {#var-attachment-info}
 
-*No description yet.*
+Entity attachment management
 
 ### AnimationPlayer animation_player {#var-animation-player}
 
-*No description yet.*
+VFX component references (discovered at runtime)
 
-### Node  # The particle system we're listening to for completion primary_particle_system {#var-primary-particle-system}
+### Node primary_particle_system {#var-primary-particle-system}
 
-*No description yet.*
+The particle system we're listening to for completion
 
 ### Timer duration_timer {#var-duration-timer}
 
-*No description yet.*
+Duration override management
 
-### Timer  # Timer for particle lifetime tracking particle_finish_timer {#var-particle-finish-timer}
+### Timer particle_finish_timer {#var-particle-finish-timer}
 
-*No description yet.*
+Timer for particle lifetime tracking
 
 ### Label3D debug_label {#var-debug-label}
 
-*No description yet.*
+Debug visualization
 
 ### MeshInstance3D debug_sphere {#var-debug-sphere}
 
-*No description yet.*
+A sphere that shows where the effect is (debug).
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
@@ -146,7 +154,7 @@ SystemRefs
 
 ### void set_systems_refs( system_hub: GameHost.SystemHub ) {#method-set-systems-refs}
 
-*No description yet.*
+Gives the effect the managers it needs.
 
 ### void activate_vfx( selection: VFXSelection = null ) {#method-activate-vfx}
 

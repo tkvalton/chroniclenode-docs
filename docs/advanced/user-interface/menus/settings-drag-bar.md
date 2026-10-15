@@ -31,6 +31,8 @@ Modern slider component that works with any numeric setting property
 
 ### mouse_focus_changed( has_focus: bool, property_name: String, description: String ) {#signal-mouse-focus-changed}
 
+Emitted when the mouse enters or leaves the setting: whether it has the focus, the name of the setting and its text.
+
 ## Property descriptions
 
 ### String property_name = "" {#prop-property-name}

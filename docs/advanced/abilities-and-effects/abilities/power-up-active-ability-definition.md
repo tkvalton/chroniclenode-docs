@@ -75,7 +75,7 @@ Whether tier effects stack (add new effects) or replace (change effects)
 
 ### Array get_current_on_use_effects( ability_instance: AbilityInstance ) {#method-get-current-on-use-effects}
 
-Return the resolved on-use effects for this ability. Respects live_effects overrides on the instance if present. *(from [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition))*
+The effects of the tier the charge has reached.
 
 ### void prepare_usage( ability_instance: AbilityInstance ) {#method-prepare-usage}
 
@@ -87,25 +87,25 @@ Standard completion; the one-use cost and tier are forgotten afterwards
 
 ### float get_tier_threshold( tier_index: int ) {#method-get-tier-threshold}
 
-*No description yet.*
+The charge a tier needs.
 
 ### Array get_tier_effects_array( tier_index: int ) {#method-get-tier-effects-array}
 
-*No description yet.*
+The effects of a tier.
 
 ### int get_max_charge_tiers() {#method-get-max-charge-tiers}
 
-*No description yet.*
+How many tiers the ability has.
 
 ### bool can_achieve_tier( tier_index: int, value: float ) {#method-can-achieve-tier}
 
-*No description yet.*
+Is this charge enough for the tier?
 
 ### float get_next_tier_threshold( current_value: float ) {#method-get-next-tier-threshold}
 
-*No description yet.*
+The charge of the next tier above the current charge (0 when it is at the top).
 
 ### String get_tooltip_description() {#method-get-tooltip-description}
 
-*Overrides this function of [ActiveAbilityDefinition](/advanced/abilities-and-effects/abilities/active-ability-definition).*
+The text of the tooltip, with the tiers.
 

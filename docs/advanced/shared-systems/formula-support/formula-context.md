@@ -48,27 +48,27 @@ The entity that owns the stat being evaluated
 
 ### int owner_level = 1 {#var-owner-level}
 
-*No description yet.*
+The level of the owner of the stat.
 
 ### Variant attacker = null {#var-attacker}
 
-*No description yet.*
+The attacker of the hit being worked out.
 
 ### int attacker_level = 1 {#var-attacker-level}
 
-*No description yet.*
+The level of the attacker.
 
 ### Variant defender = null {#var-defender}
 
-*No description yet.*
+The defender of the hit being worked out.
 
 ### int defender_level = 1 {#var-defender-level}
 
-*No description yet.*
+The level of the defender.
 
 ### int damage_type = 0 {#var-damage-type}
 
-*No description yet.*
+The damage type of the hit.
 
 ### float incoming_amount = 0.0 {#var-incoming-amount}
 
@@ -76,7 +76,7 @@ Size of the hit being calculated (for formulas such as armor / (armor + 10 * hit
 
 ### bool in_combat = false {#var-in-combat}
 
-*No description yet.*
+True when the owner is in combat.
 
 ### DamageResult result = null {#var-result}
 
@@ -94,7 +94,7 @@ A context for a stat that belongs to `p_owner` while `p_result` is being calcula
 
 ### int get_level( source: LevelSource ) {#method-get-level}
 
-*No description yet.*
+The level of the source asked for (owner, attacker or defender).
 
 ### int level_of( unit: Variant ) {#method-level-of}
 

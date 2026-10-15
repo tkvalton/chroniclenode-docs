@@ -29,6 +29,8 @@ Individual reputation level within a faction's reputation system
 
 ### enum FactionRelationship {#enum-factionrelationship}
 
+Enum for relationship types (used in faction relationships)
+
 - **HOSTILE** = `0`
 - **NEUTRAL** = `1`
 - **FRIENDLY** = `2`
@@ -37,27 +39,27 @@ Individual reputation level within a faction's reputation system
 
 ### String level_name = "" {#prop-level-name}
 
-*No description yet.*
+========== CORE PROPERTIES ==========
 
 ### int min_reputation = 0 {#prop-min-reputation}
 
-*No description yet.*
+The reputation where this level starts.
 
 ### String description = "" {#prop-description}
 
-*No description yet.*
+The text of the level.
 
 ### Color level_color = Color.WHITE {#prop-level-color}
 
-*No description yet.*
+The color of the level.
 
 ### CompressedTexture2D level_icon {#prop-level-icon}
 
-*No description yet.*
+The icon of the level.
 
 ### FactionRelationship relationship = FactionRelationship.NEUTRAL {#prop-relationship}
 
-*No description yet.*
+How the faction treats the player at this level (hostile, neutral, friendly).
 
 ## Method descriptions
 

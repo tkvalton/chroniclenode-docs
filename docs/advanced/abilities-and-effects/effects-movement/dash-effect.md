@@ -68,21 +68,21 @@ Instant dash uses immediate (-1.0) so start_effect() applies once and finishes. 
 
 ### void apply_movement( effect_instance: EffectInstance, entity: Entity, direction: Vector3 ) {#method-apply-movement}
 
-Virtual method for child classes to implement their movement logic *(from [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect))*
+Moves the entity one step in the direction of the movement.
 
 ### void handle_movement_collision( effect_instance: EffectInstance, collision: KinematicCollision3D ) {#method-handle-movement-collision}
 
-Virtual method for child classes to handle movement-specific collision logic *(from [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect))*
+Called when the moving entity hits something: it bounces or stops, by the settings of the effect.
 
 ### void on_movement_timer_finished( effect_instance: EffectInstance ) {#method-on-movement-timer-finished}
 
-Timer callback from EffectInstance - child classes can override *(from [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect))*
+Called when the time of the movement is over.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*Overrides this function of [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect).*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [MoveDirectionalEffect](/advanced/abilities-and-effects/effects-movement/move-directional-effect).*
+A short text for the effect editor that says what the effect does.
 

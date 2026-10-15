@@ -30,5 +30,5 @@ The color that stands for this in the interface
 
 ### int get_id() {#method-get-id}
 
-*No description yet.*
+The id of the school.
 

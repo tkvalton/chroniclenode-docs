@@ -130,7 +130,7 @@ Collision smoothing speed
 
 ### Node3D target {#var-target}
 
-*No description yet.*
+Runtime state
 
 ### float horizontal_angle = 0.0 {#var-horizontal-angle}
 
@@ -150,11 +150,11 @@ A free-look orbit is active (set from InputManager via on_look_state)
 
 ### float target_camera_z = 3.5 {#var-target-camera-z}
 
-*No description yet.*
+How far behind the target the camera wants to be (changed by the zoom).
 
 ### bool is_follow_enabled = true {#var-is-follow-enabled}
 
-*No description yet.*
+True while the camera follows the target.
 
 ### bool is_aligning_to_body = false {#var-is-aligning-to-body}
 
@@ -162,45 +162,45 @@ True from mouse-look start until the camera has eased back to the player's facin
 
 ### RayCast3D camera_raycast = null {#var-camera-raycast}
 
-*No description yet.*
+The ray that pulls the camera closer when something is in the way.
 
 ## Method descriptions
 
 ### void setup( cm: CameraController ) {#method-setup}
 
-Setup camera behavior - override in child classes *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Sets the logic up when it becomes the one in use.
 
 ### void process_camera( delta: float ) {#method-process-camera}
 
-Per-frame camera update - override in child classes *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Moves the camera one frame.
 
 ### bool uses_input_manager() {#method-uses-input-manager}
 
-true = this camera receives look/zoom from the InputManager instead of raw events *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Does the logic get its look input from the input manager?
 
 ### Array[LookBinding] get_look_bindings() {#method-get-look-bindings}
 
-Mouse gestures this camera wants (button + LookBinding.Kind) *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+The mouse buttons that turn the view or the character for this logic.
 
 ### void on_look_state( kind: LookBinding.Kind, active: bool ) {#method-on-look-state}
 
-A gesture this camera declared started (active = true) or ended (active = false) *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Called when a look button is pressed or released.
 
 ### void handle_look( kind: LookBinding.Kind, delta_rad: Vector2 ) {#method-handle-look}
 
-Look movement for a gesture this camera declared. delta_rad is screen-space radians with the player's sensitivity and invert settings applied (x &gt; 0 = mouse right, y &gt; 0 = mouse down). Multiply by look_sensitivity_scale. *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Turns the view or the character by the mouse movement.
 
 ### void handle_zoom( steps: int ) {#method-handle-zoom}
 
-Mouse wheel notches. &gt; 0 = zoom in, &lt; 0 = zoom out *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Zooms by the steps of the mouse wheel (positive steps zoom in).
 
 ### void set_target( new_target: Variant, use_pan: bool = true ) {#method-set-target}
 
-Set camera target - override in child classes *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Sets what the camera follows. With pan on, it glides there.
 
 ### void cleanup() {#method-cleanup}
 
-Cleanup when switching cameras - override in child classes *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Lets go of what the logic holds when it is replaced.
 
 ### float get_view_yaw() {#method-get-view-yaw}
 
@@ -208,13 +208,13 @@ The camera's own yaw (not derived from the node, so it is exact right after inpu
 
 ### String get_type_display_name() {#method-get-type-display-name}
 
-Get display name for editor *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+The name of the logic in the editor.
 
 ### Array[String] validate() {#method-validate}
 
-Validate settings - return errors array *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Checks the settings. Gives the problems found (empty when it is fine).
 
 ### bool is_camera_being_controlled() {#method-is-camera-being-controlled}
 
-*No description yet.*
+Is the player turning the camera now?
 

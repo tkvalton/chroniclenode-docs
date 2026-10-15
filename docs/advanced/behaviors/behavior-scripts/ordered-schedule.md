@@ -53,7 +53,7 @@ The execution strategy for this schedule
 
 ### ExecutionType execution_type = ExecutionType.ORDERED {#prop-execution-type}
 
-*No description yet.*
+Ordered: the tasks run one after the other.
 
 ## Variable descriptions
 

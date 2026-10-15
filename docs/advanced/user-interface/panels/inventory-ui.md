@@ -70,6 +70,8 @@ READONLY: Display only, no interactions
 
 ### enum InventoryContext {#enum-inventorycontext}
 
+The options of inventory context: player inventory, external inventory, player vendor inventory, readonly.
+
 - **PLAYER_INVENTORY** = `0` - Player's main inventory
 - **EXTERNAL_INVENTORY** = `1` - Containers, loot, etc.
 - **PLAYER_VENDOR_INVENTORY** = `2` - Player inventory while in shop
@@ -77,25 +79,25 @@ READONLY: Display only, no interactions
 
 ## Constants
 
-- `int` **GRID_CELL_SIZE** = `44`
+- `int` **GRID_CELL_SIZE** = `44` - The size of one slot in pixels.
 
 ## Property descriptions
 
 ### InventoryContext context = InventoryContext.PLAYER_INVENTORY {#prop-context}
 
-*No description yet.*
+Whose inventory the window shows (the player, a container, a vendor ...).
 
 ### String title = "" {#prop-title}
 
-*No description yet.*
+The title of the window.
 
 ### bool show_currency = true {#prop-show-currency}
 
-*No description yet.*
+True shows the currencies.
 
 ### bool allow_drag_and_drop = true {#prop-allow-drag-and-drop}
 
-*No description yet.*
+True lets the player drag items.
 
 ### bool show_kept_aside = true {#prop-show-kept-aside}
 
@@ -103,39 +105,39 @@ Lists the items that are kept aside (quest items that take no space) under the s
 
 ### int grid_columns = 4 {#prop-grid-columns}
 
-*No description yet.*
+How many slots are in a row.
 
 ### PackedScene inventory_slot_scene {#prop-inventory-slot-scene}
 
-*No description yet.*
+The scene of one slot.
 
 ### PackedScene currency_display_scene {#prop-currency-display-scene}
 
-*No description yet.*
+The scene of one currency display.
 
 ## Variable descriptions
 
 ### InventoryComponent inventory_data {#var-inventory-data}
 
-*No description yet.*
+The inventory shown.
 
 ### Variant inventory_owner {#var-inventory-owner}
 
-*No description yet.*
+Who owns the inventory.
 
 ### VendorInventoryComponent vendor_data {#var-vendor-data}
 
-*No description yet.*
+The stock of the vendor, when it shows one.
 
 ### Array[Control] slot_uis = [] {#var-slot-uis}
 
-*No description yet.*
+The slots shown.
 
 ## Method descriptions
 
 ### void initialize_ui( system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [PanelUI](/advanced/user-interface/panels/panel-ui).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void setup_player_inventory( inventory: InventoryComponent, window_title: String = "" ) {#method-setup-player-inventory}
 
@@ -151,29 +153,29 @@ Setup player inventory in vendor context (for selling to vendor)
 
 ### InventoryContext get_context() {#method-get-context}
 
-*No description yet.*
+Whose inventory the window shows.
 
 ### InventoryComponent get_inventory_data() {#method-get-inventory-data}
 
-*No description yet.*
+The inventory shown.
 
 ### VendorInventoryComponent get_vendor_data() {#method-get-vendor-data}
 
-*No description yet.*
+The stock of the vendor, when it shows one.
 
 ### Entity get_inventory_owner() {#method-get-inventory-owner}
 
-*No description yet.*
+Who owns the inventory.
 
 ### void set_title( new_title: String ) {#method-set-title}
 
-*No description yet.*
+Sets the title of the window.
 
 ### void refresh() {#method-refresh}
 
-*No description yet.*
+Fills the grid and the currencies again.
 
 ### void cleanup() {#method-cleanup}
 
-*No description yet.*
+Disconnects the inventory and clears the grid.
 

@@ -28,6 +28,8 @@ CharacterCreationInfoBox - Displays template and class information in character 
 
 ### info_updated() {#signal-info-updated}
 
+Emitted when the information shown changes.
+
 ## Property descriptions
 
 ### Control template_section {#prop-template-section}

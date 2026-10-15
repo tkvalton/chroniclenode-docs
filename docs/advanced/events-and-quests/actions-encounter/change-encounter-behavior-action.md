@@ -39,25 +39,25 @@ Name of the Encounter to manipulate
 
 ### UniqueEncounterData.Formation new_formation = UniqueEncounterData.Formation.NONE {#prop-new-formation}
 
-*No description yet.*
+The formation the group takes.
 
 ### UniqueEncounterData.GroupBehavior new_group_behavior = UniqueEncounterData.GroupBehavior.BALANCED {#prop-new-group-behavior}
 
-*No description yet.*
+How the group acts from now on.
 
 ### bool apply_formation_immediately = true {#prop-apply-formation-immediately}
 
-*No description yet.*
+True when the group moves into the formation at once, false when it takes it over time.
 
 ### float behavior_duration = 0.0  # 0 = permanent {#prop-behavior-duration}
 
-*No description yet.*
+How many seconds the new behavior lasts (0 = for good).
 
 ## Variable descriptions
 
 ### Encounter encounter {#var-encounter}
 
-*No description yet.*
+Reference to the special encounter
 
 ## Method descriptions
 

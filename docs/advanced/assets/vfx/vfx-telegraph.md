@@ -14,14 +14,14 @@ Telegraph VFX - Warning/indicator effects for abilities Uses shader-based approa
 | `TelegraphShape` | [telegraph_shape](#prop-telegraph-shape) | `TelegraphShape.CIRCLE` |
 | `Color` | [telegraph_color](#prop-telegraph-color) | `Color.RED` |
 | `TelegraphAttachment` | [attachment_type](#prop-attachment-type) | `TelegraphAttachment.POINT` |
-| `float` | [orientation_offset](#prop-orientation-offset) | `0.0  # Y rotation in degrees` |
+| `float` | [orientation_offset](#prop-orientation-offset) | `0.0` |
 
 ## Variables
 
 | | | |
 |---|---|---|
 | `float` | [telegraph_duration](#var-telegraph-duration) | `0.0` |
-| `float` | [completion_percentage](#var-completion-percentage) | `0.0  # 0.0 to 1.0 progression` |
+| `float` | [completion_percentage](#var-completion-percentage) | `0.0` |
 | `Tween` | [telegraph_tween](#var-telegraph-tween) |  |
 | `MeshInstance3D` | [telegraph_mesh](#var-telegraph-mesh) |  |
 | `ShaderMaterial` | [telegraph_material](#var-telegraph-material) |  |
@@ -49,16 +49,20 @@ Telegraph VFX - Warning/indicator effects for abilities Uses shader-based approa
 
 ### enum TelegraphAttachment {#enum-telegraphattachment}
 
+The options of telegraph attachment: point, attached.
+
 - **POINT** = `0`
 
 ### enum TelegraphShape {#enum-telegraphshape}
+
+The options of telegraph shape: circle, square.
 
 - **CIRCLE** = `0`
 - **SQUARE** = `1`
 
 ## Constants
 
-- `const` **TELEGRAPH_FILL_SHADER** = `preload("res://addons/chroniclenode/assets/shaders/telegraph_fill_shader.gdsh...`
+- `const` **TELEGRAPH_FILL_SHADER** = `preload("res://addons/chroniclenode/assets/shaders/telegraph_fill_shader.gdsh...` - The shader that fills the warning.
 
 ## Property descriptions
 
@@ -66,57 +70,57 @@ Telegraph VFX - Warning/indicator effects for abilities Uses shader-based approa
 
 ### Vector2 telegraph_size = Vector2(5.0, 5.0) {#prop-telegraph-size}
 
-*No description yet.*
+The size of the warning.
 
 ### TelegraphShape telegraph_shape = TelegraphShape.CIRCLE {#prop-telegraph-shape}
 
-*No description yet.*
+The shape of the warning.
 
 ### Color telegraph_color = Color.RED {#prop-telegraph-color}
 
-*No description yet.*
+The color of the warning.
 
 ### TelegraphAttachment attachment_type = TelegraphAttachment.POINT {#prop-attachment-type}
 
-*No description yet.*
+What the warning is attached to.
 
-### float orientation_offset = 0.0  # Y rotation in degrees {#prop-orientation-offset}
+### float orientation_offset = 0.0 {#prop-orientation-offset}
 
-*No description yet.*
+Y rotation in degrees
 
 ## Variable descriptions
 
 ### float telegraph_duration = 0.0 {#var-telegraph-duration}
 
-*No description yet.*
+Animation
 
-### float completion_percentage = 0.0  # 0.0 to 1.0 progression {#var-completion-percentage}
+### float completion_percentage = 0.0 {#var-completion-percentage}
 
-*No description yet.*
+0.0 to 1.0 progression
 
 ### Tween telegraph_tween {#var-telegraph-tween}
 
-*No description yet.*
+The tween that fills the warning.
 
 ### MeshInstance3D telegraph_mesh {#var-telegraph-mesh}
 
-*No description yet.*
+Telegraph visual components
 
 ### ShaderMaterial telegraph_material {#var-telegraph-material}
 
-*No description yet.*
+The material of the warning.
 
 ### Shader telegraph_shader {#var-telegraph-shader}
 
-*No description yet.*
+The shader of the warning.
 
 ### bool is_telegraph_active = false {#var-is-telegraph-active}
 
-*No description yet.*
+State tracking
 
 ### bool is_interrupted = false {#var-is-interrupted}
 
-*No description yet.*
+True when the warning was cut short.
 
 ## Method descriptions
 

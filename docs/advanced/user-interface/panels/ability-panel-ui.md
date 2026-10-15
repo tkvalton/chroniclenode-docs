@@ -37,47 +37,53 @@ Paginated Ability Panel - Displays abilities in a 3x5 grid with page navigation 
 
 ### ability_tooltip_requested( ability: AbilityInstance ) {#signal-ability-tooltip-requested}
 
+========== SIGNALS ==========
+
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
+
+Asks the interface to hide the tooltip (force hides it at once).
 
 ### ability_drag_requested( ability: AbilityInstance ) {#signal-ability-drag-requested}
 
+Asks the interface to start dragging an ability (onto the action bar).
+
 ## Constants
 
-- `int` **ABILITIES_PER_ROW** = `3`
-- `int` **ABILITIES_PER_COLUMN** = `6`
-- `int` **ABILITIES_PER_PAGE** = `ABILITIES_PER_ROW * ABILITIES_PER_COLUMN  # 15`
+- `int` **ABILITIES_PER_ROW** = `3` - Grid Configuration
+- `int` **ABILITIES_PER_COLUMN** = `6` - How many abilities a column of the page holds.
+- `int` **ABILITIES_PER_PAGE** = `ABILITIES_PER_ROW * ABILITIES_PER_COLUMN` - 15
 
 ## Property descriptions
 
 ### PackedScene spell_book_ability_scene {#prop-spell-book-ability-scene}
 
-*No description yet.*
+The scene of one ability.
 
 ## Variable descriptions
 
 ### Array[AbilityInstance] all_abilities = [] {#var-all-abilities}
 
-*No description yet.*
+Ability data and pagination
 
 ### Array[AbilityInstance] active_abilities = [] {#var-active-abilities}
 
-*No description yet.*
+The active abilities shown.
 
 ### Array[AbilityInstance] passive_abilities = [] {#var-passive-abilities}
 
-*No description yet.*
+The passive abilities shown.
 
 ### int current_page = 0 {#var-current-page}
 
-*No description yet.*
+The page shown now.
 
 ### int total_pages = 0 {#var-total-pages}
 
-*No description yet.*
+How many pages there are.
 
 ### Array[Control] ability_slot_uis = [] {#var-ability-slot-uis}
 
-*No description yet.*
+Ability UI components
 
 ## Method descriptions
 

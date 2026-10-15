@@ -49,25 +49,29 @@ Door interaction - opens/closes doors with animations Uses available_animations 
 
 ### door_opened( entity: Entity ) {#signal-door-opened}
 
+Emitted when the door opens.
+
 ### door_closed( entity: Entity ) {#signal-door-closed}
+
+Emitted when the door closes.
 
 ## Property descriptions
 
 ### bool is_open = false {#prop-is-open}
 
-*No description yet.*
+True when the door is open.
 
 ### bool can_open_when_damaged = true {#prop-can-open-when-damaged}
 
-*No description yet.*
+True when a damaged door can still be opened.
 
 ### bool auto_close_enabled = false {#prop-auto-close-enabled}
 
-*No description yet.*
+True when the door closes by itself after a delay.
 
 ### float auto_close_delay = 5.0 {#prop-auto-close-delay}
 
-*No description yet.*
+How many seconds an open door waits before it closes by itself.
 
 *Animations*
 
@@ -87,73 +91,73 @@ Animation to play when locked (optional)
 
 ### SFXSelection door_open_sound {#prop-door-open-sound}
 
-*No description yet.*
+The sound of the door opening.
 
 ### SFXSelection door_close_sound {#prop-door-close-sound}
 
-*No description yet.*
+The sound of the door closing.
 
 ### SFXSelection door_locked_sound {#prop-door-locked-sound}
 
-*No description yet.*
+The sound of trying a locked door.
 
 ### SFXSelection door_creak_sound {#prop-door-creak-sound}
 
-*No description yet.*
+A creak played now and then (optional).
 
 ## Variable descriptions
 
 ### int original_collision_layer {#var-original-collision-layer}
 
-*No description yet.*
+The collision layer of the door when it is closed (kept to give it back).
 
 ### int original_collision_mask {#var-original-collision-mask}
 
-*No description yet.*
+The collision mask of the door when it is closed (kept to give it back).
 
 ### Timer auto_close_timer = null {#var-auto-close-timer}
 
-*No description yet.*
+The timer of the automatic closing.
 
 ## Method descriptions
 
 ### void setup_for_interactable_objects( interactable: InteractableObject ) {#method-setup-for-interactable-objects}
 
-*Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
+Sets the door up on its object: finds the nodes it needs and applies its starting state.
 
 ### bool can_interact( player: Player ) {#method-can-interact}
 
-*Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
+Can the player use the door now (in range, the object is not broken, the requirements are met)?
 
 ### void start_interaction( player: Player ) {#method-start-interaction}
 
-Start the interaction with the given player *(from [Interaction](/advanced/entities/interactions/interaction))*
+The player uses the door.
 
 ### void on_object_destroyed() {#method-on-object-destroyed}
 
-*No description yet.*
+Called when the object is destroyed: a destroyed door is forced open and has no collision.
 
 ### void on_locked_reaction() {#method-on-locked-reaction}
 
-*No description yet.*
+Called when someone tries the object while it is locked: plays the locked sound and animation.
 
 ### bool force_open() {#method-force-open}
 
-*No description yet.*
+Opens the door without a player (a script or an event). False when it is destroyed.
 
 ### bool force_close() {#method-force-close}
 
-*No description yet.*
+Closes the door without a player. False when it is destroyed.
 
 ### Dictionary save_state() {#method-save-state}
 
-*No description yet.*
+The state of the door for a save.
 
 ### void load_state( state: Dictionary ) {#method-load-state}
 
-*No description yet.*
+Restores the state of the door from a save.
 
 ### void cleanup() {#method-cleanup}
 
-*No description yet.*
+Gives its timers back and clears what it holds (the object is going away).
 

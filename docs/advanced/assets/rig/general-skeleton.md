@@ -93,6 +93,8 @@ Emitted when any mesh is removed
 
 ### enum BodySlot {#enum-bodyslot}
 
+The options of body slot: body head, body torso, body upper arm left, body upper arm right, body lower arm left, body lower arm right, body hand left, body hand right, body hips, body upper leg left ....
+
 - **BODY_HEAD** = `0`
 - **BODY_TORSO** = `1`
 - **BODY_UPPER_ARM_LEFT** = `2`
@@ -111,6 +113,8 @@ Emitted when any mesh is removed
 
 ### enum FacialFeature {#enum-facialfeature}
 
+The options of facial feature: face eyes, face eyebrows, face ears, face eye left, face eye right, face eyebrow left, face eyebrow right, face ear left, face ear right, face nose ....
+
 - **FACE_EYES** = `0`
 - **FACE_EYEBROWS** = `1`
 - **FACE_EARS** = `2`
@@ -127,6 +131,8 @@ Emitted when any mesh is removed
 - **FACE_FACIAL_HAIR** = `13`
 
 ### enum AttachmentSlot {#enum-attachmentslot}
+
+The options of attachment slot: head, face, chest, back, hips left, hips right, hips front, hips back, left hand, right hand ....
 
 - **HEAD** = `0`
 - **FACE** = `1`
@@ -149,6 +155,8 @@ Emitted when any mesh is removed
 
 ### enum WeaponSlot {#enum-weaponslot}
 
+The options of weapon slot: main hand, off hand.
+
 - **MAIN_HAND** = `0` - Right hand weapon
 - **OFF_HAND** = `1` - Left hand weapon
 
@@ -156,25 +164,25 @@ Emitted when any mesh is removed
 
 ### bool has_mount_seat = false {#prop-has-mount-seat}
 
-*No description yet.*
+True when the model has a seat for a rider.
 
 ### bool can_ride_mount = false {#prop-can-ride-mount}
 
-*No description yet.*
+True when the model can ride a mount.
 
 ## Variable descriptions
 
 ### bool outline_eligible = true {#var-outline-eligible}
 
-*No description yet.*
+True when the skeleton may get an outline (a target highlight).
 
 ### bool is_transparent = false {#var-is-transparent}
 
-*No description yet.*
+True while the skeleton is faded out.
 
 ### Array[MeshInstance3D] mesh_instances = [] {#var-mesh-instances}
 
-*No description yet.*
+Every mesh of the skeleton (for outlines and transparency).
 
 ### Dictionary original_attachment_skins =  {#var-original-attachment-skins}
 
@@ -184,11 +192,11 @@ Storage for original skins before equipment changes them (attachments)
 
 ### String get_skeleton_type() {#method-get-skeleton-type}
 
-*No description yet.*
+The kind of skeleton ("GeneralSkeleton").
 
 ### Node3D get_attachment_point( slot: AttachmentSlot ) {#method-get-attachment-point}
 
-*No description yet.*
+The node of an attachment slot (head, hand, back ...), or null.
 
 ### MeshInstance3D get_equipment_mesh( slot: AttachmentSlot ) {#method-get-equipment-mesh}
 
@@ -236,7 +244,7 @@ Check if we have stored original skin for an attachment
 
 ### MeshInstance3D get_weapon_mesh( weapon_slot: WeaponSlot ) {#method-get-weapon-mesh}
 
-*No description yet.*
+The mesh of the weapon in a weapon slot (main hand or off hand).
 
 ### bool set_weapon_mesh_with_materials( weapon_slot: WeaponSlot, mesh: Mesh, material_overrides: Array[Material] = [], scale: float = 1.0 ) {#method-set-weapon-mesh-with-materials}
 
@@ -328,11 +336,11 @@ Cleanup material from off hand
 
 ### void apply_selection_outline( selection_color: Color, power: float = 3.0, intensity: float = 0.5, threshold: float = 0.0 ) {#method-apply-selection-outline}
 
-*No description yet.*
+Draws an outline on every mesh: color, power, intensity and threshold.
 
 ### void remove_selection_outline() {#method-remove-selection-outline}
 
-*No description yet.*
+Takes the outline off every mesh.
 
 ### void set_visual_layer( layer: int ) {#method-set-visual-layer}
 
@@ -340,13 +348,13 @@ Set the visual layer for all meshes in this skeleton Used for camera cull mask i
 
 ### String body_slot_to_database_category( slot: BodySlot ) {#method-body-slot-to-database-category}
 
-*No description yet.*
+Helper functions to convert enums to database category strings
 
 ### String facial_feature_to_database_category( feature: FacialFeature ) {#method-facial-feature-to-database-category}
 
-*No description yet.*
+The name of a facial feature in the database.
 
 ### String attachment_slot_to_database_category( slot: AttachmentSlot ) {#method-attachment-slot-to-database-category}
 
-*No description yet.*
+The name of an attachment slot in the database.
 

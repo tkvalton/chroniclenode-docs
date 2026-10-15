@@ -68,7 +68,7 @@ The execution strategy for this schedule
 
 ### ExecutionType execution_type = ExecutionType.PRIORITY {#prop-execution-type}
 
-*No description yet.*
+Priority: the highest task whose conditions are met runs.
 
 *Priority Settings*
 
@@ -118,7 +118,7 @@ Called when current task is interrupted
 
 ### void on_deactivated() {#method-on-deactivated}
 
-Called when this schedule is deactivated *(from [TaskSchedule](/advanced/behaviors/behavior-scripts/task-schedule))*
+Called when the schedule stops: the priority timer is freed.
 
 ### void reset_schedule() {#method-reset-schedule}
 

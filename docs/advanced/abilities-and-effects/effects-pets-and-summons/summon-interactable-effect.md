@@ -65,27 +65,27 @@ Apply random Y rotation
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+What the effect does to its target when it is applied.
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-Handles the finishing of the effect, including cleanup and VFX/SFX (override in child classes if needed, call .super for cleanup) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+Called when the effect ends: takes back what it did.
 
 ### void create_summoned_interactable( effect_instance: EffectInstance ) {#method-create-summoned-interactable}
 
-*No description yet.*
+Makes the object in the world for the user.
 
 ### String get_category() {#method-get-category}
 
-*No description yet.*
+The group of the effect in the editor.
 
 ### String get_simple_description() {#method-get-simple-description}
 
-*No description yet.*
+A short text about what the effect does.
 
 ### String get_detailed_description() {#method-get-detailed-description}
 
-*No description yet.*
+A longer text about what the effect does, with the name of the object.
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 

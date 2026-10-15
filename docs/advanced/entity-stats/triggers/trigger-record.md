@@ -38,6 +38,8 @@ Carries what every consumer of a DamageResult / HealingResult needs: the tag tha
 
 ### enum Kind {#enum-kind}
 
+The options of kind: none, avoid, mitigate, boost.
+
 - **NONE** = `0` - Tag only: sets the tag for paired modifiers, no outcome of its own
 - **AVOID** = `1` - Avoids the hit completely (dodge, parry)
 - **MITIGATE** = `2` - Reduces the hit through paired modifiers (block)
@@ -51,7 +53,7 @@ Id of the stat that owns the trigger
 
 ### String stat_name = "" {#var-stat-name}
 
-*No description yet.*
+The stat whose trigger fired.
 
 ### String tag = "" {#var-tag}
 
@@ -59,7 +61,7 @@ The word modifiers require and procs filter on, e.g. "dodge"
 
 ### Kind kind = Kind.NONE {#var-kind}
 
-*No description yet.*
+What kind of trigger it was (dodge, block, critical ...).
 
 ### String animation = "" {#var-animation}
 

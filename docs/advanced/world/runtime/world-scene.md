@@ -88,7 +88,7 @@ Respawn/checkpoint points for player death respawning
 
 ### Callable generate_minimap = _generate_minimap {#prop-generate-minimap}
 
-*No description yet.*
+A button of the editor: makes the picture of the mini map.
 
 ### float minimap_size = 512.0 {#prop-minimap-size}
 
@@ -106,11 +106,11 @@ Size of the image to capture per grid tile (pixels)
 
 ### MapQuality map_preview_quality = MapQuality.MEDIUM {#prop-map-preview-quality}
 
-*No description yet.*
+The size of the picture of the map preview.
 
 ### Callable generate_map_preview_button = _generate_map_preview {#prop-generate-map-preview-button}
 
-*No description yet.*
+A button of the editor: makes the map preview.
 
 ## Variable descriptions
 
@@ -130,7 +130,7 @@ Get the bounds of the entire scene (uses same area as minimap)
 
 ### String get_terrain_surface_type( target_position: Vector3 ) {#method-get-terrain-surface-type}
 
-*No description yet.*
+The kind of ground at a position (for footsteps): the object under it first, then the terrain.
 
 ### int get_world_id() {#method-get-world-id}
 

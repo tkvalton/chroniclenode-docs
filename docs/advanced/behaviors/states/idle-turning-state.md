@@ -24,17 +24,17 @@ Turn-in-place animation while the entity turns without moving. Entry and exit ar
 
 ### float target_turn_direction = 0.0 {#var-target-turn-direction}
 
-*No description yet.*
+The direction of the turn (negative is left).
 
 ## Method descriptions
 
 ### void enter() {#method-enter}
 
-*Overrides this function of [MovementState](/advanced/behaviors/states/movement-state).*
+The entity turns in place: plays the turn animation.
 
 ### void exit() {#method-exit}
 
-*Overrides this function of [MovementState](/advanced/behaviors/states/movement-state).*
+Stops the turn animation.
 
 ### void process_turn_state( _delta: float ) {#method-process-turn-state}
 

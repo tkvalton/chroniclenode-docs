@@ -56,11 +56,11 @@ Resource for storing local variables dictionary for Events Provides methods for 
 
 ### Dictionary variables =  {#prop-variables}
 
-*No description yet.*
+The variables, by name.
 
 ### Dictionary metadata =  {#prop-metadata}
 
-*No description yet.*
+Extra data about the variables.
 
 ## Method descriptions
 

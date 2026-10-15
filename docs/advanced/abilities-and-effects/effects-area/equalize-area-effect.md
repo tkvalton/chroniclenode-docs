@@ -44,6 +44,8 @@ Base class for effects that distribute/equalize values among targets in an area
 
 ### enum EqualizeMode {#enum-equalizemode}
 
+The options of equalize mode: distribute total, equalize current, distribute average.
+
 - **DISTRIBUTE_TOTAL** = `0`
 - **EQUALIZE_CURRENT** = `1`
 
@@ -53,7 +55,7 @@ Base class for effects that distribute/equalize values among targets in an area
 
 ### EqualizeMode equalize_mode = EqualizeMode.DISTRIBUTE_TOTAL {#prop-equalize-mode}
 
-*No description yet.*
+How the values are shared among the targets (the total split evenly, each moved to the average ...).
 
 ### int minimum_targets = 1 {#prop-minimum-targets}
 
@@ -131,7 +133,7 @@ Set enter/exit equalization behavior
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*Overrides this function of [MinimumApplicationAreaEffect](/advanced/abilities-and-effects/effects-area/minimum-application-area-effect).*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_equalize_mode_description() {#method-get-equalize-mode-description}
 
@@ -139,5 +141,5 @@ Get mode-specific description
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [MinimumApplicationAreaEffect](/advanced/abilities-and-effects/effects-area/minimum-application-area-effect).*
+A short text for the effect editor that says what the effect does.
 

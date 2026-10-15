@@ -16,13 +16,13 @@ The definition (PoolDefinition) is shared; the instance holds what is particular
 |---|---|---|
 | `PoolDefinition` | [definition](#var-definition) |  |
 | `float` | [current_value](#var-current-value) | `0.0` |
-| `float` | [base_max_value](#var-base-max-value) | `0.0  # Store the actual base max separately!` |
-| `float` | [max_value](#var-max-value) | `0.0       # This becomes a computed property (base + bonu...` |
+| `float` | [base_max_value](#var-base-max-value) | `0.0` |
+| `float` | [max_value](#var-max-value) | `0.0` |
 | `float` | [overfill_current](#var-overfill-current) | `0.0` |
 | `Entity` | [entity](#var-entity) |  |
 | `int` | [pool_gen](#var-pool-gen) | `0  # GenerationLogic enum value` |
-| `float` | [gen_rate](#var-gen-rate) | `0.0  # Ticks per second` |
-| `float` | [gen_value](#var-gen-value) | `0.0  # Amount per tick` |
+| `float` | [gen_rate](#var-gen-rate) | `0.0` |
+| `float` | [gen_value](#var-gen-value) | `0.0` |
 | `bool` | [regeneration_blocked](#var-regeneration-blocked) | `false` |
 | `ChronoManager` | [chrono_manager](#var-chrono-manager) |  |
 
@@ -62,55 +62,69 @@ The definition (PoolDefinition) is shared; the instance holds what is particular
 
 ### value_changed( new_current: float, new_max: float ) {#signal-value-changed}
 
+========== SIGNALS ==========
+
 ### overfill_changed( new_overfill: float ) {#signal-overfill-changed}
+
+Emitted when the overfill changes: the new overfill.
 
 ### absorbed_damage( damage_absorbed: float, damage_type: int ) {#signal-absorbed-damage}
 
+Emitted when the pool absorbs damage: the amount and the damage type.
+
 ### pool_depleted() {#signal-pool-depleted}
+
+Emitted when the pool reaches zero.
 
 ### pool_restored() {#signal-pool-restored}
 
+Emitted when the pool goes up from zero.
+
 ### pool_capacity_increased( amount: float ) {#signal-pool-capacity-increased}
 
+Emitted when the maximum of the pool grows: by how much.
+
 ### pool_healed( amount: float, source: String ) {#signal-pool-healed}
+
+Emitted when the pool is healed: the amount and where it came from.
 
 ## Variable descriptions
 
 ### PoolDefinition definition {#var-definition}
 
-*No description yet.*
+========== CORE PROPERTIES ==========
 
 ### float current_value = 0.0 {#var-current-value}
 
-*No description yet.*
+The value of the pool now.
 
-### float base_max_value = 0.0  # Store the actual base max separately! {#var-base-max-value}
+### float base_max_value = 0.0 {#var-base-max-value}
 
-*No description yet.*
+Store the actual base max separately!
 
-### float max_value = 0.0       # This becomes a computed property (base + bonuses {#var-max-value}
+### float max_value = 0.0 {#var-max-value}
 
-*No description yet.*
+This becomes a computed property (base + bonuses)
 
 ### float overfill_current = 0.0 {#var-overfill-current}
 
-*No description yet.*
+The overfill the pool holds now (above its maximum).
 
 ### Entity entity {#var-entity}
 
-*No description yet.*
+Entity reference for callbacks
 
 ### int pool_gen = 0  # GenerationLogic enum value {#var-pool-gen}
 
-*No description yet.*
+Live generation/decay properties (can be modified at runtime)
 
-### float gen_rate = 0.0  # Ticks per second {#var-gen-rate}
+### float gen_rate = 0.0 {#var-gen-rate}
 
-*No description yet.*
+Ticks per second
 
-### float gen_value = 0.0  # Amount per tick {#var-gen-value}
+### float gen_value = 0.0 {#var-gen-value}
 
-*No description yet.*
+Amount per tick
 
 ### bool regeneration_blocked = false {#var-regeneration-blocked}
 
@@ -118,7 +132,7 @@ Set by the stats component while its owner is dead
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
-*No description yet.*
+Regeneration, decay and overfill decay run on the chrono manager's shared pool tick (one timer for every pool of every entity), not on a timer each
 
 ## Method descriptions
 

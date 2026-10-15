@@ -131,7 +131,7 @@ The same for any activity that teaches a profession (a recipe, a gathering node)
 
 ### SkillBand get_skill_band( skill_level: int ) {#method-get-skill-band}
 
-*No description yet.*
+The band of difficulty of the recipe for a skill level (it may give skill up, or not).
 
 ### float calculate_craft_duration( crafter: Entity, craft_school_instance: CraftSchoolInstance ) {#method-calculate-craft-duration}
 

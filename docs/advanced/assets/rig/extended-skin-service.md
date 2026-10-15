@@ -21,7 +21,7 @@ Service to create remapped skins by taking the original mesh skin and remapping 
 
 ### Skin get_working_skin() {#method-get-working-skin}
 
-*No description yet.*
+The skin used to remap bones (loaded once and kept).
 
 ### Skin create_remapped_skin_from_skin( original_skin: Skin, target_skeleton: Skeleton3D ) {#method-create-remapped-skin-from-skin}
 

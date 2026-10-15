@@ -24,9 +24,11 @@ SplashScreenManager handles the display of splash screens at game startup. It ma
 
 ### splash_finished_signal() {#signal-splash-finished-signal}
 
+Emitted when the splash screens are done.
+
 ## Method descriptions
 
 ### void splash_finished() {#method-splash-finished}
 
-*No description yet.*
+Sets the flag to indicate splash screens are finished
 

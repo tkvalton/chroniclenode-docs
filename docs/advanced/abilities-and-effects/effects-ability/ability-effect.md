@@ -28,6 +28,8 @@ AbilityEffect adds or removes abilities from the target entity's ability contain
 
 ### enum AbilityAction {#enum-abilityaction}
 
+The options of ability action: add, remove.
+
 - **ADD** = `0`
 
 ## Property descriptions
@@ -36,7 +38,7 @@ AbilityEffect adds or removes abilities from the target entity's ability contain
 
 ### AbilityAction ability_action = AbilityAction.ADD {#prop-ability-action}
 
-*No description yet.*
+Whether the effect adds the ability to the target or removes it.
 
 ### int ability_id = 0 {#prop-ability-id}
 
@@ -66,5 +68,5 @@ Get ability modification details for debugging/UI
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 

@@ -39,39 +39,39 @@ UI component for displaying a single pool (health or resource)
 
 ### SettingsConfig.HealthDisplayOption text_display_mode = SettingsConfig.HealthDisplayOption.CURRENT_PERCENTAGE {#var-text-display-mode}
 
-*No description yet.*
+Configuration
 
 ### bool show_pool_id = false {#var-show-pool-id}
 
-*No description yet.*
+True shows the id of the pool.
 
 ### bool show_pool_value = true {#var-show-pool-value}
 
-*No description yet.*
+True shows the numbers of the pool.
 
 ### bool show_overfill = true {#var-show-overfill}
 
-*No description yet.*
+True shows the overfill.
 
 ### bool animate_changes = true {#var-animate-changes}
 
-*No description yet.*
+True animates the bar when the value changes.
 
 ### float animation_duration = 0.3 {#var-animation-duration}
 
-*No description yet.*
+How many seconds the animation takes.
 
 ### PoolInstance pool_instance {#var-pool-instance}
 
-*No description yet.*
+Pool data
 
 ### int pool_id = 0 {#var-pool-id}
 
-*No description yet.*
+The pool the bar shows.
 
 ### Tween current_tween {#var-current-tween}
 
-*No description yet.*
+Animation
 
 ## Method descriptions
 

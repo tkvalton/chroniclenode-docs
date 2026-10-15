@@ -42,7 +42,7 @@ Whether to lock (true) or unlock (false) the object
 
 ### InteractableObject target_object = null {#var-target-object}
 
-*No description yet.*
+Reference to the target object
 
 ## Method descriptions
 

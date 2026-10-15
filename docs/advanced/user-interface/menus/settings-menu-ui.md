@@ -37,37 +37,41 @@ Dynamically builds and manages the runtime settings menu from Settings resource
 
 ### restored_default_settings() {#signal-restored-default-settings}
 
+Emitted when the default settings were put back.
+
 ### settings_exit_button_pressed() {#signal-settings-exit-button-pressed}
+
+Emitted when the player leaves the settings menu.
 
 ## Property descriptions
 
 ### PackedScene checkbox_scene {#prop-checkbox-scene}
 
-*No description yet.*
+Scene references - assign these in the editor
 
 ### PackedScene option_button_scene {#prop-option-button-scene}
 
-*No description yet.*
+The scene of a setting with a list of options.
 
 ### PackedScene drag_bar_scene {#prop-drag-bar-scene}
 
-*No description yet.*
+The scene of a setting with a slider.
 
 ### PackedScene color_picker_scene {#prop-color-picker-scene}
 
-*No description yet.*
+The scene of a setting with a color.
 
 ### PackedScene section_label_scene {#prop-section-label-scene}
 
-*No description yet.*
+The scene of the title of a section.
 
 ### PackedScene hotkey_rebind_button_scene {#prop-hotkey-rebind-button-scene}
 
-*No description yet.*
+The scene of a keybind.
 
 ### PackedScene button_sub_menu_scene {#prop-button-sub-menu-scene}
 
-*No description yet.*
+The scene of a button that opens a sub menu.
 
 ## Variable descriptions
 
@@ -79,17 +83,17 @@ SystemRefs
 
 ### void initialize_ui( system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [PanelUI](/advanced/user-interface/panels/panel-ui).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void hide_setting_description() {#method-hide-setting-description}
 
-*No description yet.*
+Hides the text about the setting under the mouse.
 
 ### void restore_default_settings() {#method-restore-default-settings}
 
-*No description yet.*
+Puts the default settings back.
 
 ### void on_exit_pressed() {#method-on-exit-pressed}
 
-*No description yet.*
+Saves the settings and leaves the menu.
 

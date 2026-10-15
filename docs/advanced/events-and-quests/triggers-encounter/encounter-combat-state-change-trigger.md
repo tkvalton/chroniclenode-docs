@@ -35,17 +35,17 @@ Triggers when an Encounter changes state (enters combat, exits combat, or is def
 
 ### int encounter_id = 0 {#prop-encounter-id}
 
-*No description yet.*
+The encounter to watch.
 
 ### Encounter.EncounterState target_state = Encounter.EncounterState.IN_COMBAT {#prop-target-state}
 
-*No description yet.*
+The state to fire on (in combat, out of combat or defeated).
 
 ## Variable descriptions
 
 ### Encounter encounter {#var-encounter}
 
-*No description yet.*
+Reference to the special encounter
 
 ## Method descriptions
 

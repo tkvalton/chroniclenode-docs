@@ -33,13 +33,13 @@ Triggers when the game starts
 
 ### float delay_after_start = 0.0 {#prop-delay-after-start}
 
-*No description yet.*
+How many seconds after the game starts the trigger fires.
 
 ## Variable descriptions
 
 ### Timer timer {#var-timer}
 
-*No description yet.*
+The timer of the delay.
 
 ## Method descriptions
 
@@ -53,15 +53,15 @@ Return the function description with parameter placeholders
 
 ### void setup() {#method-setup}
 
-Set up any listeners or connections needed by this trigger *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+Starts listening: connects the signals the trigger waits for.
 
 ### void cleanup() {#method-cleanup}
 
-Clean up any listeners or connections *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+Stops listening: disconnects the signals of the trigger.
 
 ### bool is_triggered( _event_data: Dictionary ) {#method-is-triggered}
 
-Check if this trigger is currently active *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+Does this event data satisfy the trigger? Called when the signal the trigger listens to fires.
 
 ### String generate_objective_description() {#method-generate-objective-description}
 

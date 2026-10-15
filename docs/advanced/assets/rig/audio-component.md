@@ -60,22 +60,22 @@ Features:
 ## Constants
 
 - `int` **MOTION_REMOTE_COUNT** = `4      # For footsteps (left/right foot)` - Number of RemoteTransform3D nodes to create for different audio types
-- `int` **VOICE_REMOTE_COUNT** = `4       # For voice lines and combat sounds`
-- `int` **EFFECT_REMOTE_COUNT** = `4      # For various effects`
+- `int` **VOICE_REMOTE_COUNT** = `4` - For voice lines and combat sounds
+- `int` **EFFECT_REMOTE_COUNT** = `4` - For various effects
 
 ## Variable descriptions
 
 ### Array[RemoteTransform3D] motion_remotes = [] {#var-motion-remotes}
 
-*No description yet.*
+The remote transforms the footstep sounds play from.
 
 ### Array[RemoteTransform3D] voice_remotes = [] {#var-voice-remotes}
 
-*No description yet.*
+The remote transforms the voice sounds play from.
 
 ### Array[RemoteTransform3D] effect_remotes = [] {#var-effect-remotes}
 
-*No description yet.*
+The remote transforms the effect sounds play from.
 
 ### RemoteTransform3D voiceline_remote = null {#var-voiceline-remote}
 
@@ -83,7 +83,7 @@ Dedicated voiceline remote and tracking
 
 ### AudioStreamPlayer3D active_voiceline_player = null {#var-active-voiceline-player}
 
-*No description yet.*
+The player of the voice line that plays now.
 
 ### Dictionary active_players =   # player -&gt; remote: RemoteTransform3D, requester_id: Strin {#var-active-players}
 
@@ -95,15 +95,15 @@ Track exclusive effect sounds to prevent duplicates
 
 ### String entity_type = "" {#var-entity-type}
 
-*No description yet.*
+The kind of entity, for its footsteps (humanoid ...).
 
 ### String voice_type = "" {#var-voice-type}
 
-*No description yet.*
+The voice of the entity.
 
 ### bool hit_audio_on_cooldown = false {#var-hit-audio-on-cooldown}
 
-*No description yet.*
+True while the hit sound waits before it can play again.
 
 ### AudioManager audio_manager {#var-audio-manager}
 
@@ -111,7 +111,7 @@ SystemManager refs
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
-*No description yet.*
+The manager of timers.
 
 ## Method descriptions
 

@@ -27,7 +27,7 @@ ChasingState with LOS-aware navigation that repositions when stuck
 
 ## Constants
 
-- `int` **MAX_REPOSITIONING_ATTEMPTS** = `3`
+- `int` **MAX_REPOSITIONING_ATTEMPTS** = `3` - How many times the entity moves to get a clear line to its target before it gives up.
 
 ## Variable descriptions
 

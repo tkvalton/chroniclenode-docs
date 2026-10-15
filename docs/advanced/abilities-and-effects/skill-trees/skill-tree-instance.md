@@ -64,7 +64,7 @@ Where the tree comes from when it is not the character's own: "school" (a profes
 
 ### int source_id = 0 {#var-source-id}
 
-*No description yet.*
+The id of the owner of the tree (the profession or the faction), with source kind.
 
 ## Method descriptions
 

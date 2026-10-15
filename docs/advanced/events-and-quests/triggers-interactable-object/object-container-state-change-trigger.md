@@ -35,6 +35,8 @@ Triggers when a specific container is opened or closed
 
 ### enum ContainerStateTriggerType {#enum-containerstatetriggertype}
 
+The options of container state trigger type: opened, closed.
+
 - **OPENED** = `0`
 
 ## Property descriptions

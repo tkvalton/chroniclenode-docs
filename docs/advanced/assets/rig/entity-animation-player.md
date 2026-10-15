@@ -63,9 +63,13 @@ EntityAnimationPlayer A specialized AnimationPlayer for game entities with robus
 
 ### animation_motion_sound_trigger( message: String ) {#signal-animation-motion-sound-trigger}
 
+Signal emitted when an animation should trigger a sound effect
+
 ## Enumerations
 
 ### enum AnimationName {#enum-animationname}
+
+Every animation slot the player knows (idle, walk, run, turn, jump, fall, swim, combat, death ...). Each slot is mapped to a real animation of the model by the animation map.
 
 - **NONE** = `0`
 - **IDLE_STANDING** = `1`
@@ -178,59 +182,59 @@ EntityAnimationPlayer A specialized AnimationPlayer for game entities with robus
 
 ## Constants
 
-- `String` **DEFAULT_TREE_PATH** = `"res://addons/chroniclenode/runtime_classes/entity/components/rig/animation_m...`
-- `float` **MOVEMENT_BLEND_DURATION** = `0.5`
-- `float` **BLEND_FADE_IN_TIME** = `0.5`
-- `float` **BLEND_FADE_OUT_TIME** = `0.5`
-- `String` **MOVING_STATE_MACHINE** = `"MovingStateMachine"`
-- `String` **MOVING_STATE_TIME_SCALE** = `"MovingStateTimeScale"`
-- `String` **TURNING_BLEND** = `"TurningBlend"`
-- `String` **TURN_BLEND_SPACE** = `"TurnBlendSpace"`
-- `String` **FULL_BODY_CASTING** = `"FullBodyCasting"`
-- `String` **FULL_BODY_ACTION** = `"FullBodyAction"`
-- `String` **FULL_BODY_ONE_SHOT** = `"FullBodyOneshot"`
-- `String` **FULL_BODY_TIME_SCALE** = `"FullBodyTimeScale"`
-- `String` **FULL_BODY_BLEND** = `"FullBodyBlend"`
-- `String` **UPPER_BODY_CASTING** = `"UpperBodyCasting"`
-- `String` **UPPER_BODY_ACTION** = `"UpperBodyAction"`
-- `String` **UPPER_BODY_ONE_SHOT** = `"UpperBodyOneshot"`
-- `String` **UPPER_BODY_TIME_SCALE** = `"UpperBodyTimeScale"`
-- `String` **UPPER_BODY_BLEND** = `"UpperBodyBlend"`
-- `String` **STANDING_LOCOMOTION** = `"StandingLocomotion"`
-- `String` **SWIMMING_LOCOMOTION** = `"SwimmingLocomotion"`
-- `String` **CROUCHING_LOCOMOTION** = `"CrouchingLocomotion"`
-- `String` **DEATH_ANIMATION** = `"DeathAnimation"`
-- `String` **DEATH_BLEND** = `"DeathBlend"`
-- `String` **JUMP** = `"Jump"`
-- `String` **FALL_START** = `"FallStart"`
-- `String` **FALL_LOOP** = `"FallLoop"`
-- `String` **LAND_SOFT** = `"LandSoft"`
-- `String` **LAND_MEDIUM** = `"LandMedium"`
-- `String` **LAND_HARD** = `"LandHard"`
-- `String` **DEFAULT_UNARMED_STANCE** = `"combat_idle"`
+- `String` **DEFAULT_TREE_PATH** = `"res://addons/chroniclenode/runtime_classes/entity/components/rig/animation_m...` - Constants
+- `float` **MOVEMENT_BLEND_DURATION** = `0.5` - How many seconds a movement animation takes to blend into the next.
+- `float` **BLEND_FADE_IN_TIME** = `0.5` - How many seconds an action animation takes to fade in.
+- `float` **BLEND_FADE_OUT_TIME** = `0.5` - How many seconds an action animation takes to fade out.
+- `String` **MOVING_STATE_MACHINE** = `"MovingStateMachine"` - Animation Tree Node Names
+- `String` **MOVING_STATE_TIME_SCALE** = `"MovingStateTimeScale"` - The name of the speed parameter of the moving state in the animation tree.
+- `String` **TURNING_BLEND** = `"TurningBlend"` - The name of the blend parameter of the turn in the animation tree.
+- `String` **TURN_BLEND_SPACE** = `"TurnBlendSpace"` - The name of the blend space of the turn in the animation tree.
+- `String` **FULL_BODY_CASTING** = `"FullBodyCasting"` - The name of the full body casting node in the animation tree.
+- `String` **FULL_BODY_ACTION** = `"FullBodyAction"` - The name of the full body action node in the animation tree.
+- `String` **FULL_BODY_ONE_SHOT** = `"FullBodyOneshot"` - The name of the full body one shot node in the animation tree.
+- `String` **FULL_BODY_TIME_SCALE** = `"FullBodyTimeScale"` - The name of the full body speed parameter in the animation tree.
+- `String` **FULL_BODY_BLEND** = `"FullBodyBlend"` - The name of the full body blend parameter in the animation tree.
+- `String` **UPPER_BODY_CASTING** = `"UpperBodyCasting"` - The name of the upper body casting node in the animation tree.
+- `String` **UPPER_BODY_ACTION** = `"UpperBodyAction"` - The name of the upper body action node in the animation tree.
+- `String` **UPPER_BODY_ONE_SHOT** = `"UpperBodyOneshot"` - The name of the upper body one shot node in the animation tree.
+- `String` **UPPER_BODY_TIME_SCALE** = `"UpperBodyTimeScale"` - The name of the upper body speed parameter in the animation tree.
+- `String` **UPPER_BODY_BLEND** = `"UpperBodyBlend"` - The name of the upper body blend parameter in the animation tree.
+- `String` **STANDING_LOCOMOTION** = `"StandingLocomotion"` - The name of the standing locomotion blend space in the animation tree.
+- `String` **SWIMMING_LOCOMOTION** = `"SwimmingLocomotion"` - The name of the swimming locomotion blend space in the animation tree.
+- `String` **CROUCHING_LOCOMOTION** = `"CrouchingLocomotion"` - The name of the crouching locomotion blend space in the animation tree.
+- `String` **DEATH_ANIMATION** = `"DeathAnimation"` - The name of the death animation node in the animation tree.
+- `String` **DEATH_BLEND** = `"DeathBlend"` - The name of the death blend parameter in the animation tree.
+- `String` **JUMP** = `"Jump"` - Movement State Machine States
+- `String` **FALL_START** = `"FallStart"` - The name of the fall start node in the animation tree.
+- `String` **FALL_LOOP** = `"FallLoop"` - The name of the fall loop node in the animation tree.
+- `String` **LAND_SOFT** = `"LandSoft"` - The name of the soft landing node in the animation tree.
+- `String` **LAND_MEDIUM** = `"LandMedium"` - The name of the medium landing node in the animation tree.
+- `String` **LAND_HARD** = `"LandHard"` - The name of the hard landing node in the animation tree.
+- `String` **DEFAULT_UNARMED_STANCE** = `"combat_idle"` - Default stance animation when unarmed
 - `Array[float]` **TURN_POSITIONS** = `[-1.0, -0.5, 0.0, 0.5, 1.0]` - Turn blend space layout, by blend POSITION (not point index - the order of points inside the tree resource is not guaranteed, and it did not match the order assumed here before):   -1.0 = turn 180 left, -0.5 = turn 90 left, 0.0 = idle (center), 0.5 = turn 90 right, 1.0 = turn 180 right
 
 ## Variable descriptions
 
 ### bool animations_blocked = false {#var-animations-blocked}
 
-*No description yet.*
+State Management
 
 ### bool animations_death_blocked = false {#var-animations-death-blocked}
 
-*No description yet.*
+True once the entity died: no animation but the death one plays.
 
 ### String current_stance_tag = ""  # Animation name from WeaponClassDefinition.stance_tag {#var-current-stance-tag}
 
-*No description yet.*
+The stance of the weapon in hand (the stance tag of its weapon class), which picks the animations.
 
 ### bool current_combat_mode = false {#var-current-combat-mode}
 
-*No description yet.*
+True while the entity is in its combat stance.
 
 ### Dictionary fallback_chains {#var-fallback-chains}
 
-*No description yet.*
+Smart fallback mapping for missing animations
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
@@ -240,19 +244,19 @@ ChronoManager ref
 
 ### void setup_animations( system_hub: GameHost.SystemHub, entity_data: EntityDefinition ) {#method-setup-animations}
 
-*No description yet.*
+Builds the player for an entity: reads the animation map of its definition.
 
 ### void setup_animation_tree( tree_resource_path: String = DEFAULT_TREE_PATH ) {#method-setup-animation-tree}
 
-*No description yet.*
+Sets up the animation tree from a tree resource (the default one if none is given). Needs setup_animations first.
 
 ### void play_movement( movement_data: MovementData ) {#method-play-movement}
 
-*No description yet.*
+Plays the movement animation for the movement data (direction, speed, stance).
 
 ### void play_turning_animation( turn_direction: float, is_crouched: bool = false, is_swimming: bool = false ) {#method-play-turning-animation}
 
-*No description yet.*
+Plays a turn in place, to the left or right (a negative direction is left).
 
 ### void set_turn_direction( turn_direction: float ) {#method-set-turn-direction}
 
@@ -260,31 +264,31 @@ Updates only the turn direction of a turn that is already playing. Does not touc
 
 ### void stop_turning_animation() {#method-stop-turning-animation}
 
-*No description yet.*
+Stops the turn animation.
 
 ### void play_casting_animation( ability_selection: AnimationSelectionAbility, weapon_type: String = "" ) {#method-play-casting-animation}
 
-*No description yet.*
+Plays the casting animation of an ability (for the weapon type in hand).
 
 ### void play_ability_animation( ability_selection: AnimationSelectionAbility, weapon_type: String = "" ) {#method-play-ability-animation}
 
-*No description yet.*
+Plays the animation of an ability (for the weapon type in hand).
 
 ### void stop_casting_animation() {#method-stop-casting-animation}
 
-*No description yet.*
+Ends the casting animation.
 
 ### void stop_ability_animation() {#method-stop-ability-animation}
 
-*No description yet.*
+Ends the ability animation.
 
 ### void cancel_casting_animation() {#method-cancel-casting-animation}
 
-*No description yet.*
+Cuts the casting animation short (the cast was interrupted).
 
 ### void stop_upper_body_animation() {#method-stop-upper-body-animation}
 
-*No description yet.*
+Stops what the upper body plays.
 
 ### void play_social_animation( social_selection: AnimationSelectionSocial, context: String = "" ) {#method-play-social-animation}
 
@@ -292,19 +296,19 @@ Play a social animation using AnimationSelectionSocial
 
 ### void play_jump_animation() {#method-play-jump-animation}
 
-*No description yet.*
+Plays the jump.
 
 ### void play_falling_animation() {#method-play-falling-animation}
 
-*No description yet.*
+Plays the fall.
 
 ### void play_land_animation( impact_level: int ) {#method-play-land-animation}
 
-*No description yet.*
+Plays the landing, softer or harder by the impact level.
 
 ### void play_combat_animation( animation_type: String, weapon_type: String = "" ) {#method-play-combat-animation}
 
-*No description yet.*
+Plays a combat animation by its type (attack, hit, dodge ...) for the weapon type in hand.
 
 ### bool play_status_effect_start_animation( status_name: String, speed: float = 1.0 ) {#method-play-status-effect-start-animation}
 
@@ -332,35 +336,35 @@ Get the duration of a status effect animation phase
 
 ### void play_block_animation( weapon_type: String = "" ) {#method-play-block-animation}
 
-*No description yet.*
+Simple wrapper functions for backwards compatibility
 
 ### void play_dodge_animation( weapon_type: String = "" ) {#method-play-dodge-animation}
 
-*No description yet.*
+Plays the dodge animation.
 
 ### void play_hit_animation( weapon_type: String = "" ) {#method-play-hit-animation}
 
-*No description yet.*
+Plays the animation of being hit.
 
 ### void play_equipment_animation( action: String, weapon_type: String ) {#method-play-equipment-animation}
 
-*No description yet.*
+For sheathe/unsheathe (simpler since they're single animations, not arrays)
 
 ### void play_sheathe_animation( weapon_type: String ) {#method-play-sheathe-animation}
 
-*No description yet.*
+Plays putting the weapon away.
 
 ### void play_unsheathe_animation( weapon_type: String ) {#method-play-unsheathe-animation}
 
-*No description yet.*
+Plays drawing the weapon.
 
 ### void play_death_animation() {#method-play-death-animation}
 
-*No description yet.*
+Plays the death animation and blocks the others.
 
 ### void reset_from_death() {#method-reset-from-death}
 
-*No description yet.*
+Lets the animations play again after a resurrection.
 
 ### void set_stance_tag( stance_tag: String ) {#method-set-stance-tag}
 
@@ -368,21 +372,21 @@ Set the combat stance animation tag from WeaponClassDefinition.stance_tag Called
 
 ### void enter_combat_mode() {#method-enter-combat-mode}
 
-*No description yet.*
+Switches the idle and movement animations to the combat ones.
 
 ### void exit_combat_mode() {#method-exit-combat-mode}
 
-*No description yet.*
+Switches back to the normal idle and movement animations.
 
 ### void play_interaction_animation( interaction_type: String ) {#method-play-interaction-animation}
 
-*No description yet.*
+Plays the animation of an interaction (open, use, pick up ...).
 
 ### void cleanup_timers() {#method-cleanup-timers}
 
-*No description yet.*
+Stops the tweens and timers of the player.
 
 ### bool is_animation_almost_complete() {#method-is-animation-almost-complete}
 
-*No description yet.*
+Is the animation playing now almost at its end?
 

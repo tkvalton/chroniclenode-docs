@@ -66,5 +66,5 @@ Null-safe: a missing LevelScaling means "level does not matter"
 
 ### String describe() {#method-describe}
 
-*No description yet.*
+A text about how the level changes the value.
 

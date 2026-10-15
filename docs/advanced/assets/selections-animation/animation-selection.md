@@ -25,11 +25,11 @@ Base class for animation selection resources - now simplified to just return ani
 
 ### float speed_scale = 1.0 {#prop-speed-scale}
 
-*No description yet.*
+How fast the animation plays (1 = normal).
 
 ### bool is_full_body = false {#prop-is-full-body}
 
-*No description yet.*
+True when the animation uses the whole body, false when only the upper body.
 
 ## Method descriptions
 

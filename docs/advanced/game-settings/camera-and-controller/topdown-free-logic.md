@@ -80,101 +80,101 @@ Camera X rotation at max zoom
 
 ### float socket_x_at_min = -35.0 {#prop-socket-x-at-min}
 
-*No description yet.*
+The tilt of the camera socket at the closest zoom, in degrees.
 
 ### float socket_x_at_max = -75.0 {#prop-socket-x-at-max}
 
-*No description yet.*
+The tilt of the camera socket at the farthest zoom, in degrees.
 
 *Pan Behavior*
 
 ### float pan_teleport_distance = 90.0 {#prop-pan-teleport-distance}
 
-*No description yet.*
+Farther than this, the camera jumps to the target instead of gliding.
 
 ### Vector3 pan_teleport_offset = Vector3(0, 0, 9) {#prop-pan-teleport-offset}
 
-*No description yet.*
+Where the camera lands when it jumps to the target, from the target.
 
 *UI Scaling*
 
 ### bool enable_nameplate_scaling = true {#prop-enable-nameplate-scaling}
 
-*No description yet.*
+True when the nameplates change size with the zoom.
 
 ### float nameplate_scale_min = 0.6 {#prop-nameplate-scale-min}
 
-*No description yet.*
+The size of the nameplates at the closest zoom.
 
 ### float nameplate_scale_max = 1.2 {#prop-nameplate-scale-max}
 
-*No description yet.*
+The size of the nameplates at the farthest zoom.
 
 ## Variable descriptions
 
 ### Node3D follow_target {#var-follow-target}
 
-*No description yet.*
+Runtime state (not exported)
 
 ### bool follow_cam_on = true {#var-follow-cam-on}
 
-*No description yet.*
+True while the camera follows the target.
 
 ### Vector3 current_velocity = Vector3.ZERO {#var-current-velocity}
 
-*No description yet.*
+The speed of the camera now.
 
 ### float camera_zoom_direction = 0 {#var-camera-zoom-direction}
 
-*No description yet.*
+The direction the zoom moves in now.
 
 ### float camera_x_rotation = 0.0 {#var-camera-x-rotation}
 
-*No description yet.*
+The tilt of the camera now, in degrees.
 
 ### Vector3 pan_target_position = Vector3.ZERO {#var-pan-target-position}
 
-*No description yet.*
+The position the camera glides to.
 
 ### bool is_panning_to_position = false {#var-is-panning-to-position}
 
-*No description yet.*
+True while the camera glides to a position.
 
 ## Method descriptions
 
 ### void setup( cm: CameraController ) {#method-setup}
 
-Setup camera behavior - override in child classes *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Sets the logic up when it becomes the one in use.
 
 ### void process_camera( delta: float ) {#method-process-camera}
 
-Per-frame camera update - override in child classes *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Moves the camera one frame.
 
 ### bool uses_input_manager() {#method-uses-input-manager}
 
-true = this camera receives look/zoom from the InputManager instead of raw events *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Does the logic get its look input from the input manager?
 
 ### Array[LookBinding] get_look_bindings() {#method-get-look-bindings}
 
-Mouse gestures this camera wants (button + LookBinding.Kind) *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+The mouse buttons that turn the view or the character for this logic.
 
 ### void handle_look( kind: LookBinding.Kind, delta_rad: Vector2 ) {#method-handle-look}
 
-Look movement for a gesture this camera declared. delta_rad is screen-space radians with the player's sensitivity and invert settings applied (x &gt; 0 = mouse right, y &gt; 0 = mouse down). Multiply by look_sensitivity_scale. *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Turns the view or the character by the mouse movement.
 
 ### void handle_zoom( steps: int ) {#method-handle-zoom}
 
-Mouse wheel notches. &gt; 0 = zoom in, &lt; 0 = zoom out *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Zooms by the steps of the mouse wheel (positive steps zoom in).
 
 ### void set_target( target: Variant, use_pan: bool = true ) {#method-set-target}
 
-Set camera target - override in child classes *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Sets what the camera follows. With pan on, it glides there.
 
 ### String get_type_display_name() {#method-get-type-display-name}
 
-Get display name for editor *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+The name of the logic in the editor.
 
 ### Array[String] validate() {#method-validate}
 
-Validate settings - return errors array *(from [CameraLogic](/advanced/game-settings/camera-and-controller/camera-logic))*
+Checks the settings. Gives the problems found (empty when it is fine).
 

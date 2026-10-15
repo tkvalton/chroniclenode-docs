@@ -13,7 +13,7 @@ Modifies the group's overall behavior and aggression level
 | `UniqueEncounterData.GroupBehavior` | [new_group_behavior](#prop-new-group-behavior) | `UniqueEncounterData.GroupBehavior.AGGRESSIVE` |
 | `int` | [new_max_attackers](#prop-new-max-attackers) | `0  # 0 = use behavior default` |
 | `float` | [behavior_duration](#prop-behavior-duration) | `0.0  # 0 = permanent change` |
-| `bool` | [revert_to_original](#prop-revert-to-original) | `false  # If true, reverts after duration` |
+| `bool` | [revert_to_original](#prop-revert-to-original) | `false` |
 
 ## Variables
 
@@ -36,19 +36,19 @@ Modifies the group's overall behavior and aggression level
 
 ### UniqueEncounterData.GroupBehavior new_group_behavior = UniqueEncounterData.GroupBehavior.AGGRESSIVE {#prop-new-group-behavior}
 
-*No description yet.*
+How the group acts from now on.
 
 ### int new_max_attackers = 0  # 0 = use behavior default {#prop-new-max-attackers}
 
-*No description yet.*
+How many members may attack at once (0 = no change).
 
 ### float behavior_duration = 0.0  # 0 = permanent change {#prop-behavior-duration}
 
-*No description yet.*
+How many seconds the change lasts (0 = for good).
 
-### bool revert_to_original = false  # If true, reverts after duration {#prop-revert-to-original}
+### bool revert_to_original = false {#prop-revert-to-original}
 
-*No description yet.*
+If true, reverts after duration
 
 ## Variable descriptions
 
@@ -58,15 +58,15 @@ Track original behavior for reverting
 
 ### int original_max_attackers {#var-original-max-attackers}
 
-*No description yet.*
+How many members could attack before the change.
 
 ### float behavior_timer = 0.0 {#var-behavior-timer}
 
-*No description yet.*
+How many seconds the change has lasted.
 
 ### bool has_original_stored = false {#var-has-original-stored}
 
-*No description yet.*
+True once the old values were kept.
 
 ## Method descriptions
 

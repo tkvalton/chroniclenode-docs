@@ -50,6 +50,8 @@ UseStrategyDefinition contains all logic for ability usage strategies. Subclasse
 
 ### enum AbilityUseStrategy {#enum-abilityusestrategy}
 
+The options of ability use strategy: instant, cast, channel, toggle.
+
 - **INSTANT** = `0`
 - **CAST** = `1`
 - **CHANNEL** = `2`
@@ -165,7 +167,7 @@ Slows the user for the length of a cast or channel (multiplier 0.4 = 40 % of the
 
 ### void remove_casting_slow( strategy_instance: UseStrategyInstance, user: Entity ) {#method-remove-casting-slow}
 
-*No description yet.*
+Takes the slow of casting off the user again.
 
 ### void on_input_released( _strategy_instance: UseStrategyInstance, _user: Entity, _target: Variant ) {#method-on-input-released}
 

@@ -37,6 +37,8 @@ Effect that modifies pool properties (max value, overfill, generation, etc.) Eac
 
 ### enum PoolProperty {#enum-poolproperty}
 
+The options of pool property: max value, overfill max, negative max, overfill decay rate, gen rate, gen value.
+
 - **MAX_VALUE** = `0`
 - **OVERFILL_MAX** = `1`
 - **NEGATIVE_MAX** = `2`
@@ -65,35 +67,35 @@ How the value changes the property: add, subtract, multiply, increase or decreas
 
 ### EffectType get_effect_type() {#method-get-effect-type}
 
-Override in child classes to return effect type name *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== EFFECT IDENTIFICATION ==========
 
 ### String get_effect_category() {#method-get-effect-category}
 
-Override in child classes to return category *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+The group of the effect in the editor.
 
 ### bool affects_pool( pool_id: int ) {#method-affects-pool}
 
-*No description yet.*
+========== TARGET VALIDATION ==========
 
 ### String get_property_name() {#method-get-property-name}
 
-*No description yet.*
+========== PROPERTY HELPERS ==========
 
 ### bool is_capacity_property() {#method-is-capacity-property}
 
-*No description yet.*
+Does the effect change the capacity of the pool (it is worked out again when the equipment changes)?
 
 ### bool is_generation_property() {#method-is-generation-property}
 
-*No description yet.*
+Does the effect change how the pool fills by itself?
 
 ### bool is_overfill_property() {#method-is-overfill-property}
 
-*No description yet.*
+Does the effect change the overfill of the pool?
 
 ### float calculate_effect_value( stat_points: float, formula_context: FormulaContext = null ) {#method-calculate-effect-value}
 
-*No description yet.*
+========== EFFECT VALUE CALCULATION ==========
 
 ### float modify( base_value: float, stat_points: float, formula_context: FormulaContext = null ) {#method-modify}
 
@@ -105,17 +107,17 @@ True for the properties the stats component applies to a pool instance. The thre
 
 ### Dictionary get_preview_info( stat_points: float ) {#method-get-preview-info}
 
-*No description yet.*
+========== DISPLAY ==========
 
 ### String get_short_description() {#method-get-short-description}
 
-Override in child classes for a one-line summary of what this effect does *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+A one line text about what the effect does.
 
 ### String get_tooltip_text( stat_points: float ) {#method-get-tooltip-text}
 
-*No description yet.*
+The tooltip text of the effect for a number of stat points.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Validate this effect's configuration - override in child classes *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== VALIDATION ==========
 

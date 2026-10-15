@@ -48,7 +48,7 @@ The systems of the game (the VFX manager is made after this system, so it is ask
 
 ### VFXManager: vfx_manager {#var-vfx-manager}
 
-*No description yet.*
+The manager of visual effects (from the hub).
 
 ## Method descriptions
 

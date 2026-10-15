@@ -18,11 +18,11 @@ Simplified IdleState - detects stance changes and uses blending system
 
 ### void enter() {#method-enter}
 
-*Overrides this function of [MovementState](/advanced/behaviors/states/movement-state).*
+The entity stands still: stops moving and plays the idle animation.
 
 ### void exit() {#method-exit}
 
-*Overrides this function of [MovementState](/advanced/behaviors/states/movement-state).*
+Leaves the state.
 
 ### void force_stance_update() {#method-force-stance-update}
 

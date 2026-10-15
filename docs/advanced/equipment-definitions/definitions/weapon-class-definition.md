@@ -115,11 +115,11 @@ Get the appropriate animation tag for a given category category should be one of
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Is it free of errors?
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 
 ### bool blocks_equipment_slot( slot: EquipmentSlotDefinition ) {#method-blocks-equipment-slot}
 
@@ -131,5 +131,5 @@ Check if this weapon type has any slot conflicts
 
 ### String get_weapon_type_name() {#method-get-weapon-type-name}
 
-*No description yet.*
+The name of the weapon type of this class.
 

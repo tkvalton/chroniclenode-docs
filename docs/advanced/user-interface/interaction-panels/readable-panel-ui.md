@@ -16,7 +16,7 @@ UI panel for displaying readable items (books, scrolls, notes, etc.) Features mu
 
 | | | |
 |---|---|---|
-| `Variant` | [current_readable_source](#var-current-readable-source) | `null  # Can be ItemInstance or InteractableObject` |
+| `Variant` | [current_readable_source](#var-current-readable-source) | `null` |
 | `Array[String]` | [pages](#var-pages) | `[]` |
 | `int` | [current_page](#var-current-page) | `0` |
 
@@ -40,27 +40,27 @@ UI panel for displaying readable items (books, scrolls, notes, etc.) Features mu
 
 ### Texture default_background_texture {#prop-default-background-texture}
 
-*No description yet.*
+========== READABLE DATA ==========
 
 ## Variable descriptions
 
-### Variant current_readable_source = null  # Can be ItemInstance or InteractableObject {#var-current-readable-source}
+### Variant current_readable_source = null {#var-current-readable-source}
 
-*No description yet.*
+Can be ItemInstance or InteractableObject
 
 ### Array[String] pages = [] {#var-pages}
 
-*No description yet.*
+The pages of the text.
 
 ### int current_page = 0 {#var-current-page}
 
-*No description yet.*
+The page shown now.
 
 ## Method descriptions
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [PanelUI](/advanced/user-interface/panels/panel-ui).*
+========== INITIALIZATION ==========
 
 ### void display_readable_from_data( data: Dictionary ) {#method-display-readable-from-data}
 

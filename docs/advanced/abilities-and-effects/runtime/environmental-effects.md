@@ -43,6 +43,8 @@ Combat signals for effect system compatibility
 
 ### special_hit_done( stat_id: int, target: Variant, damage: float ) {#signal-special-hit-done}
 
+Emitted when a hit of the environment had a special result (a critical hit): the stat, the target and the damage.
+
 ## Variable descriptions
 
 ### String display_name = "Environmental" {#var-display-name}

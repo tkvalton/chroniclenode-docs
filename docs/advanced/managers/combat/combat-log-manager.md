@@ -29,18 +29,28 @@ CombatLogManager now receives comprehensive reports from CombatSystem
 
 ### batch_log( log_entries: Array ) {#signal-batch-log}
 
+Emitted when a batch log is ready
+
 ### damage_done_details( entity: Entity, amount: int ) {#signal-damage-done-details}
 
+Emits damage done to the details manager
+
 ### healing_taken_details( entity: Entity, amount: int ) {#signal-healing-taken-details}
+
+Emits healing taken to the details manager
 
 ## Enumerations
 
 ### enum LogLevel {#enum-loglevel}
 
+Log levels for controlling verbosity
+
 - **CRITICAL** = `0`
 - **NORMAL** = `1`
 
 ### enum LogCategory {#enum-logcategory}
+
+Log categories with associated colors
 
 - **DAMAGE** = `0`
 - **HEALING** = `1`
@@ -48,46 +58,46 @@ CombatLogManager now receives comprehensive reports from CombatSystem
 
 ## Constants
 
-- `const` **CATEGORY_COLORS** = `{`
-- `const` **MAX_BATCH_SIZE** = `50`
+- `const` **CATEGORY_COLORS** = `{` - Color mapping for log categories
+- `const` **MAX_BATCH_SIZE** = `50` - Maximum number of entries in a single batch
 
 ## Variable descriptions
 
 ### String current_time = "" {#var-current-time}
 
-*No description yet.*
+Current time string in format "HH:MM:SS"
 
 ### Array log_batch = [] {#var-log-batch}
 
-*No description yet.*
+Array to store log entries before batching
 
 ### Array[Timer] active_timers = [] {#var-active-timers}
 
-*No description yet.*
+========== CHRONO MANAGER INTEGRATION ========== Track active timers so we can return them properly
 
 ### Timer batch_timer {#var-batch-timer}
 
-*No description yet.*
+Store timer references for easy access
 
 ### Timer time_update_timer {#var-time-update-timer}
 
-*No description yet.*
+The timer that updates the time shown in the log.
 
 ### int current_log_level = LogLevel.NORMAL {#var-current-log-level}
 
-*No description yet.*
+Current log level (default to NORMAL)
 
 ### bool logging_enabled = true {#var-logging-enabled}
 
-*No description yet.*
+Whether logging is enabled
 
 ## Method descriptions
 
 ### void set_batch_interval( interval: float ) {#method-set-batch-interval}
 
-*No description yet.*
+Sets how many seconds the log waits to send its lines together.
 
 ### void update_time() {#method-update-time}
 
-*No description yet.*
+Updates the clock shown in the log lines.
 

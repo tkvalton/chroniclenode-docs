@@ -28,6 +28,8 @@ Check entity metadata with flexible operations and type handling
 
 ### enum ComparisonType {#enum-comparisontype}
 
+The options of comparison type: equals, not equals, greater than, less than, contains, starts with, ends with, exists, not exists, is empty ....
+
 - **EQUALS** = `0`
 - **NOT_EQUALS** = `1`
 - **GREATER_THAN** = `2`
@@ -74,13 +76,13 @@ Whether missing keys should be treated as empty/false
 
 ### bool evaluate_entity( entity: Entity ) {#method-evaluate-entity}
 
-Override this in subclasses to implement entity-specific evaluation @param entity: The target entity to evaluate @return: true if condition is met for this entity *(from [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition))*
+Is the condition met for this entity?
 
 ### String get_entity_description() {#method-get-entity-description}
 
-Override this in subclasses to describe the specific entity condition *(from [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition))*
+A short text about what the condition checks on the entity.
 
 ### String get_entity_function_description() {#method-get-entity-function-description}
 
-Override this in subclasses to provide template for inline editing *(from [EntityCondition](/advanced/shared-systems/condition-bases/entity-condition))*
+The sentence the editor shows for the condition, with &#123;placeholders&#125; for its values.
 

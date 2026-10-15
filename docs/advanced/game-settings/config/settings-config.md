@@ -47,13 +47,13 @@ Class representing the game settings
 | `HealthDisplayOption` | [action_bar_resource_text](#prop-action-bar-resource-text) | `HealthDisplayOption.CURRENT_MAX:` |
 | `bool` | [action_bar_cast_bar](#prop-action-bar-cast-bar) | `true:` |
 | `Color` | [player_color](#prop-player-color) | `Color(0.2, 0.6, 1.0):  # Blue` |
-| `Color` | [friendly_color](#prop-friendly-color) | `Color(0.2, 1.0, 0.3):  # Green` |
-| `Color` | [hostile_color](#prop-hostile-color) | `Color(1.0, 0.2, 0.2):  # Red` |
-| `Color` | [neutral_color](#prop-neutral-color) | `Color(1.0, 1.0, 0.5):  # Yellow` |
-| `Color` | [pet_color](#prop-pet-color) | `Color(0.4, 0.8, 1.0):  # Light Blue` |
+| `Color` | [friendly_color](#prop-friendly-color) | `Color(0.2, 1.0, 0.3):` |
+| `Color` | [hostile_color](#prop-hostile-color) | `Color(1.0, 0.2, 0.2):` |
+| `Color` | [neutral_color](#prop-neutral-color) | `Color(1.0, 1.0, 0.5):` |
+| `Color` | [pet_color](#prop-pet-color) | `Color(0.4, 0.8, 1.0):` |
 | `Color` | [cast_bar_interruptible_color](#prop-cast-bar-interruptible-color) | `Color(0.425, 0.781, 0.808):  # Cyan` |
-| `Color` | [cast_bar_uninterruptible_color](#prop-cast-bar-uninterruptible-color) | `Color(0.699, 0.699, 0.699):  # Gray` |
-| `Color` | [action_bar_cast_bar_color](#prop-action-bar-cast-bar-color) | `Color(1.0, 0.843, 0.0):  # Gold` |
+| `Color` | [cast_bar_uninterruptible_color](#prop-cast-bar-uninterruptible-color) | `Color(0.699, 0.699, 0.699):` |
+| `Color` | [action_bar_cast_bar_color](#prop-action-bar-cast-bar-color) | `Color(1.0, 0.843, 0.0):` |
 | `Color` | [action_bar_health_color](#prop-action-bar-health-color) | `Color(0.2, 0.8, 0.3):` |
 | `WindowModeOption` | [window_mode](#prop-window-mode) | `WindowModeOption.FULLSCREEN` |
 | `ResolutionOption` | [resolution](#prop-resolution) | `ResolutionOption._1920_X_1080` |
@@ -103,6 +103,8 @@ Class representing the game settings
 ## Signals
 
 ### ui_setting_changed() {#signal-ui-setting-changed}
+
+Emitted when a setting of the interface changes.
 
 ## Enumerations
 
@@ -276,7 +278,7 @@ Enumeration of crouch control modes
 
 ## Constants
 
-- `const` **CONFIG_PATH** = `"res://src/data/config_data/settings_config.tres"`
+- `const` **CONFIG_PATH** = `"res://src/data/config_data/settings_config.tres"` - The file the settings are saved in.
 - `Dictionary` **RESOLUTIONS** = `{` - Dictionary of resolutions for the game's settings
 - `Dictionary` **WINDOW_MODES** = `{` - Dictionary of window modes for the game's settings
 - `Dictionary` **RESOLUTION_SCALING_MODE** = `{` - Dictionary of resolutions scaling modes for the game's settings
@@ -332,15 +334,15 @@ Fine-tuning relative to mouse_sensitivity: 1.0 = same as the master, 0.5 = half 
 
 ### float mouse_y_axis_sensitivity = 1.0 {#prop-mouse-y-axis-sensitivity}
 
-*No description yet.*
+How fast the view turns up and down with the mouse.
 
 ### bool invert_mouse_x_axis = false {#prop-invert-mouse-x-axis}
 
-*No description yet.*
+True flips the left and right of the mouse look.
 
 ### bool invert_mouse_y_axis = false {#prop-invert-mouse-y-axis}
 
-*No description yet.*
+True flips the up and down of the mouse look.
 
 *UI*
 
@@ -460,33 +462,33 @@ Action bar cast bar visibility
 
 System-wide entity colors
 
-### Color friendly_color = Color(0.2, 1.0, 0.3):  # Green {#prop-friendly-color}
+### Color friendly_color = Color(0.2, 1.0, 0.3): {#prop-friendly-color}
 
-*No description yet.*
+Green
 
-### Color hostile_color = Color(1.0, 0.2, 0.2):  # Red {#prop-hostile-color}
+### Color hostile_color = Color(1.0, 0.2, 0.2): {#prop-hostile-color}
 
-*No description yet.*
+Red
 
-### Color neutral_color = Color(1.0, 1.0, 0.5):  # Yellow {#prop-neutral-color}
+### Color neutral_color = Color(1.0, 1.0, 0.5): {#prop-neutral-color}
 
-*No description yet.*
+Yellow
 
-### Color pet_color = Color(0.4, 0.8, 1.0):  # Light Blue {#prop-pet-color}
+### Color pet_color = Color(0.4, 0.8, 1.0): {#prop-pet-color}
 
-*No description yet.*
+Light Blue
 
 ### Color cast_bar_interruptible_color = Color(0.425, 0.781, 0.808):  # Cyan {#prop-cast-bar-interruptible-color}
 
 Cast bar colors
 
-### Color cast_bar_uninterruptible_color = Color(0.699, 0.699, 0.699):  # Gray {#prop-cast-bar-uninterruptible-color}
+### Color cast_bar_uninterruptible_color = Color(0.699, 0.699, 0.699): {#prop-cast-bar-uninterruptible-color}
 
-*No description yet.*
+Gray
 
-### Color action_bar_cast_bar_color = Color(1.0, 0.843, 0.0):  # Gold {#prop-action-bar-cast-bar-color}
+### Color action_bar_cast_bar_color = Color(1.0, 0.843, 0.0): {#prop-action-bar-cast-bar-color}
 
-*No description yet.*
+Gold
 
 ### Color action_bar_health_color = Color(0.2, 0.8, 0.3): {#prop-action-bar-health-color}
 
@@ -638,7 +640,7 @@ The label of an input action for the player: the one the game set, or the action
 
 ### SettingsConfig get_config() {#method-get-config}
 
-*No description yet.*
+The settings of the project (loaded from the file).
 
 ### SettingsConfig get_active() {#method-get-active}
 

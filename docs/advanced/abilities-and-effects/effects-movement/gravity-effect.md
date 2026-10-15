@@ -28,6 +28,8 @@ Modifies the gravity applied to the target entity Can be used for low gravity, h
 
 ### enum GravityPreset {#enum-gravitypreset}
 
+The options of gravity preset: zero gravity, low gravity, normal gravity, high gravity, anti gravity.
+
 - **ZeroGravity** = `0`
 - **LowGravity** = `1`
 - **NormalGravity** = `2`
@@ -48,7 +50,7 @@ Use a preset instead of custom value
 
 ### GravityPreset gravity_preset = 2 {#prop-gravity-preset}
 
-*No description yet.*
+The kind of gravity the target gets (low, high, none ...).
 
 ## Method descriptions
 
@@ -62,11 +64,11 @@ When effect is removed, restore original gravity
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 
 ### Array[Dictionary] validate() {#method-validate}
 

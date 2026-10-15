@@ -52,15 +52,15 @@ A placed object: what the world keeps about one interactable in one world. It ho
 
 ### String interactable_type = "" {#prop-interactable-type}
 
-*No description yet.*
+Basic properties
 
 ### int definition_id {#prop-definition-id}
 
-*No description yet.*
+The id of the interactable definition of the object.
 
 ### int map_id = 0 {#prop-map-id}
 
-*No description yet.*
+The id of the map the object is placed in.
 
 *Basic Properties*
 
@@ -118,17 +118,17 @@ Interactions assigned to this specific interactable instance
 
 ### Vector3 world_position = Vector3.ZERO {#prop-world-position}
 
-*No description yet.*
+World positioning
 
 ### Vector3 world_rotation = Vector3.ZERO {#prop-world-rotation}
 
-*No description yet.*
+The rotation of the object in the world.
 
 ## Method descriptions
 
 ### int get_effective_locked_state( definition: InteractableDefinition = null ) {#method-get-effective-locked-state}
 
-*No description yet.*
+The id of the item that locks the object: the override, else the one of the definition.
 
 ### float get_effective_cooldown_duration( definition: InteractableDefinition = null ) {#method-get-effective-cooldown-duration}
 
@@ -136,19 +136,19 @@ The wait between two uses: the override of this object, else the one of its defi
 
 ### String get_effective_display_name( definition: InteractableDefinition = null ) {#method-get-effective-display-name}
 
-*No description yet.*
+The name of the object: the override, else the one of the definition.
 
 ### int get_effective_faction() {#method-get-effective-faction}
 
-*No description yet.*
+The faction of the object: the override, else the one of the definition.
 
 ### bool has_loot_rules_override() {#method-has-loot-rules-override}
 
-*No description yet.*
+Does this object have loot rules of its own?
 
 ### bool has_interaction() {#method-has-interaction}
 
-*No description yet.*
+Does this object have an interaction of its own?
 
 ### bool has_stats_override() {#method-has-stats-override}
 
@@ -176,11 +176,11 @@ Get effective targeting flags from either override or definition
 
 ### bool get_effective_targetable_by_aoe( definition: InteractableDefinition = null ) {#method-get-effective-targetable-by-aoe}
 
-*No description yet.*
+Do area effects hit the object: the override, else the setting of the definition?
 
 ### void update_position_from_node( interactable_node: Node3D ) {#method-update-position-from-node}
 
-*No description yet.*
+Copies the position and rotation of the node of the object into this record.
 
 ### bool save_to_disk() {#method-save-to-disk}
 
@@ -188,5 +188,5 @@ Save this unique interactable data to disk
 
 ### String get_file_path() {#method-get-file-path}
 
-*No description yet.*
+The path of the file of this record.
 

@@ -23,15 +23,15 @@ Holds the player that is in control now (a static variable): `get_current_player
 
 ### Player current_player {#var-current-player}
 
-*No description yet.*
+The player in control now.
 
 ## Method descriptions
 
 ### void set_current_player( new_current_player: Player ) {#method-set-current-player}
 
-*No description yet.*
+Sets the player in control.
 
 ### Player get_current_player() {#method-get-current-player}
 
-*No description yet.*
+The player in control now.
 

@@ -33,7 +33,7 @@ Slots that must have equipment
 
 ### bool check( entity: Entity ) {#method-check}
 
-Check if the entity meets this requirement Returns true if requirement is satisfied, false otherwise *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+Does the entity meet the requirement?
 
 ### Array[Dictionary] validate() {#method-validate}
 
@@ -41,11 +41,11 @@ No slot chosen means the requirement asks nothing
 
 ### String get_failure_message( entity: Entity ) {#method-get-failure-message}
 
-Get the failure message with entity-specific context *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+The reason shown when the entity does not meet the requirement.
 
 ### String get_summary() {#method-get-summary}
 
-Get a summary of this requirement for tooltips/UI *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+A short text about the requirement and its settings.
 
 ### void connect_to_entity_signals( entity: Entity ) {#method-connect-to-entity-signals}
 

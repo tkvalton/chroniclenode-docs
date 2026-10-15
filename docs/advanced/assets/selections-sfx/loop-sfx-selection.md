@@ -24,19 +24,19 @@ Specialized SFX selection for loop sound effects Note: Loop SFX has a flat struc
 
 ### String audio_name = "" {#prop-audio-name}
 
-*No description yet.*
+The name of the loop.
 
 ## Method descriptions
 
 ### Array[String] get_available_audio_names() {#method-get-available-audio-names}
 
-*No description yet.*
+The names of the loops the audio database has.
 
 ### Array[String] get_available_files() {#method-get-available-files}
 
-*No description yet.*
+The sound files the database has for the settings now (for the editor list).
 
 ### AudioStream get_sound_resource() {#method-get-sound-resource}
 
-*Overrides this function of [SFXSelection](/advanced/assets/selections-sfx/sfx-selection).*
+The sound this selection points to, or null when it is not set.
 

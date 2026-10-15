@@ -40,19 +40,33 @@ Centralized drag-and-drop coordinator Handles all drag logic that was previously
 
 ### drag_started( item: ItemInstance, source_info: DragSourceInfo ) {#signal-drag-started}
 
+========== SIGNALS ==========
+
 ### drag_ended( success: bool ) {#signal-drag-ended}
+
+Emitted when a drag ends: whether it worked.
 
 ### drop_processed( result: DropResult ) {#signal-drop-processed}
 
+Emitted when a drop was worked out, with its result.
+
 ### enchanting_started( scroll: ItemInstance ) {#signal-enchanting-started}
+
+Emitted when the player starts to use an enchant scroll: the scroll.
 
 ### enchanting_ended( success: bool, target: ItemInstance ) {#signal-enchanting-ended}
 
+Emitted when the use of the scroll ends: whether it worked, and the target.
+
 ### validation_failed( reason: String ) {#signal-validation-failed}
+
+Emitted when a drop is refused, with the reason.
 
 ## Enumerations
 
 ### enum DragType {#enum-dragtype}
+
+========== ENUMS ==========
 
 - **NORMAL** = `0`
 - **ENCHANTING** = `1`
@@ -60,11 +74,15 @@ Centralized drag-and-drop coordinator Handles all drag logic that was previously
 
 ### enum ContentType {#enum-contenttype}
 
+The options of content type: none, item, ability.
+
 - **NONE** = `0`
 - **ITEM** = `1`
 - **ABILITY** = `2`
 
 ### enum DropTargetType {#enum-droptargettype}
+
+The options of drop target type: inventory slot, equipment slot, vendor slot, action bar, socket slot, invalid.
 
 - **INVENTORY_SLOT** = `0`
 - **EQUIPMENT_SLOT** = `1`
@@ -77,19 +95,19 @@ Centralized drag-and-drop coordinator Handles all drag logic that was previously
 
 ### DragSourceInfo current_drag = null {#var-current-drag}
 
-*No description yet.*
+========== STATE ==========
 
 ### ContentType current_content_type = ContentType.NONE {#var-current-content-type}
 
-*No description yet.*
+What is dragged now: an item, an ability or nothing.
 
 ### DragType drag_type = DragType.NORMAL {#var-drag-type}
 
-*No description yet.*
+What kind of drag it is (normal or enchanting).
 
 ### ItemInstance enchant_scroll = null {#var-enchant-scroll}
 
-*No description yet.*
+The enchant scroll being used.
 
 ## Method descriptions
 
@@ -131,29 +149,29 @@ Check if item can drop on target
 
 ### bool is_dragging() {#method-is-dragging}
 
-*No description yet.*
+Is something dragged?
 
 ### bool is_enchanting() {#method-is-enchanting}
 
-*No description yet.*
+Is an enchant scroll in use?
 
 ### ItemInstance get_current_drag_item() {#method-get-current-drag-item}
 
-*No description yet.*
+The item being dragged (or the scroll), or null.
 
 ### AbilityInstance get_current_drag_ability() {#method-get-current-drag-ability}
 
-*No description yet.*
+The ability being dragged, or null.
 
 ### Variant get_current_drag_content() {#method-get-current-drag-content}
 
-*No description yet.*
+What is being dragged (an item or an ability), or null.
 
 ### bool is_dragging_item() {#method-is-dragging-item}
 
-*No description yet.*
+Is an item dragged?
 
 ### bool is_dragging_ability() {#method-is-dragging-ability}
 
-*No description yet.*
+Is an ability dragged?
 

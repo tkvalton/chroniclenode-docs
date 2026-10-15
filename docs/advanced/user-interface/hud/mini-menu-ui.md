@@ -61,7 +61,7 @@ The buttons that were made
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [HUDUIElement](/advanced/user-interface/hud/hudui-element).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void setup_panels( panels: Array[PanelUI] ) {#method-setup-panels}
 

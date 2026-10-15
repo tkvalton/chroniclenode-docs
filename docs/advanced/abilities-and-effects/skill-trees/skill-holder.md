@@ -37,11 +37,11 @@ Who the owner is: 0 for the party, the unique id of a character when each charac
 
 ### Array[SkillPointPoolInstance] pools = [] {#var-pools}
 
-*No description yet.*
+The skill point pools of this owner.
 
 ### Array[SkillTreeInstance] trees = [] {#var-trees}
 
-*No description yet.*
+The skill trees of this owner.
 
 ## Method descriptions
 
@@ -51,15 +51,15 @@ The definitions that list trees for this kind of owner: the craft schools, or th
 
 ### SkillTreeInstance get_tree_instance( tree_id: int ) {#method-get-tree-instance}
 
-*No description yet.*
+The instance of a skill tree of this owner, or null.
 
 ### SkillPointPoolInstance get_pool_instance( pool_id: int ) {#method-get-pool-instance}
 
-*No description yet.*
+The instance of a skill point pool of this owner, or null.
 
 ### Dictionary to_save_data() {#method-to-save-data}
 
-*No description yet.*
+The trees and the pools of this owner for a save.
 
 ### void restore_from_save_data( data: Dictionary, player: Player = null ) {#method-restore-from-save-data}
 

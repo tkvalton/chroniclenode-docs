@@ -11,9 +11,9 @@ Data structure for storing action bar slot content Can reference either abilitie
 | | | |
 |---|---|---|
 | `ContentType` | [content_type](#var-content-type) | `ContentType.EMPTY` |
-| `AbilityInstance` | [ability_instance](#var-ability-instance) | `null  # For abilities: direct reference to the ability in...` |
-| `ItemInstance` | [item_instance](#var-item-instance) | `null  # For items: direct reference to the item instance` |
-| `int` | [quantity](#var-quantity) | `1  # For items that consume multiple per use` |
+| `AbilityInstance` | [ability_instance](#var-ability-instance) | `null` |
+| `ItemInstance` | [item_instance](#var-item-instance) | `null` |
+| `int` | [quantity](#var-quantity) | `1` |
 
 ## Methods
 
@@ -36,6 +36,8 @@ Data structure for storing action bar slot content Can reference either abilitie
 
 ### enum ContentType {#enum-contenttype}
 
+The options of content type: empty, ability, item.
+
 - **EMPTY** = `0`
 - **ABILITY** = `1`
 - **ITEM** = `2`
@@ -44,19 +46,19 @@ Data structure for storing action bar slot content Can reference either abilitie
 
 ### ContentType content_type = ContentType.EMPTY {#var-content-type}
 
-*No description yet.*
+What the slot holds: nothing, an ability or an item.
 
-### AbilityInstance ability_instance = null  # For abilities: direct reference to the ability insta {#var-ability-instance}
+### AbilityInstance ability_instance = null {#var-ability-instance}
 
-*No description yet.*
+For abilities: direct reference to the ability instance
 
-### ItemInstance item_instance = null  # For items: direct reference to the item instance {#var-item-instance}
+### ItemInstance item_instance = null {#var-item-instance}
 
-*No description yet.*
+For items: direct reference to the item instance
 
-### int quantity = 1  # For items that consume multiple per use {#var-quantity}
+### int quantity = 1 {#var-quantity}
 
-*No description yet.*
+For items that consume multiple per use
 
 ## Method descriptions
 

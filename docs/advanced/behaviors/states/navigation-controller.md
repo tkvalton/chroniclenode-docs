@@ -22,7 +22,7 @@ The path-finding and movement of an NPC: a navigation agent that moves the entit
 | `float` | [gravity](#var-gravity) | `ProjectSettings.get_setting("physics/3d/default_gravity")` |
 | `float` | [falling_tolerance](#var-falling-tolerance) | `0.5` |
 | `float` | [velocity_smoothing](#var-velocity-smoothing) | `3.0  # Lower = wider/smoother turns` |
-| `float` | [rotation_smoothing](#var-rotation-smoothing) | `5.0  # Speed of rotation when following movement` |
+| `float` | [rotation_smoothing](#var-rotation-smoothing) | `5.0` |
 | `float` | [approach_slowdown_distance](#var-approach-slowdown-distance) | `3.0` |
 | `float` | [stopping_tolerance](#var-stopping-tolerance) | `0.1` |
 | `float` | [path_timeout_duration](#var-path-timeout-duration) | `10.0` |
@@ -70,15 +70,25 @@ The path-finding and movement of an NPC: a navigation agent that moves the entit
 
 ### path_failed() {#signal-path-failed}
 
+Emitted when there is no path to the target, or the entity could not get there in time.
+
 ### following_started( target: Node3D ) {#signal-following-started}
+
+Emitted when the entity starts following a node.
 
 ### following_stopped() {#signal-following-stopped}
 
+Emitted when the entity stops following.
+
 ### destination_reached( position: Vector3 ) {#signal-destination-reached}
+
+Emitted when the entity reaches the position it was sent to.
 
 ## Enumerations
 
 ### enum MovementStyle {#enum-movementstyle}
+
+How the entity faces while it moves: normal (it faces where it goes), keep facing, backpedal, or strafe left or right.
 
 - **NORMAL** = `0`
 - **KEEP_FACING** = `1`
@@ -86,6 +96,8 @@ The path-finding and movement of an NPC: a navigation agent that moves the entit
 - **STRAFE_LEFT** = `3`
 
 ### enum NavigationMode {#enum-navigationmode}
+
+What the controller is doing: stopped, moving to a position, following a target or pathfinding.
 
 - **STOPPED** = `0`
 - **MOVING_TO_POSITION** = `1`
@@ -96,157 +108,157 @@ The path-finding and movement of an NPC: a navigation agent that moves the entit
 
 ### Entity entity = null {#var-entity}
 
-*No description yet.*
+The entity this controller moves.
 
 ### EntityStateComponent entity_states_component = null {#var-entity-states-component}
 
-*No description yet.*
+The states component of the entity (movement states).
 
 ### NavigationMode current_navigation_mode = NavigationMode.STOPPED {#var-current-navigation-mode}
 
-*No description yet.*
+What the controller is doing now.
 
 ### float desired_distance = 0.5 {#var-desired-distance}
 
-*No description yet.*
+How close to the target the entity gets before it counts as arrived.
 
 ### bool force_walking = false {#var-force-walking}
 
-*No description yet.*
+True when the entity walks and does not run.
 
 ### bool follow_mode = false {#var-follow-mode}
 
-*No description yet.*
+True while the entity follows a node.
 
 ### Node3D follow_target = null {#var-follow-target}
 
-*No description yet.*
+The node the entity follows.
 
 ### float follow_distance = 2.0 {#var-follow-distance}
 
-*No description yet.*
+How far from the followed node the entity stops.
 
 ### MovementStyle current_movement_style = MovementStyle.NORMAL {#var-current-movement-style}
 
-*No description yet.*
+The movement style of the current move.
 
 ### float gravity = ProjectSettings.get_setting("physics/3d/default_gravity") {#var-gravity}
 
-*No description yet.*
+The gravity applied to the entity (the project's by default).
 
 ### float falling_tolerance = 0.5 {#var-falling-tolerance}
 
-*No description yet.*
+How far the entity can drop before it counts as falling.
 
 ### float velocity_smoothing = 3.0  # Lower = wider/smoother turns {#var-velocity-smoothing}
 
-*No description yet.*
+How smooth the turns are: lower is wider and smoother.
 
-### float rotation_smoothing = 5.0  # Speed of rotation when following movement {#var-rotation-smoothing}
+### float rotation_smoothing = 5.0 {#var-rotation-smoothing}
 
-*No description yet.*
+Speed of rotation when following movement
 
 ### float approach_slowdown_distance = 3.0 {#var-approach-slowdown-distance}
 
-*No description yet.*
+The distance from the target where the entity starts to slow down.
 
 ### float stopping_tolerance = 0.1 {#var-stopping-tolerance}
 
-*No description yet.*
+The distance from the target where the entity stops.
 
 ### float path_timeout_duration = 10.0 {#var-path-timeout-duration}
 
-*No description yet.*
+The seconds the entity gets to reach the target before the path fails.
 
 ### float path_timeout_extension_per_waypoint = 2.0 {#var-path-timeout-extension-per-waypoint}
 
-*No description yet.*
+The seconds added to the timeout for each waypoint of the path.
 
 ### bool handling_waypoint = false {#var-handling-waypoint}
 
-*No description yet.*
+True while the entity handles a waypoint of its path.
 
 ### bool direct_input_mode = false {#var-direct-input-mode}
 
-*No description yet.*
+True while the entity is moved by direct input (a player) and not by a path.
 
 ### Vector3 direct_input_velocity = Vector3.ZERO {#var-direct-input-velocity}
 
-*No description yet.*
+The velocity the direct input asks for.
 
 ### float direct_input_speed = 5.0 {#var-direct-input-speed}
 
-*No description yet.*
+The speed of the direct input.
 
 ### Vector3 previous_position = Vector3.ZERO {#var-previous-position}
 
-*No description yet.*
+Where the entity was on the last step (to see if it is stuck).
 
 ### bool was_on_floor = true {#var-was-on-floor}
 
-*No description yet.*
+True when the entity was on the floor on the last step.
 
 ### bool direction_needs_update = false {#var-direction-needs-update}
 
-*No description yet.*
+True when the direction of the path must be worked out again.
 
 ### Vector3 original_target_position = Vector3.ZERO {#var-original-target-position}
 
-*No description yet.*
+The position the entity was first sent to.
 
 ### float current_speed = 5.0 {#var-current-speed}
 
-*No description yet.*
+The speed of the entity now.
 
 ### Vector3 movement_target = Vector3.ZERO {#var-movement-target}
 
-*No description yet.*
+The position the entity is moving to now.
 
 ### bool is_moving = false {#var-is-moving}
 
-*No description yet.*
+True while the entity is moving.
 
 ### Timer stall_check_timer {#var-stall-check-timer}
 
-*No description yet.*
+The timer that checks whether the entity is stuck.
 
 ### Timer follow_update_timer {#var-follow-update-timer}
 
-*No description yet.*
+The timer that updates the path to a followed node.
 
 ### Timer path_update_timer {#var-path-update-timer}
 
-*No description yet.*
+The timer that updates the path.
 
 ### Timer path_timeout_timer {#var-path-timeout-timer}
 
-*No description yet.*
+The timer that fails the path when the entity takes too long.
 
 ## Method descriptions
 
 ### void initialize_navigation_controller( entity_ref: Entity ) {#method-initialize-navigation-controller}
 
-*No description yet.*
+Sets the controller up for an entity.
 
 ### void set_direct_input_mode( enabled: bool ) {#method-set-direct-input-mode}
 
-*No description yet.*
+Turns direct input on (a player moves it) or off (a path moves it).
 
 ### void set_direct_movement_input( input_vector: Vector2, movement_speed: float, entity_forward: Vector3 ) {#method-set-direct-movement-input}
 
-*No description yet.*
+Gives the direct input: the stick or key vector, the speed and the forward direction of the entity.
 
 ### bool is_using_direct_input() {#method-is-using-direct-input}
 
-*No description yet.*
+Is the entity moved by direct input?
 
 ### Vector3 get_direct_input_velocity() {#method-get-direct-input-velocity}
 
-*No description yet.*
+The velocity the direct input asks for.
 
 ### void process_physics( delta: float ) {#method-process-physics}
 
-*No description yet.*
+Moves the entity one physics step (the path, the follow or the direct input).
 
 ### bool should_ignore_desired_distance_for_los() {#method-should-ignore-desired-distance-for-los}
 
@@ -254,35 +266,35 @@ Check if we should ignore desired distance due to LOS requirements
 
 ### bool command_move_to( target_pos: Vector3, walk: bool = false, min_distance: float = -1.0 ) {#method-command-move-to}
 
-*No description yet.*
+Sends the entity to a position (it faces where it goes). A minimum distance stops it short. False when there is no path.
 
 ### bool command_move_keep_facing( target_pos: Vector3, walk: bool = false, min_distance: float = -1.0 ) {#method-command-move-keep-facing}
 
-*No description yet.*
+Sends the entity to a position without turning to the direction of the movement.
 
 ### bool command_backpedal_to( target_pos: Vector3, walk: bool = false, min_distance: float = -1.0 ) {#method-command-backpedal-to}
 
-*No description yet.*
+Sends the entity to a position walking backward.
 
 ### bool command_strafe_to( target_pos: Vector3, strafe_direction: int, walk: bool = false, min_distance: float = -1.0 ) {#method-command-strafe-to}
 
-*No description yet.*
+Sends the entity to a position sideways (a negative direction is left).
 
 ### bool command_follow( target: Node3D, min_distance: float = 2.0, should_walk: bool = false ) {#method-command-follow}
 
-*No description yet.*
+Makes the entity follow a node at a distance.
 
 ### void command_stop() {#method-command-stop}
 
-*No description yet.*
+Stops the entity.
 
 ### void command_look_at( look_at_direction: Vector3, speed: int = Entity.FaceTargetSpeed.INSTANT ) {#method-command-look-at}
 
-*No description yet.*
+Turns the entity to a direction, at a speed (instantly by default).
 
 ### void set_approach_distance( distance: float ) {#method-set-approach-distance}
 
-*No description yet.*
+Sets how close the entity gets to its target before it stops.
 
 ### void set_custom_gravity( new_gravity: float ) {#method-set-custom-gravity}
 
@@ -294,5 +306,5 @@ Reset gravity to default project setting
 
 ### void cleanup_timers() {#method-cleanup-timers}
 
-*No description yet.*
+Frees the timers of the controller.
 

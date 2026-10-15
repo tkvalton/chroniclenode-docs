@@ -34,12 +34,12 @@ A group changes nothing about how a stat is calculated. See docs/systems/entity-
 ## Constants
 
 - `int` **ID_CORE** = `1000001` - Ids of the groups every project has. Core and Hidden are used by the core stats (the engine's own stats); the others are the usual starting set, created when a project has no stat groups yet (see `Database`)
-- `int` **ID_PRIMARY** = `1000002`
-- `int` **ID_SECONDARY** = `1000003`
-- `int` **ID_OFFENSIVE** = `1000004`
-- `int` **ID_DEFENSIVE** = `1000005`
-- `int` **ID_UTILITY** = `1000006`
-- `int` **ID_HIDDEN** = `1000007`
+- `int` **ID_PRIMARY** = `1000002` - The id of the built-in group Primary.
+- `int` **ID_SECONDARY** = `1000003` - The id of the built-in group Secondary.
+- `int` **ID_OFFENSIVE** = `1000004` - The id of the built-in group Offensive.
+- `int` **ID_DEFENSIVE** = `1000005` - The id of the built-in group Defensive.
+- `int` **ID_UTILITY** = `1000006` - The id of the built-in group Utility.
+- `int` **ID_HIDDEN** = `1000007` - The id of the built-in group Hidden (its stats are not shown).
 - `Array[Dictionary]` **DEFAULTS** = `[` - The groups created for a new project: id, name, description, sort order, hidden, colour
 - `Array[int]` **LEGACY_CATEGORY_GROUPS** = `[ID_CORE, ID_PRIMARY, ID_SECONDARY, ID_DEFENSIVE, ID_UTILITY, ID_HIDDEN]` - What the old `display_category` numbers (0 core, 1 primary, 2 secondary, 3 defensive, 4 utility, 5 hidden) are now
 

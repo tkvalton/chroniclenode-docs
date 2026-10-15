@@ -28,6 +28,8 @@ Defines immunity to specific damage types, status effects, schools, or custom co
 
 ### enum ImmunityType {#enum-immunitytype}
 
+The options of immunity type: damage type, status effect, school type.
+
 - **DAMAGE_TYPE** = `0`
 - **STATUS_EFFECT** = `1`
 - **SCHOOL_TYPE** = `2`
@@ -58,17 +60,17 @@ The ids that are left out of the immunity: an exception to the protected targets
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Does the immunity have an id, a name and something to protect against?
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the immunity. Gives the problems found (empty when it is fine).
 
 ### bool is_immune_to( target: int ) {#method-is-immune-to}
 
-*No description yet.*
+Does the immunity protect against this?
 
 ### int get_id() {#method-get-id}
 
-*No description yet.*
+The id of the immunity.
 

@@ -16,5 +16,5 @@ Triggers a specific event in the event system
 
 ### int event_id = 0 {#prop-event-id}
 
-*No description yet.*
+The event to trigger.
 

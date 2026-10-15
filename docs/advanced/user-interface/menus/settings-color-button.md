@@ -23,6 +23,8 @@ Modern color picker component that works with any Color setting property
 
 ### mouse_focus_changed( has_focus: bool, property_name: String, description: String ) {#signal-mouse-focus-changed}
 
+Emitted when the mouse enters or leaves the setting: whether it has the focus, the name of the setting and its text.
+
 ## Variable descriptions
 
 ### String property_name = "" {#var-property-name}

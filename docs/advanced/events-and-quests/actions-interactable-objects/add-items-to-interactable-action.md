@@ -52,7 +52,7 @@ For an item that is generated (it rolls or scales): its item level. 0 = the leve
 
 ### InteractableObject target_container = null {#var-target-container}
 
-*No description yet.*
+Reference to the target container
 
 ## Method descriptions
 

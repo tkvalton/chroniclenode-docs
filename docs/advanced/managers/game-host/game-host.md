@@ -30,6 +30,8 @@ GameHost serves as the central coordinator for the entire game runtime. As a glo
 
 ### enum PauseType {#enum-pausetype}
 
+========== ENUMS ==========
+
 - **NONE** = `0`
 - **MENU_PAUSE** = `1`
 - **POPUP** = `2`
@@ -50,7 +52,7 @@ Test Scenes
 
 ### String original_main_scene = "" {#var-original-main-scene}
 
-*No description yet.*
+The main scene of the project, kept while a test scene runs.
 
 ## Method descriptions
 

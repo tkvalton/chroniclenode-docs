@@ -39,7 +39,7 @@ The base of the five tooltips: the margin from the edges of the screen, and the 
 
 ## Constants
 
-- `int` **SCREEN_MARGIN** = `4`
+- `int` **SCREEN_MARGIN** = `4` - Default margin from screen edges
 
 ## Property descriptions
 
@@ -83,7 +83,7 @@ Cached label settings resource
 
 ### void set_systems_refs( system_hub: GameHost.SystemHub ) {#method-set-systems-refs}
 
-*No description yet.*
+Gives the tooltip the hub of the game systems.
 
 ### void apply_label_settings( label: Label ) {#method-apply-label-settings}
 
@@ -95,13 +95,13 @@ Apply label settings to all labels in a container
 
 ### void show_tooltip( value: bool = true ) {#method-show-tooltip}
 
-*No description yet.*
+Shows the tooltip, or hides it.
 
 ### void position_tooltip() {#method-position-tooltip}
 
-*No description yet.*
+Base positioning logic that all tooltips will use
 
 ### void clear_container( container: Control ) {#method-clear-container}
 
-*No description yet.*
+Helper function for clearing containers that all tooltips use
 

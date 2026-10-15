@@ -26,6 +26,8 @@ A mouse gesture that a ControllerLogic or CameraLogic wants from the InputManage
 
 ### enum Kind {#enum-kind}
 
+The options of kind: none, character look, free look, view rotate, click only.
+
 - **NONE** = `0`
 - **CHARACTER_LOOK** = `1`
 - **FREE_LOOK** = `2`
@@ -40,7 +42,7 @@ Mouse button this gesture is bound to (MOUSE_BUTTON_*)
 
 ### Kind kind = Kind.NONE {#var-kind}
 
-*No description yet.*
+What the gesture does (turn the character, rotate the view, free look ...).
 
 ### bool requires_drag = false {#var-requires-drag}
 

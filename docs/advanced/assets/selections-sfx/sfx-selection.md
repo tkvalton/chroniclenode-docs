@@ -30,37 +30,37 @@ Base class for SFX selection resources Works with static DatabaseAudio
 
 ### String specific_file = "" {#prop-specific-file}
 
-*No description yet.*
+Optional specific file override (only used when selection_type is SPECIFIC)
 
 ### float volume_db = 0.0 {#prop-volume-db}
 
-*No description yet.*
+Basic Properties - Ensure proper type initialization
 
 ### float pitch_scale = 1.0 {#prop-pitch-scale}
 
-*No description yet.*
+The pitch of the sound (1 = normal).
 
 *3D Audio Settings*
 
 ### float max_distance = 20.0 {#prop-max-distance}
 
-*No description yet.*
+How far away the sound can be heard.
 
 ### float unit_size = 10.0 {#prop-unit-size}
 
-*No description yet.*
+How loud the sound is close up (the distance where it starts to fade).
 
 ## Method descriptions
 
 ### AudioStream get_sound_resource() {#method-get-sound-resource}
 
-*No description yet.*
+This will be implemented by child classes
 
 ### String get_sfx_selection_class_name( sfx_selection: SFXSelection ) {#method-get-sfx-selection-class-name}
 
-*No description yet.*
+The class name of a sound selection (CastSFXSelection when it is empty).
 
 ### String get_sfx_description( sfx: SFXSelection ) {#method-get-sfx-description}
 
-*No description yet.*
+A short text about a sound selection, for the editor.
 

@@ -39,6 +39,8 @@ Action for changing the current map while preserving game session state. Uses Ga
 
 ### enum SpawnType {#enum-spawntype}
 
+The options of spawn type: default, rabbit hole, exact position.
+
 - **DEFAULT** = `0` - Use map's default spawn point
 - **RABBIT_HOLE** = `1` - Spawn at specific rabbit hole
 - **EXACT_POSITION** = `2` - Spawn at exact coordinates
@@ -73,11 +75,11 @@ Whether to wait for transition completion before completing action
 
 ### bool transition_started = false {#var-transition-started}
 
-*No description yet.*
+Internal state
 
 ### bool transition_completed = false {#var-transition-completed}
 
-*No description yet.*
+True once the change of map is done (the action waits for it).
 
 ## Method descriptions
 

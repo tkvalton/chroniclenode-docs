@@ -27,16 +27,22 @@ Applies child effects based on whether an entity has (or is missing) a specific 
 
 ### enum EffectTarget {#enum-effecttarget}
 
+The options of effect target: target, originator.
+
 - **TARGET** = `0`
 - **ORIGINATOR** = `1`
 
 ### enum EffectCheck {#enum-effectcheck}
+
+The options of effect check: has effect, missing effect, stack count.
 
 - **HAS_EFFECT** = `0` - Entity currently has the effect
 - **MISSING_EFFECT** = `1` - Entity does not have the effect
 - **STACK_COUNT** = `2` - Entity stack count meets the StackComparison condition
 
 ### enum StackComparison {#enum-stackcomparison}
+
+The options of stack comparison: at, below, above.
 
 - **AT** = `0` - Exactly the required stack count
 - **BELOW** = `1` - Fewer than the required stack count
@@ -48,11 +54,11 @@ Applies child effects based on whether an entity has (or is missing) a specific 
 
 ### EffectTarget effect_target = EffectTarget.TARGET {#prop-effect-target}
 
-*No description yet.*
+Who is checked for the effect (the target or the originator).
 
 ### EffectCheck effect_check = EffectCheck.HAS_EFFECT {#prop-effect-check}
 
-*No description yet.*
+What is checked (has the effect, lacks it, has an exact number of stacks).
 
 ### int effect_id = 0 {#prop-effect-id}
 
@@ -70,9 +76,9 @@ How to compare the stack count — only used when effect_check is STACK_COUNT
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-*Overrides this function of [ConditionalEffect](/advanced/abilities-and-effects/effects-base/conditional-effect).*
+What the effect does to its target when it is applied.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 

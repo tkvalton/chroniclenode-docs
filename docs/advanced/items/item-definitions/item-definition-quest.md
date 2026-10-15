@@ -91,7 +91,7 @@ Where the item lives in a bag: in a slot, or kept aside (no space taken)
 
 ### bool is_kept_aside() {#method-is-kept-aside}
 
-Is this item kept aside in the bag (taking no slot, cell or weight)? Only a quest item can be (ItemDefinitionQuest.BagSpace) *(from [ItemDefinition](/advanced/items/item-definitions/item-definition))*
+Is the item kept aside, out of the bag?
 
 ### bool is_quest_completed( system_hub: GameHost.SystemHub ) {#method-is-quest-completed}
 
@@ -139,5 +139,5 @@ Virtual method for quest-specific logic when item is used Called by ItemInstance
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 

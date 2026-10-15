@@ -25,23 +25,23 @@ Specialized SFX selection for voiceline sound effects (dialogue/conversation) St
 
 ### String character_name = "" {#prop-character-name}
 
-*No description yet.*
+The character who speaks.
 
 ### String file_name = ""  # Optional specific file, empty = random {#prop-file-name}
 
-*No description yet.*
+The file of the voice line.
 
 ## Method descriptions
 
 ### Array[String] get_available_characters() {#method-get-available-characters}
 
-*No description yet.*
+The characters the database has voice lines for.
 
 ### Array[String] get_available_files() {#method-get-available-files}
 
-*No description yet.*
+The sound files the database has for the settings now (for the editor list).
 
 ### AudioStream get_sound_resource() {#method-get-sound-resource}
 
-*Overrides this function of [SFXSelection](/advanced/assets/selections-sfx/sfx-selection).*
+The sound this selection points to, or null when it is not set.
 

@@ -35,6 +35,8 @@ Triggers when an entity uses a rabbit hole for teleportation
 
 ### enum TeleportationTriggerType {#enum-teleportationtriggertype}
 
+The options of teleportation trigger type: entered, exited, failed.
+
 - **ENTERED** = `0`
 - **EXITED** = `1`
 

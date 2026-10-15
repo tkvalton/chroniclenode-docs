@@ -11,8 +11,8 @@ Multi-rank skill node with sequential rewards per rank
 | | | |
 |---|---|---|
 | `Array[int]` | [point_costs_per_rank](#prop-point-costs-per-rank) | `[1]  # Cost for each rank [rank1, rank2, rank3...]` |
-| `int` | [max_ranks](#prop-max-ranks) | `1  # How many times can be taken` |
-| `Array[Array]` | [rewards_per_rank](#prop-rewards-per-rank) | `[]  # rewards_per_rank[0] = rank 1 rewards` |
+| `int` | [max_ranks](#prop-max-ranks) | `1` |
+| `Array[Array]` | [rewards_per_rank](#prop-rewards-per-rank) | `[]` |
 
 ## Methods
 
@@ -31,47 +31,47 @@ Multi-rank skill node with sequential rewards per rank
 
 ### Array[int] point_costs_per_rank {#prop-point-costs-per-rank}
 
-*No description yet.*
+========== RANKED NODE PROPERTIES ==========
 
-### int max_ranks = 1  # How many times can be taken {#prop-max-ranks}
+### int max_ranks = 1 {#prop-max-ranks}
 
-*No description yet.*
+How many times can be taken
 
-### Array[Array] rewards_per_rank = []  # rewards_per_rank[0] = rank 1 rewards {#prop-rewards-per-rank}
+### Array[Array] rewards_per_rank = [] {#prop-rewards-per-rank}
 
-*No description yet.*
+rewards_per_rank[0] = rank 1 rewards
 
 ## Method descriptions
 
 ### int get_max_ranks() {#method-get-max-ranks}
 
-Override in child classes to return maximum ranks for this node *(from [SkillNode](/advanced/abilities-and-effects/skill-trees/skill-node))*
+========== IMPLEMENTATION OF ABSTRACT METHODS ==========
 
 ### int get_point_cost_for_rank( rank: int ) {#method-get-point-cost-for-rank}
 
-Override in child classes to return point cost for specific rank *(from [SkillNode](/advanced/abilities-and-effects/skill-trees/skill-node))*
+The skill points the node costs for a rank (the first rank is 1).
 
 ### Array get_rewards_for_rank( rank: int ) {#method-get-rewards-for-rank}
 
-Override in child classes to return rewards for specific rank *(from [SkillNode](/advanced/abilities-and-effects/skill-trees/skill-node))*
+The rewards of a rank (the first rank is 1).
 
 ### void add_reward_to_rank( rank: int, reward: Reward ) {#method-add-reward-to-rank}
 
-*No description yet.*
+========== REWARD MANAGEMENT ==========
 
 ### bool remove_reward_from_rank( rank: int, reward: Reward ) {#method-remove-reward-from-rank}
 
-*No description yet.*
+Takes a reward off a rank. False when it was not there.
 
 ### void clear_rewards_for_rank( rank: int ) {#method-clear-rewards-for-rank}
 
-*No description yet.*
+Removes every reward of a rank.
 
 ### int get_total_rewards_count() {#method-get-total-rewards-count}
 
-*No description yet.*
+How many rewards the node has over all its ranks.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*Overrides this function of [SkillNode](/advanced/abilities-and-effects/skill-trees/skill-node).*
+========== VALIDATION ==========
 

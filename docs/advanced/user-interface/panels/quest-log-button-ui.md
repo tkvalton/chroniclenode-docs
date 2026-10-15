@@ -25,27 +25,29 @@ One quest in the list of the quest log: its name, with a highlight when it is th
 
 ### quest_selected( quest_button: QuestLogButtonUI ) {#signal-quest-selected}
 
+Emitted when the button is clicked.
+
 ## Variable descriptions
 
 ### Quest quest {#var-quest}
 
-*No description yet.*
+The quest of the button.
 
 ### bool is_active = false {#var-is-active}
 
-*No description yet.*
+True when this is the quest shown.
 
 ## Method descriptions
 
 ### void set_quest( new_quest: Quest ) {#method-set-quest}
 
-*No description yet.*
+Sets the quest of the button.
 
 ### void set_active( active: bool ) {#method-set-active}
 
-*No description yet.*
+Marks the quest as the one shown (or not).
 
 ### void deactivate() {#method-deactivate}
 
-*No description yet.*
+Call this from outside to deactivate other buttons
 

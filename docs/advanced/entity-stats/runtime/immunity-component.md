@@ -36,19 +36,29 @@ Manages ImmunityDefinition-based immunities (damage types, status effects, schoo
 
 ### immunity_activated( immunity_id: int, duration: float, immunity_type: ImmunityDefinition.ImmunityType, protected_targets: Array[int] ) {#signal-immunity-activated}
 
+========== SIGNALS ========== Immunity events
+
 ### immunity_deactivated( immunity_id: int, immunity_type: ImmunityDefinition.ImmunityType, protected_targets: Array[int] ) {#signal-immunity-deactivated}
+
+Emitted when a temporary immunity ends.
 
 ### damage_blocked_by_immunity( damage_id: int, immunity_id: int, blocked_amount: float, damage_source: Variant, effect: EffectInstance ) {#signal-damage-blocked-by-immunity}
 
+Enhanced blocking events with context
+
 ### school_effect_blocked_by_immunity( school_id: int, immunity_id: int, source_entity: Variant, effect: EffectInstance ) {#signal-school-effect-blocked-by-immunity}
 
+Emitted when an immunity stops an effect of a school: the school, the immunity, the source and the effect.
+
 ### status_effect_blocked_by_immunity( status_effect_id: int, immunity_id: int, source_entity: Variant, effect: EffectInstance ) {#signal-status-effect-blocked-by-immunity}
+
+Emitted when an immunity stops a status effect: the status, the immunity, the source and the effect.
 
 ## Variable descriptions
 
 ### Dictionary active_immunities =  # Key: immunity_id, Value: ImmunityInstance {#var-active-immunities}
 
-*No description yet.*
+========== CORE PROPERTIES ========== Active immunity instances - now self-managing via ImmunityInstance timers
 
 ## Method descriptions
 

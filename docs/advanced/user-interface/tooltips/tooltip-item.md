@@ -18,7 +18,7 @@ Comprehensive tooltip for all item types with vendor context support Now support
 |---|---|---|
 | `ItemInstance` | [current_item_instance](#var-current-item-instance) | `null` |
 | `ItemDefinition` | [current_item_definition](#var-current-item-definition) | `null` |
-| `Dictionary` | [vendor_context](#var-vendor-context) | `{}  # For vendor-specific pricing info` |
+| `Dictionary` | [vendor_context](#var-vendor-context) | `{}` |
 | `String` | [tooltip_context](#var-tooltip-context) | `"inventory"  # "inventory", "vendor_buying", "vendor_sell...` |
 
 ## Methods
@@ -42,31 +42,31 @@ Comprehensive tooltip for all item types with vendor context support Now support
 
 ### PackedScene socket_slot_scene {#prop-socket-slot-scene}
 
-*No description yet.*
+Preloaded scene for socket slots
 
 ## Variable descriptions
 
 ### ItemInstance current_item_instance = null {#var-current-item-instance}
 
-*No description yet.*
+The item the tooltip shows (full detail).
 
 ### ItemDefinition current_item_definition = null {#var-current-item-definition}
 
-*No description yet.*
+The item definition the tooltip shows (basic detail).
 
-### Dictionary vendor_context =   # For vendor-specific pricing info {#var-vendor-context}
+### Dictionary vendor_context =  {#var-vendor-context}
 
-*No description yet.*
+For vendor-specific pricing info
 
 ### String tooltip_context = "inventory"  # "inventory", "vendor_buying", "vendor_selling {#var-tooltip-context}
 
-*No description yet.*
+Where the item is (inventory, vendor ...), which changes what the tooltip shows.
 
 ## Method descriptions
 
 ### void set_systems_refs( system_hub: GameHost.SystemHub ) {#method-set-systems-refs}
 
-*Overrides this function of [TooltipBase](/advanced/user-interface/tooltips/tooltip-base).*
+Gives the tooltip the hub of the game systems and applies the label settings.
 
 ### void setup_tooltip( item_instance: ItemInstance, item_definition: ItemDefinition, context: String = "inventory", vendor_data: Dictionary = &#123;&#125; ) {#method-setup-tooltip}
 
@@ -74,7 +74,7 @@ Setup tooltip with item data and context - supports both instance and definition
 
 ### String strip_bbcode( text: String ) {#method-strip-bbcode}
 
-*No description yet.*
+The text without its BBCode tags.
 
 ### void show_definition_tooltip( item_definition: ItemDefinition, context: String = "inventory", vendor_data: Dictionary = &#123;&#125; ) {#method-show-definition-tooltip}
 

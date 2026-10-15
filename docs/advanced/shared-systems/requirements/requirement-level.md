@@ -56,27 +56,27 @@ The level this requirement asks for, given what it guards (&#123;"item_level": i
 
 ### bool check_in_context( entity: Entity, context: Dictionary ) {#method-check-in-context}
 
-The same checks with extra facts about what the requirement guards: &#123;"item_level": int&#125; for an item. Most requirements do not need them and give the plain answer *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+Is the entity inside the level range?
 
 ### String get_failure_message_in_context( entity: Entity, context: Dictionary ) {#method-get-failure-message-in-context}
 
-*Overrides this function of [Requirement](/advanced/shared-systems/requirements/requirement).*
+The reason shown when the level is too low or too high.
 
 ### String get_summary_in_context( context: Dictionary ) {#method-get-summary-in-context}
 
-*Overrides this function of [Requirement](/advanced/shared-systems/requirements/requirement).*
+The text of the requirement for the tooltip (the level or the range).
 
 ### bool check( entity: Entity ) {#method-check}
 
-Check if the entity meets this requirement Returns true if requirement is satisfied, false otherwise *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+Does the entity meet the requirement?
 
 ### String get_failure_message( entity: Entity ) {#method-get-failure-message}
 
-Get the failure message with entity-specific context *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+The reason shown when the entity does not meet the requirement.
 
 ### String get_summary() {#method-get-summary}
 
-Get a summary of this requirement for tooltips/UI *(from [Requirement](/advanced/shared-systems/requirements/requirement))*
+A short text about the requirement and its settings.
 
 ### Array[Dictionary] validate() {#method-validate}
 

@@ -13,12 +13,12 @@ Spawns an interactable during combat at a specific position
 | `int` | [interactable_id](#prop-interactable-id) | `0` |
 | `String` | [display_name](#prop-display-name) | `""` |
 | `Vector3` | [spawn_position](#prop-spawn-position) | `Vector3.ZERO` |
-| `bool` | [use_entity_position](#prop-use-entity-position) | `false  # Use entity's position instead of spawn_position` |
-| `Vector3` | [position_offset](#prop-position-offset) | `Vector3.ZERO  # Offset from the chosen position` |
+| `bool` | [use_entity_position](#prop-use-entity-position) | `false` |
+| `Vector3` | [position_offset](#prop-position-offset) | `Vector3.ZERO` |
 | `float` | [position_variance](#prop-position-variance) | `0.0` |
-| `Vector3` | [spawn_rotation](#prop-spawn-rotation) | `Vector3.ZERO  # Euler angles in degrees` |
-| `bool` | [use_entity_rotation](#prop-use-entity-rotation) | `false  # Use entity's rotation instead of spawn_rotation` |
-| `Vector3` | [rotation_offset](#prop-rotation-offset) | `Vector3.ZERO  # Additional rotation offset in degrees` |
+| `Vector3` | [spawn_rotation](#prop-spawn-rotation) | `Vector3.ZERO` |
+| `bool` | [use_entity_rotation](#prop-use-entity-rotation) | `false` |
+| `Vector3` | [rotation_offset](#prop-rotation-offset) | `Vector3.ZERO` |
 | `float` | [rotation_variance](#prop-rotation-variance) | `0.0` |
 | `bool` | [face_target](#prop-face-target) | `false` |
 | `bool` | [set_as_summoner](#prop-set-as-summoner) | `true` |
@@ -40,15 +40,15 @@ Display name for the spawned interactable (optional)
 
 ### Vector3 spawn_position = Vector3.ZERO {#prop-spawn-position}
 
-*No description yet.*
+Where the object appears.
 
-### bool use_entity_position = false  # Use entity's position instead of spawn_position {#prop-use-entity-position}
+### bool use_entity_position = false {#prop-use-entity-position}
 
-*No description yet.*
+Use entity's position instead of spawn_position
 
-### Vector3 position_offset = Vector3.ZERO  # Offset from the chosen position {#prop-position-offset}
+### Vector3 position_offset = Vector3.ZERO {#prop-position-offset}
 
-*No description yet.*
+Offset from the chosen position
 
 ### float position_variance = 0.0 {#prop-position-variance}
 
@@ -56,17 +56,17 @@ Add random position variance (radius in meters)
 
 *Rotation*
 
-### Vector3 spawn_rotation = Vector3.ZERO  # Euler angles in degrees {#prop-spawn-rotation}
+### Vector3 spawn_rotation = Vector3.ZERO {#prop-spawn-rotation}
 
-*No description yet.*
+Euler angles in degrees
 
-### bool use_entity_rotation = false  # Use entity's rotation instead of spawn_rotation {#prop-use-entity-rotation}
+### bool use_entity_rotation = false {#prop-use-entity-rotation}
 
-*No description yet.*
+Use entity's rotation instead of spawn_rotation
 
-### Vector3 rotation_offset = Vector3.ZERO  # Additional rotation offset in degrees {#prop-rotation-offset}
+### Vector3 rotation_offset = Vector3.ZERO {#prop-rotation-offset}
 
-*No description yet.*
+Additional rotation offset in degrees
 
 ### float rotation_variance = 0.0 {#prop-rotation-variance}
 

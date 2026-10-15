@@ -124,6 +124,8 @@ Emitted when quest cooldown ends and can be repeated
 
 ### enum QuestState {#enum-queststate}
 
+The options of quest state: inactive, active, ready to hand in, completed, failed, on cooldown.
+
 - **INACTIVE** = `0`
 - **ACTIVE** = `1`
 - **READY_TO_HAND_IN** = `2`
@@ -149,6 +151,8 @@ Can the player give the quest up?
 - **NO** = `2`
 
 ### enum CooldownType {#enum-cooldowntype}
+
+The options of cooldown type: none, duration, clock.
 
 - **NONE** = `0` - No cooldown, can repeat immediately
 - **DURATION** = `1` - Cooldown based on game time duration
@@ -248,13 +252,13 @@ System Refs
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 
-*No description yet.*
+The hub of the game systems.
 
 ## Method descriptions
 
 ### void set_system_hub( p_system_hub: GameHost.SystemHub ) {#method-set-system-hub}
 
-*No description yet.*
+Gives the quest, its objectives and its rewards the hub of the game systems.
 
 ### bool can_start() {#method-can-start}
 
@@ -434,11 +438,11 @@ Returns true if quest is inactive
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the quest. Gives the problems found (empty when it is fine).
 
 ### bool is_valid() {#method-is-valid}
 
-*No description yet.*
+Is the quest free of errors?
 
 ### Dictionary save_quest_data() {#method-save-quest-data}
 
@@ -450,5 +454,5 @@ Loads quest state from saved data
 
 ### Dictionary get_summary() {#method-get-summary}
 
-*No description yet.*
+A short summary of the quest (id, name, state ...) as a dictionary.
 

@@ -19,6 +19,8 @@ Moves to a specific ally's position based on criteria
 
 ### enum AllyCriteria {#enum-allycriteria}
 
+The options of ally criteria: nearest, farthest, lowest health, highest health.
+
 - **NEAREST** = `0`
 - **FARTHEST** = `1`
 - **LOWEST_HEALTH** = `2`
@@ -28,17 +30,17 @@ Moves to a specific ally's position based on criteria
 
 ### float search_range = 20.0 {#prop-search-range}
 
-*No description yet.*
+How far to look for an ally.
 
 ### AllyCriteria ally_criteria = AllyCriteria.NEAREST {#prop-ally-criteria}
 
-*No description yet.*
+Which ally to move to (the nearest, the weakest ...).
 
 ### float offset_distance = 2.0 {#prop-offset-distance}
 
-*No description yet.*
+How far from the ally to stop.
 
 ### bool should_walk = false {#prop-should-walk}
 
-*No description yet.*
+True when the entity walks and does not run.
 

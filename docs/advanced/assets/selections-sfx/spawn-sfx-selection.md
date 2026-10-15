@@ -23,15 +23,15 @@ Specialized SFX selection for spawn sound effects Spawns uses FLAT_FILES pattern
 
 ### String file_name = "" {#prop-file-name}
 
-*No description yet.*
+The file of the spawn sound.
 
 ## Method descriptions
 
 ### Array[String] get_available_files() {#method-get-available-files}
 
-*No description yet.*
+The sound files the database has for the settings now (for the editor list).
 
 ### AudioStream get_sound_resource() {#method-get-sound-resource}
 
-*Overrides this function of [SFXSelection](/advanced/assets/selections-sfx/sfx-selection).*
+The sound this selection points to, or null when it is not set.
 

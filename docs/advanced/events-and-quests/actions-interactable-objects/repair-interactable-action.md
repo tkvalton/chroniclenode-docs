@@ -42,7 +42,7 @@ Amount of health to restore
 
 ### InteractableObject target_destructible = null {#var-target-destructible}
 
-*No description yet.*
+Reference to the target destructible
 
 ## Method descriptions
 

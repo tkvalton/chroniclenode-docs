@@ -25,7 +25,7 @@ The collision shapes the weapons can use: a list of named templates (capsules of
 
 ### Dictionary weapon_collision_templates =  {#var-weapon-collision-templates}
 
-*No description yet.*
+The named collision shapes weapons can use.
 
 ## Method descriptions
 

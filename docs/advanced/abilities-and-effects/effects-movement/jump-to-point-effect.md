@@ -39,21 +39,21 @@ Maximum height of the arc above the start/end positions
 
 ### void process_before_start( effect_instance: EffectInstance ) {#method-process-before-start}
 
-Override duration setup — point movement effects own their lifecycle via movement completion. Set duration to permanent (0.0) so start_effect() won't create competing duration timers. Child classes that need immediate mode override this themselves. *(from [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect))*
+Called just before the effect starts: sets what must be known first (a permanent duration).
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-*Overrides this function of [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect).*
+What the effect does to its target when it is applied.
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-*Overrides this function of [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect).*
+Called when the effect ends: takes back what it did.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*Overrides this function of [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect).*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 

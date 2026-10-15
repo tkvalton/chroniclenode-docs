@@ -20,7 +20,7 @@ The buses of a project live in its bus layout file. A project that has never had
 
 ## Constants
 
-- `Array[String]` **REQUIRED_BUSES** = `["Music", "SFX", "Voice", "Ambiance", "UI"]`
+- `Array[String]` **REQUIRED_BUSES** = `["Music", "SFX", "Voice", "Ambiance", "UI"]` - The audio buses the toolkit plays on.
 
 ## Method descriptions
 

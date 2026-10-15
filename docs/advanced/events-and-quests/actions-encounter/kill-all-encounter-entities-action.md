@@ -38,7 +38,7 @@ Name of the Encounter to manipulate
 
 ### Encounter encounter {#var-encounter}
 
-*No description yet.*
+Reference to the special encounter
 
 ## Method descriptions
 

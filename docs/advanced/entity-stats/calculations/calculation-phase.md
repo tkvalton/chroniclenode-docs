@@ -44,7 +44,7 @@ The avoid trigger that ended the phase (dodge, parry), or null. Only damage-take
 
 ### bool was_avoided() {#method-was-avoided}
 
-*No description yet.*
+Did the phase end in an avoidance (a dodge, a parry, a block)?
 
 ### Array[String] tags() {#method-tags}
 

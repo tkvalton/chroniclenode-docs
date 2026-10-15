@@ -23,15 +23,15 @@ Specialized SFX selection for entity voice sound effects (combat barks, reaction
 
 ### String action = "attack" {#prop-action}
 
-*No description yet.*
+The action the voice plays for (attack, hit ...). The entity gives its own voice.
 
 ## Method descriptions
 
 ### Array[String] get_available_actions() {#method-get-available-actions}
 
-*No description yet.*
+The actions a voice can have.
 
 ### AudioStream get_sound_resource() {#method-get-sound-resource}
 
-*Overrides this function of [SFXSelection](/advanced/assets/selections-sfx/sfx-selection).*
+The sound this selection points to, or null when it is not set.
 

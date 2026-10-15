@@ -64,7 +64,7 @@ The number of the hit a reaction uses: the effect's own choice, or the project d
 
 ### DamageResult.DamageBasis default_basis( reaction: Reaction ) {#method-default-basis}
 
-*No description yet.*
+The damage basis a reaction uses by default, from the settings of the game.
 
 ### bool use_threat_system() {#method-use-threat-system}
 
@@ -84,7 +84,7 @@ How many reactions deep a hit may be and still be reflected
 
 ### bool zero_damage_counts_as_hit() {#method-zero-damage-counts-as-hit}
 
-*No description yet.*
+Does a hit that does no damage still count as a hit (from the settings)?
 
 ### GameplayConfig hit_config() {#method-hit-config}
 
@@ -92,11 +92,11 @@ The project's settings (Game settings, Combat, Hit Rules read from it by HitRule
 
 ### float minimum_damage() {#method-minimum-damage}
 
-*No description yet.*
+The least damage a hit does (from the settings).
 
 ### bool round_damage() {#method-round-damage}
 
-*No description yet.*
+Is damage rounded to whole numbers (from the settings)?
 
 ### GameplayConfig.CapacityRule capacity_change_rule() {#method-capacity-change-rule}
 

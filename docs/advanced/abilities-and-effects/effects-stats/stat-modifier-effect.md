@@ -32,11 +32,15 @@ StatModifierEffect modifies stats using the new stats system Can optionally tap 
 
 ### enum CalculationPipeline {#enum-calculationpipeline}
 
+The options of calculation pipeline: none, damage done, healing done.
+
 - **NONE** = `0`
 - **DAMAGE_DONE** = `1`
 - **HEALING_DONE** = `2`
 
 ### enum CalculationType {#enum-calculationtype}
+
+The options of calculation type: add, multiply, percentage increase, percentage decrease, set base, set multiplier.
 
 - **ADD** = `0`
 - **MULTIPLY** = `1`
@@ -45,6 +49,8 @@ StatModifierEffect modifies stats using the new stats system Can optionally tap 
 - **SET_BASE** = `4`
 
 ### enum Targets {#enum-targets}
+
+The options of targets: single stat, stat group.
 
 - **SINGLE_STAT** = `0` - the stat chosen below
 - **STAT_GROUP** = `1` - every stat of a stat group the target has
@@ -81,11 +87,11 @@ Use a calculation pipeline for this effect
 
 ### Array[int] resolve_stat_ids( target_entity: Variant ) {#method-resolve-stat-ids}
 
-*No description yet.*
+The ids of the stats the effect changes on this target (one stat, or every stat of a group).
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+What the effect does to its target when it is applied.
 
 ### void on_stack_reapply( effect_instance: EffectInstance, old_stack_count: int, new_stack_count: int ) {#method-on-stack-reapply}
 
@@ -93,13 +99,13 @@ Handle custom stack reapply logic - calculates delta between old and new stack t
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-Handles the finishing of the effect, including cleanup and VFX/SFX (override in child classes if needed, call .super for cleanup) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+Handle effect removal (for temporary effects)
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+Tooltip
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 

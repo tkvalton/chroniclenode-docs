@@ -113,11 +113,11 @@ System hub reference (set at runtime)
 
 ### PlayerController controller {#var-controller}
 
-*No description yet.*
+The player controller this logic belongs to.
 
 ### Player current_player = null {#var-current-player}
 
-*No description yet.*
+The player this logic controls now.
 
 ## Method descriptions
 

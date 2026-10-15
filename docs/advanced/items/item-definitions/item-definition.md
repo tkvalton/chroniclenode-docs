@@ -148,7 +148,7 @@ Is this item kept aside in the bag (taking no slot, cell or weight)? Only a ques
 
 ### bool needs_generation() {#method-needs-generation}
 
-*No description yet.*
+Must the item be generated when it is made (a random quality or a level)?
 
 ### Quality get_quality() {#method-get-quality}
 
@@ -156,19 +156,19 @@ Get the actual Quality resource from the ID
 
 ### Color get_quality_color() {#method-get-quality-color}
 
-*No description yet.*
+========== QUALITY METHODS ==========
 
 ### String get_quality_name() {#method-get-quality-name}
 
-*No description yet.*
+The name of the quality of the item.
 
 ### int get_quality_tier() {#method-get-quality-tier}
 
-*No description yet.*
+The tier of the quality of the item (higher is rarer).
 
 ### bool has_higher_quality_than( other_item: ItemDefinition ) {#method-has-higher-quality-than}
 
-*No description yet.*
+Is the quality of this item higher than the other?
 
 ### bool can_use( user: Entity, _item_instance: ItemInstance = null ) {#method-can-use}
 

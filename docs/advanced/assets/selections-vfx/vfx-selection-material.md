@@ -37,11 +37,15 @@ Material VFX selection - material overrides for entities
 
 ### enum MaterialTarget {#enum-materialtarget}
 
+========== NEW MATERIAL TARGET SYSTEM ==========
+
 - **BODY** = `0`
 - **WEAPONS** = `1`
 - **MAIN_HAND** = `2`
 
 ### enum MaterialBlendMode {#enum-materialblendmode}
+
+The options of material blend mode: replace, overlay, additive, multiply.
 
 - **REPLACE** = `0`
 - **OVERLAY** = `1`
@@ -51,27 +55,27 @@ Material VFX selection - material overrides for entities
 
 ### MaterialTarget material_target = MaterialTarget.BODY: {#prop-material-target}
 
-*No description yet.*
+========== UPDATED EXPORTS ==========
 
 ### MaterialBlendMode blend_mode = MaterialBlendMode.OVERLAY: {#prop-blend-mode}
 
-*No description yet.*
+How the material is combined with the material of the entity (overlay ...).
 
 ### bool auto_cleanup_on_entity_death = true {#prop-auto-cleanup-on-entity-death}
 
-*No description yet.*
+True when the material goes away when the entity dies.
 
 ### bool allow_stacking = true {#prop-allow-stacking}
 
-*No description yet.*
+True when more than one of this material can be on the entity.
 
 ### int priority = 0 {#prop-priority}
 
-*No description yet.*
+Which material wins when several are on the entity (higher wins).
 
 ### String target_material_slot = "body": {#prop-target-material-slot}
 
-*No description yet.*
+========== BACKWARD COMPATIBILITY ========== Keep the old target_material_slot for existing content
 
 ## Method descriptions
 
@@ -81,19 +85,19 @@ Override spawn method - Material VFX returns empty array since it doesn't create
 
 ### Variant prepare_target_for_vfx_type( target: Variant, originator: Variant = null ) {#method-prepare-target-for-vfx-type}
 
-Prepare target based on VFX type - override in subclasses for special handling *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+Checks and converts the target for this kind of visual effect (it needs an entity).
 
 ### String get_description() {#method-get-description}
 
-Get a description of this VFX selection for UI *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+A short text about the visual effect, for the editor.
 
 ### String get_vfx_type() {#method-get-vfx-type}
 
-Get the VFX type for database queries *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+The kind of visual effect (beam, loop, one shot ...).
 
 ### String get_vfx_name() {#method-get-vfx-name}
 
-Get the VFX name for database queries *(from [VFXSelection](/advanced/assets/selections-vfx/vfx-selection))*
+The name of the visual effect that is picked.
 
 ### String get_selection_type_name() {#method-get-selection-type-name}
 
@@ -113,9 +117,9 @@ Get current VFX name (called by dialog system)
 
 ### bool is_valid_selection() {#method-is-valid-selection}
 
-*No description yet.*
+========== VALIDATION HELPERS ==========
 
 ### Material get_material_from_database() {#method-get-material-from-database}
 
-*No description yet.*
+The material this selection points to, or null when it is not set.
 

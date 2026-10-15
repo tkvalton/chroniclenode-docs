@@ -39,41 +39,43 @@ Refactored vendor panel that uses definition-based VendorSlotUI for shop display
 
 ### transaction_completed( success: bool, message: String ) {#signal-transaction-completed}
 
+Emitted when a purchase or a sale ends: whether it worked and a message.
+
 ## Property descriptions
 
 ### bool show_repair_button = true {#prop-show-repair-button}
 
-*No description yet.*
+True shows the repair button.
 
 ### int vendor_slots_per_row = 6 {#prop-vendor-slots-per-row}
 
-*No description yet.*
+How many vendor slots are in a row.
 
 ### int max_vendor_rows = 8 {#prop-max-vendor-rows}
 
-*No description yet.*
+How many rows of vendor slots the panel shows.
 
 ### PackedScene vendor_slot_scene {#prop-vendor-slot-scene}
 
-*No description yet.*
+The scene of one vendor slot.
 
 ### PackedScene currency_display_scene {#prop-currency-display-scene}
 
-*No description yet.*
+The scene of one currency display.
 
 ## Variable descriptions
 
 ### VendorInventoryComponent vendor_inventory {#var-vendor-inventory}
 
-*No description yet.*
+The stock of the vendor.
 
 ### Entity player_entity {#var-player-entity}
 
-*No description yet.*
+The player who trades.
 
 ### bool is_repair_mode = false {#var-is-repair-mode}
 
-*No description yet.*
+True while the player picks an item to repair.
 
 ### Array[VendorSlotUI] vendor_slots = [] {#var-vendor-slots}
 
@@ -87,7 +89,7 @@ Currency displays
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [PanelUI](/advanced/user-interface/panels/panel-ui).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void setup_vendor_panel( vendor: VendorInventoryComponent, player: Entity ) {#method-setup-vendor-panel}
 
@@ -99,5 +101,5 @@ Clear all vendor slots
 
 ### void close_panel() {#method-close-panel}
 
-Signal handlers for UI elements *(from [PanelUI](/advanced/user-interface/panels/panel-ui))*
+Closes the window.
 

@@ -26,6 +26,8 @@ Action to play or stop a video cinematic Uses UIContainer.cinematic_player (Vide
 
 ### enum CinematicCommand {#enum-cinematiccommand}
 
+The options of cinematic command: play, stop.
+
 - **PLAY** = `0`
 - **STOP** = `1`
 

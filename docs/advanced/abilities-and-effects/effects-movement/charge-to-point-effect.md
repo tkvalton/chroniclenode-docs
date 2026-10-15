@@ -32,6 +32,8 @@ Perfect for warrior charges, bull rushes, tackles, and gap closers that need to 
 
 ### enum ChildEffectTarget {#enum-childeffecttarget}
 
+The options of child effect target: original target, collision target.
+
 - **ORIGINAL_TARGET** = `0` - Apply child effects to the entity/point this effect targets
 - **COLLISION_TARGET** = `1` - Apply child effects to entities collided with during charge
 
@@ -61,17 +63,17 @@ What receives child effects — the original target on arrival, or entities hit 
 
 ### void apply_movement_to_point( effect_instance: EffectInstance, entity: Entity, target_position: Vector3 ) {#method-apply-movement-to-point}
 
-Virtual method for child classes to implement their movement logic *(from [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect))*
+Moves the entity to the target point.
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-*Overrides this function of [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect).*
+Called when the effect ends: takes back what it did.
 
 ### String get_effect_description() {#method-get-effect-description}
 
-*Overrides this function of [MoveToPointEffect](/advanced/abilities-and-effects/effects-base/move-to-point-effect).*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect).*
+A short text for the effect editor that says what the effect does.
 

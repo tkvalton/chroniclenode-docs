@@ -39,6 +39,8 @@ Loop VFX - Continuous effects like auras, channeling, persistent buffs/debuffs S
 
 ### enum LoopState {#enum-loopstate}
 
+Animation state management
+
 - **STARTING** = `0`
 - **LOOPING** = `1`
 - **ENDING** = `2`
@@ -48,23 +50,23 @@ Loop VFX - Continuous effects like auras, channeling, persistent buffs/debuffs S
 
 ### LoopState loop_state = LoopState.STARTING {#var-loop-state}
 
-*No description yet.*
+Which part of the effect plays: starting, looping or ending.
 
 ### bool manually_stopped = false {#var-manually-stopped}
 
-*No description yet.*
+Track if we've been manually stopped
 
 ### bool has_start_animation = false {#var-has-start-animation}
 
-*No description yet.*
+Animation references
 
 ### bool has_loop_animation = false {#var-has-loop-animation}
 
-*No description yet.*
+True when the effect has a loop animation.
 
 ### bool has_end_animation = false {#var-has-end-animation}
 
-*No description yet.*
+True when the effect has an end animation.
 
 ## Method descriptions
 
@@ -78,41 +80,41 @@ Manually stop the loop VFX (triggers end sequence)
 
 ### void attach_to_entity( entity: Variant, location: VFXSelection.VfxLocation, offset: Vector3 = Vector3.ZERO ) {#method-attach-to-entity}
 
-Attach VFX to an entity using RemoteTransform *(from [VFX](/advanced/assets/vfx/vfx))*
+Attaches the effect to a place on an entity, with an offset.
 
 ### void deactivate_vfx() {#method-deactivate-vfx}
 
-Deactivate VFX and prepare for pool return *(from [VFX](/advanced/assets/vfx/vfx))*
+Ends the effect (it plays its end animation first).
 
 ### void spawn_at_position( pos: Vector3, new_rotation: Vector3 = Vector3.ZERO ) {#method-spawn-at-position}
 
-*No description yet.*
+Starts the effect at a position and a rotation.
 
 ### void spawn_attached_to_entity( entity: Entity, location: VFXSelection.VfxLocation, offset: Vector3 = Vector3.ZERO ) {#method-spawn-attached-to-entity}
 
-*No description yet.*
+Starts the effect attached to an entity.
 
 ### bool is_fading() {#method-is-fading}
 
-*No description yet.*
+Is the effect fading out? (a loop does not fade)
 
 ### bool is_looping() {#method-is-looping}
 
-*No description yet.*
+Is the effect in its loop part?
 
 ### bool is_ending() {#method-is-ending}
 
-*No description yet.*
+Is the effect in its end part?
 
 ### void force_stop() {#method-force-stop}
 
-*No description yet.*
+Stops the effect at once.
 
 ### void restart_loop() {#method-restart-loop}
 
-*No description yet.*
+Starts the effect again from its start part.
 
 ### bool has_duration_override() {#method-has-duration-override}
 
-*No description yet.*
+Does the effect have a timer that sets how long it lasts?
 

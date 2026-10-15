@@ -73,33 +73,33 @@ Whether to fail the task if item validation fails
 
 ### bool signal_emitted = false {#var-signal-emitted}
 
-*No description yet.*
+True once the task emitted its signal.
 
 ### bool item_validated = false {#var-item-validated}
 
-*No description yet.*
+True once the item was checked.
 
 ### String validation_error = "" {#var-validation-error}
 
-*No description yet.*
+Why the item did not pass the check.
 
 ## Method descriptions
 
 ### void execute_task_start() {#method-execute-task-start}
 
-Override this in subclasses to implement specific task behavior *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Starts the task.
 
 ### void execute_task_complete() {#method-execute-task-complete}
 
-Override this in subclasses for task completion logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task finishes well.
 
 ### void execute_task_interrupt() {#method-execute-task-interrupt}
 
-Override this in subclasses for task interruption logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when something interrupts the task.
 
 ### void execute_task_fail() {#method-execute-task-fail}
 
-Override this in subclasses for task failure logic *(from [BehaviorTask](/advanced/behaviors/tasks/behavior-task))*
+Called when the task fails.
 
 ### void set_item( new_item_id: int, new_quantity: int = 1 ) {#method-set-item}
 

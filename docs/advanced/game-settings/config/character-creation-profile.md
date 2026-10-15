@@ -69,7 +69,7 @@ CharacterCreationProfile - UI Ruleset for character creation Defines available b
 
 ## Constants
 
-- `Dictionary` **SETTING_DESCRIPTIONS** = `{`
+- `Dictionary` **SETTING_DESCRIPTIONS** = `{` - The text the settings editor shows for each setting of the profile.
 
 ## Property descriptions
 

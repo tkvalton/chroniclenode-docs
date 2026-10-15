@@ -72,7 +72,7 @@ GameHost access for action flexability
 
 ### void set_system_hub( p_system_hub: GameHost.SystemHub ) {#method-set-system-hub}
 
-*No description yet.*
+Gives the action the hub of the game systems.
 
 ### String get_display_name() {#method-get-display-name}
 

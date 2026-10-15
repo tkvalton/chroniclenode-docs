@@ -52,7 +52,7 @@ Target rotation (if set_rotation is true)
 
 ### InteractableObject target_interactable = null {#var-target-interactable}
 
-*No description yet.*
+Reference to the target interactable
 
 ## Method descriptions
 

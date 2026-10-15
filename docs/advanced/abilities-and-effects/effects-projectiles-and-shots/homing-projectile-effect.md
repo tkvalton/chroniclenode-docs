@@ -44,6 +44,8 @@ Homing projectile effect - tracks target with optional curve patterns Uses steer
 
 ### enum CurveType {#enum-curvetype}
 
+The options of curve type: straight, oscillating, spiral, sine wave, drunke.
+
 - **STRAIGHT** = `0`
 - **OSCILLATING** = `1`
 - **SPIRAL** = `2`
@@ -56,29 +58,29 @@ Homing projectile effect - tracks target with optional curve patterns Uses steer
 
 ### TriggerType trigger_type = TriggerType.COLLISION {#prop-trigger-type}
 
-*No description yet.*
+What makes the projectile apply its effects: a collision, reaching the destination, or a timer.
 
 *Homing Settings*
 
 ### float homing_strength = 0.8 {#prop-homing-strength}
 
-*No description yet.*
+How strongly the projectile turns toward the target (0 to 1).
 
 ### float max_turn_rate_degrees = 180.0 {#prop-max-turn-rate-degrees}
 
-*No description yet.*
+The most the projectile can turn each second, in degrees.
 
 ### bool use_smooth_steering = true {#prop-use-smooth-steering}
 
-*No description yet.*
+True when the projectile turns smoothly.
 
 ### float max_speed = 30.0 {#prop-max-speed}
 
-*No description yet.*
+The top speed of the projectile.
 
 ### float arrival_threshold = 1.5 {#prop-arrival-threshold}
 
-*No description yet.*
+How close to the target counts as arrived.
 
 *Curve Settings*
 
@@ -106,7 +108,7 @@ Oscillation strength for patterns
 
 ### CurvedHomingMovement.CurveRotationMode curve_rotation_mode = CurvedHomingMovement.CurveRotationMode.RANDOM_RANGE {#prop-curve-rotation-mode}
 
-*No description yet.*
+How the curve of the path is rotated for each projectile.
 
 ### float fixed_curve_rotation = 0.0 {#prop-fixed-curve-rotation}
 
@@ -120,7 +122,7 @@ Degrees of random variation from default
 
 ### CollisionLayerUtility.HitMode hit_mode = CollisionLayerUtility.HitMode.TARGET_ONLY {#prop-hit-mode}
 
-*No description yet.*
+What the projectile hits on its way.
 
 ### int pierce_count = 0 {#prop-pierce-count}
 
@@ -128,11 +130,11 @@ Degrees of random variation from default
 
 ### bool stop_on_world_hit = true {#prop-stop-on-world-hit}
 
-*No description yet.*
+True when the projectile stops when it hits the world.
 
 ### bool stop_on_target_hit = true {#prop-stop-on-target-hit}
 
-*No description yet.*
+True when the projectile stops when it hits a target.
 
 *Timer Settings*
 
@@ -160,5 +162,5 @@ Get effect description for tooltips
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [BaseProjectileEffect](/advanced/abilities-and-effects/effects-base/base-projectile-effect).*
+A short text for the effect editor that says what the effect does.
 

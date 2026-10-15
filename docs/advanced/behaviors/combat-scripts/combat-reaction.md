@@ -54,6 +54,8 @@ Reactions work by connecting to entity signals and checking conditions when even
 
 ### enum TriggerEvent {#enum-triggerevent}
 
+The options of trigger event: damage taken, damage dealt, health below percent, ally died, enemy died, target changed, effect gained, effect lost, ability used.
+
 - **DAMAGE_TAKEN** = `0` - When this entity takes damage
 - **DAMAGE_DEALT** = `1` - When this entity deals damage
 - **HEALTH_BELOW_PERCENT** = `2` - When health drops below threshold
@@ -106,7 +108,7 @@ Internal cooldown timer
 
 ### CombatSession current_encounter = null {#var-current-encounter}
 
-*No description yet.*
+Add this property at the top with other variables
 
 ### ChronoManager chrono_manager {#var-chrono-manager}
 
@@ -114,7 +116,7 @@ SystemRefrences
 
 ### EventManager event_manager {#var-event-manager}
 
-*No description yet.*
+The event manager the reaction listens to.
 
 ## Method descriptions
 

@@ -42,12 +42,16 @@ holding both buttons never applies the same motion twice.
 
 ### enum EventType {#enum-eventtype}
 
+The options of event type: started, delta, ended, click.
+
 - **STARTED** = `0`
 - **DELTA** = `1`
 - **ENDED** = `2`
 - **CLICK** = `3`
 
 ### enum Phase {#enum-phase}
+
+The options of phase: pending, active.
 
 - **PENDING** = `0`
 - **ACTIVE** = `1`
@@ -60,7 +64,7 @@ Replaces the binding table. Gestures that are already tracked keep running until
 
 ### Array press( button_index: int, position: Vector2 ) {#method-press}
 
-*No description yet.*
+A button went down: starts tracking it. Gives the events the gesture causes.
 
 ### Array motion( relative: Vector2, position: Vector2, drag_threshold: float ) {#method-motion}
 
@@ -68,7 +72,7 @@ Replaces the binding table. Gestures that are already tracked keep running until
 
 ### Array release( button_index: int ) {#method-release}
 
-*No description yet.*
+A button went up. Gives the events the gesture causes.
 
 ### Array cancel_all() {#method-cancel-all}
 
@@ -76,7 +80,7 @@ Ends everything (focus loss, pause, leaving the game state). Pending gestures ar
 
 ### bool has_active() {#method-has-active}
 
-*No description yet.*
+Is any gesture past its drag threshold (a look is on)?
 
 ### bool has_any() {#method-has-any}
 
@@ -84,15 +88,15 @@ Any gesture pending or active
 
 ### bool is_button_tracked( button_index: int ) {#method-is-button-tracked}
 
-*No description yet.*
+Is this button being tracked?
 
 ### Array get_tracked_buttons() {#method-get-tracked-buttons}
 
-*No description yet.*
+The buttons that are tracked now.
 
 ### bool is_kind_active( kind: LookBinding.Kind ) {#method-is-kind-active}
 
-*No description yet.*
+Is a gesture of this kind on?
 
 ### Dictionary merge_bindings( controller_bindings: Array, camera_bindings: Array, controller_exclusive_buttons: Array ) {#method-merge-bindings}
 

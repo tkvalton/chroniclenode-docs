@@ -34,29 +34,29 @@ Triggers when target player(s) have X amount of a specific item
 
 ### int item_id = 0 {#prop-item-id}
 
-*No description yet.*
+The item to count.
 
 ### int required_quantity = 1 {#prop-required-quantity}
 
-*No description yet.*
+The number to compare the count with.
 
 ### Condition.CheckLogic check_logic = Condition.CheckLogic.GREATER_EQUAL {#prop-check-logic}
 
-*No description yet.*
+How the count is compared with the number (equal, at least, more than ...).
 
 ## Method descriptions
 
 ### int get_tally_target() {#method-get-tally-target}
 
-How far a counting trigger has to count (0 = it does not count: a quest objective of it is done or not). An objective shows the tally "3/10" for it *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The number the quest objective counts up to (0 when it does not count).
 
 ### int get_tally_progress() {#method-get-tally-progress}
 
-How far a counting trigger has counted *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+How far the count of the quest objective is now.
 
 ### void reset() {#method-reset}
 
-What a trigger that holds a count does when its owner starts it over (see QuestObjective.reset) *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+Sets the count back to zero.
 
 ### void poll() {#method-poll}
 
@@ -64,29 +64,29 @@ The player may hold the items already when an objective starts to listen
 
 ### String get_display_name() {#method-get-display-name}
 
-Return the display name of this Trigger *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The name of the trigger in the editor.
 
 ### String get_function_description() {#method-get-function-description}
 
-Return a description of this trigger with parameter placeholders *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The sentence the editor shows for the trigger, with &#123;placeholders&#125; for its values.
 
 ### void setup_player_connection( player: Player ) {#method-setup-player-connection}
 
-Override this in child classes to set up signal connections for a player *(from [PlayerEventTrigger](/advanced/events-and-quests/bases/player-event-trigger))*
+Connects the signal of a player this trigger listens to.
 
 ### void cleanup_player_connection( player: Player ) {#method-cleanup-player-connection}
 
-Override this in child classes to clean up signal connections for a player *(from [PlayerEventTrigger](/advanced/events-and-quests/bases/player-event-trigger))*
+Disconnects the signal of a player.
 
 ### bool meets_quantity_condition( current_quantity: int ) {#method-meets-quantity-condition}
 
-*No description yet.*
+Does this count satisfy the trigger?
 
 ### bool is_triggered( event_data: Dictionary ) {#method-is-triggered}
 
-Check if this trigger is currently active *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+Does this event data satisfy the trigger? Called when the signal the trigger listens to fires.
 
 ### String generate_objective_description() {#method-generate-objective-description}
 
-Generate quest objective description *(from [EventTrigger](/advanced/events-and-quests/bases/event-trigger))*
+The line of the quest objective this trigger makes ("Kill 5 wolves").
 

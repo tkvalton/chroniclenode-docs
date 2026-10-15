@@ -27,6 +27,8 @@ Places the party members around a target position in a formation (tight, spread,
 
 ### enum FormationType {#enum-formationtype}
 
+The options of formation type: tight, spread, v shape, line, wedge.
+
 - **TIGHT** = `0`
 - **SPREAD** = `1`
 - **V_SHAPE** = `2`
@@ -37,31 +39,31 @@ Places the party members around a target position in a formation (tight, spread,
 
 ### FormationType current_formation = FormationType.TIGHT {#var-current-formation}
 
-*No description yet.*
+The formation the party takes.
 
 ### float base_spacing = 2.0 {#var-base-spacing}
 
-*No description yet.*
+The distance between two members.
 
 ### float randomization_factor = 0.3 {#var-randomization-factor}
 
-*No description yet.*
+How much the places are shaken so the party does not look like a grid.
 
 ## Method descriptions
 
 ### Dictionary calculate_formation_positions( units: Array[Entity], target_position: Vector3, formation_direction: Vector3 ) {#method-calculate-formation-positions}
 
-*No description yet.*
+Calculate formation positions for a group of units
 
 ### float calculate_spacing( unit_count: int ) {#method-calculate-spacing}
 
-*No description yet.*
+Calculate spacing based on unit count
 
 ### void cycle_formation() {#method-cycle-formation}
 
-*No description yet.*
+Toggle between formation types
 
 ### void set_formation( formation: FormationType ) {#method-set-formation}
 
-*No description yet.*
+Set the formation type directly
 

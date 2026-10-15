@@ -35,6 +35,8 @@ Base class for triggers that monitor player(s). Child classes should override se
 
 ### enum PlayerTarget {#enum-playertarget}
 
+The options of player target: current player, all players, player 1, player 2, player 3, player 4, player 5, player 6, player 7, player 8 ....
+
 - **CURRENT_PLAYER** = `0` - The currently controlled player
 - **ALL_PLAYERS** = `1` - All players in the party
 - **PLAYER_1** = `2` - Player in slot 1

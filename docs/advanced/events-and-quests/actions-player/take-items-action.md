@@ -41,17 +41,17 @@ Take nothing when the player has fewer than that (on), or take what they have (o
 
 ### String get_player_function_description() {#method-get-player-function-description}
 
-Get template description for child classes to extend *(from [PlayerEventAction](/advanced/events-and-quests/bases/player-event-action))*
+The sentence the editor shows for the action, with &#123;placeholders&#125; for its values.
 
 ### bool execute_on_players( players: Array[Player] ) {#method-execute-on-players}
 
-Override this in child classes to implement player-specific action logic @param players: Array of target players to execute the action on @return: true if action succeeded, false if it failed *(from [PlayerEventAction](/advanced/events-and-quests/bases/player-event-action))*
+Takes the items from each player. With all or nothing set, nobody pays unless every player can. False when it fails.
 
 ### Dictionary save() {#method-save}
 
-Save action state to a dictionary *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+The state of the action for a save.
 
 ### void load_data( data: Dictionary ) {#method-load-data}
 
-Load action state from a dictionary *(from [EventAction](/advanced/events-and-quests/bases/event-action))*
+Restores the state of the action from a save.
 

@@ -37,6 +37,8 @@ MovementStateComponent handles the movement state system for entities. It manage
 
 ### enum MovementStateName {#enum-movementstatename}
 
+The options of movement state name: idle, idle turning, moving, falling, directional, climbing.
+
 - **IDLE** = `0`
 - **IDLE_TURNING** = `1`
 - **MOVING** = `2`
@@ -48,51 +50,51 @@ MovementStateComponent handles the movement state system for entities. It manage
 
 ### MovementStateComponent.MovementStateName initial_state = MovementStateName.IDLE {#var-initial-state}
 
-*No description yet.*
+Initial movement state to be set on startup
 
 ### bool has_idle_state = true {#var-has-idle-state}
 
-*No description yet.*
+Flags to enable/disable specific movement states
 
 ### bool has_walking_state = true {#var-has-walking-state}
 
-*No description yet.*
+True when the entity has a walking state.
 
 ### bool has_running_state = true {#var-has-running-state}
 
-*No description yet.*
+True when the entity has a running state.
 
 ### bool has_falling_state = true {#var-has-falling-state}
 
-*No description yet.*
+True when the entity has a falling state.
 
 ### bool has_idle_turning_state = true {#var-has-idle-turning-state}
 
-*No description yet.*
+True when the entity has a turn in place state.
 
 ### bool has_displaced_state = true {#var-has-displaced-state}
 
-*No description yet.*
+True when the entity has a displaced state (it is pushed or pulled).
 
 ### bool has_directional_state = true {#var-has-directional-state}
 
-*No description yet.*
+True when the entity has a directional movement state.
 
 ### bool has_climbing_state = true {#var-has-climbing-state}
 
-*No description yet.*
+True when the entity has a climbing state.
 
 ### MovementState current_state {#var-current-state}
 
-*No description yet.*
+Current active movement state
 
 ### Dictionary states =  {#var-states}
 
-*No description yet.*
+Dictionary to store all states
 
 ### Entity entity {#var-entity}
 
-*No description yet.*
+References
 
 ## Method descriptions
 
@@ -102,7 +104,7 @@ Initialize the movement state manager
 
 ### void set_active_state( active: bool ) {#method-set-active-state}
 
-*No description yet.*
+#Set active state for the movement manager
 
 ### void process_movement( delta: float ) {#method-process-movement}
 

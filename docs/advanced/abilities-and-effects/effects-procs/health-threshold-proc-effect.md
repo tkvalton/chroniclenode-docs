@@ -26,6 +26,8 @@ Proc effect that triggers when health crosses a percentage threshold. Supports m
 
 ### enum TriggerDirection {#enum-triggerdirection}
 
+The options of trigger direction: drops below, rises above.
+
 - **DROPS_BELOW** = `0` - Fires when health crosses threshold going down
 - **RISES_ABOVE** = `1` - Fires when health crosses threshold going up
 
@@ -55,9 +57,9 @@ Monitor the caster's current target's health instead of their own (e.g. execute 
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [ProcEffect](/advanced/abilities-and-effects/effects-base/proc-effect).*
+A short text for the effect editor that says what the effect does.
 

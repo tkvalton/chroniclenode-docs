@@ -28,6 +28,8 @@ Character Panel UI - A fully self-sufficient character information interface Get
 
 ### enum DisplayMode {#enum-displaymode}
 
+The options of display mode: stats, active effects.
+
 - **STATS** = `0`
 - **ACTIVE_EFFECTS** = `1`
 
@@ -35,7 +37,7 @@ Character Panel UI - A fully self-sufficient character information interface Get
 
 ### CharacterBackdropScene character_backdrop = %CharacterBackdrop {#prop-character-backdrop}
 
-*No description yet.*
+The 3D scene that shows the character.
 
 ## Variable descriptions
 
@@ -47,5 +49,5 @@ State tracking
 
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*Overrides this function of [PanelUI](/advanced/user-interface/panels/panel-ui).*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 

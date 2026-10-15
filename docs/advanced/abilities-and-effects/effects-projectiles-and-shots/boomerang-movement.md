@@ -55,7 +55,7 @@ Current movement phase
 
 ### BoomerangPhase current_phase = BoomerangPhase.OUTBOUND {#var-current-phase}
 
-*No description yet.*
+Which way the projectile goes now: out or back.
 
 ### Entity originator {#var-originator}
 
@@ -71,7 +71,7 @@ Distance thresholds
 
 ### float originator_arrival_threshold = 0.5 {#var-originator-arrival-threshold}
 
-*No description yet.*
+How close to the originator the projectile must be to count as back.
 
 ### bool track_moving_target = true {#var-track-moving-target}
 

@@ -60,7 +60,7 @@ Internal tracking
 
 ### bool is_strafing = false {#var-is-strafing}
 
-*No description yet.*
+True while the entity circles its target.
 
 ## Method descriptions
 

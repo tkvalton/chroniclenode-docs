@@ -111,7 +111,7 @@ If Vector3.ZERO, use EntityDefinition.model_scale
 
 ### int faction_id = 0 {#prop-faction-id}
 
-*No description yet.*
+Overrides the faction of the definition (0 = use the faction of the definition).
 
 ### int experience_worth_override = 0 {#prop-experience-worth-override}
 
@@ -123,11 +123,11 @@ Multiplies the experience this NPC gives, on top of the multiplier of its defini
 
 ### int behavior_script_id = 0 {#prop-behavior-script-id}
 
-*No description yet.*
+Overrides the behavior script of the definition (0 = use the one of the definition).
 
 ### int combat_script_id = 0 {#prop-combat-script-id}
 
-*No description yet.*
+Overrides the combat script of the definition (0 = use the one of the definition).
 
 *Loot &amp; Inventory*
 
@@ -147,7 +147,7 @@ Older override for starting inventory - if empty, uses EntityDefinition.inventor
 
 ### StatsData stats_override {#prop-stats-override}
 
-*No description yet.*
+Stats of this placed NPC that replace the ones of its definition. It follows its definition: what the definition gained since is added.
 
 ### TemplateBaseline template_baseline {#prop-template-baseline}
 
@@ -165,69 +165,69 @@ Interactions assigned to this specific entity instance
 
 ### Vector3 world_position = Vector3.ZERO {#prop-world-position}
 
-*No description yet.*
+World positioning
 
 ### Vector3 world_rotation = Vector3.ZERO {#prop-world-rotation}
 
-*No description yet.*
+The rotation of the NPC in the world.
 
 ### Vector3 facing_direction = Vector3.FORWARD {#prop-facing-direction}
 
-*No description yet.*
+The direction the NPC faces now.
 
 ### Vector3 default_face_direction = Vector3.ZERO {#prop-default-face-direction}
 
-*No description yet.*
+The direction the NPC faces when it is idle (zero = it does not turn back).
 
 ## Method descriptions
 
 ### void update_position_from_node( entity_node: Node3D ) {#method-update-position-from-node}
 
-*No description yet.*
+Copies the position and rotation of the node of the NPC into this record.
 
 ### String get_effective_display_name( definition: EntityDefinition = null ) {#method-get-effective-display-name}
 
-*No description yet.*
+The display name: the override, else the one of the definition.
 
 ### bool has_display_name_override() {#method-has-display-name-override}
 
-*No description yet.*
+Does this NPC have a name of its own?
 
 ### int get_effective_level( definition: EntityDefinition = null ) {#method-get-effective-level}
 
-*No description yet.*
+The level: the override, else the one of the definition.
 
 ### FactionDefinition get_effective_faction( definition: EntityDefinition = null ) {#method-get-effective-faction}
 
-*No description yet.*
+The faction: the override, else the one of the definition.
 
 ### Vector3 get_effective_model_scale( definition: EntityDefinition = null ) {#method-get-effective-model-scale}
 
-*No description yet.*
+The scale of the model: the override, else the one of the definition.
 
 ### ModularBehaviorScript get_effective_behavior_script( definition: EntityDefinition = null ) {#method-get-effective-behavior-script}
 
-*No description yet.*
+The behavior script: the override, else the one of the definition.
 
 ### bool has_behavior_script_override() {#method-has-behavior-script-override}
 
-*No description yet.*
+Does this NPC have a behavior script of its own?
 
 ### ModularCombatScript get_effective_combat_script( definition: EntityDefinition = null ) {#method-get-effective-combat-script}
 
-*No description yet.*
+The combat script: the override, else the one of the definition.
 
 ### bool has_combat_script_override() {#method-has-combat-script-override}
 
-*No description yet.*
+Does this NPC have a combat script of its own?
 
 ### StatsData get_effective_stats( definition: EntityDefinition = null ) {#method-get-effective-stats}
 
-*No description yet.*
+The stats: the override (kept up to date with its definition), else the ones of the definition.
 
 ### bool has_stats_override() {#method-has-stats-override}
 
-*No description yet.*
+Does this NPC have stats of its own?
 
 ### void set_stats_override_from_definition( definition: EntityDefinition = null ) {#method-set-stats-override-from-definition}
 
@@ -239,15 +239,15 @@ Clear stats override
 
 ### LootTable get_effective_loot_table( definition: EntityDefinition = null ) {#method-get-effective-loot-table}
 
-*No description yet.*
+The loot table: the override, else the one of the definition.
 
 ### bool has_loot_table_override() {#method-has-loot-table-override}
 
-*No description yet.*
+Does this NPC have a loot table of its own?
 
 ### bool has_loot_rules_override() {#method-has-loot-rules-override}
 
-*No description yet.*
+Does this NPC have loot rules of its own?
 
 ### Array[LootRule] get_effective_loot_rules( definition: EntityDefinition = null ) {#method-get-effective-loot-rules}
 
@@ -255,33 +255,33 @@ The loot rules of this placed NPC: its own when it has any, else the ones of its
 
 ### Dictionary get_effective_inventory( definition: EntityDefinition = null ) {#method-get-effective-inventory}
 
-*No description yet.*
+The starting inventory: the override, else the one of the definition.
 
 ### bool has_inventory_override() {#method-has-inventory-override}
 
-*No description yet.*
+Does this NPC have an inventory of its own?
 
 ### int get_effective_experiance( definition: EntityDefinition = null ) {#method-get-effective-experiance}
 
-*No description yet.*
+The experience the NPC gives: the override, else the one of the definition.
 
 ### bool has_experiance_override() {#method-has-experiance-override}
 
-*No description yet.*
+Does this NPC have an experience value of its own?
 
 ### bool has_interaction() {#method-has-interaction}
 
-*No description yet.*
+Does this NPC have an interaction of its own?
 
 ### bool has_overrides() {#method-has-overrides}
 
-*No description yet.*
+Does this placed NPC differ from its definition in anything?
 
 ### bool save_to_disk() {#method-save-to-disk}
 
-*No description yet.*
+Saves this record to its file in src/data/unique_entities.
 
 ### String get_file_path() {#method-get-file-path}
 
-*No description yet.*
+The path of the file of this record.
 

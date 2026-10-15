@@ -45,7 +45,11 @@ Key features:
 
 ### effect_tooltip_requested( effect: EffectInstance ) {#signal-effect-tooltip-requested}
 
+Asks the interface to show the tooltip of an effect.
+
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
+
+Asks the interface to hide the tooltip (force hides it at once).
 
 ## Property descriptions
 
@@ -61,7 +65,7 @@ The player that this frame represents
 
 ### Player frames_player {#var-frames-player}
 
-*No description yet.*
+The party member the frame shows.
 
 ### Array[Aura] active_auras {#var-active-auras}
 
@@ -69,7 +73,7 @@ Arrays to store active auras and debuffs
 
 ### Array[Aura] debuff_slots {#var-debuff-slots}
 
-*No description yet.*
+The icons of the effects shown on the frame.
 
 ### PoolBarUI health_pool_bar {#var-health-pool-bar}
 
@@ -77,7 +81,7 @@ Pool bar references
 
 ### PoolBarUI resource_pool_bar {#var-resource-pool-bar}
 
-*No description yet.*
+The bar of the resource pool of the member.
 
 ### PartyManager party_manager {#var-party-manager}
 
@@ -87,11 +91,11 @@ Party Manager Ref
 
 ### void initialize_ui( system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-*No description yet.*
+Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
 
 ### void setup_frames( player: Entity ) {#method-setup-frames}
 
-*No description yet.*
+Set up the frame for a specific player
 
 ### void set_border_state( is_current: bool, is_selected: bool ) {#method-set-border-state}
 

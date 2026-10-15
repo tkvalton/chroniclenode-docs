@@ -52,23 +52,23 @@ Optional background texture for the readable panel
 
 ### void setup_for_interactable_objects( interactable: InteractableObject ) {#method-setup-for-interactable-objects}
 
-*Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
+Sets the readable up on its object.
 
 ### bool can_interact( player: Player ) {#method-can-interact}
 
-*Overrides this function of [InteractableObjectInteraction](/advanced/entities/interactions/interactable-object-interaction).*
+Can the player read it now?
 
 ### void start_interaction( player: Player ) {#method-start-interaction}
 
-Start the interaction with the given player *(from [Interaction](/advanced/entities/interactions/interaction))*
+Opens the reading window with the pages.
 
 ### void end_interaction() {#method-end-interaction}
 
-End the current interaction *(from [Interaction](/advanced/entities/interactions/interaction))*
+Does nothing: the reading window closes itself.
 
 ### String get_interaction_prompt() {#method-get-interaction-prompt}
 
-*No description yet.*
+The text of the prompt above the object ("Read", or "Empty" when it has no pages).
 
 ### void add_page( page_text: String ) {#method-add-page}
 
@@ -100,13 +100,13 @@ Check if has any content
 
 ### Dictionary save_state() {#method-save-state}
 
-*No description yet.*
+The pages and the title for a save.
 
 ### void load_state( state: Dictionary ) {#method-load-state}
 
-*No description yet.*
+Restores the pages and the title from a save.
 
 ### void cleanup() {#method-cleanup}
 
-*No description yet.*
+Does nothing: it has no timers.
 

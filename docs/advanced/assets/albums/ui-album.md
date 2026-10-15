@@ -12,9 +12,9 @@ The music of the interface: the menu music, the ambient sounds of the menus and 
 |---|---|---|
 | `String` | [album_name](#prop-album-name) | `""` |
 | `String` | [description](#prop-description) | `""` |
-| `Array[String]` | [menu_music_tracks](#prop-menu-music-tracks) | `[]       # Background music for menus` |
-| `Array[String]` | [ambient_tracks](#prop-ambient-tracks) | `[]          # Menu ambient sounds` |
-| `Array[String]` | [transition_tracks](#prop-transition-tracks) | `[]       # Scene transition sounds` |
+| `Array[String]` | [menu_music_tracks](#prop-menu-music-tracks) | `[]` |
+| `Array[String]` | [ambient_tracks](#prop-ambient-tracks) | `[]` |
+| `Array[String]` | [transition_tracks](#prop-transition-tracks) | `[]` |
 | `bool` | [loop_music](#prop-loop-music) | `true` |
 | `bool` | [loop_ambient](#prop-loop-ambient) | `true` |
 | `bool` | [shuffle_music](#prop-shuffle-music) | `false` |
@@ -59,6 +59,8 @@ The music of the interface: the menu music, the ambient sounds of the menus and 
 
 ### enum BuiltInType {#enum-builtintype}
 
+Built-in album types (mandatory)
+
 - **MAIN_MENU** = `0`
 - **CHARACTER_CREATION** = `1`
 - **PAUSE_MENU** = `2`
@@ -68,77 +70,77 @@ The music of the interface: the menu music, the ambient sounds of the menus and 
 
 ### String album_name = "" {#prop-album-name}
 
-*No description yet.*
+The name of the album.
 
 ### String description = "" {#prop-description}
 
-*No description yet.*
+A note about the album (not shown to the player).
 
 *UI Audio Tracks*
 
-### Array[String] menu_music_tracks = []       # Background music for menus {#prop-menu-music-tracks}
+### Array[String] menu_music_tracks = [] {#prop-menu-music-tracks}
 
-*No description yet.*
+Background music for menus
 
-### Array[String] ambient_tracks = []          # Menu ambient sounds {#prop-ambient-tracks}
+### Array[String] ambient_tracks = [] {#prop-ambient-tracks}
 
-*No description yet.*
+Menu ambient sounds
 
-### Array[String] transition_tracks = []       # Scene transition sounds {#prop-transition-tracks}
+### Array[String] transition_tracks = [] {#prop-transition-tracks}
 
-*No description yet.*
+Scene transition sounds
 
 *Playback Settings*
 
 ### bool loop_music = true {#prop-loop-music}
 
-*No description yet.*
+True when the menu music starts again when the tracks end.
 
 ### bool loop_ambient = true {#prop-loop-ambient}
 
-*No description yet.*
+True when the ambient sounds start again when the tracks end.
 
 ### bool shuffle_music = false {#prop-shuffle-music}
 
-*No description yet.*
+True when the menu music plays in a random order.
 
 ### float crossfade_duration = 2.0 {#prop-crossfade-duration}
 
-*No description yet.*
+How many seconds a track takes to fade into the next.
 
 *Volume Settings*
 
 ### float music_volume_db = 0.0 {#prop-music-volume-db}
 
-*No description yet.*
+The volume of the menu music, in decibels.
 
 ### float ambient_volume_db = -10.0 {#prop-ambient-volume-db}
 
-*No description yet.*
+The volume of the ambient sounds, in decibels.
 
 ### float transition_volume_db = 0.0 {#prop-transition-volume-db}
 
-*No description yet.*
+The volume of the transition sounds, in decibels.
 
 *Advanced*
 
 ### float fade_in_duration = 1.0 {#prop-fade-in-duration}
 
-*No description yet.*
+How many seconds a track takes to fade in.
 
 ### float fade_out_duration = 1.0 {#prop-fade-out-duration}
 
-*No description yet.*
+How many seconds a track takes to fade out.
 
 ### BuiltInType album_type = BuiltInType.CUSTOM {#prop-album-type}
 
-*No description yet.*
+Which part of the interface the album is for (main menu, character creation, pause menu, loading screen or custom).
 
 *Validation*
 
 ### Array[String] validation_warnings = [] {#prop-validation-warnings}
 
-*No description yet.*
+The problems validate found (a missing track ...).
 
 ## Method descriptions
 
@@ -180,35 +182,35 @@ Get track by name for a specific category
 
 ### Array[String] validate() {#method-validate}
 
-*No description yet.*
+Checks the album and gives the warnings (a missing file, an empty list).
 
 ### String get_summary() {#method-get-summary}
 
-*No description yet.*
+A short text about the album: how many tracks of each kind.
 
 ### Dictionary get_playback_info() {#method-get-playback-info}
 
-*No description yet.*
+The playback settings of the album (shuffle, loop, volumes) as a dictionary.
 
 ### UIAlbum create_new( name: String, type: BuiltInType = BuiltInType.CUSTOM ) {#method-create-new}
 
-*No description yet.*
+Makes an empty album with a name and a type.
 
 ### UIAlbum create_main_menu_album( name: String = "Main Menu" ) {#method-create-main-menu-album}
 
-*No description yet.*
+Makes an album for the main menu.
 
 ### UIAlbum create_character_creation_album( name: String = "Character Creation" ) {#method-create-character-creation-album}
 
-*No description yet.*
+Makes an album for character creation.
 
 ### UIAlbum create_pause_menu_album( name: String = "Pause Menu" ) {#method-create-pause-menu-album}
 
-*No description yet.*
+Makes an album for the pause menu.
 
 ### UIAlbum create_loading_screen_album( name: String = "Loading Screen" ) {#method-create-loading-screen-album}
 
-*No description yet.*
+Makes an album for loading screens.
 
 ### Array[String] get_available_menu_music_tracks() {#method-get-available-menu-music-tracks}
 
@@ -216,11 +218,11 @@ Get available tracks from DatabaseAudio for dropdown menus
 
 ### Array[String] get_available_ambient_tracks() {#method-get-available-ambient-tracks}
 
-*No description yet.*
+The ambient files the project has (the looping and the non looping ones).
 
 ### Array[String] get_available_transition_tracks() {#method-get-available-transition-tracks}
 
-*No description yet.*
+The files that can be used as transition sounds.
 
 ### Array[String] get_builtin_type_names() {#method-get-builtin-type-names}
 

@@ -33,6 +33,8 @@ Four actions. Three are permanent and happen once: add levels (a negative number
 
 ### enum Action {#enum-action}
 
+The options of action: add levels, add experience, set level, boost levels.
+
 - **ADD_LEVELS** = `0` - Permanent: add whole levels to the trained level. A negative amount takes levels away
 - **ADD_EXPERIENCE** = `1` - Permanent: add experience towards the next level (levels follow when it is enough)
 - **SET_LEVEL** = `2` - Permanent: set the trained level (the experience towards the next one starts again)
@@ -58,11 +60,11 @@ Levels or experience (see Action). Levels may be negative
 
 ### void specific_effect_logic( effect_instance: EffectInstance ) {#method-specific-effect-logic}
 
-Applies the specific logic for this effect (should be overridden in child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+What the effect does to its target when it is applied.
 
 ### void on_apply_finished( effect_instance: EffectInstance ) {#method-on-apply-finished}
 
-Handles the finishing of the effect, including cleanup and VFX/SFX (override in child classes if needed, call .super for cleanup) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+========== LIFECYCLE ==========
 
 ### bool is_one_off_application() {#method-is-one-off-application}
 
@@ -70,13 +72,13 @@ The permanent actions are done once and must not be done again when a save is lo
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get the effect description (to be overridden by child classes) *(from [Effect](/advanced/abilities-and-effects/effects-base/effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [Effect](/advanced/abilities-and-effects/effects-base/effect).*
+A short text for the effect editor that says what the effect does.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings of the effect. Gives the problems found (empty when it is fine).
 

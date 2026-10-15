@@ -88,5 +88,5 @@ What going from one rank to another changes, for a tooltip: "Cooldown -0.5", "Ra
 
 ### Array[String] validate() {#method-validate}
 
-*No description yet.*
+Checks the settings. Gives the problems found (empty when it is fine).
 

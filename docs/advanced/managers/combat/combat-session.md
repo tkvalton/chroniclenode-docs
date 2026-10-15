@@ -69,9 +69,15 @@ Signals for encounter lifecycle
 
 ### participant_joined( encounter: CombatSession, entity: Entity ) {#signal-participant-joined}
 
+Emitted when an entity joins the combat.
+
 ### participant_left( encounter: CombatSession, entity: Entity ) {#signal-participant-left}
 
+Emitted when an entity leaves the combat.
+
 ### encounter_ended( encounter: CombatSession, reason: String ) {#signal-encounter-ended}
+
+Emitted when the combat ends, with the reason.
 
 ## Variable descriptions
 

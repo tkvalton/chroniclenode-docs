@@ -51,7 +51,7 @@ Points in, effective points out. The base class changes nothing
 
 ### String get_label() {#method-get-label}
 
-*No description yet.*
+The name of the diminishing returns in the editor.
 
 ### String get_description() {#method-get-description}
 
@@ -67,5 +67,5 @@ Configuration problems, as readable messages (empty = fine)
 
 ### float get_level_factor( context: FormulaContext ) {#method-get-level-factor}
 
-*No description yet.*
+How much the level changes the limits of the diminishing returns (1 = not at all).
 

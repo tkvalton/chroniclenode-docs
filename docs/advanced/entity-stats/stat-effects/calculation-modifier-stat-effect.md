@@ -37,6 +37,8 @@ Effect that modifies calculation pipeline values (damage done, damage taken, hea
 
 ### enum ValueSource {#enum-valuesource}
 
+The options of value source: formula, tag magnitude.
+
 - **FORMULA** = `0` - The value comes from the formula slots below (the stat points)
 - **TAG_MAGNITUDE** = `1` - The value is the magnitude of the required trigger tag on this hit (crit damage, penetration ...)
 
@@ -86,41 +88,41 @@ Higher = processed first in calculation pipeline (0 = default order)
 
 ### EffectType get_effect_type() {#method-get-effect-type}
 
-Override in child classes to return effect type name *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== EFFECT IDENTIFICATION ==========
 
 ### String get_effect_category() {#method-get-effect-category}
 
-Override in child classes to return category *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+The group of the effect in the editor.
 
 ### bool applies_to_context( context: Dictionary ) {#method-applies-to-context}
 
-Check if this effect applies to the given context *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== CONTEXT VALIDATION ==========
 
 ### bool affects_calculation( calc_type: CalculationBase.CalculationType ) {#method-affects-calculation}
 
-*No description yet.*
+========== TARGET VALIDATION ==========
 
 ### float calculate_effect_value( stat_points: float, formula_context: FormulaContext = null ) {#method-calculate-effect-value}
 
-*No description yet.*
+========== EFFECT VALUE CALCULATION ==========
 
 ### Dictionary apply_to_calculation( current_value: float, stat_points: float, context: Dictionary = &#123;&#125;, formula_context: FormulaContext = null ) {#method-apply-to-calculation}
 
-*No description yet.*
+========== EFFECT APPLICATION ==========
 
 ### Dictionary get_preview_info( stat_points: float ) {#method-get-preview-info}
 
-*No description yet.*
+========== DISPLAY ==========
 
 ### String get_short_description() {#method-get-short-description}
 
-Override in child classes for a one-line summary of what this effect does *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+A one line text about what the effect does.
 
 ### String get_tooltip_text( stat_points: float ) {#method-get-tooltip-text}
 
-*No description yet.*
+The tooltip text of the effect for a number of stat points.
 
 ### Array[Dictionary] validate() {#method-validate}
 
-Validate this effect's configuration - override in child classes *(from [StatEffect](/advanced/entity-stats/stat-effects/stat-effect))*
+========== VALIDATION ==========
 

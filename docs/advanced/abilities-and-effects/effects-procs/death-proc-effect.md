@@ -26,6 +26,8 @@ Proc effect that responds to death events
 
 ### enum TriggerType {#enum-triggertype}
 
+The options of trigger type: on death, on kill.
+
 - **ON_DEATH** = `0` - When you die
 - **ON_KILL** = `1` - When you kill something
 
@@ -57,9 +59,9 @@ Health percentage to resurrect at
 
 ### String get_effect_description() {#method-get-effect-description}
 
-Get effect description for tooltips *(from [CompositeEffect](/advanced/abilities-and-effects/effects-composite/composite-effect))*
+The text of the effect for tooltips, with its values filled in.
 
 ### String get_editor_description() {#method-get-editor-description}
 
-*Overrides this function of [ProcEffect](/advanced/abilities-and-effects/effects-base/proc-effect).*
+A short text for the effect editor that says what the effect does.
 

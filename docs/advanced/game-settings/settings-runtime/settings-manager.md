@@ -59,15 +59,15 @@ Specialized managers for different subsystems
 
 ### AudioSettingsManager audio_manager {#var-audio-manager}
 
-*No description yet.*
+The manager of the audio settings.
 
 ### DisplaySettingsManager display_manager {#var-display-manager}
 
-*No description yet.*
+The manager of the display settings.
 
 ### Environment world_enviroment {#var-world-enviroment}
 
-*No description yet.*
+The environment of the world the settings apply to.
 
 ## Method descriptions
 

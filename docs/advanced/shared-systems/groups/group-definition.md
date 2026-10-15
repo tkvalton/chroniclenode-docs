@@ -41,12 +41,16 @@ See docs/systems/ability-mechanics-plan.md.
 
 ### enum Scope {#enum-scope}
 
+The options of scope: target, originator on target, originator, item.
+
 - **TARGET** = `0` - one per target, whoever applied it (Well Fed, elixirs)
 - **ORIGINATOR_ON_TARGET** = `1` - each source has its own on each target (a paladin's blessing on a friend: two paladins' blessings stack)
 - **ORIGINATOR** = `2` - one per source, wherever it is (Seals; "at most 3 totems")
 - **ITEM** = `3` - one per item (enchants)
 
 ### enum WhenFull {#enum-whenfull}
+
+The options of when full: replace, refuse.
 
 - **REPLACE** = `0` - the oldest member goes and the new one takes its place (default)
 - **REFUSE** = `1` - the new one is rejected, the current ones stay
@@ -89,9 +93,9 @@ Length of the shared cooldown in seconds (0 = the cooldown of the member that wa
 
 ### bool is_exclusive() {#method-is-exclusive}
 
-*No description yet.*
+Does the group allow only some of its members to be active at once?
 
 ### String get_scope_name() {#method-get-scope-name}
 
-*No description yet.*
+The name of the scope of the group.
 

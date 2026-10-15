@@ -47,7 +47,7 @@ Quantity to remove (-1 for all)
 
 ### InteractableObject target_container = null {#var-target-container}
 
-*No description yet.*
+Reference to the target container
 
 ## Method descriptions
 

@@ -50,7 +50,7 @@ Set the entity reference
 
 ### void setup_for_interactable_objects( interactable: InteractableObject ) {#method-setup-for-interactable-objects}
 
-*No description yet.*
+Sets the interaction up on its object. Nothing by default.
 
 ### bool can_interact( player: Player ) {#method-can-interact}
 

@@ -26,6 +26,8 @@ Action to play or stop an in-game cutscene Uses UIContainer.cutscene_container (
 
 ### enum CutsceneCommand {#enum-cutscenecommand}
 
+The options of cutscene command: play, stop.
+
 - **PLAY** = `0`
 - **STOP** = `1`
 

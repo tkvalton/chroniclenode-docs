@@ -41,9 +41,9 @@ An ally ability is used on an ally with less health than this (0.0 - 1.0)
 
 ### bool execute( delta: float ) {#method-execute}
 
-Called every frame when in ATTACKING state to decide what action to take Returns true if an action was executed, false if nothing was done If this returns false, the combat script will attempt a basic attack (if auto_basic_attack enabled) *(from [AttackStateLogic](/advanced/behaviors/combat-scripts/attack-state-logic))*
+One step of the logic: a party member that nobody controls picks and uses its next action. False when it does nothing (it is the current player, or the logic is off).
 
 ### void cleanup() {#method-cleanup}
 
-Cleanup any resources when this logic is no longer needed *(from [AttackStateLogic](/advanced/behaviors/combat-scripts/attack-state-logic))*
+Resets the timer of the logic.
 
