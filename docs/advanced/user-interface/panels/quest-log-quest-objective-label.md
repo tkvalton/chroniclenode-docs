@@ -4,6 +4,8 @@
 
 **Inherits:** [HBoxContainer](https://docs.godotengine.org/en/stable/classes/class_hboxcontainer.html)
 
+One objective in the quest log: an icon, its text, its progress and a mark when it is complete.
+
 ## Methods
 
 | | |

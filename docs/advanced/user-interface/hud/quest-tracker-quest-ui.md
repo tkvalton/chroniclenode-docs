@@ -4,6 +4,8 @@
 
 **Inherits:** `MarginContainer`
 
+One tracked quest in the quest tracker: the title of the quest and its objectives. It makes an objective label for each objective from `quest_objective_label`, and keeps them up to date.
+
 ## Properties
 
 | | | |

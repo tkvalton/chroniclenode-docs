@@ -4,6 +4,8 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
+The music of a world (a map album): three lists of tracks (exploration music, combat music and ambient loops), which track starts first in each list, whether each list is shuffled or looped, the volumes, the crossfade and the fades. A world names an album and the audio manager plays from it. Made in Assets &gt; Albums.
+
 ## Properties
 
 | | | |

@@ -4,6 +4,18 @@
 
 **Inherits:** [TooltipBase](/advanced/user-interface/tooltips/tooltip-base) < `MarginContainer`
 
+TooltipAbility is a specialized UI component for displaying detailed information about abilities in the game. It displays ability information from both AbilityDefinition and AbilityInstance sources. Key features:
+
+## Description
+
+- Dynamically positions tooltips based on cursor location and screen boundaries
+- Displays ability name, icon, cooldown, resource cost, and targeting information
+- For AbilityDefinition: Shows base/definition values
+- For AbilityInstance: Shows runtime-modified values (with visual indicators for changes)
+- Supports different ability types (Active, Passive) and use strategies (Instant, Cast, Channel)
+- Formats and highlights ability descriptions, including complex effect descriptions
+- Uses BBCode for text formatting and color highlighting of important information
+
 ## Properties
 
 | | | |

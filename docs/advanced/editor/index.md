@@ -54,7 +54,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | Class | What it is |
 |---|---|
 | [AbilityEditor](/advanced/editor/abilities/ability-editor) | Ability Editor for managing ability resources - refactored to use ResourceEditor base |
-| [ComboStepsEditor](/advanced/editor/abilities/combo-steps-editor) |  |
+| [ComboStepsEditor](/advanced/editor/abilities/combo-steps-editor) | The editor of the steps of a Combo ability: a tree of steps, each with its own settings, changed with Add Step, Remove Step and a context menu. |
 | [CompositeEffectProperties](/advanced/editor/abilities/composite-effect-properties) | Property panel for CompositeEffect - handles child effects management |
 | [ConnectionCreationDialog](/advanced/editor/abilities/connection-creation-dialog) | Dialog for creating new skill node connections with advanced options and pre-selection support |
 | [EffectDynamicPropertyPanel](/advanced/editor/abilities/effect-dynamic-property-panel) | Dynamic property panel for Effect editing Replaces manual property components with automatic generation Shows properties in titled sections based on inheritance hierarchy |
@@ -63,13 +63,13 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [EffectsTreeEditor](/advanced/editor/abilities/effects-tree-editor) | Reusable tree-based editor for managing collections of effects. |
 | [SkillConnectionPropertiesEditor](/advanced/editor/abilities/skill-connection-properties-editor) | Scene-based editor for skill connection properties |
 | [SkillNodeManager](/advanced/editor/abilities/skill-node-manager) | Handles skill node operations and type conversions |
-| [SkillNodePropertiesEditor](/advanced/editor/abilities/skill-node-properties-editor) |  |
+| [SkillNodePropertiesEditor](/advanced/editor/abilities/skill-node-properties-editor) | Scene-based editor for skill node properties with unified reward management |
 | [SkillNodeVisual](/advanced/editor/abilities/skill-node-visual) | Visual representation of a skill node - uses scene-based UI |
 | [SkillPointPoolsManagerDialog](/advanced/editor/abilities/skill-point-pools-manager-dialog) | Dialog for managing skill point pools |
 | [SkillTreeCanvas](/advanced/editor/abilities/skill-tree-canvas) | Visual canvas for editing skill trees with visual node components |
 | [SkillTreeEditor](/advanced/editor/abilities/skill-tree-editor) | Skill tree visual editor - creates and edits skill trees with node/connection management |
 | [TargetStrategyDynamicPanel](/advanced/editor/abilities/target-strategy-dynamic-panel) | Dynamic property panel for TargetStrategy editing. |
-| [TierEffectsEditor](/advanced/editor/abilities/tier-effects-editor) |  |
+| [TierEffectsEditor](/advanced/editor/abilities/tier-effects-editor) | The editor of the tiers of a Power-up (charge) ability: a tree of tiers, each a charge threshold with its effects, changed with Add Tier, Remove Tier and a context menu. |
 | [ToggleGroupsResource](/advanced/editor/abilities/toggle-groups-resource) | Resource class for managing toggle groups used by abilities Provides centralized storage and management of toggle group names |
 | [UseStrategyDynamicPanel](/advanced/editor/abilities/use-strategy-dynamic-panel) | Dynamic property panel for UseStrategy editing. |
 <!-- /classes -->
@@ -79,16 +79,16 @@ Many editors build their controls **in code** by reflecting over the resource's 
 <!-- classes:editor/assets -->
 | Class | What it is |
 |---|---|
-| [AlbumDatabaseEditor](/advanced/editor/assets/album-database-editor) |  |
-| [AnimationDatabaseEditor](/advanced/editor/assets/animation-database-editor) |  |
+| [AlbumDatabaseEditor](/advanced/editor/assets/album-database-editor) | The editor of the Albums tab (Assets &gt; Albums): lists the map albums and the interface albums with a search bar and a type filter, shows the tracks and the playback settings of the selected album, and edits them. |
+| [AnimationDatabaseEditor](/advanced/editor/assets/animation-database-editor) | The editor of the Animations tab (Assets &gt; Animations): the animation packages of the entities as a tree, the core animation map and the validation of the library. |
 | [AnimationFolderContextMenu](/advanced/editor/assets/animation-folder-context-menu) | Context menu scene for animation folder operations |
 | [AnimationPackageTree](/advanced/editor/assets/animation-package-tree) | Specialized tree for managing animation packages with the new simplified structure |
-| [AudioDatabaseEditor](/advanced/editor/assets/audio-database-editor) |  |
+| [AudioDatabaseEditor](/advanced/editor/assets/audio-database-editor) | The editor of the Audio tab (Assets &gt; Audio): the sound effects, music and ambience of the audio library as a tree, with a search bar, an import button, a player to listen to a sound, and the checks of the library. |
 | [CorePackageEditor](/advanced/editor/assets/core-package-editor) | Dynamic editor for AnimationCoreMap properties Automatically builds UI based on property structure and available animations |
-| [IconDatabaseEditor](/advanced/editor/assets/icon-database-editor) |  |
-| [MeshDatabaseEditor](/advanced/editor/assets/mesh-database-editor) |  |
-| [ModelSceneDatabaseEditor](/advanced/editor/assets/model-scene-database-editor) |  |
-| [VFXDatabaseEditor](/advanced/editor/assets/vfx-database-editor) |  |
+| [IconDatabaseEditor](/advanced/editor/assets/icon-database-editor) | The editor of the Icons tab (Assets &gt; Icons): every icon of the icon library as a grid, by category, with a search bar, an import button and the numbering of new icons. |
+| [MeshDatabaseEditor](/advanced/editor/assets/mesh-database-editor) | The editor of the Meshes tab (Assets &gt; Meshes): the equipment, facial and material meshes of the mesh library as a tree, with a search bar, an import button, the settings of the selected mesh (its per-surface materials) and the checks of the library. |
+| [ModelSceneDatabaseEditor](/advanced/editor/assets/model-scene-database-editor) | The editor of the Model Scenes tab (Assets &gt; Model Scenes): the skeleton scenes of entities and the scenes of interactable objects, each as a list with a search bar and a button to create a new one. |
+| [VFXDatabaseEditor](/advanced/editor/assets/vfx-database-editor) | The editor of the VFX tab (Assets &gt; VFX): the visual effects of the VFX library as a tree by type, with a search bar, an import button and the information of the selected effect. |
 <!-- /classes -->
 
 #### Behaviors
@@ -158,7 +158,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 |---|---|
 | [EventEditor](/advanced/editor/events/event-editor) | Event Editor using the new ResourceManager and EditorFileList system |
 | [EventTreeBuilder](/advanced/editor/events/event-tree-builder) | Event tree builder with triggers, conditions, and actions |
-| [GlobalVariablesEditor](/advanced/editor/events/global-variables-editor) |  |
+| [GlobalVariablesEditor](/advanced/editor/events/global-variables-editor) | The editor of the Global Variables tab (Events &amp; Quests &gt; Global Variables): the list of variables of the game with their types and starting values, with Add and Refresh buttons. |
 | [QuestEditor](/advanced/editor/events/quest-editor) | Quest Editor using the new ResourceManager and EditorFileList system |
 | [QuestLineEditor](/advanced/editor/events/quest-line-editor) | QuestLine Editor using the new ResourceManager and EditorFileList system |
 | [QuestLineTreeBuilder](/advanced/editor/events/quest-line-tree-builder) | QuestLine tree builder with quest steps and on start/complete actions |
@@ -253,9 +253,9 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [SkyConfigEditor](/advanced/editor/world/sky-config-editor) | Editor panel for SkyConfig |
 | [SunConfigEditor](/advanced/editor/world/sun-config-editor) | Editor panel for SunConfig |
 | [TimeConfigEditor](/advanced/editor/world/time-config-editor) | Editor panel for TimeConfig |
-| [UniquesDatabaseEditor](/advanced/editor/world/uniques-database-editor) |  |
+| [UniquesDatabaseEditor](/advanced/editor/world/uniques-database-editor) | The editor of the Uniques tab (World &gt; Uniques): lists the placed NPCs and objects of every world, filtered by kind, world and a search bar, and shows the unique that is selected. |
 | [WorldConfigEditor](/advanced/editor/world/world-config-editor) | Main editor for all world configuration types (Sky, Environment, Sun, Time) Designed to work with a pre-built scene containing the four config editors |
-| [WorldDatabaseEditor](/advanced/editor/world/world-database-editor) |  |
+| [WorldDatabaseEditor](/advanced/editor/world/world-database-editor) | The editor of the Worlds tab (World &gt; Worlds): lists the world scenes with a search bar and a category filter, and edits the properties of the selected world (loading screen, persistence, level, audio, time, sun, sky and weather). |
 <!-- /classes -->
 
 ### Viewport tools
@@ -264,9 +264,9 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | Class | What it is |
 |---|---|
 | [EntityDataPropertyEditor](/advanced/editor/viewport-tools/entity-data-property-editor) | Property editor for selecting EntityDefinition using ListCatalog |
-| [ModularEquipmentTypeTagPropertyEditor](/advanced/editor/viewport-tools/modular-equipment-type-tag-property-editor) |  |
+| [ModularEquipmentTypeTagPropertyEditor](/advanced/editor/viewport-tools/modular-equipment-type-tag-property-editor) | The inspector editor of the equipment type tag of a modular equipment piece: a drop-down of the tags of the equipment types, which writes the chosen tag to the property. |
 | [SFXSelectionPropertyEditor](/advanced/editor/viewport-tools/sfx-selection-property-editor) | Property editor for SFXSelection resources using SFXSelectionDialog |
-| [UniqueObjectInspectorPlugin](/advanced/editor/viewport-tools/unique-object-inspector-plugin) |  |
+| [UniqueObjectInspectorPlugin](/advanced/editor/viewport-tools/unique-object-inspector-plugin) | The inspector plugin that replaces the properties of a placed NPC, object, encounter, region or modular skeleton with the editors of the Unique Object panel. |
 <!-- /classes -->
 
 ### Catalogs
@@ -274,12 +274,12 @@ Many editors build their controls **in code** by reflecting over the resource's 
 <!-- classes:editor/catalogs -->
 | Class | What it is |
 |---|---|
-| [GridCatalog](/advanced/editor/catalogs/grid-catalog) |  |
-| [IconCatalog](/advanced/editor/catalogs/icon-catalog) |  |
-| [IconWidget](/advanced/editor/catalogs/icon-widget) |  |
-| [ListCatalog](/advanced/editor/catalogs/list-catalog) |  |
-| [MeshCatalog](/advanced/editor/catalogs/mesh-catalog) |  |
-| [ObjectWidget](/advanced/editor/catalogs/object-widget) |  |
+| [GridCatalog](/advanced/editor/catalogs/grid-catalog) | The base of the catalogs that show a grid of pictures (icons, meshes): a search bar, a category filter and a grid of widgets. |
+| [IconCatalog](/advanced/editor/catalogs/icon-catalog) | The catalog that picks an icon: a grid of every icon of the icon library, with a search bar and a category filter. |
+| [IconWidget](/advanced/editor/catalogs/icon-widget) | One icon of the icon catalog: the picture and its id, which can be selected. |
+| [ListCatalog](/advanced/editor/catalogs/list-catalog) | The catalog that picks one thing out of a list of database resources of any kind (NPCs, items, abilities, quests, skill trees, worlds ...): a search bar, a type filter and a list. |
+| [MeshCatalog](/advanced/editor/catalogs/mesh-catalog) | The catalog that picks a mesh of the mesh library (a weapon, a piece of armor, a facial feature) for the current mesh type and category. |
+| [ObjectWidget](/advanced/editor/catalogs/object-widget) | One entry of the list catalog: the icon, the id and the name of a resource, which can be selected. |
 <!-- /classes -->
 
 ### Dialogs
@@ -294,7 +294,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [ConditionalEditDialog](/advanced/editor/dialogs/conditional-edit-dialog) | Dialog for selecting and configuring all condition types with category organization |
 | [CreateEntityDialog](/advanced/editor/dialogs/create-entity-dialog) | Dialog for creating new entities or player classes with optional template selection |
 | [CreateResourceDialog](/advanced/editor/dialogs/create-resource-dialog) | Universal dialog for creating new resources - supports all resource types |
-| [CurrencySelectionDialog](/advanced/editor/dialogs/currency-selection-dialog) |  |
+| [CurrencySelectionDialog](/advanced/editor/dialogs/currency-selection-dialog) | A dialog that picks a currency and an amount. |
 | [EffectTypeSelectionDialog](/advanced/editor/dialogs/effect-type-selection-dialog) | Dialog for selecting effect types with category filtering and search |
 | [EncounterActionEditDialog](/advanced/editor/dialogs/encounter-action-edit-dialog) | Dialog for selecting and configuring encounter action types |
 | [EncounterConditionEditDialog](/advanced/editor/dialogs/encounter-condition-edit-dialog) | Dialog for selecting and configuring encounter condition types |
@@ -305,21 +305,21 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [InteractionSelectionDialog](/advanced/editor/dialogs/interaction-selection-dialog) | Dialog for selecting and configuring an interaction Used when other parts of the editor need a single interaction selection |
 | [IntParameterPopup](/advanced/editor/dialogs/int-parameter-popup) | Popup for editing integer parameters |
 | [LootEntryConfigDialog](/advanced/editor/dialogs/loot-entry-config-dialog) | Dialog for configuring loot entry properties |
-| [OptionsParameterPopup](/advanced/editor/dialogs/options-parameter-popup) |  |
+| [OptionsParameterPopup](/advanced/editor/dialogs/options-parameter-popup) | A parameter popup that chooses one value out of a fixed set of options (a dictionary of label to value) with a drop-down. |
 | [ParameterPopupBase](/advanced/editor/dialogs/parameter-popup-base) | Base class for parameter editing popups |
 | [QuestObjectiveConfigurationPopup](/advanced/editor/dialogs/quest-objective-configuration-popup) | Popup for configuring quest objectives with trigger selection and objective-specific settings |
 | [QuestSelectionDialog](/advanced/editor/dialogs/quest-selection-dialog) | Dialog for selecting quests to add to questline steps |
 | [ReputationLevelDialog](/advanced/editor/dialogs/reputation-level-dialog) | Dialog for creating and editing reputation levels within a faction. |
-| [ResponseStatePopup](/advanced/editor/dialogs/response-state-popup) |  |
+| [ResponseStatePopup](/advanced/editor/dialogs/response-state-popup) | A dialog of the conversation editor that works in two modes: choose a response and whether it is turned on or off (the Set response state action), or choose the chat the conversation will start at the next time (the Set starting chat action). |
 | [ScheduleEditDialog](/advanced/editor/dialogs/schedule-edit-dialog) | Dialog for editing the actual exported properties of TaskSchedule |
 | [SetBonusSelectionDialog](/advanced/editor/dialogs/set-bonus-selection-dialog) | Minimal set bonus selection dialog to prevent stretching |
 | [SFXSelectionDialog](/advanced/editor/dialogs/sfx-selection-dialog) | Modular SFX selection dialog that works with any SFXSelection class type Uses static DatabaseAudio for all audio data access Now supports SFX type selection and uses ItemLists for better UX |
-| [ShapeConfigDialog](/advanced/editor/dialogs/shape-config-dialog) |  |
+| [ShapeConfigDialog](/advanced/editor/dialogs/shape-config-dialog) | A dialog that configures a 3D shape: the player chooses the kind of shape and sets its dimensions, and `selection_made` gives the shape. |
 | [SocketSelectionDialog](/advanced/editor/dialogs/socket-selection-dialog) | Minimal socket selection dialog to test stretching issues |
 | [StringParameterPopup](/advanced/editor/dialogs/string-parameter-popup) | Popup for editing string parameters |
 | [TrackSelectionDialog](/advanced/editor/dialogs/track-selection-dialog) | Simplified track selection dialog for album management Works directly with DatabaseAudio categories (music, ambience, loop_sfx) |
 | [UnifiedResourceDialog](/advanced/editor/dialogs/unified-resource-dialog) | Unified dialog for creating and editing resources with dynamic UI generation Similar to EventTypeSelector but for creating/editing resources like Rewards and Requirements |
-| [VariablePopup](/advanced/editor/dialogs/variable-popup) |  |
+| [VariablePopup](/advanced/editor/dialogs/variable-popup) | A window that makes or edits a variable: its name, its type and its value. |
 | [Vector2ParameterPopup](/advanced/editor/dialogs/vector2-parameter-popup) | Popup for editing Vector2 parameters |
 | [Vector3ParameterPopup](/advanced/editor/dialogs/vector3-parameter-popup) | Popup for editing Vector3 parameters |
 | [VendorItemSlotDialog](/advanced/editor/dialogs/vendor-item-slot-dialog) | Dialog for configuring VendorItemStock entries |
@@ -340,14 +340,14 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | Class | What it is |
 |---|---|
 | [BBCodeTextControl](/advanced/editor/factory/bb-code-text-control) | Read-only TextEdit that opens BBCodeTextEditor on click |
-| [CurveEditorControl](/advanced/editor/factory/curve-editor-control) |  |
+| [CurveEditorControl](/advanced/editor/factory/curve-editor-control) | A control that edits a curve (a growth curve, a falloff) with a drawn preview and a maximum value that can be changed. |
 | [DatabaseArrayControl](/advanced/editor/factory/database-array-control) | Simple array control for database resources Two modes: OptionButton per entry OR Button that opens ListCatalog per entry |
 | [DatabaseOptionButton](/advanced/editor/factory/database-option-button) | OptionButton that auto-populates from database and uses IDs in metadata |
 | [DatabaseResourceButton](/advanced/editor/factory/database-resource-button) | Button that opens ListCatalog to select a database resource Shows resource name, has optional clear button |
 | [DynamicDictionaryEditor](/advanced/editor/factory/dynamic-dictionary-editor) | Reusable component for editing dictionaries with add/edit/remove functionality Supports items (id -&gt; quantity) and currency (id -&gt; amount) entries |
 | [ExperiencePerLevelEditor](/advanced/editor/factory/experience-per-level-editor) | Editor for experience_per_level Dictionary in GameplayConfig Displays a list of levels with their XP requirements and allows editing |
 | [IdMultiSelect](/advanced/editor/factory/id-multi-select) | A list of ids picked from a database type: the picked entries as small tags with an x, and an Add button that opens a searchable list of everything that exists. |
-| [PropertyFactory](/advanced/editor/factory/property-factory) |  |
+| [PropertyFactory](/advanced/editor/factory/property-factory) | Makes the rows of the inspector editors of the toolkit: a label with a check box, a text field, a number, a drop-down, a database drop-down, a slider or a color picker, each as an `EditorProperty` that calls a function when its value changes. |
 | [PropertyUIFactory](/advanced/editor/factory/property-ui-factory) | Factory for creating UI controls with consistent styling and behavior Uses class-based controls for complex components |
 | [Vector2Control](/advanced/editor/factory/vector2-control) | Two spinboxes for Vector2 input with clipboard paste support |
 | [Vector3Control](/advanced/editor/factory/vector3-control) | Three spinboxes for Vector3 input with clipboard paste support |
@@ -362,7 +362,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [DialogManager](/advanced/editor/tools/dialog-manager) | Centralized dialog management with guaranteed clean connections |
 | [DocsLinks](/advanced/editor/tools/docs-links) | Where the online documentation is, and which page belongs to which tab of the Database editor. |
 | [EditorThemeManager](/advanced/editor/tools/editor-theme-manager) | Centralized theme and icon management for the Event System Provides consistent theming across all UI components and handles editor integration |
-| [EffectUtil](/advanced/editor/tools/effect-util) |  |
+| [EffectUtil](/advanced/editor/tools/effect-util) | Helpers of the Effects editor: where the effect resources, their property scenes and their scripts are, the name and category of every effect type (derived from the folders of the scripts), and the inheritance of the effect types (is this type a composite, what are its parents and children, the path of its script). |
 | [EnumOptions](/advanced/editor/tools/enum-options) | Fills the items of an OptionButton from an enum, so a pre-built option button in a scene shows the values of an enum without a list of names to keep up to date. |
 | [EventTypeManager](/advanced/editor/tools/event-type-manager) | Manages all event type scanning, creation, and parameter handling Updated to work with new Condition system using @export hints Uses PropertySelectorRegistry for unified property → database mappings |
 | [InteractableSceneCreator](/advanced/editor/tools/interactable-scene-creator) | Creates new InteractableScene templates with all essential nodes pre-configured |

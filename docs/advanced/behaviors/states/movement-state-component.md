@@ -4,6 +4,8 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
+MovementStateComponent handles the movement state system for entities. It manages transitions between different movement states like idle, walking, running, etc. Simplified for blending system - animations blend automatically between states. Also handles physics for displacement effects.
+
 ## Variables
 
 | | | |

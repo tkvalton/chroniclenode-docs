@@ -4,6 +4,8 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
+DisplaySettingsManager handles video and graphics settings in the game. It controls window mode, resolution, graphics quality, and post-processing effects.
+
 ## Variables
 
 | | | |

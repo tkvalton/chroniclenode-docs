@@ -4,6 +4,8 @@
 
 **Inherits:** [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
+ArmorClassDefinition defines the kinds of armor (plate, leather, cloth): a name and a color. It is a label that proficiencies, conditions and items read. What a character needs to wear a class is a ProficiencyDefinition (a level needed to equip), not a field of the class.
+
 ## Properties
 
 | | | |

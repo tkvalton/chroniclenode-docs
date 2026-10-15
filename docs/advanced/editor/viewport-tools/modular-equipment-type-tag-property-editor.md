@@ -4,6 +4,8 @@
 
 **Inherits:** `EditorProperty`
 
+The inspector editor of the equipment type tag of a modular equipment piece: a drop-down of the tags of the equipment types, which writes the chosen tag to the property.
+
 ## Variables
 
 | | | |

@@ -4,6 +4,8 @@
 
 **Inherits:** `ConfirmationDialog`
 
+A dialog of the conversation editor that works in two modes: choose a response and whether it is turned on or off (the Set response state action), or choose the chat the conversation will start at the next time (the Set starting chat action).
+
 ## Variables
 
 | | | |

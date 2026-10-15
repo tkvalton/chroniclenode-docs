@@ -4,6 +4,8 @@
 
 **Inherits:** `MarginContainer`
 
+Modern action bar button that handles both abilities and items
+
 ## Properties
 
 | | | |

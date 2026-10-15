@@ -6,6 +6,8 @@
 
 **Inherited by:** [IconCatalog](/advanced/editor/catalogs/icon-catalog), [MeshCatalog](/advanced/editor/catalogs/mesh-catalog)
 
+The base of the catalogs that show a grid of pictures (icons, meshes): a search bar, a category filter and a grid of widgets. The player picks one and confirms. IconCatalog and MeshCatalog fill it.
+
 ## Variables
 
 | | | |

@@ -4,6 +4,8 @@
 
 **Inherits:** [ParameterPopupBase](/advanced/editor/dialogs/parameter-popup-base) < `ConfirmationDialog`
 
+A parameter popup that chooses one value out of a fixed set of options (a dictionary of label to value) with a drop-down.
+
 ## Variables
 
 | | | |

@@ -135,7 +135,7 @@ Texts, voice lines and display names are arrays with one entry per language.
 | Class | What it is |
 |---|---|
 | [ActivateQuestCombatAction](/advanced/behaviors/combat-actions/activate-quest-combat-action) | Activates a specific quest during combat |
-| [CallForHelpAction](/advanced/behaviors/combat-actions/call-for-help-action) |  |
+| [CallForHelpAction](/advanced/behaviors/combat-actions/call-for-help-action) | A combat action: the NPC shouts and calls the allies in range into the fight. |
 | [ClearTargetAction](/advanced/behaviors/combat-actions/clear-target-action) | Clears the current target |
 | [CombatAction](/advanced/behaviors/combat-actions/combat-action) | CombatAction is the base class for all combat actions. |
 | [ComboAction](/advanced/behaviors/combat-actions/combo-action) | ComboAction executes a sequence of combat actions in order. |
@@ -191,7 +191,7 @@ Texts, voice lines and display names are arrays with one entry per language.
 | [DirectionalMovementState](/advanced/behaviors/states/directional-movement-state) | MovementState for when entity is being moved by MoveDirectionalEffect Handles different movement strategies with blending animations |
 | [DisorientedState](/advanced/behaviors/states/disoriented-state) | DisorientedState represents when an entity is disoriented. |
 | [EntityStateComponent](/advanced/behaviors/states/entity-state-component) | Consolidated EntityStateComponent that manages all entity state systems. |
-| [FallingState](/advanced/behaviors/states/falling-state) |  |
+| [FallingState](/advanced/behaviors/states/falling-state) | FallingState represents the state when an entity is in mid-air, typically after walking off an edge. |
 | [FleeState](/advanced/behaviors/states/flee-state) | FleeState represents when an entity is fleeing from another entity. |
 | [FollowingState](/advanced/behaviors/states/following-state) | FollowingState represents when an entity is following another entity or position. |
 | [IdleState](/advanced/behaviors/states/idle-state) | Simplified IdleState - detects stance changes and uses blending system |
@@ -199,10 +199,10 @@ Texts, voice lines and display names are arrays with one entry per language.
 | [InactiveState](/advanced/behaviors/states/inactive-state) | InactiveState represents when an entity is not actively engaged in combat. |
 | [IncapacitatedState](/advanced/behaviors/states/incapacitated-state) | IncapacitatedState represents when an entity is completely stunned/incapacitated. |
 | [MovementData](/advanced/behaviors/states/movement-data) | Container for movement information used to select appropriate animations Works with both navigation-driven and input-driven movement |
-| [MovementState](/advanced/behaviors/states/movement-state) |  |
-| [MovementStateComponent](/advanced/behaviors/states/movement-state-component) |  |
+| [MovementState](/advanced/behaviors/states/movement-state) | The base of the movement states of an entity (idle, moving, falling, climbing ...). |
+| [MovementStateComponent](/advanced/behaviors/states/movement-state-component) | MovementStateComponent handles the movement state system for entities. |
 | [MovingState](/advanced/behaviors/states/moving-state) | Simplified MovingState - passes movement data to animation player using blending system |
-| [NavigationController](/advanced/behaviors/states/navigation-controller) |  |
+| [NavigationController](/advanced/behaviors/states/navigation-controller) | The path-finding and movement of an NPC: a navigation agent that moves the entity to a position, follows a target, or takes direct movement input. |
 | [PlayerCommandState](/advanced/behaviors/states/player-command-state) | PlayerCommandState represents when an entity is executing a player command. |
 | [TargetSearchState](/advanced/behaviors/states/target-search-state) | TargetSearchState manages the search for valid targets when entity has none. |
 <!-- /classes -->

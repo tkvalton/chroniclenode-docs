@@ -4,6 +4,8 @@
 
 **Inherits:** [Node3D](https://docs.godotengine.org/en/stable/classes/class_node3d.html)
 
+Moves the camera of the player: it holds the current camera logic, the camera socket and the camera, and a remote transform that follows the camera for the mini map and the weather. It sets the camera to a position (with or without a pan), gives the view yaw and zooms the map.
+
 ## Variables
 
 | | | |

@@ -4,6 +4,8 @@
 
 **Inherits:** `MarginContainer`
 
+The experience bar of the action bar: a progress bar and a label that follow the experience of its player (`entity_xp_changed`).
+
 ## Variables
 
 | | | |

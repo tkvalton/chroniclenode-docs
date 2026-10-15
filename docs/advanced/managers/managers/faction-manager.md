@@ -4,6 +4,8 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
+FactionManager - Global singleton that orchestrates faction relationships Delegates logic to FactionDefinition instances and handles synchronization between factions Each faction manages its own runtime reputation; manager ensures both sides stay in sync
+
 ## Variables
 
 | | | |

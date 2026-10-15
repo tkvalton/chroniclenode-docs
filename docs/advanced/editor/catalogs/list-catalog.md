@@ -4,6 +4,8 @@
 
 **Inherits:** `ConfirmationDialog`
 
+The catalog that picks one thing out of a list of database resources of any kind (NPCs, items, abilities, quests, skill trees, worlds ...): a search bar, a type filter and a list. `load_objects(kind)` fills it for a kind of thing, and `selection_made` gives the path, the id and the type of what was chosen.
+
 ## Variables
 
 | | | |

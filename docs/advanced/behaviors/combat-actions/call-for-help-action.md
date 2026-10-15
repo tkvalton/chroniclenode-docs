@@ -4,6 +4,8 @@
 
 **Inherits:** [CombatAction](/advanced/behaviors/combat-actions/combat-action) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
+A combat action: the NPC shouts and calls the allies in range into the fight. `search_scope` says where the allies are looked for (anyone in range, only the encounter of the NPC, or the encounter first), `call_range` how far the shout reaches, and `help_shout_effect_id` is an optional effect applied when it calls.
+
 ## Properties
 
 | | | |

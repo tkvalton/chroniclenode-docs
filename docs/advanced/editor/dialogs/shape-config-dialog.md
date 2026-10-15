@@ -4,6 +4,8 @@
 
 **Inherits:** `AcceptDialog`
 
+A dialog that configures a 3D shape: the player chooses the kind of shape and sets its dimensions, and `selection_made` gives the shape.
+
 ## Variables
 
 | | | |

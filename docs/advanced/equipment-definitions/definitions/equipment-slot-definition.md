@@ -4,6 +4,8 @@
 
 **Inherits:** [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
+Enhanced EquipmentSlotDefinition with slot categories for better UI organization
+
 ## Properties
 
 | | | |

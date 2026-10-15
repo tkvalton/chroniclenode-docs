@@ -4,6 +4,8 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
+Helpers of the Effects editor: where the effect resources, their property scenes and their scripts are, the name and category of every effect type (derived from the folders of the scripts), and the inheritance of the effect types (is this type a composite, what are its parents and children, the path of its script).
+
 ## Methods
 
 | | |

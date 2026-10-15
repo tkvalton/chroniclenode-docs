@@ -4,6 +4,8 @@
 
 **Inherits:** `MarginContainer`
 
+One quest in the list of the quest log: its name, with a highlight when it is the quest shown. `quest_selected` is emitted when it is clicked.
+
 ## Variables
 
 | | | |

@@ -4,6 +4,8 @@
 
 **Inherits:** [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
+Defines immunity to specific damage types, status effects, schools, or custom conditions
+
 ## Properties
 
 | | | |

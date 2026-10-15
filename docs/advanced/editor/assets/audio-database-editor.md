@@ -4,6 +4,8 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
+The editor of the Audio tab (Assets &gt; Audio): the sound effects, music and ambience of the audio library as a tree, with a search bar, an import button, a player to listen to a sound, and the checks of the library.
+
 ## Variables
 
 | | | |

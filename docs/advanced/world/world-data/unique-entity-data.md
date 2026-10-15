@@ -4,6 +4,8 @@
 
 **Inherits:** [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
+A placed NPC: what the world keeps about one NPC in one world. It holds the id of the definition, the world, the position and rotation, the spawn settings (active at the start, delay, respawn, despawn), and the overrides of this NPC (level, model scale, faction, experience, scripts, loot, stats, interaction). The `get_effective_*` functions answer with the override when there is one and with the value of the definition otherwise.
+
 ## Properties
 
 | | | |

@@ -4,6 +4,8 @@
 
 **Inherits:** [GridCatalog](/advanced/editor/catalogs/grid-catalog) < `ConfirmationDialog`
 
+The catalog that picks an icon: a grid of every icon of the icon library, with a search bar and a category filter. `selection_made` gives the texture that was chosen.
+
 ## Methods
 
 | | |

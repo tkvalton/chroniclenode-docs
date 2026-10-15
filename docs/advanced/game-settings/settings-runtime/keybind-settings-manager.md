@@ -4,6 +4,8 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
+KeybindSettingsManager handles input bindings and keybinds in the game. It applies custom input mappings and provides functions to manipulate them.
+
 ## Methods
 
 | | |

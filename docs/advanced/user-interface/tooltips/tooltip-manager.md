@@ -4,6 +4,8 @@
 
 **Inherits:** [Control](https://docs.godotengine.org/en/stable/classes/class_control.html)
 
+Makes the five tooltips once (item, effect, ability, skill node and description) from the scenes of UI Settings and shows or hides the one that is asked for.
+
 ## Variables
 
 | | | |

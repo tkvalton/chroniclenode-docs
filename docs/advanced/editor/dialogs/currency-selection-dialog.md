@@ -4,6 +4,8 @@
 
 **Inherits:** `AcceptDialog`
 
+A dialog that picks a currency and an amount. `currency_selected` gives both.
+
 ## Variables
 
 | | | |

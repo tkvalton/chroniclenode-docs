@@ -4,6 +4,8 @@
 
 **Inherits:** [Window](https://docs.godotengine.org/en/stable/classes/class_window.html)
 
+A window that makes or edits a variable: its name, its type and its value. Used for the global variables and the variables of events. `selection_made` gives the new variable and `variable_updated` the edited one.
+
 ## Variables
 
 | | | |

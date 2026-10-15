@@ -4,6 +4,8 @@
 
 **Inherits:** `MarginContainer`
 
+One ability in the spellbook: its icon and name. It asks for the tooltip on hover (`ability_tooltip_requested`) and for a drag onto the action bar (`ability_drag_requested`).
+
 ## Variables
 
 | | | |

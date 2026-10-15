@@ -4,6 +4,8 @@
 
 **Inherits:** `MarginContainer`
 
+One saved game in the list of the load menu: its name and details, with colors for the unselected, the hovered and the selected state. `save_button_selected` is emitted when it is clicked.
+
 ## Properties
 
 | | | |

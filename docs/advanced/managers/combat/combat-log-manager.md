@@ -4,6 +4,8 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
+CombatLogManager now receives comprehensive reports from CombatSystem
+
 ## Variables
 
 | | | |

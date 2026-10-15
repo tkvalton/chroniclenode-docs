@@ -155,17 +155,17 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 | Class | What it is |
 |---|---|
 | [ActionBarSlotData](/advanced/entities/runtime/action-bar-slot-data) | Data structure for storing action bar slot content Can reference either abilities or items REFACTORED: Now stores direct item instance references instead of inventory indices |
-| [DynamicFollowerSystem](/advanced/entities/runtime/dynamic-follower-system) |  |
+| [DynamicFollowerSystem](/advanced/entities/runtime/dynamic-follower-system) | DynamicFollowerSystem manages a group of followers in a dynamic formation around a leader. |
 | [Entity](/advanced/entities/runtime/entity) | Entity is the base class for all characters and creatures in the game world. |
 | [EntityComponentMediator](/advanced/entities/runtime/entity-component-mediator) | Internal signal bus for Entity component coordination |
 | [EntityComponentRegistry](/advanced/entities/runtime/entity-component-registry) | Unified component manager for Entity - combines registry and factory Provides type-safe access to all entity components with lazy initialization Eliminates timing issues by ensuring components exist when accessed |
 | [EntityTemplates](/advanced/entities/runtime/entity-templates) | Entities that follow a template. |
-| [FormationSystem](/advanced/entities/runtime/formation-system) |  |
+| [FormationSystem](/advanced/entities/runtime/formation-system) | Places the party members around a target position in a formation (tight, spread, V, line or wedge): `calculate_formation_positions` answers with a position for every unit, with a base spacing and some randomness. |
 | [InteractableObject](/advanced/entities/runtime/interactable-object) | Unified interactable object class - uses InteractableDefinition + Interactions All specialized logic is now in Interaction subclasses |
 | [NPC](/advanced/entities/runtime/npc) | NPC represents a non-player character in the game. |
 | [NpcLevels](/advanced/entities/runtime/npc-levels) | The level of an NPC and the experience it gives, by the settings of the project (Gameplay Config: NPC Level Scaling and Kill Experience). |
 | [PartyManager](/advanced/entities/runtime/party-manager) | PartyManager manages the physical containers and setup for the player party system. |
-| [Pet](/advanced/entities/runtime/pet) |  |
+| [Pet](/advanced/entities/runtime/pet) | Pet represents a summoned creature or Player controlled by an AI. |
 | [PetManagerComponent](/advanced/entities/runtime/pet-manager-component) | PetManagerComponent manages the pets owned by an entity. |
 | [Player](/advanced/entities/runtime/player) | Player represents a player-controlled character in the game. |
 <!-- /classes -->

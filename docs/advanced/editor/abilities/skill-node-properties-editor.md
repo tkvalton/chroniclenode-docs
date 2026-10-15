@@ -4,6 +4,8 @@
 
 **Inherits:** `ScrollContainer`
 
+Scene-based editor for skill node properties with unified reward management
+
 ## Variables
 
 | | | |

@@ -80,7 +80,7 @@ Instances save the stack, charges, cooldowns, enchantments with their remaining 
 | [ItemDefinitionEnchantScroll](/advanced/items/item-definitions/item-definition-enchant-scroll) | Enchantment scrolls that can permanently or temporarily enhance equipment items Uses effects system for actual enchantment functionality |
 | [ItemDefinitionEquipment](/advanced/items/item-definitions/item-definition-equipment) | Equipment items that can be worn by characters to provide stat bonuses and visual changes |
 | [ItemDefinitionEquipmentWeapon](/advanced/items/item-definitions/item-definition-equipment-weapon) | Weapon items that can be equipped to provide combat capabilities Inherits all equipment functionality and adds weapon-specific properties for damage, speed, and combat |
-| [ItemDefinitionMaterial](/advanced/items/item-definitions/item-definition-material) |  |
+| [ItemDefinitionMaterial](/advanced/items/item-definitions/item-definition-material) | Material items used for crafting recipes or sold as vendor trash These items have no direct use functionality but serve as components and resources |
 | [ItemDefinitionOnUse](/advanced/items/item-definitions/item-definition-on-use) | Items that function like abilities when used - trigger ability execution with charge consumption Uses charges instead of stacking for cleaner inventory management |
 | [ItemDefinitionQuest](/advanced/items/item-definitions/item-definition-quest) | Quest-related items that trigger quests or serve as quest objectives. |
 | [ItemDefinitionReadable](/advanced/items/item-definitions/item-definition-readable) | Readable items that display text content in a UI panel when used Supports multi-page documents like books, scrolls, letters, and lore texts |
@@ -121,7 +121,7 @@ Instances save the stack, charges, cooldowns, enchantments with their remaining 
 <!-- classes:items/runtime -->
 | Class | What it is |
 |---|---|
-| [DroppedItem](/advanced/items/runtime/dropped-item) |  |
+| [DroppedItem](/advanced/items/runtime/dropped-item) | The body of an item that lies in the world: a rigid body the player can pick up. |
 | [EquipmentInventoryComponent](/advanced/items/runtime/equipment-inventory-component) | Equipment signals for Entity to connect to Emitted when stat bonuses are applied/removed from equipment |
 | [EquipmentSlotInstance](/advanced/items/runtime/equipment-slot-instance) | Equipment slot for single-item equipment storage |
 | [InventoryComponent](/advanced/items/runtime/inventory-component) | Universal inventory system for storing item instances and currency |

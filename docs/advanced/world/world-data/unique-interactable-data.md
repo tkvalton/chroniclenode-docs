@@ -4,6 +4,8 @@
 
 **Inherits:** [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
+A placed object: what the world keeps about one interactable in one world. It holds the id of the definition, the world, the position and the overrides of this object (faction, lock item, interaction cooldown, targeting, stats, loot rules, interaction). The `get_effective_*` functions answer with the override when there is one and with the value of the definition otherwise.
+
 ## Properties
 
 | | | |

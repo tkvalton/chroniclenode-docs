@@ -4,6 +4,8 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
+The editor of the steps of a Combo ability: a tree of steps, each with its own settings, changed with Add Step, Remove Step and a context menu. `combo_data_changed` is emitted when the combo changes.
+
 ## Variables
 
 | | | |

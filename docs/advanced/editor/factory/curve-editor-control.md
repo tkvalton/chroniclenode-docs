@@ -4,6 +4,8 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
+A control that edits a curve (a growth curve, a falloff) with a drawn preview and a maximum value that can be changed. `curve_changed` and `max_value_changed` are emitted when the player edits it.
+
 ## Properties
 
 | | | |

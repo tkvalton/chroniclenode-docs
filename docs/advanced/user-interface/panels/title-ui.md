@@ -4,6 +4,8 @@
 
 **Inherits:** `MarginContainer`
 
+The title bar of a window: the name of the panel and, when `has_exit_button` is on, a button that closes it (`exit_button_pressed`).
+
 ## Properties
 
 | | | |

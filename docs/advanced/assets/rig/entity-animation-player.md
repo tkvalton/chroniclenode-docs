@@ -4,6 +4,8 @@
 
 **Inherits:** [AnimationPlayer](https://docs.godotengine.org/en/stable/classes/class_animationplayer.html)
 
+EntityAnimationPlayer A specialized AnimationPlayer for game entities with robust animation state management.
+
 ## Variables
 
 | | | |

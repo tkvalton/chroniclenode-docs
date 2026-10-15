@@ -4,6 +4,13 @@
 
 **Inherits:** [MovementState](/advanced/behaviors/states/movement-state) < [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
+FallingState represents the state when an entity is in mid-air, typically after walking off an edge. It focuses solely on playing the appropriate animation for falling. Key features:
+
+## Description
+
+- Plays the falling animation using blending
+- Simple blending to other states handled by EntityStateComponent
+
 ## Methods
 
 | | |

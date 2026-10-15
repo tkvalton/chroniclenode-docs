@@ -4,6 +4,8 @@
 
 **Inherits:** [Control](https://docs.godotengine.org/en/stable/classes/class_control.html)
 
+One entry of the list catalog: the icon, the id and the name of a resource, which can be selected. `object_selected` gives the id, the path and the type.
+
 ## Variables
 
 | | | |

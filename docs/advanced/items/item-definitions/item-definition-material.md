@@ -4,6 +4,8 @@
 
 **Inherits:** [ItemDefinition](/advanced/items/item-definitions/item-definition) < [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
+Material items used for crafting recipes or sold as vendor trash These items have no direct use functionality but serve as components and resources
+
 ## Properties
 
 | | | |

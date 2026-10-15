@@ -4,6 +4,8 @@
 
 **Inherits:** [Node3D](https://docs.godotengine.org/en/stable/classes/class_node3d.html)
 
+This class represents the 3D scene setup for displaying character previews in the UI. It handles camera positioning, lighting, and the preview rigs.
+
 ## Variables
 
 | | | |

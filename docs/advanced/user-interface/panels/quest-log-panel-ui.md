@@ -4,6 +4,8 @@
 
 **Inherits:** [PanelUI](/advanced/user-interface/panels/panel-ui) < [Control](https://docs.godotengine.org/en/stable/classes/class_control.html)
 
+The quest log window: the lists of active and completed quests (a button for each, made from `quest_log_button`), and the name, the description and the objectives (made from `quest_log_objective_label`) of the selected quest.
+
 ## Properties
 
 | | | |

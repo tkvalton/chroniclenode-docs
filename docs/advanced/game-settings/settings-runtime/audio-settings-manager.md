@@ -4,6 +4,8 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
+AudioSettingsManager handles audio-related functionality in the game. It manages volume controls for different audio buses and emits signals for audio events.
+
 ## Methods
 
 | | |

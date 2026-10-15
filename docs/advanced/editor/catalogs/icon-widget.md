@@ -4,6 +4,8 @@
 
 **Inherits:** [Control](https://docs.godotengine.org/en/stable/classes/class_control.html)
 
+One icon of the icon catalog: the picture and its id, which can be selected. `icon_selected` gives the id and the path.
+
 ## Variables
 
 | | | |

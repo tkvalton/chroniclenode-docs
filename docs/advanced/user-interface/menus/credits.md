@@ -4,6 +4,8 @@
 
 **Inherits:** `MarginContainer`
 
+The credits scroll of the main menu: an animation that rolls, with `credits_finish` emitted when it ends.
+
 ## Methods
 
 | | |

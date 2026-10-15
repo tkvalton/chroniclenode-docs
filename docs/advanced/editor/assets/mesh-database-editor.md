@@ -4,6 +4,8 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
+The editor of the Meshes tab (Assets &gt; Meshes): the equipment, facial and material meshes of the mesh library as a tree, with a search bar, an import button, the settings of the selected mesh (its per-surface materials) and the checks of the library.
+
 ## Variables
 
 | | | |

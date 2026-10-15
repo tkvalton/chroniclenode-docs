@@ -4,6 +4,8 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
+The collision shapes the weapons can use: a list of named templates (capsules of several sizes) with a description, which an entity or a weapon asks for by name. `get_collision_shape_template` gives the shape.
+
 ## Variables
 
 | | | |

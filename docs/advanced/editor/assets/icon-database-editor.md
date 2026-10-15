@@ -4,6 +4,8 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
+The editor of the Icons tab (Assets &gt; Icons): every icon of the icon library as a grid, by category, with a search bar, an import button and the numbering of new icons.
+
 ## Variables
 
 | | | |

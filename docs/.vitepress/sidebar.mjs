@@ -356,7 +356,7 @@ const advancedSystems = [
   : slug === 'game-settings'
   ? classSystem(text, slug, gameSettingsClasses)
   : slug === 'user-interface'
-  ? classSystem(text, slug, userInterfaceClasses)
+  ? withPages(classSystem(text, slug, userInterfaceClasses), [page('Building your own scene', '/advanced/user-interface/building-your-own', { title: 'Building your own interface scene' }), page('What each scene needs', '/advanced/user-interface/scene-contracts', { title: 'Interface scenes: what each script needs' })])
   : slug === 'managers'
   ? classSystem(text, slug, managerClasses)
   : slug === 'editor'

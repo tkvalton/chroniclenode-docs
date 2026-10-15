@@ -6,6 +6,8 @@
 
 **Inherited by:** [ClimbingState](/advanced/behaviors/states/climbing-state), [DirectionalMovementState](/advanced/behaviors/states/directional-movement-state), [FallingState](/advanced/behaviors/states/falling-state), [IdleState](/advanced/behaviors/states/idle-state), [IdleTurningState](/advanced/behaviors/states/idle-turning-state), [MovingState](/advanced/behaviors/states/moving-state)
 
+The base of the movement states of an entity (idle, moving, falling, climbing ...). It keeps the manager, the entity and the animation player, and plays the animation of the state; the states only decide what to play, the physics is not here.
+
 ## Variables
 
 | | | |

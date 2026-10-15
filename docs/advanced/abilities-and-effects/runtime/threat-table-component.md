@@ -4,6 +4,16 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
+ThreatTableComponent manages the aggression (threat) system for NPC entities. It tracks and calculates aggression levels towards players, influencing target selection and combat behavior. Key features:
+
+## Description
+
+- Maintains a threat table storing aggression values for each player
+- Provides methods for adding, decaying, and resetting threat
+- Handles target selection based on highest threat
+- Manages combat state transitions based on threat levels
+- Responds to entity death or freeing events
+
 ## Variables
 
 | | | |

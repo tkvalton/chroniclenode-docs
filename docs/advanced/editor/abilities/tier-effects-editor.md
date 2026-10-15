@@ -4,6 +4,8 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
+The editor of the tiers of a Power-up (charge) ability: a tree of tiers, each a charge threshold with its effects, changed with Add Tier, Remove Tier and a context menu.
+
 ## Variables
 
 | | | |

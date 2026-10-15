@@ -4,6 +4,8 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
+The editor of the Animations tab (Assets &gt; Animations): the animation packages of the entities as a tree, the core animation map and the validation of the library.
+
 ## Variables
 
 | | | |

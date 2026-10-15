@@ -4,6 +4,8 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
+Holds the player that is in control now (a static variable): `get_current_player` and `set_current_player`.
+
 ## Variables
 
 | | | |

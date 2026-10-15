@@ -4,6 +4,8 @@
 
 **Inherits:** `MarginContainer`
 
+A button of the settings menu that opens one of its sub menus (display, audio, controls ...): its text, with colors for the normal, the highlighted and the active state. `button_up` is emitted when it is pressed.
+
 ## Properties
 
 | | | |

@@ -4,6 +4,8 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
+The editor of the Albums tab (Assets &gt; Albums): lists the map albums and the interface albums with a search bar and a type filter, shows the tracks and the playback settings of the selected album, and edits them.
+
 ## Variables
 
 | | | |

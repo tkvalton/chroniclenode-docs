@@ -4,6 +4,16 @@
 
 **Inherits:** [CanvasLayer](https://docs.godotengine.org/en/stable/classes/class_canvaslayer.html)
 
+SplashScreenManager handles the display of splash screens at game startup. It manages the sequence of Godot and company splash screens, including animations and video playback, before transitioning to the main menu. Key features:
+
+## Description
+
+- Displays Godot splash screen with video
+- Shows company splash screen with animation
+- Handles timing for splash screen transitions
+- Allows for skipping splash screens
+- Preloads the main menu scene during splash screen display
+
 ## Methods
 
 | | |

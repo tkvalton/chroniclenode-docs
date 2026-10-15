@@ -6,6 +6,8 @@
 
 **Inherited by:** [TooltipAbility](/advanced/user-interface/tooltips/tooltip-ability), [TooltipDescription](/advanced/user-interface/tooltips/tooltip-description), [TooltipEffect](/advanced/user-interface/tooltips/tooltip-effect), [TooltipItem](/advanced/user-interface/tooltips/tooltip-item), [TooltipSkillNode](/advanced/user-interface/tooltips/tooltip-skill-node)
 
+The base of the five tooltips: the margin from the edges of the screen, and the label settings they share (font, font size, outline and shadow), which are set on the root node of each tooltip scene.
+
 ## Properties
 
 | | | |

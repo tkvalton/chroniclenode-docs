@@ -4,6 +4,8 @@
 
 **Inherits:** `MarginContainer`
 
+The editor of the Global Variables tab (Events &amp; Quests &gt; Global Variables): the list of variables of the game with their types and starting values, with Add and Refresh buttons.
+
 ## Variables
 
 | | | |

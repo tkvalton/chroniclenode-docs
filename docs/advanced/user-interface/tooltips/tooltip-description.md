@@ -4,6 +4,8 @@
 
 **Inherits:** [TooltipBase](/advanced/user-interface/tooltips/tooltip-base) < `MarginContainer`
 
+The plain-text tooltip: a name and a description. Shown for a setting, a button or anything that only needs a line of text.
+
 ## Methods
 
 | | |

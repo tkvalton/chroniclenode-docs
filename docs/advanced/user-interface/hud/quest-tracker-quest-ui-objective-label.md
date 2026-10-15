@@ -4,6 +4,8 @@
 
 **Inherits:** [HBoxContainer](https://docs.godotengine.org/en/stable/classes/class_hboxcontainer.html)
 
+One objective in the quest tracker: its text and its progress, with an animation (a color change) when it is completed.
+
 ## Variables
 
 | | | |

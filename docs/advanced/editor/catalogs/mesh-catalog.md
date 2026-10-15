@@ -4,6 +4,8 @@
 
 **Inherits:** [GridCatalog](/advanced/editor/catalogs/grid-catalog) < `ConfirmationDialog`
 
+The catalog that picks a mesh of the mesh library (a weapon, a piece of armor, a facial feature) for the current mesh type and category. `selection_made` gives the path of the mesh.
+
 ## Variables
 
 | | | |

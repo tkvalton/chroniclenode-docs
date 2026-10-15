@@ -4,6 +4,8 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
+The editor of the Model Scenes tab (Assets &gt; Model Scenes): the skeleton scenes of entities and the scenes of interactable objects, each as a list with a search bar and a button to create a new one.
+
 ## Variables
 
 | | | |

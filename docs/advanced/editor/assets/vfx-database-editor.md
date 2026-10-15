@@ -4,6 +4,8 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
+The editor of the VFX tab (Assets &gt; VFX): the visual effects of the VFX library as a tree by type, with a search bar, an import button and the information of the selected effect.
+
 ## Variables
 
 | | | |

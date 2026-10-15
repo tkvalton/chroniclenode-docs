@@ -80,7 +80,7 @@ The editor needs to know what an interface scene holds (to check the root class 
 | [InGameUI](/advanced/user-interface/scenes/in-game-ui) | InGameUI manages the interactive user interface elements during gameplay. |
 | [LoadingScreen](/advanced/user-interface/scenes/loading-screen) | LoadingScreen manages the visual feedback during loading processes, providing step-by-step progress updates and status information. |
 | [MainMenu](/advanced/user-interface/scenes/main-menu) | MainMenu manages the game's main menu interface and navigation. |
-| [SplashScreen](/advanced/user-interface/scenes/splash-screen) |  |
+| [SplashScreen](/advanced/user-interface/scenes/splash-screen) | SplashScreenManager handles the display of splash screens at game startup. |
 <!-- /classes -->
 
 ### HUD
@@ -88,22 +88,22 @@ The editor needs to know what an interface scene holds (to check the root class 
 <!-- classes:user-interface/hud -->
 | Class | What it is |
 |---|---|
-| [ActionBarButton](/advanced/user-interface/hud/action-bar-button) |  |
+| [ActionBarButton](/advanced/user-interface/hud/action-bar-button) | Modern action bar button that handles both abilities and items |
 | [ActionBarUI](/advanced/user-interface/hud/action-bar-ui) | This class manages the action bar UI, including ability/items slots, resource bars, buff/debuff displays, and cast bar functionality. |
 | [Aura](/advanced/user-interface/hud/aura) | Aura represents and manages a single status effect (buff or debuff) in the game's user interface. |
 | [CastBar](/advanced/user-interface/hud/cast-bar) | Modular cast bar component that can be used by ActionBarUI, Nameplate, or any UI Automatically connects to entity casting signals and manages its own display state |
 | [CombatLog](/advanced/user-interface/hud/combat-log) | This class manages the combat log interface, displaying various types of combat information. |
 | [DamageMeterUI](/advanced/user-interface/hud/damage-meter-ui) | This class manages the display of detailed combat statistics, including damage and healing done by each entity. |
 | [DamaterBarUI](/advanced/user-interface/hud/damater-bar-ui) | This class represents a details bar in the UI, typically used to display entity-specific information such as damage or healing amounts. |
-| [ExperienceBar](/advanced/user-interface/hud/experience-bar) |  |
+| [ExperienceBar](/advanced/user-interface/hud/experience-bar) | The experience bar of the action bar: a progress bar and a label that follow the experience of its player (`entity_xp_changed`). |
 | [HUDUIElement](/advanced/user-interface/hud/hudui-element) | Parent class for all HUD UI elements contains useful exports for ui scaling options. |
 | [MiniMap](/advanced/user-interface/hud/mini-map) | MinimapCamera is a specialized camera used for rendering a top-down view of the game world, typically displayed as a minimap in the user interface. |
 | [MiniMenuButton](/advanced/user-interface/hud/mini-menu-button) | Individual button in the MiniMenu for toggling a UI panel. |
 | [MiniMenuUI](/advanced/user-interface/hud/mini-menu-ui) | MiniMenuUI is a row of quick-access buttons that open the panels of the interface. |
 | [PartyFrame](/advanced/user-interface/hud/party-frame) | PartyFrame Class Modern party member frame using PoolBarUI system Displays health, resource, and status effects with settings integration |
 | [PartyFramesUI](/advanced/user-interface/hud/party-frames-ui) | This class manages the display of party frames and tracked abilities for all party members. |
-| [QuestTrackerQuestUI](/advanced/user-interface/hud/quest-tracker-quest-ui) |  |
-| [QuestTrackerQuestUIObjectiveLabel](/advanced/user-interface/hud/quest-tracker-quest-ui-objective-label) |  |
+| [QuestTrackerQuestUI](/advanced/user-interface/hud/quest-tracker-quest-ui) | One tracked quest in the quest tracker: the title of the quest and its objectives. |
+| [QuestTrackerQuestUIObjectiveLabel](/advanced/user-interface/hud/quest-tracker-quest-ui-objective-label) | One objective in the quest tracker: its text and its progress, with an animation (a color change) when it is completed. |
 | [QuestTrackerUI](/advanced/user-interface/hud/quest-tracker-ui) | QuestTrackerUI manages the on-screen display of tracked quests and their objectives. |
 | [UnitFrame](/advanced/user-interface/hud/unit-frame) | This class serves as a base for different types of unit frames in the game UI. |
 <!-- /classes -->
@@ -145,7 +145,7 @@ The editor needs to know what an interface scene holds (to check the root class 
 |---|---|
 | [AbilityPanelUI](/advanced/user-interface/panels/ability-panel-ui) | Paginated Ability Panel - Displays abilities in a 3x5 grid with page navigation Shows active abilities first, then passive abilities Follows the new architecture pattern: setup once, signals handle updates No stored player references - gets initial data then relies on signals |
 | [ActiveEffectsDisplayUI](/advanced/user-interface/panels/active-effects-display-ui) | Active Effects Display UI - Shows all active effects on the current player Gets initial data from GameHost.party_manager.current_player, then uses effects component signals for updates Uses color coding: Green for buffs, Red for debuffs, Grey/White for neutral effects No stored references needed - connects once to signals at setup Refactored to emit effect tooltip signals |
-| [CharacterBackdropScene](/advanced/user-interface/panels/character-backdrop-scene) |  |
+| [CharacterBackdropScene](/advanced/user-interface/panels/character-backdrop-scene) | This class represents the 3D scene setup for displaying character previews in the UI. |
 | [CharacterPanelUI](/advanced/user-interface/panels/character-panel-ui) | Character Panel UI - A fully self-sufficient character information interface Gets initial data from party_manager.current_player, then relies on signals for updates No stored references needed - signals handle everything! |
 | [CharacterPreviewManager](/advanced/user-interface/panels/character-preview-manager) | Manages a 3D character preview for UI panels Creates a synchronized copy of the entity's skeleton that mirrors visual changes |
 | [CharacterSheetStat](/advanced/user-interface/panels/character-sheet-stat) | Individual stat display component for character sheet Displays a stat name and its current value with color coding Stores the stat definition resource for enhanced functionality (shared resource, no memory overhead) Refactored to emit tooltip signals instead of calling ui_manager |
@@ -153,18 +153,18 @@ The editor needs to know what an interface scene holds (to check the root class 
 | [ChoiceButtonUI](/advanced/user-interface/panels/choice-button-ui) | Individual button UI for a choice option in ChoiceSelectionPopup Similar to SkillNodeUI but without rank display |
 | [ChoiceSelectionPopup](/advanced/user-interface/panels/choice-selection-popup) | Popup UI for selecting between choice options in a ChoiceSkillNode Displays each choice as a button with icon and shows tooltip on hover |
 | [CurrencyDisplay](/advanced/user-interface/panels/currency-display) | Enhanced display component for showing a single currency with icon and amount |
-| [EquipmentInventoryUI](/advanced/user-interface/panels/equipment-inventory-ui) |  |
+| [EquipmentInventoryUI](/advanced/user-interface/panels/equipment-inventory-ui) | Clean equipment panel using the unified ItemSlotUI system |
 | [InventoryUI](/advanced/user-interface/panels/inventory-ui) | Clean and Simple Universal Inventory UI - Refactored to extend PanelUI Updated to remove VENDOR_INVENTORY logic (now handled by dedicated VendorSlotUI) |
 | [ItemSlotUI](/advanced/user-interface/panels/item-slot-ui) | Fully Unified Slot UI - handles ALL slot types (inventory, equipment, vendor) No need for separate InventorySlotUI, EquipmentSlotUI, etc. |
-| [PanelUI](/advanced/user-interface/panels/panel-ui) |  |
-| [QuestLogButtonUI](/advanced/user-interface/panels/quest-log-button-ui) |  |
-| [QuestLogPanelUI](/advanced/user-interface/panels/quest-log-panel-ui) |  |
-| [QuestLogQuestObjectiveLabel](/advanced/user-interface/panels/quest-log-quest-objective-label) |  |
+| [PanelUI](/advanced/user-interface/panels/panel-ui) | The base of every window of the interface (the character sheet, the spellbook, the inventory, the quest log, the windows of interactions): the title bar, the close button, dragging, and the signals that relay tooltips, messages, sounds and drag requests to the in-game interface. |
+| [QuestLogButtonUI](/advanced/user-interface/panels/quest-log-button-ui) | One quest in the list of the quest log: its name, with a highlight when it is the quest shown. |
+| [QuestLogPanelUI](/advanced/user-interface/panels/quest-log-panel-ui) | The quest log window: the lists of active and completed quests (a button for each, made from `quest_log_button`), and the name, the description and the objectives (made from `quest_log_objective_label`) of the selected quest. |
+| [QuestLogQuestObjectiveLabel](/advanced/user-interface/panels/quest-log-quest-objective-label) | One objective in the quest log: an icon, its text, its progress and a mark when it is complete. |
 | [SkillNodeUIVisual](/advanced/user-interface/panels/skill-node-ui-visual) | Visual representation of a skill node for player UI (runtime) Follows ActionBarButton pattern - simple icon + border with modulate changes |
 | [SkillTreePanelUI](/advanced/user-interface/panels/skill-tree-panel-ui) | Main panel for displaying player skill trees with integrated canvas Simple pan controls, no zoom, no grid |
-| [SpellBookAbilityUI](/advanced/user-interface/panels/spell-book-ability-ui) |  |
+| [SpellBookAbilityUI](/advanced/user-interface/panels/spell-book-ability-ui) | One ability in the spellbook: its icon and name. |
 | [SpellBookPanelUI](/advanced/user-interface/panels/spell-book-panel-ui) | Spell Book Panel UI - Container for abilities and skill tree Follows the new architecture pattern: setup once, signals handle updates Contains AbilityPanelUI for spells and future SkillTree panel |
-| [TitleUI](/advanced/user-interface/panels/title-ui) |  |
+| [TitleUI](/advanced/user-interface/panels/title-ui) | The title bar of a window: the name of the panel and, when `has_exit_button` is on, a button that closes it (`exit_button_pressed`). |
 <!-- /classes -->
 
 ### Tooltips
@@ -172,12 +172,12 @@ The editor needs to know what an interface scene holds (to check the root class 
 <!-- classes:user-interface/tooltips -->
 | Class | What it is |
 |---|---|
-| [TooltipAbility](/advanced/user-interface/tooltips/tooltip-ability) |  |
-| [TooltipBase](/advanced/user-interface/tooltips/tooltip-base) |  |
-| [TooltipDescription](/advanced/user-interface/tooltips/tooltip-description) |  |
-| [TooltipEffect](/advanced/user-interface/tooltips/tooltip-effect) |  |
+| [TooltipAbility](/advanced/user-interface/tooltips/tooltip-ability) | TooltipAbility is a specialized UI component for displaying detailed information about abilities in the game. |
+| [TooltipBase](/advanced/user-interface/tooltips/tooltip-base) | The base of the five tooltips: the margin from the edges of the screen, and the label settings they share (font, font size, outline and shadow), which are set on the root node of each tooltip scene. |
+| [TooltipDescription](/advanced/user-interface/tooltips/tooltip-description) | The plain-text tooltip: a name and a description. |
+| [TooltipEffect](/advanced/user-interface/tooltips/tooltip-effect) | The tooltip of an effect on an entity (a buff or a debuff): its name and its description. |
 | [TooltipItem](/advanced/user-interface/tooltips/tooltip-item) | Comprehensive tooltip for all item types with vendor context support Now supports both ItemInstance (full detail) and ItemDefinition (basic) display |
-| [TooltipManager](/advanced/user-interface/tooltips/tooltip-manager) |  |
+| [TooltipManager](/advanced/user-interface/tooltips/tooltip-manager) | Makes the five tooltips once (item, effect, ability, skill node and description) from the scenes of UI Settings and shows or hides the one that is asked for. |
 | [TooltipSkillNode](/advanced/user-interface/tooltips/tooltip-skill-node) | Tooltip display for skill nodes showing name, description, and rewards Handles different node types: basic, ranked, and choice nodes Integrates full tooltips for complex rewards (abilities, items, effects) |
 <!-- /classes -->
 
@@ -202,14 +202,14 @@ The editor needs to know what an interface scene holds (to check the root class 
 | Class | What it is |
 |---|---|
 | [ArrowSelectionButton](/advanced/user-interface/menus/arrow-selection-button) | ArrowSelectionButton - Cyclic selection control with arrow navigation Supports both numeric options (1 to N) and string-based options with display names |
-| [ButtonSubMenu](/advanced/user-interface/menus/button-sub-menu) |  |
+| [ButtonSubMenu](/advanced/user-interface/menus/button-sub-menu) | A button of the settings menu that opens one of its sub menus (display, audio, controls ...): its text, with colors for the normal, the highlighted and the active state. |
 | [CharacterCreation3DScene](/advanced/user-interface/menus/character-creation3-d-scene) | CharacterCreation3DScene - Manages the 3D character preview in character creation Handles skeleton instantiation, customization preview, and idle animations |
 | [CharacterCreationInfoBox](/advanced/user-interface/menus/character-creation-info-box) | CharacterCreationInfoBox - Displays template and class information in character creation Shows two sections: Template info (for templates) and Class info (for all modes) |
 | [ClassSelectionButton](/advanced/user-interface/menus/class-selection-button) | ClassSelectionButton - Button for selecting a player class in character creation Displays class icon, name, and handles selection state |
 | [ColorButton](/advanced/user-interface/menus/color-button) | ColorButton - Button that displays and selects a color Used in character creation for skin, hair, and eye color selection |
-| [Credits](/advanced/user-interface/menus/credits) |  |
+| [Credits](/advanced/user-interface/menus/credits) | The credits scroll of the main menu: an animation that rolls, with `credits_finish` emitted when it ends. |
 | [CustomSlider](/advanced/user-interface/menus/custom-slider) | CustomSlider - Labeled slider control for blend shape and other value adjustments Emits value_changed signal with the new value when slider changes |
-| [SaveFileButton](/advanced/user-interface/menus/save-file-button) |  |
+| [SaveFileButton](/advanced/user-interface/menus/save-file-button) | One saved game in the list of the load menu: its name and details, with colors for the unselected, the hovered and the selected state. |
 | [SaveLoadMenu](/advanced/user-interface/menus/save-load-menu) | SaveLoadMenu manages the save/load interface for both main menu and in-game menu. |
 | [SettingsCheckBox](/advanced/user-interface/menus/settings-check-box) | Modern checkbox component that works with any boolean setting property |
 | [SettingsColorButton](/advanced/user-interface/menus/settings-color-button) | Modern color picker component that works with any Color setting property |

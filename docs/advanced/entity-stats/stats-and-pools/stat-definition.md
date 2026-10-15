@@ -4,6 +4,8 @@
 
 **Inherits:** [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
+The definition of one stat (Strength, Armor, Haste): its name, color and icon, whole numbers or decimals, the default value and the limits, how it grows with the level, and the effects it has on other stats and pools. Made in Entity Stats &gt; Stats. Every entity has one instance of every stat definition.
+
 ## Properties
 
 | | | |

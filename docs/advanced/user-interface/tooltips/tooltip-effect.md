@@ -4,6 +4,8 @@
 
 **Inherits:** [TooltipBase](/advanced/user-interface/tooltips/tooltip-base) < `MarginContainer`
 
+The tooltip of an effect on an entity (a buff or a debuff): its name and its description.
+
 ## Methods
 
 | | |

@@ -4,6 +4,8 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
+The music of the interface: the menu music, the ambient sounds of the menus and the transition sounds, with their looping, shuffling and fade settings. The sound effects of buttons are not here (they are loaded for the whole game). Made in Assets &gt; Albums.
+
 ## Properties
 
 | | | |

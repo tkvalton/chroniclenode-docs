@@ -4,6 +4,8 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
+Makes the rows of the inspector editors of the toolkit: a label with a check box, a text field, a number, a drop-down, a database drop-down, a slider or a color picker, each as an `EditorProperty` that calls a function when its value changes.
+
 ## Methods
 
 | | |

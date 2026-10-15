@@ -46,7 +46,7 @@ Not managers, but used the same way from anywhere: the [`Database`](/advanced/da
 |---|---|
 | [AudioManager](/advanced/managers/managers/audio-manager) | Centralized audio system managing music, ambiance, and sound effects with pooled players and phased initialization for fast startup. |
 | [ChronoManager](/advanced/managers/managers/chrono-manager) | Centralized timer pool and game time management system. |
-| [FactionManager](/advanced/managers/managers/faction-manager) |  |
+| [FactionManager](/advanced/managers/managers/faction-manager) | FactionManager - Global singleton that orchestrates faction relationships Delegates logic to FactionDefinition instances and handles synchronization between factions Each faction manages its own runtime reputation; manager ensures both sides stay in sync |
 <!-- /classes -->
 
 ### Save and load
@@ -65,7 +65,7 @@ Not managers, but used the same way from anywhere: the [`Database`](/advanced/da
 | [InputEventText](/advanced/managers/utilities/input-event-text) | The text of an input event for the screen: "Q", "Ctrl 2", "LMB", "Mouse 4", "Joy A". |
 | [InstanceUtility](/advanced/managers/utilities/instance-utility) | Utility script to help item/ability creation anywhere. |
 | [InterfaceOverview](/advanced/managers/utilities/interface-overview) | What the in-game interface scene holds, read from the scene without running it: the HUD elements, the interaction panels and the UI panels, with the panel key number of each panel and the problems with them (two panels with one key, a panel with a key and no name, a node in a container that is not of the class the interface needs). |
-| [PlayerUtility](/advanced/managers/utilities/player-utility) |  |
+| [PlayerUtility](/advanced/managers/utilities/player-utility) | Holds the player that is in control now (a static variable): `get_current_player` and `set_current_player`. |
 | [RangeQueryUtil](/advanced/managers/utilities/range-query-util) | RangeQueryUtil is a global system providing various helper functions for game logic, particularly focusing on spatial queries and entity relationships within the game world. |
 | [SceneStateReader](/advanced/managers/utilities/scene-state-reader) | Reads the nodes of a PackedScene from its saved state, without making the nodes. |
 <!-- /classes -->
@@ -75,7 +75,7 @@ Not managers, but used the same way from anywhere: the [`Database`](/advanced/da
 <!-- classes:managers/combat -->
 | Class | What it is |
 |---|---|
-| [CombatLogManager](/advanced/managers/combat/combat-log-manager) |  |
+| [CombatLogManager](/advanced/managers/combat/combat-log-manager) | CombatLogManager now receives comprehensive reports from CombatSystem |
 | [CombatSession](/advanced/managers/combat/combat-session) | CombatSession manages a single active combat encounter at runtime. |
 <!-- /classes -->
 

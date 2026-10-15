@@ -4,6 +4,8 @@
 
 **Inherits:** `MarginContainer`
 
+Clean equipment panel using the unified ItemSlotUI system
+
 ## Properties
 
 | | | |

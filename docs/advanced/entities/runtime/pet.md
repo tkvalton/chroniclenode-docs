@@ -4,6 +4,16 @@
 
 **Inherits:** [Entity](/advanced/entities/runtime/entity) < [CharacterBody3D](https://docs.godotengine.org/en/stable/classes/class_characterbody3d.html)
 
+Pet represents a summoned creature or Player controlled by an AI. It extends the base Entity class with features specific to temporary summoned entities that follow their creator and support them in combat. Key features:
+
+## Description
+
+- Links to a summoner entity (player, companion, etc.)
+- Can follow the summoner automatically
+- Has limited duration or lifespan
+- Shares targeting with the summoner
+- Special summon and despawn effects
+
 ## Variables
 
 | | | |

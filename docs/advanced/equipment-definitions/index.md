@@ -36,8 +36,8 @@ The [Equipment Definitions chapter](/basic/equipment-definitions/) explains the 
 | Class | What it is |
 |---|---|
 | [ArmorClassBonus](/advanced/equipment-definitions/definitions/armor-class-bonus) | One bonus of an armor class, in the way of a set bonus: the effects its wearer gets once enough of the pieces they wear are of the class. |
-| [ArmorClassDefinition](/advanced/equipment-definitions/definitions/armor-class-definition) |  |
-| [EquipmentSlotDefinition](/advanced/equipment-definitions/definitions/equipment-slot-definition) |  |
+| [ArmorClassDefinition](/advanced/equipment-definitions/definitions/armor-class-definition) | ArmorClassDefinition defines the kinds of armor (plate, leather, cloth): a name and a color. |
+| [EquipmentSlotDefinition](/advanced/equipment-definitions/definitions/equipment-slot-definition) | Enhanced EquipmentSlotDefinition with slot categories for better UI organization |
 | [EquipmentTypeDefinition](/advanced/equipment-definitions/definitions/equipment-type-definition) | EquipmentTypeDefinition defines a category of equipment and what mesh slots it affects. |
 | [Quality](/advanced/equipment-definitions/definitions/quality) | Defines item quality/rarity with display properties Create instances as .tres files for each quality tier |
 | [QualityRule](/advanced/equipment-definitions/definitions/quality-rule) | A custom rule of a Quality, for what its fields do not cover: "a legendary always has a socket", "an epic gets +1 ability rank". |

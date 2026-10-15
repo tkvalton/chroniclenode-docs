@@ -4,6 +4,8 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
+Places the party members around a target position in a formation (tight, spread, V, line or wedge): `calculate_formation_positions` answers with a position for every unit, with a base spacing and some randomness. `cycle_formation` and `set_formation` change the formation.
+
 ## Variables
 
 | | | |

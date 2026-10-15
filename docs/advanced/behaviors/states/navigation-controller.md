@@ -4,6 +4,8 @@
 
 **Inherits:** `NavigationAgent3D`
 
+The path-finding and movement of an NPC: a navigation agent that moves the entity to a position, follows a target, or takes direct movement input. It moves in one of five styles (normal, keep facing, backpedal, strafe left, strafe right) and emits `path_failed`, `following_started`, `following_stopped` and `destination_reached`.
+
 ## Variables
 
 | | | |
