@@ -1,7 +1,8 @@
 // Checks every link of the docs that has an #anchor: the page exists and has a heading (or {#id}) with that anchor
 import fs from 'node:fs'
 import path from 'node:path'
-const root = path.join(path.dirname(new URL(import.meta.url).pathname.replace(/^/([A-Za-z]:)/, '$1')), '..', 'docs') + path.sep
+import { fileURLToPath } from 'node:url'
+const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'docs') + path.sep
 function walk(dir, list = []) { for (const e of fs.readdirSync(dir, { withFileTypes: true })) { const p = path.join(dir, e.name); if (e.isDirectory()) { if (!['.vitepress', 'public', 'node_modules'].includes(e.name)) walk(p, list) } else if (p.endsWith('.md')) list.push(p) } return list }
 const slug = text => text.trim().toLowerCase().replace(/\{#[^}]*\}/g, '').replace(/[^a-z0-9\s-]/g, ' ').trim().replace(/\s+/g, '-').replace(/-+/g, '-')
 const pages = {}
