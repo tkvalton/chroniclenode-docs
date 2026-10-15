@@ -38,9 +38,9 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `bool` | [cast_immobile](#var-cast-immobile) | `false` |
 | `bool` | [is_falling](#var-is-falling) | `false` |
 | `bool` | [is_crouched](#var-is-crouched) | `false` |
-| `bool` | [is_swimming](#var-is-swimming) | `false` |
+| `bool:` | [is_swimming](#var-is-swimming) |  |
 | `bool` | [is_walking](#var-is-walking) | `false` |
-| `bool` | [is_flying](#var-is-flying) | `false` |
+| `bool:` | [is_flying](#var-is-flying) |  |
 | `bool` | [is_climbing](#var-is-climbing) | `false` |
 | `bool` | [fleeing](#var-fleeing) | `false` |
 | `bool` | [incapactiated](#var-incapactiated) | `false` |
@@ -62,6 +62,10 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `Array[Entity]` | [temporarily_hostile_to](#var-temporarily-hostile-to) | `[]` |
 | `Array[int]` | [runtime_entity_tags](#var-runtime-entity-tags) | `[]` |
 | `Array[int]` | [suppressed_entity_tags](#var-suppressed-entity-tags) | `[]` |
+| `Array[MovementClaim]` | [movement_claims](#var-movement-claims) | `[]` |
+| `MovementClaim.Mode:` | [movement_mode](#var-movement-mode) |  |
+| `bool` | [breath_exempt](#var-breath-exempt) | `false` |
+| `float` | [breath](#var-breath) | `-1.0` |
 | `AimProvider` | [aim_provider](#var-aim-provider) | `null` |
 | `Array` | [loot_rolled](#var-loot-rolled) | `[]` |
 
@@ -165,6 +169,21 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `bool` | [strafe_to_sync](#method-strafe-to-sync)( `target_pos: Vector3, strafe_direction: int, should_walk: bool = false, min_distance: float = -1.0` ) |
 | `void` | [stop_moving](#method-stop-moving)() |
 | `void` | [jump](#method-jump)() |
+| `bool` | [is_free_moving](#method-is-free-moving)() |
+| `MovementClaim` | [get_active_movement_claim](#method-get-active-movement-claim)() |
+| `void` | [add_movement_claim](#method-add-movement-claim)( `claim: MovementClaim` ) |
+| `bool` | [remove_movement_claim](#method-remove-movement-claim)( `source: Object` ) |
+| `MovementClaim` | [get_movement_claim_of](#method-get-movement-claim-of)( `source: Object` ) |
+| `float` | [get_movement_speed_multiplier](#method-get-movement-speed-multiplier)() |
+| `void` | [suspend_movement_claims](#method-suspend-movement-claims)( `seconds: float` ) |
+| `void` | [leap_out_of_water](#method-leap-out-of-water)() |
+| `bool` | [uses_breath](#method-uses-breath)() |
+| `float` | [get_breath_maximum](#method-get-breath-maximum)() |
+| `float` | [get_breath](#method-get-breath)() |
+| `bool` | [is_drowning](#method-is-drowning)() |
+| `void` | [set_submerged](#method-set-submerged)( `value: bool` ) |
+| `void` | [restore_breath](#method-restore-breath)() |
+| `GameHost.SystemHub` | [get_system_hub](#method-get-system-hub)() |
 | `void` | [entity_face_direction](#method-entity-face-direction)( `look_at_direction: Vector3, speed: int = FaceTargetSpeed.INSTANT` ) |
 | `void` | [entity_look_at_object](#method-entity-look-at-object)( `object: Node3D, speed: int = FaceTargetSpeed.INSTANT` ) |
 | `void` | [set_approach_distance](#method-set-approach-distance)( `distance: float` ) |
@@ -479,6 +498,18 @@ Emitted when the entity uses up items (a potion): the item and how many.
 
 Emitted when the last item of a stack is used up.
 
+### movement_mode_changed( old_mode: MovementClaim.Mode, new_mode: MovementClaim.Mode ) {#signal-movement-mode-changed}
+
+Emitted when the way the entity moves changes (it enters water, leaves it, starts flying ...)
+
+### breath_changed( current: float, maximum: float ) {#signal-breath-changed}
+
+Emitted when the breath changes (seconds left, seconds in all). Only while the entity holds its breath or recovers it
+
+### drowning_changed( is_drowning: bool ) {#signal-drowning-changed}
+
+Emitted when the breath runs out (the entity starts to drown) and when it is back (it stops)
+
 ## Enumerations
 
 ### enum MapMarkerType {#enum-mapmarkertype}
@@ -601,17 +632,17 @@ True while the entity is in the air.
 
 True while the entity is crouched.
 
-### bool is_swimming = false {#var-is-swimming}
+### bool: is_swimming {#var-is-swimming}
 
-True while the entity is swimming.
+True while the entity moves freely in 3D (swimming or flying): it uses the swim animations. Set by what the entity is in (a movement volume), see `add_movement_claim`.
 
 ### bool is_walking = false {#var-is-walking}
 
 True while the entity walks (instead of running).
 
-### bool is_flying = false {#var-is-flying}
+### bool: is_flying {#var-is-flying}
 
-True while the entity is flying.
+True while the entity is flying (nothing pulls it down).
 
 ### bool is_climbing = false {#var-is-climbing}
 
@@ -696,6 +727,22 @@ Tags added or removed while the game runs (an effect that makes a target Undead)
 ### Array[int] suppressed_entity_tags = [] {#var-suppressed-entity-tags}
 
 Tags removed while the game runs even though the definition has them
+
+### Array[MovementClaim] movement_claims = [] {#var-movement-claims}
+
+What is asking something of the movement of the entity (see MovementClaim)
+
+### MovementClaim.Mode: movement_mode {#var-movement-mode}
+
+How the entity moves now: on the ground, swimming or flying
+
+### bool breath_exempt = false {#var-breath-exempt}
+
+An entity that never needs to hold its breath (a water creature, a potion of water breathing: set it from a script or an effect)
+
+### float breath = -1.0 {#var-breath}
+
+Seconds of breath left. -1 = full (the breath is not worked out until it is needed)
 
 ### AimProvider aim_provider = null {#var-aim-provider}
 
@@ -1090,6 +1137,66 @@ Stops the movement of the entity.
 ### void jump() {#method-jump}
 
 Performs a jump if the entity is on the floor Uses the exported jump_velocity value
+
+### bool is_free_moving() {#method-is-free-moving}
+
+Is the entity moving freely in 3D (swimming or flying)? Gravity does not pull it and it can go up and down
+
+### MovementClaim get_active_movement_claim() {#method-get-active-movement-claim}
+
+The claim that decides how the entity moves now: the one with the highest mode (the later of two equal ones), or null when it is on its own. A short suspension (a leap out of the water) ignores every claim
+
+### void add_movement_claim( claim: MovementClaim ) {#method-add-movement-claim}
+
+Makes something a claim on the movement of the entity (a second claim of the same source replaces the first)
+
+### bool remove_movement_claim( source: Object ) {#method-remove-movement-claim}
+
+Takes the claim of a source away. True when it had one
+
+### MovementClaim get_movement_claim_of( source: Object ) {#method-get-movement-claim-of}
+
+The claim a source has on this entity, or null
+
+### float get_movement_speed_multiplier() {#method-get-movement-speed-multiplier}
+
+What the movement is multiplied by now (wading is slower, swimming too): 1 when nothing asks for it
+
+### void suspend_movement_claims( seconds: float ) {#method-suspend-movement-claims}
+
+Ignores every movement claim for a moment (the leap out of the water must not be pulled back in at once)
+
+### void leap_out_of_water() {#method-leap-out-of-water}
+
+Swimming up at the surface and jumping: the entity leaps out of the water. Only where the claim allows it and the entity is near the surface
+
+### bool uses_breath() {#method-uses-breath}
+
+Does this entity hold its breath where a volume asks for it? The Gameplay Config says who (nobody, the players, everyone); an exempt entity never does
+
+### float get_breath_maximum() {#method-get-breath-maximum}
+
+The seconds of breath the entity has in all (the Gameplay Config)
+
+### float get_breath() {#method-get-breath}
+
+The seconds of breath left
+
+### bool is_drowning() {#method-is-drowning}
+
+True while the breath is run out and the drowning effect is on the entity
+
+### void set_submerged( value: bool ) {#method-set-submerged}
+
+Tells the entity it is under water (or needs air) this frame: a movement volume calls it every physics frame it applies. When it stops, the breath comes back
+
+### void restore_breath() {#method-restore-breath}
+
+Gives the breath back at once (a potion, a breath of air): nothing is left of the drowning
+
+### GameHost.SystemHub get_system_hub() {#method-get-system-hub}
+
+The hub of the game systems this entity was made with (or null before it was made)
 
 ### void entity_face_direction( look_at_direction: Vector3, speed: int = FaceTargetSpeed.INSTANT ) {#method-entity-face-direction}
 

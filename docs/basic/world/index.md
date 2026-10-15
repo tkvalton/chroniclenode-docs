@@ -15,6 +15,7 @@ Everything the party meets in a world is placed in the scene and stored as a **u
 | [Add Object](/basic/world/add-object) | The button in the 3D viewport that places an NPC, an interactable, a region or an encounter |
 | [The Unique Object tool](/basic/world/unique-object-tool) | The bottom panel that edits the thing you selected in the viewport |
 | [Regions](/basic/world/regions) | Areas of the map that [quests](/basic/events-and-quests/quests) and events can watch |
+| [Movement volumes](/basic/world/movement-volumes) | Water to swim in, a room with no gravity, a pool of lava: spaces that change how whoever is in them moves, with breath and a look for the camera |
 | [Encounters](/basic/world/encounters) | A group of NPCs that fights as one, with formations and reactions |
 
 ## How to build a world

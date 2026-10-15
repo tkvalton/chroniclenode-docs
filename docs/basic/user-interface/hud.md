@@ -14,6 +14,7 @@ HUD elements are **self-sufficient**. The interface does not know what an elemen
 | **Minimap** | [`MiniMap`](/advanced/user-interface/hud/mini-map) | A top-down view of the surroundings with markers for quest givers, enemies, objects, treasure (the icons are set in [UI Settings](/basic/game-settings/ui-settings#minimap-icons)) |
 | **Quest tracker** | [`QuestTrackerUI`](/advanced/user-interface/hud/quest-tracker-ui) | The tracked quests and their objectives, updated as they are done |
 | **Combat log** | [`CombatLog`](/advanced/user-interface/hud/combat-log) | A log of what happens in combat, with tabs for the damage dealt and the damage taken. A rework into a **chat box** is planned: [Chat box and combat log](/planned/chat-box) |
+| **Breath bar** | [`BreathBarUI`](/advanced/user-interface/hud/breath-bar-ui) | The breath of the current player while it is not full (under water), in another color while the player drowns. See [Breath](/basic/game-settings/gameplay-config#breath) |
 | **Damage meter** | [`DamageMeterUI`](/advanced/user-interface/hud/damage-meter-ui) | Damage and healing done by each party member, as bars with a share |
 
 The folder also holds parts that are used **inside** elements and are not placed in the HUD themselves: the buff and debuff icons (`aura`), the **cast bar** ([`CastBar`](/advanced/user-interface/hud/cast-bar), used by the action bar and the nameplates), the pool bars, and the **unit frames** (the target and the current player), which are being reworked.

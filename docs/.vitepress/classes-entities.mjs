@@ -239,6 +239,12 @@ export const groups = [
         "file": "runtime_classes/entity/interactable_object.gd"
       },
       {
+        "name": "MovementClaim",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\movement_claim.gd",
+        "file": "runtime_classes/entity/movement_claim.gd"
+      },
+      {
         "name": "NPC",
         "base": "Entity",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\npc.gd",

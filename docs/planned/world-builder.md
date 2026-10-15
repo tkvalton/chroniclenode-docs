@@ -24,7 +24,7 @@ The painted terrain and the volumes of the [spawners](/planned/spawners): where 
 
 ## Water placement
 
-A tool for placing [water](/planned/water-and-swimming): the sea, lakes and rivers, with their shapes, their depth and the demo shaders that go with them.
+A tool for placing [water](/basic/world/movement-volumes): the sea, lakes and rivers, with their shapes, their depth and the demo shaders that go with them. The swimming itself is built; this is the tool that makes the surface and the shape.
 
 ## Local events
 

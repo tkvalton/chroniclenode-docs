@@ -31,6 +31,7 @@ The path-finding and movement of an NPC: a navigation agent that moves the entit
 | `bool` | [direct_input_mode](#var-direct-input-mode) | `false` |
 | `Vector3` | [direct_input_velocity](#var-direct-input-velocity) | `Vector3.ZERO` |
 | `float` | [direct_input_speed](#var-direct-input-speed) | `5.0` |
+| `float` | [vertical_input](#var-vertical-input) | `0.0` |
 | `Vector3` | [previous_position](#var-previous-position) | `Vector3.ZERO` |
 | `bool` | [was_on_floor](#var-was-on-floor) | `true` |
 | `bool` | [direction_needs_update](#var-direction-needs-update) | `false` |
@@ -50,6 +51,7 @@ The path-finding and movement of an NPC: a navigation agent that moves the entit
 | `void` | [initialize_navigation_controller](#method-initialize-navigation-controller)( `entity_ref: Entity` ) |
 | `void` | [set_direct_input_mode](#method-set-direct-input-mode)( `enabled: bool` ) |
 | `void` | [set_direct_movement_input](#method-set-direct-movement-input)( `input_vector: Vector2, movement_speed: float, entity_forward: Vector3` ) |
+| `void` | [set_vertical_input](#method-set-vertical-input)( `value: float` ) |
 | `bool` | [is_using_direct_input](#method-is-using-direct-input)() |
 | `Vector3` | [get_direct_input_velocity](#method-get-direct-input-velocity)() |
 | `void` | [process_physics](#method-process-physics)( `delta: float` ) |
@@ -190,6 +192,10 @@ The velocity the direct input asks for.
 
 The speed of the direct input.
 
+### float vertical_input = 0.0 {#var-vertical-input}
+
+The vertical input of the player in a free movement mode (1 up, -1 down)
+
 ### Vector3 previous_position = Vector3.ZERO {#var-previous-position}
 
 Where the entity was on the last step (to see if it is stuck).
@@ -247,6 +253,10 @@ Turns direct input on (a player moves it) or off (a path moves it).
 ### void set_direct_movement_input( input_vector: Vector2, movement_speed: float, entity_forward: Vector3 ) {#method-set-direct-movement-input}
 
 Gives the direct input: the stick or key vector, the speed and the forward direction of the entity.
+
+### void set_vertical_input( value: float ) {#method-set-vertical-input}
+
+The vertical input in a free movement mode: 1 swims or flies up, -1 down, 0 neither (see MovementClaim). The controller of the player sets it every frame
 
 ### bool is_using_direct_input() {#method-is-using-direct-input}
 

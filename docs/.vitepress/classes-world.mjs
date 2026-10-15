@@ -167,6 +167,18 @@ export const groups = [
         "file": "runtime_classes/world/light.gd"
       },
       {
+        "name": "MovementVolume",
+        "base": "Area3D",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\movement_volume.gd",
+        "file": "runtime_classes/world/movement_volume.gd"
+      },
+      {
+        "name": "MovementVolumeCamera",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\movement_volume_camera.gd",
+        "file": "runtime_classes/world/movement_volume_camera.gd"
+      },
+      {
         "name": "ObjectRegistry",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\object_registery.gd",

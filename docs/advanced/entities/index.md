@@ -162,6 +162,7 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 | [EntityTemplates](/advanced/entities/runtime/entity-templates) | Entities that follow a template. |
 | [FormationSystem](/advanced/entities/runtime/formation-system) | Places the party members around a target position in a formation (tight, spread, V, line or wedge): `calculate_formation_positions` answers with a position for every unit, with a base spacing and some randomness. |
 | [InteractableObject](/advanced/entities/runtime/interactable-object) | Unified interactable object class - uses InteractableDefinition + Interactions All specialized logic is now in Interaction subclasses |
+| [MovementClaim](/advanced/entities/runtime/movement-claim) | What something asks of the movement of an entity: a movement volume that is around it (water, a weightless room), an effect that lets it fly. |
 | [NPC](/advanced/entities/runtime/npc) | NPC represents a non-player character in the game. |
 | [NpcLevels](/advanced/entities/runtime/npc-levels) | The level of an NPC and the experience it gives, by the settings of the project (Gameplay Config: NPC Level Scaling and Kill Experience). |
 | [PartyManager](/advanced/entities/runtime/party-manager) | PartyManager manages the physical containers and setup for the player party system. |

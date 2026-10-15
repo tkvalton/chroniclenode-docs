@@ -95,6 +95,12 @@ export const groups = [
         "file": "ui_scenes/in_game/HUD/components/auras/aura.gd"
       },
       {
+        "name": "BreathBarUI",
+        "base": "HUDUIElement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\HUD\\breath_bar\\breath_bar_ui.gd",
+        "file": "ui_scenes/in_game/HUD/breath_bar/breath_bar_ui.gd"
+      },
+      {
         "name": "CastBar",
         "base": "Control",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\HUD\\components\\cast_bar\\cast_bar.gd",

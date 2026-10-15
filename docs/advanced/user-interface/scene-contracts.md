@@ -13,13 +13,14 @@ How to read it:
 
 ## The templates the toolkit provides
 
-82 scenes in `res://addons/chroniclenode/`, each with the class on its root node. Copy one next to your own scenes, change it and set it in [UI Settings](/basic/game-settings/ui-settings), or start from your own scene with the same root class.
+83 scenes in `res://addons/chroniclenode/`, each with the class on its root node. Copy one next to your own scenes, change it and set it in [UI Settings](/basic/game-settings/ui-settings), or start from your own scene with the same root class.
 
 | Area | Scene | Root class | What it is |
 |---|---|---|---|
 | HUD | `in_game/HUD/action_bar/action_bar_ui_template.tscn` | [`ActionBarUI`](#class-action-bar-ui) | This class manages the action bar UI, including ability/items slots, resource bars,  buff/debuff displays, and cast bar functionality |
 | HUD | `in_game/HUD/action_bar/buttons/action_bar_button_template.tscn` | [`ActionBarButton`](#class-action-bar-button) | Modern action bar button that handles both abilities and items |
 | HUD | `in_game/HUD/action_bar/buttons/action_bar_pool_bar_template.tscn` | [`PoolBarUI`](#class-pool-bar-ui) | UI component for displaying a single pool (health or resource) |
+| HUD | `in_game/HUD/breath_bar/breath_bar_ui_template.tscn` | [`BreathBarUI`](#class-breath-bar-ui) | The breath of the player that is played: a bar that shows while the breath is not full (under water, or just back from it) and goes again when it is |
 | HUD | `in_game/HUD/combat_log/combat_log_template.tscn` | [`CombatLog`](#class-combat-log) | This class manages the combat log interface, displaying various types of combat information |
 | HUD | `in_game/HUD/components/auras/aura_template.tscn` | [`Aura`](#class-aura) | Aura represents and manages a single status effect (buff or debuff) in the game's user interface |
 | HUD | `in_game/HUD/components/cast_bar/castbar_nameplate.tscn` | [`CastBar`](#class-cast-bar) | Modular cast bar component that can be used by ActionBarUI, Nameplate, or any UI Automatically connects to entity casting signals and manages its own display st |
@@ -642,6 +643,25 @@ Template scene: `ui_scenes/in_game/HUD/components/auras/aura_template.tscn`
 | `stacks_label` | `Label` | `%StacksLabel` | The stacks label (a Label) of the scene, found by its unique name %StacksLabel. |
 
 Signals: `aura_reset(aura: Aura)`, `effect_tooltip_requested(effect: EffectInstance)`, `hide_tooltip(force_hide: bool)`
+
+### BreathBarUI {#class-breath-bar-ui}
+
+`BreathBarUI` extends `HUDUIElement` ([class page](/advanced/user-interface/hud/breath-bar-ui))
+
+The breath of the player that is played: a bar that shows while the breath is not full (under water, or just back from it) and goes again when it is.
+
+Script: `ui_scenes/in_game/HUD/breath_bar/breath_bar_ui.gd`
+
+Template scene: `ui_scenes/in_game/HUD/breath_bar/breath_bar_ui_template.tscn`
+
+| Node the script looks for | Type | Found as | What it is |
+|---|---|---|---|
+| `bar` | `ProgressBar` | `$Bar` |  |
+
+| Export | Type | What it is |
+|---|---|---|
+| `hide_when_full` | `bool` | Show the bar only while the breath is not full |
+| `drowning_color` | `Color` | The color of the bar while the player has no breath left and drowns |
 
 ### CastBar {#class-cast-bar}
 

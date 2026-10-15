@@ -47,6 +47,7 @@ Scene-watching toolbar manager for adding objects to WorldScene Watches for new/
 - **ADD_ENCOUNTER** = `3`
 - **ADD_DROPPED_ITEM** = `4`
 - **ADD_DROPPED_CURRENCY** = `5`
+- **ADD_MOVEMENT_VOLUME** = `6`
 
 ## Variable descriptions
 

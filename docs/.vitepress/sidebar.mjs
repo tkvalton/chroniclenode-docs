@@ -99,6 +99,7 @@ const basicSystems = [
           page('Add Object', '/basic/world/add-object'),
           page('The Unique Object tool', '/basic/world/unique-object-tool'),
           page('Regions', '/basic/world/regions'),
+          page('Movement volumes', '/basic/world/movement-volumes'),
           page('Encounters', '/basic/world/encounters'),
         ],
       },
@@ -325,6 +326,7 @@ const worldAdvanced = {
     page('Add Object', '/advanced/world/add-object', { title: 'Add Object: how it is built' }),
     page('The Unique Object tool', '/advanced/world/unique-object-tool', { title: 'The Unique Object tool: how it is built' }),
     page('Regions', '/advanced/world/regions', { title: 'Regions: how they are built' }),
+    page('Movement volumes', '/advanced/world/movement-volumes', { title: 'Movement volumes: how they are built' }),
     page('Encounters', '/advanced/world/encounters', { title: 'Encounters: how they are built' }),
   ],
 }
@@ -407,7 +409,6 @@ export const sidebar = [
     collapsed: true,
     items: [
       page('About the planned features', '/planned/', { title: 'Planned features' }),
-      page('Water and swimming', '/planned/water-and-swimming'),
       page('Flying', '/planned/flying'),
       page('Mounts', '/planned/mounts'),
       page('The World Builder', '/planned/world-builder'),

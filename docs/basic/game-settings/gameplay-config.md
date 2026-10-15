@@ -12,7 +12,7 @@ The **Gameplay Config** holds the rules of your game that are not about one thin
 | | Leveling, Kill Experience, NPC Level Scaling | [Leveling and experience](/basic/game-settings/leveling-and-experience) |
 | **Combat** | Death & Revival, Threat, Damage Results, Pools | [Combat](/basic/game-settings/gameplay-combat) |
 | | Hit Rules (what can miss, accuracy and evasion, melee and ranged) | [Hit Rules](/basic/game-settings/hit-rules) |
-| **General** | Items & Inventory, [Quests](/basic/events-and-quests/quests), Fog of War, Save/Load Rules | [below](#general) |
+| **General** | Items & Inventory, Dropped Items, Durability, [Quests](/basic/events-and-quests/quests), Fog of War, Breath, Save/Load Rules | [below](#general) |
 | **Visuals** | Rig Markers, Outline Materials, Targeting Visuals, Tactical View Visuals, Target Textures | [below](#visuals) |
 | **NPC LOD System** | LOD distance thresholds, update intervals, batch processing | [below](#npc-lod-system) |
 
@@ -110,6 +110,19 @@ Items that lie in the world: see [Dropped items](/basic/items/dropped-items) for
 | **Max in world** | The most items in the world at once (`0` = no limit); past it the oldest goes | `0` |
 | **Saved to map** | Items dropped while playing are kept in the save and when the player leaves a world and comes back | on |
 | **Scene** | The scene a dropped item is made from (empty = the one of the toolkit). Copy `dropped_item.tscn` to change how it looks; see [how they are built](/advanced/items/dropped-items#changing-how-an-item-looks) | the toolkit's |
+
+### Breath
+
+How long an entity can stay under water. A [movement volume](/basic/world/movement-volumes#breath) says *where* an entity must hold its breath; these say *who*, *how long* and *what happens*.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Breath users** | Who holds their breath: **Nobody** (swimming is free), **Players** or **Everyone** (NPCs too) | Players |
+| **Breath duration** | Seconds of breath | `20` |
+| **Breath recovery speed** | How fast the breath returns above the surface, compared with how fast it ran out (`4` = four times as fast) | `4` |
+| **Drowning effect id** | The [effect](/basic/abilities-and-effects/effects) that is on an entity while it has no breath (a damage over time). It comes off when the breath returns. `0` = nothing happens | `0` |
+
+The player sees the breath in the **breath bar** of the [HUD](/basic/user-interface/hud), which shows while the breath is not full.
 
 ### Save/Load rules
 

@@ -13,7 +13,7 @@ A **mount** is something an entity rides. There are two ways to build it, and th
 | **A speed buff** | The mount is a **movement speed** bonus. The rider sits on the mount, using the **seat** that the character rig already has, and moves with its own movement at the new speed | A horse that is mostly faster: simple, and the controls are the ones the player already knows |
 | **Movement of its own** | The mount has **new movement logic** that simulates it: a different turning, acceleration and braking | A horse that feels like a horse, and also a **vehicle**: a cart, a boat, a wagon |
 
-The second way can **include flying and swimming**: a mount that [flies](/planned/flying) or crosses [water](/planned/water-and-swimming), so a griffin and a boat are built with the same pieces.
+The second way can **include flying and swimming**: a mount that [flies](/planned/flying) or crosses [water](/basic/world/movement-volumes), so a griffin and a boat are built with the same pieces.
 
 ## What is there today
 

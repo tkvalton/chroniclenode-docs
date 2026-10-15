@@ -91,6 +91,7 @@ The editor needs to know what an interface scene holds (to check the root class 
 | [ActionBarButton](/advanced/user-interface/hud/action-bar-button) | Modern action bar button that handles both abilities and items |
 | [ActionBarUI](/advanced/user-interface/hud/action-bar-ui) | This class manages the action bar UI, including ability/items slots, resource bars, buff/debuff displays, and cast bar functionality. |
 | [Aura](/advanced/user-interface/hud/aura) | Aura represents and manages a single status effect (buff or debuff) in the game's user interface. |
+| [BreathBarUI](/advanced/user-interface/hud/breath-bar-ui) | The breath of the player that is played: a bar that shows while the breath is not full (under water, or just back from it) and goes again when it is. |
 | [CastBar](/advanced/user-interface/hud/cast-bar) | Modular cast bar component that can be used by ActionBarUI, Nameplate, or any UI Automatically connects to entity casting signals and manages its own display state |
 | [CombatLog](/advanced/user-interface/hud/combat-log) | This class manages the combat log interface, displaying various types of combat information. |
 | [DamageMeterUI](/advanced/user-interface/hud/damage-meter-ui) | This class manages the display of detailed combat statistics, including damage and healing done by each entity. |

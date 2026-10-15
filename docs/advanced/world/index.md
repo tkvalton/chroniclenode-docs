@@ -1,6 +1,6 @@
 # World: how it is built
 
-The [World chapter](/basic/world/) explains the editors. This page is the map of the code: what a world is made of, what happens when one is loaded, and how it is remembered. The other pages of this section cover the editor tools ([Add Object](/advanced/world/add-object), [the Unique Object tool](/advanced/world/unique-object-tool)) and the two placed object types that need a runtime of their own ([Regions](/advanced/world/regions), [Encounters](/advanced/world/encounters)).
+The [World chapter](/basic/world/) explains the editors. This page is the map of the code: what a world is made of, what happens when one is loaded, and how it is remembered. The other pages of this section cover the editor tools ([Add Object](/advanced/world/add-object), [the Unique Object tool](/advanced/world/unique-object-tool)) the placed object types that need a runtime of their own ([Regions](/advanced/world/regions), [Encounters](/advanced/world/encounters)) and the spaces that change how whoever is in them moves ([Movement volumes](/advanced/world/movement-volumes)).
 
 ## The pieces
 
@@ -120,6 +120,8 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [FogOfWarSystem](/advanced/world/runtime/fog-of-war-system) | FogOfWarSystem manages fog of war using a CompositorEffect for rendering. |
 | [HTerrainProvider](/advanced/world/runtime/h-terrain-provider) | Tells which surface type the ground is at a position on a Heightmap Terrain (HTerrain): the texture under the position is looked up in `texture_surface_map`, and `default_surface` is used when it has no entry. |
 | [Light](/advanced/world/runtime/light) | LightEffect manages light sources and associated audio effects in the game world. |
+| [MovementVolume](/advanced/world/runtime/movement-volume) | A space that changes how whoever is in it moves: water to swim in, a room with no gravity, a cloud to fly through, a pool of lava that hurts. |
+| [MovementVolumeCamera](/advanced/world/runtime/movement-volume-camera) | The look the screen gets while the camera is inside a movement volume (underwater: a tint over the screen, fog, muffled sound). |
 | [ObjectRegistry](/advanced/world/runtime/object-registry) | ObjectRegistry - manages all NPCs, Interactables, Regions, and special Encounters with advanced LOD system Integrated with CombatSystem's encounter management for coordinated combat behavior Features configurable LOD system via GameplayConfig, behavior optimization, and comprehensive performance management Handles registration, spawning, interaction tracking, and state management Provides centralized access for quest systems, events, and ability effects |
 | [Region](/advanced/world/runtime/region) | Region node that creates and manages its own RegionData in the database. |
 | [TerraBrushProvider](/advanced/world/runtime/terra-brush-provider) | Tells which surface type the ground is at a position on a TerraBrush terrain: the texture under the position is looked up in `texture_surface_map`, and `default_surface` is used when it has no entry. |

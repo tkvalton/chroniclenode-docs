@@ -4,7 +4,7 @@
 
 **Inherits:** [Control](https://docs.godotengine.org/en/stable/classes/class_control.html)
 
-**Inherited by:** [ActionBarUI](/advanced/user-interface/hud/action-bar-ui), [CombatLog](/advanced/user-interface/hud/combat-log), [DamageMeterUI](/advanced/user-interface/hud/damage-meter-ui), [DamaterBarUI](/advanced/user-interface/hud/damater-bar-ui), [MiniMap](/advanced/user-interface/hud/mini-map), [MiniMenuUI](/advanced/user-interface/hud/mini-menu-ui), [PartyFramesUI](/advanced/user-interface/hud/party-frames-ui), [QuestTrackerUI](/advanced/user-interface/hud/quest-tracker-ui), [UnitFrame](/advanced/user-interface/hud/unit-frame)
+**Inherited by:** [ActionBarUI](/advanced/user-interface/hud/action-bar-ui), [BreathBarUI](/advanced/user-interface/hud/breath-bar-ui), [CombatLog](/advanced/user-interface/hud/combat-log), [DamageMeterUI](/advanced/user-interface/hud/damage-meter-ui), [DamaterBarUI](/advanced/user-interface/hud/damater-bar-ui), [MiniMap](/advanced/user-interface/hud/mini-map), [MiniMenuUI](/advanced/user-interface/hud/mini-menu-ui), [PartyFramesUI](/advanced/user-interface/hud/party-frames-ui), [QuestTrackerUI](/advanced/user-interface/hud/quest-tracker-ui), [UnitFrame](/advanced/user-interface/hud/unit-frame)
 
 Parent class for all HUD UI elements contains useful exports for ui scaling options. All huds elements are detected by the InGameUI class allowing ease of new HUD elements for your game. Make use of available signals and the system hub for your needs
 

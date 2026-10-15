@@ -123,6 +123,10 @@ Configuration for gameplay rules and mechanics
 | `DeathItemLoss` | [death_equipment_loss](#prop-death-equipment-loss) | `DeathItemLoss.KEEP` |
 | `float` | [death_item_loss_chance](#prop-death-item-loss-chance) | `1.0` |
 | `float` | [death_durability_loss](#prop-death-durability-loss) | `0.0` |
+| `BreathUsers` | [breath_users](#prop-breath-users) | `BreathUsers.PLAYERS` |
+| `float` | [breath_duration](#prop-breath-duration) | `20.0` |
+| `float` | [breath_recovery_speed](#prop-breath-recovery-speed) | `4.0` |
+| `int` | [drowning_effect_id](#prop-drowning-effect-id) | `0` |
 | `bool` | [use_threat_system](#prop-use-threat-system) | `true` |
 | `float` | [heal_threat_multiplier](#prop-heal-threat-multiplier) | `0.5` |
 | `float` | [damage_threat_multiplier](#prop-damage-threat-multiplier) | `1.0` |
@@ -368,6 +372,14 @@ What happens to the items of a player who dies: they are kept, dropped on the gr
 - **KEEP** = `0`
 - **DROP** = `1`
 - **DESTROY** = `2`
+
+### enum BreathUsers {#enum-breathusers}
+
+Who has to hold its breath where a movement volume asks for it (under water): nobody (breath is off), only the players, or everyone
+
+- **NOBODY** = `0`
+- **PLAYERS** = `1`
+- **EVERYONE** = `2`
 
 ## Constants
 
@@ -874,6 +886,24 @@ What share of the stacks in the bag, and of the pieces of equipment, is lost on 
 ### float death_durability_loss = 0.0 {#prop-death-durability-loss}
 
 The share of its maximum durability that every worn piece loses when the player dies (0 = none, 0.25 = a quarter). Needs durability on
+
+*Breath*
+
+### BreathUsers breath_users = BreathUsers.PLAYERS {#prop-breath-users}
+
+Who has to hold its breath under water (see Movement Volumes). Nobody: swimming is free
+
+### float breath_duration = 20.0 {#prop-breath-duration}
+
+How many seconds an entity can hold its breath
+
+### float breath_recovery_speed = 4.0 {#prop-breath-recovery-speed}
+
+How fast the breath comes back above the surface compared with how fast it runs out (4 = four times as fast)
+
+### int drowning_effect_id = 0 {#prop-drowning-effect-id}
+
+The effect that is on an entity while it has no breath left (damage over time: it drowns). It is taken off when the breath comes back. 0 = nothing happens
 
 *Threat*
 
