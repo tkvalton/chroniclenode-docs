@@ -97,6 +97,7 @@ Texts, voice lines and display names are arrays with one entry per language.
 | [BehaviorTask](/advanced/behaviors/tasks/behavior-task) | Enhanced BehaviorTask base class with comprehensive features and robust integration. |
 | [ConsumeItemTask](/advanced/behaviors/tasks/consume-item-task) | Consume consumable items from the entity's inventory |
 | [CreateItemTask](/advanced/behaviors/tasks/create-item-task) | Emit signals for item creation instead of directly creating items Allows external systems to handle item creation logic (inventory, drops, rewards, etc.) Focuses on single item creation with configurable quantity |
+| [DropItemTask](/advanced/behaviors/tasks/drop-item-task) | The entity puts an item on the ground where it stands: a farmer who leaves a crate, a thief who drops loot. |
 | [EquipItemTask](/advanced/behaviors/tasks/equip-item-task) | Equip or unequip equipment items from the entity's inventory |
 | [FollowEntityTask](/advanced/behaviors/tasks/follow-entity-task) | Follow an entity by unique ID with proper validation and error handling. |
 | [IdleTask](/advanced/behaviors/tasks/idle-task) | Modern IdleTask focused purely on positioning and waiting behavior. |

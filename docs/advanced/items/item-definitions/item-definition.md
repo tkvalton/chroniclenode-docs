@@ -26,6 +26,9 @@ Base class for all item definitions with integrated Requirement system
 | `int` | [item_level](#prop-item-level) | `1` |
 | `bool` | [scales_with_item_level](#prop-scales-with-item-level) | `false` |
 | `Array[int]` | [groups](#prop-groups) | `[]` |
+| `float` | [dropped_scale](#prop-dropped-scale) | `1.0` |
+| `VFXSelection` | [dropped_vfx](#prop-dropped-vfx) |  |
+| `SFXSelection` | [pickup_sound](#prop-pickup-sound) |  |
 | `Array[Requirement]` | [requirements](#prop-requirements) | `[]` |
 
 ## Methods
@@ -113,6 +116,20 @@ The item scales with the item level it is generated at: its stats (and weapon da
 ### Array[int] groups = [] {#prop-groups}
 
 Groups this item is in (see GroupDefinition): consumables of a group that shares its cooldown go on cooldown together, and ammo or reagent costs can name a group
+
+*Dropped Item*
+
+### float dropped_scale = 1.0 {#prop-dropped-scale}
+
+How big the model (or the picture of the icon) is when the item lies in the world
+
+### VFXSelection dropped_vfx {#prop-dropped-vfx}
+
+A visual effect shown on the item while it lies in the world (a glow, a beam of light). The quality of the item can have one too: both are shown
+
+### SFXSelection pickup_sound {#prop-pickup-sound}
+
+The sound that plays when the item is picked up from the ground
 
 *Requirements*
 

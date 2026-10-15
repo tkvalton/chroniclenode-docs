@@ -111,6 +111,9 @@ Key features:
 | `String` | [get_player_class_name](#method-get-player-class-name)() |
 | `bool` | [has_valid_player_class](#method-has-valid-player-class)() |
 | `void` | [interact](#method-interact)() |
+| `DroppedItem` | [drop_from_bag](#method-drop-from-bag)( `item: ItemInstance, quantity: int = -1` ) |
+| `DroppedItem` | [drop_item_instance](#method-drop-item-instance)( `piece: ItemInstance` ) |
+| `void` | [entity_death](#method-entity-death)( `announce: bool = true` ) |
 | `Dictionary` | [to_save_data](#method-to-save-data)() |
 | `void` | [from_save_data](#method-from-save-data)( `save_data: Dictionary, system_hub: GameHost.SystemHub` ) |
 
@@ -466,6 +469,18 @@ Check if player has a valid PlayerClassDefinition assigned
 ### void interact() {#method-interact}
 
 Performs interaction with the current nearest target
+
+### DroppedItem drop_from_bag( item: ItemInstance, quantity: int = -1 ) {#method-drop-from-bag}
+
+Drops an item of the bag (or part of its stack) on the ground in front of the character. Gives the dropped item, or null when it cannot be dropped: dropped items are off in the Gameplay Config, the item is a key item, or the item is not in the bag
+
+### DroppedItem drop_item_instance( piece: ItemInstance ) {#method-drop-item-instance}
+
+Drops an item that is already out of the bag (dragged out of it, or taken off) on the ground in front of the character
+
+### void entity_death( announce: bool = true ) {#method-entity-death}
+
+A player that dies drops items when the Gameplay Config says so
 
 ### Dictionary to_save_data() {#method-to-save-data}
 

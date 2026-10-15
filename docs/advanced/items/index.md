@@ -121,7 +121,7 @@ Instances save the stack, charges, cooldowns, enchantments with their remaining 
 <!-- classes:items/runtime -->
 | Class | What it is |
 |---|---|
-| [DroppedItem](/advanced/items/runtime/dropped-item) | The body of an item that lies in the world: a rigid body the player can pick up. |
+| [DroppedItem](/advanced/items/runtime/dropped-item) | An item (or a pile of a currency) that lies in the world, where a character can pick it up. |
 | [EquipmentInventoryComponent](/advanced/items/runtime/equipment-inventory-component) | Equipment signals for Entity to connect to Emitted when stat bonuses are applied/removed from equipment |
 | [EquipmentSlotInstance](/advanced/items/runtime/equipment-slot-instance) | Equipment slot for single-item equipment storage |
 | [InventoryComponent](/advanced/items/runtime/inventory-component) | Universal inventory system for storing item instances and currency |

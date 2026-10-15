@@ -10,12 +10,24 @@ Configuration for gameplay rules and mechanics
 
 | | | |
 |---|---|---|
-| `bool` | [dropped_items_enabled](#prop-dropped-items-enabled) | `true` |
-| `DroppedItemsVisualSytle` | [dropped_items_visual_style](#prop-dropped-items-visual-style) | `DroppedItemsVisualSytle.MESH` |
-| `DroppedItemsPickupRule` | [dropped_items_pickup_rule](#prop-dropped-items-pickup-rule) | `DroppedItemsPickupRule.BOTH` |
-| `bool` | [droped_items_saved_to_map](#prop-droped-items-saved-to-map) | `false` |
 | `bool` | [item_weight_enabled](#prop-item-weight-enabled) | `false` |
 | `bool` | [item_durability_enabled](#prop-item-durability-enabled) | `false` |
+| `bool` | [dropped_items_enabled](#prop-dropped-items-enabled) | `true` |
+| `DroppedItemsVisualSytle` | [dropped_items_visual_style](#prop-dropped-items-visual-style) | `DroppedItemsVisualSytle.MESH` |
+| `DroppedItemsPhysics` | [dropped_items_physics](#prop-dropped-items-physics) | `DroppedItemsPhysics.SETTLE_THEN_FREEZE` |
+| `bool` | [dropped_items_pickup_walk_over](#prop-dropped-items-pickup-walk-over) | `true` |
+| `bool` | [dropped_items_pickup_interact](#prop-dropped-items-pickup-interact) | `true` |
+| `bool` | [dropped_items_pickup_mouse_over](#prop-dropped-items-pickup-mouse-over) | `false` |
+| `bool` | [dropped_items_pickup_look_at](#prop-dropped-items-pickup-look-at) | `false` |
+| `float` | [dropped_items_walk_over_radius](#prop-dropped-items-walk-over-radius) | `1.2` |
+| `float` | [dropped_items_mouse_range](#prop-dropped-items-mouse-range) | `5.0` |
+| `float` | [dropped_items_pickup_delay](#prop-dropped-items-pickup-delay) | `1.0` |
+| `float` | [dropped_items_lifetime](#prop-dropped-items-lifetime) | `0.0` |
+| `DroppedItemsLabelMode` | [dropped_items_label_mode](#prop-dropped-items-label-mode) | `DroppedItemsLabelMode.HOVER_AND_TARGET` |
+| `float` | [dropped_items_scatter_radius](#prop-dropped-items-scatter-radius) | `1.0` |
+| `int` | [dropped_items_max_in_world](#prop-dropped-items-max-in-world) | `0` |
+| `bool` | [droped_items_saved_to_map](#prop-droped-items-saved-to-map) | `true` |
+| `PackedScene` | [dropped_items_scene](#prop-dropped-items-scene) |  |
 | `InventoryStyle` | [character_inventory_style](#prop-character-inventory-style) | `InventoryStyle.new()` |
 | `InventoryStyle` | [npc_inventory_style](#prop-npc-inventory-style) | `InventoryStyle.new()` |
 | `InventoryStyle` | [container_inventory_style](#prop-container-inventory-style) | `InventoryStyle.new()` |
@@ -103,6 +115,7 @@ Configuration for gameplay rules and mechanics
 | `float` | [death_gold_penalty](#prop-death-gold-penalty) | `0.1` |
 | `float` | [death_experience_penalty](#prop-death-experience-penalty) | `0.0` |
 | `bool` | [drop_items_on_death](#prop-drop-items-on-death) | `false` |
+| `float` | [death_item_drop_chance](#prop-death-item-drop-chance) | `1.0` |
 | `bool` | [use_threat_system](#prop-use-threat-system) | `true` |
 | `float` | [heal_threat_multiplier](#prop-heal-threat-multiplier) | `0.5` |
 | `float` | [damage_threat_multiplier](#prop-damage-threat-multiplier) | `1.0` |
@@ -190,18 +203,26 @@ Whose level the NPCs scale to
 
 ### enum DroppedItemsVisualSytle {#enum-droppeditemsvisualsytle}
 
-The options of dropped items visual sytle: mesh, sprite.
+What a dropped item looks like: its model, or a flat picture of its icon that always faces the camera.
 
 - **MESH** = `0`
 - **SPRITE** = `1`
 
-### enum DroppedItemsPickupRule {#enum-droppeditemspickuprule}
+### enum DroppedItemsPhysics {#enum-droppeditemsphysics}
 
-The options of dropped items pickup rule: interact, walkover, both.
+What physics does to a dropped item. Place on ground: it is put on the ground under where it is dropped and stays still. Settle then freeze: it is thrown, falls and bounces, and is frozen once it comes to rest. Always simulated: it stays a physics body for as long as it lies there.
 
-- **INTERACT** = `0`
-- **WALKOVER** = `1`
-- **BOTH** = `2`
+- **PLACE_ON_GROUND** = `0`
+- **SETTLE_THEN_FREEZE** = `1`
+- **ALWAYS_SIMULATED** = `2`
+
+### enum DroppedItemsLabelMode {#enum-droppeditemslabelmode}
+
+When the name of a dropped item is shown above it: never, only when it is hovered, looked at or the interact target, or always.
+
+- **NEVER** = `0`
+- **HOVER_AND_TARGET** = `1`
+- **ALWAYS** = `2`
 
 ### enum CombatStyle {#enum-combatstyle}
 
@@ -328,22 +349,6 @@ Fog edge quality - controls smoothness of fog boundaries
 
 *Items &amp; Inventory*
 
-### bool dropped_items_enabled = true {#prop-dropped-items-enabled}
-
-Items can be dropped in the physical world
-
-### DroppedItemsVisualSytle dropped_items_visual_style = DroppedItemsVisualSytle.MESH {#prop-dropped-items-visual-style}
-
-Items can be dropped in the physical world
-
-### DroppedItemsPickupRule dropped_items_pickup_rule = DroppedItemsPickupRule.BOTH {#prop-dropped-items-pickup-rule}
-
-Items can be dropped in the physical world
-
-### bool droped_items_saved_to_map = false {#prop-droped-items-saved-to-map}
-
-Are dropped items saved for maps save data
-
 ### bool item_weight_enabled = false {#prop-item-weight-enabled}
 
 (older switch: weight is a rule of the inventory styles below now, this one is not read)
@@ -351,6 +356,72 @@ Are dropped items saved for maps save data
 ### bool item_durability_enabled = false {#prop-item-durability-enabled}
 
 Items can break/degrade over time
+
+*Dropped Items*
+
+### bool dropped_items_enabled = true {#prop-dropped-items-enabled}
+
+Items can lie in the world: the player can drop them, loot and events can leave them on the ground
+
+### DroppedItemsVisualSytle dropped_items_visual_style = DroppedItemsVisualSytle.MESH {#prop-dropped-items-visual-style}
+
+What a dropped item looks like: the model of the item, or a flat picture of its icon
+
+### DroppedItemsPhysics dropped_items_physics = DroppedItemsPhysics.SETTLE_THEN_FREEZE {#prop-dropped-items-physics}
+
+What physics does to a dropped item (see the options)
+
+### bool dropped_items_pickup_walk_over = true {#prop-dropped-items-pickup-walk-over}
+
+Picking up by walking over the item
+
+### bool dropped_items_pickup_interact = true {#prop-dropped-items-pickup-interact}
+
+Picking up with the interact key when the item is near
+
+### bool dropped_items_pickup_mouse_over = false {#prop-dropped-items-pickup-mouse-over}
+
+Picking up by clicking the item with the mouse (within the mouse range)
+
+### bool dropped_items_pickup_look_at = false {#prop-dropped-items-pickup-look-at}
+
+Picking up what the crosshair is on with the interact key (first person controllers), within the mouse range
+
+### float dropped_items_walk_over_radius = 1.2 {#prop-dropped-items-walk-over-radius}
+
+How close a character must come to pick an item up by walking over it
+
+### float dropped_items_mouse_range = 5.0 {#prop-dropped-items-mouse-range}
+
+How far away an item can be and still be picked up with the mouse or by looking at it
+
+### float dropped_items_pickup_delay = 1.0 {#prop-dropped-items-pickup-delay}
+
+Seconds after an item lands before it can be picked up (so an item that is dropped is not taken straight back)
+
+### float dropped_items_lifetime = 0.0 {#prop-dropped-items-lifetime}
+
+Seconds an item lies in the world before it disappears (0 = for ever)
+
+### DroppedItemsLabelMode dropped_items_label_mode = DroppedItemsLabelMode.HOVER_AND_TARGET {#prop-dropped-items-label-mode}
+
+When the name of a dropped item is shown above it
+
+### float dropped_items_scatter_radius = 1.0 {#prop-dropped-items-scatter-radius}
+
+How far from where they come from several dropped items are scattered
+
+### int dropped_items_max_in_world = 0 {#prop-dropped-items-max-in-world}
+
+The most dropped items in the world at once (0 = no limit). When it is passed the oldest one disappears
+
+### bool droped_items_saved_to_map = true {#prop-droped-items-saved-to-map}
+
+Are dropped items kept in the save and when the player leaves a world and comes back
+
+### PackedScene dropped_items_scene {#prop-dropped-items-scene}
+
+The scene a dropped item is made from (empty = the one of the toolkit). It must have a DroppedItem script on its root: copy the toolkit scene and change how it looks
 
 *Inventory Styles*
 
@@ -738,7 +809,11 @@ Experience penalty on death (percentage lost, 0.0 - 1.0)
 
 ### bool drop_items_on_death = false {#prop-drop-items-on-death}
 
-Items dropped on death
+The player drops items from the bag when dying (see Dropped Items). Equipped items stay
+
+### float death_item_drop_chance = 1.0 {#prop-death-item-drop-chance}
+
+What share of the stacks in the bag is dropped on death (1 = all of them). Key items are never dropped
 
 *Threat*
 

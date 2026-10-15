@@ -266,6 +266,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | Class | What it is |
 |---|---|
 | [EntityDataPropertyEditor](/advanced/editor/viewport-tools/entity-data-property-editor) | Property editor for selecting EntityDefinition using ListCatalog |
+| [IdCatalogPropertyEditor](/advanced/editor/viewport-tools/id-catalog-property-editor) | Property editor for a whole number that is the id of a database entry (an item, a currency): a button that shows its name and opens the searchable catalog, and a clear button (sets 0). |
 | [ModularEquipmentTypeTagPropertyEditor](/advanced/editor/viewport-tools/modular-equipment-type-tag-property-editor) | The inspector editor of the equipment type tag of a modular equipment piece: a drop-down of the tags of the equipment types, which writes the chosen tag to the property. |
 | [SFXSelectionPropertyEditor](/advanced/editor/viewport-tools/sfx-selection-property-editor) | Property editor for SFXSelection resources using SFXSelectionDialog |
 | [UniqueObjectInspectorPlugin](/advanced/editor/viewport-tools/unique-object-inspector-plugin) | The inspector plugin that replaces the properties of a placed NPC, object, encounter, region or modular skeleton with the editors of the Unique Object panel. |

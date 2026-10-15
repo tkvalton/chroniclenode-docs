@@ -17,7 +17,7 @@ A **gathering node**: an ore vein, an herb, a tree to chop, a fishing spot. Usin
 | Field | What it does | Default |
 |---|---|---|
 | **Charges** | How many times the node can be gathered from before it is used up. A mining node of `3` is gone after three gathers | `1` |
-| **Loot mode** | **To the bag**: what a gather rolls goes straight to the gatherer's bag. **Window**: it goes into the inventory of the node and a loot window opens, like a chest (see below) | To the bag |
+| **Loot mode** | **To the bag**: what a gather rolls goes straight to the gatherer's bag. **Window**: it goes into the inventory of the node and a loot window opens, like a chest (see below). **On the ground**: it lies around the node as [dropped items](/basic/items/dropped-items), and a full bag does not stop the gather | To the bag |
 | **Auto close distance** | Window: the window closes when the gatherer walks this far (`2` to `20`) | `4` |
 | **When depleted** | **Stays**: the node stays where it is, cannot be used, and plays its depleted animation. **Disappears**: it cannot be seen, hit or used | Stays |
 | **Respawn seconds** | Game seconds until a used-up node is full again. `0` = never (until an event brings it back) | `0` |

@@ -74,6 +74,7 @@ The options of loot mode: to the bag, window.
 
 - **TO_THE_BAG** = `0` - What a gather rolls goes straight to the bag of the gatherer (all of it, or nothing)
 - **WINDOW** = `1` - What a gather rolls goes into the inventory of the node and its window opens, like a chest. What is not taken stays: the next attempt opens the same window, with no new roll
+- **ON_THE_GROUND** = `2` - What a gather rolls lies on the ground around the node as dropped items (the gatherer picks them up). A bag that is full does not stop the gather
 
 ### enum WhenDepleted {#enum-whendepleted}
 

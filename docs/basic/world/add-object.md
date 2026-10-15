@@ -1,6 +1,6 @@
 # Add Object
 
-When a world scene is open in the 3D viewport, an **Add Object** button appears in the viewport's toolbar. It places the four things a world is made of.
+When a world scene is open in the 3D viewport, an **Add Object** button appears in the viewport's toolbar. It places the things a world is made of.
 
 | Choice | What it places | Where it goes in the scene |
 |---|---|---|
@@ -8,14 +8,16 @@ When a world scene is open in the 3D viewport, an **Add Object** button appears 
 | **Add Interactable** | A chest, door, switch, destructible... A catalog opens to choose its [definition](/basic/entities/interactables) | The *Interactables* node |
 | **Add Region** | An empty [region](/basic/world/regions) | The *Regions* node |
 | **Add Encounter** | An empty [encounter](/basic/world/encounters) | The *Entities* node |
+| **Add Dropped Item** | An item that lies in the world. A catalog opens to choose the item ([Dropped items](/basic/items/dropped-items#placing-an-item-by-hand)) | The *DroppedItems* node |
+| **Add Dropped Currency** | A pile of money that lies in the world. A catalog opens to choose the currency | The *DroppedItems* node |
 
-The containers (*Entities*, *Interactables*, *Regions*) are made for you the first time they are needed. The new node is placed at the origin of the world and **selected**, so you can move it with the gizmo at once. For an NPC, an interactable or an encounter the [Unique Object panel](/basic/world/unique-object-tool) opens for it.
+The containers (*Entities*, *Interactables*, *Regions*, *DroppedItems*) are made for you the first time they are needed. The new node is placed at the origin of the world and **selected**, so you can move it with the gizmo at once. For an NPC, an interactable or an encounter the [Unique Object panel](/basic/world/unique-object-tool) opens for it.
 
 ## What happens to the database
 
 You do not have to do anything for the database. As soon as the node is in a world scene:
 
-- it gets a **unique** (an id, the world it belongs to, its position), which you can see in [Uniques](/basic/world/uniques);
+- it gets a **unique** (an id, the world it belongs to, its position), which you can see in [Uniques](/basic/world/uniques) (a dropped item has no unique: it has a *placement id* of its own, and the game remembers whether it was taken);
 - moving or rotating it updates the unique when you save the scene;
 - deleting it from the scene deletes the unique.
 

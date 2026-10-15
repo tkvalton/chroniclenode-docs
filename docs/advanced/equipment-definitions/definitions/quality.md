@@ -30,6 +30,7 @@ Defines item quality/rarity with display properties Create instances as .tres fi
 | `float` | [vendor_value_multiplier](#prop-vendor-value-multiplier) | `1.0` |
 | `NameMode` | [name_mode](#prop-name-mode) | `NameMode.AFFIXES` |
 | `Array[QualityRule]` | [rules](#prop-rules) | `[]` |
+| `VFXSelection` | [dropped_vfx](#prop-dropped-vfx) |  |
 
 ## Methods
 
@@ -144,6 +145,12 @@ How the name of a generated item is made
 ### Array[QualityRule] rules = [] {#prop-rules}
 
 Custom rules for what the fields above do not cover (each QualityRule gets the item that is being generated)
+
+*Dropped Item*
+
+### VFXSelection dropped_vfx {#prop-dropped-vfx}
+
+A visual effect shown on every item of this quality while it lies in the world (a beam of light for the rare ones). The item can have its own too: both are shown
 
 ## Method descriptions
 

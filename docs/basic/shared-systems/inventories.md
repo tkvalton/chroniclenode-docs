@@ -30,7 +30,7 @@ An [item](/basic/items/items) is **stackable** or not, with a **max stack size**
 ### Taking items out
 
 - Using an item that is consumed shrinks the stack; a **key item** (quest items are key items by default) can **never be discarded**, destroyed or sold.
-- **Discarding** an item destroys it. Putting items on the ground is a [planned feature](/planned/dropped-items).
+- **Discarding** an item destroys it. **Dropping** an item (dragging it out of the windows onto the world) puts it on the ground as a [dropped item](/basic/items/dropped-items), where it can be picked up again.
 - A [quest item](/basic/items/quest-items) can be made to leave the bag when its quest ends ([availability](/basic/items/quest-items#quest-item-availability)).
 
 ### Money

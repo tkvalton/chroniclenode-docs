@@ -71,11 +71,33 @@ How the bags of characters, NPCs and containers work: slots or no limit, weight,
 
 | Field | What it does | Default |
 |---|---|---|
-| **Dropped items enabled**, **visual style** (mesh or sprite), **pickup rule** (interact, walk over, both), **saved to map** | Dropped items in the world | on, mesh, both, off |
 | **Item weight enabled** | An older switch: it is not read any more. Weight is a rule of the [inventory styles](#inventory-styles) | off |
 | **Item durability enabled** | Items wear out | off |
 
-*These items settings are not used yet: they are stored, but nothing reads them. Items have no weight or durability yet, and the switches above do not turn anything on or off (the **Carry Weight** stat is the number of slots of a bag today: see [Inventories](/basic/shared-systems/inventories#the-size-of-a-bag)). Dropped items are a [planned feature](/planned/dropped-items): until it is built an item taken out of a bag is destroyed and loot goes straight into an inventory.*
+*These items settings are not used yet: they are stored, but nothing reads them. Items have no weight or durability yet, and the switches above do not turn anything on or off (the **Carry Weight** stat is the number of slots of a bag today: see [Inventories](/basic/shared-systems/inventories#the-size-of-a-bag)). Dropped items have their own group, below.*
+
+### Dropped items
+
+Items that lie in the world: see [Dropped items](/basic/items/dropped-items) for how they work.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Dropped items enabled** | The switch of the feature. Off: nothing lies in the world, and a loot rule that drops on the ground puts the loot in the inventory of the body | on |
+| **Visual style** | **Mesh**: the model of the item. **Sprite**: a flat picture of its icon that faces the camera | Mesh |
+| **Physics** | **Place on ground**: put under where it is dropped and kept still. **Settle then freeze**: thrown, it falls and bounces, and is frozen once it rests. **Always simulated**: a physics body as long as it lies there | Settle then freeze |
+| **Pickup walk over** | Walking over an item takes it (only the character the player controls) | on |
+| **Pickup interact** | The interact key takes the nearest item | on |
+| **Pickup mouse over** | Clicking an item with the mouse takes it (for games with a visible pointer) | off |
+| **Pickup look at** | The interact key takes the item under the crosshair (for mouse-look games) | off |
+| **Walk over radius** | How close a character must come to take an item by walking over it | `1.2` |
+| **Mouse range** | How far away an item can be and still be taken with the mouse or by looking at it | `5` |
+| **Pickup delay** | Seconds after landing before an item can be taken | `1` |
+| **Lifetime** | Seconds an item lies before it disappears (`0` = for ever) | `0` |
+| **Label mode** | When the name shows above the item: never, when hovered, looked at or the interact target, or always | Hover and target |
+| **Scatter radius** | How far from the place several drops are scattered | `1` |
+| **Max in world** | The most items in the world at once (`0` = no limit); past it the oldest goes | `0` |
+| **Saved to map** | Items dropped while playing are kept in the save and when the player leaves a world and comes back | on |
+| **Scene** | The scene a dropped item is made from (empty = the one of the toolkit). Copy `dropped_item.tscn` to change how it looks; see [how they are built](/advanced/items/dropped-items#changing-how-an-item-looks) | the toolkit's |
 
 ### Save/Load rules
 

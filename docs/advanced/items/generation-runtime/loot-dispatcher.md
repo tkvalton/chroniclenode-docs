@@ -15,6 +15,8 @@ The holder keeps a list of the rule numbers that have rolled (`rolled`): a rule 
 | | |
 |---|---|
 | `int` | [run](#method-run)( `holder: Object, holder_kind: LootLevel.HolderKind, rules: Array, trigger: LootRule.Trigger, inventory: InventoryComponent, rolled: Array, receiver: Entity = null, hub: Variant = null, rng: RandomNumberGenerator = null` ) *static* |
+| `bool` | [can_drop_to_ground](#method-can-drop-to-ground)( `holder: Object, hub: Variant` ) *static* |
+| `Array[DroppedItem]` | [deliver_to_ground](#method-deliver-to-ground)( `drops: Dictionary, position: Vector3, hub: Variant, rng: RandomNumberGenerator = null, launch: bool = true` ) *static* |
 | `Dictionary` | [roll_rule](#method-roll-rule)( `rule: LootRule, holder: Object, holder_kind: LootLevel.HolderKind, receiver: Entity, hub: Variant, rng: RandomNumberGenerator = null` ) *static* |
 | `bool` | [deliver_all_or_nothing](#method-deliver-all-or-nothing)( `drops: Dictionary, inventory: InventoryComponent, rng: RandomNumberGenerator = null` ) *static* |
 | `Array[ItemInstance]` | [deliver](#method-deliver)( `drops: Dictionary, inventory: InventoryComponent, rng: RandomNumberGenerator = null` ) *static* |
@@ -24,6 +26,14 @@ The holder keeps a list of the rule numbers that have rolled (`rolled`): a rule 
 ### int run( holder: Object, holder_kind: LootLevel.HolderKind, rules: Array, trigger: LootRule.Trigger, inventory: InventoryComponent, rolled: Array, receiver: Entity = null, hub: Variant = null, rng: RandomNumberGenerator = null ) {#method-run}
 
 Runs every rule of `trigger`. `rolled` is the holder's list of rolled rule numbers (changed here and saved by the holder). Returns the number of rules that rolled
+
+### bool can_drop_to_ground( holder: Object, hub: Variant ) {#method-can-drop-to-ground}
+
+Can the drops of this holder be put on the ground? The holder is in the world, dropped items are on and the world can hold them
+
+### Array[DroppedItem] deliver_to_ground( drops: Dictionary, position: Vector3, hub: Variant, rng: RandomNumberGenerator = null, launch: bool = true ) {#method-deliver-to-ground}
+
+Puts drops on the ground around a position as dropped items, scattered (a generated item is generated at the item level of its drop, as in `deliver`). Gives the dropped items
 
 ### Dictionary roll_rule( rule: LootRule, holder: Object, holder_kind: LootLevel.HolderKind, receiver: Entity, hub: Variant, rng: RandomNumberGenerator = null ) {#method-roll-rule}
 

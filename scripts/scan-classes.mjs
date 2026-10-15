@@ -215,6 +215,7 @@ const SYSTEMS = {
       { text: 'Actions: general', slug: 'actions-general', dirs: [['data_classes/events/event_actions/general', true]] },
       { text: 'Actions: interactable objects', slug: 'actions-interactable-objects', dirs: [['data_classes/events/event_actions/interactable_objects', true]] },
       { text: 'Actions: interactions', slug: 'actions-interactions', dirs: [['data_classes/events/event_actions/interactions', true]] },
+      { text: 'Actions: items', slug: 'actions-items', dirs: [['data_classes/events/event_actions/items', true]] },
       { text: 'Actions: party', slug: 'actions-party', dirs: [['data_classes/events/event_actions/party', true]] },
       { text: 'Actions: player', slug: 'actions-player', dirs: [['data_classes/events/event_actions/player', true]] },
       { text: 'Actions: quest', slug: 'actions-quest', dirs: [['data_classes/events/event_actions/quest', true]] },

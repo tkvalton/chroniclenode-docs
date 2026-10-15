@@ -110,6 +110,18 @@ Change the [interaction](/basic/entities/npcs) of an NPC or an object.
 | [**Set Primary Interaction**](/advanced/events-and-quests/actions-interactions/set-primary-interaction-action) (`SetPrimaryInteractionAction`) | Set interaction |
 | [**Set Responses By Tag**](/advanced/events-and-quests/actions-interactions/set-responses-by-tag-action) (`SetResponsesByTagAction`) | Enable/disable all responses with a specific tag |
 
+## Items
+
+Put items on the ground.
+
+| Action | What it does |
+|---|---|
+| [**Drop Item**](/advanced/events-and-quests/actions-items/drop-item-action) (`DropItemAction`) | Puts an item (or a pile of a currency) on the ground as a [dropped item](/basic/items/dropped-items): at a position, where an NPC stands or where the player stands. *Launch* throws it up so it falls and bounces; off, it is put down. It fails when dropped items are switched off |
+
+### Drop Item
+
+Fields: **Item** and **Quantity** (and **Item level** for a [generated item](/basic/items/item-generation)), or **Currency** and **Currency amount**; **Place** (*Position*, *At entity* with the unique id of the NPC, or *At player*); **Drop position**; **Launch**. Use it for a quest reward left on a table, a key that falls from the ceiling, coins that spill from a chest.
+
 ## Party
 
 Change the size of the party, or add and remove companions.

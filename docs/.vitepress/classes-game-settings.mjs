@@ -119,6 +119,12 @@ export const groups = [
         "file": "runtime_classes/player/controller/controller_logic.gd"
       },
       {
+        "name": "DroppedItemTargeting",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\player\\controller\\dropped_item_targeting.gd",
+        "file": "runtime_classes/player/controller/dropped_item_targeting.gd"
+      },
+      {
         "name": "FacingMath",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\facing_math.gd",

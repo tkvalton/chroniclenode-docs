@@ -941,6 +941,12 @@ export const groups = [
         "file": "editor_components/inspector_plugins/entity_data_property_editor.gd"
       },
       {
+        "name": "IdCatalogPropertyEditor",
+        "base": "EditorProperty",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\inspector_plugins\\id_catalog_property_editor.gd",
+        "file": "editor_components/inspector_plugins/id_catalog_property_editor.gd"
+      },
+      {
         "name": "ModularEquipmentTypeTagPropertyEditor",
         "base": "EditorProperty",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\inspector_plugins\\modular_equipment_type_tag_property_editor.gd",

@@ -90,6 +90,7 @@ The options of drop target type: inventory slot, equipment slot, vendor slot, ac
 - **ACTION_BAR** = `3`
 - **SOCKET_SLOT** = `4`
 - **INVALID** = `5`
+- **WORLD** = `6`
 
 ## Variable descriptions
 

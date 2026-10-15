@@ -17,6 +17,8 @@ Build [your first item and its loot](/basic/items/first-item): a material, a pot
 | [**Trainers**](/basic/items/trainers) | Lessons that NPCs teach: abilities, ranks, proficiency levels, professions, tiers, specializations, recipes |
 | [**Vendors**](/basic/items/vendors) | A shop: what it stocks, how it restocks, what it pays and what it charges |
 
+Items can also **lie in the world**: see [Dropped items](/basic/items/dropped-items).
+
 ## Authored or generated
 
 An item can be exactly what you wrote (the default), or **generated** when it is given: it rolls its quality and bonuses, and it can scale with the level it is given at. **[Generated Items](/basic/items/item-generation)** explains the whole system and the styles you can build with it, from "hand-made items only" to "random affixes everywhere". [Loot Rules](/basic/items/loot-rules) say when an NPC or an object hands out its loot and at what item level.

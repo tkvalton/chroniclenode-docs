@@ -15,6 +15,7 @@ The loot table says WHAT can drop; the rule says WHEN (the trigger) and at what 
 | | | |
 |---|---|---|
 | `Trigger` | [trigger](#prop-trigger) | `Trigger.ON_DEATH` |
+| `Delivery` | [delivery](#prop-delivery) | `Delivery.INVENTORY` |
 | `int` | [table_id](#prop-table-id) | `0` |
 | `LootTable` | [own_table](#prop-own-table) |  |
 | `LootLevelSource` | [level_source](#prop-level-source) |  |
@@ -44,11 +45,22 @@ The options of trigger: on initialize, on death, on destroyed, on first access, 
 - **ON_FIRST_ACCESS** = `3` - The first time someone opens the inventory: a chest is opened, a pocket is picked, a body is looted. Rolled once and kept
 - **ON_GATHERED** = `4` - Each time a gathering node is gathered from. Rolled again every time and given straight to the bag of the gatherer (no room: nothing is given)
 
+### enum Delivery {#enum-delivery}
+
+Where the drops go: into the inventory of the holder (a body or a chest is looted through its window), or on the ground where the holder is (dropped items)
+
+- **INVENTORY** = `0` - The drops go into the inventory of the holder; the player opens it to take them
+- **GROUND** = `1` - The drops lie on the ground around the holder as dropped items. There is no loot window. Needs On Death or On Destroyed
+
 ## Property descriptions
 
 ### Trigger trigger = Trigger.ON_DEATH {#prop-trigger}
 
 When the rule rolls (on death, on first access, on initialize ...).
+
+### Delivery delivery = Delivery.INVENTORY {#prop-delivery}
+
+Where the drops go: the inventory of the holder, or the ground around it (see Gameplay Config &gt; Dropped Items). On the ground only works for On Death and On Destroyed
 
 ### int table_id = 0 {#prop-table-id}
 

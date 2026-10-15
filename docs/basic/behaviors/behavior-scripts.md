@@ -85,6 +85,7 @@ The kinds of task:
 | **Equip Item** | Equip or unequip an item from its inventory |
 | **Consume Item** | Use up a consumable from its inventory |
 | **Create Item** | Create an item in its inventory (what the world does with it is for your game) |
+| **Drop Item** | Put an item on the ground where the entity stands, taken from its inventory or made new: a farmer who leaves a crate, a thief who drops loot. See [Dropped items](/basic/items/dropped-items) |
 | **Set Metadata** | Write a value on the entity (set, add, remove ...). Conditions can read it, so a task can leave a note for another |
 
 Tasks that point at an object or an entity (*Interact with Object*, *Follow Entity*, *Use Ladder*, *Open Container*) use the unique id of the placed object.

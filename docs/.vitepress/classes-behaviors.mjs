@@ -83,6 +83,12 @@ export const groups = [
         "file": "data_classes/entity/behavior_states/tasks/types/create_item_task.gd"
       },
       {
+        "name": "DropItemTask",
+        "base": "BehaviorTask",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\behavior_states\\tasks\\types\\drop_item_task.gd",
+        "file": "data_classes/entity/behavior_states/tasks/types/drop_item_task.gd"
+      },
+      {
         "name": "EquipItemTask",
         "base": "BehaviorTask",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\behavior_states\\tasks\\types\\equip_item_task.gd",

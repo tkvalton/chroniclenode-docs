@@ -26,6 +26,8 @@ Every builder adds its rows to `container` and calls `on_changed` (no arguments)
 | `LineEdit` | [add_string](#method-add-string)( `container: Container, label_text: String, value: String, on_changed: Callable` ) *static* |
 | `OptionButton` | [add_enum](#method-add-enum)( `container: Container, label_text: String, value: int, hint_string: String, on_changed: Callable` ) *static* |
 | `void` | [add_curve](#method-add-curve)( `container: Container, label_text: String, resource: Resource, property_name: String, on_changed: Callable` ) *static* |
+| `void` | [add_vfx_selection](#method-add-vfx-selection)( `container: Container, label_text: String, current: VFXSelection, on_picked: Callable` ) *static* |
+| `void` | [add_sfx_selection](#method-add-sfx-selection)( `container: Container, label_text: String, current: SFXSelection, on_picked: Callable` ) *static* |
 | `OptionButton` | [add_database_picker](#method-add-database-picker)( `container: Container, label_text: String, database_type: String, current: Resource, none_text: String, on_changed: Callable` ) *static* |
 | `IdMultiSelect` | [add_id_checklist](#method-add-id-checklist)( `container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable, single: bool = false` ) *static* |
 | `void` | [add_id_picker](#method-add-id-picker)( `container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable` ) *static* |
@@ -80,9 +82,17 @@ An enum: `hint_string` is the property hint of an exported enum ("Name:value,Nam
 
 *No description yet.*
 
+### void add_vfx_selection( container: Container, label_text: String, current: VFXSelection, on_picked: Callable ) {#method-add-vfx-selection}
+
+A picker for a resource of a database type (trigger tag, entity tag ...). The current value is the resource itself (null = `none_text`). Returns the OptionButton A row for a visual effect (a VFXSelection): a button that says what is set and opens the visual effect dialog, and a Clear button. `on_picked` gets the selection (null when cleared)
+
+### void add_sfx_selection( container: Container, label_text: String, current: SFXSelection, on_picked: Callable ) {#method-add-sfx-selection}
+
+A row for a sound (an SFXSelection): a button that says what is set and opens the sound dialog, and a Clear button. `on_picked` gets the selection (null when cleared)
+
 ### OptionButton add_database_picker( container: Container, label_text: String, database_type: String, current: Resource, none_text: String, on_changed: Callable ) {#method-add-database-picker}
 
-A picker for a resource of a database type (trigger tag, entity tag ...). The current value is the resource itself (null = `none_text`). Returns the OptionButton
+*No description yet.*
 
 ### IdMultiSelect add_id_checklist( container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable, single: bool = false ) {#method-add-id-checklist}
 

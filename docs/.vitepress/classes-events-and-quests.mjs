@@ -1021,6 +1021,18 @@ export const groups = [
     ]
   },
   {
+    "text": "Actions: items",
+    "slug": "actions-items",
+    "classes": [
+      {
+        "name": "DropItemAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\items\\drop_item_action.gd",
+        "file": "data_classes/events/event_actions/items/drop_item_action.gd"
+      }
+    ]
+  },
+  {
     "text": "Actions: party",
     "slug": "actions-party",
     "classes": [

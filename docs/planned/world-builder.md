@@ -36,4 +36,4 @@ Today, making a switch open a door takes an [event](/basic/events-and-quests/eve
 
 ## Where it will live
 
-The tools will be part of the editor, next to the [tools you already have for the 3D viewport](/basic/world/add-object). Dropped items will get a placement tool of their own: see [dropped items](/planned/dropped-items).
+The tools will be part of the editor, next to the [tools you already have for the 3D viewport](/basic/world/add-object). Dropped items already have a placement tool of their own: see [dropped items](/basic/items/dropped-items#placing-an-item-by-hand).

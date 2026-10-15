@@ -180,6 +180,16 @@ Using the item opens the readable panel at the first page.
 
 A socketable is the **mod** of a socket system, and gems are only the familiar example: the same item can be a rune, a scope, an armor plate or a chip, whatever the sockets of your equipment take (see [Socket](/basic/equipment-definitions/socket#what-you-can-build-with-it)). It cannot be used by itself. Taking a mod out of a worn item takes its effect with it; when an item is displaced its mods and enchantments go with it.
 
+## Dropped item
+
+How the item looks and sounds when it lies in the world ([Dropped items](/basic/items/dropped-items)). It shows in every kind of item.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Size on the ground** | How big the model (or the picture of the icon) is when the item lies in the world | `1` |
+| **Visual effect** | A visual effect shown on the item while it lies there: a glow, a beam of light. The [quality](/basic/equipment-definitions/quality) can have one too, and both show | none |
+| **Pick up sound** | The sound that plays when the item is picked up from the ground | none |
+
 ## See also
 
 - [Generated Items](/basic/items/item-generation), [Affixes](/basic/items/affixes), [Quality](/basic/equipment-definitions/quality)

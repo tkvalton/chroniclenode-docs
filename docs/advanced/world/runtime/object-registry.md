@@ -16,6 +16,9 @@ ObjectRegistry - manages all NPCs, Interactables, Regions, and special Encounter
 | `Array[Encounter]` | [dynamic_encounters](#var-dynamic-encounters) | `[]` |
 | `Dictionary` | [placed_interactables](#var-placed-interactables) | `{}` |
 | `Dictionary` | [dynamic_interactables](#var-dynamic-interactables) | `{}` |
+| `Dictionary` | [placed_dropped_items](#var-placed-dropped-items) | `{}` |
+| `Dictionary` | [dynamic_dropped_items](#var-dynamic-dropped-items) | `{}` |
+| `Dictionary` | [taken_placements](#var-taken-placements) | `{}` |
 | `Dictionary` | [regions](#var-regions) | `{}` |
 | `Dictionary` | [active_controllers](#var-active-controllers) | `{}` |
 | `Dictionary` | [entity_lod_levels](#var-entity-lod-levels) | `{}` |
@@ -34,7 +37,7 @@ ObjectRegistry - manages all NPCs, Interactables, Regions, and special Encounter
 | | |
 |---|---|
 | `void` | [process_lod](#method-process-lod)( `delta: float` ) |
-| `void` | [register_world_objects](#method-register-world-objects)( `entities: Array, interactables: Array, regions: Array, encounters: Array` ) |
+| `void` | [register_world_objects](#method-register-world-objects)( `entities: Array, interactables: Array, regions: Array, encounters: Array, dropped_items: Array = []` ) |
 | `void` | [register_entity](#method-register-entity)( `entity: Entity` ) |
 | `Entity` | [get_entity](#method-get-entity)( `entity_unique_id: int` ) |
 | `Array[Entity]` | [get_entities_by_data_id](#method-get-entities-by-data-id)( `definition_id: int` ) |
@@ -66,6 +69,11 @@ ObjectRegistry - manages all NPCs, Interactables, Regions, and special Encounter
 | `InteractableObject` | [spawn_interactable](#method-spawn-interactable)( `interactable_id: int, position: Vector3, summoner: Entity = null` ) |
 | `Entity` | [spawn_dynamic_entity](#method-spawn-dynamic-entity)( `definition: EntityDefinition, position: Vector3, summoner: Entity = null` ) |
 | `InteractableObject` | [spawn_dynamic_interactable](#method-spawn-dynamic-interactable)( `definition: InteractableDefinition, position: Vector3, summoner: Entity = null` ) |
+| `DroppedItem` | [spawn_dropped_item](#method-spawn-dropped-item)( `instance: ItemInstance, position: Vector3, launch: bool = true, velocity: Vector3 = Vector3.ZERO` ) |
+| `DroppedItem` | [spawn_dropped_currency](#method-spawn-dropped-currency)( `currency_id: int, amount: int, position: Vector3, launch: bool = true` ) |
+| `void` | [register_dropped_item](#method-register-dropped-item)( `dropped: DroppedItem, launch: bool = false, velocity: Vector3 = Vector3.ZERO, restoring: bool = false` ) |
+| `void` | [on_dropped_item_finished](#method-on-dropped-item-finished)( `dropped: DroppedItem, was_taken: bool` ) |
+| `Array[DroppedItem]` | [get_all_dropped_items](#method-get-all-dropped-items)() |
 | `Dictionary` | [to_save_data](#method-to-save-data)() |
 | `void` | [from_save_data](#method-from-save-data)( `save_data: Dictionary, system_hub: GameHost.SystemHub` ) |
 | `void` | [clear_all](#method-clear-all)() |
@@ -87,6 +95,14 @@ Emitted when an object is added to the registry.
 ### interactable_unregistered( interactable: InteractableObject ) {#signal-interactable-unregistered}
 
 Emitted when an object is removed from the registry.
+
+### dropped_item_registered( dropped: DroppedItem ) {#signal-dropped-item-registered}
+
+Emitted when a dropped item is put in the world.
+
+### dropped_item_unregistered( dropped: DroppedItem, was_taken: bool ) {#signal-dropped-item-unregistered}
+
+Emitted when a dropped item leaves the world: taken (a character took it) or not (it expired or was removed).
 
 ## Variable descriptions
 
@@ -113,6 +129,18 @@ Dictionary of placed interactables keyed by unique_id for fast lookups
 ### Dictionary dynamic_interactables =  {#var-dynamic-interactables}
 
 Dictionary of dynamic interactables keyed by instance_id (no UniqueInteractableData)
+
+### Dictionary placed_dropped_items =  {#var-placed-dropped-items}
+
+Dropped items placed by hand in the world scene, by their placement id
+
+### Dictionary dynamic_dropped_items =  {#var-dynamic-dropped-items}
+
+Dropped items made while the game runs (dropped by the player, loot, events), by instance id
+
+### Dictionary taken_placements =  {#var-taken-placements}
+
+The placed dropped items that were taken, by placement id: the seconds until they lie there again (-1 = never)
 
 ### Dictionary regions =  {#var-regions}
 
@@ -168,7 +196,7 @@ Track active interactions across all NPCs
 
 Thins out the behaviour of what is far from the player (called every frame by the WorldContainer: a RefCounted has no process of its own)
 
-### void register_world_objects( entities: Array, interactables: Array, regions: Array, encounters: Array ) {#method-register-world-objects}
+### void register_world_objects( entities: Array, interactables: Array, regions: Array, encounters: Array, dropped_items: Array = [] ) {#method-register-world-objects}
 
 Register all world objects at once (called by WorldContainer after world loads) This handles pre-placed objects from the WorldScene containers
 
@@ -295,6 +323,26 @@ Spawn dynamic entity (for save/load restoration of dynamic NPCs) This spawns an 
 ### InteractableObject spawn_dynamic_interactable( definition: InteractableDefinition, position: Vector3, summoner: Entity = null ) {#method-spawn-dynamic-interactable}
 
 Spawn dynamic interactable (for save/load restoration of dynamic interactables) This spawns an interactable without UniqueInteractableData (dynamic interactable)
+
+### DroppedItem spawn_dropped_item( instance: ItemInstance, position: Vector3, launch: bool = true, velocity: Vector3 = Vector3.ZERO ) {#method-spawn-dropped-item}
+
+Makes an item lie in the world: a dropped item of the item instance at a position, thrown (`launch`) or put there. Gives it, or null when dropped items are off in the Gameplay Config or the world cannot hold it
+
+### DroppedItem spawn_dropped_currency( currency_id: int, amount: int, position: Vector3, launch: bool = true ) {#method-spawn-dropped-currency}
+
+Makes a pile of a currency lie in the world, like `spawn_dropped_item`
+
+### void register_dropped_item( dropped: DroppedItem, launch: bool = false, velocity: Vector3 = Vector3.ZERO, restoring: bool = false ) {#method-register-dropped-item}
+
+Puts a dropped item in the registry: one placed by hand (it has a placement id) or one made while playing. A placed item that was taken stays taken
+
+### void on_dropped_item_finished( dropped: DroppedItem, was_taken: bool ) {#method-on-dropped-item-finished}
+
+Called by a dropped item when it is gone: a placed one is remembered as taken (and comes back after its respawn time), a made one is forgotten
+
+### Array[DroppedItem] get_all_dropped_items() {#method-get-all-dropped-items}
+
+Every dropped item that lies in the world now
 
 ### Dictionary to_save_data() {#method-to-save-data}
 
