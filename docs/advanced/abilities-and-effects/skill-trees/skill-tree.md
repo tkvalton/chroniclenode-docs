@@ -13,6 +13,10 @@ Main container for skill trees with nodes and connections
 | `CompressedTexture2D` | [background_texture](#prop-background-texture) |  |
 | `Color` | [background_color](#prop-background-color) | `Color(0.15, 0.15, 0.15, 1.0)` |
 | `Color` | [tree_tint_color](#prop-tree-tint-color) | `Color.WHITE` |
+| `Array[Requirement]` | [requirements](#prop-requirements) | `[]` |
+| `LockedDisplay` | [locked_display](#prop-locked-display) | `LockedDisplay.SHOW` |
+| `String` | [dedication_group](#prop-dedication-group) | `""` |
+| `int` | [dedication_points](#prop-dedication-points) | `0` |
 | `Array[SkillNode]` | [skill_nodes](#prop-skill-nodes) | `[]` |
 | `Array[SkillConnection]` | [node_connections](#prop-node-connections) | `[]` |
 | `Dictionary` | [visual_layout_data](#prop-visual-layout-data) | `{}  # Store any editor metadata` |
@@ -46,6 +50,15 @@ Main container for skill trees with nodes and connections
 | `Array[Dictionary]` | [validate](#method-validate)() |
 | `bool` | [is_valid](#method-is-valid)() |
 
+## Enumerations
+
+### enum LockedDisplay {#enum-lockeddisplay}
+
+What a tree shows when the player cannot spend points in it yet
+
+- **SHOW** = `0` - The tree is listed, locked, with the reason
+- **HIDE** = `1` - The tree is not listed until it opens
+
 ## Property descriptions
 
 ### CompressedTexture2D background_texture {#prop-background-texture}
@@ -59,6 +72,22 @@ Fallback background color if no texture
 ### Color tree_tint_color = Color.WHITE {#prop-tree-tint-color}
 
 Tint color overlay for theming
+
+### Array[Requirement] requirements = [] {#prop-requirements}
+
+Requirements the player must meet before points can be spent in this tree (all of them). Use them to open a tree with another one ("31 points in the first tree"), with the choice of a node ("the Fire tree needs the Fire specialization"), a level, a quest or a faction. Points already spent stay when a tree locks again
+
+### LockedDisplay locked_display = LockedDisplay.SHOW {#prop-locked-display}
+
+A tree that is locked: shown with the reason, or hidden
+
+### String dedication_group = "" {#prop-dedication-group}
+
+Dedication: trees of the same group are one choice. A group name ("talents"), empty = none. The first tree of the group the player puts points in is the one they dedicate to: the others stay locked until a tree of the group has "Dedication points" spent in it (Cataclysm: 31)
+
+### int dedication_points = 0 {#prop-dedication-points}
+
+The points a tree of the dedication group needs before the others open
 
 ### Array[SkillNode] skill_nodes = [] {#prop-skill-nodes}
 

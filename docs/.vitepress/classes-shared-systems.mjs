@@ -77,10 +77,22 @@ export const groups = [
         "file": "data_classes/requirements/types/requirement_response_seen.gd"
       },
       {
+        "name": "RequirementSkillNode",
+        "base": "Requirement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\requirements\\types\\requirement_skill_node.gd",
+        "file": "data_classes/requirements/types/requirement_skill_node.gd"
+      },
+      {
         "name": "RequirementSkillTier",
         "base": "Requirement",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\requirements\\types\\requirement_skill_tier.gd",
         "file": "data_classes/requirements/types/requirement_skill_tier.gd"
+      },
+      {
+        "name": "RequirementSkillTreePoints",
+        "base": "Requirement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\requirements\\types\\requirement_skill_tree_points.gd",
+        "file": "data_classes/requirements/types/requirement_skill_tree_points.gd"
       },
       {
         "name": "RequirementSpecialization",

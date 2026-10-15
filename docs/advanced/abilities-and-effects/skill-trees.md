@@ -26,11 +26,17 @@ A `SkillConnection` has `from_node_id`, `to_node_id`, `connection_type` (`PREREQ
 
 ## The instance
 
-[`Player._initialize_skill_trees`](/advanced/entities/runtime/player) makes a `SkillTreeInstance` for each tree of the player's class (`SkillTreeInstance.create_from_definition`), and a `SkillPointPoolInstance` for every `skill_pool` in the database. Reach them with `player.get_skill_tree_instance(tree_id)` and `player.get_skill_point_pool_instance(pool_id)`.
+[`Player._initialize_skill_trees`](/advanced/entities/runtime/player) makes a `SkillTreeInstance` for each tree of `player.get_skill_tree_definitions()` (the trees of the player's class, then the ones of its `CharacterDefinition.skill_trees`) (`SkillTreeInstance.create_from_definition`), and a `SkillPointPoolInstance` for every `skill_pool` in the database. Reach them with `player.get_skill_tree_instance(tree_id)` and `player.get_skill_point_pool_instance(pool_id)`.
 
 `SkillTreeInstance` keeps `node_states: Dictionary` (node id -> `NodeUnlockState`). A state holds `current_rank`, `choice_index` (for a choice node) and `applied_rewards_by_rank`: for every rank, the reward records (`reward`, `reward_index`, `tracking_data`, `applied_at`) so that a refund can undo exactly what was given.
 
 `SkillPointPoolInstance` keeps `total_points_earned` and `points_spent`; `get_available_points()` is the difference. A pool with `max_total_points` caps what can be earned (`is_at_cap`, `get_remaining_capacity`).
+
+### Availability, refunds and dedication
+
+A tree has `requirements: Array[Requirement]`, `locked_display`, `dedication_group` and `dedication_points`. `SkillTreeInstance.get_availability(player)` answers `{"available", "reason"}`: the requirements (`RequirementChecker.check_all`, with `RequirementSkillTreePoints` and `RequirementSkillNode` made for trees), then the dedication of the group (a tree with no points is open when none of its group has points, or when one has `dedication_points`). `can_unlock_node` returns the reason of a locked tree. Points already in a tree stay when it locks.
+
+`can_refund_node(node_id, full_refund)` returns `{"can_refund", "reason", "also_refunded"}`. `get_refund_cascade(node_id)` lists the unlocked nodes that need the node (a prerequisite connection or `required_nodes`), and those that need them, deepest first; `refund_node_rank` checks `can_refund_node` and refunds them first (rank, rewards and points, one `_refund_rank` each). A refund is refused when a node that stays would be left with fewer points in the tree than its `required_points_in_tree` (the points of the node itself do not count), or when a node in the cascade has `can_refund` off or rewards that cannot be undone.
 
 ### The calls
 

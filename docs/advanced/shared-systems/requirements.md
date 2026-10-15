@@ -95,7 +95,9 @@ func get_summary() -> String:
 | [RequirementProfession](/advanced/shared-systems/requirements/requirement-profession) | Needs a profession (a craft school): learned, and optionally at a skill level or in a tier. |
 | [RequirementProficiency](/advanced/shared-systems/requirements/requirement-proficiency) | Requires a level in a proficiency (swords, heavy armor, lockpicking): "needs Plate 25 to wear this". |
 | [RequirementResponseSeen](/advanced/shared-systems/requirements/requirement-response-seen) | Requirement that checks if a player has seen/selected a specific response Useful for branching conversations based on player choices |
+| [RequirementSkillNode](/advanced/shared-systems/requirements/requirement-skill-node) | Needs a node of a skill tree to be unlocked (a rank of it, or one choice of a choice node), or needs that it is NOT. |
 | [RequirementSkillTier](/advanced/shared-systems/requirements/requirement-skill-tier) | Needs a proficiency or a profession to be in a tier (Journeyman or higher), or to be at the cap of its tier (ready to be trained further). |
+| [RequirementSkillTreePoints](/advanced/shared-systems/requirements/requirement-skill-tree-points) | Needs a number of points spent in a skill tree of the player (and optionally not more than a number). |
 | [RequirementSpecialization](/advanced/shared-systems/requirements/requirement-specialization) | Needs a specialization of a proficiency or a profession (or needs that the character does NOT have it). |
 | [RequirementStat](/advanced/shared-systems/requirements/requirement-stat) | Requires entity to have a minimum value in a specific stat |
 | [RequirementWeapon](/advanced/shared-systems/requirements/requirement-weapon) | Requires entity to have specific weapon types equipped |

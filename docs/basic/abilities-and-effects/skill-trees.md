@@ -8,20 +8,16 @@ A tree is given to a [player class](/basic/entities/player-classes#skill-trees).
 
 ## Where trees can be used
 
-A tree is a resource of its own, so you can make as many as you like: one for the class, one for each branch of the class, one for a profession. What a tree can be **attached to** today is narrower:
+A tree is a resource of its own, so you can make as many as you like: one for the class, one for each branch of the class, one for a profession. A tree is **listed** by something that can hold trees, and every player that has it gets a copy with their own points and ranks.
 
-| | Works today |
+| Held by | How |
 |---|---|
-| **A player class** | Yes. The class lists its trees (the **Skill Trees** section of the class editor). Every character of the class gets a copy of each tree at the start of the game, with its own points and ranks |
-| **Several trees on one class** | Yes. The skill window has a **dropdown** with the trees of the class. A *class tree* and a tree for each *specialization* are simply several trees of the class, all there from the start |
-| **A choice inside a tree** | Yes. A **choice node** (one of several options) or two branches joined by a **mutually exclusive** connection are the way to make a specialization *inside* one tree |
+| **A player class** | The **Skill Trees** section of the class editor. Every character of the class gets the trees |
+| **A character** | The **Skill Trees** section of the [Playable Character](/basic/entities/playable-character) editor: trees on top of the class's, for a general tree that does not belong to a class |
 
-Not built yet:
+The skill window has a **dropdown** with all the trees of the player (the class's, then the character's). A tree that is **locked** is listed as *(locked)* with the reason as a tooltip, or left out when the tree is set to hide.
 
-- **A tree for something that is not a class**: a single character, a profession, a faction, a race or an item. The class is the only place that lists trees. (The craft school editor has a *skill tree* field, but nothing reads it.)
-- **Giving or taking a tree while the game runs.** No reward, quest or event adds a tree to a character, so a tree cannot appear when a specialization is chosen, a profession is learned or a faction likes the player.
-- **A tree that is locked until something is true.** Level, prerequisites and points are rules of a **node**; a tree itself has no requirements and always shows.
-- **A specialization that picks one tree and hides the others.** The class [specializations](/basic/shared-systems/skill-tiers-and-specializations) are a separate system, for proficiencies and professions; they do not choose skill trees. Mutually exclusive connections only work between nodes of the **same** tree.
+Not built yet: trees listed by a **profession** or a **faction**, and a reward that gives or takes a tree while the game runs.
 
 ## The three pieces
 
@@ -60,6 +56,41 @@ Taking away the reward (a respec) takes the points away again.
 | **Tree structure** | The nodes as a list |
 | **Visual editor** | The canvas: drag nodes where you want them, click a node or a line to edit it |
 | **Properties** | The properties of the node or connection you selected |
+
+## Tree rules
+
+The **Tree rules** section of the editor decides when the player can spend points in the tree. A tree that does not meet them is **locked**: points already in it stay, but no more go in.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Requirements** | A list of [requirements](/basic/shared-systems/requirements) that must all be met: a level, a quest, a faction, and two made for trees: **Skill Tree Points** (points spent in a tree) and **Skill Node** (a node, or an option of a choice node, is unlocked) | none |
+| **When locked** | **Show it, locked**: the tree is in the list with the reason. **Hide it**: it is not listed until it opens | Show |
+| **Dedication group** | A name. Trees with the same group are one choice: the first tree the player puts points in is the one they **dedicate** to, and the others stay locked until a tree of the group has the **dedication points**. Empty = no group | none |
+| **Dedication points** | The points a tree of the group needs before the other trees open | 0 |
+
+**Validate** reports a requirement that is not filled in, a tree that asks for points in itself (it could never open) and a group with no dedication points.
+
+## Three ways to build a talent system
+
+The same pieces make the three kinds of talent system most players know.
+
+### Three trees, one kind of point (Classic to Wrath)
+
+Make three trees and give them to the class. Make one skill point pool and give a point at every level (a Skill Point reward in the [class level rewards](/basic/entities/player-classes#level-rewards)). Every node costs one point of that pool. A node asks for *points in the tree* before it (the **Required points in tree** field: `5` for the second row, `10` for the third). It counts the points of **its own tree**, which is why these are three trees: in one tree the gate would count all three branches.
+
+Refunding follows the same rule: a point cannot be taken out of a row if that would leave a node below it without the points it asks for.
+
+### Dedicate to one tree first (Cataclysm)
+
+The same three trees and the same pool, and the **same dedication group** (say *talents*) with **dedication points** `31` on each. The first tree the player puts points in is the one they dedicate to; the other two are locked, with the reason *Spend 31 points in Fire first*, until it has 31. Then all three are open.
+
+### A class tree and a specialization tree (Dragonflight)
+
+- A **class tree** on the *Class Points* pool.
+- A small tree *Specialization* with one **choice node** that costs nothing (no point pool), with one option for each specialization.
+- One tree per specialization, each on its own pool (*Fire Points*, *Frost Points*, *Arcane Points*), and each with the requirement **Skill Node**: *Specialization*, option *Fire* (and so on).
+
+The player picks a specialization with the choice node and only that specialization's tree opens. Changing the choice (a choice node can be changed for free) opens another tree and locks the first, **keeping the points in it**: change back and they are there. Give every pool the same level rewards, so each specialization has its own points to spend. A single pool for all of them would make the points of one specialization unavailable to another.
 
 ## Nodes
 
@@ -116,7 +147,7 @@ A connection can have a line color, a width, and a curve (with a curve strength)
 
 ## What the player can unlock
 
-A node can be unlocked when **all** of these hold:
+A node can be unlocked when its **tree is open** (see [Tree rules](#tree-rules)) and **all** of these hold:
 
 1. It is not already at its maximum rank.
 2. The player's **level** is at least its required level.
@@ -128,7 +159,8 @@ A node can be unlocked when **all** of these hold:
 
 ## Refunds and respecs
 
-- **Refund** takes one rank of a node back (or all its ranks) and returns the points. It is refused when the node has **Can refund** off, or when another unlocked node depends on it (it is a prerequisite of it).
+- **Refund** takes one rank of a node back (or all its ranks) and returns the points. It is refused when the node has **Can refund** off, or when a point gate would break: another unlocked node asks for more points in the tree than would stay.
+- A node that goes back to rank 0 **takes with it every unlocked node that needs it** (a prerequisite connection, or the node is in its required nodes), and the nodes that need those. The points of all of them come back, and the window says which nodes went. A node that cannot be refunded stops the whole refund.
 - **Reset the tree** takes everything back and returns all the points.
 - A refund also takes the rewards away. A reward that cannot be undone stays, and the skill window can ask the tree which nodes have such rewards (`can_respec_node`) to warn the player.
 - **Changing a choice** swaps the rewards of the old option for the new one's without a cost.

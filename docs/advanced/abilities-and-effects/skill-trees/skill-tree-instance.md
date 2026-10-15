@@ -28,11 +28,13 @@ Runtime instance tracking state of a skill tree for a player
 | `int` | [get_total_points_spent](#method-get-total-points-spent)() |
 | `int` | [get_total_points_spent_from_pool](#method-get-total-points-spent-from-pool)( `pool_id: int` ) |
 | `Dictionary` | [get_points_spent_by_pool](#method-get-points-spent-by-pool)() |
+| `Dictionary` | [get_availability](#method-get-availability)( `player: Player = null` ) |
 | `Dictionary` | [can_unlock_node](#method-can-unlock-node)( `node_id: int, player: Player = null` ) |
 | `Array[SkillNode]` | [get_available_nodes](#method-get-available-nodes)( `player: Player` ) |
 | `bool` | [unlock_node_rank](#method-unlock-node-rank)( `node_id: int, choice_index: int = -1, player: Player = null` ) |
 | `bool` | [refund_node_rank](#method-refund-node-rank)( `node_id: int, player: Player = null, full_refund: bool = false` ) |
-| `Dictionary` | [can_refund_node](#method-can-refund-node)( `node_id: int` ) |
+| `Array[int]` | [get_refund_cascade](#method-get-refund-cascade)( `node_id: int` ) |
+| `Dictionary` | [can_refund_node](#method-can-refund-node)( `node_id: int, full_refund: bool = false` ) |
 | `void` | [reset_all_nodes](#method-reset-all-nodes)( `player: Player = null` ) |
 | `bool` | [change_choice_node_selection](#method-change-choice-node-selection)( `node_id: int, new_choice_index: int, player: Player` ) |
 | `bool` | [apply_node_rewards](#method-apply-node-rewards)( `node_id: int, rank: int, player: Player` ) |
@@ -100,6 +102,10 @@ Get total points spent from a specific pool in this tree
 
 Get breakdown of points spent per pool in this tree
 
+### Dictionary get_availability( player: Player = null ) {#method-get-availability}
+
+Can the player spend points in this tree now? The requirements of the tree, and the dedication of its group (the first tree of the group that gets points is the one the player dedicates to: the others open when a tree of the group has the points the group asks for). Points already in a tree keep it open. Returns &#123;"available": bool, "reason": String&#125;. Without a player the tree is available
+
 ### Dictionary can_unlock_node( node_id: int, player: Player = null ) {#method-can-unlock-node}
 
 Check if a node can be unlocked Returns a dictionary with:
@@ -117,14 +123,19 @@ Unlock the next rank of a node For ChoiceSkillNode, choice_index must be provide
 
 ### bool refund_node_rank( node_id: int, player: Player = null, full_refund: bool = false ) {#method-refund-node-rank}
 
-Refund one rank from a node (or all ranks if full_refund is true) If player is provided, rewards will be automatically unapplied Returns true if successful
+Refund one rank from a node (or all ranks if full_refund is true) If player is provided, rewards will be automatically unapplied A node that goes back to rank 0 takes with it every unlocked node that needs it (a prerequisite, a required node), and the ones that need those: see get_refund_cascade. Nothing is refunded when can_refund_node says no. Returns true if successful
 
-### Dictionary can_refund_node( node_id: int ) {#method-can-refund-node}
+### Array[int] get_refund_cascade( node_id: int ) {#method-get-refund-cascade}
 
-Check if a node can be refunded Returns a dictionary with:
+The unlocked nodes that go back with this one when it is refunded: every node that needs it (a prerequisite connection, or it is in the required nodes of the node), and the nodes that need those, deepest first. The node itself is not in the list
+
+### Dictionary can_refund_node( node_id: int, full_refund: bool = false ) {#method-can-refund-node}
+
+Check if a node can be refunded. `full_refund`: all its ranks (a node with one rank is always refunded whole) Returns a dictionary with:
 
 - can_refund: bool
 - reason: String (if can_refund is false)
+- also_refunded: Array[int] the nodes that go back with it (see get_refund_cascade), when it can
 
 ### void reset_all_nodes( player: Player = null ) {#method-reset-all-nodes}
 

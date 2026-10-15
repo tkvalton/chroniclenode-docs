@@ -64,6 +64,7 @@ Key features:
 | `bool` | [is_companion](#method-is-companion)() |
 | `void` | [initialize_entity](#method-initialize-entity)( `system_hub: GameHost.SystemHub` ) |
 | `void` | [equip_starting_gear](#method-equip-starting-gear)() |
+| `Array[SkillTree]` | [get_skill_tree_definitions](#method-get-skill-tree-definitions)() |
 | `SkillTreeInstance` | [get_skill_tree_instance](#method-get-skill-tree-instance)( `tree_id: int` ) |
 | `SkillPointPoolInstance` | [get_skill_point_pool_instance](#method-get-skill-point-pool-instance)( `pool_id: int` ) |
 | `bool` | [can_spend_from_pool](#method-can-spend-from-pool)( `pool_def: SkillPointPool, amount: int = 1` ) |
@@ -267,6 +268,10 @@ Initializes the player entity, extending the base entity initialization
 ### void equip_starting_gear() {#method-equip-starting-gear}
 
 Equip starting gear from CharacterDefinition override or PlayerClassDefinition Called by PartyManager after player is in the scene tree so rig mesh assignments work
+
+### Array[SkillTree] get_skill_tree_definitions() {#method-get-skill-tree-definitions}
+
+The skill trees this player has: the trees of its class, then the ones of its character (each once)
 
 ### SkillTreeInstance get_skill_tree_instance( tree_id: int ) {#method-get-skill-tree-instance}
 

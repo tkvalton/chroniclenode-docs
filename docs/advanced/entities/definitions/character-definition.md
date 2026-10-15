@@ -13,6 +13,7 @@ Character Definition - Unique template for creating player characters References
 | | | |
 |---|---|---|
 | `int` | [player_class](#prop-player-class) | `0` |
+| `Array[int]` | [skill_trees](#prop-skill-trees) | `[]` |
 | `int` | [starting_level](#prop-starting-level) | `0` |
 | `Dictionary` | [equipment_override](#prop-equipment-override) | `{}` |
 | `Dictionary` | [inventory](#prop-inventory) | `{ ... }` |
@@ -64,6 +65,12 @@ Character Definition - Unique template for creating player characters References
 ### int player_class = 0 {#prop-player-class}
 
 PlayerClassDefinition this character is based on (required)
+
+*Skill Trees*
+
+### Array[int] skill_trees = [] {#prop-skill-trees}
+
+Skill trees of this character, on top of the trees of the class (a general tree that is not tied to a class). Ids of the skill_tree type
 
 *Starting Configuration*
 

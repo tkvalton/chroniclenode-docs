@@ -130,6 +130,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [NpcEditor](/advanced/editor/entities/npc-editor) | Entity Editor for managing NPCDefinitions resources |
 | [PlayerClassEditor](/advanced/editor/entities/player-class-editor) | PlayerClassEditor for managing PlayerClassDefinition resources |
 | [PlayerClassLevelRewardEditor](/advanced/editor/entities/player-class-level-reward-editor) | Editor for PlayerClassDefinition level rewards only Experience requirements are now managed in GameplayConfig |
+| [SkillTreeListEditor](/advanced/editor/entities/skill-tree-list-editor) | The list of skill trees of something that can hold trees (a character, and later a profession or a faction): the trees are listed, Add picks one from the catalog and Remove takes the selected one out. |
 | [StarterEquipmentEditor](/advanced/editor/entities/starter-equipment-editor) | The starting equipment of a player class, or the equipment override of a character: one row for each equipment slot, with the item in it, a button to choose another, one to see it and one to take it out. |
 | [StatsDataEditor](/advanced/editor/entities/stats-data-editor) | Unified editor for StatsData configuration Works for both EntityDefinition and InteractableObject stats |
 | [TemplateSection](/advanced/editor/entities/template-section) | The Template section of the NPC and interactable editors: which template the entity follows (and what it changed on top of it), or, when the resource is a template, who uses it. |

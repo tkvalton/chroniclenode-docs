@@ -15,6 +15,7 @@ Look for a **Requirements** list in these editors:
 | Craft Recipes | Who can craft the recipe, on top of knowing it |
 | Craft Schools | What an entity needs to learn the school (**Learning requirements**) |
 | Conversations | Whether a response is offered to the player (**Response requirements**) |
+| [Skill Trees](/basic/abilities-and-effects/skill-trees#tree-rules) | Whether a tree is open: the player can spend points in it only while they are met (**Tree rules**) |
 
 ## How a list is checked
 
@@ -45,7 +46,9 @@ Look for a **Requirements** list in these editors:
 | [RequirementProfession](/advanced/shared-systems/requirements/requirement-profession) | Needs a profession (a craft school): learned, and optionally at a skill level or in a tier. |
 | [RequirementProficiency](/advanced/shared-systems/requirements/requirement-proficiency) | Requires a level in a proficiency (swords, heavy armor, lockpicking): "needs Plate 25 to wear this". |
 | [RequirementResponseSeen](/advanced/shared-systems/requirements/requirement-response-seen) | Requirement that checks if a player has seen/selected a specific response Useful for branching conversations based on player choices |
+| [RequirementSkillNode](/advanced/shared-systems/requirements/requirement-skill-node) | Needs a node of a skill tree to be unlocked (a rank of it, or one choice of a choice node), or needs that it is NOT. |
 | [RequirementSkillTier](/advanced/shared-systems/requirements/requirement-skill-tier) | Needs a proficiency or a profession to be in a tier (Journeyman or higher), or to be at the cap of its tier (ready to be trained further). |
+| [RequirementSkillTreePoints](/advanced/shared-systems/requirements/requirement-skill-tree-points) | Needs a number of points spent in a skill tree of the player (and optionally not more than a number). |
 | [RequirementSpecialization](/advanced/shared-systems/requirements/requirement-specialization) | Needs a specialization of a proficiency or a profession (or needs that the character does NOT have it). |
 | [RequirementStat](/advanced/shared-systems/requirements/requirement-stat) | Requires entity to have a minimum value in a specific stat |
 | [RequirementWeapon](/advanced/shared-systems/requirements/requirement-weapon) | Requires entity to have specific weapon types equipped |
@@ -66,6 +69,8 @@ The fields of each type:
 | **Skill Tier** | **Kind**, **Target**, **Min tier**, **Must be at cap** | A proficiency or profession is in at least a [tier](/basic/shared-systems/skill-tiers-and-specializations), and with **Must be at cap** its level is full too (ready to train the next tier) |
 | **Profession** | **Craft school**, **Min level**, **Min tier** | A [profession](/basic/items/craft-schools) is learned, at a skill level, in a tier |
 | **Specialization** | **Kind**, **Target**, **Specialization**, **Must have** | The character has a [specialization](/basic/shared-systems/skill-tiers-and-specializations#specializations), or (with *Must have* off) does not have it |
+| **Skill Tree Points** | **Skill tree**, **Min points**, **Max points** | The player has spent at least (and optionally at most) that many points in a [skill tree](/basic/abilities-and-effects/skill-trees). *Max points* 0 with *Min points* 0 means "nothing spent in it" |
+| **Skill Node** | **Skill tree**, **Node**, **Min rank**, **Choice**, **Must have** | A node of a skill tree is unlocked (at least that rank), or, for a choice node, that option was picked. With *Must have* off, it must not be |
 | **Knows Ability** | **Ability**, **Min rank** | The character has the ability, at least at the rank |
 | **Knows Recipe** | **Recipe** | The character knows the crafting recipe (learned, or given by the profession or a specialization) |
 | **Response Seen** | **Source type** (NPC or Interactable), the unique id of the NPC or object, **Response id**, **Must have seen** | The player has (or, with **Must have seen** off, has not) picked that answer in that conversation. For branching conversations |

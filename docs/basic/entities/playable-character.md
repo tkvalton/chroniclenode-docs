@@ -44,6 +44,10 @@ Characters are used in three places:
 
 **Equipment properties** replaces the **starting equipment of the class** for this character. Leave it empty and the character wears what its class says. Put an item in a slot and that is what this character wears instead.
 
+## Skill trees
+
+The **Skill Trees** section lists [skill trees](/basic/abilities-and-effects/skill-trees) this character has **on top of** the trees of its class: a general tree that does not belong to a class. **Add skill tree** picks one from the catalog and **Remove** takes it out of the list (the tree is not deleted). The skill window shows the trees of the class and of the character in one dropdown.
+
 ## Entity types
 
 The **Entity type** sits under the starting level. A player character is usually *Humanoid*; conditions that look at the type ("+20 % damage against Beasts") and the effects of the type read it.

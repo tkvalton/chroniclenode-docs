@@ -389,6 +389,12 @@ export const groups = [
         "file": "editor_components/editors/entities/property_editors/level_reward_editor.gd"
       },
       {
+        "name": "SkillTreeListEditor",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\property_editors\\skill_tree_list_editor.gd",
+        "file": "editor_components/editors/entities/property_editors/skill_tree_list_editor.gd"
+      },
+      {
         "name": "StarterEquipmentEditor",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\property_editors\\starter_equipment_editor.gd",
