@@ -12,7 +12,7 @@ A dropped item is a `RigidBody3D` made from a scene. A few classes make it, find
 | [`ObjectRegistry`](/advanced/world/runtime/object-registry) | Makes the items (`spawn_dropped_item`, `spawn_dropped_currency`), keeps the **placed** and the **spawned** ones apart, remembers what was taken, keeps the cap, counts the respawns and saves everything |
 | [`LootDispatcher`](/advanced/items/generation-runtime/loot-dispatcher) | `deliver_to_ground` turns the drops of a loot rule into dropped items; `can_drop_to_ground` says whether it can |
 | [`DroppedItemTargeting`](/advanced/game-settings/camera-and-controller/dropped-item-targeting) | Owned by the [`PlayerController`](/advanced/game-settings/camera-and-controller/player-controller): finds the item under the pointer or the crosshair, lights it up and picks it up |
-| [`Player`](/advanced/entities/runtime/player) | `drop_from_bag`, `drop_item_instance`, the drop on death, and the interact target check |
+| [`Player`](/advanced/entities/runtime/player) | `drop_from_bag`, `drop_item_instance`, the loss on death (`_lose_items_on_death`: the bag and what is worn, dropped or destroyed by `death_item_loss` and `death_equipment_loss`), and the interact target check |
 | [`DragController`](/advanced/user-interface/in-game/drag-controller) | `_drop_to_world`: an item let go over the world |
 | [`DropItemAction`](/advanced/events-and-quests/actions-items/drop-item-action), [`DropItemTask`](/advanced/behaviors/tasks/drop-item-task) | The event action and the behavior task |
 
