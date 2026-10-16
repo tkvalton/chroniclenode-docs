@@ -46,6 +46,7 @@ The places for riders. The list starts empty, which means **one Driver seat**. *
 |---|---|
 | **Driver seat** | The rider **steers** the mount: its keys go to the steering. Its action bar slots are the abilities of the driver (the cannon of a tank) |
 | **Passenger seat** | The rider is carried and does not steer. It keeps its own action bar, unless the seat takes slots over |
+| **Turret seat** | A gunner: a turret node of the model follows where the rider aims (the camera for a player, the target for an AI). Its action bar slots are the guns. Fields: the turret and barrel node names, how far it turns, how far the barrel tilts, how fast it turns |
 
 Every seat has these fields:
 
@@ -57,12 +58,43 @@ Every seat has these fields:
 | **Pose name** | The pose of the rider: the name of a status animation folder; its `_loop` animation plays while the rider sits | empty |
 | **Controls movement** | The rider of this seat steers the mount. Only one seat should | the class |
 | **Clears other slots** | All the slots the seat does not list are emptied while the rider sits (the seat has the whole bar) | off |
+| **AI** | What acts for the seat when the rider is not the player, or when nobody sits: [see below](#ai-for-a-seat) | none |
+| **Ai runs when empty** | The AI of the seat acts when **nobody sits** in it (a tank crewed by AI) | off |
 
 ### The action bar of a seat
 
 Each seat has its own list of **action bar slots**: a slot number and an **ability**. While a rider sits, those slots show those abilities and the player **cannot change them**; every other slot stays the player's (or is emptied, with *Clears other slots*). When the rider gets up, the player's own bar comes back. With **Grant** on, the rider is given an ability it does not know for as long as it sits.
 
 So a tank driver sees a **Fire cannon** on slot 1 and **Smoke** on slot 2, a gunner on the cart sees the guns, and a passenger keeps their own spells. The abilities of an **NPC** mount or vehicle come from its NPC definition as for any NPC: only the seats of the player's characters set the bar.
+
+## AI for a seat
+
+A seat can have an **AI**: a class from `data_classes/mount/seat_ai/`. It decides the **move input** of the seat, the same x and y that the keys give, and a driver seat sends that to the steering of the mount, so an AI tank turns like a tank that a player drives. Who acts for a seat is decided every moment:
+
+| Who sits | Who acts for the seat |
+|---|---|
+| The character the **player controls** | The player: the keys (a driver steers, a gunner aims with the camera). The AI of the seat waits |
+| **Another rider**: a companion, an NPC | The AI of the seat, if it has one. With no AI the rider is only carried |
+| **Nobody**, and *Ai runs when empty* is on | The AI of the seat: a **crew** (below) |
+
+So with your party in a vehicle, you take the driver seat and a companion takes the turret: the companion's seat has an AI, so it aims and fires by itself. Press **Tab** to play the companion and the turret is **yours**, with the camera; the character you left on the driver seat is driven by the AI of that seat (if it has one). The seats are the same either way.
+
+The AI classes that come with the toolkit:
+
+| AI | What it does | Numbers |
+|---|---|---|
+| **Driver AI** | Drives where the behavior of the one who decides goes: the NPC's own movement orders (or the companion's, following its leader) become throttle and steering. It turns first if the heading is far off and slows down near the end of the path | slow distance, steering gain, turn-first angle |
+| **Turret AI** | Aims the turret at the **target** (of the rider, or of the mount when nobody sits) and fires the abilities of the seat when the turret points at it and the target is in range | fire range, aim tolerance, fire interval |
+
+The **abilities** of an AI seat are the ones in its action bar slots. They are cast by the **rider** (a rider is given them while it sits, like a player), or by the **vehicle itself** when nobody sits: so a crewed tank needs the cannon in the **abilities of its NPC definition**, and its damage comes from the stats of the NPC.
+
+### A vehicle crewed by AI
+
+An **enemy tank** is a normal NPC: place it with a **Mount** interaction whose Mount has seats with an AI and **Ai runs when empty** on. The vehicle then comes with its own crew, and **no NPC needs to sit in it**:
+
+- The NPC keeps its brain (behavior and combat scripts) that picks the target and where to go. The seats do the rest: the **driver seat** drives there, the **turret seat** aims at the target and fires.
+- While **a player rides** the vehicle (even a companion that the player brought), the crew steps back; when they get off it returns. A vehicle that is destroyed has no crew.
+- Mounted archers need no seats: an NPC with a bow ability and a horse model already moves and shoots.
 
 ## A mount that is a model: the Mount effect
 
@@ -99,8 +131,8 @@ The key is the input action **dismount** (X by default), made by the project set
 
 These are left for you to build on (the [Advanced](/advanced/entities/mounts) page says where):
 
-- **Abilities cast from the vehicle.** A seat puts abilities on the bar of the rider, and the **rider** casts them.
-- **A mount that fights while it is ridden.** Its AI waits.
+- **A mount that fights while it is ridden.** Its own behavior waits while anybody rides it; the AI of the seats is what acts.
+- **Hijacking an enemy vehicle** (changing its faction). A player who sits in it silences its crew, but the vehicle stays an enemy.
 - **NPC riders.** An NPC can ride (from a script), but nothing sends one to a mount.
 - **Saving a ride on a creature.** It is not saved: the player is on the ground next to the mount when a game is loaded. The Mount effect is a normal effect: the game applies it again when a save is loaded.
 - **Mount stamina and mount-only animations** for the rider (it uses the pose you name).

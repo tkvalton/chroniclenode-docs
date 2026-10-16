@@ -10,6 +10,9 @@ A mount is a `MountDefinition` of the Database. A rider sits on one **seat** of 
 |---|---|
 | [`MountDefinition`](/advanced/entities/mounts/mount-definition) | A database resource (type `mount`, saved in `src/data/mounts/`): the model creature, the movement, the speed, the steering (`drive_logic`), the seats (`seats`), dismount on damage, the mount animations |
 | [`Seat`](/advanced/entities/mounts/seat) | A place for a rider. A resource: name, marker, offset, pose, `controls_movement`, the action bar slots. Override `can_enter`, `on_enter`, `on_exit` and `process`. [`DriverSeat`](/advanced/entities/mounts/driver-seat) and [`PassengerSeat`](/advanced/entities/mounts/passenger-seat) come with the toolkit |
+| [`TurretSeat`](/advanced/entities/mounts/turret-seat) | A seat with a turret: `aim_at`, `aim_in_direction`, `is_aimed`, `get_aim_direction`; a node of the model turns to follow the aim, a player aims with the camera |
+| [`SeatAI`](/advanced/entities/mounts/seat-ai) | What acts for a seat that the player does not: `think(delta)` returns the move input of the seat. [`DriverSeatAI`](/advanced/entities/mounts/driver-seat-ai) and [`TurretSeatAI`](/advanced/entities/mounts/turret-seat-ai) come with the toolkit |
+| [`MountCrew`](/advanced/entities/runtime/mount-crew) | Keeps a ride with no rider on every seat of an NPC vehicle that has an AI that acts when empty |
 | [`SeatAbilitySlot`](/advanced/entities/mounts/seat-ability-slot) | One slot of the action bar that a seat takes over: a number, an ability and whether to grant it |
 | [`DriveLogic`](/advanced/entities/mounts/drive-logic) | How the player steers a mount. [`WalkDriveLogic`](/advanced/entities/mounts/walk-drive-logic) and [`VehicleDriveLogic`](/advanced/entities/mounts/vehicle-drive-logic) come with the toolkit |
 | [`MountSession`](/advanced/entities/runtime/mount-session) | One rider on one seat. `MountSession.begin(rider, definition, mount, drive_logic, seat_index)` (or `Entity.start_mount`), freed by `dismount()` |
@@ -53,30 +56,61 @@ A seat is a **copy** of the one in the definition (`duplicate(true)` at `begin`)
 
 `Seat._cover_action_bar` uses the override stack of the player ([`Player.push_action_bar_override(slot, source, ability)`](/advanced/entities/runtime/player)) that the Action Bar Slot effect uses: each slot of `ability_slots` is covered with its ability (granted as an external ability if the player does not know it and `grant_ability` is on), and with `clears_other_slots` every other slot is covered with nothing. The source is the seat, so `on_exit` takes exactly its own overrides away, and what the player had on the slot (or another effect had put there) comes back. The abilities are the **rider's**: the rider casts them.
 
+## AI for seats
+
+The player's keys and an AI are two sources of the same thing, the **move input** of a seat. `MountSession._choose_control` decides every frame who acts (`MountSession.Acting`):
+
+| `Acting` | When | Input of the seat |
+|---|---|---|
+| `PLAYER` | The rider is `party_manager.current_player` | The keys. The dismount key works |
+| `AI` | Any other case, and the seat has a `SeatAI` | `seat.ai.think(delta)` |
+| `NONE` | Any other case | Zero |
+
+The driver logic, `seat.process(input, delta)` and the rest get the input without knowing where it came from. When the control changes the AI is `begin`ned or `end`ed, and the navigation of the mount is switched between **direct input** (a player steers) and **steered externally** (an AI steers).
+
+### Steering the navigation
+
+An AI driver cannot let the navigation move the body: the vehicle must move the way its drive logic says. `NavigationController.steered_externally` is the switch. While it is on, `process_physics` only applies gravity and the velocity the driver gave (`set_direct_movement_input`, as for a player's keys), and the navigation says **where it wants to go**: `get_steer_heading()` is the flat direction towards the next point of the path (or of what it follows). Reaching the end of the path still stops the navigation, so the behavior that sent it goes on. `DriverSeatAI` turns the angle between the front of the mount and that heading into steering and throttle.
+
+Whose navigation? `MountSession.get_brain_navigation()`: the **rider's** if there is a rider (a companion that follows its leader keeps giving move orders to its own navigation, which no longer moves it because it is carried), the **mount's** when there is none (the NPC vehicle's own brain).
+
+### The crew
+
+`MountSession.begin_crew(mount, definition, seat_index)` makes a session with no rider (`rider` is null) on a seat that has an AI. It sits in `mount.crew_sessions` (not in `ridden_sessions`: a crew is not a rider, `is_ridden()` is false and the seat is not taken). `MountCrew` (a node of an NPC) keeps them: every 0.25 s it starts the crew of each seat that has an AI with `ai_runs_when_empty`, is not taken, and the mount is alive, and ends it when a **player character** is aboard (`get_riders()` has a `Player`) or the seat is taken. `Npc.setup_mount_crew()` makes it when the `interaction` of the NPC is a `MountInteraction` whose Mount has such a seat. The behavior of the mount is **not** paused for a crew (it is for riders), so its brain keeps choosing the target and the destination.
+
+The abilities of a seat are cast by `session.get_caster()`: the rider, or the mount for a crew. `TurretSeatAI` reads the target from `session.get_ai_target()` (the rider's target, else the mount's) and uses the first ability of the seat that returns `OK` from `use_ability`.
+
+### Your own AI
+
+A script in `data_classes/mount/seat_ai/` that extends `SeatAI` is found by `MountClasses` and shown in the seat block of the Mounts editor, with its exported variables as fields:
+
+```gdscript
+class_name CircleDriverAI extends SeatAI
+## Drives in circles (a guard vehicle on patrol)
+
+@export_range(0.0, 1.0, 0.05) var turn: float = 0.5
+
+func get_ai_type_name() -> String:
+	return "Circle driver AI"
+
+func think(_delta: float) -> Vector2:
+	# x is right, y is forward: turn a little to the right while driving forward
+	return Vector2(turn, 1.0)
+```
+
 ## Your own seats and steering
 
 A script in `data_classes/mount/seats/` that extends `Seat`, or in `data_classes/mount/drive_logic/` that extends `DriveLogic`, is found by `MountClasses` and shown in the Mounts editor. The editor lists it with the name it gives itself (`get_seat_type_name()` / `get_drive_type_name()`), and shows its **exported variables** as fields (`ResourcePropertyForm`: a bool, a number with its range, a String, an enum, a Vector3, a Color). Override `get_field_descriptions()` to give the fields tooltips (call `super` and merge).
 
 ```gdscript
-class_name TurretSeat extends Seat
-## A seat whose rider aims a turret with the camera
-
-@export var turret_node: String = "Turret"
-@export_range(10.0, 180.0, 1.0) var yaw_limit: float = 90.0
+class_name OfficerSeat extends Seat
+## Only a rider of level 10 or more may sit here
 
 func get_seat_type_name() -> String:
-	return "Turret seat"
+	return "Officer seat"
 
-func get_field_descriptions() -> Dictionary:
-	var fields: Dictionary = super.get_field_descriptions()
-	fields["yaw_limit"] = "How far the turret turns to each side (degrees)"
-	return fields
-
-func process(_input: Vector2, delta: float) -> void:
-	var turret: Node3D = session.mount.find_child(turret_node, true, false) as Node3D
-	if turret != null:
-		var camera: CameraController = session.rider.get_system_hub().party_manager.camera_controller
-		turret.global_rotation.y = lerp_angle(turret.global_rotation.y, camera.get_view_yaw(), 5.0 * delta)
+func can_enter(rider: Entity) -> bool:
+	return rider.current_level >= 10
 ```
 
 ```gdscript
@@ -122,8 +156,8 @@ The keys do not steer an NPC rider: give the mount a `DriveLogic` that moves it 
 
 ## What is not built
 
-Abilities cast from the vehicle instead of the rider, a mount that fights while ridden, sending NPCs to mounts, saving a ride, a rebind row for the dismount key in the settings menu, and flying animations. The places to add them: an ability source on the seat, a flag that does not pause the behavior of the mount.
+Hijacking (changing the faction of a vehicle that a player takes), sending NPCs to mounts, saving a ride, a rebind row for the dismount key in the settings menu, and flying animations. The places to add them: a faction change in `MountSession.begin`, a rule in the crew about who may sit.
 
 ## Tests
 
-`tests/mount_audit.gd` runs the real game: the definition and its seats, claim priority, the effect, flying, swimming and boat mounts, a creature (getting on, steering, the seat, the key, death, damage), a vehicle (acceleration, top speed, turning, braking, reversing), a driver and a passenger (the seats, a full wagon, the driver leaving, the wagon dying), the action bar of a seat (a slot, the whole bar, giving it back), a logic and a seat of your own, a flying creature, and who cannot ride. `tests/mount_editor_check.gd` covers the Mounts editor, the class lists (including scripts added to the folders) and the generic form.
+`tests/mount_audit.gd` runs the real game: the definition and its seats, claim priority, the effect, flying, swimming and boat mounts, a creature (getting on, steering, the seat, the key, death, damage), a vehicle (acceleration, top speed, turning, braking, reversing), a driver and a passenger (the seats, a full wagon, the driver leaving, the wagon dying), the action bar of a seat (a slot, the whole bar, giving it back), a logic and a seat of your own, a flying creature, a vehicle crewed by AI (it drives where the NPC is sent, turns and speeds up like a vehicle, the turret aims and fires, a player sitting silences the crew, a dead vehicle has none), an AI rider on a turret seat while the player drives, and a player aiming a turret with the camera, and who cannot ride. `tests/mount_editor_check.gd` covers the Mounts editor, the class lists (including scripts added to the folders) and the generic form.

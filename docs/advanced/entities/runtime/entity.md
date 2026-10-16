@@ -66,6 +66,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `MovementClaim.Mode:` | [movement_mode](#var-movement-mode) |  |
 | `MountSession` | [mount_session](#var-mount-session) | `null` |
 | `Array[MountSession]` | [ridden_sessions](#var-ridden-sessions) | `[]` |
+| `Array[MountSession]` | [crew_sessions](#var-crew-sessions) | `[]` |
 | `bool` | [breath_exempt](#var-breath-exempt) | `false` |
 | `float` | [breath](#var-breath) | `-1.0` |
 | `AimProvider` | [aim_provider](#var-aim-provider) | `null` |
@@ -755,6 +756,10 @@ The ride this entity is in as a rider. Null when it is not riding
 ### Array[MountSession] ridden_sessions = [] {#var-ridden-sessions}
 
 The rides on this entity when it is a mount or a vehicle: one for each rider that sits on it
+
+### Array[MountSession] crew_sessions = [] {#var-crew-sessions}
+
+The seats of this entity that an AI crew acts for while nobody sits in them (see MountCrew)
 
 ### bool breath_exempt = false {#var-breath-exempt}
 

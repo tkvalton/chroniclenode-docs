@@ -209,6 +209,12 @@ export const groups = [
         "file": "data_classes/mount/seats/driver_seat.gd"
       },
       {
+        "name": "DriverSeatAI",
+        "base": "SeatAI",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\seat_ai\\driver_seat_ai.gd",
+        "file": "data_classes/mount/seat_ai/driver_seat_ai.gd"
+      },
+      {
         "name": "MountClasses",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\mount_classes.gd",
@@ -237,6 +243,24 @@ export const groups = [
         "base": "Resource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\seats\\seat_ability_slot.gd",
         "file": "data_classes/mount/seats/seat_ability_slot.gd"
+      },
+      {
+        "name": "SeatAI",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\seat_ai\\seat_ai.gd",
+        "file": "data_classes/mount/seat_ai/seat_ai.gd"
+      },
+      {
+        "name": "TurretSeat",
+        "base": "Seat",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\seats\\turret_seat.gd",
+        "file": "data_classes/mount/seats/turret_seat.gd"
+      },
+      {
+        "name": "TurretSeatAI",
+        "base": "SeatAI",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\seat_ai\\turret_seat_ai.gd",
+        "file": "data_classes/mount/seat_ai/turret_seat_ai.gd"
       },
       {
         "name": "VehicleDriveLogic",
@@ -303,6 +327,12 @@ export const groups = [
         "base": "StaticBody3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\interactable_object.gd",
         "file": "runtime_classes/entity/interactable_object.gd"
+      },
+      {
+        "name": "MountCrew",
+        "base": "Node",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\mount_crew.gd",
+        "file": "runtime_classes/entity/mount_crew.gd"
       },
       {
         "name": "MountSession",

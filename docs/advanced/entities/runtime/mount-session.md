@@ -4,7 +4,7 @@
 
 **Inherits:** [Node](https://docs.godotengine.org/en/stable/classes/class_node.html)
 
-One rider on one seat. There are two kinds, and the session does both:
+One rider on one seat. There are three kinds, and the session does all of them:
 
 ## Description
 
@@ -15,6 +15,10 @@ as the mount says. There is no creature to hurt or steer: this is the mount of a
 - **A mount that is an entity** (a Mount interaction, or `start_mount` with a mount): a creature or a vehicle of the world with seats. The rider is carried on its seat. The rider of a
 
 seat that steers (a Driver seat) gives the keys to the drive logic; the others are carried. The mount keeps its health and stats. Its own behavior waits while it is ridden.
+
+- **A crew** (`begin_crew`): nobody sits, but the seat has an AI that runs when the seat is empty (a tank crewed by AI). It has no rider.
+
+Who acts for a seat is decided every frame: the character the player controls, when it sits here, gives the keys; any other rider (a companion, an NPC) and the empty seat of a crew are acted for by the AI of the seat (a SeatAI), if it has one; otherwise nothing acts.
 
 Start one with `Entity.start_mount(definition)` (a model) or `Entity.start_mount(definition, mount_entity)`. `dismount()` ends it. The session belongs to the rider and is freed with it.
 
@@ -35,9 +39,15 @@ Start one with `Entity.start_mount(definition)` (a model) or `Entity.start_mount
 | | |
 |---|---|
 | `MountSession` | [begin](#method-begin)( `p_rider: Entity, p_definition: MountDefinition, p_mount: Entity = null, p_drive_logic: DriveLogic = null, p_seat_index: int = -1` ) *static* |
+| `MountSession` | [begin_crew](#method-begin-crew)( `p_mount: Entity, p_definition: MountDefinition, p_seat_index: int` ) *static* |
 | `bool` | [dismount](#method-dismount)( `_reason: String = ""` ) |
 | `Transform3D` | [get_seat_transform](#method-get-seat-transform)() |
 | `bool` | [is_controlled_by_player](#method-is-controlled-by-player)() |
+| `Acting` | [get_control](#method-get-control)() |
+| `NavigationController` | [get_navigation](#method-get-navigation)() |
+| `NavigationController` | [get_brain_navigation](#method-get-brain-navigation)() |
+| `Variant` | [get_ai_target](#method-get-ai-target)() |
+| `Entity` | [get_caster](#method-get-caster)() |
 | `void` | [set_move](#method-set-move)( `input: Vector2, speed: float, forward: Vector3` ) |
 | `float` | [get_top_speed](#method-get-top-speed)() |
 | `bool` | [is_body_free_moving](#method-is-body-free-moving)() |
@@ -48,7 +58,17 @@ Start one with `Entity.start_mount(definition)` (a model) or `Entity.start_mount
 
 ### dismounted( rider: Entity, mount: Entity ) {#signal-dismounted}
 
-Emitted when the rider gets off
+Emitted when the rider gets off (or the crew stops: the rider is null)
+
+## Enumerations
+
+### enum Acting {#enum-acting}
+
+Who acts for a seat
+
+- **NONE** = `0`
+- **PLAYER** = `1`
+- **AI** = `2`
 
 ## Constants
 
@@ -58,7 +78,7 @@ Emitted when the rider gets off
 
 ### Entity rider {#var-rider}
 
-The entity that rides
+The entity that rides (null for a crew)
 
 ### Entity mount {#var-mount}
 
@@ -90,9 +110,13 @@ The model of the mount (a mount that is only a model)
 
 Puts a rider on a mount. `seat_index` -1 takes the first seat that is free. A drive logic of your own steers instead of the one of the definition. Returns the session, or null when it cannot be done (the rider is dead or already on a mount, the mount is dead or full, the seat refuses the rider)
 
+### MountSession begin_crew( p_mount: Entity, p_definition: MountDefinition, p_seat_index: int ) {#method-begin-crew}
+
+Puts a crew on a seat of a mount that nobody sits in: the AI of the seat acts, with nobody to carry. Returns null when the seat has no AI or is not free
+
 ### bool dismount( _reason: String = "" ) {#method-dismount}
 
-Gets off. `reason` is for the signal and the log. Returns false when the ride was over already
+Gets off (or stops the crew). `reason` is for the signal and the log. Returns false when the ride was over already
 
 ### Transform3D get_seat_transform() {#method-get-seat-transform}
 
@@ -101,6 +125,26 @@ Where the rider sits now: the node of the seat in the model of the mount, or the
 ### bool is_controlled_by_player() {#method-is-controlled-by-player}
 
 Is the player steering this rider (the character in control)?
+
+### Acting get_control() {#method-get-control}
+
+Who acts for the seat now
+
+### NavigationController get_navigation() {#method-get-navigation}
+
+The navigation controller of the mount (null for a mount that is only a model)
+
+### NavigationController get_brain_navigation() {#method-get-brain-navigation}
+
+The navigation of whoever decides where the mount goes: the rider (a companion that follows its leader, an NPC that was sent somewhere), or the mount when there is no rider
+
+### Variant get_ai_target() {#method-get-ai-target}
+
+What an AI of the seat shoots at: the target of the rider, or the one of the mount when there is no rider or the rider has none
+
+### Entity get_caster() {#method-get-caster}
+
+Who casts the abilities of the seat for an AI: the rider, or the mount when nobody sits
 
 ### void set_move( input: Vector2, speed: float, forward: Vector3 ) {#method-set-move}
 
@@ -116,7 +160,7 @@ Is the body of the mount swimming or flying?
 
 ### Vector3 get_camera_direction( input: Vector2, use_pitch: bool ) {#method-get-camera-direction}
 
-The direction the keys ask for, relative to the camera (flat on the ground, along the pitch of the camera when the mount swims or flies)
+The direction the keys ask for, relative to the camera (flat on the ground, along the pitch of the camera when the mount swims or flies). An AI acts for the seat relative to the mount itself: (0, 1) is straight ahead of it
 
 ### float find_water_surface( point: Vector3, tree: SceneTree ) {#method-find-water-surface}
 

@@ -32,6 +32,7 @@ The path-finding and movement of an NPC: a navigation agent that moves the entit
 | `Vector3` | [direct_input_velocity](#var-direct-input-velocity) | `Vector3.ZERO` |
 | `float` | [direct_input_speed](#var-direct-input-speed) | `5.0` |
 | `float` | [vertical_input](#var-vertical-input) | `0.0` |
+| `bool` | [steered_externally](#var-steered-externally) | `false` |
 | `Vector3` | [previous_position](#var-previous-position) | `Vector3.ZERO` |
 | `bool` | [was_on_floor](#var-was-on-floor) | `true` |
 | `bool` | [direction_needs_update](#var-direction-needs-update) | `false` |
@@ -55,6 +56,7 @@ The path-finding and movement of an NPC: a navigation agent that moves the entit
 | `bool` | [is_using_direct_input](#method-is-using-direct-input)() |
 | `Vector3` | [get_direct_input_velocity](#method-get-direct-input-velocity)() |
 | `void` | [process_physics](#method-process-physics)( `delta: float` ) |
+| `Vector3` | [get_steer_heading](#method-get-steer-heading)() |
 | `bool` | [should_ignore_desired_distance_for_los](#method-should-ignore-desired-distance-for-los)() |
 | `bool` | [command_move_to](#method-command-move-to)( `target_pos: Vector3, walk: bool = false, min_distance: float = -1.0` ) |
 | `bool` | [command_move_keep_facing](#method-command-move-keep-facing)( `target_pos: Vector3, walk: bool = false, min_distance: float = -1.0` ) |
@@ -196,6 +198,10 @@ The speed of the direct input.
 
 The vertical input of the player in a free movement mode (1 up, -1 down)
 
+### bool steered_externally = false {#var-steered-externally}
+
+A driver (the AI of a seat of a vehicle) moves the body: the navigation only says which way to go (get_steer_heading) and does not move it itself
+
 ### Vector3 previous_position = Vector3.ZERO {#var-previous-position}
 
 Where the entity was on the last step (to see if it is stuck).
@@ -269,6 +275,10 @@ The velocity the direct input asks for.
 ### void process_physics( delta: float ) {#method-process-physics}
 
 Moves the entity one physics step (the path, the follow or the direct input).
+
+### Vector3 get_steer_heading() {#method-get-steer-heading}
+
+The flat direction (a unit vector) the navigation wants to go in now: towards the next point of its path, or towards what it follows. Zero when it has nowhere to go. This is what a driver reads when it moves the body itself (steered_externally); reaching the end of the path stops the navigation as usual, so the behavior goes on
 
 ### bool should_ignore_desired_distance_for_los() {#method-should-ignore-desired-distance-for-los}
 

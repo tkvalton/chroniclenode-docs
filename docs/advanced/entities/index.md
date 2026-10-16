@@ -163,6 +163,7 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 | [EntityTemplates](/advanced/entities/runtime/entity-templates) | Entities that follow a template. |
 | [FormationSystem](/advanced/entities/runtime/formation-system) | Places the party members around a target position in a formation (tight, spread, V, line or wedge): `calculate_formation_positions` answers with a position for every unit, with a base spacing and some randomness. |
 | [InteractableObject](/advanced/entities/runtime/interactable-object) | Unified interactable object class - uses InteractableDefinition + Interactions All specialized logic is now in Interaction subclasses |
+| [MountCrew](/advanced/entities/runtime/mount-crew) | The AI crew of a vehicle: it keeps a ride (a MountSession with no rider) on every seat that has an AI that acts when the seat is empty, so a tank drives and shoots by itself without any NPC sitting in it. |
 | [MountSession](/advanced/entities/runtime/mount-session) | One rider on one seat. |
 | [MovementClaim](/advanced/entities/runtime/movement-claim) | What something asks of the movement of an entity: a movement volume that is around it (water, a weightless room), an effect that lets it fly. |
 | [NPC](/advanced/entities/runtime/npc) | NPC represents a non-player character in the game. |

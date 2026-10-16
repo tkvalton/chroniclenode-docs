@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-Finds the classes that can be chosen in the Mounts editor: every script in data_classes/mount/seats/ that extends Seat, and every script in data_classes/mount/drive_logic/ that extends DriveLogic. Add a script to a folder and it shows up in the editor list, with its exported variables as fields: this is how a game adds a TurretSeat or a HoverDrive.
+Finds the classes that can be chosen in the Mounts editor: every script in data_classes/mount/seats/ that extends Seat, every script in data_classes/mount/drive_logic/ that extends DriveLogic, and every script in data_classes/mount/seat_ai/ that extends SeatAI. Add a script to a folder and it shows up in the editor list, with its exported variables as fields: this is how a game adds a TurretSeat or a HoverDrive.
 
 ## Methods
 
@@ -12,6 +12,7 @@ Finds the classes that can be chosen in the Mounts editor: every script in data_
 |---|---|
 | `Array[Script]` | [get_seat_classes](#method-get-seat-classes)() *static* |
 | `Array[Script]` | [get_drive_classes](#method-get-drive-classes)() *static* |
+| `Array[Script]` | [get_ai_classes](#method-get-ai-classes)() *static* |
 | `Resource` | [make](#method-make)( `script: Script` ) *static* |
 | `String` | [type_name](#method-type-name)( `script: Script` ) *static* |
 | `String` | [type_description](#method-type-description)( `script: Script` ) *static* |
@@ -21,6 +22,7 @@ Finds the classes that can be chosen in the Mounts editor: every script in data_
 
 - `String` **SEAT_FOLDER** = `"res://addons/chroniclenode/data_classes/mount/seats/"`
 - `String` **DRIVE_FOLDER** = `"res://addons/chroniclenode/data_classes/mount/drive_logic/"`
+- `String` **AI_FOLDER** = `"res://addons/chroniclenode/data_classes/mount/seat_ai/"`
 
 ## Method descriptions
 
@@ -31,6 +33,10 @@ The seat classes (the base class is not in the list)
 ### Array[Script] get_drive_classes() {#method-get-drive-classes}
 
 The drive logic classes (the base class is not in the list)
+
+### Array[Script] get_ai_classes() {#method-get-ai-classes}
+
+The AI classes of the seats (the base class is not in the list)
 
 ### Resource make( script: Script ) {#method-make}
 

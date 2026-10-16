@@ -4,7 +4,7 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-**Inherited by:** [DriverSeat](/advanced/entities/mounts/driver-seat), [PassengerSeat](/advanced/entities/mounts/passenger-seat)
+**Inherited by:** [DriverSeat](/advanced/entities/mounts/driver-seat), [PassengerSeat](/advanced/entities/mounts/passenger-seat), [TurretSeat](/advanced/entities/mounts/turret-seat)
 
 A place on a mount or a vehicle where one rider sits: where it is, how the rider sits, what it may do from there, and which abilities the action bar shows while it sits. This is the base: use DriverSeat (steers the mount) and PassengerSeat (only rides), or make your own by extending this class (a TurretSeat that aims a gun). A script that extends Seat in the folder data_classes/mount/seats/ is found by the Mounts editor and can be chosen there; its exported variables appear in the editor.
 
@@ -21,6 +21,8 @@ Override `on_enter`, `on_exit` and `process` for what your seat does. The seat b
 | `Vector3` | [seat_offset](#prop-seat-offset) | `Vector3(0.0, 1.0, 0.0)` |
 | `String` | [pose_name](#prop-pose-name) | `""` |
 | `bool` | [controls_movement](#prop-controls-movement) | `false` |
+| `SeatAI` | [ai](#prop-ai) | `null` |
+| `bool` | [ai_runs_when_empty](#prop-ai-runs-when-empty) | `false` |
 | `Array[SeatAbilitySlot]` | [ability_slots](#prop-ability-slots) | `[]` |
 | `bool` | [clears_other_slots](#prop-clears-other-slots) | `false` |
 
@@ -64,6 +66,16 @@ The pose of the rider: the name of a status animation folder (its _loop animatio
 ### bool controls_movement = false {#prop-controls-movement}
 
 The rider of this seat steers the mount (the keys go to the drive logic). Only one seat at a time should
+
+*AI*
+
+### SeatAI ai = null {#prop-ai}
+
+What acts for this seat when the rider is not the player (a companion, an NPC) or when nobody sits: a SeatAI (a DriverSeatAI follows where the mount is sent, a TurretSeatAI aims and fires). The seat is player controlled when the character in control sits in it. Empty = nothing acts
+
+### bool ai_runs_when_empty = false {#prop-ai-runs-when-empty}
+
+The AI acts when nobody sits in the seat (a tank crewed by AI). Only for a mount that is an NPC with a Mount interaction, and only while no player rides it
 
 *Action bar*
 

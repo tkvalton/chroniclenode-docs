@@ -48,6 +48,7 @@ Runtime Mode:
 | | |
 |---|---|
 | `void` | [initialize_entity](#method-initialize-entity)( `system_hub: GameHost.SystemHub` ) |
+| `void` | [setup_mount_crew](#method-setup-mount-crew)() |
 | `void` | [entity_death](#method-entity-death)( `announce: bool = true` ) |
 | `void` | [respawn_now](#method-respawn-now)() |
 | `bool` | [save_unique_entity_data](#method-save-unique-entity-data)( `data: UniqueEntityData` ) |
@@ -129,6 +130,10 @@ For save/load
 ### void initialize_entity( system_hub: GameHost.SystemHub ) {#method-initialize-entity}
 
 Override initialize_entity to add NPC-specific setup ## Regsitry should initialize
+
+### void setup_mount_crew() {#method-setup-mount-crew}
+
+Puts an AI crew on this NPC when its Mount interaction has seats with an AI that acts when nobody sits in them (a tank that drives and shoots by itself)
 
 ### void entity_death( announce: bool = true ) {#method-entity-death}
 

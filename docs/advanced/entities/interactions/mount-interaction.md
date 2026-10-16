@@ -20,6 +20,7 @@ The player takes the first seat that is free, so a second character that uses th
 
 | | |
 |---|---|
+| `MountDefinition` | [get_mount_definition](#method-get-mount-definition)() |
 | `bool` | [can_interact](#method-can-interact)( `player: Player` ) |
 | `String` | [get_block_reason](#method-get-block-reason)( `_entity: Entity` ) |
 | `void` | [start_interaction](#method-start-interaction)( `player: Player` ) |
@@ -31,6 +32,10 @@ The player takes the first seat that is free, so a second character that uses th
 The mount (Entities &gt; Mounts): how this NPC moves when it is ridden, how it is steered and where riders sit
 
 ## Method descriptions
+
+### MountDefinition get_mount_definition() {#method-get-mount-definition}
+
+The mount of the Database that this NPC is
 
 ### bool can_interact( player: Player ) {#method-can-interact}
 
