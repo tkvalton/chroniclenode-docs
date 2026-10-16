@@ -48,7 +48,7 @@ The new interaction type shows up in the interaction list of the editor by itsel
 
 ## Which interaction panel is which
 
-The **Show UI Panel** interaction (*Common interactions*) is meant to open a panel of the interface from an object or an NPC. It has no fields and no effect yet; it belongs to the same plan.
+The **Show UI Panel** interaction (*Common interactions*) opens one of the [UI panels](/basic/user-interface/ui-panels) of the interface from an object or an NPC: [see Interaction types](/basic/entities/interaction-types#show-ui-panel). It is the easy way to open a panel of your own from the world, without writing an interaction class.
 
 ## See also
 

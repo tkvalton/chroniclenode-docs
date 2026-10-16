@@ -34,6 +34,7 @@ The base of every window of the interface (the character sheet, the spellbook, t
 |---|---|
 | `void` | [initialize_ui](#method-initialize-ui)( `p_system_hub: GameHost.SystemHub` ) |
 | `void` | [close_panel](#method-close-panel)() |
+| `void` | [on_opened_by_interaction](#method-on-opened-by-interaction)( `_interaction: Interaction, _player: Player` ) |
 
 ## Signals
 
@@ -105,7 +106,7 @@ Asks the interface to start dragging an ability (onto the action bar).
 
 ### String panel_name = "" {#prop-panel-name}
 
-Panel name for for open/close
+Panel name for for open/close. A Show UI Panel interaction opens the panel by this name
 
 ### int panel_keybind = 0 {#prop-panel-keybind}
 
@@ -154,4 +155,8 @@ Sets the part up with the hub of the game systems: connects the signals it liste
 ### void close_panel() {#method-close-panel}
 
 Signal handlers for UI elements
+
+### void on_opened_by_interaction( _interaction: Interaction, _player: Player ) {#method-on-opened-by-interaction}
+
+A Show UI Panel interaction opened this panel (a chest-like object, an NPC): override it in a panel of your own to show what that interaction belongs to. Called after the panel is visible. Both can be null when the panel was opened by a script
 

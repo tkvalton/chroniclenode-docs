@@ -53,6 +53,9 @@ Manages UI layers, scene transitions, and overlay systems. Handles loading scree
 | `void` | [show_readable_data](#method-show-readable-data)( `readable_data: Dictionary` ) |
 | `void` | [open_crafting_interface](#method-open-crafting-interface)( `interaction: CraftingInteraction, player: Player, school: CraftSchoolDefinition` ) |
 | `void` | [close_crafting_interface](#method-close-crafting-interface)() |
+| `bool` | [open_ui_panel](#method-open-ui-panel)( `panel_name: String, interaction: Interaction = null, player: Player = null` ) |
+| `void` | [close_ui_panel](#method-close-ui-panel)( `panel_name: String` ) |
+| `bool` | [is_ui_panel_open](#method-is-ui-panel-open)( `panel_name: String` ) |
 | `void` | [open_trainer_interface](#method-open-trainer-interface)( `interaction: TrainerInteraction, player: Player` ) |
 | `void` | [close_trainer_interface](#method-close-trainer-interface)() |
 | `void` | [update_crafting_progress](#method-update-crafting-progress)( `job: CraftingJob` ) |
@@ -241,6 +244,18 @@ Request to open crafting interface
 ### void close_crafting_interface() {#method-close-crafting-interface}
 
 Request to close crafting interface
+
+### bool open_ui_panel( panel_name: String, interaction: Interaction = null, player: Player = null ) {#method-open-ui-panel}
+
+Opens a panel of the in-game interface by its name (see ShowUIPanelInteraction). False when the interface has no panel with that name
+
+### void close_ui_panel( panel_name: String ) {#method-close-ui-panel}
+
+Closes a panel of the in-game interface by its name
+
+### bool is_ui_panel_open( panel_name: String ) {#method-is-ui-panel-open}
+
+Is the panel with this name open?
 
 ### void open_trainer_interface( interaction: TrainerInteraction, player: Player ) {#method-open-trainer-interface}
 

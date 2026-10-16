@@ -46,6 +46,9 @@ A full-screen root Control left at the default STOP swallows every world click. 
 | `void` | [set_ui_scale](#method-set-ui-scale)( `ui_scale: float` ) |
 | `void` | [show_hud](#method-show-hud)( `value: bool` ) |
 | `void` | [toggle_panel](#method-toggle-panel)( `panel_name: String` ) |
+| `bool` | [open_panel_by_name](#method-open-panel-by-name)( `panel_name: String, interaction: Interaction = null, player: Player = null` ) |
+| `void` | [close_panel_by_name](#method-close-panel-by-name)( `panel_name: String` ) |
+| `bool` | [is_panel_open](#method-is-panel-open)( `panel_name: String` ) |
 | `PanelUI` | [get_panel_by_number](#method-get-panel-by-number)( `number: int` ) |
 | `String` | [toggle_panel_number](#method-toggle-panel-number)( `number: int` ) |
 | `Array[String]` | [get_panel_number_problems](#method-get-panel-number-problems)() |
@@ -122,6 +125,18 @@ Shows or hides the HUD.
 ### void toggle_panel( panel_name: String ) {#method-toggle-panel}
 
 Toggles a named panel interface
+
+### bool open_panel_by_name( panel_name: String, interaction: Interaction = null, player: Player = null ) {#method-open-panel-by-name}
+
+Opens a panel by its name (a Show UI Panel interaction, a script). The other windows close. False when no panel has the name
+
+### void close_panel_by_name( panel_name: String ) {#method-close-panel-by-name}
+
+Closes a panel by its name (nothing happens when it is not open)
+
+### bool is_panel_open( panel_name: String ) {#method-is-panel-open}
+
+Is the panel with this name open?
 
 ### PanelUI get_panel_by_number( number: int ) {#method-get-panel-by-number}
 

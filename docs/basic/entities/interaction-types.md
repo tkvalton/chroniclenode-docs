@@ -145,6 +145,19 @@ A sign, a book on a lectern, a note on a corpse. Using it opens the reading pane
 | **Text duration** | Seconds the line stays. A longer voice line makes it stay longer | `5` |
 | **Voice line**, **Animation** | A sound and a social animation that go with it | none |
 
+### Show UI Panel
+
+Opens a **panel of the interface** when the NPC or the object is used: a wardrobe that opens the inventory, a notice board that opens a bounty panel of your own, a mirror that opens the character sheet.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Panel name** | The panel to open: a list of the panels that the in-game scene has (the ones in its *UIPanels* node that have a **Panel Name**: the character sheet, the spellbook, the quest log, and any you add) | none |
+| **Close when far** | The panel closes when the player walks further than the interaction distance from the NPC or the object | on |
+
+The panel closes when the player walks away, when they close it themselves, or when the interaction ends. Using it opens the panel for the player who used it, and the other windows close.
+
+**A panel of your own.** Make a panel that extends [`PanelUI`](/advanced/user-interface/panels/panel-ui), give it a **Panel Name**, and put it in the *UIPanels* node of your in-game scene: it is in the list. The panel can override `on_opened_by_interaction(interaction, player)` to know what opened it (which notice board, whose chest), for example to fill itself with the contents of that object. A panel with a key number can be opened by its key and by the interaction.
+
 ### Conversation
 
 | Field | What it does |
