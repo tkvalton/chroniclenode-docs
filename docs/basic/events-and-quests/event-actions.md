@@ -40,6 +40,9 @@ Spawn, move, activate, heal, kill, or change the behavior of NPCs.
 | [**Set Entity Behavior Script**](/advanced/events-and-quests/actions-entity/set-entity-behavior-script-action) (`SetEntityBehaviorScriptAction`) | Change an entity's behavior script at runtime |
 | [**Set Entity Combat Script**](/advanced/events-and-quests/actions-entity/set-entity-combat-script-action) (`SetEntityCombatScriptAction`) | Change an entity's combat script at runtime |
 | [**Set Entity Faction**](/advanced/events-and-quests/actions-entity/set-entity-faction-action) (`SetEntityFactionAction`) | Change the faction of a specific placed NPC, so it can turn friendly or hostile in the middle of a story |
+| [**Mount Entity**](/advanced/events-and-quests/actions-entity/mount-entity-action) (`MountEntityAction`) | Put a placed NPC on a placed mount or vehicle, on the seat you give or the first free one. See [Mounts](/basic/entities/mounts#event-actions-for-mounts) |
+| [**Dismount Entity**](/advanced/events-and-quests/actions-entity/dismount-entity-action) (`DismountEntityAction`) | Get a placed NPC off what it rides |
+| [**Set Vehicle Hijackable**](/advanced/events-and-quests/actions-entity/set-vehicle-hijackable-action) (`SetVehicleHijackableAction`) | Open or close a vehicle to being hijacked, for a story step |
 | [**Set Entity Position**](/advanced/events-and-quests/actions-entity/set-entity-position-action) (`SetEntityPositionAction`) | Teleport/move an entity to a specific position |
 | [**Spawn Entity**](/advanced/events-and-quests/actions-entity/spawn-entity-action) (`SpawnEntityAction`) | Spawn a new entity (NPC) at a specific position |
 

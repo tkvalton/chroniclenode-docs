@@ -701,6 +701,12 @@ export const groups = [
     "slug": "actions-entity",
     "classes": [
       {
+        "name": "DismountEntityAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\entity\\dismount_entity_action.gd",
+        "file": "data_classes/events/event_actions/entity/dismount_entity_action.gd"
+      },
+      {
         "name": "GrantEffectToEntityAction",
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\entity\\grant_effect_to_entity_action.gd",
@@ -711,6 +717,12 @@ export const groups = [
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\entity\\kill_entity_action.gd",
         "file": "data_classes/events/event_actions/entity/kill_entity_action.gd"
+      },
+      {
+        "name": "MountEntityAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\entity\\mount_entity_action.gd",
+        "file": "data_classes/events/event_actions/entity/mount_entity_action.gd"
       },
       {
         "name": "RemoveAllEffectsFromEntityAction",
@@ -753,6 +765,12 @@ export const groups = [
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\entity\\set_entity_position_action.gd",
         "file": "data_classes/events/event_actions/entity/set_entity_position_action.gd"
+      },
+      {
+        "name": "SetVehicleHijackableAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\entity\\set_vehicle_hijackable_action.gd",
+        "file": "data_classes/events/event_actions/entity/set_vehicle_hijackable_action.gd"
       },
       {
         "name": "SpawnEntityAction",

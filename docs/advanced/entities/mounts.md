@@ -39,7 +39,19 @@ A mount is a `MountDefinition` of the Database. A rider sits on one **seat** of 
 
 The keys are only read when the player controls the rider (`is_controlled_by_player()`). A rider who is a companion or an NPC is not steered by the keys, but its seat still gets `process` with a zero input.
 
-Ending (`dismount`): the pose stops, `seat.on_exit()` is called (the action bar comes back), the logic's `end()` is called, the claim goes, the collision is restored, the rider is put 1.6 m to the right of the mount (the next seats on the left, then further back), the behavior of the mount resumes when no rider is left, the model is freed, and `dismounted` is emitted. A ride also ends when the rider or the mount dies (`entity_died`), when the rider is hurt (`dismount_on_damage`), when the dismount key is pressed (the action `dismount`, if the project has it), and when the session leaves the tree.
+Ending (`dismount`): the pose stops, `seat.on_exit()` is called (the action bar comes back), the logic's `end()` is called, the claim goes, the collision is restored, the rider is put 1.6 m to the right of the mount (the next seats on the left, then further back), the behavior of the mount resumes when no rider is left, the model is freed, and `dismounted` is emitted. A ride also ends when the rider or the mount dies (`entity_died`), when the rider is hurt (`dismount_on_damage`), when the interact key is pressed ([`PlayerController._handle_universal_input`](/advanced/game-settings/camera-and-controller/player-controller) takes the rider of the current player down before the interaction runs: there is no action of its own), and when the session leaves the tree.
+
+## Hijacking
+
+`Entity.mount_hijackable` is the bool of the instance. `MountInteraction.set_entity_reference` gives it the starting value of the definition once (`mount_hijackable_ready` keeps a loaded value). `MountSession.is_blocked_by_hostility(vehicle, rider)` is true when the vehicle or the rider is hostile to the other and the vehicle is not hijackable; `begin` refuses then (unless `force`, which the Mount Entity action exposes) and the interaction reports "You cannot take it".
+
+The rider of **seat 0** commands the vehicle: `_take_faction` sets `mount.faction` to the rider's (keeping the old one in `faction_before_mount`, and dropping a target that is a friend now) and `_return_faction` gives it back when that session ends. A restored ride does neither (the saved faction is already the rider's). [`HijackableEffect`](/advanced/abilities-and-effects/effects-movement/hijackable-effect) and [`SetVehicleHijackableAction`](/advanced/events-and-quests/actions-entity/set-vehicle-hijackable-action) set the bool; the effect remembers and restores the old value.
+
+## Saving a ride
+
+`Entity._save_living_entity_data` adds `mount` (from `MountSession.to_save_data()`: the definition id, the seat index, the id and kind of the mount, and `seat.save_state()`) for a rider carried by a mount that has an id of the world, and `vehicle` (`hijackable`, the id of `faction_before_mount`) for a vehicle. `from_save_data` keeps the ride in `pending_mount_state` and restores the vehicle values at once. [`SaveLoadUtil.restore_all_state_from_save`](/advanced/managers/save-and-load/save-load-util) ends with phase 6, [`MountSaves.restore_all(system_hub)`](/advanced/managers/utilities/mount-saves): when the players and every NPC are loaded it finds each mount (`get_player_by_unique_id` or `object_registry.get_entity`) and calls `MountSession.begin_restored`: no `can_enter`, no faction change, `restoring` true, and `seat.load_state(state)` before `on_enter`.
+
+A seat that keeps a state overrides `save_state()` and `load_state(state)` (call super and merge): the base keeps the abilities it granted, `TurretSeat` the aim. Drive logic state (the speed of a vehicle) and crews are not saved: a vehicle starts from rest and its crew is made again.
 
 ## Seats
 
@@ -62,7 +74,7 @@ The player's keys and an AI are two sources of the same thing, the **move input*
 
 | `Acting` | When | Input of the seat |
 |---|---|---|
-| `PLAYER` | The rider is `party_manager.current_player` | The keys. The dismount key works |
+| `PLAYER` | The rider is `party_manager.current_player` | The keys |
 | `AI` | Any other case, and the seat has a `SeatAI` | `seat.ai.think(delta)` |
 | `NONE` | Any other case | Zero |
 
@@ -156,7 +168,7 @@ The keys do not steer an NPC rider: give the mount a `DriveLogic` that moves it 
 
 ## What is not built
 
-Hijacking (changing the faction of a vehicle that a player takes), sending NPCs to mounts, saving a ride, a rebind row for the dismount key in the settings menu, and flying animations. The places to add them: a faction change in `MountSession.begin`, a rule in the crew about who may sit.
+A hijack that stays after the rider gets up (keep the faction in `_return_faction`), NPCs that choose to ride, saving a mount that was spawned during play (it needs an id to be found by), and flying animations.
 
 ## Tests
 

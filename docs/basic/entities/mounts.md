@@ -25,6 +25,7 @@ All three can be **land, flying or swimming**, and a **boat** floats on the wate
 | **Speed multiplier** | The speed of the rider (a mount that is only a model) or of the mount (an NPC) times this | `1.5` |
 | **Vertical speed** | How fast the mount goes up and down when it swims or flies | `4` |
 | **A rider gets off when hurt** | Damage throws the rider | off |
+| **Can be hijacked** | A vehicle that is **hostile** to a character can be boarded and taken over by it ([hijacking](#hijacking-a-vehicle)). Off: a hostile vehicle cannot be boarded. This is the value a vehicle starts with; an event or an effect changes it for one vehicle | off |
 | **Idle / Move animation** | If the model of the mount has an AnimationPlayer: the animations played when it stands still and when it moves | `idle`, `run` |
 
 ### Steering
@@ -100,7 +101,7 @@ An **enemy tank** is a normal NPC: place it with a **Mount** interaction whose M
 
 The **Mount** effect (Effects > Movement) puts the target on a mount **for as long as the effect lasts**. Give it a *Persistent* time strategy for a mount the player calls and dismisses, or a *Temporary* one for a mount that lasts a minute. Put it in an [ability](/basic/abilities-and-effects/abilities) (a *Summon Mount* spell), an item that is used, or an [event](/basic/events-and-quests/event-actions) (**Grant Effect to Player**). It has one field: the **Mount** to use.
 
-What happens: the model of the creature is added under the rider, the model of the rider is lifted onto the **first seat**, the pose of that seat plays, and the rider moves faster, or swims, or flies, or sails. The rider keeps its own movement, collisions and controls. When the effect ends or runs out, or the rider **gets off with the dismount key** or dies, the model goes and the rider is back as it was.
+What happens: the model of the creature is added under the rider, the model of the rider is lifted onto the **first seat**, the pose of that seat plays, and the rider moves faster, or swims, or flies, or sails. The rider keeps its own movement, collisions and controls. When the effect ends or runs out, or the rider **gets off with the interact key** or dies, the model goes and the rider is back as it was.
 
 ## A creature or a vehicle: the Mount interaction
 
@@ -109,7 +110,7 @@ Add the **Mount** interaction (Entity interactions) to an [NPC](/basic/entities/
 - The NPC is a normal NPC (or a summoned pet): it keeps its **health, stats and faction**. Its behavior and combat AI **wait** while it is ridden.
 - The rider of a steering seat **steers the NPC** with the keys. The camera, the targeting and the abilities stay with the rider.
 - The rider is **carried**: it does not collide or move by itself.
-- Other characters sit on the **other seats** (a companion on a cart). The rider gets off with the **dismount key**, or when the mount or the rider **dies**, or when the rider is hurt (if the mount says so), and lands beside the mount. When the driver gets off, the vehicle stops and the passengers stay.
+- Other characters sit on the **other seats** (a companion on a cart). The rider gets off with the **interact key**, or when the mount or the rider **dies**, or when the rider is hurt (if the mount says so), and lands beside the mount. When the driver gets off the vehicle stops and the passengers stay.
 - The speed of the NPC is its **movement speed** stat times the *Speed multiplier* of the mount.
 
 Make a **boat** with *Movement: Boat* and the Vehicle steering; give the world a [movement volume](/basic/world/movement-volumes) for the water. A **tank** that fights is a normal NPC with its own abilities; the player who drives it uses the seat's slots.
@@ -123,16 +124,44 @@ The seats and the steering are **classes**, and the editor lists the scripts it 
 
 Save a new script in the folder and it is in the lists of the Mounts editor, with its exported variables shown as fields (a switch for a bool, a number box for a number, a list for an enum ...). A **TurretSeat** that aims a gun, a **HoverDrive** that floats: you write what they do, the editor does the rest. See [Advanced](/advanced/entities/mounts#your-own-seats-and-steering) for the code.
 
-## The dismount key
+## Getting on and off: the interact key
 
-The key is the input action **dismount** (X by default), made by the project setup. A project that was set up before this existed gets it the next time the setup runs; or add the action in *Project Settings > Input*. It is not in the settings menu of the player yet.
+There is no key of its own. The **interact key** (E by default, the one you rebind in the settings with the movement keys) **gets on** (using the NPC) and **gets off**: pressed on a mount or a vehicle it takes the rider down and does nothing else, so talking to someone from the saddle is something you get off for. The action bar slots stay for abilities; the movement and interact keys are separate actions of the Input Map.
+
+## Hijacking a vehicle
+
+A vehicle is **commanded by the rider of its first seat** (seat 1). While that rider sits, the vehicle is of **its faction**; when it gets up, the vehicle goes back to the faction it had. A rider of another seat changes nothing.
+
+A vehicle that is **hostile** to a character (its faction and the character's are enemies) cannot be boarded by it, unless it is **hijackable**. Every vehicle has that as a yes or no of its own:
+
+| | |
+|---|---|
+| **Starting value** | The *Can be hijacked* switch of its Mount (off by default) |
+| **A story changes it** | The event action **Set Vehicle Hijackable** (a placed NPC, on or off), for example after a quest step |
+| **A moment changes it** | The effect **Hijackable** (Effects > Movement): the vehicle is hijackable, or not, while the effect lasts, and as it was after |
+
+So an enemy tank is closed to the player until something opens it; then the player climbs in, the crew steps back, and the tank fights for the player. Nothing else about the tank changes. A friendly or neutral vehicle needs no permission.
+
+## Event actions for mounts
+
+| Action | What it does |
+|---|---|
+| **Mount Entity** | Puts a placed NPC on a placed vehicle or mount: the seat you give (1 is the first) or the first that is free. An NPC cannot take a hostile vehicle that is not hijackable unless *Force* is on. If the seat has an AI, the AI acts for the NPC |
+| **Dismount Entity** | Gets a placed NPC off what it rides |
+| **Set Vehicle Hijackable** | Opens or closes a vehicle to hijacking |
+
+## Saving and loading
+
+Rides are saved with the characters. **When a game is loaded, everybody sits where they were**: the players, the companions and the NPCs that were riding something are put back on the same seat of the same mount, **as they were**: nothing is announced, no checks are made, the vehicle keeps its faction and no animation plays but the pose the rider was holding. A seat keeps what it needs (a turret points where it did; an ability a seat gave its rider is given again). What the vehicle was doing (its speed) starts again from rest.
+
+The mount has to be found again by its id, so a mount must be a **placed NPC** (or a character of the party). A mount that was spawned during play has no id of the world: its rider is left standing at the place it was saved, which is the seat. The Mount effect is saved like every effect and applies itself again on a load.
 
 ## What the basic versions do not do
 
 These are left for you to build on (the [Advanced](/advanced/entities/mounts) page says where):
 
 - **A mount that fights while it is ridden.** Its own behavior waits while anybody rides it; the AI of the seats is what acts.
-- **Hijacking an enemy vehicle** (changing its faction). A player who sits in it silences its crew, but the vehicle stays an enemy.
-- **NPC riders.** An NPC can ride (from a script), but nothing sends one to a mount.
-- **Saving a ride on a creature.** It is not saved: the player is on the ground next to the mount when a game is loaded. The Mount effect is a normal effect: the game applies it again when a save is loaded.
+- **NPCs that choose to ride.** An NPC rides when an event or a script puts it on a mount; nothing makes one walk to a mount by itself.
+- **A hijack that stays.** The vehicle goes back to its faction when the rider of the first seat gets up.
+- **Saving a mount that was spawned during play** (it has no id to be found by).
 - **Mount stamina and mount-only animations** for the rider (it uses the pose you name).

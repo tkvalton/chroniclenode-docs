@@ -33,12 +33,16 @@ Start one with `Entity.start_mount(definition)` (a model) or `Entity.start_mount
 | `int` | [seat_index](#var-seat-index) | `0` |
 | `DriveLogic` | [drive_logic](#var-drive-logic) |  |
 | `Node3D` | [model](#var-model) |  |
+| `bool` | [restoring](#var-restoring) | `false` |
 
 ## Methods
 
 | | |
 |---|---|
-| `MountSession` | [begin](#method-begin)( `p_rider: Entity, p_definition: MountDefinition, p_mount: Entity = null, p_drive_logic: DriveLogic = null, p_seat_index: int = -1` ) *static* |
+| `MountSession` | [begin](#method-begin)( `p_rider: Entity, p_definition: MountDefinition, p_mount: Entity = null, p_drive_logic: DriveLogic = null, p_seat_index: int = -1, p_force: bool = false, p_seat_state: Dictionary = {}, p_restoring: bool = false` ) *static* |
+| `bool` | [is_blocked_by_hostility](#method-is-blocked-by-hostility)( `vehicle: Entity, rider: Entity` ) *static* |
+| `Dictionary` | [to_save_data](#method-to-save-data)() |
+| `MountSession` | [begin_restored](#method-begin-restored)( `p_rider: Entity, p_definition: MountDefinition, p_mount: Entity, p_seat_index: int, p_seat_state: Dictionary` ) *static* |
 | `MountSession` | [begin_crew](#method-begin-crew)( `p_mount: Entity, p_definition: MountDefinition, p_seat_index: int` ) *static* |
 | `bool` | [dismount](#method-dismount)( `_reason: String = ""` ) |
 | `Transform3D` | [get_seat_transform](#method-get-seat-transform)() |
@@ -104,11 +108,27 @@ The logic that steers the mount (only a seat that steers has one)
 
 The model of the mount (a mount that is only a model)
 
+### bool restoring = false {#var-restoring}
+
+True while a loaded game puts the ride back: nothing is announced or changed, the rider just sits as it did
+
 ## Method descriptions
 
-### MountSession begin( p_rider: Entity, p_definition: MountDefinition, p_mount: Entity = null, p_drive_logic: DriveLogic = null, p_seat_index: int = -1 ) {#method-begin}
+### MountSession begin( p_rider: Entity, p_definition: MountDefinition, p_mount: Entity = null, p_drive_logic: DriveLogic = null, p_seat_index: int = -1, p_force: bool = false, p_seat_state: Dictionary = &#123;&#125;, p_restoring: bool = false ) {#method-begin}
 
 Puts a rider on a mount. `seat_index` -1 takes the first seat that is free. A drive logic of your own steers instead of the one of the definition. Returns the session, or null when it cannot be done (the rider is dead or already on a mount, the mount is dead or full, the seat refuses the rider)
+
+### bool is_blocked_by_hostility( vehicle: Entity, rider: Entity ) {#method-is-blocked-by-hostility}
+
+Is this vehicle hostile to the rider and not hijackable? Then the rider cannot board it
+
+### Dictionary to_save_data() {#method-to-save-data}
+
+What a save needs to put this ride back after everything is loaded: which mount and seat (a mount without an id of the world, a spawned NPC, cannot be found again)
+
+### MountSession begin_restored( p_rider: Entity, p_definition: MountDefinition, p_mount: Entity, p_seat_index: int, p_seat_state: Dictionary ) {#method-begin-restored}
+
+Puts a rider on a mount as a loaded game had it: no checks, no changes of faction, nothing announced
 
 ### MountSession begin_crew( p_mount: Entity, p_definition: MountDefinition, p_seat_index: int ) {#method-begin-crew}
 

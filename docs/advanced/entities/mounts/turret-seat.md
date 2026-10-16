@@ -36,6 +36,8 @@ Make your own seat by extending this one, or Seat (see Advanced).
 | `String` | [get_seat_type_name](#method-get-seat-type-name)() |
 | `String` | [get_seat_type_description](#method-get-seat-type-description)() |
 | `Dictionary` | [get_field_descriptions](#method-get-field-descriptions)() |
+| `Dictionary` | [save_state](#method-save-state)() |
+| `void` | [load_state](#method-load-state)( `state: Dictionary` ) |
 | `void` | [on_enter](#method-on-enter)( `p_session: MountSession` ) |
 | `void` | [aim_at](#method-aim-at)( `world_point: Vector3` ) |
 | `void` | [aim_in_direction](#method-aim-in-direction)( `direction: Vector3` ) |
@@ -96,6 +98,14 @@ A sentence about what this kind of seat does, for the editor *(from [Seat](/adva
 ### Dictionary get_field_descriptions() {#method-get-field-descriptions}
 
 The sentences the editor shows as tooltips: &#123;name of an exported variable: text&#125;. A seat of your own adds its variables (call super and merge) *(from [Seat](/advanced/entities/mounts/seat))*
+
+### Dictionary save_state() {#method-save-state}
+
+What the seat keeps for a save (a game that is loaded while a rider sits puts it back before the rider sits down): the abilities it granted, and what your own seat adds. Override it (call super and merge) to keep a state of your own, and `load_state` to read it *(from [Seat](/advanced/entities/mounts/seat))*
+
+### void load_state( state: Dictionary ) {#method-load-state}
+
+Reads what `save_state` gave. Called before `on_enter` when a game is loaded *(from [Seat](/advanced/entities/mounts/seat))*
 
 ### void on_enter( p_session: MountSession ) {#method-on-enter}
 

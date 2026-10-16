@@ -67,6 +67,10 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `MountSession` | [mount_session](#var-mount-session) | `null` |
 | `Array[MountSession]` | [ridden_sessions](#var-ridden-sessions) | `[]` |
 | `Array[MountSession]` | [crew_sessions](#var-crew-sessions) | `[]` |
+| `bool` | [mount_hijackable](#var-mount-hijackable) | `false` |
+| `bool` | [mount_hijackable_ready](#var-mount-hijackable-ready) | `false` |
+| `FactionDefinition` | [faction_before_mount](#var-faction-before-mount) | `null` |
+| `Dictionary` | [pending_mount_state](#var-pending-mount-state) | `{}` |
 | `bool` | [breath_exempt](#var-breath-exempt) | `false` |
 | `float` | [breath](#var-breath) | `-1.0` |
 | `AimProvider` | [aim_provider](#var-aim-provider) | `null` |
@@ -188,7 +192,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `Array[Entity]` | [get_riders](#method-get-riders)() |
 | `bool` | [is_seat_taken](#method-is-seat-taken)( `seat_index: int` ) |
 | `int` | [get_free_seat_index](#method-get-free-seat-index)( `seat_count: int` ) |
-| `MountSession` | [start_mount](#method-start-mount)( `definition: MountDefinition, mount_entity: Entity = null, drive_logic: DriveLogic = null, seat_index: int = -1` ) |
+| `MountSession` | [start_mount](#method-start-mount)( `definition: MountDefinition, mount_entity: Entity = null, drive_logic: DriveLogic = null, seat_index: int = -1, force: bool = false` ) |
 | `bool` | [dismount](#method-dismount)( `reason: String = ""` ) |
 | `bool` | [uses_breath](#method-uses-breath)() |
 | `float` | [get_breath_maximum](#method-get-breath-maximum)() |
@@ -761,6 +765,22 @@ The rides on this entity when it is a mount or a vehicle: one for each rider tha
 
 The seats of this entity that an AI crew acts for while nobody sits in them (see MountCrew)
 
+### bool mount_hijackable = false {#var-mount-hijackable}
+
+A vehicle that is hostile to a character can be boarded by it and taken over (see MountDefinition.hijackable, which sets the first value). An event or an effect changes it
+
+### bool mount_hijackable_ready = false {#var-mount-hijackable-ready}
+
+True once the Mount of this entity has given its starting value to `mount_hijackable` (so a loaded value is not overwritten)
+
+### FactionDefinition faction_before_mount = null {#var-faction-before-mount}
+
+The faction this entity had before the rider of its first seat gave it theirs (null when it has its own). The rider of seat 0 commands the vehicle: while it sits the vehicle is of its faction
+
+### Dictionary pending_mount_state =  {#var-pending-mount-state}
+
+What a save says about the ride of this entity as a rider, kept until the mounts are put back together (see MountSaves)
+
 ### bool breath_exempt = false {#var-breath-exempt}
 
 An entity that never needs to hold its breath (a water creature, a potion of water breathing: set it from a script or an effect)
@@ -1227,9 +1247,9 @@ Does somebody sit on this seat of the mount (0 is the first)?
 
 The first free seat of a mount that has `seat_count` seats, or -1 when it is full
 
-### MountSession start_mount( definition: MountDefinition, mount_entity: Entity = null, drive_logic: DriveLogic = null, seat_index: int = -1 ) {#method-start-mount}
+### MountSession start_mount( definition: MountDefinition, mount_entity: Entity = null, drive_logic: DriveLogic = null, seat_index: int = -1, force: bool = false ) {#method-start-mount}
 
-Gets on a mount. Without a mount entity the mount is a model and a speed (the Mount effect); with one, the entity sits on a seat of it (the first that is free, or the one you give) and, on a seat that steers, the player steers it (see MountSession). A DriveLogic of your own steers it instead of the one of the definition. Returns the ride, or null when it cannot be done
+Gets on a mount. Without a mount entity the mount is a model and a speed (the Mount effect); with one, the entity sits on a seat of it (the first that is free, or the one you give) and, on a seat that steers, the player steers it (see MountSession). A DriveLogic of your own steers it instead of the one of the definition. A vehicle that is hostile to this entity and not hijackable refuses it, unless `force` is true. Returns the ride, or null when it cannot be done
 
 ### bool dismount( reason: String = "" ) {#method-dismount}
 

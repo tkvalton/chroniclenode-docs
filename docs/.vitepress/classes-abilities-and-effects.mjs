@@ -521,6 +521,12 @@ export const groups = [
         "file": "data_classes/effects/movement/effect_gravity.gd"
       },
       {
+        "name": "HijackableEffect",
+        "base": "Effect",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\movement\\effect_hijackable.gd",
+        "file": "data_classes/effects/movement/effect_hijackable.gd"
+      },
+      {
         "name": "ImpulseEffect",
         "base": "MoveDirectionalEffect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\movement\\effect_movement_impulse.gd",

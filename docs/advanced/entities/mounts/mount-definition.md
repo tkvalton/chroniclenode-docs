@@ -21,6 +21,7 @@ The steering is a DriveLogic and each seat is a Seat; both are classes that you 
 | `DriveLogic` | [drive_logic](#prop-drive-logic) | `null` |
 | `Array[Seat]` | [seats](#prop-seats) | `[]` |
 | `bool` | [dismount_on_damage](#prop-dismount-on-damage) | `false` |
+| `bool` | [hijackable](#prop-hijackable) | `false` |
 | `String` | [mount_idle_animation](#prop-mount-idle-animation) | `"idle"` |
 | `String` | [mount_move_animation](#prop-mount-move-animation) | `"run"` |
 
@@ -72,6 +73,10 @@ The places for riders. Empty = one Driver seat
 ### bool dismount_on_damage = false {#prop-dismount-on-damage}
 
 A rider gets off when it takes damage
+
+### bool hijackable = false {#prop-hijackable}
+
+A vehicle that is hostile to a character can be taken by it (sit in it and make it yours). Off: a hostile vehicle cannot be boarded. This is the value a vehicle starts with; an event, an effect or a script changes it for one vehicle (Entity.mount_hijackable)
 
 ### String mount_idle_animation = "idle" {#prop-mount-idle-animation}
 

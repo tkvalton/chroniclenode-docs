@@ -39,6 +39,8 @@ Override `on_enter`, `on_exit` and `process` for what your seat does. The seat b
 | `Dictionary` | [get_field_descriptions](#method-get-field-descriptions)() |
 | `String` | [get_seat_type_name](#method-get-seat-type-name)() |
 | `String` | [get_seat_type_description](#method-get-seat-type-description)() |
+| `Dictionary` | [save_state](#method-save-state)() |
+| `void` | [load_state](#method-load-state)( `state: Dictionary` ) |
 | `bool` | [can_enter](#method-can-enter)( `_rider: Entity` ) |
 | `void` | [on_enter](#method-on-enter)( `p_session: MountSession` ) |
 | `void` | [on_exit](#method-on-exit)() |
@@ -106,6 +108,14 @@ What this kind of seat is called in the editor list
 ### String get_seat_type_description() {#method-get-seat-type-description}
 
 A sentence about what this kind of seat does, for the editor
+
+### Dictionary save_state() {#method-save-state}
+
+What the seat keeps for a save (a game that is loaded while a rider sits puts it back before the rider sits down): the abilities it granted, and what your own seat adds. Override it (call super and merge) to keep a state of your own, and `load_state` to read it
+
+### void load_state( state: Dictionary ) {#method-load-state}
+
+Reads what `save_state` gave. Called before `on_enter` when a game is loaded
 
 ### bool can_enter( _rider: Entity ) {#method-can-enter}
 

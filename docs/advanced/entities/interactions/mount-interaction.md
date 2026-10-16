@@ -8,7 +8,7 @@ Lets the player get on this NPC: a horse, a griffin, a cart, a tank, a boat. The
 
 ## Description
 
-The player takes the first seat that is free, so a second character that uses the interaction takes the next seat. The rider gets off with the dismount key, when it or the mount dies, or (if the mount says so) when it is hurt.
+The player takes the first seat that is free, so a second character that uses the interaction takes the next seat. The rider gets off with the interact key, when it or the mount dies, or (if the mount says so) when it is hurt.
 
 ## Properties
 
@@ -20,9 +20,10 @@ The player takes the first seat that is free, so a second character that uses th
 
 | | |
 |---|---|
+| `void` | [set_entity_reference](#method-set-entity-reference)( `new_entity: Variant, p_system_hub: GameHost.SystemHub` ) |
 | `MountDefinition` | [get_mount_definition](#method-get-mount-definition)() |
 | `bool` | [can_interact](#method-can-interact)( `player: Player` ) |
-| `String` | [get_block_reason](#method-get-block-reason)( `_entity: Entity` ) |
+| `String` | [get_block_reason](#method-get-block-reason)( `user: Entity` ) |
 | `void` | [start_interaction](#method-start-interaction)( `player: Player` ) |
 
 ## Property descriptions
@@ -33,6 +34,10 @@ The mount (Entities &gt; Mounts): how this NPC moves when it is ridden, how it i
 
 ## Method descriptions
 
+### void set_entity_reference( new_entity: Variant, p_system_hub: GameHost.SystemHub ) {#method-set-entity-reference}
+
+The NPC gets the starting value of "hijackable" from its Mount (once: a loaded value stays)
+
 ### MountDefinition get_mount_definition() {#method-get-mount-definition}
 
 The mount of the Database that this NPC is
@@ -41,7 +46,7 @@ The mount of the Database that this NPC is
 
 Only a creature that is alive and has a free seat can be ridden, by a player that is not riding
 
-### String get_block_reason( _entity: Entity ) {#method-get-block-reason}
+### String get_block_reason( user: Entity ) {#method-get-block-reason}
 
 Why the interaction cannot start now ("" = it can, or it says nothing): the user is told when `can_interact` is false *(from [Interaction](/advanced/entities/interactions/interaction))*
 
