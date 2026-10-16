@@ -4,7 +4,7 @@
 
 **Inherits:** [Interaction](/advanced/entities/interactions/interaction) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-**Inherited by:** [JoinPartyInteraction](/advanced/entities/interactions/join-party-interaction), [LootInteraction](/advanced/entities/interactions/loot-interaction)
+**Inherited by:** [JoinPartyInteraction](/advanced/entities/interactions/join-party-interaction), [LootInteraction](/advanced/entities/interactions/loot-interaction), [MountInteraction](/advanced/entities/interactions/mount-interaction)
 
 Only entities can use these interactions
 

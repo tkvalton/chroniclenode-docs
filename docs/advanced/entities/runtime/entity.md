@@ -64,6 +64,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `Array[int]` | [suppressed_entity_tags](#var-suppressed-entity-tags) | `[]` |
 | `Array[MovementClaim]` | [movement_claims](#var-movement-claims) | `[]` |
 | `MovementClaim.Mode:` | [movement_mode](#var-movement-mode) |  |
+| `MountSession` | [mount_session](#var-mount-session) | `null` |
 | `bool` | [breath_exempt](#var-breath-exempt) | `false` |
 | `float` | [breath](#var-breath) | `-1.0` |
 | `AimProvider` | [aim_provider](#var-aim-provider) | `null` |
@@ -177,6 +178,13 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `float` | [get_movement_speed_multiplier](#method-get-movement-speed-multiplier)() |
 | `void` | [suspend_movement_claims](#method-suspend-movement-claims)( `seconds: float` ) |
 | `void` | [leap_out_of_water](#method-leap-out-of-water)() |
+| `bool` | [is_mounted](#method-is-mounted)() |
+| `bool` | [is_ridden](#method-is-ridden)() |
+| `bool` | [is_carried_by_mount](#method-is-carried-by-mount)() |
+| `Entity` | [get_mount](#method-get-mount)() |
+| `Entity` | [get_rider](#method-get-rider)() |
+| `MountSession` | [start_mount](#method-start-mount)( `config: MountConfig, mount_entity: Entity = null, drive_logic: DriveLogic = null` ) |
+| `bool` | [dismount](#method-dismount)( `reason: String = ""` ) |
 | `bool` | [uses_breath](#method-uses-breath)() |
 | `float` | [get_breath_maximum](#method-get-breath-maximum)() |
 | `float` | [get_breath](#method-get-breath)() |
@@ -736,6 +744,10 @@ What is asking something of the movement of the entity (see MovementClaim)
 
 How the entity moves now: on the ground, swimming or flying
 
+### MountSession mount_session = null {#var-mount-session}
+
+The ride this entity is in, as the rider or as the creature or vehicle that carries the rider. Null when it is in none
+
 ### bool breath_exempt = false {#var-breath-exempt}
 
 An entity that never needs to hold its breath (a water creature, a potion of water breathing: set it from a script or an effect)
@@ -1169,6 +1181,34 @@ Ignores every movement claim for a moment (the leap out of the water must not be
 ### void leap_out_of_water() {#method-leap-out-of-water}
 
 Swimming up at the surface and jumping: the entity leaps out of the water. Only where the claim allows it and the entity is near the surface
+
+### bool is_mounted() {#method-is-mounted}
+
+Is this entity riding something?
+
+### bool is_ridden() {#method-is-ridden}
+
+Is something riding this entity (it is a mount or a vehicle with a rider)?
+
+### bool is_carried_by_mount() {#method-is-carried-by-mount}
+
+Is this entity carried by a creature or a vehicle (it does not move by itself)? False for a rider on a mount that is only a model
+
+### Entity get_mount() {#method-get-mount}
+
+The creature or vehicle this entity rides, or null
+
+### Entity get_rider() {#method-get-rider}
+
+The entity that rides this one, or null
+
+### MountSession start_mount( config: MountConfig, mount_entity: Entity = null, drive_logic: DriveLogic = null ) {#method-start-mount}
+
+Gets on a mount. Without a mount entity the mount is a model and a speed (the Mount effect); with one, the entity carries this one and the player steers it (see MountSession). A DriveLogic of your own steers it instead of the one of the config. Returns the ride, or null when it cannot be done
+
+### bool dismount( reason: String = "" ) {#method-dismount}
+
+Gets off the mount (or, on a mount, makes the rider get off). False when there is no ride
 
 ### bool uses_breath() {#method-uses-breath}
 

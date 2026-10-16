@@ -24,6 +24,8 @@ Add one with `Entity.add_movement_claim` and take it away with `Entity.remove_mo
 | `float` | [surface_stop_depth](#var-surface-stop-depth) | `0.6` |
 | `bool` | [allows_surface_leap](#var-allows-surface-leap) | `false` |
 | `bool` | [follows_camera_pitch](#var-follows-camera-pitch) | `true` |
+| `bool` | [vertical_control](#var-vertical-control) | `true` |
+| `int` | [priority](#var-priority) | `0` |
 
 ## Enumerations
 
@@ -84,4 +86,12 @@ Can an entity that swims up to the surface leap out of the water (jump)?
 ### bool follows_camera_pitch = true {#var-follows-camera-pitch}
 
 Does an entity moving through this follow the camera up and down (look up and move forward to rise)?
+
+### bool vertical_control = true {#var-vertical-control}
+
+Can the entity steer up and down (jump, crouch and the camera pitch)? A boat cannot: it floats on the surface
+
+### int priority = 0 {#var-priority}
+
+Of two claims with the same mode the one with the higher priority wins (of two equal ones, the later). A mount is 10, a volume 0
 

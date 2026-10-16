@@ -137,6 +137,12 @@ export const groups = [
         "file": "data_classes/interactions/entity_interaction/loot_interaction.gd"
       },
       {
+        "name": "MountInteraction",
+        "base": "EntityInteraction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\interactions\\entity_interaction\\mount_interaction.gd",
+        "file": "data_classes/interactions/entity_interaction/mount_interaction.gd"
+      },
+      {
         "name": "RabbitHoleInteraction",
         "base": "InteractableObjectInteraction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\interactions\\interactable_objects\\rabbit_hole_interaction.gd",
@@ -179,10 +185,46 @@ export const groups = [
         "file": "data_classes/interactions/interactable_objects/trap_interaction.gd"
       },
       {
+        "name": "VehicleInteraction",
+        "base": "MountInteraction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\interactions\\entity_interaction\\vehicle_interaction.gd",
+        "file": "data_classes/interactions/entity_interaction/vehicle_interaction.gd"
+      },
+      {
         "name": "VendorInteraction",
         "base": "Interaction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\interactions\\common_interactions\\vendor_interaction.gd",
         "file": "data_classes/interactions/common_interactions/vendor_interaction.gd"
+      }
+    ]
+  },
+  {
+    "text": "Mounts",
+    "slug": "mounts",
+    "classes": [
+      {
+        "name": "DriveLogic",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\drive_logic.gd",
+        "file": "data_classes/mount/drive_logic.gd"
+      },
+      {
+        "name": "MountConfig",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\mount_config.gd",
+        "file": "data_classes/mount/mount_config.gd"
+      },
+      {
+        "name": "VehicleDriveLogic",
+        "base": "DriveLogic",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\vehicle_drive_logic.gd",
+        "file": "data_classes/mount/vehicle_drive_logic.gd"
+      },
+      {
+        "name": "WalkDriveLogic",
+        "base": "DriveLogic",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\walk_drive_logic.gd",
+        "file": "data_classes/mount/walk_drive_logic.gd"
       }
     ]
   },
@@ -237,6 +279,12 @@ export const groups = [
         "base": "StaticBody3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\interactable_object.gd",
         "file": "runtime_classes/entity/interactable_object.gd"
+      },
+      {
+        "name": "MountSession",
+        "base": "Node",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\entity\\mount_session.gd",
+        "file": "runtime_classes/entity/mount_session.gd"
       },
       {
         "name": "MovementClaim",

@@ -120,7 +120,7 @@ const basicSystems = [
     ['NPCs', 'npcs', 'entities'],
     ['Interactables', 'interactables', 'interactables'],
   ], {
-    after: [page('Tutorial: an NPC who talks and sells', '/basic/entities/first-npc'), page('Interaction types', '/basic/entities/interaction-types'), page('Templates', '/basic/entities/templates'), page('Shared party inventory', '/basic/entities/shared-inventory')],
+    after: [page('Tutorial: an NPC who talks and sells', '/basic/entities/first-npc'), page('Interaction types', '/basic/entities/interaction-types'), page('Mounts and vehicles', '/basic/entities/mounts'), page('Templates', '/basic/entities/templates'), page('Shared party inventory', '/basic/entities/shared-inventory')],
   }),
   abilitiesAndEffects,
   system('Behaviors', 'behaviors', [
@@ -350,7 +350,7 @@ const advancedSystems = [
   : slug === 'items'
   ? withPages(classSystem(text, slug, itemClasses), [page('Generated items', '/advanced/items/generation', { title: 'Generated items: how they are built' }), page('Loot', '/advanced/items/loot', { title: 'Loot: how it is built' }), page('Dropped items', '/advanced/items/dropped-items', { title: 'Dropped items: how they are built' }), page('Durability', '/advanced/items/durability', { title: 'Durability: how it is built' }), page('Trainers, tiers and professions', '/advanced/items/trainers', { title: 'Trainers, tiers and professions: how they are built' }), page('Inventories', '/advanced/items/inventories', { title: 'Inventories: how they are built' })])
   : slug === 'entities'
-  ? classSystem(text, slug, entityClasses)
+  ? withPages(classSystem(text, slug, entityClasses), [page('Mounts and vehicles', '/advanced/entities/mounts', { title: 'Mounts and vehicles: how they are built' })])
   : slug === 'behaviors'
   ? classSystem(text, slug, behaviorClasses)
   : slug === 'equipment-definitions'
@@ -412,7 +412,6 @@ export const sidebar = [
     items: [
       page('About the planned features', '/planned/', { title: 'Planned features' }),
       page('Flying', '/planned/flying'),
-      page('Mounts', '/planned/mounts'),
       page('The World Builder', '/planned/world-builder'),
       page('Localization', '/planned/localization'),
       page('Chat box and combat log', '/planned/chat-box'),

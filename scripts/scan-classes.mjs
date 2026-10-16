@@ -242,6 +242,7 @@ const SYSTEMS = {
     groups: [
       { text: 'Definitions', slug: 'definitions', dirs: [['data_classes/entity', false]] },
       { text: 'Interactions', slug: 'interactions', dirs: [['data_classes/interactions', true]] },
+      { text: 'Mounts', slug: 'mounts', dirs: [['data_classes/mount', true]] },
       {
         text: 'Entities (runtime)',
         slug: 'runtime',
@@ -253,6 +254,7 @@ const SYSTEMS = {
           ['runtime_classes/entity/entity_templates.gd', false],
           ['runtime_classes/entity/pet.gd', false],
           ['runtime_classes/entity/movement_claim.gd', false],
+          ['runtime_classes/entity/mount_session.gd', false],
           ['runtime_classes/entity/interactable_object.gd', false],
           ['runtime_classes/entity/components/entity_component_registry.gd', false],
           ['runtime_classes/entity/components/entity_component_mediator.gd', false],

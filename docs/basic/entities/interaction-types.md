@@ -8,7 +8,11 @@ Each type has a section of its own in the editor. There are three families:
 |---|---|---|
 | **Object interactions** | Interactable objects | Door, Container, Switch, Light, Ladder, Rabbit Hole, Trap, Readable, Gather |
 | **Common interactions** | Objects *and* NPCs | Speak, Conversation, Vendor, Crafting, Grant Quest, Show UI Panel |
-| **Entity interactions** | NPCs and other entities | Loot, Join Party |
+| **Entity interactions** | NPCs and other entities | Loot, Join Party, Mount, Vehicle |
+
+### Mount and Vehicle
+
+Walk up to the NPC and use it: the player **gets on**. **Mount** is for a creature you ride (a horse, a griffin), **Vehicle** for a cart, a tank or a boat (the same interaction with the vehicle steering). The creature keeps its health and stats and its own behavior waits while it is ridden. See [Mounts and vehicles](/basic/entities/mounts).
 
 ### Gather
 

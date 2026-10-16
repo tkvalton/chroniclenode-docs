@@ -533,6 +533,12 @@ export const groups = [
         "file": "data_classes/effects/movement/effect_jump_to_point.gd"
       },
       {
+        "name": "MountEffect",
+        "base": "Effect",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\movement\\effect_mount.gd",
+        "file": "data_classes/effects/movement/effect_mount.gd"
+      },
+      {
         "name": "MoveDirectionalEffect",
         "base": "CompositeEffect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\movement\\effect_movement_directional.gd",

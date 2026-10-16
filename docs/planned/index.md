@@ -9,7 +9,6 @@ Nothing on these pages can be used today. A page can change before its feature s
 | Feature | What it is | What exists today |
 |---|---|---|
 | [Flying](/planned/flying) | Entities that can fly because of what they are, an ability or an effect | Flying in a [weightless movement volume](/basic/world/movement-volumes), and the claims that anything can add |
-| [Mounts](/planned/mounts) | Riding: a speed buff on a mount, or movement of its own, perhaps flying, swimming or a vehicle | Mount and rider points in the character rig |
 | [The World Builder](/planned/world-builder) | A terrain tool, better placement of uniques, water placement and visual wiring between interactables | The [Add Object](/basic/world/add-object) and [Unique Object](/basic/world/unique-object-tool) tools |
 | [Localization](/planned/localization) | Playing in more than one language: your text stays in one language and the translations live in a table (CSV), found by stable keys, with coverage, a table editor and a test language | Lists of text for each language in conversations and quests; the text tokens |
 | [Chat box and combat log](/planned/chat-box) | The combat log becomes a chat box with tabs: level ups, skill ups, loot, experience, quests, and emotes | A [combat log](/basic/user-interface/hud) in the HUD and short [messages](/basic/user-interface/messages-and-popups) that fade |

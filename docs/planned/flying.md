@@ -10,7 +10,7 @@ Flying is very close to [swimming](/basic/world/movement-volumes): both are **fr
 
 - A **flight effect and ability**: an [ability](/basic/abilities-and-effects/abilities) or [effect](/basic/abilities-and-effects/effects) that grants flight for a while (a wizard who levitates), or for as long as a toggle is on.
 - A **trait of the entity**: a dragon or a bird that flies by definition.
-- A **mount** that flies ([mounts](/planned/mounts)).
+- A **mount** that flies exists: see [mounts](/basic/entities/mounts) (a flying mount gives a flying claim).
 - Animations of flying of their own. Today flying uses the swim animations.
 
 ## What exists today

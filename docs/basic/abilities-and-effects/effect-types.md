@@ -143,6 +143,7 @@ Movement effects move an entity. The *Directional* types push it in a direction.
 | [**Swap**](/advanced/abilities-and-effects/effects-movement/swap-effect) (`SwapEffect`) | Two entities exchange positions. Child effects can apply to either on arrival |
 | [**Orbit**](/advanced/abilities-and-effects/effects-movement/orbit-effect) (`OrbitEffect`) | Circles around a target entity or position: a whirlwind |
 | [**Gravity**](/advanced/abilities-and-effects/effects-movement/gravity-effect) (`GravityEffect`) | Changes the gravity on the target: low, high, anti or zero gravity |
+| [**Mount**](/advanced/abilities-and-effects/effects-movement/mount-effect) (`MountEffect`) | Puts the target on a mount for as long as the effect lasts: the model of a creature under it, a speed, swimming, flying or a boat. See [Mounts](/basic/entities/mounts) |
 
 ## Pets and summons
 
