@@ -143,6 +143,12 @@ export const groups = [
     "slug": "runtime",
     "classes": [
       {
+        "name": "AmbientSound",
+        "base": "AudioStreamPlayer3D",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\ambient_sound.gd",
+        "file": "runtime_classes/world/ambient_sound.gd"
+      },
+      {
         "name": "AudioProfileStack",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\audio_profile_stack.gd",

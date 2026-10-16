@@ -114,6 +114,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 <!-- classes:world/runtime -->
 | Class | What it is |
 |---|---|
+| [AmbientSound](/advanced/world/runtime/ambient-sound) | A sound that comes from a place in the world: a waterfall, a campfire, a market, wind in a ruin. |
 | [AudioProfileStack](/advanced/world/runtime/audio-profile-stack) | The audio profile that is on now. |
 | [AudioZone](/advanced/world/runtime/audio-zone) | A place that changes how the world sounds while the camera is inside it: a cave with echo, a house that muffles the weather outside, a tunnel. |
 | [Encounter](/advanced/world/runtime/encounter) | Encounter is a designer-placeable node that coordinates group combat behavior. |

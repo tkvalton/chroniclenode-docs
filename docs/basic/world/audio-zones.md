@@ -57,6 +57,19 @@ A channel with the defaults is **left alone**.
 
 The profile **never changes the volume the player chose**. It adds effects on top of the buses (a filter, a volume offset, a reverb) and takes them off again when the camera leaves, so the sliders in the settings mean the same inside a cave as outside.
 
+## Sounds that come from a place
+
+For a waterfall, a campfire or a market, add an **AmbientSound** node (Godot's *Add Node*, search "AmbientSound") and give it a sound file. It is a normal Godot 3D audio player that is already set up for the game:
+
+| It already | So |
+|---|---|
+| Plays on the **Ambiance** channel | The ambiance volume of the player changes it, and the audio zones and the underwater muffle apply to it |
+| Starts by itself and **loops** | No script needed (*Loop* plays it again when a file does not loop by itself) |
+| Pauses with the pause menu and follows the **time scale** | Like the other sounds of the game |
+| Has a range (*Max distance* 40, *Unit size* 8) | Change them as on any 3D player |
+
+A plain Godot `AudioStreamPlayer3D` works too, **as long as its Bus is one of the channels** above. On the default **Master** bus it ignores the sliders of the player and every audio zone, so set the Bus to *Ambiance* (or *SFX*, *Voice*). For a sound that is not ambient, set the Bus of the AmbientSound to *SFX*.
+
 ## Good to know
 
 - The **top** of the zone does not matter: a zone is a box (or sphere...) the camera is either in or not. For water, where the camera must be **under the surface**, use a [movement volume](/basic/world/movement-volumes) with its *Audio profile*.
