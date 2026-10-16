@@ -151,6 +151,7 @@ const SYSTEMS = {
       },
       { text: 'World configs', slug: 'world-configs', dirs: [['data_classes/world/configs', true]] },
       { text: 'Encounters', slug: 'encounters', dirs: [['data_classes/encounters', true]] },
+      { text: 'Audio profiles', slug: 'audio-profiles', dirs: [['data_classes/audio', true]] },
       {
         text: 'Runtime',
         slug: 'runtime',
@@ -159,7 +160,10 @@ const SYSTEMS = {
           ['runtime_classes/world/world_scene.gd', false],
           ['runtime_classes/world/object_registery.gd', false],
           ['runtime_classes/world/region.gd', false],
+          ['runtime_classes/world/space_volume.gd', false],
           ['runtime_classes/world/movement_volume.gd', false],
+          ['runtime_classes/world/audio_zone.gd', false],
+          ['runtime_classes/world/audio_profile_stack.gd', false],
           ['runtime_classes/world/movement_volume_camera.gd', false],
           ['runtime_classes/world/encounter.gd', false],
           ['runtime_classes/world/weather_system.gd', false],

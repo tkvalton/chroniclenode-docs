@@ -55,7 +55,7 @@ The settings are in tabs. Next to every setting is a **checkbox**: ticked means 
 
 ### Audio
 
-Master, music, sound effects, ambiance and voice volume, `0` to `1`, all default `1`.
+Master, music, sound effects, ambiance, voice and **interface** volume, `0` to `1`, all default `1`. The interface sounds (clicks, windows, notifications) have a channel of their own; see [the audio channels](/basic/world/audio-zones#the-audio-channels).
 
 ### Keybinds
 

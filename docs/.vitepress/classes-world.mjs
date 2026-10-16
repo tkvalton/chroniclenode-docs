@@ -127,9 +127,33 @@ export const groups = [
     ]
   },
   {
+    "text": "Audio profiles",
+    "slug": "audio-profiles",
+    "classes": [
+      {
+        "name": "AudioProfile",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\audio_profile.gd",
+        "file": "data_classes/audio/audio_profile.gd"
+      }
+    ]
+  },
+  {
     "text": "Runtime",
     "slug": "runtime",
     "classes": [
+      {
+        "name": "AudioProfileStack",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\audio_profile_stack.gd",
+        "file": "runtime_classes/world/audio_profile_stack.gd"
+      },
+      {
+        "name": "AudioZone",
+        "base": "SpaceVolume",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\audio_zone.gd",
+        "file": "runtime_classes/world/audio_zone.gd"
+      },
       {
         "name": "Encounter",
         "base": "Node3D",
@@ -168,7 +192,7 @@ export const groups = [
       },
       {
         "name": "MovementVolume",
-        "base": "Area3D",
+        "base": "SpaceVolume",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\movement_volume.gd",
         "file": "runtime_classes/world/movement_volume.gd"
       },
@@ -189,6 +213,12 @@ export const groups = [
         "base": "Area3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\region.gd",
         "file": "runtime_classes/world/region.gd"
+      },
+      {
+        "name": "SpaceVolume",
+        "base": "Area3D",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\space_volume.gd",
+        "file": "runtime_classes/world/space_volume.gd"
       },
       {
         "name": "TerraBrushProvider",

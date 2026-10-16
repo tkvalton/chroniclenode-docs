@@ -1,6 +1,6 @@
 # World: how it is built
 
-The [World chapter](/basic/world/) explains the editors. This page is the map of the code: what a world is made of, what happens when one is loaded, and how it is remembered. The other pages of this section cover the editor tools ([Add Object](/advanced/world/add-object), [the Unique Object tool](/advanced/world/unique-object-tool)) the placed object types that need a runtime of their own ([Regions](/advanced/world/regions), [Encounters](/advanced/world/encounters)) and the spaces that change how whoever is in them moves ([Movement volumes](/advanced/world/movement-volumes)).
+The [World chapter](/basic/world/) explains the editors. This page is the map of the code: what a world is made of, what happens when one is loaded, and how it is remembered. The other pages of this section cover the editor tools ([Add Object](/advanced/world/add-object), [the Unique Object tool](/advanced/world/unique-object-tool)) the placed object types that need a runtime of their own ([Regions](/advanced/world/regions), [Encounters](/advanced/world/encounters)) and the spaces that change how whoever is in them moves ([Movement volumes](/advanced/world/movement-volumes), [Audio zones](/advanced/world/audio-zones)).
 
 ## The pieces
 
@@ -114,6 +114,8 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 <!-- classes:world/runtime -->
 | Class | What it is |
 |---|---|
+| [AudioProfileStack](/advanced/world/runtime/audio-profile-stack) | The audio profile that is on now. |
+| [AudioZone](/advanced/world/runtime/audio-zone) | A place that changes how the world sounds while the camera is inside it: a cave with echo, a house that muffles the weather outside, a tunnel. |
 | [Encounter](/advanced/world/runtime/encounter) | Encounter is a designer-placeable node that coordinates group combat behavior. |
 | [FogExplorationData](/advanced/world/runtime/fog-exploration-data) | Stores fog of war exploration data for a single map. |
 | [FogOfWarCompositorEffect](/advanced/world/runtime/fog-of-war-compositor-effect) | CompositorEffect that renders fog of war as a post-process. |
@@ -121,9 +123,10 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [HTerrainProvider](/advanced/world/runtime/h-terrain-provider) | Tells which surface type the ground is at a position on a Heightmap Terrain (HTerrain): the texture under the position is looked up in `texture_surface_map`, and `default_surface` is used when it has no entry. |
 | [Light](/advanced/world/runtime/light) | LightEffect manages light sources and associated audio effects in the game world. |
 | [MovementVolume](/advanced/world/runtime/movement-volume) | A space that changes how whoever is in it moves: water to swim in, a room with no gravity, a cloud to fly through, a pool of lava that hurts. |
-| [MovementVolumeCamera](/advanced/world/runtime/movement-volume-camera) | The look the screen gets while the camera is inside a movement volume (underwater: a tint over the screen, fog, muffled sound). |
+| [MovementVolumeCamera](/advanced/world/runtime/movement-volume-camera) | The look the screen gets while the camera is inside a movement volume (underwater: a tint over the screen and fog; the sound is the business of AudioProfileStack). |
 | [ObjectRegistry](/advanced/world/runtime/object-registry) | ObjectRegistry - manages all NPCs, Interactables, Regions, and special Encounters with advanced LOD system Integrated with CombatSystem's encounter management for coordinated combat behavior Features configurable LOD system via GameplayConfig, behavior optimization, and comprehensive performance management Handles registration, spawning, interaction tracking, and state management Provides centralized access for quest systems, events, and ability effects |
 | [Region](/advanced/world/runtime/region) | Region node that creates and manages its own RegionData in the database. |
+| [SpaceVolume](/advanced/world/runtime/space-volume) | A space in a world, given by the shape of its CollisionShape3D child (a box, sphere, cylinder or capsule). |
 | [TerraBrushProvider](/advanced/world/runtime/terra-brush-provider) | Tells which surface type the ground is at a position on a TerraBrush terrain: the texture under the position is looked up in `texture_surface_map`, and `default_surface` is used when it has no entry. |
 | [Terrain3DProvider](/advanced/world/runtime/terrain3-d-provider) | Tells which surface type the ground is at a position on a Terrain3D terrain: the texture under the position is looked up in `texture_surface_map`, and `default_surface` is used when it has no entry. |
 | [TerrainProvider](/advanced/world/runtime/terrain-provider) | The fallback surface type if detection fails |

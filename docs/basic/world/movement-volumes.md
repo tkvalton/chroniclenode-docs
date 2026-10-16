@@ -73,16 +73,16 @@ The breath **runs down** while the entity is under, and **comes back** (faster) 
 
 **Lava** is a volume with the *Lava* preset and a damage-over-time effect in this list. The same list gives a **slow**, a **buff** or a **curse** to anyone who stands in the circle.
 
-## The camera
+## The camera and the sound
 
-When the **camera itself** is inside the volume (under the surface of one that has a surface), the screen gets the look of the volume. A swimmer with its head above the water sees clearly; going under, the screen changes.
+When the **camera itself** is inside the volume (under the surface of one that has a surface), the screen gets the look of the volume and the sound changes. A swimmer with its head above the water sees and hears clearly; going under, both change.
 
 | Field | What it does | Default (water) |
 |---|---|---|
 | **Camera effect enabled** | Turns the look off for this volume | on |
 | **Camera tint** | A color laid over the whole screen. Its alpha is how strong | blue-green, 30 % |
 | **Camera fog color / density** | The fog while inside. `0` density = no fog | blue-green, `0.05` |
-| **Camera muffles audio** | The sound is muffled (a low-pass filter on the master bus) | on |
+| **Audio profile** | How the sound changes while the camera is inside: an [audio profile](/basic/world/audio-zones#the-audio-profile) (Water gives the *Underwater* one: the music, effects, voices and ambiance are muffled, the interface is not). Empty = the sound does not change. It works with the camera effect switched off | Underwater |
 
 With **volumes inside volumes** (a pool in a cave pool) the one the camera entered last decides; when the camera leaves it, the first look comes back. Everything the look changed is put back when the camera is out.
 

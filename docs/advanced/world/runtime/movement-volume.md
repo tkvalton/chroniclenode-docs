@@ -2,7 +2,7 @@
 
 # MovementVolume
 
-**Inherits:** [Area3D](https://docs.godotengine.org/en/stable/classes/class_area3d.html)
+**Inherits:** [SpaceVolume](/advanced/world/runtime/space-volume) < [Area3D](https://docs.godotengine.org/en/stable/classes/class_area3d.html)
 
 A space that changes how whoever is in it moves: water to swim in, a room with no gravity, a cloud to fly through, a pool of lava that hurts. Put it in a world scene (Add Object &gt; Add Movement Volume), give its CollisionShape3D the shape of the space, and choose what it does.
 
@@ -12,7 +12,7 @@ A space that changes how whoever is in it moves: water to swim in, a room with n
 - **Shallow water.** A volume with a surface (water) lets entities WADE while the water is shallower than the wade depth: they walk, slower. Deeper, they swim. The top of the shape is the surface; the water you see is a mesh of your own placed there.
 - **Breath.** A volume can make whoever is under the surface hold its breath (the duration is a setting of the Gameplay Config) and drown when it runs out.
 - **Effects.** Effects (damage over time for lava, a slow, a buff) that are on whoever is inside, and come off when it leaves.
-- **The camera.** When the camera itself is inside, the screen is tinted, fogged and muffled (an underwater look).
+- **The camera.** When the camera itself is inside, the screen is tinted and fogged (an underwater look), and the sound changes with an AudioProfile (muffled under water).
 
 The presets fill the fields for the usual cases: Water, Weightless and Lava.
 
@@ -38,14 +38,12 @@ The presets fill the fields for the usual cases: Water, Weightless and Lava.
 | `Color` | [camera_tint](#prop-camera-tint) | `Color(0.1, 0.35, 0.45, 0.3)` |
 | `Color` | [camera_fog_color](#prop-camera-fog-color) | `Color(0.08, 0.28, 0.38)` |
 | `float` | [camera_fog_density](#prop-camera-fog-density) | `0.05` |
-| `bool` | [camera_muffles_audio](#prop-camera-muffles-audio) | `true` |
+| `AudioProfile` | [audio_profile](#prop-audio-profile) | `null` |
 
 ## Methods
 
 | | |
 |---|---|
-| `float` | [get_surface_y](#method-get-surface-y)() |
-| `bool` | [contains_point](#method-contains-point)( `world_point: Vector3` ) |
 | `float` | [depth_of](#method-depth-of)( `entity: Entity` ) |
 
 ## Enumerations
@@ -146,7 +144,7 @@ How high above its feet the head of an entity is (to know when it is under the s
 
 Effects that are on every entity inside while it is inside (a damage over time for lava, a slow). They are put back when they end, and taken off when the entity leaves
 
-*Camera*
+*Camera and sound*
 
 ### bool camera_effect_enabled = true {#prop-camera-effect-enabled}
 
@@ -164,19 +162,11 @@ The color of the fog inside
 
 How thick the fog is (0 = none)
 
-### bool camera_muffles_audio = true {#prop-camera-muffles-audio}
+### AudioProfile audio_profile = null {#prop-audio-profile}
 
-The sound is muffled while the camera is inside
+How the sound changes while the camera is inside (muffled under water; echo in a cave). Empty = the sound does not change. The camera, not the character, decides
 
 ## Method descriptions
-
-### float get_surface_y() {#method-get-surface-y}
-
-The height of the surface (the top of the shape) in the world
-
-### bool contains_point( world_point: Vector3 ) {#method-contains-point}
-
-Is a world point inside the shape of the volume? (for the camera: it is not a body)
 
 ### float depth_of( entity: Entity ) {#method-depth-of}
 

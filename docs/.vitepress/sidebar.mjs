@@ -100,6 +100,7 @@ const basicSystems = [
           page('The Unique Object tool', '/basic/world/unique-object-tool'),
           page('Regions', '/basic/world/regions'),
           page('Movement volumes', '/basic/world/movement-volumes'),
+          page('Audio zones', '/basic/world/audio-zones'),
           page('Encounters', '/basic/world/encounters'),
         ],
       },
@@ -327,6 +328,7 @@ const worldAdvanced = {
     page('The Unique Object tool', '/advanced/world/unique-object-tool', { title: 'The Unique Object tool: how it is built' }),
     page('Regions', '/advanced/world/regions', { title: 'Regions: how they are built' }),
     page('Movement volumes', '/advanced/world/movement-volumes', { title: 'Movement volumes: how they are built' }),
+    page('Audio zones', '/advanced/world/audio-zones', { title: 'Audio zones: how they are built' }),
     page('Encounters', '/advanced/world/encounters', { title: 'Encounters: how they are built' }),
   ],
 }

@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-The look the screen gets while the camera is inside a movement volume (underwater: a tint over the screen, fog, muffled sound). Volumes tell it when the camera enters and leaves; with several volumes around the camera (a pool inside a cave pool) the one entered last decides, and when it is left the one before it comes back. What the effect changed (fog, the sound) is put back when the last volume is left.
+The look the screen gets while the camera is inside a movement volume (underwater: a tint over the screen and fog; the sound is the business of AudioProfileStack). Volumes tell it when the camera enters and leaves; with several volumes around the camera (a pool inside a cave pool) the one entered last decides, and when it is left the one before it comes back. What the effect changed (fog, the sound) is put back when the last volume is left.
 
 ## Methods
 
@@ -15,7 +15,6 @@ The look the screen gets while the camera is inside a movement volume (underwate
 | `MovementVolume` | [get_active_volume](#method-get-active-volume)() *static* |
 | `bool` | [is_effect_on](#method-is-effect-on)() *static* |
 | `Color` | [get_overlay_color](#method-get-overlay-color)() *static* |
-| `bool` | [is_audio_muffled](#method-is-audio-muffled)() *static* |
 | `void` | [reset](#method-reset)() *static* |
 
 ## Constants
@@ -43,10 +42,6 @@ Is the underwater look on?
 ### Color get_overlay_color() {#method-get-overlay-color}
 
 The tint on the screen now (transparent when there is none)
-
-### bool is_audio_muffled() {#method-is-audio-muffled}
-
-Is the sound muffled?
 
 ### void reset() {#method-reset}
 

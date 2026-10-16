@@ -13,7 +13,8 @@ A movement volume does not move anyone. It gives each entity inside a **claim** 
 | [`Entity`](/advanced/entities/runtime/entity) | The claims (`add_movement_claim`, `remove_movement_claim`), the resulting `movement_mode`, `is_swimming` and `is_flying`, the leap, and the **breath** |
 | [`NavigationController`](/advanced/behaviors/states/navigation-controller) | Gravity and the vertical movement in a free mode (`_handle_free_vertical`), the speed multiplier, and the 3D direction of the direct input |
 | [`WASDWithMouseLogic`](/advanced/game-settings/camera-and-controller/wasd-with-mouse-logic) | The vertical input (jump up, crouch down) and the movement along the camera pitch |
-| [`MovementVolumeCamera`](/advanced/world/runtime/movement-volume-camera) | The look of the screen while the camera is inside: tint, fog, muffled sound; the stack of volumes |
+| [`MovementVolumeCamera`](/advanced/world/runtime/movement-volume-camera) | The look of the screen while the camera is inside: tint and fog; the stack of volumes |
+| [`AudioProfileStack`](/advanced/world/runtime/audio-profile-stack) | The sound while the camera is inside: the `audio_profile` of the volume ([Audio zones](/advanced/world/audio-zones)) |
 | [`BreathBarUI`](/advanced/user-interface/hud/breath-bar-ui) | The HUD bar of the breath of the current player |
 | [`GameplayConfig`](/advanced/game-settings/config/gameplay-config) | The *Breath* group: who holds a breath, how long, how fast it returns, the drowning effect |
 
@@ -87,7 +88,7 @@ A volume with **Camera effect enabled** checks, each physics frame, whether the 
 
 - a `ColorRect` in a `CanvasLayer` (layer 90) with the tint;
 - the **fog** of the environment of the camera (or of the world; one is made and put back if there is none), with the original values saved;
-- an `AudioEffectLowPassFilter` on the master bus.
+The **sound** is a separate matter: the volume calls `AudioProfileStack` with its `audio_profile` ([Audio zones](/advanced/world/audio-zones)), so it works with the camera effect switched off and never touches the master bus.
 
 When the stack is empty everything is put back. `MovementVolumeCamera.reset()` clears it (a scene that is left).
 
