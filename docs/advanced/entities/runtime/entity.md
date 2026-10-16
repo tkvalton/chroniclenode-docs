@@ -65,6 +65,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `Array[MovementClaim]` | [movement_claims](#var-movement-claims) | `[]` |
 | `MovementClaim.Mode:` | [movement_mode](#var-movement-mode) |  |
 | `MountSession` | [mount_session](#var-mount-session) | `null` |
+| `Array[MountSession]` | [ridden_sessions](#var-ridden-sessions) | `[]` |
 | `bool` | [breath_exempt](#var-breath-exempt) | `false` |
 | `float` | [breath](#var-breath) | `-1.0` |
 | `AimProvider` | [aim_provider](#var-aim-provider) | `null` |
@@ -183,7 +184,10 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `bool` | [is_carried_by_mount](#method-is-carried-by-mount)() |
 | `Entity` | [get_mount](#method-get-mount)() |
 | `Entity` | [get_rider](#method-get-rider)() |
-| `MountSession` | [start_mount](#method-start-mount)( `config: MountConfig, mount_entity: Entity = null, drive_logic: DriveLogic = null` ) |
+| `Array[Entity]` | [get_riders](#method-get-riders)() |
+| `bool` | [is_seat_taken](#method-is-seat-taken)( `seat_index: int` ) |
+| `int` | [get_free_seat_index](#method-get-free-seat-index)( `seat_count: int` ) |
+| `MountSession` | [start_mount](#method-start-mount)( `definition: MountDefinition, mount_entity: Entity = null, drive_logic: DriveLogic = null, seat_index: int = -1` ) |
 | `bool` | [dismount](#method-dismount)( `reason: String = ""` ) |
 | `bool` | [uses_breath](#method-uses-breath)() |
 | `float` | [get_breath_maximum](#method-get-breath-maximum)() |
@@ -746,7 +750,11 @@ How the entity moves now: on the ground, swimming or flying
 
 ### MountSession mount_session = null {#var-mount-session}
 
-The ride this entity is in, as the rider or as the creature or vehicle that carries the rider. Null when it is in none
+The ride this entity is in as a rider. Null when it is not riding
+
+### Array[MountSession] ridden_sessions = [] {#var-ridden-sessions}
+
+The rides on this entity when it is a mount or a vehicle: one for each rider that sits on it
 
 ### bool breath_exempt = false {#var-breath-exempt}
 
@@ -1200,15 +1208,27 @@ The creature or vehicle this entity rides, or null
 
 ### Entity get_rider() {#method-get-rider}
 
-The entity that rides this one, or null
+The rider of the seat that steers this mount (or the first rider when no seat steers), or null
 
-### MountSession start_mount( config: MountConfig, mount_entity: Entity = null, drive_logic: DriveLogic = null ) {#method-start-mount}
+### Array[Entity] get_riders() {#method-get-riders}
 
-Gets on a mount. Without a mount entity the mount is a model and a speed (the Mount effect); with one, the entity carries this one and the player steers it (see MountSession). A DriveLogic of your own steers it instead of the one of the config. Returns the ride, or null when it cannot be done
+Everybody who rides this entity
+
+### bool is_seat_taken( seat_index: int ) {#method-is-seat-taken}
+
+Does somebody sit on this seat of the mount (0 is the first)?
+
+### int get_free_seat_index( seat_count: int ) {#method-get-free-seat-index}
+
+The first free seat of a mount that has `seat_count` seats, or -1 when it is full
+
+### MountSession start_mount( definition: MountDefinition, mount_entity: Entity = null, drive_logic: DriveLogic = null, seat_index: int = -1 ) {#method-start-mount}
+
+Gets on a mount. Without a mount entity the mount is a model and a speed (the Mount effect); with one, the entity sits on a seat of it (the first that is free, or the one you give) and, on a seat that steers, the player steers it (see MountSession). A DriveLogic of your own steers it instead of the one of the definition. Returns the ride, or null when it cannot be done
 
 ### bool dismount( reason: String = "" ) {#method-dismount}
 
-Gets off the mount (or, on a mount, makes the rider get off). False when there is no ride
+Gets off the mount. False when this entity is not riding
 
 ### bool uses_breath() {#method-uses-breath}
 

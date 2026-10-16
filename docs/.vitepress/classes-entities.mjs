@@ -185,12 +185,6 @@ export const groups = [
         "file": "data_classes/interactions/interactable_objects/trap_interaction.gd"
       },
       {
-        "name": "VehicleInteraction",
-        "base": "MountInteraction",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\interactions\\entity_interaction\\vehicle_interaction.gd",
-        "file": "data_classes/interactions/entity_interaction/vehicle_interaction.gd"
-      },
-      {
         "name": "VendorInteraction",
         "base": "Interaction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\interactions\\common_interactions\\vendor_interaction.gd",
@@ -205,26 +199,56 @@ export const groups = [
       {
         "name": "DriveLogic",
         "base": "Resource",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\drive_logic.gd",
-        "file": "data_classes/mount/drive_logic.gd"
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\drive_logic\\drive_logic.gd",
+        "file": "data_classes/mount/drive_logic/drive_logic.gd"
       },
       {
-        "name": "MountConfig",
+        "name": "DriverSeat",
+        "base": "Seat",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\seats\\driver_seat.gd",
+        "file": "data_classes/mount/seats/driver_seat.gd"
+      },
+      {
+        "name": "MountClasses",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\mount_classes.gd",
+        "file": "data_classes/mount/mount_classes.gd"
+      },
+      {
+        "name": "MountDefinition",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\mount_definition.gd",
+        "file": "data_classes/mount/mount_definition.gd"
+      },
+      {
+        "name": "PassengerSeat",
+        "base": "Seat",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\seats\\passenger_seat.gd",
+        "file": "data_classes/mount/seats/passenger_seat.gd"
+      },
+      {
+        "name": "Seat",
         "base": "Resource",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\mount_config.gd",
-        "file": "data_classes/mount/mount_config.gd"
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\seats\\seat.gd",
+        "file": "data_classes/mount/seats/seat.gd"
+      },
+      {
+        "name": "SeatAbilitySlot",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\seats\\seat_ability_slot.gd",
+        "file": "data_classes/mount/seats/seat_ability_slot.gd"
       },
       {
         "name": "VehicleDriveLogic",
         "base": "DriveLogic",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\vehicle_drive_logic.gd",
-        "file": "data_classes/mount/vehicle_drive_logic.gd"
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\drive_logic\\vehicle_drive_logic.gd",
+        "file": "data_classes/mount/drive_logic/vehicle_drive_logic.gd"
       },
       {
         "name": "WalkDriveLogic",
         "base": "DriveLogic",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\walk_drive_logic.gd",
-        "file": "data_classes/mount/walk_drive_logic.gd"
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\mount\\drive_logic\\walk_drive_logic.gd",
+        "file": "data_classes/mount/drive_logic/walk_drive_logic.gd"
       }
     ]
   },

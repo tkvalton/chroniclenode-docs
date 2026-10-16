@@ -12,6 +12,7 @@ Build [an NPC who talks and sells](/basic/entities/first-npc): an NPC, a shop an
 | [**Player Classes**](/basic/entities/player-classes) | What a character *can do*: stats, abilities, starting gear, level [rewards](/basic/shared-systems/rewards), [skill trees](/basic/abilities-and-effects/skill-trees), companion AI |
 | [**NPCs**](/basic/entities/npcs) | Everything that is not a player: enemies, townspeople, animals, bosses, vendors |
 | [**Interactables**](/basic/entities/interactables) | Objects: doors, chests, switches, ladders, traps, signs, crafting stations, destructible barrels |
+| [**Mounts**](/basic/entities/mounts) | Horses, griffins, carts, tanks and boats the player rides: how they move, how they are steered, and the seats with the abilities of each |
 
 ## The kinds of entity
 

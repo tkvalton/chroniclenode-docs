@@ -371,6 +371,12 @@ export const groups = [
         "file": "editor_components/editors/interactions/interactions_editor.gd"
       },
       {
+        "name": "MountEditor",
+        "base": "ResourceEditor",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\mount_editor.gd",
+        "file": "editor_components/editors/entities/mount_editor.gd"
+      },
+      {
         "name": "NpcEditor",
         "base": "ResourceEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\npc_editor.gd",
@@ -1443,6 +1449,12 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\managers\\resource_manager.gd",
         "file": "editor_components/managers/resource_manager.gd"
+      },
+      {
+        "name": "ResourcePropertyForm",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\resource_property_form.gd",
+        "file": "editor_components/utility/resource_property_form.gd"
       },
       {
         "name": "RPGShapeUtility",

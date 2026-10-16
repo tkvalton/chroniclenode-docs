@@ -16,6 +16,9 @@ The way a horse is steered: the keys move the mount relative to the camera (W go
 
 | | |
 |---|---|
+| `Dictionary` | [get_field_descriptions](#method-get-field-descriptions)() |
+| `String` | [get_drive_type_name](#method-get-drive-type-name)() |
+| `String` | [get_drive_type_description](#method-get-drive-type-description)() |
 | `void` | [drive](#method-drive)( `input: Vector2, delta: float` ) |
 
 ## Property descriptions
@@ -25,6 +28,18 @@ The way a horse is steered: the keys move the mount relative to the camera (W go
 How fast (radians per second) the mount turns to face where it goes
 
 ## Method descriptions
+
+### Dictionary get_field_descriptions() {#method-get-field-descriptions}
+
+The sentences the editor shows as tooltips: &#123;name of an exported variable: text&#125;. A logic of your own adds its variables (call super and merge) *(from [DriveLogic](/advanced/entities/mounts/drive-logic))*
+
+### String get_drive_type_name() {#method-get-drive-type-name}
+
+What this logic is called in the editor list *(from [DriveLogic](/advanced/entities/mounts/drive-logic))*
+
+### String get_drive_type_description() {#method-get-drive-type-description}
+
+A sentence about how this logic steers, for the editor *(from [DriveLogic](/advanced/entities/mounts/drive-logic))*
 
 ### void drive( input: Vector2, delta: float ) {#method-drive}
 

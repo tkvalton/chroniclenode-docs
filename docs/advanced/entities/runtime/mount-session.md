@@ -4,7 +4,7 @@
 
 **Inherits:** [Node](https://docs.godotengine.org/en/stable/classes/class_node.html)
 
-One ride: an entity (the rider) on a mount. There are two kinds, and the session does both:
+One rider on one seat. There are two kinds, and the session does both:
 
 ## Description
 
@@ -12,11 +12,11 @@ One ride: an entity (the rider) on a mount. There are two kinds, and the session
 
 as the mount says. There is no creature to hurt or steer: this is the mount of a game that wants "mounts" as a speed buff with a look.
 
-- **A mount that is an entity** (the Mount and Vehicle interactions, or `start_entity`): a creature or a vehicle of the world. The rider is carried on its seat and the keys of the
+- **A mount that is an entity** (a Mount interaction, or `start_mount` with a mount): a creature or a vehicle of the world with seats. The rider is carried on its seat. The rider of a
 
-player steer the mount with a DriveLogic. The mount keeps its health and stats. Its own behavior waits while it is ridden.
+seat that steers (a Driver seat) gives the keys to the drive logic; the others are carried. The mount keeps its health and stats. Its own behavior waits while it is ridden.
 
-Start one with `Entity.start_mount(config)` (a model) or `Entity.start_mount(config, mount_entity)`. `dismount()` ends it. The session belongs to the rider and is freed with it.
+Start one with `Entity.start_mount(definition)` (a model) or `Entity.start_mount(definition, mount_entity)`. `dismount()` ends it. The session belongs to the rider and is freed with it.
 
 ## Variables
 
@@ -24,7 +24,9 @@ Start one with `Entity.start_mount(config)` (a model) or `Entity.start_mount(con
 |---|---|---|
 | `Entity` | [rider](#var-rider) |  |
 | `Entity` | [mount](#var-mount) |  |
-| `MountConfig` | [config](#var-config) |  |
+| `MountDefinition` | [definition](#var-definition) |  |
+| `Seat` | [seat](#var-seat) |  |
+| `int` | [seat_index](#var-seat-index) | `0` |
 | `DriveLogic` | [drive_logic](#var-drive-logic) |  |
 | `Node3D` | [model](#var-model) |  |
 
@@ -32,7 +34,7 @@ Start one with `Entity.start_mount(config)` (a model) or `Entity.start_mount(con
 
 | | |
 |---|---|
-| `MountSession` | [begin](#method-begin)( `p_rider: Entity, p_config: MountConfig, p_mount: Entity = null, p_drive_logic: DriveLogic = null` ) *static* |
+| `MountSession` | [begin](#method-begin)( `p_rider: Entity, p_definition: MountDefinition, p_mount: Entity = null, p_drive_logic: DriveLogic = null, p_seat_index: int = -1` ) *static* |
 | `bool` | [dismount](#method-dismount)( `_reason: String = ""` ) |
 | `Transform3D` | [get_seat_transform](#method-get-seat-transform)() |
 | `bool` | [is_controlled_by_player](#method-is-controlled-by-player)() |
@@ -62,13 +64,21 @@ The entity that rides
 
 The creature or vehicle that carries the rider (null for a mount that is only a model)
 
-### MountConfig config {#var-config}
+### MountDefinition definition {#var-definition}
 
 What the mount is
 
+### Seat seat {#var-seat}
+
+The seat of the rider (a copy of the one of the definition: it can keep a state)
+
+### int seat_index = 0 {#var-seat-index}
+
+Which seat of the mount this is (0 is the first)
+
 ### DriveLogic drive_logic {#var-drive-logic}
 
-The logic that steers the mount (a mount that is an entity)
+The logic that steers the mount (only a seat that steers has one)
 
 ### Node3D model {#var-model}
 
@@ -76,9 +86,9 @@ The model of the mount (a mount that is only a model)
 
 ## Method descriptions
 
-### MountSession begin( p_rider: Entity, p_config: MountConfig, p_mount: Entity = null, p_drive_logic: DriveLogic = null ) {#method-begin}
+### MountSession begin( p_rider: Entity, p_definition: MountDefinition, p_mount: Entity = null, p_drive_logic: DriveLogic = null, p_seat_index: int = -1 ) {#method-begin}
 
-Puts a rider on a mount. Returns the session, or null when it cannot be done (the rider is dead or already on a mount, the mount is taken or dead)
+Puts a rider on a mount. `seat_index` -1 takes the first seat that is free. A drive logic of your own steers instead of the one of the definition. Returns the session, or null when it cannot be done (the rider is dead or already on a mount, the mount is dead or full, the seat refuses the rider)
 
 ### bool dismount( _reason: String = "" ) {#method-dismount}
 
@@ -86,7 +96,7 @@ Gets off. `reason` is for the signal and the log. Returns false when the ride wa
 
 ### Transform3D get_seat_transform() {#method-get-seat-transform}
 
-Where the rider sits now: the seat of the model of the mount, or the seat offset from its body
+Where the rider sits now: the node of the seat in the model of the mount, or the seat offset from its body
 
 ### bool is_controlled_by_player() {#method-is-controlled-by-player}
 

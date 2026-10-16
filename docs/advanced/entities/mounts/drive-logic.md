@@ -6,7 +6,7 @@
 
 **Inherited by:** [VehicleDriveLogic](/advanced/entities/mounts/vehicle-drive-logic), [WalkDriveLogic](/advanced/entities/mounts/walk-drive-logic)
 
-How the player steers a mount or a vehicle. The logic gets the keys every physics frame and moves the body of the mount (a creature or a vehicle), the way a controller logic moves the player. Make your own by extending this class: override `drive` (and `begin` and `end` if it keeps a state), put the script in a Mount or Vehicle interaction (Custom drive logic path) and it is used instead of the ones that come with the toolkit.
+How the player steers a mount or a vehicle. The logic gets the keys every physics frame and moves the body of the mount (a creature or a vehicle), the way a controller logic moves the player. Make your own by extending this class: override `drive` (and `begin` and `end` if it keeps a state). A script that extends DriveLogic in the folder data_classes/mount/drive_logic/ is found by the Mounts editor and can be chosen there, and its exported variables appear in the editor.
 
 ## Description
 
@@ -22,6 +22,9 @@ The body is moved through its NavigationController (`session.set_move`), so grav
 
 | | |
 |---|---|
+| `Dictionary` | [get_field_descriptions](#method-get-field-descriptions)() |
+| `String` | [get_drive_type_name](#method-get-drive-type-name)() |
+| `String` | [get_drive_type_description](#method-get-drive-type-description)() |
 | `void` | [begin](#method-begin)( `p_session: MountSession` ) |
 | `void` | [drive](#method-drive)( `_input: Vector2, _delta: float` ) |
 | `void` | [end](#method-end)() |
@@ -34,6 +37,18 @@ The body is moved through its NavigationController (`session.set_move`), so grav
 The mount session this logic belongs to (set when the rider gets on)
 
 ## Method descriptions
+
+### Dictionary get_field_descriptions() {#method-get-field-descriptions}
+
+The sentences the editor shows as tooltips: &#123;name of an exported variable: text&#125;. A logic of your own adds its variables (call super and merge)
+
+### String get_drive_type_name() {#method-get-drive-type-name}
+
+What this logic is called in the editor list
+
+### String get_drive_type_description() {#method-get-drive-type-description}
+
+A sentence about how this logic steers, for the editor
 
 ### void begin( p_session: MountSession ) {#method-begin}
 

@@ -139,7 +139,7 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 | [LadderInteraction](/advanced/entities/interactions/ladder-interaction) | Ladder interaction - climbing system using Path3D Discovers scene structure by name: "LadderPath", "StartMarker", "EndMarker" |
 | [LightInteraction](/advanced/entities/interactions/light-interaction) | Light interaction - extends SwitchInteraction to control lighting Creates Light3D node (OmniLight3D or SpotLight3D) at runtime |
 | [LootInteraction](/advanced/entities/interactions/loot-interaction) | Loot Interaction for NPCs Allows players to access a dead entity's inventory Works similarly to InteractableContainer but uses entity.components.inventory() |
-| [MountInteraction](/advanced/entities/interactions/mount-interaction) | Lets the player get on this creature: a horse, a wolf, a griffin, a boat. |
+| [MountInteraction](/advanced/entities/interactions/mount-interaction) | Lets the player get on this NPC: a horse, a griffin, a cart, a tank, a boat. |
 | [RabbitHoleInteraction](/advanced/entities/interactions/rabbit-hole-interaction) | Rabbit hole teleportation system - supports both local and inter-map teleportation Used by players: local teleportation (same map) and inter-map teleportation (NPCs and pets using a rabbit hole is a future option, through the behaviour tasks) |
 | [ReadableInteraction](/advanced/entities/interactions/readable-interaction) | Readable interaction - displays multi-page text content in UI panel Used for signs, books, plaques, notes, etc. |
 | [ShowUIPanelInteraction](/advanced/entities/interactions/show-ui-panel-interaction) | Calls for a UI Panel to be shown, can be used for custome UI panels Or built panels that you may want accessed through an interaction rather than always avialable through the InGameUI |
@@ -147,7 +147,6 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 | [SwitchInteraction](/advanced/entities/interactions/switch-interaction) | Switch interaction - handles ON/OFF toggle with lock mechanics and audio feedback Base class for LightInteraction and other toggle-based interactions |
 | [TrainerInteraction](/advanced/entities/interactions/trainer-interaction) | A trainer: using the NPC or the object opens a list of lessons that the player can buy (abilities, ranks, proficiency levels, professions, tiers, specializations, recipes). |
 | [TrapInteraction](/advanced/entities/interactions/trap-interaction) | Trap interaction - triggers effects through proximity, interaction, or events Integrates with combat system through effect application |
-| [VehicleInteraction](/advanced/entities/interactions/vehicle-interaction) | Lets the player get into this vehicle: a cart, a tank, a boat. |
 | [VendorInteraction](/advanced/entities/interactions/vendor-interaction) | Vendor interaction that opens the shop interface when activated |
 <!-- /classes -->
 
@@ -164,7 +163,7 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 | [EntityTemplates](/advanced/entities/runtime/entity-templates) | Entities that follow a template. |
 | [FormationSystem](/advanced/entities/runtime/formation-system) | Places the party members around a target position in a formation (tight, spread, V, line or wedge): `calculate_formation_positions` answers with a position for every unit, with a base spacing and some randomness. |
 | [InteractableObject](/advanced/entities/runtime/interactable-object) | Unified interactable object class - uses InteractableDefinition + Interactions All specialized logic is now in Interaction subclasses |
-| [MountSession](/advanced/entities/runtime/mount-session) | One ride: an entity (the rider) on a mount. |
+| [MountSession](/advanced/entities/runtime/mount-session) | One rider on one seat. |
 | [MovementClaim](/advanced/entities/runtime/movement-claim) | What something asks of the movement of an entity: a movement volume that is around it (water, a weightless room), an effect that lets it fly. |
 | [NPC](/advanced/entities/runtime/npc) | NPC represents a non-player character in the game. |
 | [NpcLevels](/advanced/entities/runtime/npc-levels) | The level of an NPC and the experience it gives, by the settings of the project (Gameplay Config: NPC Level Scaling and Kill Experience). |

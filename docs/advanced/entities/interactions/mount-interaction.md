@@ -4,30 +4,17 @@
 
 **Inherits:** [EntityInteraction](/advanced/entities/interactions/entity-interaction) < [Interaction](/advanced/entities/interactions/interaction) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-**Inherited by:** [VehicleInteraction](/advanced/entities/interactions/vehicle-interaction)
-
-Lets the player get on this creature: a horse, a wolf, a griffin, a boat. The creature is a normal NPC (or pet) with its health and stats; while it is ridden the player steers it with the keys and its own behavior waits. The model of the creature should have a mount seat (the skeleton has "Has mount seat" and a MountSeatRemote); without one the rider sits at the Seat offset. The rider gets off with the dismount key, when it or the mount dies, or (if you ask) when it is hurt.
+Lets the player get on this NPC: a horse, a griffin, a cart, a tank, a boat. The NPC is a normal NPC (or pet) with its health and stats; while it is ridden the player steers it with the keys from a seat that steers, and its own behavior waits. What the mount is (how it moves, how it is steered, its seats and the abilities of each seat) is a Mount of the Database (Entities &gt; Mounts). The model of the NPC should have a mount seat (the skeleton has "Has mount seat" and a MountSeatRemote) or the seats name markers in the model; a seat without one uses its Seat offset.
 
 ## Description
 
-The fields are the ones of the Mount effect (see MountConfig); the entity id is not used here: the mount is this creature.
+The player takes the first seat that is free, so a second character that uses the interaction takes the next seat. The rider gets off with the dismount key, when it or the mount dies, or (if the mount says so) when it is hurt.
 
 ## Properties
 
 | | | |
 |---|---|---|
-| `MountConfig.Movement` | [movement](#prop-movement) | `MountConfig.Movement.GROUND` |
-| `float` | [speed_multiplier](#prop-speed-multiplier) | `1.0` |
-| `float` | [vertical_speed](#prop-vertical-speed) | `4.0` |
-| `MountConfig.Drive` | [drive](#prop-drive) | `MountConfig.Drive.WALK` |
-| `float` | [acceleration](#prop-acceleration) | `6.0` |
-| `float` | [braking](#prop-braking) | `10.0` |
-| `float` | [turn_rate_degrees](#prop-turn-rate-degrees) | `90.0` |
-| `float` | [reverse_speed_share](#prop-reverse-speed-share) | `0.4` |
-| `String` | [custom_drive_logic_path](#prop-custom-drive-logic-path) | `""` |
-| `Vector3` | [seat_offset](#prop-seat-offset) | `Vector3(0.0, 1.0, 0.0)` |
-| `String` | [pose_name](#prop-pose-name) | `""` |
-| `bool` | [dismount_on_damage](#prop-dismount-on-damage) | `false` |
+| `int` | [mount_id](#prop-mount-id) | `0` |
 
 ## Methods
 
@@ -39,63 +26,15 @@ The fields are the ones of the Mount effect (see MountConfig); the entity id is 
 
 ## Property descriptions
 
-### MountConfig.Movement movement = MountConfig.Movement.GROUND {#prop-movement}
+### int mount_id = 0 {#prop-mount-id}
 
-How the mount moves: on the ground, swimming, flying, or as a boat on the water
-
-### float speed_multiplier = 1.0 {#prop-speed-multiplier}
-
-The speed of the creature times this while it is ridden
-
-### float vertical_speed = 4.0 {#prop-vertical-speed}
-
-How fast the mount goes up and down when it swims or flies (units per second)
-
-*Steering*
-
-### MountConfig.Drive drive = MountConfig.Drive.WALK {#prop-drive}
-
-How the player steers the mount: Walk (relative to the camera, like a horse) or Vehicle (throttle and steering)
-
-### float acceleration = 6.0 {#prop-acceleration}
-
-Vehicle: how fast it speeds up (units per second, each second)
-
-### float braking = 10.0 {#prop-braking}
-
-Vehicle: how fast it slows down (units per second, each second)
-
-### float turn_rate_degrees = 90.0 {#prop-turn-rate-degrees}
-
-Vehicle: how fast it turns at full speed (degrees per second)
-
-### float reverse_speed_share = 0.4 {#prop-reverse-speed-share}
-
-Vehicle: how fast it can reverse, as a share of its top speed
-
-### String custom_drive_logic_path = "" {#prop-custom-drive-logic-path}
-
-A script of your own that steers the mount (a res:// path of a script that extends DriveLogic). Empty = the Steering above
-
-*The rider*
-
-### Vector3 seat_offset = Vector3(0.0, 1.0, 0.0) {#prop-seat-offset}
-
-Where the rider sits compared with the mount when its model has no seat
-
-### String pose_name = "" {#prop-pose-name}
-
-The pose of the rider: the name of a status animation folder (its _loop animation plays while the rider is on). Empty = none
-
-### bool dismount_on_damage = false {#prop-dismount-on-damage}
-
-The rider gets off when it takes damage
+The mount (Entities &gt; Mounts): how this NPC moves when it is ridden, how it is steered and where riders sit
 
 ## Method descriptions
 
 ### bool can_interact( player: Player ) {#method-can-interact}
 
-Only a creature that nobody rides and that is alive can be ridden, and only by a player that is not riding
+Only a creature that is alive and has a free seat can be ridden, by a player that is not riding
 
 ### String get_block_reason( _entity: Entity ) {#method-get-block-reason}
 

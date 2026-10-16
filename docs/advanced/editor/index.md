@@ -129,6 +129,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [EntityAbilitiesEditor](/advanced/editor/entities/entity-abilities-editor) | Editor for EntityDefinition ability properties - manages auto-attack and ability lists Now uses ListCatalog for ability selection with proper type filtering |
 | [InteractableDefinitionEditor](/advanced/editor/entities/interactable-definition-editor) | Editor for InteractableDefinition resources |
 | [InteractionEditor](/advanced/editor/entities/interaction-editor) | Editor for a single Interaction instance Combines category/type selection with dynamic property editing |
+| [MountEditor](/advanced/editor/entities/mount-editor) | Mounts Editor: the mounts and vehicles of the game (Entities &gt; Mounts). |
 | [NpcEditor](/advanced/editor/entities/npc-editor) | Entity Editor for managing NPCDefinitions resources |
 | [PlayerClassEditor](/advanced/editor/entities/player-class-editor) | PlayerClassEditor for managing PlayerClassDefinition resources |
 | [PlayerClassLevelRewardEditor](/advanced/editor/entities/player-class-level-reward-editor) | Editor for PlayerClassDefinition level rewards only Experience requirements are now managed in GameplayConfig |
@@ -374,6 +375,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [ProjectSetupUtility](/advanced/editor/tools/project-setup-utility) | Utility for setting up project-wide settings like global shader parameters, audio buses, and input actions |
 | [PropertySelectorRegistry](/advanced/editor/tools/property-selector-registry) | Utility class for mapping property names to database/selector types Single source of truth for property name → database mappings Used by editors, dialogs, and dynamic UI generation systems |
 | [ResourceManager](/advanced/editor/tools/resource-manager) | THE resource manager - handles ALL resource types and operations Live editing - no save logic needed |
+| [ResourcePropertyForm](/advanced/editor/tools/resource-property-form) | Builds the fields of a resource from its exported variables, so a class that someone adds (a TurretSeat, a HoverDrive) is editable without an editor of its own: a switch for a bool, a number box for an int or a float (with the range of the export), a line for a String, a list for an enum, a color button, three boxes for a Vector3. |
 | [RPGShapeUtility](/advanced/editor/tools/rpg-shape-utility) | Unified utility class for creating RPG area effect shapes Supports both directional (origin-based, facing -Z) and centered (point-based) shapes Includes custom mesh shapes and Godot built-in shape wrappers |
 | [SkeletonSceneConverter](/advanced/editor/tools/skeleton-scene-converter) | Converts existing Skeleton3D scenes into GeneralSkeleton, ModularSkeleton, or CustomSkeleton Adds essential attachment points and weapon meshes based on skeleton type |
 | [WorldSceneValidator](/advanced/editor/tools/world-scene-validator) | Utility class for validating WorldScene context in editor Used by NPC, InteractableObject, and Region to ensure they're in a valid map |
