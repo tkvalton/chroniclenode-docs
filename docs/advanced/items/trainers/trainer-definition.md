@@ -15,7 +15,7 @@ What a trainer teaches is up to the game: its lessons can teach abilities, ranks
 | | | |
 |---|---|---|
 | `Array[TrainerLesson]` | [lessons](#prop-lessons) | `[]` |
-| `String` | [greeting](#prop-greeting) | `""` |
+| `String` | [greeting](#prop-greeting) | `"":` |
 | `int` | [faction_id](#prop-faction-id) | `0` |
 | `Array[ReputationPrice]` | [reputation_prices](#prop-reputation-prices) | `[]` |
 | `bool` | [refuses_below](#prop-refuses-below) | `false` |
@@ -36,7 +36,7 @@ What a trainer teaches is up to the game: its lessons can teach abilities, ranks
 
 The lessons, in the order they are shown
 
-### String greeting = "" {#prop-greeting}
+### String greeting = "": {#prop-greeting}
 
 What the trainer says when the shop opens (empty = nothing)
 

@@ -12,6 +12,7 @@ Play or stop music, ambience and sounds.
 |---|---|
 | [**Play SFX At Position**](/advanced/events-and-quests/actions-audio/play-sfx-at-position-action) (`PlaySFXAtPositionAction`) | Play a sound effect at a 3D position |
 | [**Play SFX Global**](/advanced/events-and-quests/actions-audio/play-sfx-global-action) (`PlaySFXGlobalAction`) | Play a sound effect globally (2D audio) |
+| **Play Voice Line** ([`PlayVoiceLineAction`](/advanced/events-and-quests/actions-audio/play-voice-line-action)) | Speak a [voice line](/basic/game-settings/localization#voice-lines-in-other-languages) on the Voice channel, heard from an entity (its unique id) or from nowhere, with its subtitle. Can wait until the line is over |
 | [**Set Ambient Track**](/advanced/events-and-quests/actions-audio/set-ambient-track-action) (`SetAmbientTrackAction`) | Control ambient track playback |
 | [**Set Music Track**](/advanced/events-and-quests/actions-audio/set-music-track-action) (`SetMusicTrackAction`) | Control music track playback |
 

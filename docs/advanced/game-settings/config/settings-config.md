@@ -10,7 +10,8 @@ Class representing the game settings
 
 | | | |
 |---|---|---|
-| `bool` | [language](#prop-language) | `false` |
+| `String` | [text_language](#prop-text-language) | `""` |
+| `String` | [voice_language](#prop-voice-language) | `""` |
 | `bool` | [subtitles_enabled](#prop-subtitles-enabled) | `false:` |
 | `bool` | [auto_save](#prop-auto-save) | `false` |
 | `float` | [auto_save_frequency](#prop-auto-save-frequency) | `300` |
@@ -304,9 +305,13 @@ Enumeration of crouch control modes
 
 *Gameplay*
 
-### bool language = false {#prop-language}
+### String text_language = "" {#prop-text-language}
 
-TODO
+The language of the text of the game: the code of one of the languages of the Localization tab ("fr", "pt_BR"). Empty = the language of the computer if the game has it, otherwise the source language. The player picks it in the settings window (when the game lets them)
+
+### String voice_language = "" {#prop-voice-language}
+
+The language of the spoken voice lines (the files in the language folders of the voice lines). Empty = the language of the text. A line the language has no recording of is played in the source language
 
 ### bool subtitles_enabled = false: {#prop-subtitles-enabled}
 

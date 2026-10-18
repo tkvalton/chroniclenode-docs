@@ -12,8 +12,8 @@ Shows or hides a popup (a scene built on PopupUI: a tutorial, a message, a toast
 |---|---|---|
 | `int` | [popup_id](#prop-popup-id) | `0` |
 | `PopupActionType` | [popup_state](#prop-popup-state) | `PopupActionType.SHOW` |
-| `String` | [title](#prop-title) | `""` |
-| `String` | [text](#prop-text) | `""` |
+| `String` | [title](#prop-title) | `"":` |
+| `String` | [text](#prop-text) | `"":` |
 | `bool` | [wait_for_close](#prop-wait-for-close) | `false` |
 
 ## Methods
@@ -42,11 +42,11 @@ The popup (the toolkit's own message popup is 1000001)
 
 Whether to show or hide the popup
 
-### String title = "" {#prop-title}
+### String title = "": {#prop-title}
 
 Given to the popup: the message popup shows a title and a text (words in &lt;angle brackets&gt; are filled in)
 
-### String text = "" {#prop-text}
+### String text = "": {#prop-text}
 
 The text the popup shows (when the popup scene has a place for it).
 

@@ -11,7 +11,7 @@ Readable interaction - displays multi-page text content in UI panel Used for sig
 | | | |
 |---|---|---|
 | `Array[String]` | [pages_text](#prop-pages-text) | `[]` |
-| `String` | [readable_title](#prop-readable-title) | `""` |
+| `String` | [readable_title](#prop-readable-title) | `"":` |
 | `Texture2D` | [background_texture](#prop-background-texture) |  |
 
 ## Methods
@@ -40,7 +40,7 @@ Readable interaction - displays multi-page text content in UI panel Used for sig
 
 Array of text content for each page Each string represents one page - supports BBCode rich text formatting Example: ["Page 1 content...", "Page 2 content...", "Final page..."]
 
-### String readable_title = "" {#prop-readable-title}
+### String readable_title = "": {#prop-readable-title}
 
 Optional title for the readable content (displayed in UI header)
 

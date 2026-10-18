@@ -12,7 +12,7 @@ GraphNode representation of a ConversationChat Uses DialogManager.setup_dialog()
 |---|---|---|
 | `ConversationChat` | [chat_data](#var-chat-data) |  |
 | `Conversation` | [conversation](#var-conversation) |  |
-| `int` | [current_language_index](#var-current-language-index) | `0` |
+| `String` | [current_language](#var-current-language) | `""` |
 | `DialogManager` | [dialog_manager](#var-dialog-manager) |  |
 | `Dictionary` | [response_slot_entries](#var-response-slot-entries) | `{}` |
 
@@ -21,8 +21,8 @@ GraphNode representation of a ConversationChat Uses DialogManager.setup_dialog()
 | | |
 |---|---|
 | `void` | [set_dialog_manager](#method-set-dialog-manager)( `p_dialog_manager: DialogManager` ) |
-| `void` | [setup_with_chat](#method-setup-with-chat)( `chat: ConversationChat, conv: Conversation, language_index: int` ) |
-| `void` | [update_language](#method-update-language)( `language_index: int` ) |
+| `void` | [setup_with_chat](#method-setup-with-chat)( `chat: ConversationChat, conv: Conversation, language: String` ) |
+| `void` | [update_language](#method-update-language)( `language: String` ) |
 | `int` | [get_chat_id](#method-get-chat-id)() |
 | `void` | [update_response_display](#method-update-response-display)( `slot_idx: int` ) |
 
@@ -51,9 +51,9 @@ GraphNode representation of a ConversationChat Uses DialogManager.setup_dialog()
 
 *No description yet.*
 
-### int current_language_index = 0 {#var-current-language-index}
+### String current_language = "" {#var-current-language}
 
-*No description yet.*
+The language the node shows and edits: the code of a language, "" or the source language = the text stored in the conversation, another language = its translation in the tables
 
 ### DialogManager dialog_manager {#var-dialog-manager}
 
@@ -69,11 +69,11 @@ GraphNode representation of a ConversationChat Uses DialogManager.setup_dialog()
 
 *No description yet.*
 
-### void setup_with_chat( chat: ConversationChat, conv: Conversation, language_index: int ) {#method-setup-with-chat}
+### void setup_with_chat( chat: ConversationChat, conv: Conversation, language: String ) {#method-setup-with-chat}
 
 *No description yet.*
 
-### void update_language( language_index: int ) {#method-update-language}
+### void update_language( language: String ) {#method-update-language}
 
 *No description yet.*
 

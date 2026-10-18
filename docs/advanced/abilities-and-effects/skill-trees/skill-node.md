@@ -13,8 +13,8 @@ Base class for all skill node types
 | | | |
 |---|---|---|
 | `int` | [id](#prop-id) |  |
-| `String` | [display_name](#prop-display-name) | `""` |
-| `String` | [description](#prop-description) | `""` |
+| `String` | [display_name](#prop-display-name) | `"":` |
+| `String` | [description](#prop-description) | `"":` |
 | `CompressedTexture2D` | [icon](#prop-icon) |  |
 | `int` | [required_point_pool](#prop-required-point-pool) | `0  # Which pool to spend from (0 = no pool required)` |
 | `bool` | [can_refund](#prop-can-refund) | `true` |
@@ -49,11 +49,11 @@ Base class for all skill node types
 
 ========== BASIC PROPERTIES ==========
 
-### String display_name = "" {#prop-display-name}
+### String display_name = "": {#prop-display-name}
 
 The name of the node.
 
-### String description = "" {#prop-description}
+### String description = "": {#prop-description}
 
 The text of the node.
 

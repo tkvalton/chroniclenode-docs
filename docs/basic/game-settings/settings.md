@@ -21,7 +21,9 @@ The settings are in tabs. Next to every setting is a **checkbox**: ticked means 
 
 | Setting | What it does | Default |
 |---|---|---|
-| **Subtitles enabled** | Show subtitles: the [Subtitles element](/basic/user-interface/hud) of the HUD shows a line only while this is on, and hides the line at once when it is turned off. *Nothing sends it lines yet: voice lines will send their subtitle when the localization tool is built* | off |
+| **Text language** | The language of the text of the game: a language of the [Localization](/basic/game-settings/localization) tab. Empty = the language of the computer when the game has it, else the source language. The settings window shows the languages of the game | empty |
+| **Voice language** | The language of the spoken voice lines. Empty = the language of the text. A line with no recording in the language plays in the default recording | empty |
+| **Subtitles enabled** | Show subtitles: the [Subtitles element](/basic/user-interface/hud) of the HUD shows the subtitle of a voice line while it plays, and hides it at once when this is turned off | off |
 | **Auto save** and **Auto save frequency** | Allow autosaves, and the seconds between them (60 to 3600). *Not used yet: nothing reads them. The game autosaves when the player leaves to the menu or quits, whatever these say* | off, 300 |
 | **Crouch mode** | **Hold** the key to crouch, or **toggle** | Hold |
 | **Mouse sensitivity** | How fast the camera and character turn with the mouse. `0.01` to `1` (it can never be `0`, or the player could lock themselves out). This is the one slider most games show | `0.22` |

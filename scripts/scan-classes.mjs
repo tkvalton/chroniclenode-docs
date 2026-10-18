@@ -349,6 +349,18 @@ const SYSTEMS = {
       { text: 'Configuration', slug: 'config', dirs: [['data_classes/settings', false], ['editor_settings.gd', false]] },
       { text: 'Settings (runtime)', slug: 'settings-runtime', dirs: [['runtime_classes/settings', true]] },
       {
+        text: 'Localization',
+        slug: 'localization',
+        dirs: [
+          ['data_classes/localization', true],
+          ['runtime_classes/utility/localization.gd', false],
+          ['runtime_classes/utility/localized_fields.gd', false],
+          ['runtime_classes/utility/localization_generator.gd', false],
+          ['runtime_classes/utility/localization_csv.gd', false],
+          ['runtime_classes/utility/localization_migration.gd', false],
+        ],
+      },
+      {
         text: 'Camera, controller and input',
         slug: 'camera-and-controller',
         dirs: [

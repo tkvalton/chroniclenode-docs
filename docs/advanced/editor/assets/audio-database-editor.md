@@ -10,6 +10,7 @@ The editor of the Audio tab (Assets &gt; Audio): the sound effects, music and am
 
 | | | |
 |---|---|---|
+| `DialogManager` | [dialog_manager](#var-dialog-manager) | `null` |
 | `Dictionary` | [sfx_data](#var-sfx-data) | `{}` |
 | `Dictionary` | [expanded_categories](#var-expanded-categories) | `{}` |
 | `String` | [selected_sfx_category](#var-selected-sfx-category) | `""` |
@@ -23,7 +24,19 @@ The editor of the Audio tab (Assets &gt; Audio): the sound effects, music and am
 | `FileDialog` | [file_dialog](#var-file-dialog) |  |
 | `Dictionary` | [current_import_context](#var-current-import-context) | `{} # Store import context to avoid lambda scope issues` |
 
+## Methods
+
+| | |
+|---|---|
+| `Array[String]` | [voice_line_warnings](#method-voice-line-warnings)( `character: String, line: String, code: String` ) *static* |
+| `void` | [set_subtitle](#method-set-subtitle)( `character: String, line: String, code: String, text: String` ) *static* |
+| `Error` | [import_language_recording](#method-import-language-recording)( `source_path: String, character: String, line: String, code: String` ) *static* |
+
 ## Variable descriptions
+
+### DialogManager dialog_manager = null {#var-dialog-manager}
+
+The dialogs of the editor (set by the main editor): the subtitle opens the text editor
 
 ### Dictionary sfx_data =  {#var-sfx-data}
 
@@ -72,4 +85,18 @@ The editor of the Audio tab (Assets &gt; Audio): the sound effects, music and am
 ### Dictionary current_import_context =  # Store import context to avoid lambda scope issues {#var-current-import-context}
 
 *No description yet.*
+
+## Method descriptions
+
+### Array[String] voice_line_warnings( character: String, line: String, code: String ) {#method-voice-line-warnings}
+
+The warnings of a voice line in a language, as lines of text (empty when all is well): no recording, a recording much longer or shorter than the default, folders that are not languages of the game, files of a language that have no default
+
+### void set_subtitle( character: String, line: String, code: String, text: String ) {#method-set-subtitle}
+
+Sets the subtitle of a voice line: in the source language it is stored with the voice lines, in another language it is the translation in the tables.
+
+### Error import_language_recording( source_path: String, character: String, line: String, code: String ) {#method-import-language-recording}
+
+Copies a recording into the folder of a language of a voice line, under the name of the line ("voicelines/&lt;character&gt;/&lt;language&gt;/&lt;line&gt;.&lt;extension&gt;"). Returns OK or the error.
 

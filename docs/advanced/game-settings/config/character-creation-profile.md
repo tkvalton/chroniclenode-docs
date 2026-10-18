@@ -11,22 +11,28 @@ CharacterCreationProfile - UI Ruleset for character creation Defines available b
 | | | |
 |---|---|---|
 | `String` | [profile_id](#prop-profile-id) | `""` |
-| `String` | [display_name](#prop-display-name) | `""` |
-| `String` | [description](#prop-description) | `""` |
+| `String` | [display_name](#prop-display-name) | `"":` |
+| `String` | [description](#prop-description) | `"":` |
 | `Texture2D` | [icon](#prop-icon) | `null` |
 | `Array[PackedScene]` | [body_types](#prop-body-types) | `[]` |
-| `Array[String]` | [body_type_names](#prop-body-type-names) | `[]` |
+| `Array[String]` | [body_type_names](#prop-body-type-names) | `[]:` |
 | `Array[String]` | [available_voices](#prop-available-voices) | `[]` |
-| `Array[String]` | [voice_display_names](#prop-voice-display-names) | `[]` |
+| `Array[String]` | [voice_display_names](#prop-voice-display-names) | `[]:` |
 | `String` | [voice_entity_type](#prop-voice-entity-type) | `"humanoid"` |
 | `Array[String]` | [available_animations](#prop-available-animations) | `[]` |
-| `Array[String]` | [animation_display_names](#prop-animation-display-names) | `[]` |
+| `Array[String]` | [animation_display_names](#prop-animation-display-names) | `[]:` |
 | `Array[GeneralSkeleton.FacialFeature]` | [active_facial_features](#prop-active-facial-features) | `[ ... ]` |
 | `Dictionary` | [blend_shape_map](#prop-blend-shape-map) | `{}` |
 | `Array[Color]` | [skin_colors](#prop-skin-colors) | `[ ... ]` |
 | `Array[Color]` | [hair_colors](#prop-hair-colors) | `[ ... ]` |
 | `Array[Color]` | [eye_colors](#prop-eye-colors) | `[ ... ]` |
 | `Array[PlayerClassDefinition]` | [allowed_player_classes](#prop-allowed-player-classes) | `[]` |
+
+## Variables
+
+| | | |
+|---|---|---|
+| `String:` | [loc_key](#var-loc-key) |  |
 
 ## Methods
 
@@ -55,6 +61,7 @@ CharacterCreationProfile - UI Ruleset for character creation Defines available b
 | `Array[String]` | [get_active_feature_names](#method-get-active-feature-names)() |
 | `int` | [get_active_feature_count](#method-get-active-feature-count)() |
 | `Array[String]` | [get_blend_shape_labels](#method-get-blend-shape-labels)() |
+| `String` | [get_blend_shape_text](#method-get-blend-shape-text)( `ui_label: String` ) |
 | `String` | [get_blend_shape_name](#method-get-blend-shape-name)( `ui_label: String` ) |
 | `bool` | [has_blend_shapes](#method-has-blend-shapes)() |
 | `int` | [get_blend_shape_count](#method-get-blend-shape-count)() |
@@ -79,11 +86,11 @@ CharacterCreationProfile - UI Ruleset for character creation Defines available b
 
 Unique identifier for this profile (e.g., "human", "elf", "dwarf")
 
-### String display_name = "" {#prop-display-name}
+### String display_name = "": {#prop-display-name}
 
 Display name shown in the character creator UI
 
-### String description = "" {#prop-description}
+### String description = "": {#prop-description}
 
 Optional description for this profile/race
 
@@ -97,7 +104,7 @@ Icon for this profile in selection UI
 
 Available body type scenes for this profile (e.g., HumanMale.tscn, HumanFemale.tscn) Each scene should contain a CustomSkeleton as the root or primary skeleton node
 
-### Array[String] body_type_names = [] {#prop-body-type-names}
+### Array[String] body_type_names = []: {#prop-body-type-names}
 
 Display names for each body type (should match body_types array length) If empty, names will be auto-generated from scene filenames
 
@@ -107,7 +114,7 @@ Display names for each body type (should match body_types array length) If empty
 
 Available voice variants for this profile These should correspond to voice_variant names in DatabaseAudio Example: ["Male_01", "Male_02", "Female_01", "Female_02"]
 
-### Array[String] voice_display_names = [] {#prop-voice-display-names}
+### Array[String] voice_display_names = []: {#prop-voice-display-names}
 
 Display names for each voice (should match available_voices array length) If empty, the voice variant names will be displayed directly
 
@@ -121,7 +128,7 @@ Entity type for voice lookup in DatabaseAudio (e.g., "humanoid", "beast")
 
 Available animation types for this profile These should correspond to animation_type identifiers in DatabaseAnimation Example: ["humanoid_default", "humanoid_athletic", "humanoid_heavy"]
 
-### Array[String] animation_display_names = [] {#prop-animation-display-names}
+### Array[String] animation_display_names = []: {#prop-animation-display-names}
 
 Display names for each animation type (should match available_animations array length) If empty, the animation type names will be displayed directly
 
@@ -156,6 +163,12 @@ Available eye colors for character customization
 ### Array[PlayerClassDefinition] allowed_player_classes = [] {#prop-allowed-player-classes}
 
 Player classes available for selection in character creation If empty, all classes are available
+
+## Variable descriptions
+
+### String: loc_key {#var-loc-key}
+
+The prefix of the key of this profile in the localization tables: "creation/&lt;profile id&gt;" ("" when it has no id)
 
 ## Method descriptions
 
@@ -251,9 +264,13 @@ Get active feature count
 
 Get blend shape UI labels
 
+### String get_blend_shape_text( ui_label: String ) {#method-get-blend-shape-text}
+
+Get internal blend shape name from UI label The label of a blend shape slider in the language of the player. The label written in the map is also what the map is searched with, so keep it as the key and show this text.
+
 ### String get_blend_shape_name( ui_label: String ) {#method-get-blend-shape-name}
 
-Get internal blend shape name from UI label
+*No description yet.*
 
 ### bool has_blend_shapes() {#method-has-blend-shapes}
 

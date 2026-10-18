@@ -111,7 +111,6 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `void` | [level_up](#method-level-up)() |
 | `float` | [get_stat](#method-get-stat)( `stat_id: int` ) |
 | `bool` | [has_stat](#method-has-stat)( `stat_id: int` ) |
-| `float` | [get_stat_value](#method-get-stat-value)( `stat_name: String` ) |
 | `Array[int]` | [get_stat_ids_in_group](#method-get-stat-ids-in-group)( `group_id: int` ) |
 | `bool` | [add_stat_bonus](#method-add-stat-bonus)( `stat_id: int, amount: float` ) |
 | `bool` | [add_stat_multiplier](#method-add-stat-multiplier)( `stat_id: int, amount: float` ) |
@@ -922,10 +921,6 @@ The current value of a stat, with every bonus and multiplier.
 ### bool has_stat( stat_id: int ) {#method-has-stat}
 
 Does the entity have this stat?
-
-### float get_stat_value( stat_name: String ) {#method-get-stat-value}
-
-A stat by its name (the display name, any case) or by its id as text: what conversation dice rolls ask for. 0 when the entity has no such stat
 
 ### Array[int] get_stat_ids_in_group( group_id: int ) {#method-get-stat-ids-in-group}
 

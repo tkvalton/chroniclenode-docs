@@ -11,7 +11,6 @@ FactionManager - Global singleton that orchestrates faction relationships Delega
 | | | |
 |---|---|---|
 | `Dictionary` | [all_factions](#var-all-factions) | `{}  # faction_id -> FactionDefinition` |
-| `Dictionary` | [factions_by_name](#var-factions-by-name) | `{}  # display_name -> FactionDefinition` |
 | `int` | [player_faction_id](#var-player-faction-id) | `Database.ID_PLAYER_FACTION` |
 
 ## Methods
@@ -65,10 +64,6 @@ Emitted when player's standing with another faction changes
 ### Dictionary all_factions =   # faction_id -&gt; FactionDefinition {#var-all-factions}
 
 All factions cached for fast access (runtime duplicates with their own reputation data)
-
-### Dictionary factions_by_name =   # display_name -&gt; FactionDefinition {#var-factions-by-name}
-
-Quick lookup by name
 
 ### int player_faction_id = Database.ID_PLAYER_FACTION {#var-player-faction-id}
 

@@ -44,7 +44,7 @@ Features:
 | `void` | [setup_for_interactable](#method-setup-for-interactable)() |
 | `bool` | [play_motion_audio](#method-play-motion-audio)( `surface: String, movement: String` ) |
 | `bool` | [play_entity_voice_audio](#method-play-entity-voice-audio)( `action: String, volume: float = -5.0` ) |
-| `bool` | [play_voiceline_audio](#method-play-voiceline-audio)( `character_name: String, file_name: String = "", volume: float = -5.0` ) |
+| `bool` | [play_voiceline_audio](#method-play-voiceline-audio)( `character_name: String, file_name: String = "", volume: float = -5.0, speaker_name: String = ""` ) |
 | `void` | [stop_voice_line_audio](#method-stop-voice-line-audio)() |
 | `bool` | [play_hit_voice](#method-play-hit-voice)() |
 | `bool` | [play_hit_long_voice](#method-play-hit-long-voice)() |
@@ -131,7 +131,7 @@ Play a motion sound (footsteps, etc.) - Entity only
 
 Play an entity voice sound (combat barks: attack, hit, pain, etc.) Requires entity_type and voice_type to be set via setup_for_entity()
 
-### bool play_voiceline_audio( character_name: String, file_name: String = "", volume: float = -5.0 ) {#method-play-voiceline-audio}
+### bool play_voiceline_audio( character_name: String, file_name: String = "", volume: float = -5.0, speaker_name: String = "" ) {#method-play-voiceline-audio}
 
 Play a voiceline (dialogue) for a specific character Can get random voiceline or specific file by name Only one voiceline can play at a time - automatically stops previous voiceline
 

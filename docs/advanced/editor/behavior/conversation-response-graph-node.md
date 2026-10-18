@@ -12,7 +12,7 @@ GraphNode representation of a ConversationResponse Uses DialogManager.setup_dial
 |---|---|---|
 | `ConversationResponse` | [response_data](#var-response-data) |  |
 | `Conversation` | [conversation](#var-conversation) |  |
-| `int` | [current_language_index](#var-current-language-index) | `0` |
+| `String` | [current_language](#var-current-language) | `""` |
 | `DialogManager` | [dialog_manager](#var-dialog-manager) |  |
 | `Dictionary` | [action_entries](#var-action-entries) | `{}` |
 
@@ -21,8 +21,8 @@ GraphNode representation of a ConversationResponse Uses DialogManager.setup_dial
 | | |
 |---|---|
 | `void` | [set_dialog_manager](#method-set-dialog-manager)( `p_dialog_manager: DialogManager` ) |
-| `void` | [setup_with_response](#method-setup-with-response)( `response: ConversationResponse, language_index: int, p_conversation: Conversation = null` ) |
-| `void` | [update_language](#method-update-language)( `language_index: int` ) |
+| `void` | [setup_with_response](#method-setup-with-response)( `response: ConversationResponse, language: String, p_conversation: Conversation = null` ) |
+| `void` | [update_language](#method-update-language)( `language: String` ) |
 | `int` | [get_response_id](#method-get-response-id)() |
 
 ## Signals
@@ -51,9 +51,9 @@ GraphNode representation of a ConversationResponse Uses DialogManager.setup_dial
 
 *No description yet.*
 
-### int current_language_index = 0 {#var-current-language-index}
+### String current_language = "" {#var-current-language}
 
-*No description yet.*
+The language the node shows and edits: the code of a language, "" or the source language = the text stored in the conversation, another language = its translation in the tables
 
 ### DialogManager dialog_manager {#var-dialog-manager}
 
@@ -69,11 +69,11 @@ GraphNode representation of a ConversationResponse Uses DialogManager.setup_dial
 
 *No description yet.*
 
-### void setup_with_response( response: ConversationResponse, language_index: int, p_conversation: Conversation = null ) {#method-setup-with-response}
+### void setup_with_response( response: ConversationResponse, language: String, p_conversation: Conversation = null ) {#method-setup-with-response}
 
 *No description yet.*
 
-### void update_language( language_index: int ) {#method-update-language}
+### void update_language( language: String ) {#method-update-language}
 
 *No description yet.*
 

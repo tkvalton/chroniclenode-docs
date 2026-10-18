@@ -24,8 +24,8 @@ See docs/systems/skill-trainers.md, section 3.6.
 | | | |
 |---|---|---|
 | `int` | [id](#prop-id) | `0` |
-| `String` | [display_name](#prop-display-name) | `"Specialization"` |
-| `String` | [description](#prop-description) | `""` |
+| `String` | [display_name](#prop-display-name) | `"Specialization":` |
+| `String` | [description](#prop-description) | `"":` |
 | `Texture2D` | [icon](#prop-icon) |  |
 | `String` | [group](#prop-group) | `""` |
 | `int` | [min_tier](#prop-min-tier) | `0` |
@@ -57,11 +57,11 @@ See docs/systems/skill-trainers.md, section 3.6.
 
 The id that saves remember it by: unique inside the proficiency or the profession (the editor makes one)
 
-### String display_name = "Specialization" {#prop-display-name}
+### String display_name = "Specialization": {#prop-display-name}
 
 The name
 
-### String description = "" {#prop-description}
+### String description = "": {#prop-description}
 
 A line about it
 

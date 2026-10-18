@@ -34,7 +34,6 @@ Pure data container - effect handling is done by EquipmentInventoryComponent
 | `bool` | [equip_item](#method-equip-item)( `item: ItemInstance` ) |
 | `ItemInstance` | [get_equipped_item](#method-get-equipped-item)() |
 | `ItemDefinitionEquipment` | [get_equipped_item_definition](#method-get-equipped-item-definition)() |
-| `String` | [get_slot_identifier](#method-get-slot-identifier)() |
 | `String` | [get_display_name](#method-get-display-name)() |
 | `Texture2D` | [get_slot_icon](#method-get-slot-icon)() |
 | `bool` | [accepts_equipment_definition](#method-accepts-equipment-definition)( `equipment_def: ItemDefinitionEquipment` ) |
@@ -79,10 +78,6 @@ Get the equipped item instance (with type safety)
 ### ItemDefinitionEquipment get_equipped_item_definition() {#method-get-equipped-item-definition}
 
 Get the equipped item definition (with type safety)
-
-### String get_slot_identifier() {#method-get-slot-identifier}
-
-Get unique identifier for this slot
 
 ### String get_display_name() {#method-get-display-name}
 

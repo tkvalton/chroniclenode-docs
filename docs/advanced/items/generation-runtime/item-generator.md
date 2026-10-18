@@ -42,7 +42,7 @@ Puts a roll on an instance:the stat points and effects go where the equipment co
 
 ### String compose_name( definition: ItemDefinition, quality: Quality, data: Dictionary ) {#method-compose-name}
 
-The name of a generated item: the name of the definition with the names of its affixes, as the name mode of its quality says (`data` is the roll: its name_prefix and name_suffix)
+The name of a generated item: the name of the definition with the names of its affixes, as the name mode of its quality says (`data` is the roll: the ids of its name_prefix and name_suffix affixes). The names are read when the name is asked for, so the item shows in the language of the player; the order of the words is the template "&#123;prefix&#125; &#123;item&#125; &#123;suffix&#125;" (or "&#123;quality&#125; &#123;item&#125;") of the toolkit words, which a language can change. A roll saved by an older version has only the finished texts (name_prefix, name_suffix): they are used when the affix ids are not there.
 
 ### String describe_roll( definition: ItemDefinition, data: Dictionary ) {#method-describe-roll}
 
@@ -50,7 +50,7 @@ A roll as one line of text for the editors: "Heavy Great Axe of the Monkey (Rare
 
 ### Dictionary roll( definition: ItemDefinition, context: Dictionary = &#123;&#125; ) {#method-roll}
 
-The roll as data:&#123;"item_level", "quality_id", "scale_factor", "stat_bonuses", "effect_ids", "affixes", "name_prefix", "name_suffix", "extra_sockets"&#125;
+The roll as data:&#123;"item_level", "quality_id", "scale_factor", "stat_bonuses", "effect_ids", "affixes", "name_prefix", "name_prefix_id", "name_suffix", "name_suffix_id", "extra_sockets"&#125;
 
 ### int weighted_index( weights: Array[float], rng: RandomNumberGenerator ) {#method-weighted-index}
 

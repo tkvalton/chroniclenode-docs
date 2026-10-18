@@ -25,6 +25,10 @@ Modern option button component that works with any enum setting property
 
 Emitted when the mouse enters or leaves the setting: whether it has the focus, the name of the setting and its text.
 
+## Constants
+
+- `PackedStringArray` **LANGUAGE_SETTINGS** = `["text_language", "voice_language"]` - The settings that hold a language code instead of an enum: the options are the languages of the game (the Localization tab)
+
 ## Variable descriptions
 
 ### String property_name = "" {#var-property-name}

@@ -11,7 +11,7 @@ Summons an interactable object for the user
 | | | |
 |---|---|---|
 | `int` | [interactable_id](#prop-interactable-id) | `0` |
-| `String` | [display_name_override](#prop-display-name-override) | `""` |
+| `String` | [display_name_override](#prop-display-name-override) | `"":` |
 | `bool` | [spawn_at_target](#prop-spawn-at-target) | `false` |
 | `float` | [position_variance](#prop-position-variance) | `2.0` |
 | `Vector3` | [position_offset](#prop-position-offset) | `Vector3.ZERO` |
@@ -37,7 +37,7 @@ Summons an interactable object for the user
 
 ID of the interactable to spawn
 
-### String display_name_override = "" {#prop-display-name-override}
+### String display_name_override = "": {#prop-display-name-override}
 
 Optional display name override for the spawned interactable
 

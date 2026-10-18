@@ -15,7 +15,7 @@ Base class for all quest objectives that can be extended for different objective
 | `EventTrigger` | [event_trigger](#prop-event-trigger) |  |
 | `bool` | [hide_description](#prop-hide-description) | `false` |
 | `ProgressDisplay` | [progress_display](#prop-progress-display) | `ProgressDisplay.TALLY_PROGRESS` |
-| `String` | [custom_description](#prop-custom-description) | `""` |
+| `String` | [custom_description](#prop-custom-description) | `"":` |
 
 ## Variables
 
@@ -97,7 +97,7 @@ If true, description won't be shown in quest UI
 
 How progress should be displayed (none, X/Y, or percentage)
 
-### String custom_description = "" {#prop-custom-description}
+### String custom_description = "": {#prop-custom-description}
 
 Override for the auto-generated description
 

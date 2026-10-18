@@ -91,6 +91,60 @@ export const groups = [
     ]
   },
   {
+    "text": "Localization",
+    "slug": "localization",
+    "classes": [
+      {
+        "name": "Localization",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\localization.gd",
+        "file": "runtime_classes/utility/localization.gd"
+      },
+      {
+        "name": "LocalizationConfig",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\localization\\localization_config.gd",
+        "file": "data_classes/localization/localization_config.gd"
+      },
+      {
+        "name": "LocalizationCsv",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\localization_csv.gd",
+        "file": "runtime_classes/utility/localization_csv.gd"
+      },
+      {
+        "name": "LocalizationGenerator",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\localization_generator.gd",
+        "file": "runtime_classes/utility/localization_generator.gd"
+      },
+      {
+        "name": "LocalizationLanguage",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\localization\\localization_language.gd",
+        "file": "data_classes/localization/localization_language.gd"
+      },
+      {
+        "name": "LocalizationMigration",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\localization_migration.gd",
+        "file": "runtime_classes/utility/localization_migration.gd"
+      },
+      {
+        "name": "LocalizationTable",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\localization\\localization_table.gd",
+        "file": "data_classes/localization/localization_table.gd"
+      },
+      {
+        "name": "LocalizedFields",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\localized_fields.gd",
+        "file": "runtime_classes/utility/localized_fields.gd"
+      }
+    ]
+  },
+  {
     "text": "Camera, controller and input",
     "slug": "camera-and-controller",
     "classes": [

@@ -13,7 +13,7 @@ Interaction that instantly activates a Quest if player meets requirements
 | `int` | [quest_id](#prop-quest-id) | `0` |
 | `bool` | [disable_after_grant](#prop-disable-after-grant) | `true` |
 | `bool` | [hide_if_quest_started](#prop-hide-if-quest-started) | `true` |
-| `String` | [custom_interaction_name](#prop-custom-interaction-name) | `""` |
+| `String` | [custom_interaction_name](#prop-custom-interaction-name) | `"":` |
 
 ## Methods
 
@@ -39,7 +39,7 @@ Whether to disable this interaction after quest is granted
 
 Whether to hide this interaction if quest is already active or completed
 
-### String custom_interaction_name = "" {#prop-custom-interaction-name}
+### String custom_interaction_name = "": {#prop-custom-interaction-name}
 
 Custom interaction name (if empty, uses quest display name)
 

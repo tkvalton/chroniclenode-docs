@@ -59,7 +59,8 @@ To check what the player holds at a moment (a conversation, an *If* action, a re
 | Field | What it does | Default |
 |---|---|---|
 | **Requires hand in** | The quest does not complete when its last objective does. It waits at "ready to hand in" until the player gives it to an NPC | off |
-| **Turn-in text** | What the NPC says when the player hands it in | empty |
+| **Turn-in text** | What the NPC says when the player hands it in (the source language; translated in the [Localization](/basic/game-settings/localization) tables) | empty |
+| **Accept, Journal and Hand-in voice lines** | A [voice line](/basic/game-settings/localization#voice-lines-in-other-languages) spoken when the quest is accepted, when the player clicks it in the journal, and (by the NPC, with the turn-in text) when it is handed in. The first two are heard from nowhere, on the Voice channel, with their subtitle | none |
 
 Add the quest to the **hand-in list** of the NPC's [conversation](/basic/behaviors/conversations). The quest editor lists the conversations that take the quest in, under the text, and shows an orange warning while none does (the quest would wait for ever).
 

@@ -14,9 +14,9 @@ Effect that rolls a percentage chance to set trigger tags in calculations Exampl
 | `TriggerTagDefinition` | [tag_definition](#prop-tag-definition) |  |
 | `String` | [trigger_tag](#prop-trigger-tag) | `""` |
 | `SpecialEffectAnimation` | [special_effect_animation](#prop-special-effect-animation) | `SpecialEffectAnimation.NONE` |
-| `String` | [special_effect_message](#prop-special-effect-message) | `""` |
+| `String` | [special_effect_message](#prop-special-effect-message) | `"":` |
 | `TriggerRecord.Kind` | [kind](#prop-kind) | `TriggerRecord.Kind.NONE` |
-| `String` | [log_phrase](#prop-log-phrase) | `""` |
+| `String` | [log_phrase](#prop-log-phrase) | `"":` |
 | `Array[int]` | [affects_damage_types](#prop-affects-damage-types) | `[]` |
 
 ## Methods
@@ -77,9 +77,9 @@ Tag to set in context (e.g., "critical_strike_triggered")
 
 The animation played when the trigger fires
 
-### String special_effect_message = "" {#prop-special-effect-message}
+### String special_effect_message = "": {#prop-special-effect-message}
 
-The floating text shown when the trigger fires
+*No description yet.*
 
 *Outcome*
 
@@ -87,7 +87,7 @@ The floating text shown when the trigger fires
 
 What this trigger IS. AVOID (dodge, parry): when it fires the hit does nothing at all, no modifier is needed. MITIGATE (block): sets the tag; modifiers that require it reduce the hit. BOOST (critical strike): sets the tag; modifiers that require it increase the hit. NONE: only sets the tag. AVOID only acts on damage taken.
 
-### String log_phrase = "" {#prop-log-phrase}
+### String log_phrase = "": {#prop-log-phrase}
 
 Combat log phrase when this trigger fires. Placeholders: &#123;attacker&#125; &#123;target&#125; &#123;ability&#125; &#123;damage&#125;. Example for Dodge: "&#123;target&#125; dodged &#123;attacker&#125;'s &#123;ability&#125;". Empty = the default for the kind
 

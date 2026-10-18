@@ -14,7 +14,7 @@ The effect is made by the developer in the Effects editor. Only the highest step
 
 | | | |
 |---|---|---|
-| `String` | [display_name](#prop-display-name) | `"Burdened"` |
+| `String` | [display_name](#prop-display-name) | `"Burdened":` |
 | `float` | [from_percent](#prop-from-percent) | `100.0` |
 | `int` | [effect_id](#prop-effect-id) | `0` |
 
@@ -26,7 +26,7 @@ The effect is made by the developer in the Effects editor. Only the highest step
 
 ## Property descriptions
 
-### String display_name = "Burdened" {#prop-display-name}
+### String display_name = "Burdened": {#prop-display-name}
 
 The name of the step ("Burdened", "Overloaded"), for the weight bar
 

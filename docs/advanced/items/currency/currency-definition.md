@@ -11,7 +11,8 @@ CurrencyDefinition defines a currency type with display properties and limits Cr
 | | | |
 |---|---|---|
 | `int` | [max_value](#prop-max-value) | `0` |
-| `String` | [abbreviation](#prop-abbreviation) | `""` |
+| `String` | [abbreviation](#prop-abbreviation) | `"":` |
+| `String` | [plural_name](#prop-plural-name) | `"":` |
 | `bool` | [show_in_wallet](#prop-show-in-wallet) | `true` |
 
 ## Methods
@@ -24,6 +25,7 @@ CurrencyDefinition defines a currency type with display properties and limits Cr
 | `int` | [clamp_amount](#method-clamp-amount)( `amount: int` ) |
 | `bool` | [has_max_limit](#method-has-max-limit)() |
 | `String` | [format_amount](#method-format-amount)( `amount: int` ) |
+| `String` | [get_name_for](#method-get-name-for)( `amount: int` ) |
 | `int` | [get_id](#method-get-id)() |
 | `Dictionary` | [get_currency_info](#method-get-currency-info)() |
 | `String` | [get_full_description](#method-get-full-description)() |
@@ -36,9 +38,13 @@ CurrencyDefinition defines a currency type with display properties and limits Cr
 
 Maximum amount that can be held (0 = unlimited)
 
-### String abbreviation = "" {#prop-abbreviation}
+### String abbreviation = "": {#prop-abbreviation}
 
 Short form for display (e.g., "GP", "G", "$")
+
+### String plural_name = "": {#prop-plural-name}
+
+The name when the amount is not 1 ("Coins" for the currency "Coin"). Empty = the name is the same for every amount. Shown when there is no abbreviation
 
 ### bool show_in_wallet = true {#prop-show-in-wallet}
 
@@ -69,6 +75,10 @@ Check if this currency has a maximum limit
 ### String format_amount( amount: int ) {#method-format-amount}
 
 Get the display text for an amount of this currency
+
+### String get_name_for( amount: int ) {#method-get-name-for}
+
+The name of the currency for an amount: the plural name when there is one and the amount is not 1, else the name
 
 ### int get_id() {#method-get-id}
 

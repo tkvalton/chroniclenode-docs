@@ -11,8 +11,8 @@ A single chat in a conversation References responses by ID instead of nesting th
 | | | |
 |---|---|---|
 | `int` | [id](#prop-id) | `0` |
-| `Array[String]` | [text](#prop-text) |  |
-| `Array[SFXSelection]` | [voice_line_sfx](#prop-voice-line-sfx) |  |
+| `String` | [text](#prop-text) | `"":` |
+| `SFXSelection` | [voice_line_sfx](#prop-voice-line-sfx) |  |
 | `AnimationSelectionSocial` | [animation](#prop-animation) |  |
 | `Array[int]` | [response_ids](#prop-response-ids) | `[]` |
 | `bool` | [allow_end_conversation](#prop-allow-end-conversation) | `true` |
@@ -39,13 +39,13 @@ A single chat in a conversation References responses by ID instead of nesting th
 
 The id of the chat.
 
-### Array[String] text {#prop-text}
+### String text = "": {#prop-text}
 
-Text to display, Array to hold each language
+Text to display (the text of the source language: the other languages are translations in the Localization tab)
 
-### Array[SFXSelection] voice_line_sfx {#prop-voice-line-sfx}
+### SFXSelection voice_line_sfx {#prop-voice-line-sfx}
 
-Soundfile to play for interaction, Array to hold each language
+The voice line to play with the chat. It is the line of the source language: a line in another language is the file of the same name in the language folder of the character
 
 ### AnimationSelectionSocial animation {#prop-animation}
 

@@ -15,8 +15,8 @@ A lesson teaches an ability, a rank of an ability, levels of a proficiency, a pr
 | | | |
 |---|---|---|
 | `Teaches` | [teaches](#prop-teaches) | `Teaches.ABILITY` |
-| `String` | [display_name](#prop-display-name) | `""` |
-| `String` | [description](#prop-description) | `""` |
+| `String` | [display_name](#prop-display-name) | `"":` |
+| `String` | [description](#prop-description) | `"":` |
 | `Texture2D` | [icon](#prop-icon) |  |
 | `int` | [target_id](#prop-target-id) | `0` |
 | `TargetKind` | [target_kind](#prop-target-kind) | `TargetKind.PROFICIENCY` |
@@ -83,11 +83,11 @@ Where the lesson stands for one character
 
 What the lesson teaches
 
-### String display_name = "" {#prop-display-name}
+### String display_name = "": {#prop-display-name}
 
 The name in the list (empty = the name of what it teaches)
 
-### String description = "" {#prop-description}
+### String description = "": {#prop-description}
 
 A line about the lesson (empty = the description of what it teaches)
 

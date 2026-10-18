@@ -10,6 +10,7 @@ A **currency** is something the player counts instead of carries: gold, gems, ar
 |---|---|---|
 | **Display name**, **Description**, **Icon** | What the interface shows next to the amount | |
 | **Abbreviation** | The short form: `GP`, `g`, `$`. Used when an amount is written next to its currency | empty |
+| **Plural name** | The name when the amount is not 1 (*Coins* for *Coin*). Empty = the same name for every amount. Used when there is no abbreviation | empty |
 | **Max value** / **Unlimited** | The most a player can hold. **Unlimited** (the default) means no limit | unlimited |
 | **Show in wallet** | List the currency with the player's money (the inventory window, the trainer). Off for a currency that only **counts something** for a quest or a system: it is held and counted all the same, the player does not see it | on |
 

@@ -18,7 +18,10 @@ Main quest resource that handles objectives, rewards, and quest state
 | `Array[Reward]` | [rewards](#prop-rewards) | `[]` |
 | `Array[Requirement]` | [requirements](#prop-requirements) | `[]` |
 | `bool` | [requires_hand_in](#prop-requires-hand-in) | `false` |
-| `Array[String]` | [turn_in_text](#prop-turn-in-text) | `[]` |
+| `String` | [turn_in_text](#prop-turn-in-text) | `"":` |
+| `SFXSelection` | [accept_voice_line](#prop-accept-voice-line) | `null` |
+| `SFXSelection` | [journal_voice_line](#prop-journal-voice-line) | `null` |
+| `SFXSelection` | [hand_in_voice_line](#prop-hand-in-voice-line) | `null` |
 | `LessonCost` | [hand_in_cost](#prop-hand-in-cost) | `null` |
 | `bool` | [is_repeatable](#prop-is-repeatable) | `false` |
 | `int` | [repeat_limit](#prop-repeat-limit) | `0` |
@@ -59,7 +62,7 @@ Main quest resource that handles objectives, rewards, and quest state
 | `bool` | [complete_objective](#method-complete-objective)( `objective_id: int` ) |
 | `bool` | [fail_objective](#method-fail-objective)( `objective_id: int` ) |
 | `bool` | [is_ready_to_hand_in](#method-is-ready-to-hand-in)() |
-| `String` | [get_turn_in_text](#method-get-turn-in-text)( `language_index: int = 0` ) |
+| `String` | [get_turn_in_text](#method-get-turn-in-text)() |
 | `bool` | [can_repeat](#method-can-repeat)() |
 | `bool` | [can_accept](#method-can-accept)( `entity: Entity = null` ) |
 | `Array[Requirement]` | [get_failed_requirements](#method-get-failed-requirements)( `entity: Entity = null` ) |
@@ -192,9 +195,21 @@ Requirements the player must meet to accept this quest
 
 If true, quest requires manual hand-in after objectives are complete
 
-### Array[String] turn_in_text = [] {#prop-turn-in-text}
+### String turn_in_text = "": {#prop-turn-in-text}
 
-Text displayed by NPC when handing in quest, Array to hold each language
+Text displayed by NPC when handing in quest
+
+### SFXSelection accept_voice_line = null {#prop-accept-voice-line}
+
+The voice line spoken when the quest is accepted (a voice line: the language folders apply). It plays on the Voice bus, heard from nowhere, with its subtitle
+
+### SFXSelection journal_voice_line = null {#prop-journal-voice-line}
+
+The voice line spoken when the quest is read in the journal
+
+### SFXSelection hand_in_voice_line = null {#prop-hand-in-voice-line}
+
+The voice line spoken when the quest is handed in (the NPC speaks it with the hand-in text)
 
 ### LessonCost hand_in_cost = null {#prop-hand-in-cost}
 
@@ -320,9 +335,9 @@ Fails a specific objective by ID
 
 Returns true if quest is ready to hand in
 
-### String get_turn_in_text( language_index: int = 0 ) {#method-get-turn-in-text}
+### String get_turn_in_text() {#method-get-turn-in-text}
 
-Get the turn in text for a specific language index
+The text of the hand-in (in the language of the player), or "Quest complete." when there is none
 
 ### bool can_repeat() {#method-can-repeat}
 

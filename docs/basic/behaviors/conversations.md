@@ -28,8 +28,8 @@ A **conversation** is a dialogue: what an NPC says, what the player can answer, 
 
 | Field | What it does | Default |
 |---|---|---|
-| **Text** | What is said. One entry for each language of the [localization](/basic/game-settings/localization); the first is the default. BBCode works | |
-| **Voice line** | A sound for each language | none |
+| **Text** | What is said, in the source language (the translations are in the [Localization](/basic/game-settings/localization) tables). BBCode works | |
+| **Voice line** | The voice line spoken with the text. The recording in another language is the file of the same name in the language folder of the character ([voice lines in other languages](/basic/game-settings/localization#voice-lines-in-other-languages)) | none |
 | **Animation** | A social animation the NPC plays | none |
 | **Responses** | The responses offered, in order. An empty slot is a connector with nothing on it | none |
 | **Allow end conversation** | Adds an automatic *End conversation* answer | on |
@@ -38,8 +38,8 @@ A **conversation** is a dialogue: what an NPC says, what the player can answer, 
 
 | Field | What it does | Default |
 |---|---|---|
-| **Display name** | The text of the button. One for each language | |
-| **Response text** | What the player's character says when it is chosen. One for each language | |
+| **Display name** | The text of the button (in the source language) | |
+| **Response text** | What the player's character says when it is chosen (in the source language) | |
 | **Active** | A response that is not active is hidden until an action turns it on | on |
 | **Tags** | Words to group responses ("quest_active", "merchant", "romance") | none |
 | **Voice line**, **Animation** | Played when chosen | none |
@@ -94,7 +94,7 @@ The toolbar above the graph has:
 | **Add Requirement** | Adds a requirement box (a gate) to put on a response |
 | **Validate** | Checks the conversation for broken links and empty boxes |
 | **Show Quests** | Shows the **Offer quests** and **Hand-in quests** lists. Right-click in a list to add or remove a quest |
-| **Language** | Chooses which language's text the boxes show (see [Localization](/basic/game-settings/localization)) |
+| **Language** | Chooses which language's text the boxes show and edit: the source language is the text stored in the conversation, another language is its translation in the [Localization](/basic/game-settings/localization) tables. The voice line button is for the source language only |
 
 Drag from the port of one box to the port of another to connect them: a chat to its responses, a response to the chat it leads to. The layout of the boxes is saved with the conversation.
 

@@ -30,6 +30,7 @@ Definition of a crafting school (Blacksmithing, Tailoring, Alchemy, etc.) Contai
 
 | | |
 |---|---|
+| `String` | [get_category_label](#method-get-category-label)( `category: String` ) |
 | `int` | [get_skill_point_cost_for_level](#method-get-skill-point-cost-for-level)( `level: int` ) |
 | `int` | [get_experience_required_for_level](#method-get-experience-required-for-level)( `level: int` ) |
 | `int` | [get_total_experience_for_level](#method-get-total-experience-for-level)( `level: int` ) |
@@ -106,6 +107,10 @@ Optional skill tree for this craft school
 Skill trees of this profession (ids of the skill_tree type). They open when the profession is learned and spend the points of the profession pools (SkillPointPool.scope). The older field above is not read
 
 ## Method descriptions
+
+### String get_category_label( category: String ) {#method-get-category-label}
+
+The label of a recipe category in the language of the player. The category text is the id the recipes use; the label is the text translated in the Localization tables
 
 ### int get_skill_point_cost_for_level( level: int ) {#method-get-skill-point-cost-for-level}
 

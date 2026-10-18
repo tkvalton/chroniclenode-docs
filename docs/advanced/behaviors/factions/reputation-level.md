@@ -10,9 +10,9 @@ Individual reputation level within a faction's reputation system
 
 | | | |
 |---|---|---|
-| `String` | [level_name](#prop-level-name) | `""` |
+| `String` | [level_name](#prop-level-name) | `"":` |
 | `int` | [min_reputation](#prop-min-reputation) | `0` |
-| `String` | [description](#prop-description) | `""` |
+| `String` | [description](#prop-description) | `"":` |
 | `Color` | [level_color](#prop-level-color) | `Color.WHITE` |
 | `CompressedTexture2D` | [level_icon](#prop-level-icon) |  |
 | `FactionRelationship` | [relationship](#prop-relationship) | `FactionRelationship.NEUTRAL` |
@@ -37,7 +37,7 @@ Enum for relationship types (used in faction relationships)
 
 ## Property descriptions
 
-### String level_name = "" {#prop-level-name}
+### String level_name = "": {#prop-level-name}
 
 ========== CORE PROPERTIES ==========
 
@@ -45,7 +45,7 @@ Enum for relationship types (used in faction relationships)
 
 The reputation where this level starts.
 
-### String description = "" {#prop-description}
+### String description = "": {#prop-description}
 
 The text of the level.
 

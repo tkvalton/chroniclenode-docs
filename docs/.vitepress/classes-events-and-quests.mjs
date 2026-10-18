@@ -653,6 +653,12 @@ export const groups = [
         "file": "data_classes/events/event_actions/audio/play_sfx_global_action.gd"
       },
       {
+        "name": "PlayVoiceLineAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\audio\\play_voice_line_action.gd",
+        "file": "data_classes/events/event_actions/audio/play_voice_line_action.gd"
+      },
+      {
         "name": "SetAmbientTrackAction",
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\audio\\set_ambient_track_action.gd",

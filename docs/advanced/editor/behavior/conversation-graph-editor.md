@@ -11,7 +11,7 @@ Graph editor for conversation system with flat response structure Responses stor
 | | | |
 |---|---|---|
 | `Conversation` | [conversation](#var-conversation) |  |
-| `int` | [current_language_index](#var-current-language-index) | `0` |
+| `String` | [current_language](#var-current-language) | `""` |
 | `Dictionary` | [chat_nodes](#var-chat-nodes) | `{}  # chat_id -> ChatGraphNode` |
 | `Dictionary` | [response_nodes](#var-response-nodes) | `{}  # response_id -> ResponseGraphNode` |
 | `Dictionary` | [dice_roll_nodes](#var-dice-roll-nodes) | `{}  # dice_roll_id -> DiceRollGraphNode` |
@@ -30,7 +30,7 @@ Graph editor for conversation system with flat response structure Responses stor
 | `void` | [load_conversation](#method-load-conversation)( `conv: Conversation` ) |
 | `void` | [save_layout](#method-save-layout)() |
 | `void` | [clear_graph](#method-clear-graph)() |
-| `void` | [set_current_language](#method-set-current-language)( `index: int` ) |
+| `void` | [set_current_language](#method-set-current-language)( `language: String` ) |
 | `void` | [create_new_chat](#method-create-new-chat)() |
 | `void` | [create_new_response_node](#method-create-new-response-node)() |
 | `void` | [create_new_requirement_gate](#method-create-new-requirement-gate)() |
@@ -57,9 +57,9 @@ Graph editor for conversation system with flat response structure Responses stor
 
 *No description yet.*
 
-### int current_language_index = 0 {#var-current-language-index}
+### String current_language = "" {#var-current-language}
 
-*No description yet.*
+The language the graph shows and edits: a language code ("" = the source language, the text stored in the conversation)
 
 ### Dictionary chat_nodes =   # chat_id -&gt; ChatGraphNode {#var-chat-nodes}
 
@@ -115,7 +115,7 @@ Load conversation into the graph editor
 
 *No description yet.*
 
-### void set_current_language( index: int ) {#method-set-current-language}
+### void set_current_language( language: String ) {#method-set-current-language}
 
 *No description yet.*
 

@@ -115,6 +115,9 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_
 | `AudioStream` | [get_footstep](#method-get-footstep)( `entity_type: String, surface: String, movement: String` ) |
 | `AudioStream` | [get_voice](#method-get-voice)( `voice: String, action: String` ) |
 | `bool` | [play_sfx_at_position](#method-play-sfx-at-position)( `audio: AudioStream, position: Vector3, volume_db: float = 0.0, pitch_scale: float = 1.0` ) |
+| `bool` | [play_voice_global](#method-play-voice-global)( `audio: AudioStream, volume_db: float = 0.0` ) |
+| `void` | [stop_voice_global](#method-stop-voice-global)() |
+| `bool` | [play_voice_selection_global](#method-play-voice-selection-global)( `hub: GameHost.SystemHub, selection: SFXSelection` ) |
 | `bool` | [play_sfx_global](#method-play-sfx-global)( `audio: AudioStream, volume_db: float = 0.0, pitch_scale: float = 1.0` ) |
 | `bool` | [play_sfx_at_position_by_name](#method-play-sfx-at-position-by-name)( `category: String, type: String, position: Vector3, volume_db: float = 0.0, pitch_scale: float = 1.0` ) |
 | `bool` | [play_sfx_global_by_name](#method-play-sfx-global-by-name)( `category: String, type: String, volume_db: float = 0.0, pitch_scale: float = 1.0` ) |
@@ -439,9 +442,21 @@ Get random voice audio from cache
 
 Play SFX at a 3D position
 
+### bool play_voice_global( audio: AudioStream, volume_db: float = 0.0 ) {#method-play-voice-global}
+
+Plays a spoken line that is heard from nowhere (the voice of a quest, a narrator) on the Voice bus. One line at a time: a new line replaces the one that plays.
+
+### void stop_voice_global() {#method-stop-voice-global}
+
+Stops the line that plays with `play_voice_global`.
+
+### bool play_voice_selection_global( hub: GameHost.SystemHub, selection: SFXSelection ) {#method-play-voice-selection-global}
+
+Plays a voice line selection heard from nowhere on the Voice bus and shows its subtitle (the quest voice lines, the Play Voice Line action without a speaker). Does nothing for a selection that is not a voice line. Returns true when something played.
+
 ### bool play_sfx_global( audio: AudioStream, volume_db: float = 0.0, pitch_scale: float = 1.0 ) {#method-play-sfx-global}
 
-Play SFX globally (2D)
+*No description yet.*
 
 ### bool play_sfx_at_position_by_name( category: String, type: String, position: Vector3, volume_db: float = 0.0, pitch_scale: float = 1.0 ) {#method-play-sfx-at-position-by-name}
 

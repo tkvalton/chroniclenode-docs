@@ -17,9 +17,9 @@ Every resource of the REGISTRY of the Database extends this class: abilities, ef
 | | | |
 |---|---|---|
 | `int` | [id](#prop-id) |  |
-| `String` | [display_name](#prop-display-name) | `""` |
+| `String` | [display_name](#prop-display-name) | `"":` |
 | `CompressedTexture2D` | [icon](#prop-icon) |  |
-| `String` | [description](#prop-description) | `""` |
+| `String` | [description](#prop-description) | `"":` |
 
 ## Property descriptions
 
@@ -27,15 +27,15 @@ Every resource of the REGISTRY of the Database extends this class: abilities, ef
 
 Unique identifier for this entity
 
-### String display_name = "" {#prop-display-name}
+### String display_name = "": {#prop-display-name}
 
-Display name shown in UI and nameplates
+Display name shown in UI and nameplates. Reading it gives the translation when the game is played in another language (see Localization); the editor and saves read the stored text
 
 ### CompressedTexture2D icon {#prop-icon}
 
 Icon displayed in UI elements
 
-### String description = "" {#prop-description}
+### String description = "": {#prop-description}
 
-Optional description or background
+Optional description or background. Reading it gives the translation when the game is played in another language (see Localization)
 

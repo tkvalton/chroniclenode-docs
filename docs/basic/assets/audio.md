@@ -12,7 +12,7 @@ Sounds are `.wav`, `.ogg` or `.mp3` files under `res://src/data/audio/`. The fol
 | **Atmospheric ambience** | `atmospheric_ambience/` | `loop/` and `non_loop/` | Albums. 2D background sounds: rain, wind, birds |
 | **UI SFX** | `ui_sfx/` | One folder for each interface sound | Buttons, windows, item moves |
 | **Entity voices** | `entity_voices/` | `<entity type>/<voice variant>/<action>/` | Grunts, yells and reactions in combat; the **voice** of an [NPC](/basic/entities/npcs) or character |
-| **Voicelines** | `voicelines/` | One folder for each line | Spoken lines in [conversations](/basic/behaviors/conversations) |
+| **Voicelines** | `voicelines/` | One folder for each character; a folder of a language inside it for the recordings in that language | Spoken lines in [conversations](/basic/behaviors/conversations), speak interactions, quests and events. See [voice lines in other languages](/basic/game-settings/localization#voice-lines-in-other-languages) |
 | **Motion** | `motion/` | `<entity type>/<surface>/<movement>/` | Footsteps and movement sounds, by the ground the entity walks on and how it moves |
 | **Casting** | `casting/` | A folder for each sound | The wind-up of a cast |
 | **Cast** | `cast/` | A folder for each sound | The release of a spell |

@@ -10,7 +10,7 @@ Simple interaction that displays text and optionally plays a voice line
 
 | | | |
 |---|---|---|
-| `String` | [text](#prop-text) | `""` |
+| `String` | [text](#prop-text) | `"":` |
 | `Font` | [font](#prop-font) |  |
 | `float` | [text_size](#prop-text-size) | `40.0` |
 | `float` | [text_outline_size](#prop-text-outline-size) | `14.0` |
@@ -36,7 +36,7 @@ Simple interaction that displays text and optionally plays a voice line
 
 ## Property descriptions
 
-### String text = "" {#prop-text}
+### String text = "": {#prop-text}
 
 Text to display on Label3D, it text is empty no label will be used
 

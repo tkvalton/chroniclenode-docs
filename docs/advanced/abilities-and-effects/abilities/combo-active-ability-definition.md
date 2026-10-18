@@ -13,7 +13,7 @@ ComboActiveAbilityDefinition supports multi-step combo sequences. Step 0 uses th
 | `Array[Array]` | [combo_effects](#prop-combo-effects) | `[]` |
 | `Array[float]` | [combo_costs](#prop-combo-costs) | `[]` |
 | `Array[CompressedTexture2D]` | [combo_icons](#prop-combo-icons) | `[]` |
-| `Array[String]` | [combo_names](#prop-combo-names) | `[]` |
+| `Array[String]` | [combo_names](#prop-combo-names) | `[]:` |
 | `ComboCooldownMode` | [combo_cooldown_mode](#prop-combo-cooldown-mode) | `ComboCooldownMode.COOLDOWN_ON_COMPLETION` |
 | `float` | [combo_timeout](#prop-combo-timeout) | `6.0` |
 | `bool` | [combo_loop](#prop-combo-loop) | `true` |
@@ -62,7 +62,7 @@ Resource costs for 2nd, 3rd, 4th+ combo steps. Empty/shorter arrays use original
 
 Icons for 2nd, 3rd, 4th+ combo steps. Null entries use the original icon.
 
-### Array[String] combo_names = [] {#prop-combo-names}
+### Array[String] combo_names = []: {#prop-combo-names}
 
 Display names for 2nd, 3rd, 4th+ combo steps. Empty strings use the original display_name.
 

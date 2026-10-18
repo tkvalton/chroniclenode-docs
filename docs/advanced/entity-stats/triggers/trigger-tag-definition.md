@@ -20,8 +20,8 @@ The tag is the word modifiers require and procs filter on. Its definition holds 
 | `Application` | [application](#prop-application) | `Application.NONE` |
 | `int` | [application_priority](#prop-application-priority) | `25` |
 | `CalculationTriggerStatEffect.SpecialEffectAnimation` | [animation](#prop-animation) | `CalculationTriggerStatEffect.SpecialEffectAnimation.NONE` |
-| `String` | [message](#prop-message) | `""` |
-| `String` | [log_phrase](#prop-log-phrase) | `""` |
+| `String` | [message](#prop-message) | `"":` |
+| `String` | [log_phrase](#prop-log-phrase) | `"":` |
 | `Array[CalculationBase.CalculationType]` | [calculations](#prop-calculations) | `[]` |
 
 ## Methods
@@ -78,11 +78,11 @@ Where it happens among the modifiers of the phase (higher first). 25 puts a perc
 
 The animation played when the tag fires
 
-### String message = "" {#prop-message}
+### String message = "": {#prop-message}
 
 Floating text when it fires
 
-### String log_phrase = "" {#prop-log-phrase}
+### String log_phrase = "": {#prop-log-phrase}
 
 Combat log phrase when it fires. Placeholders: &#123;attacker&#125; &#123;target&#125; &#123;ability&#125; &#123;damage&#125;. Empty = the default for the kind
 

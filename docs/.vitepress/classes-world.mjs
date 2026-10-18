@@ -135,6 +135,12 @@ export const groups = [
         "base": "Resource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\audio_profile.gd",
         "file": "data_classes/audio/audio_profile.gd"
+      },
+      {
+        "name": "VoicelineSubtitles",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\voiceline_subtitles.gd",
+        "file": "data_classes/audio/voiceline_subtitles.gd"
       }
     ]
   },

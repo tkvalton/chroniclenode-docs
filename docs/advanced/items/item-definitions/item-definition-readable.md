@@ -10,7 +10,7 @@ Readable items that display text content in a UI panel when used Supports multi-
 
 | | | |
 |---|---|---|
-| `Array[String]` | [pages_text](#prop-pages-text) |  |
+| `Array[String]:` | [pages_text](#prop-pages-text) |  |
 | `Texture2D` | [background_texture](#prop-background-texture) |  |
 
 ## Methods
@@ -24,7 +24,7 @@ Readable items that display text content in a UI panel when used Supports multi-
 
 ## Property descriptions
 
-### Array[String] pages_text {#prop-pages-text}
+### Array[String]: pages_text {#prop-pages-text}
 
 Array of text content for each page of the readable item Each string represents one page - supports rich text formatting with BBCode Example: ["Page 1 content...", "Page 2 content...", "Final page..."]
 

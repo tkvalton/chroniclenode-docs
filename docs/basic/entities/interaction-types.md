@@ -143,7 +143,7 @@ A sign, a book on a lectern, a note on a corpse. Using it opens the reading pane
 | **Text** | A line that floats over the object or NPC when it is used | |
 | **Font**, **Text size**, **Outline size**, **Text color** | How it looks | |
 | **Text duration** | Seconds the line stays. A longer voice line makes it stay longer | `5` |
-| **Voice line**, **Animation** | A sound and a social animation that go with it | none |
+| **Voice line**, **Animation** | A sound and a social animation that go with it. A voice line is speech: it plays on the Voice channel, in the voice language of the player, with its subtitle | none |
 
 ### Show UI Panel
 

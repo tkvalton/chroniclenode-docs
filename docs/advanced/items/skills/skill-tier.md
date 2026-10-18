@@ -14,9 +14,9 @@ A tier is only a **cap on the level**: while a character is in the tier its leve
 
 | | | |
 |---|---|---|
-| `String` | [display_name](#prop-display-name) | `"Tier"` |
+| `String` | [display_name](#prop-display-name) | `"Tier":` |
 | `int` | [level_cap](#prop-level-cap) | `75` |
-| `String` | [description](#prop-description) | `""` |
+| `String` | [description](#prop-description) | `"":` |
 | `Texture2D` | [icon](#prop-icon) |  |
 | `Array[Requirement]` | [requirements](#prop-requirements) | `[]` |
 
@@ -30,7 +30,7 @@ A tier is only a **cap on the level**: while a character is in the tier its leve
 
 ## Property descriptions
 
-### String display_name = "Tier" {#prop-display-name}
+### String display_name = "Tier": {#prop-display-name}
 
 The name of the tier ("Journeyman")
 
@@ -38,7 +38,7 @@ The name of the tier ("Journeyman")
 
 The highest level a character can reach while in this tier
 
-### String description = "" {#prop-description}
+### String description = "": {#prop-description}
 
 A line about the tier, for the interface
 

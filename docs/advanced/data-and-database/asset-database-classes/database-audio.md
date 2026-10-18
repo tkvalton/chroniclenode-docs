@@ -45,8 +45,11 @@ SFX_CATEGORIES lists the categories (music, ambience, UI, voices, voicelines, fo
 | `Array[String]` | [get_available_voice_entities](#method-get-available-voice-entities)() *static* |
 | `Array[String]` | [get_available_voice_variants](#method-get-available-voice-variants)( `entity_type: String` ) *static* |
 | `Array[String]` | [get_available_voice_actions](#method-get-available-voice-actions)( `entity_type: String, voice_variant: String` ) *static* |
-| `AudioStream` | [get_random_voiceline_audio](#method-get-random-voiceline-audio)( `character_name: String` ) *static* |
-| `AudioStream` | [get_voiceline_audio](#method-get-voiceline-audio)( `character_name: String, file_name: String` ) *static* |
+| `AudioStream` | [get_random_voiceline_audio](#method-get-random-voiceline-audio)( `character_name: String, language: String = ""` ) *static* |
+| `AudioStream` | [get_voiceline_audio](#method-get-voiceline-audio)( `character_name: String, file_name: String, language: String = ""` ) *static* |
+| `String` | [get_voiceline_path](#method-get-voiceline-path)( `character_name: String, file_name: String, language: String = ""` ) *static* |
+| `String` | [get_voiceline_language_path](#method-get-voiceline-language-path)( `character_name: String, file_name: String, language: String` ) *static* |
+| `Array[String]` | [get_voiceline_language_folders](#method-get-voiceline-language-folders)( `character_name: String` ) *static* |
 | `Array[String]` | [get_available_voiceline_characters](#method-get-available-voiceline-characters)() *static* |
 | `Array` | [get_all_voiceline_files_for_character](#method-get-all-voiceline-files-for-character)( `character_name: String` ) *static* |
 | `Array` | [get_all_voice_files](#method-get-all-voice-files)( `entity_type: String, voice_variant: String, action: String` ) *static* |
@@ -190,13 +193,25 @@ Get all available voice variants for a specific entity
 
 Get all available actions for an entity and voice variant
 
-### AudioStream get_random_voiceline_audio( character_name: String ) {#method-get-random-voiceline-audio}
+### AudioStream get_random_voiceline_audio( character_name: String, language: String = "" ) {#method-get-random-voiceline-audio}
 
-Get random voiceline audio for a character
+Get random voiceline audio for a character, in the voice language of the player (the file of the same name in the language folder when there is one)
 
-### AudioStream get_voiceline_audio( character_name: String, file_name: String ) {#method-get-voiceline-audio}
+### AudioStream get_voiceline_audio( character_name: String, file_name: String, language: String = "" ) {#method-get-voiceline-audio}
 
-Get specific voiceline audio by character and filename
+Get specific voiceline audio by character and filename, in the voice language of the player (the file of the same name in the language folder when there is one, else the default file)
+
+### String get_voiceline_path( character_name: String, file_name: String, language: String = "" ) {#method-get-voiceline-path}
+
+The path of a voice line: the file in the language folder of the voice language ("" language = the voice language of the player) when the language is not the source language and the file exists there, else the default file. "" when the line does not exist.
+
+### String get_voiceline_language_path( character_name: String, file_name: String, language: String ) {#method-get-voiceline-language-path}
+
+The path of a voice line in the language folder of a language ("" when that language has no such file).
+
+### Array[String] get_voiceline_language_folders( character_name: String ) {#method-get-voiceline-language-folders}
+
+The names of the language folders a character has (any folder inside its folder; the editor shows the ones that are languages of the game).
 
 ### Array[String] get_available_voiceline_characters() {#method-get-available-voiceline-characters}
 

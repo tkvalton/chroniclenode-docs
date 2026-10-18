@@ -14,9 +14,9 @@ A single response option in a conversation Now includes chat_id to track which c
 | `int` | [chat_id](#prop-chat-id) | `0` |
 | `bool` | [active](#prop-active) | `true` |
 | `PackedStringArray` | [tags](#prop-tags) | `[]` |
-| `Array[String]` | [response_display_name](#prop-response-display-name) |  |
-| `Array[String]` | [response_text](#prop-response-text) |  |
-| `Array[SFXSelection]` | [voice_line_sfx](#prop-voice-line-sfx) |  |
+| `String` | [response_display_name](#prop-response-display-name) | `"":` |
+| `String` | [response_text](#prop-response-text) | `"":` |
+| `SFXSelection` | [voice_line_sfx](#prop-voice-line-sfx) |  |
 | `AnimationSelectionSocial` | [animation](#prop-animation) |  |
 | `Array[Requirement]` | [response_requirements](#prop-response-requirements) |  |
 | `Array[ConversationAction]` | [response_actions](#prop-response-actions) |  |
@@ -47,17 +47,17 @@ If response is allowed (Will remain hidden until set active)
 
 Tags for grouping responses (e.g., "quest_active", "merchant", "romance")
 
-### Array[String] response_display_name {#prop-response-display-name}
+### String response_display_name = "": {#prop-response-display-name}
 
-Display name of response button, Array to hold each language
+Display name of response button (the text of the source language)
 
-### Array[String] response_text {#prop-response-text}
+### String response_text = "": {#prop-response-text}
 
-Text to display on response, Array to hold each language
+Text to display on response (the text of the source language)
 
-### Array[SFXSelection] voice_line_sfx {#prop-voice-line-sfx}
+### SFXSelection voice_line_sfx {#prop-voice-line-sfx}
 
-Soundfile to play for interaction, Array to hold each language
+The voice line to play with the response: the line of the source language (a line in another language is the file of the same name in the language folder of the character)
 
 ### AnimationSelectionSocial animation {#prop-animation}
 
