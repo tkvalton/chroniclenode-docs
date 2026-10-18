@@ -33,6 +33,7 @@ A full-screen root Control left at the default STOP swallows every world click. 
 | `Array[Control]` | [all_window_interfaces](#var-all-window-interfaces) |  |
 | `DragController` | [drag_controller](#var-drag-controller) |  |
 | `NameplateManager` | [nameplates](#var-nameplates) |  |
+| `SubtitlesUI` | [subtitles](#var-subtitles) | `null` |
 | `TrainerPanelUI` | [trainer_panel](#var-trainer-panel) |  |
 
 ## Methods
@@ -40,6 +41,8 @@ A full-screen root Control left at the default STOP swallows every world click. 
 | | |
 |---|---|
 | `void` | [initialize_ui](#method-initialize-ui)( `p_system_hub: GameHost.SystemHub` ) |
+| `bool` | [show_subtitle](#method-show-subtitle)( `text: String, speaker: String = "", duration: float = 0.0` ) |
+| `void` | [hide_subtitle](#method-hide-subtitle)() |
 | `void` | [setup_window_interfaces](#method-setup-window-interfaces)( `system_hub: GameHost.SystemHub` ) |
 | `void` | [in_game_ui_connect_signals](#method-in-game-ui-connect-signals)( `system_hub: GameHost.SystemHub` ) |
 | `void` | [handle_pause_state_change](#method-handle-pause-state-change)( `paused: bool` ) |
@@ -92,6 +95,10 @@ Drag Controller
 
 Nameplate Manager
 
+### SubtitlesUI subtitles = null {#var-subtitles}
+
+The subtitles of the HUD (a SubtitlesUI in the HUD node of the scene), or null when the scene has none
+
 ### TrainerPanelUI trainer_panel {#var-trainer-panel}
 
 The lessons of a trainer (made in code: there is no scene node for it)
@@ -101,6 +108,14 @@ The lessons of a trainer (made in code: there is no scene node for it)
 ### void initialize_ui( p_system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
 Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
+
+### bool show_subtitle( text: String, speaker: String = "", duration: float = 0.0 ) {#method-show-subtitle}
+
+Shows a subtitle line on the SubtitlesUI of the scene (nothing when the scene has none or the player has subtitles off): see SubtitlesUI.show_subtitle
+
+### void hide_subtitle() {#method-hide-subtitle}
+
+Hides the subtitle that shows
 
 ### void setup_window_interfaces( system_hub: GameHost.SystemHub ) {#method-setup-window-interfaces}
 

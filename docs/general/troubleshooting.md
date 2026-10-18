@@ -10,7 +10,7 @@ Godot imports the art, audio and models the first time it opens the project. It 
 
 ### A setting changes nothing
 
-Some settings are stored but nothing reads them yet: the *Language* setting, *Subtitles enabled*, *Auto save* and its frequency, the items weight and durability switches, and a few visuals. The page of each setting says **not used yet** where this is so: [Settings](/basic/game-settings/settings), [Gameplay Config](/basic/game-settings/gameplay-config) and [Localization](/basic/game-settings/localization).
+Some settings are stored but nothing reads them yet: the *Language* setting, *Subtitles enabled* (the Subtitles element reads it, but no voice line sends it a line yet), *Auto save* and its frequency, the items weight and durability switches, and a few visuals. The page of each setting says **not used yet** where this is so: [Settings](/basic/game-settings/settings), [Gameplay Config](/basic/game-settings/gameplay-config) and [Localization](/basic/game-settings/localization).
 
 ### The editor shows "ID n (Not Found)"
 

@@ -185,6 +185,12 @@ export const groups = [
         "file": "ui_scenes/in_game/HUD/quest_tracker/quest_tracker_ui.gd"
       },
       {
+        "name": "SubtitlesUI",
+        "base": "HUDUIElement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\HUD\\subtitles\\subtitles_ui.gd",
+        "file": "ui_scenes/in_game/HUD/subtitles/subtitles_ui.gd"
+      },
+      {
         "name": "UnitFrame",
         "base": "HUDUIElement",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\HUD\\unit_frames\\unit_frame.gd",

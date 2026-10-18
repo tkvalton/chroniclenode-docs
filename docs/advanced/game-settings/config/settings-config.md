@@ -11,7 +11,7 @@ Class representing the game settings
 | | | |
 |---|---|---|
 | `bool` | [language](#prop-language) | `false` |
-| `bool` | [subtitles_enabled](#prop-subtitles-enabled) | `false` |
+| `bool` | [subtitles_enabled](#prop-subtitles-enabled) | `false:` |
 | `bool` | [auto_save](#prop-auto-save) | `false` |
 | `float` | [auto_save_frequency](#prop-auto-save-frequency) | `300` |
 | `CrouchMode` | [crouch_mode](#prop-crouch-mode) | `CrouchMode.HOLD` |
@@ -308,9 +308,9 @@ Enumeration of crouch control modes
 
 TODO
 
-### bool subtitles_enabled = false {#prop-subtitles-enabled}
+### bool subtitles_enabled = false: {#prop-subtitles-enabled}
 
-Are subtitles currently enabled?
+Are subtitles currently enabled? (The SubtitlesUI of the in-game interface shows the lines of voice lines while it is on)
 
 ### bool auto_save = false {#prop-auto-save}
 

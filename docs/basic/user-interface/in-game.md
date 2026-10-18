@@ -15,7 +15,7 @@ The root has three **containers**, and a few things that stand alone.
 ```text
 InGameUI
 ├─ HUD                     the always-on parts            ─► HUD
-│   ├─ MiniMenu, ActionBar, PartyFrames, MiniMap, QuestTracker, BreathBar, CombatLog, DamageMeter
+│   ├─ MiniMenu, ActionBar, PartyFrames, MiniMap, QuestTracker, BreathBar, Subtitles, CombatLog, DamageMeter
 ├─ InteractionPanels       one window for each kind of interaction  ─► Interaction Panels
 │   ├─ Conversation, Vendor, Crafting, ExternalInventory, Readable, Socket, DiceRoll
 ├─ UIPanels                the windows the player opens   ─► UI Panels

@@ -106,6 +106,7 @@ The editor needs to know what an interface scene holds (to check the root class 
 | [QuestTrackerQuestUI](/advanced/user-interface/hud/quest-tracker-quest-ui) | One tracked quest in the quest tracker: the title of the quest and its objectives. |
 | [QuestTrackerQuestUIObjectiveLabel](/advanced/user-interface/hud/quest-tracker-quest-ui-objective-label) | One objective in the quest tracker: its text and its progress, with an animation (a color change) when it is completed. |
 | [QuestTrackerUI](/advanced/user-interface/hud/quest-tracker-ui) | QuestTrackerUI manages the on-screen display of tracked quests and their objectives. |
+| [SubtitlesUI](/advanced/user-interface/hud/subtitles-ui) | The subtitles of the game: a container with the name of the speaker and the line that is said, at the bottom of the screen. |
 | [UnitFrame](/advanced/user-interface/hud/unit-frame) | This class serves as a base for different types of unit frames in the game UI. |
 <!-- /classes -->
 

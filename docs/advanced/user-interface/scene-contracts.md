@@ -13,7 +13,7 @@ How to read it:
 
 ## The templates the toolkit provides
 
-83 scenes in `res://addons/chroniclenode/`, each with the class on its root node. Copy one next to your own scenes, change it and set it in [UI Settings](/basic/game-settings/ui-settings), or start from your own scene with the same root class.
+84 scenes in `res://addons/chroniclenode/`, each with the class on its root node. Copy one next to your own scenes, change it and set it in [UI Settings](/basic/game-settings/ui-settings), or start from your own scene with the same root class.
 
 | Area | Scene | Root class | What it is |
 |---|---|---|---|
@@ -38,6 +38,7 @@ How to read it:
 | HUD | `in_game/HUD/quest_tracker/quest_tracker_objective_label_ui_template.tscn` | [`QuestTrackerQuestUIObjectiveLabel`](#class-quest-tracker-quest-ui-objective-label) | One objective in the quest tracker: its text and its progress, with an animation (a color change) when it is completed |
 | HUD | `in_game/HUD/quest_tracker/quest_tracker_ui_template.tscn` | [`QuestTrackerUI`](#class-quest-tracker-ui) | QuestTrackerUI manages the on-screen display of tracked quests and their objectives |
 | HUD | `in_game/HUD/quest_tracker/tracked_quest_ui_template.tscn` | [`QuestTrackerQuestUI`](#class-quest-tracker-quest-ui) | One tracked quest in the quest tracker: the title of the quest and its objectives |
+| HUD | `in_game/HUD/subtitles/subtitles_ui_template.tscn` | [`SubtitlesUI`](#class-subtitles-ui) | The subtitles of the game: a container with the name of the speaker and the line that is said, at the bottom of the screen |
 | HUD | `in_game/HUD/unit_frames/current_player_unit_frame.tscn` | [`UnitFrame`](#class-unit-frame) | This class serves as a base for different types of unit frames in the game UI |
 | HUD | `in_game/HUD/unit_frames/target_unit_frame.tscn` | [`UnitFrame`](#class-unit-frame) | This class serves as a base for different types of unit frames in the game UI |
 | In game | `in_game/dragged_content_template.tscn` | [`DraggedContent`](#class-dragged-content) | Unified visual component for dragging both items AND abilities Pure display - NO LOGIC Replaces both DraggedItem and DraggedAbility |
@@ -950,6 +951,28 @@ Template scene: `ui_scenes/in_game/HUD/quest_tracker/quest_tracker_ui_template.t
 | Export | Type | What it is |
 |---|---|---|
 | `tracked_quest` | `PackedScene` | Scene to instantiate for each tracked quest display |
+
+### SubtitlesUI {#class-subtitles-ui}
+
+`SubtitlesUI` extends `HUDUIElement` ([class page](/advanced/user-interface/hud/subtitles-ui))
+
+The subtitles of the game: a container with the name of the speaker and the line that is said, at the bottom of the screen.
+
+Script: `ui_scenes/in_game/HUD/subtitles/subtitles_ui.gd`
+
+Template scene: `ui_scenes/in_game/HUD/subtitles/subtitles_ui_template.tscn`
+
+| Node the script looks for | Type | Found as | What it is |
+|---|---|---|---|
+| `panel` | `Control` | `%Panel` | The panel behind the text: style it in the scene |
+| `speaker_label` | `Label` | `%SpeakerLabel` | The label with the name of the speaker |
+| `text_label` | `Label` | `%TextLabel` | The label with the line |
+
+| Export | Type | What it is |
+|---|---|---|
+| `show_speaker_name` | `bool` | Show the name of the speaker above the line (when there is one) |
+| `minimum_seconds` | `float` | The line stays at least this long (seconds), however short it is |
+| `characters_per_second` | `float` | When a line has no duration: the seconds it stays are the number of characters divided by this (reading speed) |
 
 ### UnitFrame {#class-unit-frame}
 
