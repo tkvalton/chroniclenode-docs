@@ -27,6 +27,12 @@ Right-click **Objectives** in the tree and **Add Objective**. An objective is a 
 
 An objective has a **number** (its position, 1 is the first). Conversations and the *Complete Quest Objective* and *Fail Quest Objective* actions use the number, so an objective that nothing in the world can measure ("the king decides you are worthy") can be completed by an event or a conversation response.
 
+::: warning Do not reorder objectives after release
+Events, conversations and **saved games** refer to an objective by its number. Once the game is out, only add new objectives **at the end** of the list. Moving or deleting an objective changes the numbers of the ones after it, and a saved game that is in the middle of the quest would put its progress on the wrong objectives. The quest editor shows this note above the list.
+:::
+
+**Talking to someone as an objective.** The *NPC Interaction* trigger is done when the player interacts with that NPC (any interaction). To ask for a particular moment of a conversation ("hear the blacksmith's story"), use the *Conversation Chat Shown* trigger: it is done when the player is shown the chat you name in the conversation you name. Leave the chat empty to count any chat of the conversation.
+
 The quest is complete when every **required** objective is complete.
 
 #### Objectives that count

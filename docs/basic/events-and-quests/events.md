@@ -42,7 +42,8 @@ When a trigger fires, the event checks its **conditions**. They are the same [co
 The actions run **in order, one after another**: each one finishes before the next one starts. A *Wait* action really waits, a *Popup* action can wait until the player closes it, a *Cutscene* action waits until the cutscene ends. [Event actions](/basic/events-and-quests/event-actions) lists all of them by category.
 
 - **If** and **Switch** actions branch: they hold conditions and their own lists of actions. An *If* has a "true" list and a "false" list; a *Switch* has a list for each case and a default.
-- An action that **cannot do its job fails**: a quest that cannot start, an object that does not exist, an NPC that is not there. The event fails with it. The rest of its actions do not run.
+- An action that **cannot do its job fails**: a quest that does not exist, an object that does not exist, an NPC that is not there. The event fails with it. The rest of its actions do not run. **The Godot output shows a warning** for the action and for the event ("Event action failed: ...", "Event 12 (name) failed"), so a developer can see why an event stopped.
+- **An event decides.** The quest actions do not ask the quest for permission: *Activate Quest* starts the quest even if the player does not meet its requirements, it is on a cooldown, it was done and is not repeatable, or it failed for good (it starts again from the beginning), and the limit of active quests does not stop it. *Complete Quest* on a quest that is not running starts it first. If a quest must not change under some conditions, put those conditions on the event. A quest that is already running is left as it is. Two things an event still cannot do: change a quest that is not running with *Fail Quest* or *Complete Quest Objective* (there is nothing to change: the action fails with a warning), and start a quest of a quest line before the line reaches its step.
 
 ## How often an event runs
 
@@ -65,7 +66,7 @@ Each event has its own **local variables**: named values of type int, float, boo
 
 **A trap on the road.** Trigger: *Region Detection Player* (the road, enters). Condition: *Global Variable* `ambush_done` is false. Actions: *Spawn Entity* (three bandits), *Popup* ("Ambush!"), *Set Global Variable* `ambush_done` = true.
 
-**Hand out a quest at sunrise.** Trigger: *Game Time* 06:00. Action: *Activate Quest* (the daily quest). A quest that is already running, or that cannot be taken again yet, refuses to start: the action fails and nothing else happens.
+**Hand out a quest at sunrise.** Trigger: *Game Time* 06:00. Action: *Activate Quest* (the daily quest). A quest that is already running is left as it is; one that was done or is on a cooldown starts again, because the event decides.
 
 **The king's death changes the world.** Trigger: *Entity Death Unique* (the king). Actions: *Set Global Variable* `king_dead` = true; *Set Entity [Faction](/basic/behaviors/factions)* (the guards, hostile); *Fail Quest* (Serve the Crown).
 

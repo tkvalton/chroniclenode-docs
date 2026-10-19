@@ -26,7 +26,7 @@ Base class for all event actions. Actions define behaviors that can be triggered
 | `void` | [cleanup](#method-cleanup)() |
 | `void` | [complete](#method-complete)() |
 | `void` | [force_complete](#method-force-complete)() |
-| `void` | [fail](#method-fail)() |
+| `void` | [fail](#method-fail)( `reason: String = ""` ) |
 | `void` | [reset](#method-reset)() |
 | `bool` | [is_completed](#method-is-completed)() |
 | `Dictionary` | [save](#method-save)() |
@@ -98,9 +98,9 @@ Complete the action
 
 Force-complete the action
 
-### void fail() {#method-fail}
+### void fail( reason: String = "" ) {#method-fail}
 
-Fail the action
+Fail the action. The reason is written to the Godot output as a warning, so a developer can see why an event stopped
 
 ### void reset() {#method-reset}
 

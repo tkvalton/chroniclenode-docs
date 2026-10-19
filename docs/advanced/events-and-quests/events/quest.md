@@ -48,7 +48,7 @@ Main quest resource that handles objectives, rewards, and quest state
 |---|---|
 | `void` | [set_system_hub](#method-set-system-hub)( `p_system_hub: GameHost.SystemHub` ) |
 | `bool` | [can_start](#method-can-start)() |
-| `bool` | [activate](#method-activate)() |
+| `bool` | [activate](#method-activate)( `forced: bool = false` ) |
 | `bool` | [complete](#method-complete)() |
 | `void` | [fail](#method-fail)() |
 | `FailureBehavior` | [get_failure_behavior](#method-get-failure-behavior)() |
@@ -279,9 +279,9 @@ Gives the quest, its objectives and its rewards the hub of the game systems.
 
 Can the quest be started now? It must be waiting (not running, not handed in, not on a cooldown); a quest that was done once is only taken again when it is repeatable and has repeats left; a failed one only when failing does not end it for good (see get_failure_behavior)
 
-### bool activate() {#method-activate}
+### bool activate( forced: bool = false ) {#method-activate}
 
-Activates the quest and its objectives. False when it cannot start (see can_start)
+Activates the quest and its objectives. False when it cannot start (see can_start). `forced` is for an event: the event decides, so a quest that was done, failed for good or is on a cooldown starts again from the beginning (a quest that is running stays as it is: false)
 
 ### bool complete() {#method-complete}
 

@@ -57,7 +57,7 @@ USAGE:
 | `void` | [setup_all_events](#method-setup-all-events)() |
 | `void` | [reset_for_new_game](#method-reset-for-new-game)() |
 | `bool` | [activate_quest_line](#method-activate-quest-line)( `quest_line_id: int` ) |
-| `bool` | [activate_quest](#method-activate-quest)( `quest_id: int` ) |
+| `bool` | [activate_quest](#method-activate-quest)( `quest_id: int, forced: bool = false` ) |
 | `bool` | [track_quest](#method-track-quest)( `quest_id: int` ) |
 | `bool` | [untrack_quest](#method-untrack-quest)( `quest_id: int` ) |
 | `bool` | [is_quest_tracked](#method-is-quest-tracked)( `quest_id: int` ) |
@@ -104,6 +104,10 @@ Emitted when a variable is removed
 ### variables_cleared() {#signal-variables-cleared}
 
 Emitted when all variables are cleared
+
+### conversation_chat_shown( conversation_id: int, chat_id: int, player: Entity ) {#signal-conversation-chat-shown}
+
+Emitted when a chat of a conversation is shown to a player (the conversation starts, or the player goes on to another chat)
 
 ### quest_line_activated( quest_line: QuestLine ) {#signal-quest-line-activated}
 
@@ -217,9 +221,9 @@ Reset all state for new game (keeps resource instances, resets their state)
 
 Activates a quest line by ID, returns true if successful Note: Quest requirements are checked when activating individual quests
 
-### bool activate_quest( quest_id: int ) {#method-activate-quest}
+### bool activate_quest( quest_id: int, forced: bool = false ) {#method-activate-quest}
 
-Activates an individual quest by ID, returns true if successful Checks player requirements before activation Automatically activates parent quest line if quest belongs to one
+Activates an individual quest by ID, returns true if successful Checks player requirements before activation Automatically activates parent quest line if quest belongs to one `forced` is for the events (the Start quest action): the event decides, so the requirements, the limit of quests, a cooldown and a quest that was done or failed do not stop it
 
 ### bool track_quest( quest_id: int ) {#method-track-quest}
 

@@ -4,7 +4,7 @@
 
 **Inherits:** [EventAction](/advanced/events-and-quests/bases/event-action) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Completes a running quest at once, whatever its objectives (and gives its rewards). Fails when the quest is not running or its rewards do not fit the bags
+Completes a quest at once, whatever its objectives (and gives its rewards). **The event decides**: a quest that is not running is started first (its requirements and cooldown do not matter). Fails (with a warning) only when the quest does not exist or its rewards do not fit the bags
 
 ## Properties
 
