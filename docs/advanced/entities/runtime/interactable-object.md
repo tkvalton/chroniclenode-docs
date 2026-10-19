@@ -17,7 +17,7 @@ Unified interactable object class - uses InteractableDefinition + Interactions A
 
 | | | |
 |---|---|---|
-| `String` | [display_name](#var-display-name) | `""` |
+| `String:` | [display_name](#var-display-name) |  |
 | `bool` | [is_initialized](#var-is-initialized) | `false` |
 | `Node3D` | [editor_visual](#var-editor-visual) |  |
 | `int` | [locked_by_item_id](#var-locked-by-item-id) | `-1` |
@@ -46,6 +46,9 @@ Unified interactable object class - uses InteractableDefinition + Interactions A
 
 | | |
 |---|---|
+| `Array[int]` | [get_ui_tag_ids](#method-get-ui-tag-ids)() |
+| `Array[UITagDefinition]` | [get_ui_tags](#method-get-ui-tags)() |
+| `bool` | [has_ui_tag](#method-has-ui-tag)( `tag: Variant` ) |
 | `void` | [initialize_interactable](#method-initialize-interactable)( `system_hub: GameHost.SystemHub` ) |
 | `void` | [show_interact_prompt](#method-show-interact-prompt)() |
 | `void` | [hide_interact_prompt](#method-hide-interact-prompt)() |
@@ -166,9 +169,9 @@ What kind of object this is: the interactable definition it was made from.
 
 ## Variable descriptions
 
-### String display_name = "" {#var-display-name}
+### String: display_name {#var-display-name}
 
-Core Properties
+The name of the object: the one of its placed object or of its definition, when it is asked for (so it follows the language of the player); a name set by hand stays
 
 ### bool is_initialized = false {#var-is-initialized}
 
@@ -263,6 +266,18 @@ The numbers of the loot rules that have rolled (a rule on Initialize or First Ac
 The components of the object (stats, effects, inventory, rig ...), made when it is initialized.
 
 ## Method descriptions
+
+### Array[int] get_ui_tag_ids() {#method-get-ui-tag-ids}
+
+Core Properties The ids of the entity tags of this object: its definition's, plus the ones of its placed object, minus the ones the placed object takes away
+
+### Array[UITagDefinition] get_ui_tags() {#method-get-ui-tags}
+
+The entity tags of this object (what the interface reads to show it)
+
+### bool has_ui_tag( tag: Variant ) {#method-has-ui-tag}
+
+Does the object have this entity tag? By the key of the tag ("quest_giver") or its id
 
 ### void initialize_interactable( system_hub: GameHost.SystemHub ) {#method-initialize-interactable}
 

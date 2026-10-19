@@ -21,7 +21,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 |---|---|---|
 | `float` | [jump_velocity](#var-jump-velocity) | `4.5` |
 | `bool` | [is_initialized](#var-is-initialized) | `false` |
-| `String` | [display_name](#var-display-name) |  |
+| `String:` | [display_name](#var-display-name) |  |
 | `Variant` | [target](#var-target) |  |
 | `int` | [current_level](#var-current-level) | `0:` |
 | `AbilityInstance` | [casting_ability](#var-casting-ability) | `null:` |
@@ -120,10 +120,10 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `bool` | [can_attack](#method-can-attack)( `other: Variant` ) |
 | `void` | [make_hostile_to](#method-make-hostile-to)( `other: Entity` ) |
 | `void` | [end_temporary_hostility](#method-end-temporary-hostility)() |
-| `int` | [get_definition_rank_id](#method-get-definition-rank-id)() |
 | `Array[int]` | [get_entity_tags](#method-get-entity-tags)() |
-| `EntityTagDefinition` | [get_rank](#method-get-rank)() |
-| `Array[EntityTagDefinition]` | [get_entity_types](#method-get-entity-types)() |
+| `Array[int]` | [get_ui_tag_ids](#method-get-ui-tag-ids)() |
+| `Array[UITagDefinition]` | [get_ui_tags](#method-get-ui-tags)() |
+| `bool` | [has_ui_tag](#method-has-ui-tag)( `tag: Variant` ) |
 | `int` | [get_proficiency_level](#method-get-proficiency-level)( `proficiency_id: int` ) |
 | `bool` | [has_entity_tag](#method-has-entity-tag)( `tag_id: int` ) |
 | `void` | [add_entity_tag](#method-add-entity-tag)( `tag_id: int` ) |
@@ -583,9 +583,9 @@ Jump velocity applied when jump() is called
 
 True once initialize_entity has run and the entity has its components.
 
-### String display_name {#var-display-name}
+### String: display_name {#var-display-name}
 
-The name shown above the entity and in the interface.
+The name shown above the entity and in the interface. The name of the entity. An entity that was **named by hand** keeps that name (the character a player made, which is a name the player typed and is never translated). Any other entity shows the name of its placed NPC or of its definition **when the name is asked for**, so it is in the language of the player and follows a change of language
 
 ### Variant target {#var-target}
 
@@ -961,21 +961,21 @@ From now on this entity and `other` are enemies, until one of them leaves combat
 
 Ends every temporary hostility this entity is part of (it left combat or died)
 
-### int get_definition_rank_id() {#method-get-definition-rank-id}
-
-The id of the rank of this entity from its definition (0 = none). An NPC overrides it with the rank of its placed NPC
-
 ### Array[int] get_entity_tags() {#method-get-entity-tags}
 
-The tags of this entity (EntityTagDefinition ids, types and rank): its definition's, plus the ones added at runtime, minus the removed
+The type tags of this entity (EntityTagDefinition ids): its definition's, plus the ones added at runtime, minus the removed
 
-### EntityTagDefinition get_rank() {#method-get-rank}
+### Array[int] get_ui_tag_ids() {#method-get-ui-tag-ids}
 
-The rank of this entity (an EntityTagDefinition whose kind is Rank), or null when it has none
+The ids of the entity tags of this entity: its definition's, plus the ones of its placed NPC, minus the ones the placed NPC takes away
 
-### Array[EntityTagDefinition] get_entity_types() {#method-get-entity-types}
+### Array[UITagDefinition] get_ui_tags() {#method-get-ui-tags}
 
-The types of this entity (the tags whose kind is Type)
+The entity tags of this entity (what the interface reads to show it: Boss, Elite, Rare ...)
+
+### bool has_ui_tag( tag: Variant ) {#method-has-ui-tag}
+
+Does the entity have this entity tag? By the key of the tag ("boss") or its id
 
 ### int get_proficiency_level( proficiency_id: int ) {#method-get-proficiency-level}
 
@@ -987,7 +987,7 @@ Does the entity have this entity type tag? A tag of the definition counts unless
 
 ### void add_entity_tag( tag_id: int ) {#method-add-entity-tag}
 
-Gives the entity a tag at run time (it stays in the save). An entity has one rank: giving a rank takes away the one it had
+Gives the entity a tag at run time (it stays in the save).
 
 ### void remove_entity_tag( tag_id: int ) {#method-remove-entity-tag}
 

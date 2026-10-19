@@ -64,7 +64,6 @@ Runtime Mode:
 | `void` | [hide_interact_prompt](#method-hide-interact-prompt)() |
 | `void` | [resurrect](#method-resurrect)() |
 | `Dictionary` | [get_animation_tags](#method-get-animation-tags)() |
-| `int` | [get_definition_rank_id](#method-get-definition-rank-id)() |
 | `Dictionary` | [to_save_data](#method-to-save-data)() |
 | `void` | [from_save_data](#method-from-save-data)( `save_data: Dictionary, system_hub: GameHost.SystemHub` ) |
 
@@ -195,10 +194,6 @@ Override to handle NPC-specific death behavior Override to handle NPC-specific r
 ### Dictionary get_animation_tags() {#method-get-animation-tags}
 
 Override to get animation tags from NPCDefinition instead of equipment NPCs don't have real equipment, so they define their animation tags directly
-
-### int get_definition_rank_id() {#method-get-definition-rank-id}
-
-The rank of the NPC from its definition, or the one of its placed NPC when that has its own (or none)
 
 ### Dictionary to_save_data() {#method-to-save-data}
 

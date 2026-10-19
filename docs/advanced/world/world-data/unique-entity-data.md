@@ -21,8 +21,8 @@ A placed NPC: what the world keeps about one NPC in one world. It holds the id o
 | `Vector3` | [model_scale_override](#prop-model-scale-override) | `Vector3.ZERO` |
 | `int` | [faction_id](#prop-faction-id) | `0` |
 | `int` | [experience_worth_override](#prop-experience-worth-override) | `0` |
-| `int` | [rank_override_id](#prop-rank-override-id) | `0` |
-| `bool` | [remove_rank](#prop-remove-rank) | `false` |
+| `Array[int]` | [added_ui_tags](#prop-added-ui-tags) | `[]` |
+| `Array[int]` | [removed_ui_tags](#prop-removed-ui-tags) | `[]` |
 | `float` | [experience_multiplier](#prop-experience-multiplier) | `1.0` |
 | `int` | [behavior_script_id](#prop-behavior-script-id) | `0` |
 | `int` | [combat_script_id](#prop-combat-script-id) | `0` |
@@ -119,13 +119,13 @@ Overrides the faction of the definition (0 = use the faction of the definition).
 
 Experiance granted to player on death
 
-### int rank_override_id = 0 {#prop-rank-override-id}
+### Array[int] added_ui_tags = [] {#prop-added-ui-tags}
 
-Another rank than the one of the definition (an entity tag whose kind is Rank): this placed NPC is a Boss while the NPC it is made from is a Normal one. 0 = the rank of the definition
+Entity tags this placed NPC has besides the ones of its definition (a Boss among Normal goblins)
 
-### bool remove_rank = false {#prop-remove-rank}
+### Array[int] removed_ui_tags = [] {#prop-removed-ui-tags}
 
-This placed NPC has no rank, whatever the definition says (turns the rank of the definition off)
+Entity tags of the definition that this placed NPC does not have
 
 ### float experience_multiplier = 1.0 {#prop-experience-multiplier}
 

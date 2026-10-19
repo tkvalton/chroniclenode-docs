@@ -51,6 +51,12 @@ export const groups = [
         "base": "Resource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\template_baseline.gd",
         "file": "data_classes/entity/template_baseline.gd"
+      },
+      {
+        "name": "UITagDefinition",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\ui_tag_definition.gd",
+        "file": "data_classes/entity/ui_tag_definition.gd"
       }
     ]
   },

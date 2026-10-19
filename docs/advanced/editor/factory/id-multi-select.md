@@ -60,7 +60,7 @@ Show `ids` (changed in place) from the database type. `on_changed` is called aft
 
 ### void set_filter( filter: Callable ) {#method-set-filter}
 
-Lists only the entries the filter accepts (a Callable that takes the resource and returns a bool): the entity types without the ranks, the ranks without the types. The tags that are picked already are shown whatever the filter says
+Lists only the entries the filter accepts (a Callable that takes the resource and returns a bool): for example only the entries of one kind. The entries that are picked already are shown whatever the filter says
 
 ### Array get_ids() {#method-get-ids}
 

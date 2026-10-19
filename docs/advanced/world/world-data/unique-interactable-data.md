@@ -16,6 +16,8 @@ A placed object: what the world keeps about one interactable in one world. It ho
 | `int` | [faction_id](#prop-faction-id) | `0` |
 | `int` | [locked_by_item_id](#prop-locked-by-item-id) | `-1` |
 | `float` | [interaction_cooldown_override](#prop-interaction-cooldown-override) | `-1.0` |
+| `Array[int]` | [added_ui_tags](#prop-added-ui-tags) | `[]` |
+| `Array[int]` | [removed_ui_tags](#prop-removed-ui-tags) | `[]` |
 | `float` | [damaged_threshold](#prop-damaged-threshold) | `0.7` |
 | `bool` | [object_targetable_directly](#prop-object-targetable-directly) | `false` |
 | `bool` | [object_targetable_by_aoe](#prop-object-targetable-by-aoe) | `false` |
@@ -75,6 +77,14 @@ If &gt; -1, this item ID is required to unlock this object
 ### float interaction_cooldown_override = -1.0 {#prop-interaction-cooldown-override}
 
 Seconds this object waits after it was used before it can be used again (-1 = the wait of its definition)
+
+### Array[int] added_ui_tags = [] {#prop-added-ui-tags}
+
+Entity tags this placed object has besides the ones of its definition
+
+### Array[int] removed_ui_tags = [] {#prop-removed-ui-tags}
+
+Entity tags of the definition that this placed object does not have
 
 *Targeting*
 

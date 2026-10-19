@@ -144,6 +144,7 @@ const basicSystems = [
     ['Damage Types', 'damage-types', 'damage_types'],
     ['School Types', 'school-types', 'school_types'],
     ['Entity Types', 'entity-types', 'entity_tags'],
+    ['Entity Tags', 'entity-tags', 'ui_tags'],
     ['Groups', 'groups', 'groups'],
   ]),
   system('Items', 'items', [

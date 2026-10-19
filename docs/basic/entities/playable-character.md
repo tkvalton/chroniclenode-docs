@@ -50,7 +50,7 @@ The **Skill Trees** section lists [skill trees](/basic/abilities-and-effects/ski
 
 ## Entity types
 
-The **Entity type** sits under the starting level. A player character is usually *Humanoid*; conditions that look at the type ("+20 % damage against Beasts") and the effects of the type read it. The **Rank** under it is a [rank](/basic/types-and-groups/entity-types#ranks-normal-elite-rare-boss) tag, usually left empty for a player.
+The **Entity type** sits under the starting level. A player character is usually *Humanoid*; conditions that look at the type ("+20 % damage against Beasts") and the effects of the type read it. The **Entity tags** under it are [entity tags](/basic/types-and-groups/entity-tags) for the interface, usually left empty for a player.
 
 ## Custom characters
 

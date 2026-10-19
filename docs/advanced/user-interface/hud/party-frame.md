@@ -91,7 +91,7 @@ Party Manager Ref
 
 ### void initialize_ui( system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
-Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
+*No description yet.*
 
 ### void setup_frames( player: Entity ) {#method-setup-frames}
 

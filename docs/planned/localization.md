@@ -2,10 +2,6 @@
 
 The localization tool is built, with the templates for the sentences the game builds, plural forms and the names of the weight steps: see [Localization](/basic/game-settings/localization). These are the parts that are not done.
 
-## Names of entities when the language changes
-
-An entity gets its name when it is made, so a language chosen while playing applies to the entities made afterwards. The plan is to let the nameplates, unit frames, party frames and damage meter read the name again when the language changes (a refresh hook on the interface elements).
-
 ## More plural forms for money
 
 A currency has a name and a plural name. Languages with three or four forms would need the other forms in the currency too.

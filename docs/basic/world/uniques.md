@@ -30,8 +30,8 @@ What each kind can override:
 
 | Kind | Overrides |
 |---|---|
-| **NPC** | Active or hidden at the start, spawn delay, respawn time, killable once, despawn on death, **level**, model scale, [faction](/basic/behaviors/factions), experience worth and multiplier, **rank** (another rank, or none), behavior script, combat script, **loot rules**, (the older loot table and starting inventory), **stats**, interaction |
-| **Interactable** | Faction, lock item, interaction [cooldown](/basic/keywords#cooldown), damage threshold, whether it can be targeted directly or by area abilities, stats, **loot rules**, interaction |
+| **NPC** | Active or hidden at the start, spawn delay, respawn time, killable once, despawn on death, **level**, model scale, [faction](/basic/behaviors/factions), experience worth and multiplier, **entity tags** (added, removed), behavior script, combat script, **loot rules**, (the older loot table and starting inventory), **stats**, interaction |
+| **Interactable** | Faction, lock item, **entity tags** (added, removed), interaction [cooldown](/basic/keywords#cooldown), damage threshold, whether it can be targeted directly or by area abilities, stats, **loot rules**, interaction |
 | **Region** | Its area name (set on the node) |
 | **Encounter** | Formation, behavior, auto-join, reactions (the whole encounter is one unique) |
 

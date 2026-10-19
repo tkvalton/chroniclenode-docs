@@ -26,7 +26,7 @@ How to read it:
 | HUD | `in_game/HUD/components/cast_bar/castbar_nameplate.tscn` | [`CastBar`](#class-cast-bar) | Modular cast bar component that can be used by ActionBarUI, Nameplate, or any UI Automatically connects to entity casting signals and manages its own display st |
 | HUD | `in_game/HUD/components/cast_bar/castbar_player.tscn` | [`CastBar`](#class-cast-bar) | Modular cast bar component that can be used by ActionBarUI, Nameplate, or any UI Automatically connects to entity casting signals and manages its own display st |
 | HUD | `in_game/HUD/components/nameplates/nameplate_pool_bar.tscn` | [`PoolBarUI`](#class-pool-bar-ui) | UI component for displaying a single pool (health or resource) |
-| HUD | `in_game/HUD/components/nameplates/nameplate_template.tscn` | [`Nameplate`](#class-nameplate) | This class manages the display of entity nameplates in the game, showing health,  cast bars, and status effects (buffs/debuffs) |
+| HUD | `in_game/HUD/components/nameplates/nameplate_template.tscn` | [`Nameplate`](#class-nameplate) | This class manages the display of entity nameplates in the game, showing health, cast bars, and status effects (buffs/debuffs) |
 | HUD | `in_game/HUD/damage_meter_ui/damage_bar_template.tscn` | [`DamaterBarUI`](#class-damater-bar-ui) | This class represents a details bar in the UI, typically used to display entity-specific information such as damage or healing amounts |
 | HUD | `in_game/HUD/damage_meter_ui/damage_meter_ui_template.tscn` | [`DamageMeterUI`](#class-damage-meter-ui) | This class manages the display of detailed combat statistics, including damage and healing done by each entity |
 | HUD | `in_game/HUD/menu_bar/mini_menu_button_template.tscn` | [`MiniMenuButton`](#class-mini-menu-button) | Individual button in the MiniMenu for toggling a UI panel |
@@ -829,7 +829,7 @@ Signals: `panel_number_requested(panel_number: int)`
 
 `Nameplate` extends `MarginContainer` ([class page](/advanced/user-interface/nameplates/nameplate))
 
-This class manages the display of entity nameplates in the game, showing health,  cast bars, and status effects (buffs/debuffs).
+This class manages the display of entity nameplates in the game, showing health, cast bars, and status effects (buffs/debuffs).
 
 Script: `ui_scenes/in_game/HUD/components/nameplates/nameplate.gd`
 

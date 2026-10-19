@@ -108,7 +108,7 @@ The description of an effect, of a quest objective, the lines of the tooltips of
 ## Limits
 
 - A **currency** has two forms: the name and a plural name. A language that needs more forms uses the plural name for all the others.
-- **Names of entities** are set when the entity is made: a language chosen in the middle of the game applies to entities made afterwards. Choose the language in the main menu or before entering the world. Windows that read a name when they open (the character sheet, the spell book, the quest log) show the new language when reopened.
+- **Names of entities** come from their definition (or their placed NPC) **when the name is asked for**, so they are in the language of the player and follow a language change in the middle of the game. The nameplates, unit frames, party frames and damage meter read the name again when the language changes. The one exception is a **character the player named**: that name was typed by the player and is never translated. A window that reads a name when it opens (the character sheet, the quest log) shows the new language when reopened.
 - Number, money and date formats are the Godot ones, and the interface is not mirrored for right-to-left languages (Godot draws the text itself).
 - A recording in a language folder that has **no default** recording plays for that language only; the audio editor warns about it.
 - The name of the object that a combat script spawns is not in the tables yet.

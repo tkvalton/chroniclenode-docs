@@ -119,6 +119,7 @@ An entity saves its stats and pools, effects, inventory, equipment, abilities wi
 | [NPCDefinition](/advanced/entities/definitions/npc-definition) | NPCDefinition extends EntityDefinition with combat stats, AI behavior, and loot systems Used for creating NPC entities with full combat and inventory capabilities |
 | [PlayerClassDefinition](/advanced/entities/definitions/player-class-definition) | PlayerClassDefinition defines the template and progression for player character classes This is a class archetype (like "Warrior", "Mage") not tied to specific entity models |
 | [TemplateBaseline](/advanced/entities/definitions/template-baseline) | What a template was the last time an entity that uses it looked at it: the base values of its stats and pools, its immunities and its abilities. |
+| [UITagDefinition](/advanced/entities/definitions/ui-tag-definition) | An **entity tag**: a label that has **no effect on the entity**. |
 <!-- /classes -->
 
 ### Interactions

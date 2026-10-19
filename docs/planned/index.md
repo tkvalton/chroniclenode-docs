@@ -10,8 +10,8 @@ Nothing on these pages can be used today. A page can change before its feature s
 |---|---|---|
 | [Flying](/planned/flying) | Entities that can fly because of what they are, an ability or an effect | Flying in a [weightless movement volume](/basic/world/movement-volumes), and the claims that anything can add |
 | [The World Builder](/planned/world-builder) | A terrain tool, better placement of uniques, water placement and visual wiring between interactables | The [Add Object](/basic/world/add-object) and [Unique Object](/basic/world/unique-object-tool) tools |
-| [Localization](/planned/localization) | What is left of the localization tool: entity names when the language changes in the middle of a game, more forms for money |
-| [Tag-driven interface](/planned/tag-driven-interface) | Unit frames, nameplates and map icons chosen by the rank and type of an entity (a boss gets a large frame, a rare its own icon) |
+| [Localization](/planned/localization) | What is left of the localization tool: more forms for money and a few small leftovers |
+| [Tag-driven interface](/planned/tag-driven-interface) | Unit frames, nameplates and map icons chosen by the entity tags of an entity (a boss gets a large frame, a rare its own icon) |
 | [Chat box and combat log](/planned/chat-box) | The combat log becomes a chat box with tabs: level ups, skill ups, loot, experience, quests, and emotes | A [combat log](/basic/user-interface/hud) in the HUD and short [messages](/basic/user-interface/messages-and-popups) that fade |
 | [Entity tooltip](/planned/entity-tooltip) | A tooltip for an NPC, a pet or an object: name, level, faction and standing, what it offers | Five [tooltips](/basic/user-interface/tooltips) (none for an entity) and the [nameplates](/basic/user-interface/nameplates) |
 | [Which windows can be open together](/planned/panel-stacking) | Windows with a layer (exclusive, standard, persistent) and a limit, and windows opened by name | One window at a time, fixed in the code |

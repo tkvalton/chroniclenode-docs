@@ -20,6 +20,7 @@ Core data definition for interactable objects. This is the "NPCDefinition" equiv
 | `float` | [damaged_threshold](#prop-damaged-threshold) | `0.7` |
 | `int` | [locked_by_item_id](#prop-locked-by-item-id) | `-1` |
 | `bool` | [consume_key_on_unlock](#prop-consume-key-on-unlock) | `false` |
+| `Array[int]` | [ui_tags](#prop-ui-tags) | `[]` |
 | `float` | [interaction_cooldown_duration](#prop-interaction-cooldown-duration) | `0.5` |
 | `Array[Requirement]` | [use_requirements](#prop-use-requirements) | `[]` |
 | `String` | [use_requirement_message](#prop-use-requirement-message) | `"":` |
@@ -110,6 +111,12 @@ If &gt; -1, this item ID is required to unlock this object
 ### bool consume_key_on_unlock = false {#prop-consume-key-on-unlock}
 
 The key is used up when it unlocks the object (off: the key stays in the bag)
+
+*Entity Tags*
+
+### Array[int] ui_tags = [] {#prop-ui-tags}
+
+The entity tags of this kind of object (UITagDefinition ids): labels with no effect on the object that the interface reads to show it differently (a nameplate, a map icon). A placed object can add tags and take some away (UniqueInteractableData)
 
 *Interaction*
 
