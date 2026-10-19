@@ -28,6 +28,7 @@ const escapeCell = text => text.replace(/\|/g, '\\|').replace(/\r?\n/g, ' ').rep
 
 const CATEGORY_NOTES = {
   triggers: {
+    conversation: 'The player is shown a chat of a [conversation](/basic/behaviors/conversations): a quest can wait for it ("hear the story").',
     currency: 'The player gains or spends a [currency](/basic/items/currency): a quest can count it.',
     encounter: 'An [encounter](/basic/world/encounters) starts or ends a fight.',
     entity:'Something happens to or with an NPC or a character: it dies, takes damage, uses an ability, changes stats, is talked to.',

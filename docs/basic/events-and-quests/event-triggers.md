@@ -2,7 +2,15 @@
 
 <!-- generated from the code comments by scripts/event-lists.mjs: change the comments in the code, not this page -->
 
-A **trigger** is the *when* of an [event](/basic/events-and-quests/events) (and of the objectives of a [quest](/basic/events-and-quests/quests)). An event can have several triggers; any one of them can start it. There are 80 kinds, in 14 categories. Choose one with **Add Trigger** in the event editor; its own fields appear below. The class name is the name in the code, and the link goes to the page of the class.
+A **trigger** is the *when* of an [event](/basic/events-and-quests/events) (and of the objectives of a [quest](/basic/events-and-quests/quests)). An event can have several triggers; any one of them can start it. There are 81 kinds, in 15 categories. Choose one with **Add Trigger** in the event editor; its own fields appear below. The class name is the name in the code, and the link goes to the page of the class.
+
+## Conversation
+
+The player is shown a chat of a [conversation](/basic/behaviors/conversations): a quest can wait for it ("hear the story").
+
+| Trigger | What it does |
+|---|---|
+| [**Conversation Chat**](/advanced/events-and-quests/triggers-conversation/conversation-chat-trigger) (`ConversationChatTrigger`) | Triggers when the player is shown a chat of a conversation ("Talk to the blacksmith": the chat where he asks for the sword) |
 
 ## Currency
 
