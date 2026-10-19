@@ -26,6 +26,7 @@ An NPC can **follow a [template](/basic/entities/templates)**: the stats, pools,
 | **Default level** | The level an NPC of this kind has when it spawns | `1` |
 | **Faction** | The [faction](/basic/behaviors/factions) of the NPC. It decides who attacks whom. **None** is a neutral creature that fights back only when it is attacked | none |
 | **Entity type** | The [type](/basic/types-and-groups/entity-types) of the creature (Beast, Undead). One type: picking another replaces it. The effects of the type are put on the NPC | none |
+| **Rank** | The [rank](/basic/types-and-groups/entity-types#ranks-normal-elite-rare-boss) of the NPC (Normal, Elite, Rare, Boss): its level and experience rules, its effects, and (planned) how the interface shows it | none |
 
 ## Visual properties
 

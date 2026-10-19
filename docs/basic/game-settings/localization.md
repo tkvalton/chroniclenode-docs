@@ -97,12 +97,21 @@ The words of the scenes need no change: Godot translates the text of a Label or 
 
 The language code **`pseudo`** is a made-up language that turns every text into a longer, accented version, so you can see what does not fit and what is not translated. It needs no table.
 
-## Limits of the first version
+## Counted phrases and plural forms
 
-- The sentences the game builds from numbers (the description of an effect, the lines of a tooltip) are still written in English with their numbers; the words that frame them are translated where the interface has them. They become templates in a later version ([what is left](/planned/localization)).
-- A text with a plural (a currency, a count) has **two forms**: the name and a plural name. Languages that need three or four forms need more.
+A phrase with a number ("3 effects", "1 stack") is written in code as `Localization.t_n("%d effect", "%d effects", count)`. The singular is the key; the table has a row for each **form** the languages of the game need, named `<singular>::<form>`: `::other` (the plural), and for the languages that need them `::few`, `::many`, `::two` and `::zero`. English and most European languages have two forms (one, other). French counts 0 and 1 as *one*. Russian, Ukrainian and Polish have *one, few, many*; Czech and Slovak *one, few, other*; Arabic all six; Japanese, Korean and Chinese one. When you add a language, **Update Tables** makes the rows for the forms it needs. A form with no translation shows the *other* form.
+
+## The sentences the game builds
+
+The description of an effect, of a quest objective, the lines of the tooltips of stats, pools and status effects, the combat log lines and the reasons things cannot be done are sentences with **holes** (`%s`, `%d`, `{attacker}`) in the toolkit table. A translator writes the sentence with the same holes and may move them. Some sentences are built from pieces (an effect that deals damage over time is the damage part and the duration part): each piece is a row of its own.
+
+## Limits
+
+- A **currency** has two forms: the name and a plural name. A language that needs more forms uses the plural name for all the others.
+- **Names of entities** are set when the entity is made: a language chosen in the middle of the game applies to entities made afterwards. Choose the language in the main menu or before entering the world. Windows that read a name when they open (the character sheet, the spell book, the quest log) show the new language when reopened.
 - Number, money and date formats are the Godot ones, and the interface is not mirrored for right-to-left languages (Godot draws the text itself).
 - A recording in a language folder that has **no default** recording plays for that language only; the audio editor warns about it.
+- The name of the object that a combat script spawns is not in the tables yet.
 
 ## For programmers
 

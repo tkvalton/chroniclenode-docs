@@ -20,6 +20,7 @@ EntityDefinition contains all visual, audio, and display configuration for entit
 | `String` | [selected_voice_type](#prop-selected-voice-type) | `""` |
 | `String` | [footstep_entity_type](#prop-footstep-entity-type) | `""` |
 | `Array[int]` | [entity_tags](#prop-entity-tags) | `[]` |
+| `int` | [entity_rank](#prop-entity-rank) | `0` |
 | `bool` | [template](#prop-template) | `false` |
 
 ## Methods
@@ -104,6 +105,10 @@ Footstep audio entity type for DatabaseAudio lookup (e.g. "humanoid", "beast")
 ### Array[int] entity_tags = [] {#prop-entity-tags}
 
 Type tags of this kind of entity (Humanoid, Beast, Undead ...): EntityTagDefinition ids. Conditions read them
+
+### int entity_rank = 0 {#prop-entity-rank}
+
+The rank of this kind of entity (Normal, Elite, Rare, Boss): the id of an entity tag whose kind is Rank. 0 = no rank. It is one more tag of the entity: conditions, effects and the interface read it with the types. A unique NPC can have another rank (UniqueEntityData)
 
 ### bool template = false {#prop-template}
 

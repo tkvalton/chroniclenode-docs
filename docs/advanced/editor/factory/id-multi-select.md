@@ -24,6 +24,7 @@ Put the scene (id_multi_select.tscn) in an editor scene, or let StatPropertyFiel
 | | |
 |---|---|
 | `void` | [setup](#method-setup)( `p_database_type: String, ids: Array, p_title: String = "", on_changed: Callable = Callable(), p_single_select: bool = false` ) |
+| `void` | [set_filter](#method-set-filter)( `filter: Callable` ) |
 | `Array` | [get_ids](#method-get-ids)() |
 | `bool` | [toggle_id](#method-toggle-id)( `entry_id: int` ) |
 
@@ -56,6 +57,10 @@ What shows when nothing is picked
 ### void setup( p_database_type: String, ids: Array, p_title: String = "", on_changed: Callable = Callable(), p_single_select: bool = false ) {#method-setup}
 
 Show `ids` (changed in place) from the database type. `on_changed` is called after every change
+
+### void set_filter( filter: Callable ) {#method-set-filter}
+
+Lists only the entries the filter accepts (a Callable that takes the resource and returns a bool): the entity types without the ranks, the ranks without the types. The tags that are picked already are shown whatever the filter says
 
 ### Array get_ids() {#method-get-ids}
 

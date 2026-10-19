@@ -22,6 +22,7 @@ A type that is not here has no text for the player (events, conversations (their
 | `bool` | [effect_name_is_shown](#method-effect-name-is-shown)( `effect: Effect, config: LocalizationConfig` ) *static* |
 | `void` | [assign_keys](#method-assign-keys)( `resource: DatabaseResource` ) *static* |
 | `void` | [assign_action_keys](#method-assign-action-keys)( `prefix: String, actions: Array` ) *static* |
+| `void` | [assign_config_keys](#method-assign-config-keys)( `config: GameplayConfig` ) *static* |
 
 ## Constants
 
@@ -50,4 +51,8 @@ Gives the parts inside a resource their keys (skill nodes, reputation levels ...
 ### void assign_action_keys( prefix: String, actions: Array ) {#method-assign-action-keys}
 
 Gives the actions of a list (and the actions inside an If or a Switch) their keys: the prefix and the position, `<prefix>/action/<index>` (`<index>/true/<index>` inside an If)
+
+### void assign_config_keys( config: GameplayConfig ) {#method-assign-config-keys}
+
+The inventory styles of the Gameplay Config (the characters, the NPCs and the containers): the names of their encumbrance steps are translated
 

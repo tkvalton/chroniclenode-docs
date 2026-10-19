@@ -8,12 +8,13 @@ A type tag an entity can have: "Humanoid", "Beast", "Undead", "Construct", "Demo
 
 ## Description
 
-A type can also be a **rank** (Elite, Rare, Boss): it can change how the NPCs that have it level and how much experience they give (the NPC section below). When the project does not scale NPC levels (Gameplay Config, NPC Level Scaling) a rank is only a label for the interface and for conditions.
+A tag is one of two **kinds**: a **Type** (what an entity is: Humanoid, Beast, Undead) or a **Rank** (how important it is: Normal, Elite, Rare, Boss). An entity has any number of types and **one rank**. Both are tags, so everything a tag does works for both: conditions read them ("opponent has the tag Boss"), they apply effects, and the interface can show them (the color, the icon, a different unit frame or nameplate, a map icon: the interface decides what a tag looks like). A rank can also change how the NPCs that have it level and how much experience they give (the NPC section below). When the project does not scale NPC levels (Gameplay Config, NPC Level Scaling) a rank is only a label for the interface and for conditions.
 
 ## Properties
 
 | | | |
 |---|---|---|
+| `Kind` | [kind](#prop-kind) | `Kind.TYPE` |
 | `Color` | [color](#prop-color) | `Color.WHITE` |
 | `Array[int]` | [applied_effects](#prop-applied-effects) | `[]` |
 | `ScalingRule` | [level_scaling](#prop-level-scaling) | `ScalingRule.FOLLOW_GAME` |
@@ -21,6 +22,13 @@ A type can also be a **rank** (Elite, Rare, Boss): it can change how the NPCs th
 | `float` | [experience_multiplier](#prop-experience-multiplier) | `1.0` |
 
 ## Enumerations
+
+### enum Kind {#enum-kind}
+
+The kinds of tag: a type (Humanoid, Beast, Undead) or a rank (Normal, Elite, Rare, Boss)
+
+- **TYPE** = `0` - What an entity is. An entity can have several
+- **RANK** = `1` - How important an entity is. An entity has one
 
 ### enum ScalingRule {#enum-scalingrule}
 
@@ -31,6 +39,10 @@ How an NPC with this type follows the level of the player (Gameplay Config, NPC 
 - **FIXED_OFFSET** = `2` - Always a number of levels above (or under) the player: a boss that is 3 levels above you
 
 ## Property descriptions
+
+### Kind kind = Kind.TYPE {#prop-kind}
+
+A type or a rank. The editors list types where an entity type is chosen and ranks where its rank is chosen
 
 ### Color color = Color.WHITE {#prop-color}
 

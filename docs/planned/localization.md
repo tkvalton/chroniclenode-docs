@@ -1,27 +1,17 @@
 # Localization: what is left
 
-The localization tool is built: see [Localization](/basic/game-settings/localization). These are the parts that are not done yet.
+The localization tool is built, with the templates for the sentences the game builds, plural forms and the names of the weight steps: see [Localization](/basic/game-settings/localization). These are the parts that are not done.
 
-## Sentences the game builds from numbers
+## Names of entities when the language changes
 
-The words around the numbers are translated where the interface has them (*Requires level %d*, *Buy: %s*). The sentences that the game builds in code from the data are still English:
+An entity gets its name when it is made, so a language chosen while playing applies to the entities made afterwards. The plan is to let the nameplates, unit frames, party frames and damage meter read the name again when the language changes (a refresh hook on the interface elements).
 
-| Text | Count |
-|---|---|
-| The description of an effect ("Deals 50 fire damage over 6 sec") | 92 effect types |
-| The description of a quest objective ("Kill 5 wolves") | 78 objective types |
-| The lines of the tooltips of stats, pools and status effects | about 40 |
-| The combat log lines | about 15 |
+## More plural forms for money
 
-Each of these becomes a **template** with named holes that a translator can reorder, like the others (*Kill {count} {target}*). Until then a tooltip in another language has English effect sentences in it.
-
-## Plurals
-
-A text with a plural has two forms (the name and a plural name, for currencies). Languages with three or four forms (Russian, Polish, Arabic) need the table to hold more forms for one row.
+A currency has a name and a plural name. Languages with three or four forms would need the other forms in the currency too.
 
 ## Smaller leftovers
 
-- The steps of the weight bar (the encumbrance steps of an inventory style) have names that are not in the tables yet.
-- The name of a spawned object in a combat script ("Spawn Interactable" action) is not in the tables yet.
+- The name of the object a combat script spawns ("Spawn Interactable" action) is not in the tables yet.
 - Recipe categories have a translated label in the tables, but the crafting window does not list categories yet.
 - Numbers, money and dates use the Godot formats, and the interface is not mirrored for right-to-left languages.

@@ -414,6 +414,7 @@ export const sidebar = [
       page('Flying', '/planned/flying'),
       page('The World Builder', '/planned/world-builder'),
       page('Localization', '/planned/localization'),
+      page('Tag-driven interface', '/planned/tag-driven-interface'),
       page('Chat box and combat log', '/planned/chat-box'),
       page('Entity tooltip', '/planned/entity-tooltip'),
       page('Which windows can be open together', '/planned/panel-stacking'),

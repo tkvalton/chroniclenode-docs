@@ -47,6 +47,9 @@ translates), and code that saves at run time wraps the save in `Localization.sav
 | `Array[String]` | [list_of](#method-list-of)( `resource: Object, field: String, stored: Array[String]` ) *static* |
 | `String` | [text_for_key](#method-text-for-key)( `key: String, stored: String` ) *static* |
 | `String` | [t](#method-t)( `english: String` ) *static* |
+| `String` | [t_n](#method-t-n)( `singular: String, plural: String, count: int` ) *static* |
+| `Array[String]` | [plural_categories](#method-plural-categories)( `code: String` ) *static* |
+| `String` | [plural_category](#method-plural-category)( `code: String, count: int` ) *static* |
 | `String` | [format](#method-format)( `template: String, values: Dictionary` ) *static* |
 | `Variant` | [save_raw](#method-save-raw)( `action: Callable` ) *static* |
 | `String` | [get_translation](#method-get-translation)( `resource: Object, field: String, language: String` ) *static* |
@@ -65,6 +68,7 @@ translates), and code that saves at run time wraps the save in `Localization.sav
 - `String` **TOOLKIT** = `"toolkit"` - The collection with the words of the toolkit's own interface (found by their English text).
 - `String` **PSEUDO** = `"pseudo"` - The code of the made-up language that shows every text longer and with accents, to find text that does not fit or is not translated (it needs no table).
 - `Dictionary` **KNOWN_LANGUAGES** = `{` - The languages the editor offers when one is added: code -&gt; name in the language itself.
+- `String` **PLURAL_SEPARATOR** = `"::"` - The separator between the singular text of a counted phrase and the plural category in the key of a table row ("%d effect::other").
 
 ## Variable descriptions
 
@@ -149,6 +153,18 @@ The text of a key in the active language, else `stored`. For a part that knows i
 ### String t( english: String ) {#method-t}
 
 A word or sentence of the toolkit's interface (or of your own code) in the active language: found by the English text itself. `Localization.t("Load Game")`. A text without a translation is returned as it is. Keep the holes (%s, %d, &#123;name&#125;) in the English text; the translator moves them.
+
+### String t_n( singular: String, plural: String, count: int ) {#method-t-n}
+
+A counted phrase in the language of the player: `Localization.t_n("%d effect", "%d effects", count)` gives "1 effect", "5 effects". The singular text is the key; the other forms are rows of the toolkit table made from the plural text (`<singular>::other`, and `::few`, `::many`, `::two`, `::zero` for the languages that need them: see `plural_categories`). A form with no translation falls back to the `other` form, then to the English rule. The count fills the first %d of the form.
+
+### Array[String] plural_categories( code: String ) {#method-plural-categories}
+
+The plural categories a language has (the CLDR names): the forms a counted phrase needs a text for. English has one and other; Russian and Polish one, few, many and other; Arabic all six.
+
+### String plural_category( code: String, count: int ) {#method-plural-category}
+
+The plural category of a count in a language ("one", "few", "many", "other", "zero", "two").
 
 ### String format( template: String, values: Dictionary ) {#method-format}
 

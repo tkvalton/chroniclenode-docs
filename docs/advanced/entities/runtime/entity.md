@@ -120,7 +120,10 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `bool` | [can_attack](#method-can-attack)( `other: Variant` ) |
 | `void` | [make_hostile_to](#method-make-hostile-to)( `other: Entity` ) |
 | `void` | [end_temporary_hostility](#method-end-temporary-hostility)() |
+| `int` | [get_definition_rank_id](#method-get-definition-rank-id)() |
 | `Array[int]` | [get_entity_tags](#method-get-entity-tags)() |
+| `EntityTagDefinition` | [get_rank](#method-get-rank)() |
+| `Array[EntityTagDefinition]` | [get_entity_types](#method-get-entity-types)() |
 | `int` | [get_proficiency_level](#method-get-proficiency-level)( `proficiency_id: int` ) |
 | `bool` | [has_entity_tag](#method-has-entity-tag)( `tag_id: int` ) |
 | `void` | [add_entity_tag](#method-add-entity-tag)( `tag_id: int` ) |
@@ -958,9 +961,21 @@ From now on this entity and `other` are enemies, until one of them leaves combat
 
 Ends every temporary hostility this entity is part of (it left combat or died)
 
+### int get_definition_rank_id() {#method-get-definition-rank-id}
+
+The id of the rank of this entity from its definition (0 = none). An NPC overrides it with the rank of its placed NPC
+
 ### Array[int] get_entity_tags() {#method-get-entity-tags}
 
-The type tags of this entity (EntityTagDefinition ids): its definition's, plus the ones added at runtime, minus the removed
+The tags of this entity (EntityTagDefinition ids, types and rank): its definition's, plus the ones added at runtime, minus the removed
+
+### EntityTagDefinition get_rank() {#method-get-rank}
+
+The rank of this entity (an EntityTagDefinition whose kind is Rank), or null when it has none
+
+### Array[EntityTagDefinition] get_entity_types() {#method-get-entity-types}
+
+The types of this entity (the tags whose kind is Type)
 
 ### int get_proficiency_level( proficiency_id: int ) {#method-get-proficiency-level}
 
@@ -972,7 +987,7 @@ Does the entity have this entity type tag? A tag of the definition counts unless
 
 ### void add_entity_tag( tag_id: int ) {#method-add-entity-tag}
 
-Gives the entity a tag at run time (it stays in the save).
+Gives the entity a tag at run time (it stays in the save). An entity has one rank: giving a rank takes away the one it had
 
 ### void remove_entity_tag( tag_id: int ) {#method-remove-entity-tag}
 
