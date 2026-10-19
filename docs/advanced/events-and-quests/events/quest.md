@@ -15,6 +15,7 @@ Main quest resource that handles objectives, rewards, and quest state
 | `AbandonRule` | [abandonable](#prop-abandonable) | `AbandonRule.USE_DEFAULT` |
 | `Array[EventAction]` | [on_abandon_actions](#prop-on-abandon-actions) | `[]` |
 | `Array[QuestObjective]` | [objectives](#prop-objectives) | `[]` |
+| `int` | [last_objective_number](#prop-last-objective-number) | `0` |
 | `Array[Reward]` | [rewards](#prop-rewards) | `[]` |
 | `Array[Requirement]` | [requirements](#prop-requirements) | `[]` |
 | `bool` | [requires_hand_in](#prop-requires-hand-in) | `false` |
@@ -46,6 +47,7 @@ Main quest resource that handles objectives, rewards, and quest state
 
 | | |
 |---|---|
+| `void` | [assign_objective_numbers](#method-assign-objective-numbers)() |
 | `void` | [set_system_hub](#method-set-system-hub)( `p_system_hub: GameHost.SystemHub` ) |
 | `bool` | [can_start](#method-can-start)() |
 | `bool` | [activate](#method-activate)( `forced: bool = false` ) |
@@ -183,6 +185,10 @@ Executed when the player gives the quest up (to take back what the quest gave: a
 
 List of objectives that must be completed
 
+### int last_objective_number = 0 {#prop-last-objective-number}
+
+The highest objective number ever given in this quest: the next new objective gets the number after it, so a number is never used twice (a deleted objective keeps its number empty)
+
 ### Array[Reward] rewards = [] {#prop-rewards}
 
 Rewards granted to the player when quest is completed
@@ -270,6 +276,10 @@ System Refs
 The hub of the game systems.
 
 ## Method descriptions
+
+### void assign_objective_numbers() {#method-assign-objective-numbers}
+
+Gives every objective a **permanent number** (what events, conversations and saved games use to find it). The first time, the objectives are numbered by their place (1 is the first); an objective added later gets the next number that was never used, so moving, duplicating or deleting objectives never changes the number of another one and saved games stay right
 
 ### void set_system_hub( p_system_hub: GameHost.SystemHub ) {#method-set-system-hub}
 

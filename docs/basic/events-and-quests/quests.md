@@ -25,10 +25,10 @@ Right-click **Objectives** in the tree and **Add Objective**. An objective is a 
 | **Progress display** | **None**, **X / Y** (a tally) or **Percent**. Used by objectives that count | X / Y |
 | **Custom description** | Replaces the text that is written from the trigger ("Defeat 3 Wolf") | empty |
 
-An objective has a **number** (its position, 1 is the first). Conversations and the *Complete Quest Objective* and *Fail Quest Objective* actions use the number, so an objective that nothing in the world can measure ("the king decides you are worthy") can be completed by an event or a conversation response.
+An objective has a **number** (#1, #2 ... shown in the objectives list). Conversations and the *Complete Quest Objective* and *Fail Quest Objective* actions use the number, so an objective that nothing in the world can measure ("the king decides you are worthy") can be completed by an event or a conversation response.
 
-::: warning Do not reorder objectives after release
-Events, conversations and **saved games** refer to an objective by its number. Once the game is out, only add new objectives **at the end** of the list. Moving or deleting an objective changes the numbers of the ones after it, and a saved game that is in the middle of the quest would put its progress on the wrong objectives. The quest editor shows this note above the list.
+::: tip Objective numbers never change
+The number of an objective is given when the objective is made and **never changes**: moving, duplicating or deleting other objectives does not renumber it, and a number that was deleted is not given again. Events, conversations and **saved games** find an objective by its number, so you can reorganise a quest after release and saved games in the middle of it stay right. (A quest made before this was numbered by place, once, when it is opened in the editor.)
 :::
 
 **Talking to someone as an objective.** The *NPC Interaction* trigger is done when the player interacts with that NPC (any interaction). To ask for a particular moment of a conversation ("hear the blacksmith's story"), use the *Conversation Chat* trigger: it is done when the player is shown the chat you name in the conversation you name. Leave the chat empty to count any chat of the conversation.
@@ -126,7 +126,7 @@ A quest **fails** when a required objective fails, or when an event runs a *Fail
 |---|---|
 | **Final** | The quest is over. It is not offered again |
 | **Can be retried** | It can be taken again. It starts from the beginning |
-| **Game over** | The game ends |
+| **Game over** | The game ends, after a short delay so the player sees the quest fail (*Quest game over delay* in the Gameplay Config: 3 seconds by default, 0 = at once) |
 | **Use the gameplay setting** | The project's *Default quest failure* ([Gameplay Config](/basic/game-settings/gameplay-config): final or retry; the default is retry) |
 
 ### Giving up
@@ -155,7 +155,7 @@ The editor shows the list when you hover over those fields, and warns about a ty
 
 ## The quest settings
 
-In the [Gameplay Config](/basic/game-settings/gameplay-config): the **maximum active quests** (a quest offered over the limit is refused with a message; the steps of a quest line start anyway), **auto track quest objectives**, **quest markers** (the icons over quest givers and quest enemies), the default **failure** and **abandon** rules, and the **quest level** settings.
+In the [Gameplay Config](/basic/game-settings/gameplay-config): the **maximum active quests** (a quest offered over the limit is refused with a message; the steps of a quest line start anyway), **auto track quest objectives**, **quest markers** (the icons over quest givers and quest enemies), the default **failure** and **abandon** rules, the **quest game over delay** (seconds between a quest that ends the game failing and the game over), and the **quest level** settings.
 
 ## See also
 

@@ -43,6 +43,7 @@ Configuration for gameplay rules and mechanics
 | `int` | [max_active_quests](#prop-max-active-quests) | `20` |
 | `bool` | [quest_markers_enabled](#prop-quest-markers-enabled) | `true` |
 | `QuestFailureRule` | [default_quest_failure](#prop-default-quest-failure) | `QuestFailureRule.RETRY` |
+| `float` | [quest_game_over_delay](#prop-quest-game-over-delay) | `3.0` |
 | `bool` | [allow_quest_abandon](#prop-allow-quest-abandon) | `true` |
 | `bool` | [show_quest_levels](#prop-show-quest-levels) | `true` |
 | `int` | [quest_level_trivial_gap](#prop-quest-level-trivial-gap) | `5` |
@@ -532,6 +533,10 @@ Show quest markers on map/minimap
 ### QuestFailureRule default_quest_failure = QuestFailureRule.RETRY {#prop-default-quest-failure}
 
 What happens to a quest that fails when the quest does not say (FINAL: it is over; RETRY: it can be taken again)
+
+### float quest_game_over_delay = 3.0 {#prop-quest-game-over-delay}
+
+Seconds between failing a quest that ends the game and the game over, so the player sees the quest fail first (0 = at once)
 
 ### bool allow_quest_abandon = true {#prop-allow-quest-abandon}
 

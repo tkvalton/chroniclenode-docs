@@ -44,7 +44,7 @@ Fog of war hides the parts of the world the party has not seen. Unexplored groun
 
 ### Quests
 
-The quest settings are on the [Quests page](/basic/events-and-quests/quests#the-quest-settings): **max active quests** (`20`), **quest markers**, **default quest failure**, **allow quest abandon**, **show quest levels**, the four **quest level gaps**, and **auto track quest objectives**.
+The quest settings are on the [Quests page](/basic/events-and-quests/quests#the-quest-settings): **max active quests** (`20`), **quest markers**, **default quest failure**, **quest game over delay**, **allow quest abandon**, **show quest levels**, the four **quest level gaps**, and **auto track quest objectives**.
 
 ### Item generation
 
