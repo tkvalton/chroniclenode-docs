@@ -387,6 +387,7 @@ const SYSTEMS = {
       { text: 'Selections: sound effects', slug: 'selections-sfx', dirs: [['data_classes/selections/sfx', true]] },
       { text: 'Selections: VFX', slug: 'selections-vfx', dirs: [['data_classes/selections/vfx', true]] },
       { text: 'Albums and animation map', slug: 'albums', dirs: [['data_classes/albums', true], ['data_classes/entity/animations', true]] },
+      { text: 'Meshes', slug: 'meshes', dirs: [['data_classes/meshes', true], ['runtime_classes/utility/mesh_source.gd', false]] },
       { text: 'VFX (runtime)', slug: 'vfx', dirs: [['runtime_classes/vfx', true]] },
       { text: 'Rig and bodies', slug: 'rig', dirs: [['runtime_classes/entity/components/rig', true], ['runtime_classes/entity/components/audio_component.gd', false], ['runtime_classes/entity/components/animation_resolver.gd', false], ['runtime_classes/utility/extended_skin_service.gd', false]] },
     ],

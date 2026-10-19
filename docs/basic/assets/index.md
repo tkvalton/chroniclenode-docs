@@ -14,6 +14,11 @@ Unlike the rest of the editor, assets are not `.tres` records with an id. They a
 | [Albums](/basic/assets/albums) | Sets of music and ambience tracks for worlds and for the menus | `src/data/audio/albums/` |
 | [Icons](/basic/assets/icons) | The pictures of items, abilities and the interface, by number | `src/data/icons/` |
 
+## Where to start
+
+- [Walkthrough: from a model on disk to a character in the game](/basic/assets/walkthrough) goes through the editors in order with one example.
+- [Supported files and best practice](/basic/assets/file-types) lists what each library accepts and what we suggest.
+
 ## How they connect to the rest
 
 ```text

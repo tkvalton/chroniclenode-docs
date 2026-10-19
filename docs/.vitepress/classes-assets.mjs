@@ -199,6 +199,24 @@ export const groups = [
     ]
   },
   {
+    "text": "Meshes",
+    "slug": "meshes",
+    "classes": [
+      {
+        "name": "MeshSettings",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\meshes\\mesh_settings.gd",
+        "file": "data_classes/meshes/mesh_settings.gd"
+      },
+      {
+        "name": "MeshSource",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\mesh_source.gd",
+        "file": "runtime_classes/utility/mesh_source.gd"
+      }
+    ]
+  },
+  {
     "text": "VFX (runtime)",
     "slug": "vfx",
     "classes": [

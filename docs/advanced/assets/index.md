@@ -2,6 +2,10 @@
 
 The [Assets chapter](/basic/assets/) explains the editors. The libraries themselves (how each folder is read, the static classes and their calls) are described in [Asset databases](/advanced/data-and-database/asset-databases). This page covers the other half: **who uses the assets while the game runs**, the code of the editors, and how to extend them.
 
+::: tip Meshes
+How a mesh file becomes a mesh on a character, where its settings and its skin live, and the asset editors in detail: [The mesh pipeline and the asset editors](/advanced/assets/mesh-pipeline).
+:::
+
 ## The three layers
 
 ```text

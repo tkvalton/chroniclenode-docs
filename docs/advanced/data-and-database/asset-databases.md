@@ -15,7 +15,7 @@ They are what you manage in the **Assets** category of the editor: [Model Scenes
 | Animations | [DatabaseAnimation](/advanced/data-and-database/asset-database-classes/database-animation) | `src/data/animations/` | `.res`, `.anim` |
 | Audio and albums | [DatabaseAudio](/advanced/data-and-database/asset-database-classes/database-audio) | `src/data/audio/` | `.wav`, `.ogg`, `.mp3`; album resources |
 | Visual effects | [DatabaseVFX](/advanced/data-and-database/asset-database-classes/database-vfx) | `src/data/vfx/` | Scenes, materials, textures by type |
-| Meshes and materials | [DatabaseMeshes](/advanced/data-and-database/asset-database-classes/database-meshes) | `src/data/meshes/` | `.tres`, `.res`, `.obj` |
+| Meshes and materials | [DatabaseMeshes](/advanced/data-and-database/asset-database-classes/database-meshes) | `src/data/meshes/` | `.tres`, `.res`, `.obj`, `.glb`, `.gltf`, `.fbx`, `.blend` (models with one mesh node) |
 | Model scenes | [ModelSceneDatabase](/advanced/data-and-database/asset-database-classes/model-scene-database) | `src/data/meshes/skeletons/`, `src/data/meshes/interactable_models/` | `.tscn` |
 | Icons | [DatabaseIcons](/advanced/data-and-database/asset-database-classes/database-icons) | `src/data/icons/` | Images named by number |
 

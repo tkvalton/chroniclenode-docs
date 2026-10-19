@@ -175,7 +175,7 @@ const basicSystems = [
     ['Audio', 'audio', 'audio'],
     ['Albums', 'albums', 'albums'],
     ['Icons', 'icons', 'icons'],
-  ]),
+  ], { after: [page('Supported files and best practice', '/basic/assets/file-types'), page('Walkthrough: from a model to a character', '/basic/assets/walkthrough')] }),
   system('Game Settings', 'game-settings', [
     ['Game Settings', 'settings', 'settings'],
     ['Gameplay Config', 'gameplay-config', 'gameplay_config'],
@@ -356,7 +356,7 @@ const advancedSystems = [
   : slug === 'equipment-definitions'
   ? classSystem(text, slug, equipmentClasses)
   : slug === 'assets'
-  ? classSystem(text, slug, assetClasses)
+  ? withPages(classSystem(text, slug, assetClasses), [page('The mesh pipeline and the asset editors', '/advanced/assets/mesh-pipeline', { title: 'The mesh pipeline and the asset editors' })])
   : slug === 'game-settings'
   ? classSystem(text, slug, gameSettingsClasses)
   : slug === 'user-interface'

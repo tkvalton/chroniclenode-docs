@@ -84,7 +84,7 @@ It holds weapons (`equipment/weapons/<category>/`), the parts of modular charact
 - `String` **ATTACHMENTS_PATH** = `"res://src/data/meshes/equipment/attachments/"` - The folder of the attachment meshes.
 - `String` **FACIAL_PATH** = `"res://src/data/meshes/facial/"` - The folder of the facial meshes.
 - `String` **MATERIALS_PATH** = `"res://src/data/meshes/materials/"` - The folder of the materials.
-- `Array[String]` **MESH_EXTENSIONS** = `[".tres", ".res", ".obj"]` - ========== FILE EXTENSIONS ==========
+- `Array[String]` **MESH_EXTENSIONS** = `[".tres", ".res", ".obj", ".glb", ".gltf", ".fbx", ".blend"]` - ========== FILE EXTENSIONS ========== A model that Godot imports as a scene (.glb, .gltf, .fbx, .blend) is a mesh file if it holds one mesh node (see MeshSource).
 - `Array[String]` **MATERIAL_EXTENSIONS** = `[".tres", ".res"]` - The file types that count as materials.
 - `String` **METADATA_ALLOWED_MATERIALS** = `"allowed_materials"` - ========== METADATA KEYS ==========
 - `String` **METADATA_PREFERRED_MATERIAL** = `"preferred_material"` - The metadata key of the material a mesh prefers.
