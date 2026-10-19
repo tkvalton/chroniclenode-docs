@@ -96,7 +96,7 @@ Current stock quantities by item_id: Dictionary[int, int] (-1 = unlimited)
 
 ### float last_restock_time = 0.0 {#var-last-restock-time}
 
-Last restock time (game hours since the start of the game, ChronoManager.total_game_hours)
+Last restock time (hours on the clock of the vendor: restock_time_source of its definition)
 
 ### Dictionary item_restock_times =  {#var-item-restock-times}
 
@@ -178,7 +178,7 @@ Create an item instance for purchase (only called when actually buying)
 
 ### bool check_and_restock() {#method-check-and-restock}
 
-Restock the items whose time is up (every item has its own interval: `custom_restock_hours`, else the one of the vendor). The wait of an item starts over every time it is due, whether or not it had room for more. Time is game hours that never wrap (ChronoManager.total_game_hours)
+*No description yet.*
 
 ### void perform_restock() {#method-perform-restock}
 

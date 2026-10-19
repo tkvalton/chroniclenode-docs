@@ -13,6 +13,7 @@ VendorDefinition serves as a blueprint/template that multiple vendor instances c
 | `int` | [faction_id](#prop-faction-id) | `0` |
 | `Array[VendorItemStock]` | [stocked_items](#prop-stocked-items) | `[]` |
 | `float` | [restock_interval_hours](#prop-restock-interval-hours) | `24.0` |
+| `ChronoManager.TimeSource` | [restock_time_source](#prop-restock-time-source) | `ChronoManager.TimeSource.GAME` |
 | `bool` | [buys_items](#prop-buys-items) | `true` |
 | `float` | [buy_value_multiplier](#prop-buy-value-multiplier) | `0.5` |
 | `float` | [sell_value_multiplier](#prop-sell-value-multiplier) | `1.0` |
@@ -44,7 +45,11 @@ Items this vendor stocks (templates for runtime inventory)
 
 ### float restock_interval_hours = 24.0 {#prop-restock-interval-hours}
 
-How often vendor restocks (in game hours, 0 = never restocks)
+How often vendor restocks (in hours of the clock below, 0 = never restocks)
+
+### ChronoManager.TimeSource restock_time_source = ChronoManager.TimeSource.GAME {#prop-restock-time-source}
+
+The clock the restock counts on: the game world (default), the hours of play, or the real clock (UTC, it keeps counting while the game is closed)
 
 ### bool buys_items = true {#prop-buys-items}
 

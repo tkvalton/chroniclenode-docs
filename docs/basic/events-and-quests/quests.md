@@ -89,10 +89,11 @@ The same thing in the middle of the world (a toll, a bribe, an item handed to a 
 | **Is repeatable** | The quest can be done again after it is completed | off |
 | **Repeat limit** | The most times it can be completed. `0` = no limit | `0` |
 | **Cooldown** | **None**, **Duration (hours)** or **Reset at time** | None |
-| **Cooldown duration** | For *Duration*: game hours to wait. A day is 24 | `24` |
+| **Cooldown clock** | Which [clock](/basic/shared-systems/clocks) counts the cooldown: **Game time**, **Play time** or **Real time (UTC)** | Game time |
+| **Cooldown duration** | For *Duration*: hours of that clock to wait. A day is 24 | `24` |
 | **Reset hour** | For *Reset at time*: the hour (0 to 23) at which the quest is available again. The next time the clock reads that hour | `6` |
 
-The [cooldown](/basic/keywords#cooldown) counts on the **running game clock**, so it does not matter that the time of day wraps every 24 hours: a cooldown of 30 hours takes 30 hours, also across days and also when the time is skipped with an action.
+The [cooldown](/basic/keywords#cooldown) counts on the **running clock** you chose (by default the running game clock), so it does not matter that the time of day wraps every 24 hours: a cooldown of 30 hours takes 30 hours, also across days and also when the time is skipped with an action.
 
 ### Actions
 

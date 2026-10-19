@@ -10,7 +10,8 @@ A **vendor** is a shop. It has a list of items it **stocks**, a purse of its own
 |---|---|---|
 | **Vendor name** | The name in the shop window | |
 | **Faction** | The [faction](/basic/behaviors/factions) of the vendor. Kept for later (reputation prices); nothing reads it yet | none |
-| **Restock interval** | Game hours between restocks. `0` = the vendor never restocks | `24` |
+| **Restock interval** | Hours between restocks, on the clock below. `0` = the vendor never restocks | `24` |
+| **Restock clock** | Which [clock](/basic/shared-systems/clocks) counts the wait: **Game time**, **Play time** or **Real time (UTC)** | Game time |
 
 ### Buying from the player
 
@@ -90,7 +91,7 @@ also rounded down and at least `1`. The vendor pays nothing for an item with no 
 
 ## Restocking
 
-Every stocked item waits its own interval (its **Custom restock hours**, else the vendor's). When the time is due, the line gets *Restock quantity* more, up to its *Max quantity*; the wait starts again whether or not there was room for more. The clock is the total **game time**, so it does not wrap with the day. Items with unlimited stock never restock.
+Every stocked item waits its own interval (its **Custom restock hours**, else the vendor's). When the time is due, the line gets *Restock quantity* more, up to its *Max quantity*; the wait starts again whether or not there was room for more. The clock is the one you chose (by default the total **game time**), so it does not wrap with the day. Items with unlimited stock never restock.
 
 ## See also
 

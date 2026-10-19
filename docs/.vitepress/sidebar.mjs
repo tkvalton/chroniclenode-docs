@@ -228,6 +228,7 @@ const sharedSystems = {
     page('Rewards', '/basic/shared-systems/rewards'),
     page('Skill tiers and specializations', '/basic/shared-systems/skill-tiers-and-specializations'),
     page('Text tokens', '/basic/shared-systems/text-tokens'),
+    page('Clocks', '/basic/shared-systems/clocks'),
     page('Formulas', '/basic/shared-systems/formulas'),
   ],
 }

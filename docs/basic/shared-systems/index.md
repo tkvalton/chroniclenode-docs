@@ -12,6 +12,7 @@ This section explains those tools once, so the chapter of each system can simply
 | [Rewards](/basic/shared-systems/rewards) | Something given to the player: experience, an item, an ability, currency, reputation | Quests, level-ups, [skill trees](/basic/abilities-and-effects/skill-trees), conversations, events, the Grant Reward effect |
 | [Groups](/basic/shared-systems/groups) | A label that makes effects, abilities and items interact: one Seal at a time, potions that share a [cooldown](/basic/keywords#cooldown) | Effects, abilities, items |
 | [Text tokens](/basic/shared-systems/text-tokens) | Words in angle brackets that are filled in when text is shown: `<player name>` | Quests, conversations, popups |
+| [Clocks](/basic/shared-systems/clocks) | The three clocks (game, play, real time) that a cooldown or a restock can count on | Quest cooldowns, vendor restock |
 | [Formulas](/basic/shared-systems/formulas) | How stat points turn into a value: armor, crit chance, growth per level | Stat effects, stat and pool growth |
 
 ## Requirements or conditions?

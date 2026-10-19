@@ -33,6 +33,8 @@ PAUSE HANDLING: Listens to SystemHub.paused_changed signal to pause/resume time 
 
 | | | |
 |---|---|---|
+| `Callable` | [real_time_provider](#var-real-time-provider) | `Callable()` |
+| `float` | [play_hours](#var-play-hours) | `0.0` |
 | `TimeConfig` | [current_time_config](#var-current-time-config) |  |
 | `float` | [game_time](#var-game-time) | `8.0` |
 | `float` | [total_game_hours](#var-total-game-hours) | `8.0` |
@@ -51,6 +53,9 @@ PAUSE HANDLING: Listens to SystemHub.paused_changed signal to pause/resume time 
 | | |
 |---|---|
 | `void` | [initialize](#method-initialize)( `hub: GameHost.SystemHub` ) |
+| `float` | [get_real_seconds](#method-get-real-seconds)() |
+| `float` | [get_hours](#method-get-hours)( `source: TimeSource` ) |
+| `float` | [hours_until_hour_of_day](#method-hours-until-hour-of-day)( `hour: int, source: TimeSource` ) |
 | `void` | [update_time_display](#method-update-time-display)() |
 | `void` | [check_time_events](#method-check-time-events)() |
 | `void` | [set_time_from_string](#method-set-time-from-string)( `time_string: String` ) |
@@ -82,9 +87,23 @@ Emitted each minute of game time: the time, its text and the minute.
 
 Emitted each hour of game time: the time, its text and the hour.
 
+### second_passed() {#signal-second-passed}
+
+Emitted every second the game runs (not paused): what checks a cooldown of the play or real clock
+
 ### timer_pool_low( available_count: int ) {#signal-timer-pool-low}
 
 Signal emitted when the timer pool is running low (less than 10% available)
+
+## Enumerations
+
+### enum TimeSource {#enum-timesource}
+
+========== TIME SOURCES ========== The clocks a feature that waits for hours across saves can use (quest cooldowns, vendor restocks)
+
+- **GAME** = `0` - Hours of the game world: follow the length of the day and the Advance Time action; stop when the game is paused
+- **PLAY** = `1` - Hours of play: real time, but only while the game runs (not paused, not closed)
+- **REAL** = `2` - The real clock (UTC): keeps counting while the game is closed. A server game sets real_time_provider to give the time of the server
 
 ## Constants
 
@@ -93,6 +112,14 @@ Signal emitted when the timer pool is running low (less than 10% available)
 - `float` **POOL_TICK_INTERVAL** = `0.1` - ========== SHARED POOL TICK ========== Pools that regenerate, decay or lose overfill are ticked from here (one tick for all of them) instead of owning a timer each
 
 ## Variable descriptions
+
+### Callable real_time_provider = Callable() {#var-real-time-provider}
+
+Real seconds since 1970 (UTC), for the real clock. Empty = the clock of the computer. A multiplayer game gives it a function that returns the time of its server
+
+### float play_hours = 0.0 {#var-play-hours}
+
+Hours of play since the game started: real time while the game runs, not paused (saved)
 
 ### TimeConfig current_time_config {#var-current-time-config}
 
@@ -147,6 +174,18 @@ The hub of the game systems.
 ### void initialize( hub: GameHost.SystemHub ) {#method-initialize}
 
 Initialize with system_hub to listen for pause state changes
+
+### float get_real_seconds() {#method-get-real-seconds}
+
+The real clock in seconds since 1970 (UTC). It never goes back
+
+### float get_hours( source: TimeSource ) {#method-get-hours}
+
+The time of a clock in hours, as a number that only grows (what a feature stores to know when it is over)
+
+### float hours_until_hour_of_day( hour: int, source: TimeSource ) {#method-hours-until-hour-of-day}
+
+Hours from now until the clock of the day next reads this hour (a full day when it reads it now). The real clock is UTC; the play clock has no hour of the day and uses the one of the game
 
 ### void update_time_display() {#method-update-time-display}
 

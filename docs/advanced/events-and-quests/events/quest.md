@@ -27,6 +27,7 @@ Main quest resource that handles objectives, rewards, and quest state
 | `bool` | [is_repeatable](#prop-is-repeatable) | `false` |
 | `int` | [repeat_limit](#prop-repeat-limit) | `0` |
 | `CooldownType` | [cooldown_type](#prop-cooldown-type) | `CooldownType.NONE` |
+| `ChronoManager.TimeSource` | [cooldown_time_source](#prop-cooldown-time-source) | `ChronoManager.TimeSource.GAME` |
 | `float` | [cooldown_duration_hours](#prop-cooldown-duration-hours) | `24.0` |
 | `int` | [cooldown_reset_hour](#prop-cooldown-reset-hour) | `6` |
 | `Array[EventAction]` | [on_start_actions](#prop-on-start-actions) | `[]` |
@@ -233,9 +234,13 @@ Maximum times this quest can be completed (0 = unlimited)
 
 Type of cooldown between repeats
 
+### ChronoManager.TimeSource cooldown_time_source = ChronoManager.TimeSource.GAME {#prop-cooldown-time-source}
+
+The clock the cooldown counts on: the game world (default), the hours of play, or the real clock (UTC). The reset hour of "Reset at Time" is read on the game clock or the real one
+
 ### float cooldown_duration_hours = 24.0 {#prop-cooldown-duration-hours}
 
-Duration cooldown in game hours (only used if cooldown_type == DURATION)
+Duration cooldown in hours of the clock above (only used if cooldown_type == DURATION)
 
 ### int cooldown_reset_hour = 6 {#prop-cooldown-reset-hour}
 

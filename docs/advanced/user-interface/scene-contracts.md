@@ -618,7 +618,7 @@ Template scene: `ui_scenes/in_game/HUD/action_bar/action_bar_ui_template.tscn`
 | `show_debuffs` | `bool` | Whether to display debuff icons |
 | `max_buff_icons` | `int` | Maximum number of buff icons to display |
 | `max_debuff_icons` | `int` | Maximum number of debuff icons to display |
-| `health_text_mode` | [`SettingsConfig.HealthDisplayOption`](/advanced/game-settings/config/settings-config) | Text display mode for health bar |
+| `health_text_mode` | `SettingsConfig.HealthDisplayOption` | Text display mode for health bar |
 | `resource_text_mode` | `SettingsConfig.HealthDisplayOption` | Text display mode for resource bar |
 | `action_button_scene` | `PackedScene` | Action Buttons Scene |
 | `aura_icon_scene` | `PackedScene` | Aura Icons Scene |
@@ -1844,7 +1844,7 @@ Script: `ui_scenes/in_game/popups/popup_ui.gd`
 | `block_gameplay_input` | `bool` | Gameplay does not react to the mouse and the keys while the popup is open (the popup itself does) |
 | `pause_game` | `bool` | The game is paused while the popup is open (time stands still) |
 | `show_once` | `bool` | The popup is shown once in a game (tutorials): after that it is never shown again, also not after a load. A new game shows it again |
-| `when_another_is_open` | [`PopupData.WhenBusy`](/advanced/events-and-quests/popups/popup-data) | What to do when this popup is asked for while another popup is on the screen |
+| `when_another_is_open` | `PopupData.WhenBusy` | What to do when this popup is asked for while another popup is on the screen |
 
 Signals: `closed(popup: PopupUI)`
 
