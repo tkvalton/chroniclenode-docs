@@ -2,7 +2,7 @@
 
 <!-- generated from the code comments by scripts/event-lists.mjs: change the comments in the code, not this page -->
 
-An **action** is the *do* of an [event](/basic/events-and-quests/events). An event runs its actions **in order, and each one finishes before the next one starts**: a Wait action really waits, and a Popup action can wait until the popup is closed. An action that cannot do what it was asked (a quest that cannot start, an object that does not exist) **fails**, and so does its event. There are 96 kinds, in 14 categories. Choose one with **Add Action** in the event editor.
+An **action** is the *do* of an [event](/basic/events-and-quests/events). An event runs its actions **in order, and each one finishes before the next one starts**: a Wait action really waits, and a Popup action can wait until the popup is closed. An action that cannot do what it was asked (a quest that cannot start, an object that does not exist) **fails**, and so does its event. There are 90 kinds, in 13 categories. Choose one with **Add Action** in the event editor.
 
 ## Audio
 
@@ -12,7 +12,7 @@ Play or stop music, ambience and sounds.
 |---|---|
 | [**Play SFX At Position**](/advanced/events-and-quests/actions-audio/play-sfx-at-position-action) (`PlaySFXAtPositionAction`) | Play a sound effect at a 3D position |
 | [**Play SFX Global**](/advanced/events-and-quests/actions-audio/play-sfx-global-action) (`PlaySFXGlobalAction`) | Play a sound effect globally (2D audio) |
-| [**Play Voice Line**](/advanced/events-and-quests/actions-audio/play-voice-line-action) (`PlayVoiceLineAction`) | Speaks a voice line: a character of the voice lines and a file (empty = a random line of the character). |
+| **Play Voice Line** ([`PlayVoiceLineAction`](/advanced/events-and-quests/actions-audio/play-voice-line-action)) | Speak a [voice line](/basic/game-settings/localization#voice-lines-in-other-languages) on the Voice channel, heard from an entity (its unique id) or from nowhere, with its subtitle. Can wait until the line is over |
 | [**Set Ambient Track**](/advanced/events-and-quests/actions-audio/set-ambient-track-action) (`SetAmbientTrackAction`) | Control ambient track playback |
 | [**Set Music Track**](/advanced/events-and-quests/actions-audio/set-music-track-action) (`SetMusicTrackAction`) | Control music track playback |
 
@@ -33,18 +33,18 @@ Spawn, move, activate, heal, kill, or change the behavior of NPCs.
 
 | Action | What it does |
 |---|---|
-| [**Dismount Entity**](/advanced/events-and-quests/actions-entity/dismount-entity-action) (`DismountEntityAction`) | Gets an NPC off the mount or vehicle it rides. |
 | [**Grant Effect To Entity**](/advanced/events-and-quests/actions-entity/grant-effect-to-entity-action) (`GrantEffectToEntityAction`) | Grant an effect to a specific entity |
 | [**Kill Entity**](/advanced/events-and-quests/actions-entity/kill-entity-action) (`KillEntityAction`) | Instantly kill a specific entity |
-| [**Mount Entity**](/advanced/events-and-quests/actions-entity/mount-entity-action) (`MountEntityAction`) | Puts an NPC on a mount or a vehicle (both placed NPCs): a rider who climbs on a horse, a gunner who takes the turret of a wagon. |
 | [**Remove All Effects From Entity**](/advanced/events-and-quests/actions-entity/remove-all-effects-from-entity-action) (`RemoveAllEffectsFromEntityAction`) | Remove all effects from a specific entity |
 | [**Remove Effect From Entity**](/advanced/events-and-quests/actions-entity/remove-effect-from-entity-action) (`RemoveEffectFromEntityAction`) | Remove an effect from a specific entity |
 | [**Set Entity Active State**](/advanced/events-and-quests/actions-entity/set-entity-active-state-action) (`SetEntityActiveStateAction`) | Activate or deactivate an entity |
 | [**Set Entity Behavior Script**](/advanced/events-and-quests/actions-entity/set-entity-behavior-script-action) (`SetEntityBehaviorScriptAction`) | Change an entity's behavior script at runtime |
 | [**Set Entity Combat Script**](/advanced/events-and-quests/actions-entity/set-entity-combat-script-action) (`SetEntityCombatScriptAction`) | Change an entity's combat script at runtime |
 | [**Set Entity Faction**](/advanced/events-and-quests/actions-entity/set-entity-faction-action) (`SetEntityFactionAction`) | Change the faction of a specific placed NPC, so it can turn friendly or hostile in the middle of a story |
+| [**Mount Entity**](/advanced/events-and-quests/actions-entity/mount-entity-action) (`MountEntityAction`) | Put a placed NPC on a placed mount or vehicle, on the seat you give or the first free one. See [Mounts](/basic/entities/mounts#event-actions-for-mounts) |
+| [**Dismount Entity**](/advanced/events-and-quests/actions-entity/dismount-entity-action) (`DismountEntityAction`) | Get a placed NPC off what it rides |
+| [**Set Vehicle Hijackable**](/advanced/events-and-quests/actions-entity/set-vehicle-hijackable-action) (`SetVehicleHijackableAction`) | Open or close a vehicle to being hijacked, for a story step |
 | [**Set Entity Position**](/advanced/events-and-quests/actions-entity/set-entity-position-action) (`SetEntityPositionAction`) | Teleport/move an entity to a specific position |
-| [**Set Vehicle Hijackable**](/advanced/events-and-quests/actions-entity/set-vehicle-hijackable-action) (`SetVehicleHijackableAction`) | Makes a vehicle (a placed NPC with a Mount interaction) hijackable or not: a hostile vehicle that is hijackable can be boarded and taken over by the characters it is hostile to. |
 | [**Spawn Entity**](/advanced/events-and-quests/actions-entity/spawn-entity-action) (`SpawnEntityAction`) | Spawn a new entity (NPC) at a specific position |
 
 ## Environment
@@ -116,11 +116,15 @@ Change the [interaction](/basic/entities/npcs) of an NPC or an object.
 
 ## Items
 
-
+Put items on the ground.
 
 | Action | What it does |
 |---|---|
-| [**Drop Item**](/advanced/events-and-quests/actions-items/drop-item-action) (`DropItemAction`) | Puts an item (or a pile of a currency) on the ground as a dropped item: a quest reward left on a table, a key that falls from the ceiling, coins that spill from a chest. |
+| [**Drop Item**](/advanced/events-and-quests/actions-items/drop-item-action) (`DropItemAction`) | Puts an item (or a pile of a currency) on the ground as a [dropped item](/basic/items/dropped-items): at a position, where an NPC stands or where the player stands. *Launch* throws it up so it falls and bounces; off, it is put down. It fails when dropped items are switched off |
+
+### Drop Item
+
+Fields: **Item** and **Quantity** (and **Item level** for a [generated item](/basic/items/item-generation)), or **Currency** and **Currency amount**; **Place** (*Position*, *At entity* with the unique id of the NPC, or *At player*); **Drop position**; **Launch**. Use it for a quest reward left on a table, a key that falls from the ceiling, coins that spill from a chest.
 
 ## Party
 
@@ -143,7 +147,7 @@ Grant or remove effects, move or kill the player characters, change their combat
 | [**Kill Player**](/advanced/events-and-quests/actions-player/kill-player-action) (`KillPlayerAction`) | Kill player(s) (trigger death state) |
 | [**Remove All Effects From Player**](/advanced/events-and-quests/actions-player/remove-all-effects-from-player-action) (`RemoveAllEffectsFromPlayerAction`) | Remove all effects from player(s) |
 | [**Remove Effect From Player**](/advanced/events-and-quests/actions-player/remove-effect-from-player-action) (`RemoveEffectFromPlayerAction`) | Remove a specific effect from player(s) |
-| [**Repair Equipment**](/advanced/events-and-quests/actions-player/repair-equipment-action) (`RepairEquipmentAction`) | Action that repairs the worn equipment of player(s): all of it, or a share of the maximum durability of each piece. |
+| [**Repair Equipment**](/advanced/events-and-quests/actions-player/repair-equipment-action) (`RepairEquipmentAction`) | Repairs the worn equipment of player(s) by a share of its maximum durability (100 % = fully). Needs [durability](/basic/items/durability) on |
 | [**Set Action Bar Slot**](/advanced/events-and-quests/actions-player/set-action-bar-slot-action) (`SetActionBarSlotAction`) | Action that puts an ability on a slot of the action bar of player(s), empties a slot, or locks and unlocks it. |
 | [**Set Player Combat Script**](/advanced/events-and-quests/actions-player/set-player-combat-script-action) (`SetPlayerCombatScriptAction`) | Change player(s) combat script at runtime |
 | [**Set Player Position**](/advanced/events-and-quests/actions-player/set-player-position-action) (`SetPlayerPositionAction`) | Teleport/move player(s) to a specific position |
@@ -157,9 +161,9 @@ Start, finish, fail or give up [quests](/basic/events-and-quests/quests) and que
 | Action | What it does |
 |---|---|
 | [**Abandon Quest**](/advanced/events-and-quests/actions-quest/abandon-quest-action) (`AbandonQuestAction`) | Takes a quest off the player as if they had given it up (the quest goes back to the start and can be taken again; it is not a failure). |
-| [**Activate Quest**](/advanced/events-and-quests/actions-quest/activate-quest-action) (`ActivateQuestAction`) | Starts a quest. |
+| [**Activate Quest**](/advanced/events-and-quests/actions-quest/activate-quest-action) (`ActivateQuestAction`) | Starts a quest. The event decides: requirements, cooldown and a quest done before do not stop it (see [Events](/basic/events-and-quests/events)). |
 | [**Activate Quest Line**](/advanced/events-and-quests/actions-quest/activate-quest-line-action) (`ActivateQuestLineAction`) | Starts a quest line (its first step). |
-| [**Complete Quest**](/advanced/events-and-quests/actions-quest/complete-quest-action) (`CompleteQuestAction`) | Completes a quest at once, whatever its objectives (and gives its rewards). |
+| [**Complete Quest**](/advanced/events-and-quests/actions-quest/complete-quest-action) (`CompleteQuestAction`) | Completes a quest at once, whatever its objectives (and gives its rewards); a quest that is not running is started first. |
 | [**Complete Quest Objective**](/advanced/events-and-quests/actions-quest/complete-quest-objective-action) (`CompleteQuestObjectiveAction`) | Completes one objective of a running quest (for an objective that nothing in the world measures: "talk to the king" decided by an event). |
 | [**Fail Quest**](/advanced/events-and-quests/actions-quest/fail-quest-action) (`FailQuestAction`) | Fails a running quest (the deadline passed, the one to protect died). |
 | [**Fail Quest Objective**](/advanced/events-and-quests/actions-quest/fail-quest-objective-action) (`FailQuestObjectiveAction`) | Fails one objective of a running quest. |

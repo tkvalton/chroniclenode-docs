@@ -73,6 +73,18 @@ export const groups = [
     ]
   },
   {
+    "text": "Triggers: conversation",
+    "slug": "triggers-conversation",
+    "classes": [
+      {
+        "name": "ConversationChatTrigger",
+        "base": "EventTrigger",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\conversation\\conversation_chat_trigger.gd",
+        "file": "data_classes/events/event_triggers/conversation/conversation_chat_trigger.gd"
+      }
+    ]
+  },
+  {
     "text": "Triggers: currency",
     "slug": "triggers-currency",
     "classes": [

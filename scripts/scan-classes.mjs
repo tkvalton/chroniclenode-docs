@@ -201,6 +201,7 @@ const SYSTEMS = {
         ],
       },
       { text: 'Trigger and action base classes', slug: 'bases', dirs: [['data_classes/events/event_triggers', false], ['data_classes/events/event_actions', false]] },
+      { text: 'Triggers: conversation', slug: 'triggers-conversation', dirs: [['data_classes/events/event_triggers/conversation', true]] },
       { text: 'Triggers: currency', slug: 'triggers-currency', dirs: [['data_classes/events/event_triggers/currency', true]] },
       { text: 'Triggers: encounter', slug: 'triggers-encounter',dirs: [['data_classes/events/event_triggers/encounter', true]] },
       { text: 'Triggers: entity', slug: 'triggers-entity', dirs: [['data_classes/events/event_triggers/entity', true]] },
