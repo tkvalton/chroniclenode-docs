@@ -38,15 +38,11 @@ The scene makes three more things for you, in code: the [**nameplates**](/basic/
 
 The interaction panels and the UI panels are both **windows**, and the interface manages them together:
 
-- Opening a window **closes every other window**. One window is open at a time.
-- Closing the last one lets the player act in the world again. While any window is open the game knows a *menu is open* (the top-down camera, for example, stops scrolling).
-- **Esc** closes the open windows first; only when none is open does it open the pause menu.
+- Each window has a **screen space** from 0 to 1 (how much of the screen it takes). **Windows that fit together stay open together**: opening a window closes the ones opened last, newest first, until what is open adds up to 1 or less. See [Which windows are open together](/basic/user-interface/ui-panels#which-windows-are-open-together).
+- While a window with screen space above 0 is open the game knows a *menu is open*. By default the player can still walk and use abilities; a camera or a controller can ignore the world while a window is open (see [Zoom and input with a window open](/basic/user-interface/ui-panels#zoom-and-input-with-a-window-open)).
+- **Esc** closes every open window first (a window of screen space 0 stays); only when none is open does it open the pause menu.
 - Each window can be **dragged by its title bar** (a panel option) and has a close button.
 - The conversation window is a special case: closing it ends the conversation.
-
-::: tip Under review
-That only one window can be open at a time is fixed in the code today. A better rule is planned: [Which windows can be open together](/planned/panel-stacking).
-:::
 
 ## Panel keys
 

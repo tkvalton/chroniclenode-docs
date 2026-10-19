@@ -52,6 +52,7 @@ The game uses a **copy** of the chosen preset, so what happens during play (angl
 | **Enable keyboard interact** | The E key interacts | on |
 | **Fire aimed attack with primary** | With a bow or gun, holding the primary button while looking around fires the aimed attack at the crosshair | on |
 | **Look sensitivity scale** | The feel of this preset relative to the player's setting | `1` |
+| **Block input with window open** | The player ignores the keys and the mouse of the game while a [window](/basic/user-interface/ui-panels#which-windows-are-open-together) is open (the keys that open and close windows still work). All controllers have this option | off |
 
 ## Third Person camera: the options
 
@@ -63,6 +64,8 @@ The game uses a **copy** of the chosen preset, so what happens during play (angl
 | **Follow direction speed** | How quickly it swings | `5` |
 | **Collision enabled**, **collision layer**, **camera radius**, **collision smoothing** | The camera pulls in when a wall is behind the character, using the *Camera detection* [collision layer](/basic/game-settings/collision-layers) | on, `0.3`, `10` |
 | **Look sensitivity scale** | As above | `1` |
+
+Every camera has **Zoom with window open**: whether the wheel and the zoom keys zoom while a window is open (on for the third person camera, off for the top-down cameras).
 
 The top-down cameras have their own zoom, angle and nameplate-scaling options (the camera tilts more steeply as it zooms out, and nameplates shrink with distance).
 

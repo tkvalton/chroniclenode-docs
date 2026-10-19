@@ -32,7 +32,7 @@ An interaction panel is a normal [window](/basic/user-interface/in-game#windows)
 ## Adding your own interaction and window
 
 ::: warning Today this is manual
-The template's windows are looked up **by name** in the scene and opened by methods of [`InGameUI`](/advanced/user-interface/scenes/in-game-ui). A window you add to `InteractionPanels` is **not found automatically**. Making this automatic (any panel placed in the container is registered and an interaction opens it by name) is planned: [Which windows can be open together](/planned/panel-stacking#windows-opened-by-name).
+The template's windows are looked up **by name** in the scene and opened by methods of [`InGameUI`](/advanced/user-interface/scenes/in-game-ui). A window you add to `InteractionPanels` is **not found automatically**. Making this automatic (any panel placed in the container is registered and an interaction opens it by name) is not done yet; the *Show UI Panel* interaction already opens any panel placed in `UIPanels` by its name.
 :::
 
 To add a window for an interaction of your own today:

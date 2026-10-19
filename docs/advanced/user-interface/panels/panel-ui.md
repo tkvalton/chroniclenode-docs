@@ -14,6 +14,7 @@ The base of every window of the interface (the character sheet, the spellbook, t
 |---|---|---|
 | `String` | [panel_name](#prop-panel-name) | `""` |
 | `int` | [panel_keybind](#prop-panel-keybind) | `0` |
+| `float` | [screen_space](#prop-screen-space) | `1.0` |
 | `Texture2D` | [menu_icon](#prop-menu-icon) |  |
 | `String` | [menu_description](#prop-menu-description) | `""` |
 | `bool` | [show_in_mini_menu](#prop-show-in-mini-menu) | `true` |
@@ -111,6 +112,10 @@ Panel name for for open/close. A Show UI Panel interaction opens the panel by th
 ### int panel_keybind = 0 {#prop-panel-keybind}
 
 Which panel key opens this panel: 1 to 20 (the input action `panel_keybind_N`). 0 = no key. The mini menu makes a button for each numbered panel. Two panels with one number are reported when the interface starts. What the key is called for the player is set in the Keybinds tab of the Game Settings
+
+### float screen_space = 1.0 {#prop-screen-space}
+
+How much of the screen this window takes, from 0 to 1: 1 = all of it, 0.5 = half. **Windows that fit together stay open together**: opening a window closes the windows opened last, newest first, until the open ones add up to 1 or less (a character sheet 0.5 and an inventory 0.5 are open together; a spell book 1 closes both). 0 = the window ignores the rule: it never closes another window, nothing closes it to make room, and it does not count as a window being open (a map). The default 1 is the old behaviour: opening it closes every other window
 
 ### Texture2D menu_icon {#prop-menu-icon}
 

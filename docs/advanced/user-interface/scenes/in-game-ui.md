@@ -73,6 +73,11 @@ A full-screen root Control left at the default STOP swallows every world click. 
 | `void` | [update_crafting_progress](#method-update-crafting-progress)( `job: CraftingJob` ) |
 | `void` | [hide_game_over_panel](#method-hide-game-over-panel)() |
 
+## Constants
+
+- `float` **SCREEN_SPACE_LIMIT** = `1.0` - The windows that are open together add up to this much screen space at most
+- `float` **SCREEN_SPACE_TOLERANCE** = `0.001` - (three windows of 0.33 fit: 0.99 plus rounding)
+
 ## Variable descriptions
 
 ### Array[Control] hud_interfaces {#var-hud-interfaces}
@@ -171,7 +176,7 @@ Toggles a specific window
 
 ### void open_window( window: Control ) {#method-open-window}
 
-Opens a specific window
+Opens a specific window. The windows that do not fit next to it close, the ones opened last first (see PanelUI.screen_space); a window of space 0 closes nothing
 
 ### void close_window( window: Control ) {#method-close-window}
 
@@ -179,11 +184,11 @@ Closes a specific window
 
 ### void update_ui_menu_state() {#method-update-ui-menu-state}
 
-Update the UI menu state based on open windows
+Update the UI menu state based on open windows. A window of screen space 0 (a map) is not a menu: it does not count
 
 ### void close_all_windows() {#method-close-all-windows}
 
-Closes all open windows
+Closes all open windows (Esc). A window of screen space 0 stays: it closes with its own key or button
 
 ### void toggle_conversation_panel( conversation: ConversationInstance = null, starting_chat: ConversationChat = null, interaction: ConversationInteraction = null ) {#method-toggle-conversation-panel}
 

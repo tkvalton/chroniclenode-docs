@@ -23,6 +23,7 @@ Child classes:
 | | | |
 |---|---|---|
 | `String` | [preset_name](#prop-preset-name) | `"Unnamed Camera"` |
+| `bool` | [zoom_with_window_open](#prop-zoom-with-window-open) | `true` |
 | `String` | [description](#prop-description) | `""` |
 | `Vector3` | [initial_socket_position](#prop-initial-socket-position) | `Vector3.ZERO` |
 | `Vector3` | [initial_socket_rotation_degrees](#prop-initial-socket-rotation-degrees) | `Vector3(-20.0, 0.0, 0.0)` |
@@ -83,6 +84,10 @@ Child classes:
 ### String preset_name = "Unnamed Camera" {#prop-preset-name}
 
 Display name shown in editor dropdowns
+
+### bool zoom_with_window_open = true {#prop-zoom-with-window-open}
+
+The camera zooms while a window (an inventory, a character sheet) is open. Off: the wheel and the zoom keys do nothing until the window is closed. A window of screen space 0 does not count
 
 ### String description = "" {#prop-description}
 

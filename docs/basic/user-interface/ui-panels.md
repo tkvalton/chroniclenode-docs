@@ -25,6 +25,7 @@ Set on the root node of the panel scene:
 | **Menu icon** | The icon of its mini menu button | none |
 | **Menu description** | The tooltip of its mini menu button (empty = the panel name) | empty |
 | **Show in mini menu** | Whether the mini menu makes a button for it (a panel with no number gets none) | on |
+| **Screen space** | How much of the screen the window takes, **0 to 1**. Decides which windows are open together (below). The default **1** is a window that closes every other window | 1 |
 | **Is draggable** | The player can move the window by its title bar | on |
 | **Title bar show** | Hide the title bar and its close button | on |
 
@@ -68,7 +69,35 @@ The spellbook holds two parts that are separate scenes inside it: the **abilitie
 
 ## Which windows are open together
 
-Today opening a window closes every other window. This is going to be configurable: see [Which windows can be open together](/planned/panel-stacking).
+Every window (a UI panel or an [interaction panel](/basic/user-interface/interaction-panels)) has one number, **Screen space**, from 0 to 1: **how much of the screen it takes**. 1 is all of it, 0.5 is half.
+
+**Windows that fit together stay open together.** When a window opens, the windows that are open add up with it. If the total is 1 or less, they all stay. If it is more, the windows that were opened **last** close first (the newest first) until it fits.
+
+| Window | Screen space | What happens |
+|---|---|---|
+| Character sheet | 0.5 | Opens next to another 0.5 window |
+| Inventory | 0.5 | Opens next to the character sheet: both are open |
+| Spellbook | 1 | Opens and closes both: it takes the whole screen |
+| Vendor, conversation, crafting | 1 | As today: they clear the screen |
+| Map | 0 | Ignores the rule: it never closes another window, nothing closes it to make room, and it does not count as "a window is open" |
+
+Example: the character sheet (0.5) and the inventory (0.5) are open, then you open a quest log of 0.5. The one that was opened last, the inventory, closes; the character sheet and the quest log stay. Opening a window that is already open makes it the newest.
+
+- **Screen space is a promise about your design, not a measure.** The toolkit does not resize the window: a panel of 0.5 should be about half the screen wide in your scene. Place the windows in your in-game scene as you like; to put two side by side, use a `HBoxContainer`.
+- **Esc closes every window** of screen space above 0 at once. A window of screen space **0** stays open and closes with its own key or button.
+- **HUD elements** (the mini map, a chat box) are not windows: they are not opened or closed and are not part of this. A **map** window is a UI panel; give it screen space 0 if it should stay up while the player plays.
+- A conversation or a shop that starts clears the screen (they are 1) and the windows that were closed do **not** come back on their own.
+
+## Zoom and input with a window open
+
+By default an open window does not stop the game: the player can still walk, use abilities and rotate the camera, and a click on a window is eaten by the window, not the world. Two options decide the rest, and they are on the camera and the controller, not on the windows:
+
+| Where | Option | What it does | Default |
+|---|---|---|---|
+| A [camera preset](/basic/game-settings/controller-and-camera) | **Zoom with window open** | The camera zooms (wheel and zoom keys) while a window is open. Off: it does not zoom until the window is closed | on for the third person camera; **off** for the top-down cameras (the wheel scrolls the window) |
+| A [controller preset](/basic/game-settings/controller-and-camera) | **Block input with window open** | The player ignores the keys and the mouse of the game while a window is open: it stands still and uses no ability. The keys that open and close windows still work | off |
+
+A window of screen space 0 never counts as "open" for these.
 
 ## See also
 

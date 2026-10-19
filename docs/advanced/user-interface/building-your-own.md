@@ -37,7 +37,6 @@ A scene of the interface is **a scene plus a script on its root**. The game neve
 ## Not built yet
 
 - The windows of interactions are looked up by **name** in the in-game class: a panel added to `InteractionPanels` is not found by itself. See [Interaction panels](/basic/user-interface/interaction-panels#adding-your-own-interaction-and-window).
-- Which windows may be open together (layers, a maximum, `Esc` one at a time) is planned: [Panel stacking](/planned/panel-stacking).
 
 ## See also
 

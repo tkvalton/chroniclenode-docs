@@ -23,6 +23,7 @@ Child classes:
 | | | |
 |---|---|---|
 | `String` | [preset_name](#prop-preset-name) | `"Unnamed Controller"` |
+| `bool` | [block_input_with_window_open](#prop-block-input-with-window-open) | `false` |
 | `String` | [description](#prop-description) | `""` |
 | `float` | [look_sensitivity_scale](#prop-look-sensitivity-scale) | `1.0` |
 
@@ -40,6 +41,7 @@ Child classes:
 |---|---|
 | `void` | [initialize](#method-initialize)( `p_system_hub: GameHost.SystemHub` ) |
 | `void` | [setup](#method-setup)( `controller: PlayerController` ) |
+| `bool` | [is_blocked_by_window](#method-is-blocked-by-window)() |
 | `void` | [process_input](#method-process-input)( `delta: float` ) |
 | `void` | [handle_input_event](#method-handle-input-event)( `event: InputEvent` ) |
 | `void` | [cleanup](#method-cleanup)() |
@@ -95,6 +97,10 @@ When a controller's right-click action (attack / interact / command) fires
 
 Display name shown in editor dropdowns
 
+### bool block_input_with_window_open = false {#prop-block-input-with-window-open}
+
+While a window (an inventory, a character sheet) is open the controller ignores the keys and the mouse of the game: the player stands still and uses nothing until the window is closed (the keys that open and close the windows still work). Off: the player walks and fights with a window open. A window of screen space 0 does not count
+
 ### String description = "" {#prop-description}
 
 Description of controller behavior
@@ -128,6 +134,10 @@ Initialize with system hub reference - called by PlayerController
 ### void setup( controller: PlayerController ) {#method-setup}
 
 Setup controller behavior - override in child classes
+
+### bool is_blocked_by_window() {#method-is-blocked-by-window}
+
+Is the input of the game blocked now: the controller blocks it while a window is open (block_input_with_window_open) and a window is open
 
 ### void process_input( delta: float ) {#method-process-input}
 
