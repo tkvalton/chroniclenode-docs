@@ -84,7 +84,7 @@ Every window (a UI panel or an [interaction panel](/basic/user-interface/interac
 Example: the character sheet (0.5) and the inventory (0.5) are open, then you open a quest log of 0.5. The one that was opened last, the inventory, closes; the character sheet and the quest log stay. Opening a window that is already open makes it the newest.
 
 - **Screen space is a promise about your design, not a measure.** The toolkit does not resize the window: a panel of 0.5 should be about half the screen wide in your scene. Place the windows in your in-game scene as you like; to put two side by side, use a `HBoxContainer`.
-- **Esc closes every window** of screen space above 0 at once. A window of screen space **0** stays open and closes with its own key or button.
+- **Esc closes every open window at once**, a window of screen space 0 too. With no window open, Esc opens the pause menu. (Screen space 0 only means the window never closes another one and does not count as a menu being open.)
 - **HUD elements** (the mini map, a chat box) are not windows: they are not opened or closed and are not part of this. A **map** window is a UI panel; give it screen space 0 if it should stay up while the player plays.
 - A conversation or a shop that starts clears the screen (they are 1) and the windows that were closed do **not** come back on their own.
 
