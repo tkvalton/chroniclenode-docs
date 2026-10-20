@@ -18,11 +18,11 @@ One manager takes every message of the game. A system **posts** a message to a *
 
 | Part | What it is |
 |---|---|
-| **Channel** | One **kind** of message (channels are flat). Examples: Damage, Healing, Level up, Loot, Money, Experience, Quest, Reputation, Skill up, Say, Emote, System, Warning, Highlight. A channel has a name, a colour, a message template and two flags: *also show as a fading message* and *keep in the save* |
+| **Channel** | One **kind** of message (channels are flat). A channel has a name, a **colour** (chosen in the editor), a message template and two flags: *also show as a fading message* and *keep in the save*. A channel a player can type into also has a command, a range or a membership (see [Talking channels](#talking-channels)) |
 | **Message** | A line of text made for a channel, with the data it was made from (the item, the amount, the entity) |
 | **Viewer** | A UI node with a list of channels. The chat box, a toast, the warning label and the loot feed are all viewers |
 
-The **channel list** is one list for the whole game (a level up toast and the chat box both have to name the Level up channel). **Which channels a viewer shows is an export on the viewer's scene**, together with its other options.
+The channels the toolkit ships with are listed [below](#the-channels-the-toolkit-ships-with). The **channel list** is one list for the whole game (a level up toast and the chat box both have to name the Level up channel). **Which channels a viewer shows is an export on the viewer's scene**, together with its other options.
 
 ### Viewers
 
@@ -31,6 +31,21 @@ The **channel list** is one list for the whole game (a level up toast and the ch
 - A **level up toast** is a scene set to the Level up channel. The message carries the new level, so the toast shows it and plays its animation. A **loot feed** does the same with the Loot channel.
 - The **chat box** is a viewer with **tabs**. A tab is a list of channels (and, for combat, a filter). The tabs and the **line limit** (`0` = no limit) are exports of the chat box scene. A player making their own tabs is a feature a game builds in its own interface.
 - The chat box is a **HUD element**, not a [window](/basic/user-interface/ui-panels): it is not opened or closed and takes no part in screen space.
+
+### The channels the toolkit ships with
+
+The names, colours and flags are edited on the **Chat** page of the Game Settings, and a game adds its own.
+
+| Group | Channels |
+|---|---|
+| **Combat** (by who) | **Combat (Personal)**, **Combat (Party)**, **Combat (Hostile)**. Each is filtered by the kind of event (see [Combat](#combat)) |
+| **Progress** | **Experience**, **Level up** (also a fading message), **Skill up**, **Abilities** (learned, talent points), **Reputation** |
+| **Items and currency** | **Loot**, **Currency**, **Trade** (buying, selling, repairs), **Crafting**, **Equipment** (a piece breaks, is repaired; also a fading message) |
+| **World and story** | **Quest** (accepted, completed and failed are also fading messages), **Discovery** (entering an area, discovering a place; also a fading message), **Party events** (a member joins or leaves), **Dialogue** (the lines of a conversation, for review) |
+| **Talk** | **Say**, **Yell**, **Emote**, and the others of [Talking channels](#talking-channels) |
+| **System** | **System** (the plain messages), **Highlight** (the yellow ones), **Warning** (the red ones), **Hint** (tips), **Debug** (developer output, only when the developer commands are on) |
+
+The progress, items and world channels keep their lines in the save; the system and combat channels do not. Time and weather are left out; a game adds them as its own channels.
 
 ### Messages for the events of the game
 
@@ -42,12 +57,13 @@ A **listener** for each system turns the signals that exist already into message
 | Level up | `Mira reaches level 5.` |
 | Skill up | `Your Herbalism increases to 31.` |
 | Loot | `You receive [Iron Sword] x1.` |
-| Money | `You receive 3 gold 20 silver.` |
+| Currency | `You receive 3 gold 20 silver.` |
 | Quest | `Quest accepted: Wolves at the Gate.` |
 | Reputation | `Your standing with the Rangers increases.` |
 
 - A message is written **as it is shown**. The text is made when the message arrives, in the language of the player at that moment. Lines that are in the box stay in the language they were written in; new lines use the new language.
 - A channel can be marked **also show as a fading message** (a level up probably should). The fading messages that exist today are the same system, so the two are one.
+- A channel's colour is a colour picker in the editor, so the chat, the toasts and the labels agree.
 - A channel can be marked **keep in the save**, so the lines come back after a load.
 
 ## Combat
@@ -142,11 +158,11 @@ The **Speak interaction** (text, voice line, animation, floating label) is the f
 | Audience | Who gets it |
 |---|---|
 | **Everyone** | Every player (global) |
-| **Near the speaker or a point** | Players within a radius. The default is the **hearing distance** of the Gameplay Config |
+| **Near the speaker or a point** | Players within a radius. The default is the **range of the channel** the line is on (Say 10 m, Yell 30 m, Emote 10 m) |
 | **Players in a region** | Only a player who is in that [region](/basic/world/regions) |
 | **The player who triggered it** | The one who used the switch or talked to the NPC |
 
-The default depends on the source: the line of an NPC goes to the players within hearing distance (a distant NPC does not fill the chat), the line of a switch goes to the one who used it, the line of an event goes to everyone unless it names an area.
+The default depends on the source: the line of an NPC goes to the players within the range of its channel (a distant NPC does not fill the chat), the line of a switch goes to the one who used it, the line of an event goes to everyone unless it names an area.
 
 The text of a line is translatable like the text of a quest or a conversation, and it is written when it arrives, with the display names of the entities in the language of the player.
 
@@ -160,7 +176,7 @@ An **emote** is a definition in the project (a database type) for the commands a
 | **Animation**, **sound** | Both optional |
 | **Target mode** | **None**: the emote never uses a target. **Optional**: the target texts are used when the player has a target, else the others. **Required**: with no target the player gets *You need a target* |
 | **Range** | How far the target can be |
-| **Audience** | How far the line is heard (the hearing distance by default) |
+| **Audience** | How far the line is heard (the range of its channel by default) |
 | **Texts** | One text for each way the line is read (below) |
 
 | Who reads it | No target | With a target |
@@ -175,16 +191,54 @@ An **emote** is a definition in the project (a database type) for the commands a
 - The toolkit ships a small **starter set** (wave, bow, laugh, cheer, shrug) with text only, because the animations belong to your characters.
 - **Where they are edited:** an emote is a database type, because the pickers of NPCs, events and interactions, and the keys of the translation tables, work with ids. It has a small editor tab (a list and a form), like the other definitions. The **channel list** is a page of the Game Settings (**Chat**), where the toolkit's channels can be changed and new ones added. A folder of loose resource files with no editor was considered and left out: it has no unique ids, no picker and no translation keys.
 
+## Talking channels
+
+A channel can be one a player **types into**. Such a channel has:
+
+| Setting | What it does |
+|---|---|
+| **Command** | `/say` (`/s`), `/yell` (`/y`), `/party` (`/p`), `/guild` (`/g`) ... and an alias list |
+| **Who receives it** | One rule (below) |
+| **Range** | For a proximity channel, the distance in metres |
+| **Membership** | Fixed (you are in your party, your guild), or **joined** by the player (a public or private channel) |
+| **Language** | Whether what is said is carried in a [language](#languages) |
+
+**Who receives it** is one of:
+
+| Rule | Examples |
+|---|---|
+| **Proximity** | **Say** reaches 10 m, **Yell** 30 m. Players beyond the range do not get the line |
+| **Zone** | Only players in the same [region](/basic/world/regions) or world: a *Local defense* or *Zone* channel |
+| **Group** | The members of a party, a raid, a guild or an officers' group: *Party*, *Raid*, *Guild*, *Officer* |
+| **Everyone** | A *Global* or *Trade* channel |
+| **Private** | **`/whisper <player> <text>`** goes to one player, and the sender sees what they sent |
+| **Joined channels** | A player makes one with `/create channel <name>` and others take part with `/join <name>`; `/leave`, `/invite` and the owner's controls follow |
+
+- **A game ships the ones it needs.** A single-player game uses Say, Yell, Emote and Party (the companions' lines). Guild, raid, world, trade and joined channels can all be **created** in the Chat page, but they carry messages **between players**, which needs a network (see [Multiplayer](#multiplayer)). The data and the commands exist; the carrying does not.
+- The **range of the lines** of NPCs, events and interactions (see [Who receives a line](#who-receives-a-line)) comes from the channel they are on, so a growl on Emote and a shout on Yell have their own distances.
+- **Moderation** (mute, ignore, a word filter) belongs to the network step and is not designed yet.
+
+## Languages
+
+Entities can speak **languages** of the game world, and a listener who does not know the language gets the line **in a garbled form**, as in an MMO. (They are the languages of the world: Common, Orcish, Elvish. They are not the languages of the game's translation, see [Localization](/basic/game-settings/localization).)
+
+- A **language** is a definition with a name and a list of syllables or words. A line in a language that the listener does not know is made from those syllables, the same way every time (*Lok'tar ogar zug*), so the same words always read the same.
+- An entity has the languages it **knows**, and the one it **speaks**. A character can learn a language from its race (character creation), a class, an item or an effect. An NPC definition has the same two settings.
+- A **line** (say, yell, emote with a text, a conversation chat) can name the language it is spoken in. Who knows it reads the text; who does not reads the garbled one, in the chat, in the speech bubble and in the subtitle. A voice line still plays; whether it plays for a listener who does not know the language is an option of the line.
+- A player chooses what they speak with `/language <name>`.
+- Knowing a language is yes or no. A partial understanding (a skill that grows) could come later.
+
 ## Typing and commands (second step)
 
 - **Enter** opens a line to type in. A line that starts with **/** is a **command**.
 - A plain line is **said** by the current character: it shows in the Say channel and above their head, and an [event](/basic/events-and-quests/events) trigger can react to it (an NPC that answers a word). A single-player game uses this for emotes and for the developer's own commands; it is not a network chat.
+- **Channel commands** are the commands of the [talking channels](#talking-channels) above: `/s`, `/y`, `/p`, `/g`, `/whisper`, `/create channel`, `/join`, `/leave`, `/language`.
 - **Emote commands** are the emotes of the library: `/wave`, `/wave` with a target selected.
 - **Developer commands** (cheats) are commands that exist only when a switch in the **Gameplay Config** is on: give an item, set the level, add game time and so on. Commands are registered one by one, so a game adds its own.
 
 ## Multiplayer
 
-The combat event and the single entrance of the message manager (`ingest(event)`) are built so that a future networked game does not have to change the viewers: today the local recorder calls `ingest`, and a client would call it when the server sends an event. Each client writes the lines in its own language. Multiplayer itself is **not planned**; see the roadmap for what stands in the way.
+The combat event and the single entrance of the message manager (`ingest(event)`) are built so that a future networked game does not have to change the viewers: today the local recorder calls `ingest`, and a client would call it when the server sends an event. Each client writes the lines in its own language. The talking channels are made the same way: **who receives a line** is a rule on the channel, so a server could apply it and send each client its messages. Multiplayer itself is **not planned**; see the roadmap for what stands in the way.
 
 ## Still undecided
 
@@ -194,8 +248,8 @@ The combat event and the single entrance of the message manager (`ingest(event)`
 ## Order of work
 
 1. The message manager, the channels, the viewer base class, the listeners for the events of the game, the chat box with tabs, the combat events and the recorder, the detail and keep settings. **Lines** (say and emote from interactions, NPC actions and events, with their audiences, the speech bubble viewer) and the emote library come in this step too: a line only posts a message.
-2. Typing, commands, the player's emote commands, the developer commands.
-3. Links to items and abilities in a message (hover for the tooltip), the combat report window, the file export.
+2. Typing, commands, the talking channels that work in a single-player game (Say, Yell, Party), the player's emote commands, languages, the developer commands.
+3. The channels that need a network (guild, raid, world, joined channels, whisper between players, moderation), links to items and abilities in a message (hover for the tooltip), the combat report window, the file export.
 
 ## See also
 
