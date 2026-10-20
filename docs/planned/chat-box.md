@@ -115,11 +115,71 @@ A second setting says what happens to the log of a fight:
 
 A per-fight size cap stops a long fight from growing without end. A developer can **export a fight to a file** (JSON or CSV), and a timeline view for tuning boss fights is a later tool.
 
+## Lines: say and emote
+
+A **line** is something an entity says, or something that is described. *Say* and *emote* are one thing with a **kind** switch, not two systems:
+
+| | Say | Emote |
+|---|---|---|
+| **Text** | `Guard: Halt!` | `The guard yawns.`, or with no speaker `The ground rumbles.` |
+| **Speaker** | An entity | An entity, or nobody |
+| **Animation** | Optional | Optional, usually the point |
+| **Sound** | Plays on the Voice channel, with a subtitle | A 3D sound effect at the speaker or at a point (a growl, a click) |
+| **Chat channel** | Say | Emote |
+| **Over the head** | A speech bubble | The same bubble in another style, or none |
+
+The **Speak interaction** (text, voice line, animation, floating label) is the first front door and gets a **Kind** switch. The floating text above the entity becomes a **viewer** of the Say and Emote channels, as the chat box is, so the label code leaves the interaction.
+
+### Where lines come from
+
+- **Interactions** of NPCs and of [interactables](/basic/entities/interactables): a switch can emote *The lever clicks into place.* with no speaker and no animation.
+- **NPC actions:** a behavior task (like Idle, Wander, Patrol) or a combat action (like Delay) says or emotes a line: the guard yawns while he idles, the boss roars at half health.
+- **An event action:** a line with a speaker (an NPC by unique id) or none, and an audience.
+- **The player's typed emotes** (`/wave`), below.
+
+### Who receives a line
+
+| Audience | Who gets it |
+|---|---|
+| **Everyone** | Every player (global) |
+| **Near the speaker or a point** | Players within a radius. The default is the **hearing distance** of the Gameplay Config |
+| **Players in a region** | Only a player who is in that [region](/basic/world/regions) |
+| **The player who triggered it** | The one who used the switch or talked to the NPC |
+
+The default depends on the source: the line of an NPC goes to the players within hearing distance (a distant NPC does not fill the chat), the line of a switch goes to the one who used it, the line of an event goes to everyone unless it names an area.
+
+The text of a line is translatable like the text of a quest or a conversation, and it is written when it arrives, with the display names of the entities in the language of the player.
+
+## Emotes
+
+An **emote** is a definition in the project (a database type) for the commands a player types, and a library that the lines of NPCs, events and interactions can pick from. A line can also be written by hand ("custom") when it is a one-off.
+
+| Field | What it does |
+|---|---|
+| **Command** | `wave` for `/wave`. A list of **aliases** lets a translated game add its own word |
+| **Animation**, **sound** | Both optional |
+| **Target mode** | **None**: the emote never uses a target. **Optional**: the target texts are used when the player has a target, else the others. **Required**: with no target the player gets *You need a target* |
+| **Range** | How far the target can be |
+| **Audience** | How far the line is heard (the hearing distance by default) |
+| **Texts** | One text for each way the line is read (below) |
+
+| Who reads it | No target | With a target |
+|---|---|---|
+| **Everyone else** | `<user> waves.` | `<user> waves to <target name>.` |
+| **The one who does it** | `You wave.` | `You wave to <target name>.` |
+| **The target** | (none) | `<user> waves to you.` (empty = the text of everyone else) |
+
+- The first-person texts are separate because one template cannot turn *waves* into *wave* in every language. When one is empty, the third-person text is used.
+- `<user>` (who does it) and `<target name>` (the other) are new [text tokens](/basic/shared-systems/text-tokens), listed in the tooltips of the editor like the others. They are the display names of the entities, in the language of the player. (`<target>` is taken: it is the number of an objective.)
+- An NPC, event or interaction line that **picks an emote** from the library takes its animation, sound and texts from it (each can be overridden), so `/wave` and *the guard waves at you* share one definition and one translation.
+- The toolkit ships a small **starter set** (wave, bow, laugh, cheer, shrug) with text only, because the animations belong to your characters.
+- **Where they are edited:** an emote is a database type, because the pickers of NPCs, events and interactions, and the keys of the translation tables, work with ids. It has a small editor tab (a list and a form), like the other definitions. The **channel list** is a page of the Game Settings (**Chat**), where the toolkit's channels can be changed and new ones added. A folder of loose resource files with no editor was considered and left out: it has no unique ids, no picker and no translation keys.
+
 ## Typing and commands (second step)
 
 - **Enter** opens a line to type in. A line that starts with **/** is a **command**.
 - A plain line is **said** by the current character: it shows in the Say channel and above their head, and an [event](/basic/events-and-quests/events) trigger can react to it (an NPC that answers a word). A single-player game uses this for emotes and for the developer's own commands; it is not a network chat.
-- **Emotes** are commands that make the character **play an animation** and write a line: `/wave` shows *Mira waves.* A game defines its emotes: a name, an animation and the text for *to everyone* and *to a target*. An event action makes an NPC do an emote.
+- **Emote commands** are the emotes of the library: `/wave`, `/wave` with a target selected.
 - **Developer commands** (cheats) are commands that exist only when a switch in the **Gameplay Config** is on: give an item, set the level, add game time and so on. Commands are registered one by one, so a game adds its own.
 
 ## Multiplayer
@@ -128,15 +188,14 @@ The combat event and the single entrance of the message manager (`ingest(event)`
 
 ## Still undecided
 
-- Where **emotes** are authored: a list in the Gameplay Config or a database type of their own.
 - The exact list of **channels** the toolkit ships with, and which ones are also fading messages and kept in the save by default.
 - Whether damage over time is **combined** into one line per second.
 
 ## Order of work
 
-1. The message manager, the channels, the viewer base class, the listeners for the events of the game, the chat box with tabs, the combat events and the recorder, the detail and keep settings.
-2. Typing, commands, the developer commands.
-3. Emotes, links to items and abilities in a message (hover for the tooltip), the combat report window, the file export.
+1. The message manager, the channels, the viewer base class, the listeners for the events of the game, the chat box with tabs, the combat events and the recorder, the detail and keep settings. **Lines** (say and emote from interactions, NPC actions and events, with their audiences, the speech bubble viewer) and the emote library come in this step too: a line only posts a message.
+2. Typing, commands, the player's emote commands, the developer commands.
+3. Links to items and abilities in a message (hover for the tooltip), the combat report window, the file export.
 
 ## See also
 
