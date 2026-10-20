@@ -61,6 +61,42 @@ export const groups = [
     ]
   },
   {
+    "text": "Chat settings",
+    "slug": "chat",
+    "classes": [
+      {
+        "name": "ChatChannel",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\chat\\chat_channel.gd",
+        "file": "data_classes/chat/chat_channel.gd"
+      },
+      {
+        "name": "ChatConfig",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\chat\\chat_config.gd",
+        "file": "data_classes/chat/chat_config.gd"
+      },
+      {
+        "name": "ChatMessage",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\chat\\chat_message.gd",
+        "file": "data_classes/chat/chat_message.gd"
+      },
+      {
+        "name": "EmoteDefinition",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\chat\\emote_definition.gd",
+        "file": "data_classes/chat/emote_definition.gd"
+      },
+      {
+        "name": "SpeechLine",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\chat\\speech_line.gd",
+        "file": "data_classes/chat/speech_line.gd"
+      }
+    ]
+  },
+  {
     "text": "Settings (runtime)",
     "slug": "settings-runtime",
     "classes": [

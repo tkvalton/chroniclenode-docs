@@ -13,6 +13,7 @@ Complete combat orchestration system that handles damage calculations, effect po
 | `CombatCalculations` | [combat_calculations](#var-combat-calculations) |  |
 | `EffectInstancePool` | [effect_instance_pool](#var-effect-instance-pool) |  |
 | `CombatLogManager` | [combat_log_manager](#var-combat-log-manager) |  |
+| `CombatEventRecorder` | [event_recorder](#var-event-recorder) |  |
 | `VFXManager` | [vfx_manager](#var-vfx-manager) |  |
 | `Dictionary` | [active_encounters](#var-active-encounters) | `{}` |
 | `Dictionary` | [entity_to_encounter_map](#var-entity-to-encounter-map) | `{}` |
@@ -107,6 +108,10 @@ Pool for reusing effect instances
 ### CombatLogManager combat_log_manager {#var-combat-log-manager}
 
 Manager for combat logging and history
+
+### CombatEventRecorder event_recorder {#var-event-recorder}
+
+Builds the combat events (the record of a fight and the lines of the combat channels)
 
 ### VFXManager vfx_manager {#var-vfx-manager}
 

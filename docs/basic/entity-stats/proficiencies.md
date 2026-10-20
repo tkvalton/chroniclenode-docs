@@ -38,6 +38,10 @@ These lists use **your own** weapon classes, weapon types and armor classes (the
 
 Each of these lists is a **tag picker** (see [the editor tour](/general/editor-tour#choosing-from-a-list-the-tag-picker)): what you picked shows as tags with an **x**, and **Add...** opens a searchable list.
 
+### Language
+
+A proficiency can be a **language** of the game world (Common, Orcish). Tick **This proficiency is a language** and list its **syllables**: the garbled words of the language are made of them (empty = a default list). The level is how much of the language a character understands, and a character gains experience in it by hearing it. See [Chat > Languages](/basic/game-settings/chat#languages).
+
 ### Gaining experience
 
 | Field | What it does | Default |

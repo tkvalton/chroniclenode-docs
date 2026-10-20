@@ -124,6 +124,12 @@ How long an entity can stay under water. A [movement volume](/basic/world/moveme
 
 The player sees the breath in the **breath bar** of the [HUD](/basic/user-interface/hud), which shows while the breath is not full.
 
+### Developer
+
+| Field | What it does | Default |
+|---|---|---|
+| **Developer commands** | The developer commands of the [chat box](/basic/game-settings/chat#developer-commands) (`/give`, `/xp`, `/level`, `/money`, `/addtime`, `/settime`, `/quest`). Turn it off for a release | off |
+
 ### Save/Load rules
 
 | Field | What it does | Default |

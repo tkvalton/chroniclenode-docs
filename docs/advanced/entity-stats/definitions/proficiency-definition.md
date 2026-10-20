@@ -24,6 +24,8 @@ A proficiency has a level from 0 to `max_level`. Its experience comes from use (
 | `Array[int]` | [schools](#prop-schools) | `[]` |
 | `Array[SkillTier]` | [tiers](#prop-tiers) | `[]` |
 | `Array[SkillSpecialization]` | [specializations](#prop-specializations) | `[]` |
+| `bool` | [is_language](#prop-is-language) | `false` |
+| `PackedStringArray` | [syllables](#prop-syllables) | `PackedStringArray()` |
 | `float` | [experience_per_use](#prop-experience-per-use) | `1.0` |
 | `float` | [minimum_seconds_between_gains](#prop-minimum-seconds-between-gains) | `0.0` |
 | `int` | [level_needed_to_equip](#prop-level-needed-to-equip) | `0` |
@@ -95,6 +97,16 @@ The steps of the proficiency (Apprentice, Journeyman, Master). A character is in
 ### Array[SkillSpecialization] specializations = [] {#prop-specializations}
 
 The choices inside the proficiency (a branch to master). A character chooses with a trainer, a quest or an event
+
+*Language*
+
+### bool is_language = false {#prop-is-language}
+
+This proficiency is a language of the game world (Common, Orcish). The level is how much of it the character understands: the share of the words of a line that stay readable is the level divided by the highest level; the rest is garbled. A character gains experience in it by hearing it
+
+### PackedStringArray syllables = PackedStringArray() {#prop-syllables}
+
+The syllables the garbled words of the language are made of (empty = a default list)
 
 *Gaining experience*
 

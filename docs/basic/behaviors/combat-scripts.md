@@ -85,6 +85,7 @@ The kinds:
 | **Retreat** | Moves away from the target by a distance |
 | **Keep Distance** | Holds a distance, moving closer or farther, for ranged enemies |
 | **Strafe** | Circles the target while still facing it |
+| **Say or Emote** | Says a line or does an emote in the fight (the boss roars at half health). See [Chat > Lines](/basic/game-settings/chat#lines) |
 | **Switch to Highest Threat** | Goes back to the target the threat table prefers |
 | **Switch to Enemy**, **Switch to Ally** | Picks another target by criteria: nearest, lowest health, with or without an effect |
 | **Clear Target** | Drops the target and searches again |

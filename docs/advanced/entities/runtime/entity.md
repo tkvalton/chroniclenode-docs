@@ -125,6 +125,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `Array[UITagDefinition]` | [get_ui_tags](#method-get-ui-tags)() |
 | `bool` | [has_ui_tag](#method-has-ui-tag)( `tag: Variant` ) |
 | `int` | [get_proficiency_level](#method-get-proficiency-level)( `proficiency_id: int` ) |
+| `int` | [get_spoken_language_id](#method-get-spoken-language-id)() |
 | `bool` | [has_entity_tag](#method-has-entity-tag)( `tag_id: int` ) |
 | `void` | [add_entity_tag](#method-add-entity-tag)( `tag_id: int` ) |
 | `void` | [remove_entity_tag](#method-remove-entity-tag)( `tag_id: int` ) |
@@ -980,6 +981,10 @@ Does the entity have this entity tag? By the key of the tag ("boss") or its id
 ### int get_proficiency_level( proficiency_id: int ) {#method-get-proficiency-level}
 
 The level of a proficiency (swords, heavy armor, lockpicking). Only players train proficiencies; any other entity has the starting level of the proficiency. Player overrides this. Conditions and requirements ask this, and a UI can too
+
+### int get_spoken_language_id() {#method-get-spoken-language-id}
+
+The language this entity speaks (the id of a language proficiency), 0 = none. An NPC speaks the language of its definition
 
 ### bool has_entity_tag( tag_id: int ) {#method-has-entity-tag}
 

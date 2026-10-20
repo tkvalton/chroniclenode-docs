@@ -59,6 +59,7 @@ A full-screen root Control left at the default STOP swallows every world click. 
 | `void` | [open_window](#method-open-window)( `window: Control` ) |
 | `void` | [close_window](#method-close-window)( `window: Control` ) |
 | `void` | [update_ui_menu_state](#method-update-ui-menu-state)() |
+| `bool` | [has_open_windows](#method-has-open-windows)() |
 | `void` | [close_all_windows](#method-close-all-windows)() |
 | `void` | [toggle_conversation_panel](#method-toggle-conversation-panel)( `conversation: ConversationInstance = null, starting_chat: ConversationChat = null, interaction: ConversationInteraction = null` ) |
 | `void` | [open_vendor_panel](#method-open-vendor-panel)( `vendor_inventory: VendorInventoryComponent, player: Entity` ) |
@@ -186,9 +187,13 @@ Closes a specific window
 
 Update the UI menu state based on open windows. A window of screen space 0 (a map) is not a menu: it does not count
 
+### bool has_open_windows() {#method-has-open-windows}
+
+Is any window open, a window of screen space 0 too? (Esc closes them all)
+
 ### void close_all_windows() {#method-close-all-windows}
 
-Closes all open windows (Esc). A window of screen space 0 stays: it closes with its own key or button
+Closes all open windows (Esc), those of screen space 0 too
 
 ### void toggle_conversation_panel( conversation: ConversationInstance = null, starting_chat: ConversationChat = null, interaction: ConversationInteraction = null ) {#method-toggle-conversation-panel}
 

@@ -755,6 +755,12 @@ export const groups = [
         "file": "data_classes/events/event_actions/entity/remove_effect_from_entity_action.gd"
       },
       {
+        "name": "SayAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\entity\\say_action.gd",
+        "file": "data_classes/events/event_actions/entity/say_action.gd"
+      },
+      {
         "name": "SetEntityActiveStateAction",
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\entity\\set_entity_active_action.gd",

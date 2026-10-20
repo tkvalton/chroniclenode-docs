@@ -23,6 +23,7 @@ A type that is not here has no text for the player (events, conversations (their
 | `void` | [assign_keys](#method-assign-keys)( `resource: DatabaseResource` ) *static* |
 | `void` | [assign_action_keys](#method-assign-action-keys)( `prefix: String, actions: Array` ) *static* |
 | `void` | [assign_config_keys](#method-assign-config-keys)( `config: GameplayConfig` ) *static* |
+| `void` | [assign_chat_keys](#method-assign-chat-keys)( `config: ChatConfig` ) *static* |
 
 ## Constants
 
@@ -55,4 +56,8 @@ Gives the actions of a list (and the actions inside an If or a Switch) their key
 ### void assign_config_keys( config: GameplayConfig ) {#method-assign-config-keys}
 
 The inventory styles of the Gameplay Config (the characters, the NPCs and the containers): the names of their encumbrance steps are translated
+
+### void assign_chat_keys( config: ChatConfig ) {#method-assign-chat-keys}
+
+Gives the channels of the chat settings the keys of their name and text: chat/&lt;id&gt;/display_name and chat/&lt;id&gt;/template
 

@@ -51,7 +51,7 @@ The text of a tooltip that lists the tokens: put it on a text field that can use
 
 ### String format( text: String, context: Dictionary = &#123;&#125; ) {#method-format}
 
-The text with every token filled in. Context: "player" (an Entity; the one in control when not given), "npc" (an Entity), "quest" (a Quest), "objective" (a QuestObjective)
+The text with every token filled in. Context: "player" (an Entity; the one in control when not given), "npc" (an Entity), "quest" (a Quest), "objective" (a QuestObjective), "emote_user" and "emote_target" (entities, for the text of a line or an emote)
 
 ### PackedStringArray find_unknown( text: String ) {#method-find-unknown}
 

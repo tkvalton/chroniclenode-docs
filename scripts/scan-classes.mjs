@@ -348,6 +348,7 @@ const SYSTEMS = {
     title: 'Game Settings',
     groups: [
       { text: 'Configuration', slug: 'config', dirs: [['data_classes/settings', false], ['editor_settings.gd', false]] },
+      { text: 'Chat settings', slug: 'chat', dirs: [['data_classes/chat', false]] },
       { text: 'Settings (runtime)', slug: 'settings-runtime', dirs: [['runtime_classes/settings', true]] },
       {
         text: 'Localization',
@@ -409,7 +410,7 @@ const SYSTEMS = {
         ],
       },
       { text: 'Nameplates', slug: 'nameplates', dirs: [['ui_scenes/in_game/nameplates_manager.gd', false], ['ui_scenes/in_game/HUD/components/nameplates', false]] },
-      { text: 'HUD', slug: 'hud', dirs: [['ui_scenes/in_game/HUD', true]] },
+      { text: 'HUD', slug: 'hud', dirs: [['ui_scenes/in_game/HUD', true], ['ui_scenes/in_game/chat', false]] },
       { text: 'Interaction panels', slug: 'interaction-panels', dirs: [['ui_scenes/in_game/panels/interaction_panels', true]] },
       { text: 'UI panels', slug: 'panels', dirs: [['ui_scenes/in_game/panels', true]] },
       { text: 'Tooltips', slug: 'tooltips', dirs: [['ui_scenes/in_game/tooltips', true]] },

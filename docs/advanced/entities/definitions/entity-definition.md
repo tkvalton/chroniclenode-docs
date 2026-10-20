@@ -20,6 +20,7 @@ EntityDefinition contains all visual, audio, and display configuration for entit
 | `String` | [selected_voice_type](#prop-selected-voice-type) | `""` |
 | `String` | [footstep_entity_type](#prop-footstep-entity-type) | `""` |
 | `Array[int]` | [entity_tags](#prop-entity-tags) | `[]` |
+| `int` | [spoken_language_id](#prop-spoken-language-id) | `0` |
 | `Array[int]` | [ui_tags](#prop-ui-tags) | `[]` |
 | `bool` | [template](#prop-template) | `false` |
 
@@ -105,6 +106,10 @@ Footstep audio entity type for DatabaseAudio lookup (e.g. "humanoid", "beast")
 ### Array[int] entity_tags = [] {#prop-entity-tags}
 
 Type tags of this kind of entity (Humanoid, Beast, Undead ...): EntityTagDefinition ids. Conditions read them
+
+### int spoken_language_id = 0 {#prop-spoken-language-id}
+
+The language this kind of entity speaks (the id of a proficiency that is a language). Its lines are in that language: a listener who does not understand it reads them garbled. 0 = none
 
 ### Array[int] ui_tags = [] {#prop-ui-tags}
 

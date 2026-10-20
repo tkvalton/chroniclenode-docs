@@ -1,7 +1,11 @@
 # Chat box, messages and the combat log
 
-::: warning Not built yet
-This page describes a planned feature. Today the [HUD](/basic/user-interface/hud) has a **combat log** and the interface has short **messages**; neither keeps what the player did. The design below is settled in its main lines; the details marked *open* are still to decide.
+::: warning Partly built
+**Built:** the message manager, the channels and the [Chat page](/basic/game-settings/chat), the viewers (the chat box with tabs, the fading messages), the messages for most events of the game (experience, level up, skill up, abilities, reputation, loot, currency, equipment, quests, party events), the combat events with the personal, party, friendly and hostile channels, the record of a fight, and the detail and keep settings. See [Chat](/basic/game-settings/chat).
+
+**Also built:** lines (say, yell and emote) from interactions, NPC tasks, combat actions and events, with their audiences, the emote library and its editor, the speech bubbles and the channel ranges, typing and commands (including the player's emote commands), the developer commands, and the languages (as proficiencies).
+
+**Not built yet:** the channels that carry messages between players (guild, raid, world, whisper, channels players make), moderation, the Detailed and Debug combat events, the translation of line texts in tasks, actions and events, links to items in a message, the combat report window and file export, and the skill ups of crafting professions in the chat.
 :::
 
 Everything the game wants to **tell the player** goes through one place, the **message manager**. What the player sees (a chat box with tabs, a level up toast, a warning label, a loot feed) is a **viewer** that listens to the **channels** it is given. The combat log is not a separate system: it is a tab of the chat box.
@@ -27,7 +31,7 @@ The channels the toolkit ships with are listed [below](#the-channels-the-toolkit
 ### Viewers
 
 - **One base class** holds the channels, the line limit and one method that is called with each new message. A viewer of your own extends it, ticks its channels in the inspector and overrides that method.
-- The **warning label** and the other message labels become viewers of the System, Warning and Highlight channels. The calls that exist today (`ui_manager.message()`, `warning_message()`, `yellow_message()`, `InstanceUtility.warn_player()`) keep working: they post to those channels.
+- The **warning label** and the other message labels become viewers of the System, Warning and Highlight channels. The calls that exist today (`ui_manager.message()`, `warning_message()`, `yellow_message()`, [`InstanceUtility.warn_player()`](/advanced/managers/utilities/instance-utility)) keep working: they post to those channels.
 - A **level up toast** is a scene set to the Level up channel. The message carries the new level, so the toast shows it and plays its animation. A **loot feed** does the same with the Loot channel.
 - The **chat box** is a viewer with **tabs**. A tab is a list of channels (and, for combat, a filter). The tabs and the **line limit** (`0` = no limit) are exports of the chat box scene. A player making their own tabs is a feature a game builds in its own interface.
 - The chat box is a **HUD element**, not a [window](/basic/user-interface/ui-panels): it is not opened or closed and takes no part in screen space.
@@ -38,7 +42,7 @@ The names, colours and flags are edited on the **Chat** page of the Game Setting
 
 | Group | Channels |
 |---|---|
-| **Combat** (by who) | **Combat (Personal)**, **Combat (Party)**, **Combat (Hostile)**. Each is filtered by the kind of event (see [Combat](#combat)) |
+| **Combat** (by who) | **Combat (Personal)**, **Combat (Party)**, **Combat (Friendly)**, **Combat (Hostile)**. Each is filtered by the kind of event (see [Combat](#combat)) |
 | **Progress** | **Experience**, **Level up** (also a fading message), **Skill up**, **Abilities** (learned, talent points), **Reputation** |
 | **Items and currency** | **Loot**, **Currency**, **Trade** (buying, selling, repairs), **Crafting**, **Equipment** (a piece breaks, is repaired; also a fading message) |
 | **World and story** | **Quest** (accepted, completed and failed are also fading messages), **Discovery** (entering an area, discovering a place; also a fading message), **Party events** (a member joins or leaves), **Dialogue** (the lines of a conversation, for review) |
@@ -76,9 +80,10 @@ The combat channels are about **who** the line is about:
 |---|---|
 | **Personal** | The character the player controls: what it does and what happens to it |
 | **Party** | A member of the party or a pet: what it does and what happens to it. A **personal line is also a party line**, so a Party tab shows everything and a Personal tab shows only the player |
+| **Friendly** | Everyone on the party's side in the fight: the party and also the allies that fight with it (a companion, a guard, a summoned helper). It is an **extended party channel**: a **party line is also a friendly line** |
 | **Hostile** | An enemy that is in the same fight as a party member: what it does and what happens to it |
 
-A viewer that shows both Personal and Party shows a line once. A line that has no one of the party in it, and no enemy in a fight with the party (two NPCs fighting across the map), is **not logged**.
+In a fight every entity is either **friendly** or **hostile** to the party; an entity that is in no fight is neither, and is not logged. A viewer that shows Personal, Party and Friendly shows a line once. A line that has no one of the party in it, no ally in the fight and no enemy in a fight with the party (two NPCs fighting across the map), is **not logged**.
 
 ### What happened: a filter
 
@@ -222,11 +227,11 @@ A channel can be one a player **types into**. Such a channel has:
 
 Entities can speak **languages** of the game world, and a listener who does not know the language gets the line **in a garbled form**, as in an MMO. (They are the languages of the world: Common, Orcish, Elvish. They are not the languages of the game's translation, see [Localization](/basic/game-settings/localization).)
 
-- A **language** is a definition with a name and a list of syllables or words. A line in a language that the listener does not know is made from those syllables, the same way every time (*Lok'tar ogar zug*), so the same words always read the same.
-- An entity has the languages it **knows**, and the one it **speaks**. A character can learn a language from its race (character creation), a class, an item or an effect. An NPC definition has the same two settings.
-- A **line** (say, yell, emote with a text, a conversation chat) can name the language it is spoken in. Who knows it reads the text; who does not reads the garbled one, in the chat, in the speech bubble and in the subtitle. A voice line still plays; whether it plays for a listener who does not know the language is an option of the line.
+- **A language is a [proficiency](/basic/entity-stats/proficiencies).** It has levels, so the understanding of a language **grows** with the level, like any proficiency, instead of being yes or no. A language also has a list of syllables or words that its garbled form is made of (*Lok'tar ogar zug*).
+- **How much is understood:** the share of the words that a listener reads is the level of the proficiency divided by its highest level. At level 0 the whole line is garbled, at the top level none of it. Each word is garbled or not by the same rule every time, so the same line always reads the same to the same listener, and the words come back one by one as the level rises.
+- **Who has what:** a character starts with the languages its race or class gives and learns the others like any proficiency (a trainer, an item, an effect, and by **hearing** the language: a garbled line gives a little experience in it). An NPC has a starting level, as for every proficiency. An entity also has the language it **speaks**.
+- A **line** (say, yell, emote with a text, a conversation chat) can name the language it is spoken in. The listener reads it by their level; the rest is garbled, in the chat, in the speech bubble and in the subtitle. A voice line still plays; whether it plays for a listener who understands little of the language is an option of the line.
 - A player chooses what they speak with `/language <name>`.
-- Knowing a language is yes or no. A partial understanding (a skill that grows) could come later.
 
 ## Typing and commands (second step)
 

@@ -51,6 +51,7 @@ Configuration for gameplay rules and mechanics
 | `int` | [quest_level_hard_gap](#prop-quest-level-hard-gap) | `3` |
 | `int` | [quest_level_deadly_gap](#prop-quest-level-deadly-gap) | `6` |
 | `bool` | [auto_track_quest_objectives](#prop-auto-track-quest-objectives) | `true` |
+| `bool` | [developer_commands](#prop-developer-commands) | `false` |
 | `bool` | [fog_of_war_enabled](#prop-fog-of-war-enabled) | `true` |
 | `int` | [fog_layers](#prop-fog-layers) | `2` |
 | `bool` | [fog_persist_exploration](#prop-fog-persist-exploration) | `true` |
@@ -140,6 +141,10 @@ Configuration for gameplay rules and mechanics
 | `bool` | [round_damage](#prop-round-damage) | `false` |
 | `CapacityRule` | [capacity_change_rule](#prop-capacity-change-rule) | `CapacityRule.KEEP_PERCENTAGE` |
 | `CapacityRule` | [level_up_capacity_rule](#prop-level-up-capacity-rule) | `CapacityRule.ADD_GAIN` |
+| `CombatEvent.Detail` | [combat_log_detail](#prop-combat-log-detail) | `CombatEvent.Detail.NORMAL` |
+| `CombatLogKeep` | [combat_log_keep](#prop-combat-log-keep) | `CombatLogKeep.DISCARD` |
+| `int` | [combat_log_keep_fights](#prop-combat-log-keep-fights) | `5` |
+| `int` | [combat_log_events_per_fight](#prop-combat-log-events-per-fight) | `2000` |
 | `bool` | [use_hit_system](#prop-use-hit-system) | `false` |
 | `float` | [melee_range](#prop-melee-range) | `5.0` |
 | `float` | [base_melee_hit_chance](#prop-base-melee-hit-chance) | `95.0` |
@@ -279,6 +284,14 @@ The options of death behavior: game over, respawn checkpoint, permadeath.
 - **GAME_OVER** = `0`
 - **RESPAWN_CHECKPOINT** = `1`
 - **PERMADEATH** = `2`
+
+### enum CombatLogKeep {#enum-combatlogkeep}
+
+What happens to the record of a fight when it ends (combat_log_keep)
+
+- **DISCARD** = `0`
+- **LAST_FIGHTS** = `1`
+- **PLAY_SESSION** = `2`
 
 ### enum QuestFailureRule {#enum-questfailurerule}
 
@@ -565,6 +578,12 @@ Quest levels above the player's level from which the quest is deadly
 ### bool auto_track_quest_objectives = true {#prop-auto-track-quest-objectives}
 
 Quest objectives tracked automatically
+
+*Developer*
+
+### bool developer_commands = false {#prop-developer-commands}
+
+The developer commands of the chat box (/give, /xp, /level, /money, /addtime, /settime, /quest). Turn them off for a release
 
 *Fog of War*
 
@@ -963,6 +982,24 @@ What happens to a pool's current value when its maximum changes from equipment, 
 ### CapacityRule level_up_capacity_rule = CapacityRule.ADD_GAIN {#prop-level-up-capacity-rule}
 
 What happens to the current value of a pool whose maximum grows because the entity levelled up (stat growth, see the stat editor's Level Growth). Add the gain: the level-up health is available at once
+
+*Combat Log*
+
+### CombatEvent.Detail combat_log_detail = CombatEvent.Detail.NORMAL {#prop-combat-log-detail}
+
+How much of a fight is recorded: Off, Critical (deaths, critical hits, kills), Normal (damage, healing, avoids, casts, effects gained and lost), Detailed (every effect, pool, cooldown and target change) or Debug (also movement and the decisions of the AI, for designing a fight). What a viewer shows is chosen by the viewer; this is what the game records at all
+
+### CombatLogKeep combat_log_keep = CombatLogKeep.DISCARD {#prop-combat-log-keep}
+
+What happens to the record of a fight when it ends. Discard: it is thrown away and a summary line stays in the chat. Keep the last fights: the last N are kept (for a combat report). Keep the play session: every fight until the game is closed
+
+### int combat_log_keep_fights = 5 {#prop-combat-log-keep-fights}
+
+For "keep the last fights": how many fights
+
+### int combat_log_events_per_fight = 2000 {#prop-combat-log-events-per-fight}
+
+The most events one fight records (the oldest are dropped past it), so a long fight cannot grow without end
 
 *Hit Rules*
 

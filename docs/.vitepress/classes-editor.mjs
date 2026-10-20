@@ -353,6 +353,12 @@ export const groups = [
         "file": "editor_components/editors/entities/character_editor.gd"
       },
       {
+        "name": "EmotesEditor",
+        "base": "ResourceEditor",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\emotes_editor.gd",
+        "file": "editor_components/editors/entities/emotes_editor.gd"
+      },
+      {
         "name": "EntityAbilitiesEditor",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\property_editors\\abilities_component_editor.gd",
@@ -693,6 +699,12 @@ export const groups = [
         "base": "ConfigEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\character_creation_config_editor.gd",
         "file": "editor_components/editors/settings/character_creation_config_editor.gd"
+      },
+      {
+        "name": "ChatEditor",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\chat_editor.gd",
+        "file": "editor_components/editors/settings/chat_editor.gd"
       },
       {
         "name": "CollisionLayerEditor",

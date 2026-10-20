@@ -45,6 +45,9 @@ Not managers, but used the same way from anywhere: the [`Database`](/advanced/da
 | Class | What it is |
 |---|---|
 | [AudioManager](/advanced/managers/managers/audio-manager) | Centralized audio system managing music, ambiance, and sound effects with pooled players and phased initialization for fast startup. |
+| [ChatCommands](/advanced/managers/managers/chat-commands) | What the player types in the chat box. |
+| [ChatListeners](/advanced/managers/managers/chat-listeners) | Turns what happens in the game into messages: it listens to the signals that exist already (a level up, an item received, a quest accepted ...) and posts a line to the right channel of the message manager, so no system has to know about the chat. |
+| [ChatManager](/advanced/managers/managers/chat-manager) | The **message manager**: everything the game wants to tell the player goes through here. |
 | [ChronoManager](/advanced/managers/managers/chrono-manager) | Centralized timer pool and game time management system. |
 | [FactionManager](/advanced/managers/managers/faction-manager) | FactionManager - Global singleton that orchestrates faction relationships Delegates logic to FactionDefinition instances and handles synchronization between factions Each faction manages its own runtime reputation; manager ensures both sides stay in sync |
 <!-- /classes -->
@@ -70,6 +73,8 @@ Not managers, but used the same way from anywhere: the [`Database`](/advanced/da
 | [PlayerUtility](/advanced/managers/utilities/player-utility) | Holds the player that is in control now (a static variable): `get_current_player` and `set_current_player`. |
 | [RangeQueryUtil](/advanced/managers/utilities/range-query-util) | RangeQueryUtil is a global system providing various helper functions for game logic, particularly focusing on spatial queries and entity relationships within the game world. |
 | [SceneStateReader](/advanced/managers/utilities/scene-state-reader) | Reads the nodes of a PackedScene from its saved state, without making the nodes. |
+| [SpeechDelivery](/advanced/managers/utilities/speech-delivery) | Delivers a line (SpeechLine) or an emote of the library (EmoteDefinition): the speaker plays the animation and the sound, and the players who are in the audience read the line in the chat. |
+| [SpeechLanguage](/advanced/managers/utilities/speech-language) | The languages of the game world (Common, Orcish, Elvish): a language is a **proficiency** with levels, so the understanding of it grows. |
 <!-- /classes -->
 
 ### Combat sessions
@@ -77,6 +82,8 @@ Not managers, but used the same way from anywhere: the [`Database`](/advanced/da
 <!-- classes:managers/combat -->
 | Class | What it is |
 |---|---|
+| [CombatEvent](/advanced/managers/combat/combat-event) | One record of something that happened in a fight: a hit, a heal, an effect gained, a death, a cast. |
+| [CombatEventRecorder](/advanced/managers/combat/combat-event-recorder) | Builds the **combat events** of the game, once each, and sends them to the two places that want them: the **combat session** (the record of the fight) and the **message manager** (lines in the combat channels). |
 | [CombatLogManager](/advanced/managers/combat/combat-log-manager) | CombatLogManager now receives comprehensive reports from CombatSystem |
 | [CombatSession](/advanced/managers/combat/combat-session) | CombatSession manages a single active combat encounter at runtime. |
 <!-- /classes -->

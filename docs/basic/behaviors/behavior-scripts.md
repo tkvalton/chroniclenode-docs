@@ -76,6 +76,7 @@ The kinds of task:
 | **Patrol** | Walk a list of waypoints: loop, ping-pong, random or once; wait at each |
 | **Follow Entity** | Follow an entity by its unique id, keeping a distance (or its formation spot) |
 | **Perform Animation** | Play a social animation (sit, drink, wave), optionally looped or at a position |
+| **Say or Emote** | Say a line or do an emote (a guard yawns, a merchant calls out). See [Chat > Lines](/basic/game-settings/chat#lines) |
 | **Use Ability** | Use an ability on the current target |
 | **Use Ability at Point** | Use a ground-targeted ability at a position |
 | **Interact with Object** | Walk to an [interactable](/basic/entities/interactables) and use it |

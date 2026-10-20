@@ -18,6 +18,7 @@ This class is designed to work with CombatSystem's encounter management. CombatS
 | `Array[Entity]` | [participants](#var-participants) | `[]` |
 | `float` | [start_time](#var-start-time) |  |
 | `bool` | [is_active](#var-is-active) | `false` |
+| `Array[CombatEvent]` | [events](#var-events) | `[]` |
 | `Vector3` | [encounter_center](#var-encounter-center) |  |
 | `float` | [max_join_distance](#var-max-join-distance) | `50.0` |
 | `Array[Encounter]` | [encounter_nodes](#var-encounter-nodes) | `[]` |
@@ -27,6 +28,7 @@ This class is designed to work with CombatSystem's encounter management. CombatS
 
 | | |
 |---|---|
+| `void` | [record_event](#method-record-event)( `event: CombatEvent, limit: int` ) |
 | `bool` | [add_participant](#method-add-participant)( `entity: Entity` ) |
 | `bool` | [remove_participant](#method-remove-participant)( `entity: Entity` ) |
 | `bool` | [add_encounter_node](#method-add-encounter-node)( `node: Encounter` ) |
@@ -97,6 +99,10 @@ When this encounter started (unix timestamp)
 
 Whether this encounter is currently active
 
+### Array[CombatEvent] events = [] {#var-events}
+
+What happened in the fight, oldest first (CombatEvent): the record of the fight. Bounded: the oldest are dropped past GameplayConfig.combat_log_events_per_fight
+
 ### Vector3 encounter_center {#var-encounter-center}
 
 Geographic center point of the encounter (for proximity checks)
@@ -114,6 +120,10 @@ References to unique encounter nodes (supports multiple unique encounters)
 All encounter reactions from unique encounters
 
 ## Method descriptions
+
+### void record_event( event: CombatEvent, limit: int ) {#method-record-event}
+
+Adds an event to the record of the fight
 
 ### bool add_participant( entity: Entity ) {#method-add-participant}
 

@@ -51,6 +51,7 @@ Key features:
 | `PartyManager` | [party_manager](#var-party-manager) |  |
 | `Array[Reward]` | [pending_rewards](#var-pending-rewards) | `[]` |
 | `ProficiencyTracker` | [proficiencies](#var-proficiencies) |  |
+| `int` | [chosen_language_id](#var-chosen-language-id) | `0` |
 | `bool` | [is_reserved](#var-is-reserved) | `false` |
 
 ## Methods
@@ -58,6 +59,7 @@ Key features:
 | | |
 |---|---|
 | `int` | [get_proficiency_level](#method-get-proficiency-level)( `proficiency_id: int` ) |
+| `int` | [get_spoken_language_id](#method-get-spoken-language-id)() |
 | `ProficiencyTracker` | [get_proficiencies](#method-get-proficiencies)() |
 | `void` | [set_reserved](#method-set-reserved)( `value: bool` ) |
 | `Dictionary` | [grant_reward](#method-grant-reward)( `reward: Reward, for_good: bool = false` ) |
@@ -138,6 +140,10 @@ Signal emitted when a reward could not be given (no room in the bag): it waits i
 ### reward_given( reward: Reward ) {#signal-reward-given}
 
 Signal emitted when a reward was given (also one that had waited)
+
+### experience_gained( amount: int ) {#signal-experience-gained}
+
+Emitted when the player gains experience, with what was gained (after the experience multiplier)
 
 ## Property descriptions
 
@@ -243,6 +249,10 @@ Rewards that could not be given yet (no room for an item): they wait here, are s
 
 The skill of the player in weapon types, armor classes, schools and any skill the game adds (see ProficiencyDefinition)
 
+### int chosen_language_id = 0 {#var-chosen-language-id}
+
+The language the player has chosen to speak (/language). 0 = the one of the character
+
 ### bool is_reserved = false {#var-is-reserved}
 
 Is this companion waiting in the reserve of the party (out of the world, not run by anything)?
@@ -252,6 +262,10 @@ Is this companion waiting in the reserve of the party (out of the world, not run
 ### int get_proficiency_level( proficiency_id: int ) {#method-get-proficiency-level}
 
 The level of a proficiency now, boosts included (see ProficiencyTracker.get_level)
+
+### int get_spoken_language_id() {#method-get-spoken-language-id}
+
+The language this character speaks: the one the player chose, else the one of its definition
 
 ### ProficiencyTracker get_proficiencies() {#method-get-proficiencies}
 

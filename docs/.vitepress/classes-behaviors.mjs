@@ -137,6 +137,12 @@ export const groups = [
         "file": "data_classes/entity/behavior_states/tasks/types/perform_animation_task.gd"
       },
       {
+        "name": "SayTask",
+        "base": "BehaviorTask",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\behavior_states\\tasks\\types\\say_task.gd",
+        "file": "data_classes/entity/behavior_states/tasks/types/say_task.gd"
+      },
+      {
         "name": "SetMetadataTask",
         "base": "BehaviorTask",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\behavior_states\\tasks\\types\\set_metadata_task.gd",
@@ -315,6 +321,12 @@ export const groups = [
         "base": "CombatAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\behavior_states\\combat_actions\\types\\retreat_action.gd",
         "file": "data_classes/entity/behavior_states/combat_actions/types/retreat_action.gd"
+      },
+      {
+        "name": "SayCombatAction",
+        "base": "CombatAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\behavior_states\\combat_actions\\types\\say_action.gd",
+        "file": "data_classes/entity/behavior_states/combat_actions/types/say_action.gd"
       },
       {
         "name": "SpawnInteractableCombatAction",

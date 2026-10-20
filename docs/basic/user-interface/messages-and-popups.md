@@ -14,7 +14,7 @@ A **message** is a short line shown near the top of the screen for a couple of s
 
 Any part of the interface can ask for one with the signals `message_requested(text)` and `warning_message_requested(text)` (every [HUD element](/basic/user-interface/hud#adding-your-own) and [panel](/basic/user-interface/ui-panels) has them), and code can call `ui_manager.message(text)`, `warning_message(text)` or `yellow_message(text)`.
 
-The messages are made by the [UI manager](/advanced/managers/game-host/ui-manager) itself, not by a scene, so they look the same in every interface. They are **not a log**: when they fade, they are gone. A **chat box** that keeps them (level ups, loot, experience, skill ups, emotes) is planned: [Chat box and combat log](/planned/chat-box).
+The messages are made by the [UI manager](/advanced/managers/game-host/ui-manager) itself, not by a scene, so they look the same in every interface. Every message is a line of a **channel** of the [message manager](/basic/game-settings/chat): `message()` posts to System, `yellow_message()` to Highlight and `warning_message()` to Warning, and the fading label shows every channel that is marked *Also show as a fading message* in the colour of its channel. The [chat box](/basic/user-interface/hud) keeps the lines, so they are not gone when they fade.
 
 ## Popups
 

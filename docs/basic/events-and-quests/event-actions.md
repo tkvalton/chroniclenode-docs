@@ -45,6 +45,7 @@ Spawn, move, activate, heal, kill, or change the behavior of NPCs.
 | [**Dismount Entity**](/advanced/events-and-quests/actions-entity/dismount-entity-action) (`DismountEntityAction`) | Get a placed NPC off what it rides |
 | [**Set Vehicle Hijackable**](/advanced/events-and-quests/actions-entity/set-vehicle-hijackable-action) (`SetVehicleHijackableAction`) | Open or close a vehicle to being hijacked, for a story step |
 | [**Set Entity Position**](/advanced/events-and-quests/actions-entity/set-entity-position-action) (`SetEntityPositionAction`) | Teleport/move an entity to a specific position |
+| [**Say Action**](/advanced/events-and-quests/actions-entity/say-action) (`SayAction`) | Makes an NPC say a line, or describes something with no speaker ("The ground rumbles."): see [Chat > Lines](/basic/game-settings/chat#lines) |
 | [**Spawn Entity**](/advanced/events-and-quests/actions-entity/spawn-entity-action) (`SpawnEntityAction`) | Spawn a new entity (NPC) at a specific position |
 
 ## Environment

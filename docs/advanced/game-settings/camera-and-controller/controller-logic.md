@@ -41,6 +41,7 @@ Child classes:
 |---|---|
 | `void` | [initialize](#method-initialize)( `p_system_hub: GameHost.SystemHub` ) |
 | `void` | [setup](#method-setup)( `controller: PlayerController` ) |
+| `bool` | [is_typing](#method-is-typing)() |
 | `bool` | [is_blocked_by_window](#method-is-blocked-by-window)() |
 | `void` | [process_input](#method-process-input)( `delta: float` ) |
 | `void` | [handle_input_event](#method-handle-input-event)( `event: InputEvent` ) |
@@ -134,6 +135,10 @@ Initialize with system hub reference - called by PlayerController
 ### void setup( controller: PlayerController ) {#method-setup}
 
 Setup controller behavior - override in child classes
+
+### bool is_typing() {#method-is-typing}
+
+Is the player typing in a text field (the chat box)? The keys are letters then, not movement or abilities
 
 ### bool is_blocked_by_window() {#method-is-blocked-by-window}
 

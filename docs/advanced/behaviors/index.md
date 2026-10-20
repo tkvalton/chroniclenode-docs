@@ -106,6 +106,7 @@ Texts, voice lines and display names are arrays with one entry per language.
 | [OpenContainerTask](/advanced/behaviors/tasks/open-container-task) | Open a specific container and optionally take/deposit items Enhanced with proper signal-based movement handling |
 | [PatrolTask](/advanced/behaviors/tasks/patrol-task) | Modern PatrolTask for entities that follow patrol routes. |
 | [PerformAnimationTask](/advanced/behaviors/tasks/perform-animation-task) | Simple PerformAnimationTask using AnimationSelection resources |
+| [SayTask](/advanced/behaviors/tasks/say-task) | The NPC says a line or does an emote: the guard yawns while he idles, the merchant calls out his wares. |
 | [SetMetadataTask](/advanced/behaviors/tasks/set-metadata-task) | Set, modify, or manipulate entity metadata with flexible operations |
 | [UseAbilityAtPointTask](/advanced/behaviors/tasks/use-ability-at-point-task) | UseAbilityAtPointTask uses a specific ability at a target point. |
 | [UseAbilityTask](/advanced/behaviors/tasks/use-ability-task) | UseAbilityTask uses a specific ability on the current target. |
@@ -146,6 +147,7 @@ Texts, voice lines and display names are arrays with one entry per language.
 | [MoveToAllyPositionAction](/advanced/behaviors/combat-actions/move-to-ally-position-action) | Moves to a specific ally's position based on criteria |
 | [MoveToPointAction](/advanced/behaviors/combat-actions/move-to-point-action) | MoveToPointAction commands the entity to move to a specific world position. |
 | [RetreatAction](/advanced/behaviors/combat-actions/retreat-action) | RetreatAction moves the entity away from their target by a specified distance. |
+| [SayCombatAction](/advanced/behaviors/combat-actions/say-combat-action) | The NPC says a line or does an emote in a fight: the boss roars at half health. |
 | [SpawnInteractableCombatAction](/advanced/behaviors/combat-actions/spawn-interactable-combat-action) | Spawns an interactable during combat at a specific position |
 | [SpawnNPCCombatAction](/advanced/behaviors/combat-actions/spawn-npc-combat-action) | Spawns an NPC during combat at a specific position |
 | [SpawnWorldEffectCombatAction](/advanced/behaviors/combat-actions/spawn-world-effect-combat-action) | Spawns a world effect at a specific position during combat |

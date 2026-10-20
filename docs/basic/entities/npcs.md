@@ -26,6 +26,7 @@ An NPC can **follow a [template](/basic/entities/templates)**: the stats, pools,
 | **Default level** | The level an NPC of this kind has when it spawns | `1` |
 | **Faction** | The [faction](/basic/behaviors/factions) of the NPC. It decides who attacks whom. **None** is a neutral creature that fights back only when it is attacked | none |
 | **Entity type** | The [type](/basic/types-and-groups/entity-types) of the creature (Beast, Undead). One type: picking another replaces it. The effects of the type are put on the NPC | none |
+| **Speaks** | The [language](/basic/game-settings/chat#languages) of the NPC's lines (a proficiency that is a language). A listener who does not understand it fully reads the lines garbled | none |
 | **Entity tags** | The [entity tags](/basic/types-and-groups/entity-tags) of the NPC (Boss, Elite, Rare): no effect on the NPC, only for the interface to read | none |
 
 ## Visual properties

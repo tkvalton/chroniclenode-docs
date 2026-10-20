@@ -18,6 +18,11 @@ Simple interaction that displays text and optionally plays a voice line
 | `float` | [text_visual_duration](#prop-text-visual-duration) | `5.0` |
 | `SFXSelection` | [voice_line_sfx](#prop-voice-line-sfx) |  |
 | `AnimationSelectionSocial` | [animation](#prop-animation) |  |
+| `SpeechLine.Kind` | [kind](#prop-kind) | `SpeechLine.Kind.SAY` |
+| `int` | [emote_id](#prop-emote-id) | `0` |
+| `SpeechLine.Audience` | [audience](#prop-audience) | `SpeechLine.Audience.TRIGGERER` |
+| `float` | [range_override](#prop-range-override) | `0.0` |
+| `int` | [region_id](#prop-region-id) | `0` |
 
 ## Variables
 
@@ -67,6 +72,28 @@ SFX selection for interaction audio
 ### AnimationSelectionSocial animation {#prop-animation}
 
 Animation to play on interact
+
+*Chat*
+
+### SpeechLine.Kind kind = SpeechLine.Kind.SAY {#prop-kind}
+
+Say, yell or emote: the channel the text is also written in (the chat box keeps it)
+
+### int emote_id = 0 {#prop-emote-id}
+
+An emote of the library (the id of an Emote) instead of a text of its own. 0 = the text above
+
+### SpeechLine.Audience audience = SpeechLine.Audience.TRIGGERER {#prop-audience}
+
+Who reads the line in the chat: by default the player who talked to it
+
+### float range_override = 0.0 {#prop-range-override}
+
+For *Near*: how far it is heard, in metres. 0 = the range of the channel
+
+### int region_id = 0 {#prop-region-id}
+
+For *Region*: the region the players have to be in
 
 ## Variable descriptions
 

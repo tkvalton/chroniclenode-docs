@@ -107,6 +107,24 @@ export const groups = [
         "file": "ui_scenes/in_game/HUD/components/cast_bar/cast_bar.gd"
       },
       {
+        "name": "ChatBox",
+        "base": "ChatViewer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\HUD\\chat_box\\chat_box.gd",
+        "file": "ui_scenes/in_game/HUD/chat_box/chat_box.gd"
+      },
+      {
+        "name": "ChatTab",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\HUD\\chat_box\\chat_tab.gd",
+        "file": "ui_scenes/in_game/HUD/chat_box/chat_tab.gd"
+      },
+      {
+        "name": "ChatViewer",
+        "base": "HUDUIElement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\chat\\chat_viewer.gd",
+        "file": "ui_scenes/in_game/chat/chat_viewer.gd"
+      },
+      {
         "name": "CombatLog",
         "base": "HUDUIElement",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\HUD\\combat_log\\combat_log.gd",
@@ -183,6 +201,12 @@ export const groups = [
         "base": "HUDUIElement",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\HUD\\quest_tracker\\quest_tracker_ui.gd",
         "file": "ui_scenes/in_game/HUD/quest_tracker/quest_tracker_ui.gd"
+      },
+      {
+        "name": "SpeechBubbles",
+        "base": "ChatViewer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\chat\\speech_bubbles.gd",
+        "file": "ui_scenes/in_game/chat/speech_bubbles.gd"
       },
       {
         "name": "SubtitlesUI",
@@ -504,7 +528,7 @@ export const groups = [
       },
       {
         "name": "MessagesManager",
-        "base": "Control",
+        "base": "ChatViewer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\message_manager.gd",
         "file": "ui_scenes/in_game/message_manager.gd"
       },

@@ -13,7 +13,7 @@ How to read it:
 
 ## The templates the toolkit provides
 
-84 scenes in `res://addons/chroniclenode/`, each with the class on its root node. Copy one next to your own scenes, change it and set it in [UI Settings](/basic/game-settings/ui-settings), or start from your own scene with the same root class.
+85 scenes in `res://addons/chroniclenode/`, each with the class on its root node. Copy one next to your own scenes, change it and set it in [UI Settings](/basic/game-settings/ui-settings), or start from your own scene with the same root class.
 
 | Area | Scene | Root class | What it is |
 |---|---|---|---|
@@ -21,6 +21,7 @@ How to read it:
 | HUD | `in_game/HUD/action_bar/buttons/action_bar_button_template.tscn` | [`ActionBarButton`](#class-action-bar-button) | Modern action bar button that handles both abilities and items |
 | HUD | `in_game/HUD/action_bar/buttons/action_bar_pool_bar_template.tscn` | [`PoolBarUI`](#class-pool-bar-ui) | UI component for displaying a single pool (health or resource) |
 | HUD | `in_game/HUD/breath_bar/breath_bar_ui_template.tscn` | [`BreathBarUI`](#class-breath-bar-ui) | The breath of the player that is played: a bar that shows while the breath is not full (under water, or just back from it) and goes again when it is |
+| HUD | `in_game/HUD/chat_box/chat_box.tscn` | [`ChatBox`](#class-chat-box) | The chat box: a HUD element with **tabs** |
 | HUD | `in_game/HUD/combat_log/combat_log_template.tscn` | [`CombatLog`](#class-combat-log) | This class manages the combat log interface, displaying various types of combat information |
 | HUD | `in_game/HUD/components/auras/aura_template.tscn` | [`Aura`](#class-aura) | Aura represents and manages a single status effect (buff or debuff) in the game's user interface |
 | HUD | `in_game/HUD/components/cast_bar/castbar_nameplate.tscn` | [`CastBar`](#class-cast-bar) | Modular cast bar component that can be used by ActionBarUI, Nameplate, or any UI Automatically connects to entity casting signals and manages its own display st |
@@ -685,6 +686,36 @@ Template scenes: `ui_scenes/in_game/HUD/components/cast_bar/castbar_nameplate.ts
 | `ability_label` | `Label` | Label showing ability name |
 | `timer_label` | `Label` | Label showing time remaining |
 | `tick_marker_container` | `Control` | Container for tick markers (Control overlay on progress bar) |
+
+### ChatBox {#class-chat-box}
+
+`ChatBox` extends `ChatViewer` ([class page](/advanced/user-interface/hud/chat-box))
+
+The chat box: a HUD element with **tabs**.
+
+Script: `ui_scenes/in_game/HUD/chat_box/chat_box.gd`
+
+Template scene: `ui_scenes/in_game/HUD/chat_box/chat_box.tscn`
+
+| Export | Type | What it is |
+|---|---|---|
+| `tabs` | `Array[ChatTab]` | The tabs of the box |
+| `show_time` | `bool` | Write the game time in front of each line |
+| `allow_typing` | `bool` | The player can type: Enter opens a line to type in, / opens it with a slash, Enter sends and Esc closes it. A line is said; a line that starts with a slash is a command |
+| `focus_key` | `Key` | The key that opens the line to type in |
+
+### ChatTab {#class-chat-tab}
+
+`ChatTab` extends `Resource` ([class page](/advanced/user-interface/hud/chat-tab))
+
+A tab of the chat box: a name, the channels it shows and, for the combat channels, the kinds of event it shows.
+
+Script: `ui_scenes/in_game/HUD/chat_box/chat_tab.gd`
+
+| Export | Type | What it is |
+|---|---|---|
+| `tab_name` | `String` | The name on the tab |
+| `channels` | `Array[String]` | The channels the tab shows (pick them in the list). A message that belongs to one of them is shown |
 
 ### CombatLog {#class-combat-log}
 
@@ -1889,6 +1920,19 @@ Signals: `splash_finished_signal`
 
 ## In game
 
+### ChatViewer {#class-chat-viewer}
+
+`ChatViewer` extends `HUDUIElement` ([class page](/advanced/user-interface/hud/chat-viewer))
+
+The base class of everything that **shows messages**: the chat box, a level up toast, the warning label, a loot feed.
+
+Script: `ui_scenes/in_game/chat/chat_viewer.gd`
+
+| Export | Type | What it is |
+|---|---|---|
+| `channels` | `Array[String]` | The channels this viewer shows (their ids: pick them in the list) |
+| `show_history_on_start` | `bool` | When the viewer is set up it also shows the lines the manager remembers for its channels (a viewer that appears late, a chat box that opens after a fight) |
+
 ### DebugMenu {#class-debug-menu}
 
 `DebugMenu` extends `Control` ([class page](/advanced/user-interface/in-game/debug-menu))
@@ -1986,9 +2030,9 @@ Template scene: `ui_scenes/in_game/in_game_ui_template.tscn`
 
 ### MessagesManager {#class-messages-manager}
 
-`MessagesManager` extends `Control` ([class page](/advanced/user-interface/in-game/messages-manager))
+`MessagesManager` extends `ChatViewer` ([class page](/advanced/user-interface/in-game/messages-manager))
 
-Displays temporary messages at the top of the screen.
+Displays the short messages that fade at the top of the screen: a viewer of every channel that is marked "also show as a fading message" in the Chat settings (System, Highlight, Warning, Level up, Quest ...).
 
 Script: `ui_scenes/in_game/message_manager.gd`
 
@@ -2003,6 +2047,16 @@ Manages the creation, positioning, and cleanup of UI nameplates for various enti
 Script: `ui_scenes/in_game/nameplates_manager.gd`
 
 Signals: `effect_tooltip_requested(effect: EffectInstance)`, `hide_tooltip(force_hide: bool)`
+
+### SpeechBubbles {#class-speech-bubbles}
+
+`SpeechBubbles` extends `ChatViewer` ([class page](/advanced/user-interface/hud/speech-bubbles))
+
+Shows what is said and described over the head of the one who says it: a text in the world that stays for a few seconds.
+
+Script: `ui_scenes/in_game/chat/speech_bubbles.gd`
+
+It looks for no nodes by name.
 
 ## Other
 

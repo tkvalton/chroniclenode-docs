@@ -11,6 +11,7 @@
 | [Controller & Camera](/basic/game-settings/controller-and-camera) | The camera and controls presets: third person with WASD, top-down, point and click |
 | [UI Settings](/basic/game-settings/ui-settings) | The cursors, minimap icons and **scenes** of the [interface](/basic/user-interface/), with a check of each scene and a list of the panels and their keys |
 | [Localization](/basic/game-settings/localization) | The languages of the game |
+| [Chat](/basic/game-settings/chat) | The channels of the message manager (names, colours, texts) that the chat box, toasts and labels show |
 
 Every editor of this chapter is made from the settings themselves, so each **category** or **group** is a section (a folding panel with its name as the title) and each setting is a row in it: the name on the left, the control on the right. The settings with many fields of their own (the inventory styles, the item budget) are sections inside the section.
 

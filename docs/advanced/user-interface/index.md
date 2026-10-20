@@ -93,6 +93,9 @@ The editor needs to know what an interface scene holds (to check the root class 
 | [Aura](/advanced/user-interface/hud/aura) | Aura represents and manages a single status effect (buff or debuff) in the game's user interface. |
 | [BreathBarUI](/advanced/user-interface/hud/breath-bar-ui) | The breath of the player that is played: a bar that shows while the breath is not full (under water, or just back from it) and goes again when it is. |
 | [CastBar](/advanced/user-interface/hud/cast-bar) | Modular cast bar component that can be used by ActionBarUI, Nameplate, or any UI Automatically connects to entity casting signals and manages its own display state |
+| [ChatBox](/advanced/user-interface/hud/chat-box) | The chat box: a HUD element with **tabs**. |
+| [ChatTab](/advanced/user-interface/hud/chat-tab) | A tab of the chat box: a name, the channels it shows and, for the combat channels, the kinds of event it shows. |
+| [ChatViewer](/advanced/user-interface/hud/chat-viewer) | The base class of everything that **shows messages**: the chat box, a level up toast, the warning label, a loot feed. |
 | [CombatLog](/advanced/user-interface/hud/combat-log) | This class manages the combat log interface, displaying various types of combat information. |
 | [DamageMeterUI](/advanced/user-interface/hud/damage-meter-ui) | This class manages the display of detailed combat statistics, including damage and healing done by each entity. |
 | [DamaterBarUI](/advanced/user-interface/hud/damater-bar-ui) | This class represents a details bar in the UI, typically used to display entity-specific information such as damage or healing amounts. |
@@ -106,6 +109,7 @@ The editor needs to know what an interface scene holds (to check the root class 
 | [QuestTrackerQuestUI](/advanced/user-interface/hud/quest-tracker-quest-ui) | One tracked quest in the quest tracker: the title of the quest and its objectives. |
 | [QuestTrackerQuestUIObjectiveLabel](/advanced/user-interface/hud/quest-tracker-quest-ui-objective-label) | One objective in the quest tracker: its text and its progress, with an animation (a color change) when it is completed. |
 | [QuestTrackerUI](/advanced/user-interface/hud/quest-tracker-ui) | QuestTrackerUI manages the on-screen display of tracked quests and their objectives. |
+| [SpeechBubbles](/advanced/user-interface/hud/speech-bubbles) | Shows what is said and described over the head of the one who says it: a text in the world that stays for a few seconds. |
 | [SubtitlesUI](/advanced/user-interface/hud/subtitles-ui) | The subtitles of the game: a container with the name of the speaker and the line that is said, at the bottom of the screen. |
 | [UnitFrame](/advanced/user-interface/hud/unit-frame) | This class serves as a base for different types of unit frames in the game UI. |
 <!-- /classes -->
@@ -194,7 +198,7 @@ The editor needs to know what an interface scene holds (to check the root class 
 | [DraggedContent](/advanced/user-interface/in-game/dragged-content) | Unified visual component for dragging both items AND abilities Pure display - NO LOGIC Replaces both DraggedItem and DraggedAbility |
 | [GameOverPanelUI](/advanced/user-interface/in-game/game-over-panel-ui) | GameOverPanelUI displays death/game over UI based on the game's death behavior setting. |
 | [InGameMenu](/advanced/user-interface/in-game/in-game-menu) | InGameMenu manages the pause menu during gameplay. |
-| [MessagesManager](/advanced/user-interface/in-game/messages-manager) | Displays temporary messages at the top of the screen. |
+| [MessagesManager](/advanced/user-interface/in-game/messages-manager) | Displays the short messages that fade at the top of the screen: a viewer of every channel that is marked "also show as a fading message" in the Chat settings (System, Highlight, Warning, Level up, Quest ...). |
 | [PopupUI](/advanced/user-interface/in-game/popup-ui) | The root of a popup scene. |
 <!-- /classes -->
 

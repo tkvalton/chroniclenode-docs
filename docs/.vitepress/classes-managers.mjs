@@ -41,6 +41,24 @@ export const groups = [
         "file": "runtime_classes/system_managers/audio_manager.gd"
       },
       {
+        "name": "ChatCommands",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\system_managers\\chat_commands.gd",
+        "file": "runtime_classes/system_managers/chat_commands.gd"
+      },
+      {
+        "name": "ChatListeners",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\system_managers\\chat_listeners.gd",
+        "file": "runtime_classes/system_managers/chat_listeners.gd"
+      },
+      {
+        "name": "ChatManager",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\system_managers\\chat_manager.gd",
+        "file": "runtime_classes/system_managers/chat_manager.gd"
+      },
+      {
         "name": "ChronoManager",
         "base": "Node",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\system_managers\\chrono_manager.gd",
@@ -117,6 +135,18 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\scene_state_reader.gd",
         "file": "runtime_classes/utility/scene_state_reader.gd"
+      },
+      {
+        "name": "SpeechDelivery",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\speech_delivery.gd",
+        "file": "runtime_classes/utility/speech_delivery.gd"
+      },
+      {
+        "name": "SpeechLanguage",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\speech_language.gd",
+        "file": "runtime_classes/utility/speech_language.gd"
       }
     ]
   },
@@ -124,6 +154,18 @@ export const groups = [
     "text": "Combat sessions",
     "slug": "combat",
     "classes": [
+      {
+        "name": "CombatEvent",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\combat\\combat_event.gd",
+        "file": "runtime_classes/combat/combat_event.gd"
+      },
+      {
+        "name": "CombatEventRecorder",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\combat\\combat_event_recorder.gd",
+        "file": "runtime_classes/combat/combat_event_recorder.gd"
+      },
       {
         "name": "CombatLogManager",
         "base": "RefCounted",

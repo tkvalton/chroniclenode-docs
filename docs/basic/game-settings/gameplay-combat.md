@@ -37,6 +37,19 @@ The **Combat** category of the [Gameplay Config](/basic/game-settings/gameplay-c
 | **Minimum damage** | The smallest damage a landed hit can end with. `0` = armor can reduce a hit to nothing | `0` |
 | **Round damage** | Round the final damage to whole numbers | off |
 
+### Combat log
+
+How much of a fight is recorded and what happens to the record. What the player sees is chosen by the [chat box](/basic/game-settings/chat#combat); this is what the game records at all.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Combat log detail** | **Off**: nothing. **Critical**: deaths, critical hits and kills. **Normal**: damage, healing, avoids, casts, effects gained and lost. **Detailed**: also every effect, pool, cooldown and target change. **Debug**: also movement and the decisions of the AI, for designing and debugging a fight | Normal |
+| **Combat log keep** | What happens to the record of a fight when it ends. **Discard**: it is thrown away and a summary line stays in the chat. **Last fights**: the last N are kept. **Play session**: every fight until the game is closed | Discard |
+| **Combat log keep fights** | For *Last fights*: how many | 5 |
+| **Combat log events per fight** | The most events one fight records; the oldest are dropped past it | 2000 |
+
+The *Detailed* and *Debug* kinds of event (pools, cooldowns, targets, movement, AI) are part of the design and are not recorded yet: the levels exist, the extra events come later.
+
 ### Pools
 
 | Field | What it does | Default |

@@ -126,6 +126,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 |---|---|
 | [ActionBarLayoutFields](/advanced/editor/entities/action-bar-layout-fields) | The planned action bar of a player class: for each slot the ability that belongs there and whether the player may change it. |
 | [CharacterEditor](/advanced/editor/entities/character-editor) | CharacterEditor for managing CharacterDefinition resources CharacterDefinition inherits EntityDefinition for visual/audio and links to PlayerClassDefinition |
+| [EmotesEditor](/advanced/editor/entities/emotes-editor) | The Emotes editor (the EmoteDefinition database): the commands a player types (/wave) and the library that the lines of NPCs, events and objects can pick from. |
 | [EntityAbilitiesEditor](/advanced/editor/entities/entity-abilities-editor) | Editor for EntityDefinition ability properties - manages auto-attack and ability lists Now uses ListCatalog for ability selection with proper type filtering |
 | [InteractableDefinitionEditor](/advanced/editor/entities/interactable-definition-editor) | Editor for InteractableDefinition resources |
 | [InteractionEditor](/advanced/editor/entities/interaction-editor) | Editor for a single Interaction instance Combines category/type selection with dynamic property editing |
@@ -207,6 +208,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | Class | What it is |
 |---|---|
 | [CharacterCreationConfigEditor](/advanced/editor/settings/character-creation-config-editor) | Editor for CharacterCreationSettings resource with tab-based UI |
+| [ChatEditor](/advanced/editor/settings/chat-editor) | The Chat page of the Game Settings: the channels of the message manager (name, colour, text of a line, flags) and how much it remembers. |
 | [CollisionLayerEditor](/advanced/editor/settings/collision-layer-editor) | Collision Layer Configuration Editor Integrated into the Game Settings category |
 | [ConfigEditor](/advanced/editor/settings/config-editor) | Base class for configuration editors that dynamically build UI from exported properties Provides common functionality for GameplayConfigEditor and SettingsEditor |
 | [ControllerLogicEditor](/advanced/editor/settings/controller-logic-editor) | Editor for creating, loading, and editing controller logic resources (Camera &amp; Player) Allows switching between different logic types and editing their properties Resources are saved to disk for reuse across projects |

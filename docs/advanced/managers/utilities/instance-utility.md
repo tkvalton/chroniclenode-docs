@@ -18,6 +18,7 @@ Utility script to help item/ability creation anywhere.
 |---|---|
 | `void` | [initialize](#method-initialize)( `p_system_hub: GameHost.SystemHub` ) *static* |
 | `void` | [warn_player](#method-warn-player)( `text: String` ) *static* |
+| `void` | [tell_player](#method-tell-player)( `channel_id: String, text: String, data: Dictionary = {}` ) *static* |
 | `ItemInstance` | [create_item_instance](#method-create-item-instance)( `item_id: int` ) *static* |
 | `ItemInstance` | [create_item_instance_from_definition](#method-create-item-instance-from-definition)( `item_def: ItemDefinition` ) *static* |
 | `Array[ItemInstance]` | [create_item_instances](#method-create-item-instances)( `item_id: int, quantity: int` ) *static* |
@@ -41,6 +42,10 @@ Initialize the utility Call this from GameHost on startup
 ### void warn_player( text: String ) {#method-warn-player}
 
 Tells the player something in the message area (a reward that does not fit, a craft without room). Does nothing without a UI
+
+### void tell_player( channel_id: String, text: String, data: Dictionary = &#123;&#125; ) {#method-tell-player}
+
+Writes a line in the chat, on a channel of the message manager (Loot, Trade, Discovery ...). Does nothing without a chat
 
 ### ItemInstance create_item_instance( item_id: int ) {#method-create-item-instance}
 
