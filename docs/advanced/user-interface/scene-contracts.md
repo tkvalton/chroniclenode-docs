@@ -13,7 +13,7 @@ How to read it:
 
 ## The templates the toolkit provides
 
-85 scenes in `res://addons/chroniclenode/`, each with the class on its root node. Copy one next to your own scenes, change it and set it in [UI Settings](/basic/game-settings/ui-settings), or start from your own scene with the same root class.
+86 scenes in `res://addons/chroniclenode/`, each with the class on its root node. Copy one next to your own scenes, change it and set it in [UI Settings](/basic/game-settings/ui-settings), or start from your own scene with the same root class.
 
 | Area | Scene | Root class | What it is |
 |---|---|---|---|
@@ -88,6 +88,7 @@ How to read it:
 | UI panels | `in_game/panels/character/character_sheet_stat_template.tscn` | [`CharacterSheetStat`](#class-character-sheet-stat) | Individual stat display component for character sheet Displays a stat name and its current value with color coding Stores the stat definition resource for enhan |
 | UI panels | `in_game/panels/character/character_stats_display_ui_template.tscn` | [`CharacterStatsDisplayUI`](#class-character-stats-display-ui) | Character Stats Display UI - Dynamic stats interface with individual stat connections Gets initial data from GameHost.party_manager.current_player, then individ |
 | UI panels | `in_game/panels/character/equipment_inventory_ui_template.tscn` | [`EquipmentInventoryUI`](#class-equipment-inventory-ui) | Clean equipment panel using the unified ItemSlotUI system |
+| UI panels | `in_game/panels/combat_report/combat_report_panel_ui_template.tscn` | [`CombatReportPanelUI`](#class-combat-report-panel-ui) | The combat report window: the fights the game kept (Gameplay Config > Combat log keep), the totals of the selected fight and its events, which can be filtered b |
 | UI panels | `in_game/panels/inventory/currency_display_template.tscn` | [`CurrencyDisplay`](#class-currency-display) | Enhanced display component for showing a single currency with icon and amount  This component displays a currency's icon and formatted amount |
 | UI panels | `in_game/panels/inventory/inventory_ui_template.tscn` | [`InventoryUI`](#class-inventory-ui) | Clean and Simple Universal Inventory UI - Refactored to extend PanelUI Updated to remove VENDOR_INVENTORY logic (now handled by dedicated VendorSlotUI)  PLAYER_ |
 | UI panels | `in_game/panels/inventory/item_slot_ui_template.tscn` | [`ItemSlotUI`](#class-item-slot-ui) | Fully Unified Slot UI - handles ALL slot types (inventory, equipment, vendor) No need for separate InventorySlotUI, EquipmentSlotUI, etc |
@@ -1444,6 +1445,26 @@ Template scene: `ui_scenes/in_game/panels/spellbook/skill_tree/choice_selection_
 | `choice_button_scene` | `PackedScene` | The scene of one choice. |
 
 Signals: `choice_selected(choice_index: int)`, `skill_node_tooltip_requested(node: SkillNode)`, `hide_tooltip(force_hide: bool)`, `popup_closed`
+
+### CombatReportPanelUI {#class-combat-report-panel-ui}
+
+`CombatReportPanelUI` extends `PanelUI` ([class page](/advanced/user-interface/panels/combat-report-panel-ui))
+
+The combat report window: the fights the game kept (Gameplay Config > Combat log keep), the totals of the selected fight and its events, which can be filtered by kind and exported to a file.
+
+Script: `ui_scenes/in_game/panels/combat_report/combat_report_panel_ui.gd`
+
+Template scene: `ui_scenes/in_game/panels/combat_report/combat_report_panel_ui_template.tscn`
+
+| Node the script looks for | Type | Found as | What it is |
+|---|---|---|---|
+| `fights_list` | `ItemList` | `%FightsList` | The list of fights (an ItemList) of the scene, found by its unique name %FightsList. |
+| `summary_label` | `Label` | `%SummaryLabel` | The totals of the selected fight (a Label), found by its unique name %SummaryLabel. |
+| `kind_filter` | `OptionButton` | `%KindFilter` | The filter by kind of event (an OptionButton), found by its unique name %KindFilter. |
+| `events_tree` | `Tree` | `%EventsTree` | The events of the selected fight (a Tree), found by its unique name %EventsTree. |
+| `export_json_button` | `Button` | `%ExportJsonButton` | The button that exports the fight as JSON (a Button), found by its unique name %ExportJsonButton. |
+| `export_csv_button` | `Button` | `%ExportCsvButton` | The button that exports the fight as CSV (a Button), found by its unique name %ExportCsvButton. |
+| `status_label` | `Label` | `%StatusLabel` | Where the last export went (a Label), found by its unique name %StatusLabel. |
 
 ### CurrencyDisplay {#class-currency-display}
 

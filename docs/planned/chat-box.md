@@ -5,7 +5,9 @@
 
 **Also built:** lines (say, yell and emote) from interactions, NPC tasks, combat actions and events, with their audiences, the emote library and its editor, the speech bubbles and the channel ranges, typing and commands (including the player's emote commands), the developer commands, and the languages (as proficiencies).
 
-**Not built yet:** the channels that carry messages between players (guild, raid, world, whisper, channels players make), moderation, the Detailed and Debug combat events, the translation of line texts in tasks, actions and events, links to items in a message, the combat report window and file export, and the skill ups of crafting professions in the chat.
+**Also built:** the Detailed and Debug combat events (pools, cooldowns, denied abilities, targets, effects updated, movement, AI decisions), the translation of line texts inside events and scripts, links to items and abilities in messages, the combat report window with the JSON and CSV export, `/heal`, `/kill` and the skill ups of crafting professions in the chat.
+
+**Not built yet:** the channels that carry messages between players (guild, raid, world, whisper, channels players make) and moderation.
 :::
 
 Everything the game wants to **tell the player** goes through one place, the **message manager**. What the player sees (a chat box with tabs, a level up toast, a warning label, a loot feed) is a **viewer** that listens to the **channels** it is given. The combat log is not a separate system: it is a tab of the chat box.

@@ -24,6 +24,7 @@ One record of something that happened in a fight: a hit, a heal, an effect gaine
 | `bool` | [crit](#var-crit) | `false` |
 | `bool` | [slain](#var-slain) | `false` |
 | `String` | [line](#var-line) | `""` |
+| `int` | [detail_override](#var-detail-override) | `-1` |
 | `PackedStringArray` | [channels](#var-channels) | `PackedStringArray()` |
 | `Dictionary` | [details](#var-details) | `{}` |
 
@@ -56,6 +57,8 @@ What happened
 - **TARGET_CHANGE** = `10` - (Detailed) something took another target
 - **MOVEMENT** = `11` - (Debug) an entity moved (sampled)
 - **AI_DECISION** = `12` - (Debug) the behavior of an NPC chose something
+- **ABILITY_DENIED** = `13` - (Detailed) an ability could not be used: on cooldown, no resource, out of range ...
+- **EFFECT_UPDATED** = `14` - (Detailed) a buff or debuff was refreshed or its stacks changed
 
 ### enum Detail {#enum-detail}
 
@@ -128,6 +131,10 @@ The hit killed the target
 ### String line = "" {#var-line}
 
 The line, in the third person ("Mira's [Slash] hit Wolf for 12"), made when the event was recorded
+
+### int detail_override = -1 {#var-detail-override}
+
+When set (a Detail value), the least detail that records this event, whatever its kind says: the same kind is Detailed for the party and Debug for the others
 
 ### PackedStringArray channels = PackedStringArray() {#var-channels}
 

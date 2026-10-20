@@ -48,7 +48,7 @@ How much of a fight is recorded and what happens to the record. What the player 
 | **Combat log keep fights** | For *Last fights*: how many | 5 |
 | **Combat log events per fight** | The most events one fight records; the oldest are dropped past it | 2000 |
 
-The *Detailed* and *Debug* kinds of event (pools, cooldowns, targets, movement, AI) are part of the design and are not recorded yet: the levels exist, the extra events come later.
+What each level records is listed in [Chat > What is recorded at each level](/basic/game-settings/chat#what-is-recorded-at-each-level). Detailed and Debug can write a lot (a fight of many NPCs at Debug): keep the level at Normal for a release and use the *Combat log events per fight* limit.
 
 ### Pools
 

@@ -33,10 +33,12 @@ An entity that is in no fight with the party, and is not in the party, is not lo
 | `int` | [detail](#method-detail)() |
 | `void` | [on_damage](#method-on-damage)( `result: DamageResult` ) |
 | `void` | [on_healing](#method-on-healing)( `result: HealingResult` ) |
+| `void` | [record_ai](#method-record-ai)( `entity: Entity, text: String` ) |
 | `void` | [record](#method-record)( `event: CombatEvent, actor: Variant, target: Variant` ) |
 | `PackedStringArray` | [channels_for](#method-channels-for)( `actor: Variant, target: Variant` ) |
 | `String` | [side_of](#method-side-of)( `unit: Variant` ) |
 | `void` | [session_ended](#method-session-ended)( `session: CombatSession, reason: String` ) |
+| `String` | [export_fight](#method-export-fight)( `record: Dictionary, format: String = "json"` ) |
 | `Dictionary` | [summarize](#method-summarize)( `session: CombatSession` ) |
 
 ## Constants
@@ -78,6 +80,10 @@ How much is recorded now
 
 *No description yet.*
 
+### void record_ai( entity: Entity, text: String ) {#method-record-ai}
+
+What the AI of an entity decided (a behavior task started, a combat action chosen). Debug only
+
 ### void record( event: CombatEvent, actor: Variant, target: Variant ) {#method-record}
 
 Decides who sees the event, keeps it in the record of the fight and posts it in the chat
@@ -93,6 +99,10 @@ Whose side an entity is on in the fight of the party: "party" (a member or a pet
 ### void session_ended( session: CombatSession, reason: String ) {#method-session-ended}
 
 A fight ended: a summary line in the chat, and the record kept or thrown away (GameplayConfig.combat_log_keep)
+
+### String export_fight( record: Dictionary, format: String = "json" ) {#method-export-fight}
+
+Writes a kept fight to a file in the user folder (user://combat_logs/). `format` is "json" (the whole record) or "csv" (one row for each event, for a spreadsheet). Returns the path, "" when it failed
 
 ### Dictionary summarize( session: CombatSession ) {#method-summarize}
 

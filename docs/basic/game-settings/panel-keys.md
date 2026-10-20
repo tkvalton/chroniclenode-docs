@@ -8,7 +8,7 @@ A **panel** is a window of the interface: the character sheet, the spellbook, th
 2. In the **Input Map**, give `panel_keybind_N` the key you want.
 3. Name the key for the player in **Game Settings > Settings > Keybinds** (see [What the player reads](#what-the-player-reads)).
 
-The template sets the number of its three panels, and the project setup gives the first four numbers a key:
+The template sets the number of its three numbered panels (the combat report has none), and the project setup gives the first four numbers a key:
 
 | Number | Panel in the template | Default key |
 |---|---|---|

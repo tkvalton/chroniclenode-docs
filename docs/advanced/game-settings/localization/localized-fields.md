@@ -23,6 +23,7 @@ A type that is not here has no text for the player (events, conversations (their
 | `void` | [assign_keys](#method-assign-keys)( `resource: DatabaseResource` ) *static* |
 | `void` | [assign_action_keys](#method-assign-action-keys)( `prefix: String, actions: Array` ) *static* |
 | `void` | [assign_config_keys](#method-assign-config-keys)( `config: GameplayConfig` ) *static* |
+| `Array[SpeechLine]` | [find_lines](#method-find-lines)( `resource: Resource` ) *static* |
 | `void` | [assign_chat_keys](#method-assign-chat-keys)( `config: ChatConfig` ) *static* |
 
 ## Constants
@@ -56,6 +57,10 @@ Gives the actions of a list (and the actions inside an If or a Switch) their key
 ### void assign_config_keys( config: GameplayConfig ) {#method-assign-config-keys}
 
 The inventory styles of the Gameplay Config (the characters, the NPCs and the containers): the names of their encumbrance steps are translated
+
+### Array[SpeechLine] find_lines( resource: Resource ) {#method-find-lines}
+
+Every line (SpeechLine) inside a resource, found by walking its properties, always in the same order (so the key of a line stays the same while the data does not change)
 
 ### void assign_chat_keys( config: ChatConfig ) {#method-assign-chat-keys}
 

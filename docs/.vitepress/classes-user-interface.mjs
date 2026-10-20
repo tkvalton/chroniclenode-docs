@@ -359,6 +359,12 @@ export const groups = [
         "file": "ui_scenes/in_game/panels/spellbook/skill_tree/choice_selection_popup.gd"
       },
       {
+        "name": "CombatReportPanelUI",
+        "base": "PanelUI",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\panels\\combat_report\\combat_report_panel_ui.gd",
+        "file": "ui_scenes/in_game/panels/combat_report/combat_report_panel_ui.gd"
+      },
+      {
         "name": "CurrencyDisplay",
         "base": "HBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\panels\\inventory\\currency_display.gd",

@@ -98,13 +98,32 @@ The combat channels are about **who** the line is about:
 
 In a fight every entity is friendly or hostile to the party. An entity that is in no fight with the party and is not in the party is **not logged**: two NPCs fighting far away do not fill your chat. A line shows once in a viewer that shows several of its channels.
 
-A tab can filter the **kinds** of event: Damage, Healing, Effect gained, Effect lost, Death, Cast, Interrupt, Avoid. A *Personal* tab (all kinds), a *Healing* tab (the party channel, Healing) and an *Enemy* tab (Hostile, Damage and Cast) are all the same box with different tabs.
+A tab can filter the **kinds** of event: Damage, Healing, Effect gained, Effect lost, Death, Cast, Interrupt, Avoid, and the Detailed and Debug kinds below. A *Personal* tab (all kinds), a *Healing* tab (the party channel, Healing) and an *Enemy* tab (Hostile, Damage and Cast) are all the same box with different tabs.
 
 When a fight ends, a summary line is written (*Combat ended (0:45): the party dealt 340 damage, took 120 and healed 60.*).
+
+### What is recorded at each level
+
+The detail is the **Combat log detail** of the [Gameplay Config](/basic/game-settings/gameplay-combat#combat-log). Each level adds to the one before:
+
+| Level | Kinds of event |
+|---|---|
+| **Critical** | Deaths, kills and critical hits |
+| **Normal** (default) | Damage, healing, avoids, casts, interruptions, effects gained and lost |
+| **Detailed** | **Resource** (a pool spent, a pool that runs dry or fills up, a pool that grows), **Cooldown** (an ability goes on cooldown and comes back, its charges), **Ability denied** (why an ability could not be used: on cooldown, not enough resource, out of range ...), **Target change**, **Effect updated** (a buff or debuff refreshed or restacked) |
+| **Debug** | Regeneration and the changes of health, written together once a second per pool, the global cooldown, **Movement** of the entities of a fight (sampled once a second, 1 m or more), **AI decision** (the behavior task or the combat action an NPC started), and the denied abilities of NPCs (at Detailed only the party's are written, because an NPC tries all the time) |
+
+The lines are in the second person for the character the player controls (*You spend 20 Mana*, *Your Fireball is on cooldown for 8s*).
 
 ### The record of a fight
 
 Each combat session keeps the **events of its fight** in a bounded list. Three settings in the [Gameplay Config](/basic/game-settings/gameplay-combat#combat-log) say how much is recorded and what is kept.
+
+### The combat report
+
+The window **Combat report** (a UI panel in the template, panel name `combat_report`) lists the fights the game kept: pick one for its totals and its events, filter them by kind, and **export** the fight to a file. `/report` opens it. It shows nothing when **Combat log keep** is *Discard*.
+
+The files are written in `user://combat_logs/` (the user folder of the game): **JSON** (the whole record of the fight) or **CSV** (a header and a row for each event: sequence, game hours, kind, actor, target, ability, amount, damage type, crit, slain, channels, line), for a spreadsheet. The developer command `/exportlog [json|csv]` writes the last kept fight.
 
 ## Lines
 
@@ -128,7 +147,7 @@ A **line** is something an entity says, or something that is described. *Say*, *
 | **Region** | Only the players who are in that [region](/basic/world/regions) |
 | **The player who triggered it** | The one who used the switch or talked to the NPC |
 
-The speaker plays the animation and the sound whoever hears the line. A line with no speaker ("The ground rumbles.") is heard from the point it starts at. Line texts are not translated yet when they are in a task, a combat action or an event (they are in a speak interaction as before).
+The speaker plays the animation and the sound whoever hears the line. A line with no speaker ("The ground rumbles.") is heard from the point it starts at. The texts of lines inside events, behavior scripts and combat scripts are translated like the other names: they are collected by the [Localization](/basic/game-settings/localization) tab under the keys `event/<id>/line/<n>`, `behavior_script/<id>/line/<n>` and `combat_script/<id>/line/<n>`, numbered in the order they come in the data (adding a line in the middle moves the numbers of the ones after it, so a translation is marked *needs review*).
 
 ### Where lines come from
 
@@ -166,6 +185,10 @@ A line that picks an emote takes its texts, animation and sound from it; the sam
 
 [`SpeechBubbles`](/advanced/user-interface/hud/speech-bubbles) is a viewer of the Say, Yell and Emote channels. A line that has a speaker and a bubble time gets a text over the speaker's head for that many seconds. It is in the HUD of the template; its height, text size and outline size are exports.
 
+## Links to items and abilities
+
+A message can hold **links**: the data of a message has a list `links` of `{ "kind": "item" or "ability", "id": ..., "text": the name in the line }`. The chat box makes the name a link, and when the mouse is over it the **tooltip** of the item or the ability shows (the same tooltip as in the bag). The toolkit adds links to the lines of loot, trade and learned abilities; a message of your own adds them in its data.
+
 ## Typing and commands
 
 The chat box has a line to type in (hidden until it is used). **Enter** opens it, **/** opens it with a slash, **Enter** sends it and **Esc** closes it. While the player types, the keys are letters: the character does not move and no ability is used. The exports of the chat box: **Allow typing**, **Focus key**, **Max length**.
@@ -177,6 +200,7 @@ The chat box has a line to type in (hidden until it is used). **Enter** opens it
 | `/me <text>` (`/emote`, `/e`) | Describes what the character does: `/me scratches his chin` shows *Mira scratches his chin* |
 | `/wave`, `/bow` ... | An [emote](#emotes) of the library, by its command or an alias. With a target it uses the target texts (see *Target* of the emote) |
 | `/language [name]` | Without a name: the language the character speaks and the ones it knows. With a name: speak that [language](#languages) |
+| `/report` | Opens the [combat report](#the-combat-report) |
 | `/help` | Lists the commands and the emotes |
 | Anything else | The player is told there is no such command |
 
@@ -195,6 +219,9 @@ Commands for testing: they work on the character the player controls and answer 
 | `/addtime <hours>` | Moves the game clock forward: both [clocks](/basic/shared-systems/clocks), so cooldowns and restocks count it |
 | `/settime <HH:MM>` | Sets the time of the day (it only moves forward) |
 | `/quest start <id>`, `/quest complete <id>` | Starts or completes a quest. The quest rules do not stop it (like the *Activate Quest* action) |
+| `/heal` | Fills the health and resource pools of the character |
+| `/kill` | Kills the target of the character |
+| `/exportlog [json\|csv]` | Writes the last kept fight to a file in the user folder |
 
 ## Languages
 
@@ -209,4 +236,4 @@ Entities can speak **languages** of the game world (Common, Orcish, Elvish; they
 
 ## Not built yet
 
-See the [plan](/planned/chat-box): the channels that carry messages between players (guild, raid, world, whisper, channels players make), links to items in a message, a report window, the Detailed and Debug combat events, the skill ups of crafting professions in the chat, and the lines of tasks, actions and events in the translation tables.
+See the [plan](/planned/chat-box): the channels that carry messages between players (guild, raid, world, whisper, channels players make) and moderation.
