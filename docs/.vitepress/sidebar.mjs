@@ -417,7 +417,7 @@ export const sidebar = [
       page('The World Builder', '/planned/world-builder'),
       page('Localization', '/planned/localization'),
       page('Tag-driven interface', '/planned/tag-driven-interface'),
-      page('Chat box and combat log', '/planned/chat-box'),
+      page('Chat box and messages', '/planned/chat-box'),
       page('Entity tooltip', '/planned/entity-tooltip'),
       page('Zones', '/planned/zones'),
       page('Spawners', '/planned/spawners'),
