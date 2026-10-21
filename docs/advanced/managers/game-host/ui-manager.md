@@ -42,6 +42,7 @@ Manages UI layers, scene transitions, and overlay systems. Handles loading scree
 | `void` | [show_ability_tooltip](#method-show-ability-tooltip)( `ability: Variant` ) |
 | `void` | [show_effect_tooltip](#method-show-effect-tooltip)( `effect: EffectInstance` ) |
 | `void` | [show_description_tooltip](#method-show-description-tooltip)( `object_name: String, description: String` ) |
+| `void` | [show_entity_tooltip](#method-show-entity-tooltip)( `target: Variant` ) |
 | `void` | [show_skill_node_tooltip](#method-show-skill-node-tooltip)( `skill_node: SkillNode` ) |
 | `void` | [show_choice_tooltip](#method-show-choice-tooltip)( `choice_node: ChoiceSkillNode, choice_index: int` ) |
 | `void` | [hide_tooltip](#method-hide-tooltip)( `force_hide: bool` ) |
@@ -200,6 +201,10 @@ Show effect tooltip
 ### void show_description_tooltip( object_name: String, description: String ) {#method-show-description-tooltip}
 
 Show description tooltip
+
+### void show_entity_tooltip( target: Variant ) {#method-show-entity-tooltip}
+
+Show the tooltip of an entity or an object
 
 ### void show_skill_node_tooltip( skill_node: SkillNode ) {#method-show-skill-node-tooltip}
 

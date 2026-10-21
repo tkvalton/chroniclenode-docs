@@ -62,7 +62,7 @@ Every HUD element also has signals it can **emit upward**, which the in-game int
 
 | Signal | What the interface does |
 |---|---|
-| `item_tooltip_requested`, `ability_tooltip_requested`, `effect_tooltip_requested`, `skill_node_tooltip_requested`, `description_tooltip_requested`, `hide_tooltip` | Shows or hides the [tooltip](/basic/user-interface/tooltips) |
+| `item_tooltip_requested`, `ability_tooltip_requested`, `effect_tooltip_requested`, `skill_node_tooltip_requested`, `description_tooltip_requested`, `entity_tooltip_requested`, `hide_tooltip` | Shows or hides the [tooltip](/basic/user-interface/tooltips) |
 | `message_requested(text)`, `warning_message_requested(text)` | Shows a [message](/basic/user-interface/messages-and-popups) at the top of the screen |
 | `ui_sfx_request(sound, volume)` | Plays a UI sound |
 

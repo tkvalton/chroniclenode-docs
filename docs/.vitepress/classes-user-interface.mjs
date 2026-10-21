@@ -485,6 +485,12 @@ export const groups = [
         "file": "ui_scenes/in_game/tooltips/tooltip_effect.gd"
       },
       {
+        "name": "TooltipEntity",
+        "base": "TooltipBase",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\tooltips\\tooltip_entity.gd",
+        "file": "ui_scenes/in_game/tooltips/tooltip_entity.gd"
+      },
+      {
         "name": "TooltipItem",
         "base": "TooltipBase",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\tooltips\\items\\tooltip_item.gd",

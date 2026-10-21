@@ -15,6 +15,7 @@ Makes the five tooltips once (item, effect, ability, skill node and description)
 | `TooltipAbility` | [ability_tooltip](#var-ability-tooltip) |  |
 | `TooltipSkillNode` | [skill_node_tooltip](#var-skill-node-tooltip) |  |
 | `TooltipDescription` | [description_tooltip](#var-description-tooltip) |  |
+| `TooltipEntity` | [entity_tooltip](#var-entity-tooltip) |  |
 
 ## Variable descriptions
 
@@ -37,4 +38,8 @@ The tooltip of skill nodes.
 ### TooltipDescription description_tooltip {#var-description-tooltip}
 
 The tooltip of plain texts.
+
+### TooltipEntity entity_tooltip {#var-entity-tooltip}
+
+The tooltip of entities and objects (null when the scene of UI Settings is empty).
 

@@ -74,6 +74,7 @@ USAGE:
 | `bool` | [complete_quest_objective](#method-complete-quest-objective)( `quest_id: int, objective_id: int` ) |
 | `Array[QuestLine]` | [get_active_quest_lines](#method-get-active-quest-lines)() |
 | `Array[Quest]` | [get_active_quests](#method-get-active-quests)() |
+| `Array[Dictionary]` | [get_objectives_concerning](#method-get-objectives-concerning)( `target: Variant` ) |
 | `Array[Quest]` | [get_completed_quests](#method-get-completed-quests)() |
 | `Array[QuestLine]` | [get_completed_quest_lines](#method-get-completed-quest-lines)() |
 | `bool` | [has_seen_popup](#method-has-seen-popup)( `popup_id: int` ) |
@@ -288,6 +289,10 @@ Returns an array of all active quest lines
 ### Array[Quest] get_active_quests() {#method-get-active-quests}
 
 Returns an array of all active quests
+
+### Array[Dictionary] get_objectives_concerning( target: Variant ) {#method-get-objectives-concerning}
+
+The active objectives of the active quests that are about this entity or object (kill it, talk to it, open it ...): a list of &#123;quest, objective&#125;. What the tooltip of an entity shows
 
 ### Array[Quest] get_completed_quests() {#method-get-completed-quests}
 

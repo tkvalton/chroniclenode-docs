@@ -23,6 +23,7 @@ Base class for all "When" conditions that trigger events These represent the ent
 | `bool` | [is_triggered](#method-is-triggered)( `_event_data: Dictionary` ) |
 | `void` | [setup](#method-setup)() |
 | `void` | [cleanup](#method-cleanup)() |
+| `bool` | [concerns_target](#method-concerns-target)( `_target: Variant` ) |
 | `void` | [reset](#method-reset)() |
 | `int` | [get_tally_target](#method-get-tally-target)() |
 | `int` | [get_tally_progress](#method-get-tally-progress)() |
@@ -67,6 +68,10 @@ Set up any listeners or connections needed by this trigger
 ### void cleanup() {#method-cleanup}
 
 Clean up any listeners or connections
+
+### bool concerns_target( _target: Variant ) {#method-concerns-target}
+
+Is this trigger about this entity or object (the one to kill, to talk to, to open ...)? An objective with such a trigger is listed on the tooltip of the target (EntityTooltip). A trigger about something else than one entity or object (items held, a region entered) returns false
 
 ### void reset() {#method-reset}
 

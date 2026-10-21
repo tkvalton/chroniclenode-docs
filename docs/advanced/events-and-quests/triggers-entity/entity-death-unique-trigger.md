@@ -30,6 +30,7 @@ Triggers when a specific unique entity is killed
 | `void` | [find_target_entity](#method-find-target-entity)() |
 | `bool` | [is_triggered](#method-is-triggered)( `event_data: Dictionary` ) |
 | `String` | [generate_objective_description](#method-generate-objective-description)() |
+| `bool` | [concerns_target](#method-concerns-target)( `target: Variant` ) |
 
 ## Property descriptions
 
@@ -76,4 +77,8 @@ Check if this trigger is currently active
 ### String generate_objective_description() {#method-generate-objective-description}
 
 Generate quest objective description
+
+### bool concerns_target( target: Variant ) {#method-concerns-target}
+
+True for the entity with the tracked unique id
 

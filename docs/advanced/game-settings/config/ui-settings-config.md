@@ -47,6 +47,7 @@ Stores all customizable UI settings including:
 | `String` | [effect_tooltip](#prop-effect-tooltip) | `"res://addons/chroniclenode/ui_scenes/in_game/tooltips/to...` |
 | `String` | [skill_node_tooltip](#prop-skill-node-tooltip) | `"res://addons/chroniclenode/ui_scenes/in_game/tooltips/to...` |
 | `String` | [description_tooltip](#prop-description-tooltip) | `"res://addons/chroniclenode/ui_scenes/in_game/tooltips/to...` |
+| `String` | [entity_tooltip](#prop-entity-tooltip) | `"res://addons/chroniclenode/ui_scenes/in_game/tooltips/to...` |
 
 ## Methods
 
@@ -186,6 +187,10 @@ Tooltip of a node of a skill tree (root class TooltipSkillNode)
 ### String description_tooltip = "res://addons/chroniclenode/ui_scenes/in_game/tooltips/toolt {#prop-description-tooltip}
 
 Tooltip with a name and a description (root class TooltipDescription): the buttons of the mini menu, stats, anything with a plain text
+
+### String entity_tooltip = "res://addons/chroniclenode/ui_scenes/in_game/tooltips/toolt {#prop-entity-tooltip}
+
+Tooltip of an entity or an object (root class TooltipEntity): shown while the pointer is over an NPC, a pet, a party member or an object. Empty: no entity tooltip
 
 ## Method descriptions
 

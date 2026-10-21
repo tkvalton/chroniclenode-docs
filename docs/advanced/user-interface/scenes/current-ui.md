@@ -59,6 +59,10 @@ Emitted to show the tooltip of an effect.
 
 Emitted to show a tooltip with a name and a text.
 
+### show_entity_tooltip( target: Variant ) {#signal-show-entity-tooltip}
+
+Emitted to show the tooltip of an entity or an object.
+
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
 
 Asks the interface to hide the tooltip (force hides it at once).

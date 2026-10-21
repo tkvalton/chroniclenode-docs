@@ -32,6 +32,7 @@ Triggers when a group of specific unique entities are all killed
 | `void` | [find_target_entities](#method-find-target-entities)() |
 | `bool` | [is_triggered](#method-is-triggered)( `event_data: Dictionary` ) |
 | `String` | [generate_objective_description](#method-generate-objective-description)() |
+| `bool` | [concerns_target](#method-concerns-target)( `target: Variant` ) |
 
 ## Property descriptions
 
@@ -86,4 +87,8 @@ Check if this trigger is currently active
 ### String generate_objective_description() {#method-generate-objective-description}
 
 Generate quest objective description
+
+### bool concerns_target( target: Variant ) {#method-concerns-target}
+
+True for an entity of the group that has not been defeated yet
 

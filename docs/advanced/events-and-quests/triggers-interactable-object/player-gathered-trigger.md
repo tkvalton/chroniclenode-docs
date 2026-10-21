@@ -33,6 +33,7 @@ Triggers when the player gathers from a gathering node (a GatherInteraction): an
 | `void` | [cleanup_player_connection](#method-cleanup-player-connection)( `player: Player` ) |
 | `bool` | [is_triggered](#method-is-triggered)( `event_data: Dictionary` ) |
 | `String` | [generate_objective_description](#method-generate-objective-description)() |
+| `bool` | [concerns_target](#method-concerns-target)( `target: Variant` ) |
 
 ## Property descriptions
 
@@ -91,4 +92,8 @@ Does this event data satisfy the trigger? Called when the signal the trigger lis
 ### String generate_objective_description() {#method-generate-objective-description}
 
 The line of the quest objective this trigger makes ("Kill 5 wolves").
+
+### bool concerns_target( target: Variant ) {#method-concerns-target}
+
+True for a gathering node of the tracked definition (any node is not listed: 0 means every node)
 

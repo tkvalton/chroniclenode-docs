@@ -50,6 +50,10 @@ Asks the interface to show the tooltip of an effect.
 
 Asks the interface to show a tooltip with a name and a text.
 
+### entity_tooltip_requested( target: Variant ) {#signal-entity-tooltip-requested}
+
+Asks the interface to show the tooltip of an entity or an object.
+
 ### hide_tooltip( force_hide: bool ) {#signal-hide-tooltip}
 
 Asks the interface to hide the tooltip (force hides it at once).

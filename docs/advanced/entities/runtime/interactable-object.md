@@ -112,6 +112,7 @@ Unified interactable object class - uses InteractableDefinition + Interactions A
 | `bool` | [add_stat_multiplier](#method-add-stat-multiplier)( `stat_id: int, amount: float` ) |
 | `bool` | [set_stat_base](#method-set-stat-base)( `stat_id: int, value: float` ) |
 | `void` | [sync_to_unique_data](#method-sync-to-unique-data)() |
+| `void` | [set_pointer_over](#method-set-pointer-over)( `over: bool` ) |
 | `void` | [set_current_target_hover](#method-set-current-target-hover)() |
 | `void` | [set_current_target_on](#method-set-current-target-on)() |
 | `void` | [set_current_target_off](#method-set-current-target-off)() |
@@ -124,6 +125,10 @@ Unified interactable object class - uses InteractableDefinition + Interactions A
 ### object_interacted( object_id: int, entity: Entity ) {#signal-object-interacted}
 
 Signals
+
+### pointer_over_changed( target: Variant, over: bool ) {#signal-pointer-over-changed}
+
+Emitted when the pointer starts or stops being over this (its body or its nameplate): what the entity tooltip follows
 
 ### object_locked( object_id: int ) {#signal-object-locked}
 
@@ -530,6 +535,10 @@ Sets the base value of a stat.
 ### void sync_to_unique_data() {#method-sync-to-unique-data}
 
 Writes the state of the object (locked, destroyed, health, interaction state) into its unique record, so a save keeps it.
+
+### void set_pointer_over( over: bool ) {#method-set-pointer-over}
+
+The pointer went over this or left it. Several things can hold it (the body and the nameplate): the signal is emitted when it goes from nothing holding it to something
 
 ### void set_current_target_hover() {#method-set-current-target-hover}
 

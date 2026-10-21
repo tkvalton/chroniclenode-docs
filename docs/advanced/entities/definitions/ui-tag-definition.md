@@ -21,6 +21,8 @@ The toolkit's own interface reads the rest: a **TagUnitFrame** in the HUD (a lar
 | `int` | [priority](#prop-priority) | `0` |
 | `Texture2D` | [nameplate_art](#prop-nameplate-art) | `null` |
 | `bool` | [tint_name](#prop-tint-name) | `false` |
+| `bool` | [show_in_tooltip](#prop-show-in-tooltip) | `true` |
+| `Texture2D` | [tooltip_art](#prop-tooltip-art) | `null` |
 | `bool` | [show_on_map](#prop-show-on-map) | `false` |
 | `Texture2D` | [map_icon](#prop-map-icon) | `null` |
 
@@ -55,6 +57,14 @@ The nameplate of an entity with this tag shows this art (a frame around it, a sk
 ### bool tint_name = false {#prop-tint-name}
 
 The name on the nameplate and on the unit frame is drawn in the color of the tag
+
+### bool show_in_tooltip = true {#prop-show-in-tooltip}
+
+The tooltip of an entity with this tag shows the name of the tag (in its color)
+
+### Texture2D tooltip_art = null {#prop-tooltip-art}
+
+The tooltip of an entity with this tag shows this art at its top (a banner, a crest). Empty = nothing is added
 
 ### bool show_on_map = false {#prop-show-on-map}
 

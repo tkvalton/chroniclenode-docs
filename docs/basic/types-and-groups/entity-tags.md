@@ -34,6 +34,8 @@ The **Interface** section is what the toolkit's own interface does with the tag:
 | **Priority** | When an entity has several tags, the tag with the highest priority decides its unit frame, its nameplate art and its map icon. The first one wins on a tie |
 | **Draw the name in the color of the tag** | The name on the nameplate and on the unit frame uses the **Color** of the tag |
 | **Nameplate art** | A texture the nameplate shows for an entity with the tag (a frame around it, a skull). Empty: nothing is added |
+| **Show the tag in the tooltip** | The [entity tooltip](/basic/user-interface/tooltips#the-entity-tooltip) lists the name of the tag, in the color of the tag |
+| **Tooltip art** | Art at the top of the entity tooltip (a banner, a crest). Empty: nothing is added |
 | **Show on the map** | The minimap shows an icon for entities and objects with the tag |
 | **Map icon** | The icon on the map. Empty: the **Icon** of the tag |
 
@@ -64,6 +66,10 @@ When the target has several tags that each have a frame, only the frame of the t
 ### Nameplate art and name color
 
 The nameplate of an entity or object with a tag that has **Nameplate art** shows the art in the `TagArt` node of the nameplate scene (behind the bars, stretched over the nameplate): a frame around it, or a skull. A tag that asks for it also draws the name in its color. Move or restyle the `TagArt` node in your own copy of the nameplate scene; a nameplate scene without the node simply shows no art.
+
+### The tooltip
+
+The [entity tooltip](/basic/user-interface/tooltips#the-entity-tooltip) lists the tags (in their color, highest priority first), draws the name in the color of a tag that asks for it, and shows the **Tooltip art** at the top.
 
 ### Icons on the minimap
 

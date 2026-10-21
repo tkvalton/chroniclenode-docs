@@ -29,6 +29,7 @@ Triggers when a specific destructible object is destroyed
 | `void` | [find_target_object](#method-find-target-object)() |
 | `bool` | [is_triggered](#method-is-triggered)( `event_data: Dictionary` ) |
 | `String` | [generate_objective_description](#method-generate-objective-description)() |
+| `bool` | [concerns_target](#method-concerns-target)( `target: Variant` ) |
 
 ## Property descriptions
 
@@ -71,4 +72,8 @@ Check if this trigger is currently active
 ### String generate_objective_description() {#method-generate-objective-description}
 
 Generate quest objective description
+
+### bool concerns_target( target: Variant ) {#method-concerns-target}
+
+True for the object with the tracked unique id
 

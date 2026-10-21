@@ -27,6 +27,7 @@ A scene that **extends** the class is fine: a root of your own `class_name MyInG
 | **Effect tooltip** | A buff or a debuff | [`TooltipEffect`](/advanced/user-interface/tooltips/tooltip-effect) |
 | **Skill node tooltip** | A node of a skill tree | [`TooltipSkillNode`](/advanced/user-interface/tooltips/tooltip-skill-node) |
 | **Description tooltip** | A name and a text | [`TooltipDescription`](/advanced/user-interface/tooltips/tooltip-description) |
+| **Entity tooltip** | An NPC, a pet, a party member or an object under the pointer. Empty: none is shown | [`TooltipEntity`](/advanced/user-interface/tooltips/tooltip-entity) |
 
 See [Tooltips](/basic/user-interface/tooltips).
 

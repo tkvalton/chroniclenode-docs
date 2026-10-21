@@ -13,7 +13,7 @@ How to read it:
 
 ## The templates the toolkit provides
 
-87 scenes in `res://addons/chroniclenode/`, each with the class on its root node. Copy one next to your own scenes, change it and set it in [UI Settings](/basic/game-settings/ui-settings), or start from your own scene with the same root class.
+88 scenes in `res://addons/chroniclenode/`, each with the class on its root node. Copy one next to your own scenes, change it and set it in [UI Settings](/basic/game-settings/ui-settings), or start from your own scene with the same root class.
 
 | Area | Scene | Root class | What it is |
 |---|---|---|---|
@@ -82,6 +82,7 @@ How to read it:
 | Tooltips | `in_game/tooltips/items/tooltip_item_template.tscn` | [`TooltipItem`](#class-tooltip-item) | Comprehensive tooltip for all item types with vendor context support Now supports both ItemInstance (full detail) and ItemDefinition (basic) display |
 | Tooltips | `in_game/tooltips/tooltip_description_template.tscn` | [`TooltipDescription`](#class-tooltip-description) | The plain-text tooltip: a name and a description |
 | Tooltips | `in_game/tooltips/tooltip_effect_template.tscn` | [`TooltipEffect`](#class-tooltip-effect) | The tooltip of an effect on an entity (a buff or a debuff): its name and its description |
+| Tooltips | `in_game/tooltips/tooltip_entity_template.tscn` | [`TooltipEntity`](#class-tooltip-entity) | The tooltip of an entity or an object (an NPC, a pet, a party member, a chest ...): its name, its type, its level, the entity tags it has and the quest objectiv |
 | Tooltips | `in_game/tooltips/tooltip_skill_node_template.tscn` | [`TooltipSkillNode`](#class-tooltip-skill-node) | Tooltip display for skill nodes showing name, description, and rewards Handles different node types: basic, ranked, and choice nodes Integrates full tooltips fo |
 | UI panels | `in_game/panels/character/active_effects_display_ui_template.tscn` | [`ActiveEffectsDisplayUI`](#class-active-effects-display-ui) | Active Effects Display UI - Shows all active effects on the current player Gets initial data from GameHost.party_manager.current_player, then uses effects compo |
 | UI panels | `in_game/panels/character/character_panel_ui_template.tscn` | [`CharacterPanelUI`](#class-character-panel-ui) | Character Panel UI - A fully self-sufficient character information interface Gets initial data from party_manager.current_player, then relies on signals for upd |
@@ -806,7 +807,7 @@ Script: `ui_scenes/in_game/HUD/hud_ui_element.gd`
 | `affected_by_ui_scaling` | `bool` | Whether this HUD element should be affected by UI scaling |
 | `pivot_type` | `PivotPosition` | Pivot position for scaling transformation |
 
-Signals: `ability_tooltip_requested(ability: AbilityInstance)`, `skill_node_tooltip_requested(node: SkillNode)`, `item_tooltip_requested(item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary)`, `effect_tooltip_requested(effect: EffectInstance)`, `description_tooltip_requested(object_name: String, description: String)`, `hide_tooltip(force_hide: bool)`, `message_requested(message: String)`, `warning_message_requested(message: String)`, `ui_sfx_request(sound: AudioManager.UISound, volume_modifier: float)`
+Signals: `ability_tooltip_requested(ability: AbilityInstance)`, `skill_node_tooltip_requested(node: SkillNode)`, `item_tooltip_requested(item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary)`, `effect_tooltip_requested(effect: EffectInstance)`, `description_tooltip_requested(object_name: String, description: String)`, `entity_tooltip_requested(target: Variant)`, `hide_tooltip(force_hide: bool)`, `message_requested(message: String)`, `warning_message_requested(message: String)`, `ui_sfx_request(sound: AudioManager.UISound, volume_modifier: float)`
 
 ### MiniMap {#class-mini-map}
 
@@ -1606,7 +1607,7 @@ Script: `ui_scenes/in_game/panels/panel_ui.gd`
 | `is_draggable` | `bool` | If the panel can be dragged by the titlebar |
 | `title_bar_show` | `bool` | Option to hide the title bar |
 
-Signals: `window_closed`, `ability_tooltip_requested(ability: AbilityInstance)`, `skill_node_tooltip_requested(node: SkillNode)`, `item_tooltip_requested(item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary)`, `effect_tooltip_requested(effect: EffectInstance)`, `description_tooltip_requested(object_name: String, description: String)`, `hide_tooltip(force_hide: bool)`, `message_requested(message: String)`, `warning_message_requested(message: String)`, `ui_sfx_request(sound: AudioManager.UISound, volume_modifier: float)`, `socket_panel_requested(item: ItemInstance)`, `drag_from_inventory_requested(item: ItemInstance, quantity: int, slot_data: SlotInstance)`, `split_drag_from_inventory_requested(item: ItemInstance, split_amount: int, slot_data: SlotInstance)`, `drag_from_equipment_requested(item: ItemInstance, slot_data: SlotInstance)`, `enchant_scroll_use_requested(scroll: ItemInstance, player: Entity)`, `ability_drag_requested(ability: AbilityInstance)`
+Signals: `window_closed`, `ability_tooltip_requested(ability: AbilityInstance)`, `skill_node_tooltip_requested(node: SkillNode)`, `item_tooltip_requested(item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary)`, `effect_tooltip_requested(effect: EffectInstance)`, `description_tooltip_requested(object_name: String, description: String)`, `entity_tooltip_requested(target: Variant)`, `hide_tooltip(force_hide: bool)`, `message_requested(message: String)`, `warning_message_requested(message: String)`, `ui_sfx_request(sound: AudioManager.UISound, volume_modifier: float)`, `socket_panel_requested(item: ItemInstance)`, `drag_from_inventory_requested(item: ItemInstance, quantity: int, slot_data: SlotInstance)`, `split_drag_from_inventory_requested(item: ItemInstance, split_amount: int, slot_data: SlotInstance)`, `drag_from_equipment_requested(item: ItemInstance, slot_data: SlotInstance)`, `enchant_scroll_use_requested(scroll: ItemInstance, player: Entity)`, `ability_drag_requested(ability: AbilityInstance)`
 
 ### QuestLogButtonUI {#class-quest-log-button-ui}
 
@@ -1836,6 +1837,23 @@ Template scene: `ui_scenes/in_game/tooltips/tooltip_effect_template.tscn`
 |---|---|---|---|
 | `effect_name_label` | `Label` | `%EffectNameLabel` | The effect name label (a Label) of the scene, found by its unique name %EffectNameLabel. |
 | `effect_description_label` | `Label` | `%EffectDescriptionLabel` | The effect description label (a Label) of the scene, found by its unique name %EffectDescriptionLabel. |
+
+### TooltipEntity {#class-tooltip-entity}
+
+`TooltipEntity` extends `TooltipBase` ([class page](/advanced/user-interface/tooltips/tooltip-entity))
+
+The tooltip of an entity or an object (an NPC, a pet, a party member, a chest ...): its name, its type, its level, the entity tags it has and the quest objectives that are about it.
+
+Script: `ui_scenes/in_game/tooltips/tooltip_entity.gd`
+
+Template scene: `ui_scenes/in_game/tooltips/tooltip_entity_template.tscn`
+
+| Node the script looks for | Type | Found as | What it is |
+|---|---|---|---|
+| `entity_name_label` | `Label` | `%EntityNameLabel` | The name (a Label) of the scene, found by its unique name %EntityNameLabel. |
+| `tags_label` | `Label` | `%TagsLabel` | The entity tags it has (a Label), found by its unique name %TagsLabel. |
+| `entity_type_label` | `Label` | `%EntityTypeLabel` | The entity types (a Label), found by its unique name %EntityTypeLabel. |
+| `level_label` | `Label` | `%LevelLabel` | The level (a Label), found by its unique name %LevelLabel. |
 
 ### TooltipItem {#class-tooltip-item}
 
@@ -2126,5 +2144,5 @@ Parent class for current UIs Holds logifc for all possible singals to be connect
 
 Script: `ui_scenes/current_ui.gd`
 
-Signals: `new_game_requested(custom_character_def: CustomCharacterDefinition)`, `character_creation_requested`, `load_game_requested(save_file_name: String)`, `return_to_main_menu_requested`, `show_ability_tooltip(ability: Variant)`, `show_skill_node_tooltip(node: SkillNode)`, `show_item_tooltip(item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary)`, `show_effect_tooltip(effect: EffectInstance)`, `show_description_tooltip(object_name: String, description: String)`, `hide_tooltip(force_hide: bool)`, `message_request(message: String)`, `warning_message_request(message: String)`, `ui_sfx_request(sound: AudioManager.UISound, volume_modifier: float)`
+Signals: `new_game_requested(custom_character_def: CustomCharacterDefinition)`, `character_creation_requested`, `load_game_requested(save_file_name: String)`, `return_to_main_menu_requested`, `show_ability_tooltip(ability: Variant)`, `show_skill_node_tooltip(node: SkillNode)`, `show_item_tooltip(item: ItemInstance, definition: ItemDefinition, context: String, additional_data: Dictionary)`, `show_effect_tooltip(effect: EffectInstance)`, `show_description_tooltip(object_name: String, description: String)`, `show_entity_tooltip(target: Variant)`, `hide_tooltip(force_hide: bool)`, `message_request(message: String)`, `warning_message_request(message: String)`, `ui_sfx_request(sound: AudioManager.UISound, volume_modifier: float)`
 

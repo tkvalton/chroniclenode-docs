@@ -35,6 +35,7 @@ Triggers when a certain amount of entities of a specific type are killed
 | `void` | [add_kill](#method-add-kill)( `killed_entity_id: int` ) |
 | `bool` | [is_triggered](#method-is-triggered)( `event_data: Dictionary` ) |
 | `String` | [generate_objective_description](#method-generate-objective-description)() |
+| `bool` | [concerns_target](#method-concerns-target)( `target: Variant` ) |
 
 ## Property descriptions
 
@@ -101,4 +102,8 @@ Check if this trigger is currently active
 ### String generate_objective_description() {#method-generate-objective-description}
 
 Generate quest objective description
+
+### bool concerns_target( target: Variant ) {#method-concerns-target}
+
+True for an entity made from the tracked definition
 

@@ -418,7 +418,6 @@ export const sidebar = [
       page('The World Builder', '/planned/world-builder'),
       page('Localization', '/planned/localization'),
       page('Chat box and messages', '/planned/chat-box'),
-      page('Entity tooltip', '/planned/entity-tooltip'),
       page('Zones', '/planned/zones'),
       page('Spawners', '/planned/spawners'),
       page('The NPC behaviour tool', '/planned/npc-behaviour-tool'),

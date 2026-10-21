@@ -280,6 +280,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `bool` | [has_pending_loot](#method-has-pending-loot)() |
 | `void` | [entity_death](#method-entity-death)( `announce: bool = true` ) |
 | `void` | [resurrect](#method-resurrect)() |
+| `void` | [set_pointer_over](#method-set-pointer-over)( `over: bool` ) |
 | `void` | [set_current_target_hover](#method-set-current-target-hover)() |
 | `void` | [set_current_target_on](#method-set-current-target-on)() |
 | `void` | [set_current_target_off](#method-set-current-target-off)() |
@@ -485,6 +486,10 @@ The entity gathered from a gathering node
 ### entity_leveled_up( entity: Entity ) {#signal-entity-leveled-up}
 
 Level progression signals - Player-specific
+
+### pointer_over_changed( target: Variant, over: bool ) {#signal-pointer-over-changed}
+
+Emitted when the pointer starts or stops being over this (its body or its nameplate): what the entity tooltip follows
 
 ### entity_xp_changed( player: Player, experience: int, experience_requirement: int ) {#signal-entity-xp-changed}
 
@@ -1601,6 +1606,10 @@ Is there a loot rule of this NPC that rolls the first time its inventory is open
 ### void resurrect() {#method-resurrect}
 
 Brings the dead entity back to life (at full health) and restores its state.
+
+### void set_pointer_over( over: bool ) {#method-set-pointer-over}
+
+The pointer went over this or left it. Several things can hold it (the body and the nameplate): the signal is emitted when it goes from nothing holding it to something
 
 ### void set_current_target_hover() {#method-set-current-target-hover}
 
