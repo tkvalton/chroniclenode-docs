@@ -27,6 +27,7 @@ Lightweight runtime instance of an effect that references an EffectDefinition fo
 | `float` | [time_started](#var-time-started) |  |
 | `bool` | [rejected](#var-rejected) | `false` |
 | `String` | [rejection_reason](#var-rejection-reason) | `""` |
+| `EndReason` | [end_reason](#var-end-reason) | `EndReason.REMOVED` |
 | `bool` | [restoring](#var-restoring) | `false` |
 | `Variant` | [intended_target](#var-intended-target) | `null` |
 | `float` | [charge_fraction](#var-charge-fraction) | `1.0` |
@@ -55,7 +56,8 @@ Lightweight runtime instance of an effect that references an EffectDefinition fo
 | `Dictionary` | [get_requirement_context](#method-get-requirement-context)() |
 | `void` | [start_effect](#method-start-effect)() |
 | `void` | [update_duration](#method-update-duration)( `new_duration: float` ) |
-| `void` | [remove_effect](#method-remove-effect)() |
+| `void` | [remove_effect](#method-remove-effect)( `reason: EndReason = EndReason.REMOVED` ) |
+| `String` | [end_reason_text](#method-end-reason-text)( `reason: EndReason` ) *static* |
 | `float` | [get_time_remaining](#method-get-time-remaining)() |
 | `bool` | [is_active](#method-is-active)() |
 | `Dictionary` | [to_save_data](#method-to-save-data)() |
@@ -85,6 +87,19 @@ Emitted when SFX needs to be played at a position (for Vector3 targets)
 Emitted when external inventory UI needs to be opened
 
 ## Enumerations
+
+### enum EndReason {#enum-endreason}
+
+Why an effect ended (read it in a listener of `effect_ended` / `effect_lost`, or ask `end_reason_text`)
+
+- **REMOVED** = `0` - taken off without a more specific reason (an event action, an item taken off ...)
+- **EXPIRED** = `1` - its duration ran out
+- **DISPELLED** = `2` - cleansed or purged by a Clear effect
+- **REPLACED** = `3` - pushed out by another effect of the same group
+- **DEATH** = `4` - the entity it was on died
+- **USED_UP** = `5` - its charges, its uses or its shield were used up, or it was consumed
+- **COMPLETED** = `6` - it did what it was for (a dash that arrived, a one-off effect that is done)
+- **SOURCE_LEFT** = `7` - its source (the caster) left, died or lost its hold
 
 ### enum SourceType {#enum-sourcetype}
 
@@ -167,6 +182,10 @@ Set by an effect that found, while it applied, that it cannot stay (a status eff
 ### String rejection_reason = "" {#var-rejection-reason}
 
 Why the effect was rejected (a requirement it did not meet, an exclusive group that refused it), for the log and the UI
+
+### EndReason end_reason = EndReason.REMOVED {#var-end-reason}
+
+Why the effect ended (set just before `effect_ended` is emitted; EXPIRED when the duration ran out)
 
 ### bool restoring = false {#var-restoring}
 
@@ -256,15 +275,19 @@ What the requirements of the effect may ask about what it belongs to: the rank o
 
 ### void start_effect() {#method-start-effect}
 
-Start the effect and begin its logic
+Start the effect and begin its logic. Effects that start inside effects are counted: past GameplayConfig.max_effect_depth the effect is refused
 
 ### void update_duration( new_duration: float ) {#method-update-duration}
 
 Update the duration of an active effect (useful for diminishing returns, etc.)
 
-### void remove_effect() {#method-remove-effect}
+### void remove_effect( reason: EndReason = EndReason.REMOVED ) {#method-remove-effect}
 
 Remove/cancel the effect
+
+### String end_reason_text( reason: EndReason ) {#method-end-reason-text}
+
+The words for a reason an effect ended ("expired", "was dispelled" ...), for logs and the interface
 
 ### float get_time_remaining() {#method-get-time-remaining}
 

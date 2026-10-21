@@ -24,7 +24,7 @@ The condition is checked once, when the effect is applied. When it is met the ch
 |---|---|
 | `void` | [specific_effect_logic](#method-specific-effect-logic)( `effect_instance: EffectInstance` ) |
 | `void` | [apply_else_effects](#method-apply-else-effects)( `effect_instance: EffectInstance` ) |
-| `Array[Effect]` | [get_child_effect_definitions](#method-get-child-effect-definitions)() |
+| `Array[int]` | [get_direct_child_effect_ids](#method-get-direct-child-effect-ids)() |
 | `String` | [get_effect_description](#method-get-effect-description)() |
 | `bool` | [is_one_off_application](#method-is-one-off-application)() |
 
@@ -44,9 +44,9 @@ What the effect does to its target when it is applied.
 
 Apply the else effects to the standard target
 
-### Array[Effect] get_child_effect_definitions() {#method-get-child-effect-definitions}
+### Array[int] get_direct_child_effect_ids() {#method-get-direct-child-effect-ids}
 
-The child effects and the else effects, and theirs, depth first (what the placeholders of the Description count)
+The child effects, then the else effects (the flattened list the placeholders of the Description count comes from this)
 
 ### String get_effect_description() {#method-get-effect-description}
 

@@ -33,6 +33,7 @@ The **Combat** category of the [Gameplay Config](/basic/game-settings/gameplay-c
 | **Threat basis** | Which number of a hit makes threat: the raw number, after the attacker's modifiers, after the defender's modifiers (shields included), or only what reached health | After the defender's modifiers |
 | **Leech basis**, **Reflect basis** | The same choice for life leech and for damage reflection | Health only |
 | **Max reflect chain** | How many reactions deep a hit may be and still be reflected. `1`: a reflection is never reflected again | `1` |
+| **Max effect depth** | How many effects may start inside each other (a proc that applies an effect that procs ...). Past it the next effect is refused with a warning, so a loop of effects cannot freeze the game. Normal chains are 3 to 5 deep | `16` |
 | **Zero damage counts as a hit** | A hit that armor or block reduced to 0 still triggers on-hit effects and shows "0" | on |
 | **Minimum damage** | The smallest damage a landed hit can end with. `0` = armor can reduce a hit to nothing | `0` |
 | **Round damage** | Round the final damage to whole numbers | off |

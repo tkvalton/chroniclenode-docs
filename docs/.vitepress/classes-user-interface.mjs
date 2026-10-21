@@ -215,6 +215,18 @@ export const groups = [
         "file": "ui_scenes/in_game/HUD/subtitles/subtitles_ui.gd"
       },
       {
+        "name": "TagMapMarkers",
+        "base": "Control",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\HUD\\mini_map\\tag_map_markers.gd",
+        "file": "ui_scenes/in_game/HUD/mini_map/tag_map_markers.gd"
+      },
+      {
+        "name": "TagUnitFrame",
+        "base": "HUDUIElement",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\HUD\\unit_frames\\tag_unit_frame.gd",
+        "file": "ui_scenes/in_game/HUD/unit_frames/tag_unit_frame.gd"
+      },
+      {
         "name": "UnitFrame",
         "base": "HUDUIElement",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\HUD\\unit_frames\\unit_frame.gd",

@@ -111,6 +111,8 @@ The editor needs to know what an interface scene holds (to check the root class 
 | [QuestTrackerUI](/advanced/user-interface/hud/quest-tracker-ui) | QuestTrackerUI manages the on-screen display of tracked quests and their objectives. |
 | [SpeechBubbles](/advanced/user-interface/hud/speech-bubbles) | Shows what is said and described over the head of the one who says it: a text in the world that stays for a few seconds. |
 | [SubtitlesUI](/advanced/user-interface/hud/subtitles-ui) | The subtitles of the game: a container with the name of the speaker and the line that is said, at the bottom of the screen. |
+| [TagMapMarkers](/advanced/user-interface/hud/tag-map-markers) | The icons of the minimap: an entity or an object that has an **entity tag** with "Show on the map" gets the icon of the tag (its map icon, or the icon of the tag) on the map, where it is. |
+| [TagUnitFrame](/advanced/user-interface/hud/tag-unit-frame) | A unit frame for an **entity tag** (Boss, Elite ...): a large frame that appears while the **target** of the player in control has the tag, and goes when it has not. |
 | [UnitFrame](/advanced/user-interface/hud/unit-frame) | This class serves as a base for different types of unit frames in the game UI. |
 <!-- /classes -->
 

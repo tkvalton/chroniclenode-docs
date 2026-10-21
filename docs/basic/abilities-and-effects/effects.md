@@ -59,6 +59,8 @@ When an effect is applied while the same effect is already running on the target
 | **Max stacks** | The most stacks allowed (for the two rules that stack) | `1` |
 | **Refresh on stack** | A new stack restarts the duration | off |
 | **Reapply on stack** | A new stack runs the effect's logic again. Use it for instant damage, healing and projectiles. A stat modifier does not need it | off |
+| **When full** | What an application does when the effect is already at its **Max stacks**. *Refresh / reapply as set above*: the two options above still run. *Refuse*: nothing happens at all, not even a refresh of the duration, and the application is reported as refused | Refresh / reapply as set above |
+| **When it runs out** | What happens when the duration of a stacked effect ends. *Lose all stacks*: the effect ends. *Lose one stack, restart the duration*: one stack goes and the timer starts again, so the stacks wear off one at a time | Lose all stacks |
 
 | Stacking rule | What happens when the effect is applied again | Same caster applies it twice | Two casters apply it |
 |---|---|---|---|

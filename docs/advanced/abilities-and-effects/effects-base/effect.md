@@ -35,6 +35,8 @@ The Effect class also manages its lifecycle, including initialization, applicati
 | `bool` | [reapply_on_stack](#prop-reapply-on-stack) | `false` |
 | `int` | [stack_amount](#prop-stack-amount) | `1` |
 | `int` | [max_stacks](#prop-max-stacks) | `1` |
+| `WhenFull` | [stack_when_full](#prop-stack-when-full) | `WhenFull.ALLOW` |
+| `OnExpire` | [stack_on_expire](#prop-stack-on-expire) | `OnExpire.LOSE_ALL_STACKS` |
 | `bool` | [applies_aura](#prop-applies-aura) | `false` |
 | `AuraType` | [aura_classification](#prop-aura-classification) |  |
 | `Array[int]` | [groups](#prop-groups) | `[]` |
@@ -59,7 +61,9 @@ The Effect class also manages its lifecycle, including initialization, applicati
 | `void` | [cleanup_effect_vfx](#method-cleanup-effect-vfx)( `instance: EffectInstance` ) |
 | `String` | [get_duration_description](#method-get-duration-description)() |
 | `String` | [get_effect_description](#method-get-effect-description)() |
-| `Array[Effect]` | [get_child_effect_definitions](#method-get-child-effect-definitions)() |
+| `Array[Effect]` | [get_child_effect_definitions](#method-get-child-effect-definitions)( `path: Array[int] = []` ) |
+| `Array[int]` | [get_direct_child_effect_ids](#method-get-direct-child-effect-ids)() |
+| `Array[int]` | [find_reference_loop](#method-find-reference-loop)( `path: Array[int] = []` ) |
 | `String` | [get_tooltip_text](#method-get-tooltip-text)() |
 | `String` | [get_editor_description](#method-get-editor-description)() |
 | `bool` | [has_vfx](#method-has-vfx)() |
@@ -103,6 +107,20 @@ The options of use count: any ability, basic attack, abilities in group, abiliti
 - **ABILITIES_IN_GROUP** = `2` - abilities that are in a group (uses_filter_id)
 - **ABILITIES_OF_SCHOOL** = `3` - abilities of a school (uses_filter_id)
 - **SPECIFIC_ABILITY** = `4` - one ability (uses_filter_id)
+
+### enum WhenFull {#enum-whenfull}
+
+What an application does when the effect is already at its maximum stacks: allow (the refresh and reapply options still run) or refuse (nothing happens, not even a refresh).
+
+- **ALLOW** = `0`
+- **REFUSE** = `1`
+
+### enum OnExpire {#enum-onexpire}
+
+What happens when the duration of a stacked effect runs out: all the stacks go, or only one goes and the duration starts again.
+
+- **LOSE_ALL_STACKS** = `0`
+- **LOSE_ONE_STACK** = `1`
 
 ### enum StackingRule {#enum-stackingrule}
 
@@ -155,6 +173,14 @@ Stacks applied per application
 ### int max_stacks = 1 {#prop-max-stacks}
 
 Maximum stacks allowed (respects stacking_rule)
+
+### WhenFull stack_when_full = WhenFull.ALLOW {#prop-stack-when-full}
+
+What an application does when the effect is at its maximum stacks. Refuse: it does nothing at all (no refresh of the duration, no reapply), and the application is reported as refused
+
+### OnExpire stack_on_expire = OnExpire.LOSE_ALL_STACKS {#prop-stack-on-expire}
+
+What happens when the duration runs out. Lose one stack: the stacks wear off one at a time, and the duration starts again for the rest
 
 *Aura Settings*
 
@@ -240,9 +266,17 @@ Helper method to get duration description from TimeStrategy
 
 Get the effect description (to be overridden by child classes)
 
-### Array[Effect] get_child_effect_definitions() {#method-get-child-effect-definitions}
+### Array[Effect] get_child_effect_definitions( path: Array[int] = [] ) {#method-get-child-effect-definitions}
 
 The effects inside this one, flattened depth first (its children, then theirs): what the placeholders of its Description count. A plain effect has none
+
+### Array[int] get_direct_child_effect_ids() {#method-get-direct-child-effect-ids}
+
+The ids of the effects this effect applies itself (its children, the else effects of a conditional). A plain effect has none
+
+### Array[int] find_reference_loop( path: Array[int] = [] ) {#method-find-reference-loop}
+
+The ids of an endless loop of effects that apply each other (A applies B applies A), starting and ending with the same id. Empty when there is none. A loop is cut at run time by the depth limit (GameplayConfig.max_effect_depth), but it will not do what was meant
 
 ### String get_tooltip_text() {#method-get-tooltip-text}
 

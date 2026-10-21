@@ -136,6 +136,7 @@ Configuration for gameplay rules and mechanics
 | `DamageResult.DamageBasis` | [leech_basis](#prop-leech-basis) | `DamageResult.DamageBasis.HEALTH_ONLY` |
 | `DamageResult.DamageBasis` | [reflect_basis](#prop-reflect-basis) | `DamageResult.DamageBasis.HEALTH_ONLY` |
 | `int` | [max_reflect_chain](#prop-max-reflect-chain) | `1` |
+| `int` | [max_effect_depth](#prop-max-effect-depth) | `16` |
 | `bool` | [zero_damage_counts_as_hit](#prop-zero-damage-counts-as-hit) | `true` |
 | `float` | [minimum_damage](#prop-minimum-damage) | `0.0` |
 | `bool` | [round_damage](#prop-round-damage) | `false` |
@@ -960,6 +961,10 @@ Which number of a hit a damage reflection is taken from. Effects and stat effect
 ### int max_reflect_chain = 1 {#prop-max-reflect-chain}
 
 How many reactions deep a hit may be and still be reflected. 1: a normal hit is reflected, a reflection is never reflected again. Higher values let two reflecting entities reflect each other that many times
+
+### int max_effect_depth = 16 {#prop-max-effect-depth}
+
+How many effects may start inside each other (a proc that applies an effect that procs ...). Past it the effect is refused with a warning, so a loop of effects cannot freeze the game. Normal chains are 3 to 5 deep
 
 ### bool zero_damage_counts_as_hit = true {#prop-zero-damage-counts-as-hit}
 

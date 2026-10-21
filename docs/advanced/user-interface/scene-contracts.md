@@ -13,7 +13,7 @@ How to read it:
 
 ## The templates the toolkit provides
 
-86 scenes in `res://addons/chroniclenode/`, each with the class on its root node. Copy one next to your own scenes, change it and set it in [UI Settings](/basic/game-settings/ui-settings), or start from your own scene with the same root class.
+87 scenes in `res://addons/chroniclenode/`, each with the class on its root node. Copy one next to your own scenes, change it and set it in [UI Settings](/basic/game-settings/ui-settings), or start from your own scene with the same root class.
 
 | Area | Scene | Root class | What it is |
 |---|---|---|---|
@@ -41,6 +41,7 @@ How to read it:
 | HUD | `in_game/HUD/quest_tracker/tracked_quest_ui_template.tscn` | [`QuestTrackerQuestUI`](#class-quest-tracker-quest-ui) | One tracked quest in the quest tracker: the title of the quest and its objectives |
 | HUD | `in_game/HUD/subtitles/subtitles_ui_template.tscn` | [`SubtitlesUI`](#class-subtitles-ui) | The subtitles of the game: a container with the name of the speaker and the line that is said, at the bottom of the screen |
 | HUD | `in_game/HUD/unit_frames/current_player_unit_frame.tscn` | [`UnitFrame`](#class-unit-frame) | This class serves as a base for different types of unit frames in the game UI |
+| HUD | `in_game/HUD/unit_frames/tag_unit_frame_template.tscn` | [`TagUnitFrame`](#class-tag-unit-frame) | A unit frame for an **entity tag** (Boss, Elite ...): a large frame that appears while the **target** of the player in control has the tag, and goes when it has |
 | HUD | `in_game/HUD/unit_frames/target_unit_frame.tscn` | [`UnitFrame`](#class-unit-frame) | This class serves as a base for different types of unit frames in the game UI |
 | In game | `in_game/dragged_content_template.tscn` | [`DraggedContent`](#class-dragged-content) | Unified visual component for dragging both items AND abilities Pure display - NO LOGIC Replaces both DraggedItem and DraggedAbility |
 | In game | `in_game/esc_menu/in_game_menu_template.tscn` | [`InGameMenu`](#class-in-game-menu) | InGameMenu manages the pause menu during gameplay |
@@ -1005,6 +1006,42 @@ Template scene: `ui_scenes/in_game/HUD/subtitles/subtitles_ui_template.tscn`
 | `show_speaker_name` | `bool` | Show the name of the speaker above the line (when there is one) |
 | `minimum_seconds` | `float` | The line stays at least this long (seconds), however short it is |
 | `characters_per_second` | `float` | When a line has no duration: the seconds it stays are the number of characters divided by this (reading speed) |
+
+### TagMapMarkers {#class-tag-map-markers}
+
+`TagMapMarkers` extends `Control` ([class page](/advanced/user-interface/hud/tag-map-markers))
+
+The icons of the minimap: an entity or an object that has an **entity tag** with "Show on the map" gets the icon of the tag (its map icon, or the icon of the tag) on the map, where it is.
+
+Script: `ui_scenes/in_game/HUD/mini_map/tag_map_markers.gd`
+
+| Export | Type | What it is |
+|---|---|---|
+| `update_interval` | `float` | How often the icons are brought up to date (seconds) |
+| `icon_size` | `Vector2` | The size of an icon (pixels) |
+| `clamp_to_edge` | `bool` | An entity outside the map is shown on its edge, pointing the way (off: it is left out) |
+
+### TagUnitFrame {#class-tag-unit-frame}
+
+`TagUnitFrame` extends `HUDUIElement` ([class page](/advanced/user-interface/hud/tag-unit-frame))
+
+A unit frame for an **entity tag** (Boss, Elite ...): a large frame that appears while the **target** of the player in control has the tag, and goes when it has not.
+
+Script: `ui_scenes/in_game/HUD/unit_frames/tag_unit_frame.gd`
+
+Template scene: `ui_scenes/in_game/HUD/unit_frames/tag_unit_frame_template.tscn`
+
+| Node the script looks for | Type | Found as | What it is |
+|---|---|---|---|
+| `name_label` | `Label` | `%NameLabel` |  |
+| `tag_icon` | `TextureRect` | `%TagIcon` |  |
+| `bars_container` | `Control` | `%BarsContainer` |  |
+
+| Export | Type | What it is |
+|---|---|---|
+| `ui_tag_key` | `String` | The key of the entity tag this frame is for ("boss"): the key you gave the tag in the Entity Tags editor |
+| `pool_bar_scene` | `PackedScene` | The scene of one pool bar (the health bars of the target) |
+| `show_cast_bar` | `bool` | Shows the cast bar of an entity target while it casts |
 
 ### UnitFrame {#class-unit-frame}
 

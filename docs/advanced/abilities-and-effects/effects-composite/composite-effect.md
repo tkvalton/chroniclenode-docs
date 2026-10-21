@@ -37,7 +37,7 @@ Key features:
 | `void` | [cleanup_child_effects](#method-cleanup-child-effects)( `effect_instance: EffectInstance` ) |
 | `Array[EffectInstance]` | [get_active_child_instances](#method-get-active-child-instances)( `effect_instance: EffectInstance` ) |
 | `int` | [get_active_child_count](#method-get-active-child-count)( `effect_instance: EffectInstance` ) |
-| `Array[Effect]` | [get_child_effect_definitions](#method-get-child-effect-definitions)() |
+| `Array[int]` | [get_direct_child_effect_ids](#method-get-direct-child-effect-ids)() |
 | `String` | [get_effect_description](#method-get-effect-description)() |
 | `String` | [get_editor_description](#method-get-editor-description)() |
 
@@ -89,9 +89,9 @@ Get all currently active child effect instances
 
 Get count of active child effects
 
-### Array[Effect] get_child_effect_definitions() {#method-get-child-effect-definitions}
+### Array[int] get_direct_child_effect_ids() {#method-get-direct-child-effect-ids}
 
-The child effects, and theirs, depth first (what the placeholders of the Description of this effect count)
+The effects this composite applies itself (see Effect.get_child_effect_definitions for the flattened list the placeholders of the Description count)
 
 ### String get_effect_description() {#method-get-effect-description}
 
