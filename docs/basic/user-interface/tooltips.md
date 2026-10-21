@@ -23,9 +23,29 @@ Pointing at an **NPC, a pet, a party member or an object** (its body or its [nam
 | **Tags** | The [entity tags](/basic/types-and-groups/entity-tags) it has that want to be listed (*Show the tag in the tooltip*), the highest priority first, in the color of the first |
 | **Type** | Its [entity types](/basic/types-and-groups/entity-types) (Humanoid, Undead). Hidden when it has none |
 | **Level** | `Level 12`. Hidden for an object |
+| **Faction** | The name of its [faction](/basic/behaviors/factions). Hidden for the environmental faction |
+| **Standing** | What the player is to that faction: the name of the reputation level when the faction has levels (*Honored*), otherwise *Friendly*, *Neutral* or *Hostile*. In the color the nameplates use for that relation |
+| **Description** | The *Description* written on the NPC or object definition |
 | **Quests** | The active [quest](/basic/events-and-quests/quests) objectives that are about it: the NPC to defeat or talk to, the chest to open, the gathering node. Each line is the quest, the objective and its progress (`Hunt for glory: Defeat 3 Wolves (1/3)`). Hidden when none is |
 
 An entity tag can also put **art** at the top of the tooltip (*Tooltip art*), for a boss crest or a banner.
+
+**Every part is optional.** The tooltip looks for each node by its unique name and fills it only if the node is in the scene. To get a tooltip with the parts you want, add or remove nodes in your own copy of `tooltip_entity_template.tscn`:
+
+| Unique name | Type | Shows |
+|---|---|---|
+| `%EntityNameLabel` | Label | The name |
+| `%TagsLabel` | Label | The listed entity tags |
+| `%EntityTypeLabel` | Label | The entity types |
+| `%LevelLabel` | Label | The level |
+| `%FactionLabel` | Label | The faction |
+| `%StandingLabel` | Label | The standing of the player |
+| `%DescriptionLabel` | Label | The description |
+| `%TagArt` | TextureRect | The art of the tag |
+| `%ObjectivesContainer` | any Control | The part that holds the quest lines. Hidden when no objective is about the target |
+| `%ObjectivesLabel` | Label | The quest lines |
+
+A part with nothing to show is hidden. A node that is not in the scene is never touched.
 
 The tooltip is set in [UI Settings](/basic/game-settings/ui-settings#tooltip-scenes) (*Entity tooltip*). **Leave the setting empty and no tooltip is shown** for entities. To show it from your own part of the interface, emit `entity_tooltip_requested(target)` and `hide_tooltip(false)` like the others; the in-game interface already does it when the pointer goes over an entity or an object.
 
@@ -49,7 +69,7 @@ Every [HUD element](/basic/user-interface/hud) and every [panel](/basic/user-int
 | `entity_tooltip_requested` | an entity or an object |
 | `hide_tooltip` | `force_hide` |
 
-`hide_tooltip` hides all five. Emit it when the mouse leaves.
+`hide_tooltip` hides all of them. Emit it when the mouse leaves.
 
 ### The item tooltip's context
 
@@ -65,7 +85,15 @@ An item **instance** shows full detail (the rolled affixes of a [generated item]
 
 ## Placement
 
-A tooltip appears **next to the mouse**, kept at least a few pixels inside the screen. It is a `MarginContainer` drawn above the rest of the interface.
+A tooltip is a `MarginContainer` drawn above the rest of the interface, kept at least a few pixels inside the screen. **Each tooltip scene has its own placement**, set on the root node of the scene (the *Placement* group):
+
+| Export | What it does | Default |
+|---|---|---|
+| **Placement** | **Mouse**: next to the mouse pointer, with its bottom right corner on it. **Fixed**: at a place of the screen of your choice, whatever the mouse does | Mouse |
+| **Fixed corner** | For a fixed tooltip: the corner of the screen it is placed from (top left, top right, bottom left, bottom right, center). The same corner of the tooltip is put on that point, so it grows away from the corner | Bottom right |
+| **Fixed offset** | For a fixed tooltip: the distance from that corner in pixels, towards the inside of the screen. From the center: right and down | 16, 16 |
+
+For example, to show the item tooltip in a box in the top right corner of the screen like a character sheet: open `tooltip_item_template.tscn`, set *Placement* to *Fixed*, *Fixed corner* to *Top right* and *Fixed offset* to `20, 80`. Each tooltip can differ: the item tooltip fixed, the ability tooltip on the mouse.
 
 ## Styling
 

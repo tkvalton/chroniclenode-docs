@@ -12,6 +12,9 @@ The base of the five tooltips: the margin from the edges of the screen, and the 
 
 | | | |
 |---|---|---|
+| `Placement` | [placement](#prop-placement) | `Placement.MOUSE` |
+| `ScreenCorner` | [fixed_corner](#prop-fixed-corner) | `ScreenCorner.BOTTOM_RIGHT` |
+| `Vector2` | [fixed_offset](#prop-fixed-offset) | `Vector2(16, 16)` |
 | `Font` | [font](#prop-font) |  |
 | `int` | [font_size](#prop-font-size) | `14` |
 | `int` | [outline_size](#prop-outline-size) | `1` |
@@ -37,11 +40,44 @@ The base of the five tooltips: the margin from the edges of the screen, and the 
 | `void` | [position_tooltip](#method-position-tooltip)() |
 | `void` | [clear_container](#method-clear-container)( `container: Control` ) |
 
+## Enumerations
+
+### enum Placement {#enum-placement}
+
+Where a tooltip appears: next to the mouse, or at a fixed place of the screen
+
+- **MOUSE** = `0` - next to the mouse pointer (the default)
+- **FIXED** = `1` - at the place set by Fixed corner and Fixed offset, whatever the mouse does
+
+### enum ScreenCorner {#enum-screencorner}
+
+The corner (or the middle) of the screen a fixed tooltip is placed from
+
+- **TOP_LEFT** = `0`
+- **TOP_RIGHT** = `1`
+- **BOTTOM_LEFT** = `2`
+- **BOTTOM_RIGHT** = `3`
+- **CENTER** = `4`
+
 ## Constants
 
 - `int` **SCREEN_MARGIN** = `4` - Default margin from screen edges
 
 ## Property descriptions
+
+*Placement*
+
+### Placement placement = Placement.MOUSE {#prop-placement}
+
+Next to the mouse (default), or at a fixed place of the screen. Each tooltip scene has its own setting
+
+### ScreenCorner fixed_corner = ScreenCorner.BOTTOM_RIGHT {#prop-fixed-corner}
+
+For a fixed tooltip: the corner of the screen it is placed from. The tooltip is anchored by the same corner of itself, so it grows away from the corner
+
+### Vector2 fixed_offset = Vector2(16, 16) {#prop-fixed-offset}
+
+For a fixed tooltip: the distance from that corner in pixels, towards the inside of the screen (from the middle: right and down)
 
 *Label Settings*
 
@@ -99,7 +135,7 @@ Shows the tooltip, or hides it.
 
 ### void position_tooltip() {#method-position-tooltip}
 
-Base positioning logic that all tooltips will use
+Base positioning logic that all tooltips will use: next to the mouse, or at the fixed place
 
 ### void clear_container( container: Control ) {#method-clear-container}
 

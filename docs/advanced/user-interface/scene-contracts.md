@@ -82,7 +82,7 @@ How to read it:
 | Tooltips | `in_game/tooltips/items/tooltip_item_template.tscn` | [`TooltipItem`](#class-tooltip-item) | Comprehensive tooltip for all item types with vendor context support Now supports both ItemInstance (full detail) and ItemDefinition (basic) display |
 | Tooltips | `in_game/tooltips/tooltip_description_template.tscn` | [`TooltipDescription`](#class-tooltip-description) | The plain-text tooltip: a name and a description |
 | Tooltips | `in_game/tooltips/tooltip_effect_template.tscn` | [`TooltipEffect`](#class-tooltip-effect) | The tooltip of an effect on an entity (a buff or a debuff): its name and its description |
-| Tooltips | `in_game/tooltips/tooltip_entity_template.tscn` | [`TooltipEntity`](#class-tooltip-entity) | The tooltip of an entity or an object (an NPC, a pet, a party member, a chest ...): its name, its type, its level, the entity tags it has and the quest objectiv |
+| Tooltips | `in_game/tooltips/tooltip_entity_template.tscn` | [`TooltipEntity`](#class-tooltip-entity) | The tooltip of an entity or an object (an NPC, a pet, a party member, a chest ...): its name, its entity tags, its type, its level, its faction and the standing |
 | Tooltips | `in_game/tooltips/tooltip_skill_node_template.tscn` | [`TooltipSkillNode`](#class-tooltip-skill-node) | Tooltip display for skill nodes showing name, description, and rewards Handles different node types: basic, ranked, and choice nodes Integrates full tooltips fo |
 | UI panels | `in_game/panels/character/active_effects_display_ui_template.tscn` | [`ActiveEffectsDisplayUI`](#class-active-effects-display-ui) | Active Effects Display UI - Shows all active effects on the current player Gets initial data from GameHost.party_manager.current_player, then uses effects compo |
 | UI panels | `in_game/panels/character/character_panel_ui_template.tscn` | [`CharacterPanelUI`](#class-character-panel-ui) | Character Panel UI - A fully self-sufficient character information interface Gets initial data from party_manager.current_player, then relies on signals for upd |
@@ -706,6 +706,7 @@ Template scene: `ui_scenes/in_game/HUD/chat_box/chat_box.tscn`
 | `show_time` | `bool` | Write the game time in front of each line |
 | `allow_typing` | `bool` | The player can type: Enter opens a line to type in, / opens it with a slash, Enter sends and Esc closes it. A line is said; a line that starts with a slash is a command |
 | `focus_key` | `Key` | The key that opens the line to type in |
+| `link_tooltip` | `LinkTooltip` | What the names of items and abilities in a line do. Hover: the tooltip shows while the mouse is over the name. Click: it shows when the name is clicked and goes when the mouse leaves the chat or a click lands elsewhere. None: the names are plain text and there is no tooltip |
 
 ### ChatTab {#class-chat-tab}
 
@@ -1801,6 +1802,9 @@ Script: `ui_scenes/in_game/tooltips/tooltip.gd`
 
 | Export | Type | What it is |
 |---|---|---|
+| `placement` | `Placement` | Next to the mouse (default), or at a fixed place of the screen. Each tooltip scene has its own setting |
+| `fixed_corner` | `ScreenCorner` | For a fixed tooltip: the corner of the screen it is placed from. The tooltip is anchored by the same corner of itself, so it grows away from the corner |
+| `fixed_offset` | `Vector2` | For a fixed tooltip: the distance from that corner in pixels, towards the inside of the screen (from the middle: right and down) |
 | `font_size` | `int` |  |
 | `outline_size` | `int` |  |
 | `outline_color` | `Color` |  |
@@ -1842,18 +1846,13 @@ Template scene: `ui_scenes/in_game/tooltips/tooltip_effect_template.tscn`
 
 `TooltipEntity` extends `TooltipBase` ([class page](/advanced/user-interface/tooltips/tooltip-entity))
 
-The tooltip of an entity or an object (an NPC, a pet, a party member, a chest ...): its name, its type, its level, the entity tags it has and the quest objectives that are about it.
+The tooltip of an entity or an object (an NPC, a pet, a party member, a chest ...): its name, its entity tags, its type, its level, its faction and the standing of the player with it, its description and the quest objectives that are about it.
 
 Script: `ui_scenes/in_game/tooltips/tooltip_entity.gd`
 
 Template scene: `ui_scenes/in_game/tooltips/tooltip_entity_template.tscn`
 
-| Node the script looks for | Type | Found as | What it is |
-|---|---|---|---|
-| `entity_name_label` | `Label` | `%EntityNameLabel` | The name (a Label) of the scene, found by its unique name %EntityNameLabel. |
-| `tags_label` | `Label` | `%TagsLabel` | The entity tags it has (a Label), found by its unique name %TagsLabel. |
-| `entity_type_label` | `Label` | `%EntityTypeLabel` | The entity types (a Label), found by its unique name %EntityTypeLabel. |
-| `level_label` | `Label` | `%LevelLabel` | The level (a Label), found by its unique name %LevelLabel. |
+It looks for no nodes by name.
 
 ### TooltipItem {#class-tooltip-item}
 

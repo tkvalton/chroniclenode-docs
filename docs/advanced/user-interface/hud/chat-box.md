@@ -21,6 +21,7 @@ The lines are written as they arrived: a line stays in the language it was writt
 | `bool` | [allow_typing](#prop-allow-typing) | `true` |
 | `Key` | [focus_key](#prop-focus-key) | `KEY_ENTER` |
 | `int` | [max_length](#prop-max-length) | `255` |
+| `LinkTooltip` | [link_tooltip](#prop-link-tooltip) | `LinkTooltip.HOVER` |
 
 ## Methods
 
@@ -33,6 +34,16 @@ The lines are written as they arrived: a line stays in the language it was writt
 | `void` | [close_input](#method-close-input)() |
 | `RichTextLabel` | [get_log](#method-get-log)( `tab_index: int` ) |
 | `void` | [clear_logs](#method-clear-logs)() |
+
+## Enumerations
+
+### enum LinkTooltip {#enum-linktooltip}
+
+What a link in a line does
+
+- **HOVER** = `0`
+- **CLICK** = `1`
+- **NONE** = `2`
 
 ## Property descriptions
 
@@ -63,6 +74,10 @@ The key that opens the line to type in
 ### int max_length = 255 {#prop-max-length}
 
 The most characters of a line
+
+### LinkTooltip link_tooltip = LinkTooltip.HOVER {#prop-link-tooltip}
+
+What the names of items and abilities in a line do. Hover: the tooltip shows while the mouse is over the name. Click: it shows when the name is clicked and goes when the mouse leaves the chat or a click lands elsewhere. None: the names are plain text and there is no tooltip
 
 ## Method descriptions
 

@@ -80,6 +80,7 @@ The chat box has **tabs**. A tab ([`ChatTab`](/advanced/user-interface/hud/chat-
 | **Line limit** | The lines each tab keeps (the oldest go first). `0` = no limit | `200` |
 | **Show time** | The game time in front of each line | off |
 | **Font size** | The size of the text | `12` |
+| **Link tooltip** | What the names of items and abilities in a line do: **Hover** shows the tooltip while the mouse is over the name, **Click** shows it when the name is clicked (it goes when the mouse leaves the chat or a click lands elsewhere), **None** leaves the names as plain text | Hover |
 
 A tab has a **name**, its **channels** (a list to pick from) and **kinds** (tick the kinds of combat event it shows; none ticked = all). A line that belongs to two channels of a tab is written once. Lines stay in the language they were written in; new lines use the new language.
 
@@ -187,7 +188,7 @@ A line that picks an emote takes its texts, animation and sound from it; the sam
 
 ## Links to items and abilities
 
-A message can hold **links**: the data of a message has a list `links` of `{ "kind": "item" or "ability", "id": ..., "text": the name in the line }`. The chat box makes the name a link, and when the mouse is over it the **tooltip** of the item or the ability shows (the same tooltip as in the bag). The toolkit adds links to the lines of loot, trade and learned abilities; a message of your own adds them in its data.
+A message can hold **links**: the data of a message has a list `links` of `{ "kind": "item" or "ability", "id": ..., "text": the name in the line }`. The chat box makes the name a link, and the **tooltip** of the item or the ability shows (the same tooltip as in the bag) when the mouse is over it, or when it is clicked, as the **Link tooltip** export of the chat box says (and with *None* there are no links). The toolkit adds links to the lines of loot, trade and learned abilities; a message of your own adds them in its data.
 
 ## Typing and commands
 
