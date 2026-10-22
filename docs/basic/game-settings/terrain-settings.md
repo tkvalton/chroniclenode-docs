@@ -1,0 +1,44 @@
+# Terrain Settings
+
+**Game Settings > Terrain Settings** holds the settings of the terrain of your project: what is **stored with the painting**, the **limits**, and what **Low, Medium, High and Ultra terrain detail** mean. The player's own choices (how far the world is drawn, which level of terrain detail) are in the video settings of [Game Settings](/basic/game-settings/settings); the numbers behind them are yours.
+
+## Stored with the painted data
+
+These are decided once, when you start a terrain, because the painting is made with them. Changing them later changes the data, and the editor warns before a change that loses something.
+
+| Setting | What it does |
+|---|---|
+| **Stored slots** | How many different textures one chunk (16 m) can hold: 4, 6 or 8. **8** keeps the borders between chunks seamless in ordinary painting; 4 is cheaper but shows seams. Lowering it later drops the weakest texture of every chunk that has more |
+| **Weight map resolution** | The fineness of the painting per tile (a tile is 256 m): 256, 512 or 1024 pixels. 512 is a texel every 0.5 m. Changing it later resamples the painting |
+| **Library texture size** | The size every [terrain texture](/basic/world/terrain-textures) picture is made at: 512, 1024 or 2048 |
+
+## Limits
+
+| Setting | What it does |
+|---|---|
+| **Max view distance** | The farthest the terrain is ever drawn, whatever the player asks (metres) |
+| **Weight maps 16 bit** | Keep the painting on the graphics card with 16 bits per value (a soft brush paints smoothly: needed while painting in the editor) or 8 (half the memory; a finished terrain can use it) |
+
+## Terrain detail levels
+
+What each level the player can pick means in your game, one row per level:
+
+| Column | What it does |
+|---|---|
+| **Slots drawn** | How many of the textures of a chunk are drawn (the strongest first); never more than the slots stored |
+| **Detail reach** | Scales how far each level of ground detail reaches: below 1 coarser sooner (cheaper), above 1 sharper further away (more triangles) |
+| **Sharpness bias** | 0 full-size textures, 1 half size |
+| **Resident pictures** | How many library pictures stay on the graphics card at once |
+| **Near radius (tiles)** | How many tiles round the camera get their own textures; the ground beyond is drawn from a plain colour map |
+| **Shadows** | Does the terrain cast shadows |
+
+Under the table the editor shows what the settings cost: the memory of the pictures kept on the graphics card for each level, and of the painting of one tile. **Low is the level the minimum hardware** (about a GTX 1060 or RX 580 class card at 1080p) **is designed for**; make sure it is playable on a machine like that.
+
+## The player's settings
+
+In the video settings of **Game Settings > Quality** the player gets two choices (you tick them in *Player accessible settings* like the others):
+
+- **View distance scale** (0.5 to 1.5): how far the world is drawn compared with the distances you set. It scales the terrain, and whatever you tie to it with `ViewDistance.scaled(metres)` (foliage and props that hide at a distance).
+- **Terrain detail** (Low, Medium, High, Ultra): the level above.
+
+The AI of NPCs gets simpler at a distance (the LOD distances of the [Gameplay Config](/basic/game-settings/gameplay-config)). By default these are **the same for every player**, so the game plays the same on every computer. Tick **LOD follows view distance** there if you want a player who halves the view distance to halve those distances too.
