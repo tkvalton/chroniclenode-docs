@@ -12,7 +12,7 @@ The **Gameplay Config** holds the rules of your game that are not about one thin
 | | Leveling, Kill Experience, NPC Level Scaling | [Leveling and experience](/basic/game-settings/leveling-and-experience) |
 | **Combat** | Death & Revival, Threat, Damage Results, Pools | [Combat](/basic/game-settings/gameplay-combat) |
 | | Hit Rules (what can miss, accuracy and evasion, melee and ranged) | [Hit Rules](/basic/game-settings/hit-rules) |
-| **General** | Items & Inventory, Dropped Items, Durability, [Quests](/basic/events-and-quests/quests), Fog of War, Breath, Save/Load Rules | [below](#general) |
+| **General** | Items & Inventory, Dropped Items, Durability, [Quests](/basic/events-and-quests/quests), Fog of War, Breath, Footsteps, Save/Load Rules | [below](#general) |
 | **Visuals** | Rig Markers, Outline Materials, Targeting Visuals, Tactical View Visuals, Target Textures | [below](#visuals) |
 | **NPC LOD System** | LOD distance thresholds, update intervals, batch processing | [below](#npc-lod-system) |
 
@@ -123,6 +123,18 @@ How long an entity can stay under water. A [movement volume](/basic/world/moveme
 | **Drowning effect id** | The [effect](/basic/abilities-and-effects/effects) that is on an entity while it has no breath (a damage over time). It comes off when the breath returns. `0` = nothing happens | `0` |
 
 The player sees the breath in the **breath bar** of the [HUD](/basic/user-interface/hud), which shows while the breath is not full.
+
+### Footsteps
+
+How the footstep, jump and landing sounds of entities are timed. The sounds themselves come from the [audio library](/basic/assets/audio#sounds-of-an-entity) (`motion/<type>/footsteps/<surface>/<movement>/`).
+
+| Field | What it does | Default |
+|---|---|---|
+| **Footsteps from movement** | The game makes a footstep every stride of ground an entity walks, a jump sound when it leaves the ground and a landing sound when it comes down. It needs nothing in the animations. Turn it off if your animations call for the sounds themselves | on |
+| **Footstep stride walk** | Metres between two footsteps while walking or crouching | `0.8` |
+| **Footstep stride run** | Metres between two footsteps while running | `1.5` |
+
+If an animation calls for a footstep itself (a *Call Method* track on the walk or run animation calling `_on_animation_walk_footstep_emit` or `_on_animation_run_footstep_emit` on the entity animation player; `_on_animation_jump_start_emit` and `_on_animation_jump_end_emit` for jumps), the game uses those calls and the movement adds none for that kind of sound.
 
 ### Developer
 

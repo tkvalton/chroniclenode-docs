@@ -51,6 +51,9 @@ Configuration for gameplay rules and mechanics
 | `int` | [quest_level_hard_gap](#prop-quest-level-hard-gap) | `3` |
 | `int` | [quest_level_deadly_gap](#prop-quest-level-deadly-gap) | `6` |
 | `bool` | [auto_track_quest_objectives](#prop-auto-track-quest-objectives) | `true` |
+| `bool` | [footsteps_from_movement](#prop-footsteps-from-movement) | `true` |
+| `float` | [footstep_stride_walk](#prop-footstep-stride-walk) | `0.8` |
+| `float` | [footstep_stride_run](#prop-footstep-stride-run) | `1.5` |
 | `bool` | [developer_commands](#prop-developer-commands) | `false` |
 | `bool` | [fog_of_war_enabled](#prop-fog-of-war-enabled) | `true` |
 | `int` | [fog_layers](#prop-fog-layers) | `2` |
@@ -579,6 +582,20 @@ Quest levels above the player's level from which the quest is deadly
 ### bool auto_track_quest_objectives = true {#prop-auto-track-quest-objectives}
 
 Quest objectives tracked automatically
+
+*Footsteps*
+
+### bool footsteps_from_movement = true {#prop-footsteps-from-movement}
+
+Make the footstep, jump and landing sounds from the movement of the entities (a footstep every stride of ground walked). Turn it off if your animations call for the sounds themselves (a method track on the walk and run animations calling `_on_animation_walk_footstep_emit` and `_on_animation_run_footstep_emit` of the animation player). An animation that does so silences this for itself anyway
+
+### float footstep_stride_walk = 0.8 {#prop-footstep-stride-walk}
+
+The distance in metres between two footsteps while walking (or crouching)
+
+### float footstep_stride_run = 1.5 {#prop-footstep-stride-run}
+
+The distance in metres between two footsteps while running
 
 *Developer*
 

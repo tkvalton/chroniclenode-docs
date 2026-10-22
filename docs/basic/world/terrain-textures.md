@@ -20,7 +20,7 @@ The library and the settings come first; painting the ground with these textures
 
 ## Surface
 
-**Surface type** is the kind of ground for footsteps and effects: the same words your footstep sounds use (*grass*, *stone*, *sand*). Empty uses the default surface of the terrain. A character walking on ground painted with the texture makes the sound of its surface type.
+**Surface type** is the kind of ground for footsteps and effects: the same words your footstep sounds use (*grass*, *rock*, *sand*). Empty uses the default surface of the terrain. A character walking on ground painted with the texture makes the sound of its surface type.
 
 ## Weather
 
