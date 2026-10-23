@@ -14,6 +14,7 @@ Unlike the rest of the editor, assets are not `.tres` records with an id. They a
 | [Albums](/basic/assets/albums) | Sets of music and ambience tracks for worlds and for the menus | `src/data/audio/albums/` |
 | [Icons](/basic/assets/icons) | The pictures of items, abilities and the interface, by number | `src/data/icons/` |
 | [Terrain Textures](/basic/assets/terrain-textures) | The textures the terrain is painted with: maps, tiling, surface types, packs | `src/data/terrain/textures/` |
+| [Foliage](/basic/assets/foliage) | Ground clutter (grass, weeds, pebbles: a mesh) and foliage (trees, bushes: a scene) that the terrain scatters | `src/data/foliage/` |
 
 ## Where to start
 

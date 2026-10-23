@@ -181,6 +181,7 @@ const basicSystems = [
     ['Albums', 'albums', 'albums'],
     ['Icons', 'icons', 'icons'],
     ['Terrain Textures', 'terrain-textures', 'terrain_textures'],
+    ['Foliage', 'foliage', 'foliage'],
   ], { after: [page('Supported files and best practice', '/basic/assets/file-types'), page('Walkthrough: from a model to a character', '/basic/assets/walkthrough')] }),
   system('Game Settings', 'game-settings', [
     ['Game Settings', 'settings', 'settings'],

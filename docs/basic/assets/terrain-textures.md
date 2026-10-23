@@ -33,6 +33,15 @@ A texture is made of up to seven **texture maps**: the colour, the bumps, how ro
 
 **ORM** packs three grey textures into the red, green and blue channels of one image: **O**cclusion (shadow in the cracks), **R**oughness and **M**etallic. Material makers such as Material Maker, Substance and ambientCG export them. It is **not only roughness**: the roughness is its green channel, the occlusion its red channel and the metal its blue channel. You do not need to split it: use the ORM file as the roughness texture and tick **Roughness texture is ORM**. The metal is ignored until you set the texture's **Metallic** above 0 (most ground is not metal).
 
+### Ground clutter
+
+A texture can grow **ground clutter** by itself: at the bottom of its editor the **Ground clutter** list has a row for each entry of the [foliage library](/basic/assets/foliage) that grows on it, and a **weight** for each (1 covers the ground as the entry's density says, 0.2 is sparse). Grass ground can grow tufts and dry weeds, sand pebbles, a path nothing.
+
+- The clutter follows the paint: **painting another texture over the ground takes the clutter away**, nothing is stored for it. Only clutter you place by hand is kept, and the paint tool has a *Clear hand-placed clutter where I paint* tick (on by default) for that.
+- The same mesh with other materials is several entries: give each its own weight to shape the variety.
+- An empty list: nothing grows by itself. Foliage (trees, bushes) is not in this list: it is placed by rules and by hand.
+- The rows only list ground clutter; an entry that was deleted shows as *missing* until you change or remove the row.
+
 ### Anti-tiling
 
 A texture is a small picture repeated over the ground, and from far away you can see the repeats line up in rows. **Anti-tiling** hides that: beyond about 12 m the colour texture is read a second time (turned, at another scale) and mixed in where a slow noise says so, and the brightness of the ground varies a little over 50 to 270 m. Near the camera nothing changes. It only costs when the terrain detail level has **Anti-tiling** ticked in [Terrain Settings](/basic/game-settings/terrain-settings), and a texture can opt out with its own **Anti-tiling** tick (bricks, tiles and pavement should: a regular pattern is what they are).
