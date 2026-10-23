@@ -5,37 +5,31 @@ How the player sees and moves through the world is made of two swappable parts:
 - A **controller** decides what the player *means*: WASD to walk, a click to move or attack, a key to jump, how the character turns.
 - A **camera** decides what the player *sees*: orbit, zoom, follow, lock-on.
 
-They are kept apart on purpose, so you can combine them: a third-person camera with WASD, a top-down camera with point-and-click. You choose one of each in the [Gameplay Config](/basic/game-settings/gameplay-config) (*Controller Logic*). **Game Settings > Controller & Camera** is where you make and tune the presets. The demo uses a third-person camera with WASD and mouse.
+They are kept apart on purpose, so you can combine them: a third-person camera with WASD, a top-down camera with point-and-click. You choose and tune each on its own tab of the [Gameplay Config](/basic/game-settings/gameplay-config): **Game Settings > Gameplay Config > Controller** and **> Camera**. The demo uses a third-person camera with WASD and mouse.
 
-## The presets
+## The types
 
-| Controller preset | How it plays |
+| Controller type | How it plays |
 |---|---|
 | **WASD with Mouse** | WASD walks, the mouse looks, left-click selects, right-click attacks or interacts, E interacts, a lock-on key targets |
 | **Point and Click (single)** | Click the ground to walk there; one character |
 | **Point and Click (RTS)** | Click to command the party, with drag-box selection |
 
-| Camera preset | How it looks |
+| Camera type | How it looks |
 |---|---|
 | **Third Person** | Behind the character, orbiting, zooming, colliding with walls, swinging back behind the character as it walks |
 | **Top-down Focused** | Looks down at the character and always follows it. Middle-drag rotates, the wheel zooms |
 | **Top-down Free** | The same, but the camera can be panned freely with the keyboard when the controller does not use WASD to move |
 
-## The editor
+## The tabs
 
-The editor makes and edits **presets**: saved files you can reuse.
+Each tab has a **Type** dropdown with the types above and, under it, the **settings of that type** in sections (the options are listed below). The logic is kept **in the Gameplay Config itself**: change a setting and the game uses it, there is nothing to choose and nothing else to save. Choosing another type gives the settings of that type at their defaults.
 
-| Control | What it does |
-|---|---|
-| **Logic Type** | **Camera** or **Player controller** |
-| **Preset** | The saved presets of that type |
-| **New**, **Delete** | Make a preset (choose its **Logic Class** first) or delete the current one |
-| **Preset Name**, **Description** | For you |
-| **Properties** | The fields of the preset (below) |
-| **Validate** | Checks for configuration errors |
-| **Save Preset** | Writes the file (`src/data/controller_logic/camera/` or `.../player/`) |
+The game uses a **copy** of what is in the config, so what happens during play (angles, locks) never changes your settings.
 
-The game uses a **copy** of the chosen preset, so what happens during play (angles, locks) never changes the saved file.
+::: tip Coming from presets
+Older versions kept the controller and the camera as **presets** (files in `src/data/controller_logic/`) that the Gameplay Config pointed at. The first time you open the tabs, whatever the config pointed at is **copied into the config**. The preset files are no longer used: you can delete them. If your change of controller seemed to do nothing, that was why: the old editor changed a preset, while the one the game used was chosen in the Gameplay Config.
+:::
 
 ## WASD with Mouse: the options
 
@@ -71,7 +65,7 @@ The top-down cameras have their own zoom, angle and nameplate-scaling options (t
 
 ## Pairings
 
-Not every pair works equally. The Gameplay Config shows **warnings** under the two pickers for a pair that would ignore something:
+Not every pair works equally. The **Controller** and **Camera** tabs show **warnings** under the settings for a pair that would ignore something:
 
 | Pair | Result |
 |---|---|
@@ -84,11 +78,11 @@ The warnings are advice, not a lock: the controller wins any conflict.
 
 ## The player's settings
 
-How fast the mouse turns the view is the **player's** setting, not the preset's: *Mouse sensitivity*, the X and Y fine-tuning and *invert* are in [Game Settings](/basic/game-settings/settings#gameplay). A preset only holds its relative feel (*Look sensitivity scale*). Two options of the Gameplay Config tune the whole input: **Look drag threshold** (how many pixels a press must move to count as a drag instead of a click, `10`) and **Log input routing** (prints where each click went, for finding a UI element that swallows clicks).
+How fast the mouse turns the view is the **player's** setting, not the preset's: *Mouse sensitivity*, the X and Y fine-tuning and *invert* are in [Game Settings](/basic/game-settings/settings#gameplay). The controller and camera only hold their relative feel (*Look sensitivity scale*). Two options of the Gameplay Config ([Party Management](/basic/game-settings/gameplay-party#input)) tune the whole input: **Look drag threshold** (how many pixels a press must move to count as a drag instead of a click, `10`) and **Log input routing** (prints where each click went, for finding a UI element that swallows clicks).
 
 ## Mouse buttons and the action bar
 
-An **action bar slot** can be bound to a mouse button (the left and right buttons as attacks in an action game). A slot is read **before** the controller, so a button taken by a slot is not also a click or a mouse look. Choose a preset that does not claim the button, or put the slot on another one. The whole setup is in [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds#keys); the scene that draws the bar is [Action bar](/basic/user-interface/action-bar).
+An **action bar slot** can be bound to a mouse button (the left and right buttons as attacks in an action game). A slot is read **before** the controller, so a button taken by a slot is not also a click or a mouse look. Choose a type that does not claim the button, or put the slot on another one. The whole setup is in [Action bars and keybinds](/basic/game-settings/action-bars-and-keybinds#keys); the scene that draws the bar is [Action bar](/basic/user-interface/action-bar).
 
 ## Clicks that do not reach the world
 
@@ -97,4 +91,4 @@ If clicks do nothing in your game, a full-screen UI node is probably catching th
 ## See also
 
 - [Gameplay Config](/basic/game-settings/gameplay-config), [Collision Layers](/basic/game-settings/collision-layers).
-- [How the camera and controller are built](/advanced/game-settings/), including how to write your own preset.
+- [How the camera and controller are built](/advanced/game-settings/), including how to write your own type.

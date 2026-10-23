@@ -187,12 +187,11 @@ const basicSystems = [
     ['Gameplay Config', 'gameplay-config', 'gameplay_config'],
     ['Character Creation', 'character-creation', 'character_creation_config'],
     ['Collision Layers', 'collision-layers', 'collision_layers'],
-    ['Controller & Camera', 'controller-and-camera', 'controller_camera'],
     ['UI Settings', 'ui-settings', 'ui_settings'],
     ['Localization', 'localization', 'localization'],
     ['Chat', 'chat', 'chat'],
     ['Terrain Settings', 'terrain-settings', 'terrain_settings'],
-  ], { after: [page('Party Management', '/basic/game-settings/gameplay-party'), page('Leveling and experience', '/basic/game-settings/leveling-and-experience'), page('Combat rules', '/basic/game-settings/gameplay-combat'), page('Hit Rules', '/basic/game-settings/hit-rules'), page('Action bars and keybinds', '/basic/game-settings/action-bars-and-keybinds'), page('Panel keys', '/basic/game-settings/panel-keys')] }),
+  ], { after: [page('Controller & Camera', '/basic/game-settings/controller-and-camera'), page('Party Management', '/basic/game-settings/gameplay-party'), page('Leveling and experience', '/basic/game-settings/leveling-and-experience'), page('Combat rules', '/basic/game-settings/gameplay-combat'), page('Hit Rules', '/basic/game-settings/hit-rules'), page('Action bars and keybinds', '/basic/game-settings/action-bars-and-keybinds'), page('Panel keys', '/basic/game-settings/panel-keys')] }),
   userInterface,
 ]
 

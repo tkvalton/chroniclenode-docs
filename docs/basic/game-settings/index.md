@@ -8,7 +8,7 @@
 | [Gameplay Config](/basic/game-settings/gameplay-config) | The **rules** of the game: parties, levels, experience, combat, hit chances, [quests](/basic/events-and-quests/quests), the world |
 | [Character Creation](/basic/game-settings/character-creation) | The character creator: templates, the races or archetypes (profiles), colours, voices |
 | [Collision Layers](/basic/game-settings/collision-layers) | Which kinds of object collide with which |
-| [Controller & Camera](/basic/game-settings/controller-and-camera) | The camera and controls presets: third person with WASD, top-down, point and click |
+| [Controller & Camera](/basic/game-settings/controller-and-camera) | The camera and controls (tabs of the Gameplay Config): third person with WASD, top-down, point and click |
 | [UI Settings](/basic/game-settings/ui-settings) | The cursors, minimap icons and **scenes** of the [interface](/basic/user-interface/), with a check of each scene and a list of the panels and their keys |
 | [Localization](/basic/game-settings/localization) | The languages of the game |
 | [Chat](/basic/game-settings/chat) | The channels of the message manager (names, colours, texts) that the chat box, toasts and labels show |

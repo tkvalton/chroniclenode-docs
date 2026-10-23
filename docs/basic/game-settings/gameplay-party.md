@@ -55,6 +55,6 @@ How the bar of a character works. The whole subject, with recipes, is on [Action
 
 With the basic attack **Off** and a point-and-click controller, clicking an enemy only selects it: the editor shows a warning for that pairing.
 
-## Controller logic and input
+## Input
 
-**Camera logic** and **Player controller logic** are the resources that decide how the camera and the movement work (see [Controller & Camera](/basic/game-settings/controller-and-camera)). **Look drag threshold** is how far the mouse moves with a button held before a drag begins; **Log input routing** prints where each click went, for finding interface problems.
+The **Controller** and **Camera** have tabs of their own now ([Controller & Camera](/basic/game-settings/controller-and-camera)). Two options of the whole input stay here: **Look drag threshold** is how far the mouse moves with a button held before a drag begins, and **Log input routing** prints where each click went, for finding interface problems.

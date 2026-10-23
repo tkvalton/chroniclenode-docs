@@ -32,7 +32,7 @@ The demo has three: *Test Dungeon*, *Test World* and *Tutorial*.
 |---|---|
 | **Open Scene** | Opens the scene of the world in the 3D viewport |
 | **Validate** | Lists what is wrong with this world (see *Validation* below) |
-| **Play Test World** | Runs the game in this world, without the main menu |
+| **Play Test World** | Runs the game in this world, without the main menu. With the world's scene open, the **Test World** button of the 3D viewport (next to *Terrain* and *Add Object*) does the same and saves the scene first |
 | **World name**, **Category**, **Description** | Labels. The name shows in the list and can show in your own interface |
 
 ### Audio

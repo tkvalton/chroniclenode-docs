@@ -2,19 +2,22 @@
 
 <Shot name="gameplay-config-editor" caption="The Gameplay Config editor (Game Settings > Gameplay Config)." />
 
-The **Gameplay Config** holds the rules of your game that are not about one thing in the database: how combat is resolved, what death costs, how the party works, what is saved. Every field has a tooltip. The editor has five categories; the two big ones have pages of their own, and the others are on this page.
+The **Gameplay Config** holds the rules of your game that are not about one thing in the database: how combat is resolved, what death costs, how the party works, what is saved. Every field has a tooltip. The editor has eight tabs; the big ones have pages of their own, and the others are on this page.
 
 ## Categories
 
 | Category | Groups | Where |
 |---|---|---|
-| **Party Management** | Party and companions, New Game Rules, Controller Logic, Action Bar, Input | [Party Management](/basic/game-settings/gameplay-party) |
+| **Party Management** | Party and companions, New Game Rules, Action Bar, Input | [Party Management](/basic/game-settings/gameplay-party) |
+| **Controller** | The type of controller (WASD with mouse, point and click) and its settings | [Controller & Camera](/basic/game-settings/controller-and-camera) |
+| **Camera** | The type of camera (third person, top-down) and its settings | [Controller & Camera](/basic/game-settings/controller-and-camera) |
 | | Leveling, Kill Experience, NPC Level Scaling | [Leveling and experience](/basic/game-settings/leveling-and-experience) |
 | **Combat** | Death & Revival, Threat, Damage Results, Pools | [Combat](/basic/game-settings/gameplay-combat) |
 | | Hit Rules (what can miss, accuracy and evasion, melee and ranged) | [Hit Rules](/basic/game-settings/hit-rules) |
-| **General** | Items & Inventory, Dropped Items, Durability, [Quests](/basic/events-and-quests/quests), Fog of War, Breath, Footsteps, Save/Load Rules | [below](#general) |
+| **General** | [Quests](/basic/events-and-quests/quests), Fog of War, Footsteps, Developer, Save/Load Rules, Breath | [below](#general) |
+| **Items & Inventory** | Item Generation, Inventory Styles, Items and inventory, Durability, Dropped Items | [below](#items-inventory) |
 | **Visuals** | Rig Markers, Outline Materials, Targeting Visuals, Tactical View Visuals, Target Textures | [below](#visuals) |
-| **NPC LOD System** | LOD distance thresholds, update intervals, batch processing | [below](#npc-lod-system) |
+| **NPC LOD System** | LOD distance thresholds, Terrain Range, update intervals, batch processing | [below](#npc-lod-system) |
 
 ::: tip Where to start
 Most games change a handful of these: the size of the party and the rules of a new game ([Party Management](/basic/game-settings/gameplay-party)), what death costs ([Combat](/basic/game-settings/gameplay-combat)), and whether attacks can miss ([Hit Rules](/basic/game-settings/hit-rules)). The rest has defaults that work.
@@ -45,6 +48,53 @@ Fog of war hides the parts of the world the party has not seen. Unexplored groun
 ### Quests
 
 The quest settings are on the [Quests page](/basic/events-and-quests/quests#the-quest-settings): **max active quests** (`20`), **quest markers**, **default quest failure**, **quest game over delay**, **allow quest abandon**, **show quest levels**, the four **quest level gaps**, and **auto track quest objectives**.
+
+### Breath
+
+How long an entity can stay under water. A [movement volume](/basic/world/movement-volumes#breath) says *where* an entity must hold its breath; these say *who*, *how long* and *what happens*.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Breath users** | Who holds their breath: **Nobody** (swimming is free), **Players** or **Everyone** (NPCs too) | Players |
+| **Breath duration** | Seconds of breath | `20` |
+| **Breath recovery speed** | How fast the breath returns above the surface, compared with how fast it ran out (`4` = four times as fast) | `4` |
+| **Drowning effect id** | The [effect](/basic/abilities-and-effects/effects) that is on an entity while it has no breath (a damage over time). It comes off when the breath returns. `0` = nothing happens | `0` |
+
+The player sees the breath in the **breath bar** of the [HUD](/basic/user-interface/hud), which shows while the breath is not full.
+
+### Footsteps
+
+How the footstep, jump and landing sounds of entities are timed. The sounds themselves come from the [audio library](/basic/assets/audio#sounds-of-an-entity) (`motion/<type>/footsteps/<surface>/<movement>/`).
+
+| Field | What it does | Default |
+|---|---|---|
+| **Footsteps from movement** | The game makes a footstep every stride of ground an entity walks, a jump sound when it leaves the ground and a landing sound when it comes down. It needs nothing in the animations. Turn it off if your animations call for the sounds themselves | on |
+| **Footstep stride walk** | Metres between two footsteps while walking or crouching | `0.8` |
+| **Footstep stride run** | Metres between two footsteps while running | `1.5` |
+
+If an animation calls for a footstep itself (a *Call Method* track on the walk or run animation calling `_on_animation_walk_footstep_emit` or `_on_animation_run_footstep_emit` on the entity animation player; `_on_animation_jump_start_emit` and `_on_animation_jump_end_emit` for jumps), the game uses those calls and the movement adds none for that kind of sound.
+
+### Developer
+
+| Field | What it does | Default |
+|---|---|---|
+| **Developer commands** | The developer commands of the [chat box](/basic/game-settings/chat#developer-commands) (`/give`, `/xp`, `/level`, `/money`, `/addtime`, `/settime`, `/quest`). Turn it off for a release | off |
+
+### Save/Load rules
+
+| Field | What it does | Default |
+|---|---|---|
+| **Allow manual save** | Players can save when they like | on |
+| **Allow save during combat** | Saving while the party is in combat | off |
+| **Max save slots** | `0` = unlimited | `10` |
+| **Save directory** | Where the saves go | `user://saves/` |
+| **Save on area transition** | Save automatically when the party changes world | off |
+
+*These five are not used yet: they are stored, but nothing reads them. The game saves into `user://saves/` whatever the setting says, and autosaves when the player leaves to the menu or quits (and not while the party is in combat). See [Save and load](/advanced/save-and-load).*
+
+## Items & Inventory
+
+The rules about items have a tab of their own: how generated items get their stats, how bags work, what wears out, and what lies on the ground.
 
 ### Item generation
 
@@ -111,49 +161,6 @@ Items that lie in the world: see [Dropped items](/basic/items/dropped-items) for
 | **Saved to map** | Items dropped while playing are kept in the save and when the player leaves a world and comes back | on |
 | **Scene** | The scene a dropped item is made from (empty = the one of the toolkit). Copy `dropped_item.tscn` to change how it looks; see [how they are built](/advanced/items/dropped-items#changing-how-an-item-looks) | the toolkit's |
 
-### Breath
-
-How long an entity can stay under water. A [movement volume](/basic/world/movement-volumes#breath) says *where* an entity must hold its breath; these say *who*, *how long* and *what happens*.
-
-| Field | What it does | Default |
-|---|---|---|
-| **Breath users** | Who holds their breath: **Nobody** (swimming is free), **Players** or **Everyone** (NPCs too) | Players |
-| **Breath duration** | Seconds of breath | `20` |
-| **Breath recovery speed** | How fast the breath returns above the surface, compared with how fast it ran out (`4` = four times as fast) | `4` |
-| **Drowning effect id** | The [effect](/basic/abilities-and-effects/effects) that is on an entity while it has no breath (a damage over time). It comes off when the breath returns. `0` = nothing happens | `0` |
-
-The player sees the breath in the **breath bar** of the [HUD](/basic/user-interface/hud), which shows while the breath is not full.
-
-### Footsteps
-
-How the footstep, jump and landing sounds of entities are timed. The sounds themselves come from the [audio library](/basic/assets/audio#sounds-of-an-entity) (`motion/<type>/footsteps/<surface>/<movement>/`).
-
-| Field | What it does | Default |
-|---|---|---|
-| **Footsteps from movement** | The game makes a footstep every stride of ground an entity walks, a jump sound when it leaves the ground and a landing sound when it comes down. It needs nothing in the animations. Turn it off if your animations call for the sounds themselves | on |
-| **Footstep stride walk** | Metres between two footsteps while walking or crouching | `0.8` |
-| **Footstep stride run** | Metres between two footsteps while running | `1.5` |
-
-If an animation calls for a footstep itself (a *Call Method* track on the walk or run animation calling `_on_animation_walk_footstep_emit` or `_on_animation_run_footstep_emit` on the entity animation player; `_on_animation_jump_start_emit` and `_on_animation_jump_end_emit` for jumps), the game uses those calls and the movement adds none for that kind of sound.
-
-### Developer
-
-| Field | What it does | Default |
-|---|---|---|
-| **Developer commands** | The developer commands of the [chat box](/basic/game-settings/chat#developer-commands) (`/give`, `/xp`, `/level`, `/money`, `/addtime`, `/settime`, `/quest`). Turn it off for a release | off |
-
-### Save/Load rules
-
-| Field | What it does | Default |
-|---|---|---|
-| **Allow manual save** | Players can save when they like | on |
-| **Allow save during combat** | Saving while the party is in combat | off |
-| **Max save slots** | `0` = unlimited | `10` |
-| **Save directory** | Where the saves go | `user://saves/` |
-| **Save on area transition** | Save automatically when the party changes world | off |
-
-*These five are not used yet: they are stored, but nothing reads them. The game saves into `user://saves/` whatever the setting says, and autosaves when the player leaves to the menu or quits (and not while the party is in combat). See [Save and load](/advanced/save-and-load).*
-
 ## Visuals
 
 The pictures and materials the game uses to show targeting, selection and the tactical view. Leave a field empty to use no picture.
@@ -179,6 +186,16 @@ The **level of detail** system keeps a big world fast: NPCs far from the party t
 | **LOD controllers per batch** | How many NPCs are checked per run, so a world with hundreds of NPCs does not stall | `10` |
 
 A good setting is the one you cannot notice: raise the distances if NPCs seem to freeze when you look back at them, lower them if a big world stutters.
+
+### Terrain range
+
+The terrain makes its ground solid only **round the players**: within its *Collision radius* (96 m by default; it is a setting of the terrain node of a map). Beyond that there is nothing to stand on, and a physics body would fall through. So:
+
+| Field | What it does | Default |
+|---|---|---|
+| **Lock outside terrain** | Entities that are not players **stand still** (no movement, no physics) wherever the terrain has ground that is not solid yet. They move again as soon as the ground under them is solid. A map without a terrain is not affected | on |
+
+The tab shows a **warning** when the LOD distances reach further than that ground (for example *Medium 100 m* and *Minimal 400 m* with the default radius): on a map with a terrain those levels are never reached, because the NPCs stand still first. Lower the distances, or raise *Collision radius* on the terrain. What a frozen NPC would have done meanwhile is not worked out yet; a later system will predict where it would be.
 
 ## See also
 

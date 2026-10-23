@@ -719,12 +719,6 @@ export const groups = [
         "file": "editor_components/editors/settings/config_editor.gd"
       },
       {
-        "name": "ControllerLogicEditor",
-        "base": "VBoxContainer",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\controller_logic_editor.gd",
-        "file": "editor_components/editors/settings/controller_logic_editor.gd"
-      },
-      {
         "name": "DeathCurrencyLossEditor",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\death_currency_loss_editor.gd",
