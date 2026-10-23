@@ -6,7 +6,7 @@ You paint the ground with these textures in the terrain editor: see [Terrain](/b
 
 ## Texture maps
 
-A texture is made of up to five **texture maps**: the colour, the bumps, how rough it is, how high each point is, and what glows.
+A texture is made of up to seven **texture maps**: the colour, the bumps, how rough (and how shadowed, and how metallic) it is, how high each point is, what glows, and how much light passes through it.
 
 | Field | What it does |
 |---|---|
@@ -18,6 +18,9 @@ A texture is made of up to five **texture maps**: the colour, the bumps, how rou
 | **Height texture** | A grey texture of how high each point of this texture is (white is high). It shapes how the texture **blends with its neighbours** (below). Empty: the texture blends plainly |
 | **Height blend** | How much the height texture shapes the blend: 0 not at all, 1 a lot |
 | **Parallax depth (m)** | How deep the height texture makes the ground **look**, in metres, when you see it at an angle (below). 0 = flat. A few centimetres is plenty: 0.03 for cobbles, 0.08 for rough rock |
+| **Metallic** | How metallic the ground is, 0 to 1: a metal plate, a grate, iron ore. With an ORM texture its metal (blue) channel is multiplied by this: 1 uses the texture as it is, 0 ignores it. Without an ORM texture the whole texture has exactly this metallic. The colour texture is then the colour of the shine, as for any metal material |
+| **Subsurface texture** | How much light passes through the surface: backlit grass and leaves, ice, thin sand. White = a lot. The red channel is read. Empty: none |
+| **Subsurface strength** | How much subsurface scattering the texture gets (1 = as the texture says) |
 | **Emission texture** | What glows: lava cracks, crystals, painted lamps. Its colour is added as light whatever the lighting. Empty: nothing glows |
 | **Emission strength** | How bright it glows (1 = the colour of the texture as it is) |
 | **Tint** | Multiplies the colour (white leaves the texture as it is) |
@@ -27,7 +30,11 @@ A texture is made of up to five **texture maps**: the colour, the bumps, how rou
 
 ### What an ORM texture is
 
-**ORM** packs three grey textures into the red, green and blue channels of one image: **O**cclusion (shadow in the cracks), **R**oughness and **M**etallic. Material makers such as Material Maker, Substance and ambientCG export them. It is **not only roughness**: the roughness is its green channel. ChronicleNode uses the occlusion (red) and the roughness (green); the ground has no metal, so the blue channel is ignored. You do not need to split it: use the ORM file as the roughness texture and tick **Roughness texture is ORM**.
+**ORM** packs three grey textures into the red, green and blue channels of one image: **O**cclusion (shadow in the cracks), **R**oughness and **M**etallic. Material makers such as Material Maker, Substance and ambientCG export them. It is **not only roughness**: the roughness is its green channel, the occlusion its red channel and the metal its blue channel. You do not need to split it: use the ORM file as the roughness texture and tick **Roughness texture is ORM**. The metal is ignored until you set the texture's **Metallic** above 0 (most ground is not metal).
+
+### What a subsurface texture is
+
+**Subsurface scattering** is light that goes into a thin material and comes out softer or on the other side: the glow of grass blades with the sun behind them, the inside of ice. Material Maker exports it as an `_sss` texture (not a shadow map). It only does something where the sun can shine through, so use it on grass, leaves, ice and similar; it costs one more array and one more read, and a level can leave it out.
 
 ### What the height texture does
 
@@ -45,6 +52,10 @@ The extra maps are optional and cost nothing when no texture in use has them. Wh
 | **Height** (blending) | One more array, the same size | One more read for each painted texture, and a little maths where textures meet; only near the camera |
 | **Parallax** | None more (it uses the height texture) | 8 more reads for each texture that has a parallax depth, within about 20 m of the camera only |
 | **Emission** | One more array, the same size | One more read for each texture that glows |
+| **Subsurface** | One more array, the same size | One more read for each texture that has one, and the engine's subsurface step |
+| **Metallic** | None | A little maths (only when a texture has a metallic above 0) |
+
+Each [terrain detail level](/basic/game-settings/terrain-settings) chooses which of these maps it uses, so low-end settings leave the expensive ones out and never load them.
 
 An array holds **every** texture in use, so one texture with an ORM texture makes the whole ORM array (the others get a plain white layer). Use the maps on the textures that need them (the ones that meet at visible borders, or that you walk on and look at close), and keep plain grass and distant rock to the colour and the normal texture. On a low-end card, keep the parallax depth at 0.
 
