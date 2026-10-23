@@ -6,7 +6,7 @@ You paint the ground with these textures in the terrain editor: see [Terrain](/b
 
 ## Texture maps
 
-A texture is made of up to four **texture maps**: the colour, the bumps, how rough it is, and how high each point is.
+A texture is made of up to five **texture maps**: the colour, the bumps, how rough it is, how high each point is, and what glows.
 
 | Field | What it does |
 |---|---|
@@ -17,6 +17,9 @@ A texture is made of up to four **texture maps**: the colour, the bumps, how rou
 | **Occlusion strength** | How much of the ORM occlusion darkens the colour: 0 none, 1 all of it |
 | **Height texture** | A grey texture of how high each point of this texture is (white is high). It shapes how the texture **blends with its neighbours** (below). Empty: the texture blends plainly |
 | **Height blend** | How much the height texture shapes the blend: 0 not at all, 1 a lot |
+| **Parallax depth (m)** | How deep the height texture makes the ground **look**, in metres, when you see it at an angle (below). 0 = flat. A few centimetres is plenty: 0.03 for cobbles, 0.08 for rough rock |
+| **Emission texture** | What glows: lava cracks, crystals, painted lamps. Its colour is added as light whatever the lighting. Empty: nothing glows |
+| **Emission strength** | How bright it glows (1 = the colour of the texture as it is) |
 | **Tint** | Multiplies the colour (white leaves the texture as it is) |
 | **Tile size (m)** | How many metres of ground one repeat of the texture covers. Rock 4 to 8, grass 2 to 4, fine sand 1 to 2 |
 | **Normal strength** | How strong the bumps are (1 = as the texture is) |
@@ -30,12 +33,27 @@ A texture is made of up to four **texture maps**: the colour, the bumps, how rou
 
 The ground of a terrain already has its own heights (the hills you sculpt). The **height texture** has nothing to do with them: it says how high each point **of the texture** is, so pebbles are high and the dirt between them is low. Where two painted textures meet, the terrain uses these heights to decide which shows through: sand in the gaps of cobbles, stones standing out of mud, grass blades between flagstones, instead of a smooth fade. A texture without a height texture blends the plain way, so mixing the two kinds works. The height textures cost one more texture read per painted texture near the camera, and only when at least one texture in use has one.
 
+**Parallax** makes the same height texture show **inside one texture**. With a **parallax depth** above 0, the pebbles of a cobbled road stand out of the gaps when you look at the ground at an angle, instead of being a flat picture with shaded bumps (that is all the normal texture can do). It is drawn within about 20 m of the camera and fades out beyond that, and it needs a height texture.
+
+### What the extra maps cost
+
+The extra maps are optional and cost nothing when no texture in use has them. When they are used (these are estimates; the cost depends on the card):
+
+| Map | Memory | Drawing |
+|---|---|---|
+| **Roughness / ORM** | One more texture array: about 5.6 MB for each texture on the graphics card at 1024 x 1024 (about a quarter of that with compression, which the terrain turns on above 16 textures) | One more texture read for each painted texture near the camera |
+| **Height** (blending) | One more array, the same size | One more read for each painted texture, and a little maths where textures meet; only near the camera |
+| **Parallax** | None more (it uses the height texture) | 8 more reads for each texture that has a parallax depth, within about 20 m of the camera only |
+| **Emission** | One more array, the same size | One more read for each texture that glows |
+
+An array holds **every** texture in use, so one texture with an ORM texture makes the whole ORM array (the others get a plain white layer). Use the maps on the textures that need them (the ones that meet at visible borders, or that you walk on and look at close), and keep plain grass and distant rock to the colour and the normal texture. On a low-end card, keep the parallax depth at 0.
+
 ## Dragging files in
 
 You do not have to click through the file browser for every map. **Drag files from the FileSystem dock**:
 
-- onto the **Albedo, Normal, Roughness or Height** button: that file goes there, whatever its name;
-- or **several files at once** onto the **Texture maps** section (or onto any of the buttons): they are sorted by the words in their names, so a material exported as `sand_albedo.png`, `sand_normal.png`, `sand_orm.png` and `sand_heightmap.png` fills all four in one drop. The words it looks for are **albedo, basecolor, diffuse, color** (colour), **normal, nrm**, **orm, arm**, **height, heightmap, displacement, bump** and **roughness**. A file with **orm** in its name also ticks **Roughness texture is ORM**.
+- onto the **Albedo, Normal, Roughness, Height or Emission** button: that file goes there, whatever its name;
+- or **several files at once** onto the **Texture maps** section (or onto any of the buttons): they are sorted by the words in their names, so a material exported as `sand_albedo.png`, `sand_normal.png`, `sand_orm.png` and `sand_heightmap.png` fills all four in one drop. The words it looks for are **albedo, basecolor, diffuse, color** (colour), **normal, nrm**, **orm, arm**, **height, heightmap, displacement, bump** **emission, emissive, glow** and **roughness**. A file with **orm** in its name also ticks **Roughness texture is ORM**.
 
 Keep the files in the **assets/terrain** folder of your project, one folder for each texture (assets/terrain/sand/sand_albedo.png ...).
 
