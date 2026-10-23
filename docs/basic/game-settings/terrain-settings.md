@@ -41,6 +41,7 @@ What each level the player can pick means in your game, one row per level:
 | **Resident textures** | How many library textures stay on the graphics card at once |
 | **Detail distance (m)** | How far the ground keeps its full detail. The bump of the normal textures and all but the strongest 3 textures of a chunk **fade out smoothly** between 45 percent of this distance and the distance itself; beyond it the ground is drawn flat from the strongest textures. A bigger distance looks better (no visible edge near you) and costs more |
 | **Shadows** | Does the terrain cast shadows |
+| **Anti-tiling** | Break up the visible repeats of the ground far from the camera (see [Anti-tiling](/basic/world/terrain-textures#anti-tiling)). Costs one more colour read per painted texture, far from the camera only. Off on **Low**, on from **Medium** up |
 | **Height blend, Parallax, ORM, Metallic, Emission, Subsurface** | Which [texture maps](/basic/world/terrain-textures#texture-maps) this level uses. A map a level leaves out is not loaded on the graphics card at all (it saves the memory) and its effect is simply not drawn. The defaults: **Low** uses only emission; **Medium** adds height blending, ORM and metal; **High** and **Ultra** use everything |
 
 Under the table the editor shows what the settings cost: the memory of the textures kept on the graphics card for each level, and of the painting of one tile. **Low is the level the minimum hardware** (about a GTX 1060 or RX 580 class card at 1080p) **is designed for**; make sure it is playable on a machine like that.

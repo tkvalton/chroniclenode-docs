@@ -18,6 +18,7 @@ A texture is made of up to seven **texture maps**: the colour, the bumps, how ro
 | **Height texture** | A grey texture of how high each point of this texture is (white is high). It shapes how the texture **blends with its neighbours** (below). Empty: the texture blends plainly |
 | **Height blend** | How much the height texture shapes the blend: 0 not at all, 1 a lot |
 | **Parallax depth (m)** | How deep the height texture makes the ground **look**, in metres, when you see it at an angle (below). 0 = flat. A few centimetres is plenty: 0.03 for cobbles, 0.08 for rough rock |
+| **Anti-tiling** | Ticked by default. Turn it off for textures whose regular pattern is the point: bricks, floor tiles, paving (see [Anti-tiling](#anti-tiling)) |
 | **Metallic** | How metallic the ground is, 0 to 1: a metal plate, a grate, iron ore. With an ORM texture its metal (blue) channel is multiplied by this: 1 uses the texture as it is, 0 ignores it. Without an ORM texture the whole texture has exactly this metallic. The colour texture is then the colour of the shine, as for any metal material |
 | **Subsurface texture** | How much light passes through the surface: backlit grass and leaves, ice, thin sand. White = a lot. The red channel is read. Empty: none |
 | **Subsurface strength** | How much subsurface scattering the texture gets (1 = as the texture says) |
@@ -31,6 +32,10 @@ A texture is made of up to seven **texture maps**: the colour, the bumps, how ro
 ### What an ORM texture is
 
 **ORM** packs three grey textures into the red, green and blue channels of one image: **O**cclusion (shadow in the cracks), **R**oughness and **M**etallic. Material makers such as Material Maker, Substance and ambientCG export them. It is **not only roughness**: the roughness is its green channel, the occlusion its red channel and the metal its blue channel. You do not need to split it: use the ORM file as the roughness texture and tick **Roughness texture is ORM**. The metal is ignored until you set the texture's **Metallic** above 0 (most ground is not metal).
+
+### Anti-tiling
+
+A texture is a small picture repeated over the ground, and from far away you can see the repeats line up in rows. **Anti-tiling** hides that: beyond about 12 m the colour texture is read a second time (turned, at another scale) and mixed in where a slow noise says so, and the brightness of the ground varies a little over 50 to 270 m. Near the camera nothing changes. It only costs when the terrain detail level has **Anti-tiling** ticked in [Terrain Settings](/basic/game-settings/terrain-settings), and a texture can opt out with its own **Anti-tiling** tick (bricks, tiles and pavement should: a regular pattern is what they are).
 
 ### What a subsurface texture is
 
