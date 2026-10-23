@@ -43,7 +43,7 @@ Press the **Terrain** button to turn the mode on or off. When it is off the view
 - **The left strip** has the tools in groups: **View** (Select, Inspect), **Terrain** (Tiles), **Ground** (the sculpting tools), **Textures** and **Colour**. Hover an icon for its name, its key and what it does. **Undo and redo** are at the bottom of the strip. The first tool, **Select**, leaves the mouse as it normally is, so you can still move trees and buildings without leaving the mode.
 - **The bar along the bottom** shows the tool you chose and its settings. Every number has a slider and a box where you can type an exact value.
 - **The small bar at the top left** has the overlay buttons and a warning when tiles are not saved.
-- **The Terrain tab** next to the Inspector has the cursor, the texture library and the world check.
+- **The Terrain tab** next to the Inspector has the cursor, the texture library, the object tools and the world check.
 - **A box in the bottom right corner** tells you what is under the mouse: position, tile, chunk, slope, surface and textures.
 
 ### Keys and mouse
@@ -84,6 +84,11 @@ Choose the **Tiles** tool. Green squares appear on the free tiles next to the te
 A new tile **joins its neighbours without a seam**: its edges copy the edges of the tiles next to it, the ground beside such an edge blends from their heights to a flat level over 96 m, and the rest is flat. You can then sculpt it. A tile away from the others (an island) is allowed; you get a message, and the world check lists it. **The last tile of a terrain cannot be removed.**
 
 Both can be **undone** (Ctrl+Z). A new tile has no file until you save the scene; a removed tile keeps its file until then, and the save deletes it (a copy goes to the `backup` folder).
+
+## Putting objects on the ground
+
+- **Add Object** puts a new NPC, interactable, region or other object on the ground that the middle of the 3D view looks at, so it appears where you are working. If the view looks at the sky or at nothing, it goes to the origin.
+- **Snap selected to the ground** (**Terrain tab > Objects**) puts the nodes you selected in the Scene dock on the terrain: the same place, the height of the ground. **Height above** raises them (a negative number sinks them) and **Tilt to the slope** makes them lean with the hill (their heading is kept). It can be undone. Objects over a hole or off the terrain are left where they are and the message says so. Godot's own *Snap Object to Floor* cannot find this terrain in the editor, so use this one.
 
 ## Saving
 

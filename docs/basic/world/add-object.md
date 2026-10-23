@@ -13,7 +13,7 @@ When a world scene is open in the 3D viewport, an **Add Object** button appears 
 | **Add Audio Zone** | An [audio zone](/basic/world/audio-zones): a cave, a house, a tunnel that changes how the world sounds. A box shape to resize and the Cave profile come with it | The *Volumes* node |
 | **Add Movement Volume** | A [movement volume](/basic/world/movement-volumes): water to swim in, a room with no gravity, a pool of lava. A box shape to resize comes with it | The *Volumes* node |
 
-The containers (*Entities*, *Interactables*, *Regions*, *DroppedItems*, *Volumes*) are made for you the first time they are needed. The new node is placed at the origin of the world and **selected**, so you can move it with the gizmo at once. For an NPC, an interactable or an encounter the [Unique Object panel](/basic/world/unique-object-tool) opens for it.
+The containers (*Entities*, *Interactables*, *Regions*, *DroppedItems*, *Volumes*) are made for you the first time they are needed. The new node is placed on the ground that **the middle of the 3D view looks at** (when the map has a [terrain](/basic/world/terrain); otherwise at the origin of the world) and **selected**, so you can move it with the gizmo at once. For an NPC, an interactable or an encounter the [Unique Object panel](/basic/world/unique-object-tool) opens for it.
 
 ## What happens to the database
 
