@@ -39,6 +39,10 @@ You do not have to click through the file browser for every map. **Drag files fr
 
 Keep the files in the **assets/terrain** folder of your project, one folder for each texture (assets/terrain/sand/sand_albedo.png ...).
 
+## Changing a texture that is already painted
+
+You can change a texture while the terrain is painted with it: replace its maps, rename the files, change the numbers. The ground in the 3D viewport **follows within a couple of seconds**, whether or not the Terrain mode is on. If you **delete a texture** (the entry in the Database) that is painted somewhere, that ground turns **pink and dark squares** so you can see it (it does not go black), and the [world check](/basic/world/terrain#the-world-check) reports it as an error. Make the texture again, or paint over the ground. If you only delete or lose the **albedo file**, that ground is flat grey and the world check warns.
+
 ## Pack
 
 **Pack** is a name that groups textures: "Forest", "Desert", "Dungeon". Type a name, or choose one of the packs that exist with the **Packs** button. The Terrain tab of the 3D editor has a menu that shows one pack at a time (or **All textures**, or **No pack** for the textures that belong to none), so a big library stays easy to pick from. A texture belongs to one pack; leave it empty for none.
