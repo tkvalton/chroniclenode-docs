@@ -100,7 +100,7 @@ On top of that, **Game Settings > Terrain Settings > Saving while editing** can 
 | **Error:** a tile of the terrain has no file | The game would not load that tile |
 | **Error:** a painted texture is not in the database | That ground is drawn grey. The texture was deleted after it was painted |
 | **Warning:** a painted texture has no surface type | Footsteps and effects use the default surface there. Set a [surface type](/basic/world/terrain-textures#surface) on the texture |
-| **Warning:** a painted texture has a picture problem | For example no albedo, or a picture that is not square |
+| **Warning:** a painted texture has a texture problem | For example no albedo, or a texture that is not square |
 | **Warning:** an object is under the ground | A unique, spawn marker or other object with a script is more than half a metre below the ground |
 | **Warning:** a tile reaches the top or the bottom of the height range | Higher or lower ground is cut off there. Make the range bigger |
 | **Note:** an object stands over a hole | It falls through unless something is under it |

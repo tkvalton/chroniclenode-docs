@@ -338,6 +338,7 @@ const worldAdvanced = {
     page('Movement volumes', '/advanced/world/movement-volumes', { title: 'Movement volumes: how they are built' }),
     page('Audio zones', '/advanced/world/audio-zones', { title: 'Audio zones: how they are built' }),
     page('Encounters', '/advanced/world/encounters', { title: 'Encounters: how they are built' }),
+    page('Terrain', '/advanced/world/terrain', { title: 'Terrain: how it is built' }),
   ],
 }
 

@@ -10,7 +10,7 @@ These are decided once, when you start a terrain, because the painting is made w
 |---|---|
 | **Stored slots** | How many different textures one chunk (16 m) can hold: 4, 6 or 8. **8** keeps the borders between chunks seamless in ordinary painting; 4 is cheaper but shows seams. Lowering it later drops the weakest texture of every chunk that has more |
 | **Weight map resolution** | The fineness of the painting per tile (a tile is 256 m): 256, 512 or 1024 pixels. 512 is a texel every 0.5 m. Changing it later resamples the painting |
-| **Library texture size** | The size every [terrain texture](/basic/world/terrain-textures) picture is made at: 512, 1024 or 2048 |
+| **Library texture size** | The size every [terrain texture](/basic/world/terrain-textures) is made at: 512, 1024 or 2048 |
 
 ## Saving while editing
 
@@ -38,11 +38,11 @@ What each level the player can pick means in your game, one row per level:
 | **Slots drawn** | How many of the textures of a chunk are drawn (the strongest first); never more than the slots stored |
 | **Detail reach** | Scales how far each level of ground detail reaches: below 1 coarser sooner (cheaper), above 1 sharper further away (more triangles) |
 | **Sharpness bias** | 0 full-size textures, 1 half size |
-| **Resident pictures** | How many library pictures stay on the graphics card at once |
+| **Resident textures** | How many library textures stay on the graphics card at once |
 | **Near radius (tiles)** | How many tiles round the camera get their own textures; the ground beyond is drawn from a plain colour map |
 | **Shadows** | Does the terrain cast shadows |
 
-Under the table the editor shows what the settings cost: the memory of the pictures kept on the graphics card for each level, and of the painting of one tile. **Low is the level the minimum hardware** (about a GTX 1060 or RX 580 class card at 1080p) **is designed for**; make sure it is playable on a machine like that.
+Under the table the editor shows what the settings cost: the memory of the textures kept on the graphics card for each level, and of the painting of one tile. **Low is the level the minimum hardware** (about a GTX 1060 or RX 580 class card at 1080p) **is designed for**; make sure it is playable on a machine like that.
 
 ## The player's settings
 

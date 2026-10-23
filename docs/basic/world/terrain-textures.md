@@ -4,15 +4,15 @@ A **terrain texture** is one entry of the library your terrain is painted from: 
 
 You paint the ground with these textures in the terrain editor: see [Terrain](/basic/world/terrain) and [Painting](/basic/world/terrain-painting). Textures are made here, in the Database; the Terrain tab of the 3D editor only lists them (press its **Refresh** button after adding some).
 
-## Pictures
+## Texture maps
 
 | Field | What it does |
 |---|---|
-| **Albedo** | The colour picture. Use a **seamless** (tileable) picture, **square**, a **power of two** (1024 x 1024 is the default size of the library: bigger ones are shrunk to it and smaller ones enlarged). The editor tells you when a picture is not square or not a power of two |
-| **Normal map** | The bumps. Leave empty for flat shading. It should be the size of the albedo (it is resized if not) |
-| **Roughness map** | A grey picture of how rough the ground is: white is rough, black is shiny. Empty: the **Roughness** number below is used |
-| **Tint** | Multiplies the colour (white leaves the picture as it is) |
-| **Tile size (m)** | How many metres of ground one repeat of the picture covers. Rock 4 to 8, grass 2 to 4, fine sand 1 to 2 |
+| **Albedo texture** | The colour texture. Use a **seamless** (tileable) image, **square**, a **power of two** (1024 x 1024 is the default size of the library: bigger ones are shrunk to it and smaller ones enlarged). The editor tells you when a texture is not square or not a power of two |
+| **Normal texture** | The bumps. Leave empty for flat shading. It should be the size of the albedo (it is resized if not) |
+| **Roughness texture** | A grey texture of how rough the ground is: white is rough, black is shiny. Empty: the **Roughness** number below is used |
+| **Tint** | Multiplies the colour (white leaves the texture as it is) |
+| **Tile size (m)** | How many metres of ground one repeat of the texture covers. Rock 4 to 8, grass 2 to 4, fine sand 1 to 2 |
 | **Normal strength** | How strong the bumps are (1 = as the map is) |
 | **Roughness** | How rough the ground is when there is no roughness map (1 rough, 0 a mirror) |
 
@@ -36,7 +36,7 @@ How the weather changes this ground. It does not use up one of the 8 texture slo
 
 ## Tips
 
-- Keep the library pictures all the same size; the library resizes them to the size in the Terrain Settings anyway.
+- Keep the library textures all the same size; the library resizes them to the size in the Terrain Settings anyway.
 - Give a texture a **surface type** even when you do not need footsteps yet: it is the name effects and spawners will ask for.
 - A texture with no albedo is shown as a problem at the top of the editor and would paint grey.
 - Group textures into **packs** as soon as the library has more than a dozen: the terrain editor shows one pack at a time.
