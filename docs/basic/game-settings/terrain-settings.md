@@ -31,6 +31,8 @@ How the [navigation of the terrain](/basic/world/terrain-navigation) is baked (t
 | **Navigation cell size** | How fine the mesh is: 0.5 m (the default, about five times faster to bake) or 0.25 m (follows narrow gaps more exactly). Changing it makes the baked navigation out of date |
 | **Navigation max slope** | The steepest ground an entity walks, in degrees (default 45). Steeper ground has no navigation |
 | **Navigation max climb** | The highest step an entity climbs without a ramp, in metres (default 0.5) |
+| **Navigation objects** | Which solid objects of the map the bake includes next to the ground: **Static colliders** (default: the `StaticBody3D` nodes on the World Terrain collision layer), **Meshes**, both, or **Nothing**. See [Buildings and other objects](/basic/world/terrain-navigation#buildings-and-other-objects) |
+| **Navigation objects group** | Only the nodes of this group and their children are used as objects (empty: every node of the map) |
 | **Navigation tiny, small, normal, large, huge** | Which entity [collision shape](/basic/world/terrain-navigation#entity-sizes) sizes get a mesh (all on by default). Shapes whose size rounds to the same agent share one mesh. Leave **Normal** on: the world's own questions about the ground use it |
 
 ## Limits

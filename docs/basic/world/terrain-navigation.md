@@ -86,8 +86,22 @@ When you change which sizes are ticked and bake, the meshes of sizes you took ou
 | **Warning:** the navigation of N tiles is out of date or missing | Ground changed since the bake, or a size has no mesh. Bake again |
 | **Warning:** every cell of a tile is marked not walkable | Nothing can walk there |
 
+## Buildings and other objects
+
+A bake of the ground alone would let NPCs path through a house. So the bake also reads the **solid objects of the map** (the scene that is open when you press the button): buildings, walls, big rocks, bridges, the floor and ramp of a pit. Their sides block walking, their flat tops are walkable only where something can step onto them. Which objects count is set in the [Terrain Settings](/basic/game-settings/terrain-settings#navigation):
+
+| Option | Objects used |
+|---|---|
+| **Static colliders** (default) | Every `StaticBody3D` on the **World Terrain** collision layer (layer 1: where a static body is by default). NPCs, interactables and anything on another layer are never used |
+| **Meshes** | Every `MeshInstance3D`, wherever its collision is (or when it has none) |
+| **Colliders and meshes** | Both |
+| **Nothing** | The ground only |
+
+**Navigation objects group**: when a group name is set, only the nodes of that group (and their children) are used. Put your buildings in a group and name it there to keep decorations out of the bake.
+
+Moving, adding or removing such an object makes the tiles it touches **out of date**: *Bake navigation* notices it and bakes those tiles again, even if their ground did not change. (The Terrain tab can only say "N tiles out of date" for ground edits; objects are looked at when you press the button.)
+
 ## What is not included yet
 
-- **Objects and buildings** are not part of the bake: the navigation is made from the ground only. An NPC can path through the footprint of a house; block the ground under it with **Block walking** until objects join the bake.
 - **Water, lava and other movement volumes** do not change the navigation yet.
 - If you already bake your own `NavigationRegion3D` for ground that the terrain covers, do not use both: the two meshes would overlap.
