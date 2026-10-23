@@ -6,15 +6,38 @@ You paint the ground with these textures in the terrain editor: see [Terrain](/b
 
 ## Texture maps
 
+A texture is made of up to four **texture maps**: the colour, the bumps, how rough it is, and how high each point is.
+
 | Field | What it does |
 |---|---|
-| **Albedo texture** | The colour texture. Use a **seamless** (tileable) image, **square**, a **power of two** (1024 x 1024 is the default size of the library: bigger ones are shrunk to it and smaller ones enlarged). The editor tells you when a texture is not square or not a power of two |
+| **Albedo texture** | The colour. Use a **seamless** (tileable) image, **square**, a **power of two** (1024 x 1024 is the default size of the library: bigger ones are shrunk to it and smaller ones enlarged). The editor tells you when a texture is not square or not a power of two |
 | **Normal texture** | The bumps. Leave empty for flat shading. It should be the size of the albedo (it is resized if not) |
-| **Roughness texture** | A grey texture of how rough the ground is: white is rough, black is shiny. Empty: the **Roughness** number below is used |
+| **Roughness texture** | How rough the ground is: the **green channel** is read, so a plain grey texture works (white is rough, black is shiny) and so does an **ORM texture**. Empty: the **Roughness** number below is used |
+| **Roughness texture is ORM** | Tick it when the roughness texture is an ORM texture (below). Its red channel then darkens the cracks of the colour |
+| **Occlusion strength** | How much of the ORM occlusion darkens the colour: 0 none, 1 all of it |
+| **Height texture** | A grey texture of how high each point of this texture is (white is high). It shapes how the texture **blends with its neighbours** (below). Empty: the texture blends plainly |
+| **Height blend** | How much the height texture shapes the blend: 0 not at all, 1 a lot |
 | **Tint** | Multiplies the colour (white leaves the texture as it is) |
 | **Tile size (m)** | How many metres of ground one repeat of the texture covers. Rock 4 to 8, grass 2 to 4, fine sand 1 to 2 |
-| **Normal strength** | How strong the bumps are (1 = as the map is) |
-| **Roughness** | How rough the ground is when there is no roughness map (1 rough, 0 a mirror) |
+| **Normal strength** | How strong the bumps are (1 = as the texture is) |
+| **Roughness** | How rough the ground is when there is no roughness texture. With a roughness texture it **multiplies** it (leave it at 1 to use the texture as it is) |
+
+### What an ORM texture is
+
+**ORM** packs three grey textures into the red, green and blue channels of one image: **O**cclusion (shadow in the cracks), **R**oughness and **M**etallic. Material makers such as Material Maker, Substance and ambientCG export them. It is **not only roughness**: the roughness is its green channel. ChronicleNode uses the occlusion (red) and the roughness (green); the ground has no metal, so the blue channel is ignored. You do not need to split it: use the ORM file as the roughness texture and tick **Roughness texture is ORM**.
+
+### What the height texture does
+
+The ground of a terrain already has its own heights (the hills you sculpt). The **height texture** has nothing to do with them: it says how high each point **of the texture** is, so pebbles are high and the dirt between them is low. Where two painted textures meet, the terrain uses these heights to decide which shows through: sand in the gaps of cobbles, stones standing out of mud, grass blades between flagstones, instead of a smooth fade. A texture without a height texture blends the plain way, so mixing the two kinds works. The height textures cost one more texture read per painted texture near the camera, and only when at least one texture in use has one.
+
+## Dragging files in
+
+You do not have to click through the file browser for every map. **Drag files from the FileSystem dock**:
+
+- onto the **Albedo, Normal, Roughness or Height** button: that file goes there, whatever its name;
+- or **several files at once** onto the **Texture maps** section (or onto any of the buttons): they are sorted by the words in their names, so a material exported as `sand_albedo.png`, `sand_normal.png`, `sand_orm.png` and `sand_heightmap.png` fills all four in one drop. The words it looks for are **albedo, basecolor, diffuse, color** (colour), **normal, nrm**, **orm, arm**, **height, heightmap, displacement, bump** and **roughness**. A file with **orm** in its name also ticks **Roughness texture is ORM**.
+
+Keep the files in the **assets/terrain** folder of your project, one folder for each texture (assets/terrain/sand/sand_albedo.png ...).
 
 ## Pack
 
@@ -39,4 +62,5 @@ How the weather changes this ground. It does not use up one of the 8 texture slo
 - Keep the library textures all the same size; the library resizes them to the size in the Terrain Settings anyway.
 - Give a texture a **surface type** even when you do not need footsteps yet: it is the name effects and spawners will ask for.
 - A texture with no albedo is shown as a problem at the top of the editor and would paint grey.
+- All the maps of a texture should be the same size; the library resizes them to the size in the Terrain Settings anyway.
 - Group textures into **packs** as soon as the library has more than a dozen: the terrain editor shows one pack at a time.
