@@ -98,6 +98,9 @@ const basicSystems = [
         collapsed: true,
         items: [
           page('Add Object', '/basic/world/add-object'),
+          page('Terrain', '/basic/world/terrain'),
+          page('Sculpting', '/basic/world/terrain-sculpting'),
+          page('Painting', '/basic/world/terrain-painting'),
           page('The Unique Object tool', '/basic/world/unique-object-tool'),
           page('Regions', '/basic/world/regions'),
           page('Movement volumes', '/basic/world/movement-volumes'),

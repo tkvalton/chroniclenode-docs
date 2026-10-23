@@ -15,6 +15,7 @@ Everything the party meets in a world is placed in the scene and stored as a **u
 | [Add Object](/basic/world/add-object) | The button in the 3D viewport that places an NPC, an interactable, a region or an encounter |
 | [The Unique Object tool](/basic/world/unique-object-tool) | The bottom panel that edits the thing you selected in the viewport |
 | [Regions](/basic/world/regions) | Areas of the map that [quests](/basic/events-and-quests/quests) and events can watch |
+| [Terrain](/basic/world/terrain) | The ground: make the terrain of a map, add tiles, save, and check it. With [Sculpting](/basic/world/terrain-sculpting) and [Painting](/basic/world/terrain-painting) for the brushes, and [Terrain Textures](/basic/world/terrain-textures) for the library |
 | [Movement volumes](/basic/world/movement-volumes) | Water to swim in, a room with no gravity, a pool of lava: spaces that change how whoever is in them moves, with breath and a look for the camera |
 | [Audio zones](/basic/world/audio-zones) | Caves, houses and tunnels that change how the world sounds while the camera is inside: muffle, echo and volume for each audio channel |
 | [Encounters](/basic/world/encounters) | A group of NPCs that fights as one, with formations and reactions |
@@ -22,7 +23,7 @@ Everything the party meets in a world is placed in the scene and stored as a **u
 ## How to build a world
 
 1. **Worlds > Settings > Create New Map.** Give it a name and a category. The scene opens in the 3D viewport with a *PartySpawn* marker: that is where the party appears when nothing says otherwise.
-2. **Build the place.** Terrain, models, lights: ordinary Godot work. Set the scene's *Terrain provider* if you use Terrain3D (footsteps and surface effects ask it what the ground is).
+2. **Build the place.** Make the [terrain](/basic/world/terrain) with the Terrain button of the 3D toolbar, then add models and lights: ordinary Godot work. Set the scene's *Terrain provider* if you use another terrain plugin such as Terrain3D (footsteps and surface effects ask it what the ground is).
 3. **Place the inhabitants** with **Add Object**: NPCs, interactables, regions, encounters. Each one becomes a unique in the database as soon as it is in the scene.
 4. **Change what is different** about a placed object in the **Unique Object** panel: a stronger level 12 wolf, a locked chest, a guard with another patrol.
 5. **Set up the world** in the Worlds editor: music, weather, the light override, persistence.

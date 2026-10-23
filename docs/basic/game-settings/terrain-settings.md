@@ -12,6 +12,16 @@ These are decided once, when you start a terrain, because the painting is made w
 | **Weight map resolution** | The fineness of the painting per tile (a tile is 256 m): 256, 512 or 1024 pixels. 512 is a texel every 0.5 m. Changing it later resamples the painting |
 | **Library texture size** | The size every [terrain texture](/basic/world/terrain-textures) picture is made at: 512, 1024 or 2048 |
 
+## Saving while editing
+
+The terrain **always saves with the scene** (Ctrl+S). These settings add saving while you work in the [terrain editor](/basic/world/terrain#saving). They are for the whole project.
+
+| Setting | What it does |
+|---|---|
+| **Autosave** | **Only when the scene is saved**: nothing extra. **Every few minutes** (the default): the tiles you changed are written once they have waited that long. **After every stroke**: written after each brush stroke, so nothing is ever lost (a big painted tile takes a moment) |
+| **Autosave minutes** | For *Every few minutes*: how long changed tiles wait (1 to 120, default 5) |
+| **Keep tile backups** | Before a tile file is overwritten, copy the file it had to a `backup` folder next to the tiles (one copy: the last version). On by default |
+
 ## Limits
 
 | Setting | What it does |

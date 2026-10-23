@@ -2,9 +2,7 @@
 
 A **terrain texture** is one entry of the library your terrain is painted from: grass, rock, sand, snow, a dirt road. **World > Terrain Textures** is the list of them. A terrain keeps only the textures it is painted with, and each **16 m chunk** of it holds up to **8** of them (the number is set in [Terrain Settings](/basic/game-settings/terrain-settings)), so the library can be as big as you like.
 
-::: info The terrain is being built in stages
-The library and the settings come first; painting the ground with these textures arrives with the terrain editor. You can already make your library.
-:::
+You paint the ground with these textures in the terrain editor: see [Terrain](/basic/world/terrain) and [Painting](/basic/world/terrain-painting). Textures are made here, in the Database; the Terrain tab of the 3D editor only lists them (press its **Refresh** button after adding some).
 
 ## Pictures
 
@@ -17,6 +15,10 @@ The library and the settings come first; painting the ground with these textures
 | **Tile size (m)** | How many metres of ground one repeat of the picture covers. Rock 4 to 8, grass 2 to 4, fine sand 1 to 2 |
 | **Normal strength** | How strong the bumps are (1 = as the map is) |
 | **Roughness** | How rough the ground is when there is no roughness map (1 rough, 0 a mirror) |
+
+## Pack
+
+**Pack** is a name that groups textures: "Forest", "Desert", "Dungeon". Type a name, or choose one of the packs that exist with the **Packs** button. The Terrain tab of the 3D editor has a menu that shows one pack at a time (or **All textures**, or **No pack** for the textures that belong to none), so a big library stays easy to pick from. A texture belongs to one pack; leave it empty for none.
 
 ## Surface
 
@@ -37,3 +39,4 @@ How the weather changes this ground. It does not use up one of the 8 texture slo
 - Keep the library pictures all the same size; the library resizes them to the size in the Terrain Settings anyway.
 - Give a texture a **surface type** even when you do not need footsteps yet: it is the name effects and spawners will ask for.
 - A texture with no albedo is shown as a problem at the top of the editor and would paint grey.
+- Group textures into **packs** as soon as the library has more than a dozen: the terrain editor shows one pack at a time.
