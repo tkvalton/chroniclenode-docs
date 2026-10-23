@@ -7,6 +7,7 @@ The **terrain** is the ground of a world: hills, valleys, plains, the textures p
 | **Terrain** (this page) | How the terrain is made, the Terrain mode and its layout, adding and removing tiles, saving, the world check |
 | [Sculpting](/basic/world/terrain-sculpting) | Raise, lower, smooth, flatten, noise, stamp, holes, and the brush settings and shapes |
 | [Painting](/basic/world/terrain-painting) | Painting with textures, packs, the layer limit, lighter, darker and tinted ground |
+| [Navigation](/basic/world/terrain-navigation) | Baking the navigation NPCs walk on, marking ground nobody walks on, entity sizes |
 | [Terrain Textures](/basic/world/terrain-textures) | The library the terrain is painted from |
 | [Terrain Settings](/basic/game-settings/terrain-settings) | The project settings: the quality levels, the limits, how the terrain saves while you edit |
 
@@ -72,6 +73,8 @@ The buttons of the top bar show things over the terrain **in the editor only** (
 | **Tile grid** | The squares of 256 m (one file each) |
 | **Holes** | Where the ground is cut (a hole is not drawn, so without this you would not see it) |
 | **Layer budget** | Each chunk coloured by how many of its 8 textures it uses: green up to 4, yellow 5 or 6, orange 7, red 8 (full) |
+| **Not walkable** | The cells marked not walkable (orange), see [Navigation](/basic/world/terrain-navigation) |
+| **Navigation mesh** | The baked navigation (green) |
 
 ## Adding and removing tiles
 
@@ -110,6 +113,7 @@ On top of that, **Game Settings > Terrain Settings > Saving while editing** can 
 | **Warning:** a tile reaches the top or the bottom of the height range | Higher or lower ground is cut off there. Make the range bigger |
 | **Note:** an object stands over a hole | It falls through unless something is under it |
 | **Note:** tiles are in separate groups, or not painted, or not saved | Islands, grey tiles, unsaved work |
+| **Note / Warning:** the navigation was never baked, is out of date, or a tile is all not walkable | See [Navigation](/basic/world/terrain-navigation#the-world-check) |
 
 An object that is under the ground on purpose (the floor of a pit, a cave) can be left out of the check: give the node the metadata **terrain_check_ignore**.
 

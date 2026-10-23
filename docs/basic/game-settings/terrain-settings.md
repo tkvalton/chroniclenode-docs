@@ -22,6 +22,17 @@ The terrain **always saves with the scene** (Ctrl+S). These settings add saving 
 | **Autosave minutes** | For *Every few minutes*: how long changed tiles wait (1 to 120, default 5) |
 | **Keep tile backups** | Before a tile file is overwritten, copy the file it had to a `backup` folder next to the tiles (one copy: the last version). On by default |
 
+## Navigation
+
+How the [navigation of the terrain](/basic/world/terrain-navigation) is baked (the **Bake navigation** button of the Terrain tab).
+
+| Setting | What it does |
+|---|---|
+| **Navigation cell size** | How fine the mesh is: 0.5 m (the default, about five times faster to bake) or 0.25 m (follows narrow gaps more exactly). Changing it makes the baked navigation out of date |
+| **Navigation max slope** | The steepest ground an entity walks, in degrees (default 45). Steeper ground has no navigation |
+| **Navigation max climb** | The highest step an entity climbs without a ramp, in metres (default 0.5) |
+| **Navigation tiny, small, normal, large, huge** | Which entity [collision shape](/basic/world/terrain-navigation#entity-sizes) sizes get a mesh (all on by default). Shapes whose size rounds to the same agent share one mesh. Leave **Normal** on: the world's own questions about the ground use it |
+
 ## Limits
 
 | Setting | What it does |

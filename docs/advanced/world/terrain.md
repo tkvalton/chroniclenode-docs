@@ -72,6 +72,14 @@ Brushes work in **samples of the whole terrain** (sample x, z is at metre x, z):
 
 `save_dirty` writes only the tiles that changed (and deletes the removed ones) and then the manifest. `save_next_dirty` writes one tile, which `TerrainSaveManager.step` uses to spread an automatic save over frames. The scene's own save calls `save_dirty` through the plugin's `_save_external_data`.
 
+## Navigation
+
+The terrain bakes its own navigation. **Per tile and per agent class**: `TerrainNavigation.plan_classes` turns the entity collision shapes (`EntityDefinition.COLLISION_SIZES`, the one table of capsules) into classes: the baker rounds a radius up to whole cells, and shapes that round to the same radius share a class. `TerrainKernels.navigation_faces` makes the baker's triangles from a tile's heights (two a cell, **wound (a, b, c), (b, d, c) with b along +x and c along +z**: the usual order bakes nothing), leaving out hole cells and cells in the tile's **not-walkable mask** (`TerrainTile.blocked`: the same 128 x 128 cell bits as the holes, format version 4, `DIRTY_BLOCKED`). Tiles are baked one by one and still meet: the bake box is the tile widened by a margin, `border_size` is that margin, and the triangles of up to eight neighbours reach into it. Meshes are saved in `<tile folder>/navigation/nav_x_z_<class>.res`; the manifest (`TerrainData.navigation_classes`, `TerrainData.navigation`) lists them with a **stale** flag that every edit of heights, holes or blocked cells sets on the tile and its eight neighbours (`is_navigation_stale`, `ChronicleTerrain.get_stale_navigation_tiles`).
+
+At run time `TerrainNavigationRuntime` makes a `NavigationRegion3D` for each loaded tile and class and a navigation map for each class: the class of the **Normal** shape lives in the world's own map (so `TerrainService.is_navigable` answers for it), the others get a map of their own with the cell size they were baked with. `ChronicleTerrain.get_navigation_map(shape)` returns the map for a collision shape; `NavigationController` sets its radius and height from the shape and uses that map. The engine syncs a new map over several frames: right after a tile loads, paths and `map_get_closest_point` can still be empty.
+
+The editor bakes with `TerrainNavigationBake`: one job (a tile and a class) at a time on a `WorkerThreadPool` task, each finished mesh applied and saved at once (`ChronicleTerrain.apply_baked_navigation`), progress reported per mesh, Cancel after the mesh in flight, the manifest saved at the end.
+
 ## Adding to it
 
 - **A brush.** Subclass `TerrainStrokeHandler`, set `category`, `uses_strength`, `uses_hardness`, `uses_texture`, `uses_shape`, override `begin`, `dab` and `end`, and register it in `TerrainEditorTool.activate` with a name and a description. Read and write heights with `read_block` and `write_block`; take a record before and after for the undo.
