@@ -161,7 +161,7 @@ The speaker plays the animation and the sound whoever hears the line. A line wit
 
 ## Emotes
 
-An **emote** is a definition in the project: the commands a player types (`/wave`) and a library that the lines of NPCs, events and objects can pick from. **Entities > Emotes** is the editor.
+An **emote** is a definition in the project: the commands a player types (`/wave`) and a library that the lines of NPCs, events and objects can pick from. **Behaviors > Emotes** is the editor.
 
 | Field | What it does |
 |---|---|

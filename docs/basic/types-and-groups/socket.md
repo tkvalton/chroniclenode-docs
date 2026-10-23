@@ -1,6 +1,6 @@
 # Socket
 
-<Shot name="socket-editor" caption="The Socket editor (Equipment Definitions > Socket)." />
+<Shot name="socket-editor" caption="The Socket editor (Types & Groups > Socket)." />
 
 A **socket** type is a kind of slot in a piece of equipment, and the kind of **mod** that fits it. Sockets are an open system, not only for gems: a *Red* socket takes a gem, a *Rune* socket a rune, a *Scope* socket the scope of a rifle. What goes in is a [socketable item](/basic/items/items#socketable) with an effect. The demo has four, named after gem colors (*Red*, *Blue*, *Green*, *White*) because that is the familiar example. A socket has a name, an icon and a **color**, which is the border the socket and its mods get in the inventory.
 

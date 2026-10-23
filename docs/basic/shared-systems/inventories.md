@@ -145,5 +145,5 @@ Every item has a **Weight** (the item editor, next to the value; `0` = nothing).
 
 ## See also
 
-- [Shared party inventory](/basic/entities/shared-inventory), [Items](/basic/items/items), [Currency](/basic/items/currency), [Loot rules](/basic/items/loot-rules), [Vendors](/basic/items/vendors), [Trainers](/basic/items/trainers)
+- [Shared party inventory](/basic/entities/shared-inventory), [Items](/basic/items/items), [Currency](/basic/items/currency), [Loot rules](/basic/items/loot-rules), [Vendors](/basic/items/vendors), [Trainers](/basic/behaviors/trainers)
 - [Interactables](/basic/entities/interaction-types#container), [Equipment Slot](/basic/equipment-definitions/equipment-slot)

@@ -8,7 +8,7 @@ The **terrain** is the ground of a world: hills, valleys, plains, the textures p
 | [Sculpting](/basic/world/terrain-sculpting) | Raise, lower, smooth, flatten, noise, stamp, holes, and the brush settings and shapes |
 | [Painting](/basic/world/terrain-painting) | Painting with textures, packs, the layer limit, lighter, darker and tinted ground |
 | [Navigation](/basic/world/terrain-navigation) | Baking the navigation NPCs walk on, marking ground nobody walks on, entity sizes |
-| [Terrain Textures](/basic/world/terrain-textures) | The library the terrain is painted from |
+| [Terrain Textures](/basic/assets/terrain-textures) | The library the terrain is painted from |
 | [Terrain Settings](/basic/game-settings/terrain-settings) | The project settings: the quality levels, the limits, how the terrain saves while you edit |
 
 ## What a terrain is made of
@@ -107,7 +107,7 @@ On top of that, **Game Settings > Terrain Settings > Saving while editing** can 
 |---|---|
 | **Error:** a tile of the terrain has no file | The game would not load that tile |
 | **Error:** a painted texture is not in the database | That ground is drawn grey. The texture was deleted after it was painted |
-| **Warning:** a painted texture has no surface type | Footsteps and effects use the default surface there. Set a [surface type](/basic/world/terrain-textures#surface) on the texture |
+| **Warning:** a painted texture has no surface type | Footsteps and effects use the default surface there. Set a [surface type](/basic/assets/terrain-textures#surface) on the texture |
 | **Warning:** a painted texture has a texture problem | For example no albedo, or a texture that is not square |
 | **Warning:** an object is under the ground | A unique, spawn marker or other object with a script is more than half a metre below the ground |
 | **Warning:** a tile reaches the top or the bottom of the height range | Higher or lower ground is cut off there. Make the range bigger |

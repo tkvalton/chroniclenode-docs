@@ -1,6 +1,6 @@
 # Trainers, tiers and professions: how they are built
 
-The [Trainers](/basic/items/trainers), [Skill tiers and specializations](/basic/shared-systems/skill-tiers-and-specializations) and [Craft Schools](/basic/items/craft-schools) chapters explain the options. This page explains the code.
+The [Trainers](/basic/behaviors/trainers), [Skill tiers and specializations](/basic/shared-systems/skill-tiers-and-specializations) and [Craft Schools](/basic/items/craft-schools) chapters explain the options. This page explains the code.
 
 ## The pieces
 

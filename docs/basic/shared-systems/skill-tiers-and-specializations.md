@@ -2,7 +2,7 @@
 
 Two parts of skills that [proficiencies](/basic/entity-stats/proficiencies) and professions ([craft schools](/basic/items/craft-schools)) share. Both are optional: a skill with no tiers and no specializations works as it always did.
 
-- **Tiers** are steps with a **cap** on the level: Apprentice up to 75, Journeyman up to 150, Master up to 300. A character cannot level past the cap of their tier until a [trainer](/basic/items/trainers), a quest or an event trains the next one.
+- **Tiers** are steps with a **cap** on the level: Apprentice up to 75, Journeyman up to 150, Master up to 300. A character cannot level past the cap of their tier until a [trainer](/basic/behaviors/trainers), a quest or an event trains the next one.
 - **Specializations** are choices inside a skill: Weaponsmith or Armorsmith, Two Handed or Dual Wield. A character chooses one, and it gives something.
 
 ## Tiers
@@ -76,9 +76,9 @@ The abilities and items that a proficiency specialization gives go in its **rewa
 | **Proficiency** requirement | Also has a *tier* now |
 | **Skill Tier**, **Specialization**, **Profession** rewards | Put a character in a tier, give a specialization, teach a profession (with levels) |
 
-The reward and requirement dialogs show the ids of the skill and of its tier or specialization; the easiest way to use them is a lesson of a [trainer](/basic/items/trainers), which builds the reward for you.
+The reward and requirement dialogs show the ids of the skill and of its tier or specialization; the easiest way to use them is a lesson of a [trainer](/basic/behaviors/trainers), which builds the reward for you.
 
 ## See also
 
-- [Trainers](/basic/items/trainers), [Proficiencies](/basic/entity-stats/proficiencies), [Craft Schools](/basic/items/craft-schools)
+- [Trainers](/basic/behaviors/trainers), [Proficiencies](/basic/entity-stats/proficiencies), [Craft Schools](/basic/items/craft-schools)
 - [Requirements](/basic/shared-systems/requirements), [Rewards](/basic/shared-systems/rewards)

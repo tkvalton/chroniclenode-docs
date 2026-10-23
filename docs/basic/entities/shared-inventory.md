@@ -21,7 +21,7 @@ Everything that uses a character's bag or money uses the shared one when the par
 
 - **Loot, item rewards, quest items and pick-pocketing** go into the bag of the party; money goes into the purse.
 - **[Vendors](/basic/items/vendors)** sell to the purse and the bag, and buy from the bag.
-- **[Trainers](/basic/items/trainers)** and **[crafting](/basic/items/craft-recipes)** take their costs and materials from the bag and the purse that the learner or crafter uses.
+- **[Trainers](/basic/behaviors/trainers)** and **[crafting](/basic/items/craft-recipes)** take their costs and materials from the bag and the purse that the learner or crafter uses.
 - [Quest items](/basic/items/quest-items) in the shared bag count for the whole party.
 
 ## Good to know

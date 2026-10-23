@@ -8,6 +8,7 @@ Types and groups are the **labels** the rest of ChronicleNode uses to say *what 
 | [School Types](/basic/types-and-groups/school-types) | The family of an ability: Arcane, Divine, Martial | Abilities, school locks, [cooldown](/basic/keywords#cooldown) and cost stats, immunities |
 | [Entity Types](/basic/types-and-groups/entity-types) | What an entity is: Humanoid, Beast, Undead | Conditions ("+30 % damage against Undead") |
 | [Groups](/basic/types-and-groups/groups) | Shared labels for effects, abilities and items | Exclusive effects, shared cooldowns, ammo |
+| [Socket](/basic/types-and-groups/socket) | The kinds of socket equipment has, and of the mods that fit them (gems, runes, attachments ...) | Red, Blue, Rune, Scope |
 
 Some labels live next to the thing they belong to:
 

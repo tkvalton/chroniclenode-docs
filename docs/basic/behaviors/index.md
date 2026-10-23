@@ -8,6 +8,7 @@ Behaviors are what decide what an entity **does by itself**: who it attacks, how
 | [**Combat Scripts**](/basic/behaviors/combat-scripts) | How an entity fights: search, chase, attack logic, boss phases, reactions |
 | [**Behavior Scripts**](/basic/behaviors/behavior-scripts) | What an entity does when nothing is happening: patrols, daily routines, wandering |
 | [**Conversations**](/basic/behaviors/conversations) | What an entity says, what the player can answer, and what comes of it |
+| [**Trainers**](/basic/behaviors/trainers) | Lessons that NPCs teach: abilities, ranks, proficiency levels, professions, tiers, specializations, recipes |
 
 ## How they meet
 

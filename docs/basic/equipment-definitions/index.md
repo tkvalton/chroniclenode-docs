@@ -10,7 +10,6 @@ These are the rules that [equipment](/basic/items/items#equipment) is built from
 | [**Weapon Class**](/basic/equipment-definitions/weapon-class) | The kind of weapon: its animations, its basic attack and the ammo it shoots | Sword, Bow, Staff, Dagger |
 | [**Quality**](/basic/equipment-definitions/quality) | How rare an item is, with a color | Poor, Common, Rare, Epic |
 | [**Set Bonus**](/basic/equipment-definitions/set-bonus) | The bonuses of wearing several pieces of a set | 2 pieces: +10 armor. 4 pieces: a proc |
-| [**Socket**](/basic/equipment-definitions/socket) | The kinds of socket equipment has, and of the mods that fit them (gems, runes, attachments ...) | Red, Blue, Rune, Scope |
 
 ## How an item gets into a slot
 

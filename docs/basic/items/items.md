@@ -64,7 +64,7 @@ Equipment is worn in a slot of the [equipment slots](/basic/equipment-definition
 | **Effect stat bonus** | **Add Stat Bonus**: a stat and a number. While the item is worn the number is added to the stat, and taken away again when the item is taken off. Next to it the editor shows what the bonus costs in the [budget](/basic/items/item-generation#the-budget) of a generated item (the points × the cost of the stat) |
 | **Equipment effects** | [Effects](/basic/abilities-and-effects/effects) that are applied while the item is worn: a glow, an aura, a proc. Each has a **cost** field: what it costs from the budget of a generated item (`0` = free) |
 | **On-use ability** | An [ability](/basic/abilities-and-effects/abilities) the wearer can activate while it is worn (a trinket you click) |
-| **Sockets** | **Add Socket**: a [socket](/basic/equipment-definitions/socket) type. Each one takes a [socketable](#socketable) mod of that type. The mods work only while the item is worn |
+| **Sockets** | **Add Socket**: a [socket](/basic/types-and-groups/socket) type. Each one takes a [socketable](#socketable) mod of that type. The mods work only while the item is worn |
 | **Full sockets effect** | An effect that is added when **every** socket of the item is filled |
 | **Set bonus** | The [set](/basic/equipment-definitions/set-bonus) the item belongs to |
 
@@ -184,9 +184,9 @@ Using the item opens the readable panel at the first page.
 | Field | What it does |
 |---|---|
 | **Effect** | The [effect](/basic/abilities-and-effects/effects) the mod gives to whoever wears the item it is socketed in |
-| **Allowed sockets** | **Add Allowed Socket**: the [socket](/basic/equipment-definitions/socket) types it fits |
+| **Allowed sockets** | **Add Allowed Socket**: the [socket](/basic/types-and-groups/socket) types it fits |
 
-A socketable is the **mod** of a socket system, and gems are only the familiar example: the same item can be a rune, a scope, an armor plate or a chip, whatever the sockets of your equipment take (see [Socket](/basic/equipment-definitions/socket#what-you-can-build-with-it)). It cannot be used by itself. Taking a mod out of a worn item takes its effect with it; when an item is displaced its mods and enchantments go with it.
+A socketable is the **mod** of a socket system, and gems are only the familiar example: the same item can be a rune, a scope, an armor plate or a chip, whatever the sockets of your equipment take (see [Socket](/basic/types-and-groups/socket#what-you-can-build-with-it)). It cannot be used by itself. Taking a mod out of a worn item takes its effect with it; when an item is displaced its mods and enchantments go with it.
 
 ## Dropped item
 

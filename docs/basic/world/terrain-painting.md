@@ -1,12 +1,12 @@
 # Painting the terrain
 
-The **Textures** and **Colour** groups of the strip on the left of the 3D viewport paint the ground. You paint with the [terrain textures](/basic/world/terrain-textures) of your library. For the layout of the Terrain mode and the keys, see [Terrain](/basic/world/terrain); the brush (radius, strength, hardness, shapes) is the one in [Sculpting](/basic/world/terrain-sculpting).
+The **Textures** and **Colour** groups of the strip on the left of the 3D viewport paint the ground. You paint with the [terrain textures](/basic/assets/terrain-textures) of your library. For the layout of the Terrain mode and the keys, see [Terrain](/basic/world/terrain); the brush (radius, strength, hardness, shapes) is the one in [Sculpting](/basic/world/terrain-sculpting).
 
 ## Choosing a texture
 
 The **Textures** section of the **Terrain tab** (next to the Inspector) lists the textures of your library with their previews.
 
-- The menu above the list chooses a **pack**: **All textures**, **No pack** (the textures that belong to none) or one of your packs. A pack is a group you name yourself ("Forest", "Desert", "Dungeon"); a texture joins a pack in the **Pack** section of the [Terrain Textures](/basic/world/terrain-textures) editor.
+- The menu above the list chooses a **pack**: **All textures**, **No pack** (the textures that belong to none) or one of your packs. A pack is a group you name yourself ("Forest", "Desert", "Dungeon"); a texture joins a pack in the **Pack** section of the [Terrain Textures](/basic/assets/terrain-textures) editor.
 - Type in the **filter** to narrow the list by name.
 - Click a texture to choose it. The bottom bar shows the one you chose.
 - **Refresh** looks again for new textures and packs after you have added some in the Database.

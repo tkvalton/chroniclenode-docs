@@ -11,11 +11,11 @@ Every interaction panel is a [`PanelUI`](/advanced/user-interface/panels/panel-u
 | **Conversation** | [`ConversationPanelUI`](/advanced/user-interface/interaction-panels/conversation-panel-ui) | The [Conversation](/basic/behaviors/conversations) interaction | The speaker, the text (typed out), the responses, voice lines; skill checks open the dice roll |
 | **Dice roll** | [`DiceRollPanel`](/advanced/user-interface/interaction-panels/dice-roll-panel) | A conversation response that has a [check](/basic/behaviors/conversations) | The roll of a skill check and its result |
 | **Vendor** | [`VendorPanelUI`](/advanced/user-interface/interaction-panels/vendor-panel-ui) | The [Vendor](/basic/items/vendors) interaction | The shop's stock on one side and the player's bag on the other (right-click an item to sell it); a repair button |
-| **Trainer** | [`TrainerPanelUI`](/advanced/user-interface/interaction-panels/trainer-panel-ui) | The [Trainer](/basic/items/trainers) interaction | The lessons a trainer teaches, with their price. **Made in code**, there is no scene node for it |
+| **Trainer** | [`TrainerPanelUI`](/advanced/user-interface/interaction-panels/trainer-panel-ui) | The [Trainer](/basic/behaviors/trainers) interaction | The lessons a trainer teaches, with their price. **Made in code**, there is no scene node for it |
 | **Crafting** | [`CraftingPanelUI`](/advanced/user-interface/interaction-panels/crafting-panel-ui) | The [Crafting](/basic/items/craft-schools) interaction | The recipes of a school, the materials, the queue and the progress |
 | **External inventory** | [`InventoryUI`](/advanced/user-interface/panels/inventory-ui) (as *External inventory*) | A **Container**, a **Loot** interaction (a body), and **Gather** with the loot window | The contents of a chest, a body or a gathering node. Drag items out, or right-click to take them |
 | **Readable** | [`ReadablePanelUI`](/advanced/user-interface/interaction-panels/readable-panel-ui) | A readable object or item (a book, a sign, a letter) | Pages, with next and previous, and a background |
-| **Socket** | [`SocketPanelUI`](/advanced/user-interface/interaction-panels/socket-panel-ui) | Shift + right-click on equipment that has [sockets](/basic/equipment-definitions/socket) | The sockets of the item, to put gems in and take them out |
+| **Socket** | [`SocketPanelUI`](/advanced/user-interface/interaction-panels/socket-panel-ui) | Shift + right-click on equipment that has [sockets](/basic/types-and-groups/socket) | The sockets of the item, to put gems in and take them out |
 
 ## How a window is opened
 

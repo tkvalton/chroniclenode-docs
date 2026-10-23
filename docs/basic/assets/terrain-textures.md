@@ -1,6 +1,6 @@
 # Terrain Textures
 
-A **terrain texture** is one entry of the library your terrain is painted from: grass, rock, sand, snow, a dirt road. **World > Terrain Textures** is the list of them. A terrain keeps only the textures it is painted with, and each **16 m chunk** of it holds up to **8** of them (the number is set in [Terrain Settings](/basic/game-settings/terrain-settings)), so the library can be as big as you like.
+A **terrain texture** is one entry of the library your terrain is painted from: grass, rock, sand, snow, a dirt road. **Assets > Terrain Textures** is the list of them. A terrain keeps only the textures it is painted with, and each **16 m chunk** of it holds up to **8** of them (the number is set in [Terrain Settings](/basic/game-settings/terrain-settings)), so the library can be as big as you like.
 
 You paint the ground with these textures in the terrain editor: see [Terrain](/basic/world/terrain) and [Painting](/basic/world/terrain-painting). Textures are made here, in the Database; the Terrain tab of the 3D editor only lists them (press its **Refresh** button after adding some).
 

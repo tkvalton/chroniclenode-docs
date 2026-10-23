@@ -13,6 +13,7 @@ Unlike the rest of the editor, assets are not `.tres` records with an id. They a
 | [Audio](/basic/assets/audio) | Music, ambience, voices, footsteps, ability and world sounds | `src/data/audio/` |
 | [Albums](/basic/assets/albums) | Sets of music and ambience tracks for worlds and for the menus | `src/data/audio/albums/` |
 | [Icons](/basic/assets/icons) | The pictures of items, abilities and the interface, by number | `src/data/icons/` |
+| [Terrain Textures](/basic/assets/terrain-textures) | The textures the terrain is painted with: maps, tiling, surface types, packs | `src/data/terrain/textures/` |
 
 ## Where to start
 

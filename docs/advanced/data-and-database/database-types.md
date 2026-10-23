@@ -65,7 +65,7 @@ The rows are in the order of the REGISTRY, grouped like the editor's categories.
 | `equipment_slot` | `EquipmentSlotDefinition` | `src/data/items/equipment_slots/` | [Equipment Slot](/basic/equipment-definitions/equipment-slot) |
 | `quality` | `Quality` | `src/data/items/qualities/` | [Quality](/basic/equipment-definitions/quality) |
 | `set_bonus` | `SetBonusDefinition` | `src/data/items/set_bonuses/` | [Set Bonus](/basic/equipment-definitions/set-bonus) |
-| `socket` | `SocketDefinition` | `src/data/items/sockets/` | [Socket](/basic/equipment-definitions/socket) |
+| `socket` | `SocketDefinition` | `src/data/items/sockets/` | [Socket](/basic/types-and-groups/socket) |
 | **Unique Objects Data** | | | |
 | `unique_entity` | `UniqueEntityData` | `src/data/unique_entities/` | [The Unique Object tool](/basic/world/unique-object-tool) |
 | `unique_interactable` | `UniqueInteractableData` | `src/data/unique_interactables/` | [The Unique Object tool](/basic/world/unique-object-tool) |

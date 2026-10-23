@@ -90,7 +90,6 @@ const basicSystems = [
     ['Worlds', 'worlds', 'maps'],
     ['World Configs', 'world-configs', 'world_configs'],
     ['Uniques', 'uniques', 'uniques'],
-    ['Terrain Textures', 'terrain-textures', 'terrain_textures'],
   ], {
     after: [
       {
@@ -133,6 +132,7 @@ const basicSystems = [
     ['Combat Scripts', 'combat-scripts', 'modular_combat_scripts'],
     ['Behavior Scripts', 'behavior-scripts', 'modular_behavior_scripts'],
     ['Conversations', 'conversations', 'conversations'],
+    ['Trainers', 'trainers', 'trainers'],
   ]),
   system('Entity Stats', 'entity-stats', [
     ['Stats', 'stats', 'stats'],
@@ -151,6 +151,7 @@ const basicSystems = [
     ['Entity Types', 'entity-types', 'entity_tags'],
     ['Entity Tags', 'entity-tags', 'ui_tags'],
     ['Groups', 'groups', 'groups'],
+    ['Socket', 'socket', 'socket'],
   ]),
   system('Items', 'items', [
     ['Items', 'items', 'items'],
@@ -160,7 +161,6 @@ const basicSystems = [
     ['Craft Recipes', 'craft-recipes', 'craft_recipes'],
     ['Craft Schools', 'craft-schools', 'craft_schools'],
     ['Vendors', 'vendors', 'vendors'],
-    ['Trainers', 'trainers', 'trainers'],
   ], {
     after: [page('Tutorial: your first item and its loot', '/basic/items/first-item'), page('Quest items', '/basic/items/quest-items'), page('Generated items', '/basic/items/item-generation'), page('Loot rules', '/basic/items/loot-rules'), page('Dropped items', '/basic/items/dropped-items'), page('Durability', '/basic/items/durability')],
   }),
@@ -171,7 +171,6 @@ const basicSystems = [
     ['Equipment Slot', 'equipment-slot', 'equipment_slot'],
     ['Quality', 'quality', 'quality'],
     ['Set Bonus', 'set-bonus', 'set_bonus'],
-    ['Socket', 'socket', 'socket'],
   ]),
   system('Assets', 'assets', [
     ['Model Scenes', 'model-scenes', 'skeletons'],
@@ -181,16 +180,17 @@ const basicSystems = [
     ['Audio', 'audio', 'audio'],
     ['Albums', 'albums', 'albums'],
     ['Icons', 'icons', 'icons'],
+    ['Terrain Textures', 'terrain-textures', 'terrain_textures'],
   ], { after: [page('Supported files and best practice', '/basic/assets/file-types'), page('Walkthrough: from a model to a character', '/basic/assets/walkthrough')] }),
   system('Game Settings', 'game-settings', [
     ['Game Settings', 'settings', 'settings'],
     ['Gameplay Config', 'gameplay-config', 'gameplay_config'],
     ['Character Creation', 'character-creation', 'character_creation_config'],
     ['Collision Layers', 'collision-layers', 'collision_layers'],
-    ['UI Settings', 'ui-settings', 'ui_settings'],
-    ['Localization', 'localization', 'localization'],
     ['Chat', 'chat', 'chat'],
     ['Terrain Settings', 'terrain-settings', 'terrain_settings'],
+    ['UI Settings', 'ui-settings', 'ui_settings'],
+    ['Localization', 'localization', 'localization'],
   ], { after: [page('Controller & Camera', '/basic/game-settings/controller-and-camera'), page('Party Management', '/basic/game-settings/gameplay-party'), page('Leveling and experience', '/basic/game-settings/leveling-and-experience'), page('Combat rules', '/basic/game-settings/gameplay-combat'), page('Hit Rules', '/basic/game-settings/hit-rules'), page('Action bars and keybinds', '/basic/game-settings/action-bars-and-keybinds'), page('Panel keys', '/basic/game-settings/panel-keys')] }),
   userInterface,
 ]

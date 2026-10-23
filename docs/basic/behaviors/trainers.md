@@ -1,6 +1,6 @@
 # Trainers
 
-<Shot name="trainers-editor" caption="The Trainers editor (Items > Trainers)." />
+<Shot name="trainers-editor" caption="The Trainers editor (Behaviors > Trainers)." />
 
 A **trainer** is a list of **lessons** that an NPC (or any object) teaches. The player talks to the NPC, sees the lessons, and buys the ones they want: a new ability, the next rank of an ability, levels of a [proficiency](/basic/entity-stats/proficiencies), a profession, a step up in a skill ([tiers](/basic/shared-systems/skill-tiers-and-specializations)), a specialization, a recipe.
 

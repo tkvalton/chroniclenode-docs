@@ -24,7 +24,7 @@ The left column is the skill, the right column is what it does.
 
 ### Tiers and specializations
 
-**Add tier** and **Add specialization** (under the Levels fields) give a proficiency tiers that cap its level until a [trainer](/basic/items/trainers), a quest or an event trains the next one (Novice up to 25, Skilled up to 50, Master up to 100), and choices to master (a Sharp Edge that gives +5 Strength while chosen). See [Skill tiers and specializations](/basic/shared-systems/skill-tiers-and-specializations). With no tiers the level goes up to the highest level, as before.
+**Add tier** and **Add specialization** (under the Levels fields) give a proficiency tiers that cap its level until a [trainer](/basic/behaviors/trainers), a quest or an event trains the next one (Novice up to 25, Skilled up to 50, Master up to 100), and choices to master (a Sharp Edge that gives +5 Strength while chosen). See [Skill tiers and specializations](/basic/shared-systems/skill-tiers-and-specializations). With no tiers the level goes up to the highest level, as before.
 
 ### What it is for
 

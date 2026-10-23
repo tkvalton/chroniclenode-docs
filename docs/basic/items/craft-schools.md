@@ -2,7 +2,7 @@
 
 <Shot name="craft-schools-editor" caption="The Craft Schools editor (Items > Craft Schools)." />
 
-A **craft school** is a crafting profession: Blacksmithing, Alchemy, Cooking. It has a **skill** that grows when the player crafts, a set of **categories** to sort its recipes, the **recipes** it starts with and the [recipes](/basic/items/craft-recipes) that belong to it. A profession can be **known from the start** or **learned** (from a [trainer](/basic/items/trainers), a quest or an event), can have **tiers** that cap its level (Apprentice, Journeyman, Master) and **specializations** (Weaponsmith, Armorsmith), and a craft can raise the skill by **points** or by **skill-ups**.
+A **craft school** is a crafting profession: Blacksmithing, Alchemy, Cooking. It has a **skill** that grows when the player crafts, a set of **categories** to sort its recipes, the **recipes** it starts with and the [recipes](/basic/items/craft-recipes) that belong to it. A profession can be **known from the start** or **learned** (from a [trainer](/basic/behaviors/trainers), a quest or an event), can have **tiers** that cap its level (Apprentice, Journeyman, Master) and **specializations** (Weaponsmith, Armorsmith), and a craft can raise the skill by **points** or by **skill-ups**.
 
 ## Fields
 
@@ -31,7 +31,7 @@ These fields are at the bottom of the right column, under **Learning and skill**
 
 | Field | What it does | Default |
 |---|---|---|
-| **Known from the start** | On: every character (or the party) knows the profession from the beginning. Off: it has to be **learned** first: nothing can be crafted with it, and a crafting station of the school says "You have not learned ...". A **Profession** reward, or a lesson of a [trainer](/basic/items/trainers), teaches it | on |
+| **Known from the start** | On: every character (or the party) knows the profession from the beginning. Off: it has to be **learned** first: nothing can be crafted with it, and a crafting station of the school says "You have not learned ...". A **Profession** reward, or a lesson of a [trainer](/basic/behaviors/trainers), teaches it | on |
 | **A craft raises the skill by** | **Points that fill a bar** (a craft gives points, a level costs more points) or **A chance of a skill-up** (a craft gives a chance to go up one level at once) | Points |
 | **Points a level costs** | In points mode: a [formula](/basic/shared-systems/formulas) that gets the level the crafter is at and gives the points to reach the next one. Empty = the straight price above | none |
 
