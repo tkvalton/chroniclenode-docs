@@ -18,7 +18,7 @@ Action to force a Encounter into or out of combat
 
 | | | |
 |---|---|---|
-| `Encounter` | [encounter](#var-encounter) |  |
+| `EncounterGroup` | [encounter](#var-encounter) |  |
 
 ## Methods
 
@@ -26,7 +26,7 @@ Action to force a Encounter into or out of combat
 |---|---|
 | `String` | [get_display_name](#method-get-display-name)() |
 | `String` | [get_function_description](#method-get-function-description)() |
-| `Encounter` | [find_encounter](#method-find-encounter)( `name: int` ) |
+| `EncounterGroup` | [find_encounter](#method-find-encounter)( `name: int` ) |
 | `Dictionary` | [save](#method-save)() |
 | `void` | [load_data](#method-load-data)( `data: Dictionary` ) |
 
@@ -46,7 +46,7 @@ True when the encounter attacks the nearest player.
 
 ## Variable descriptions
 
-### Encounter encounter {#var-encounter}
+### EncounterGroup encounter {#var-encounter}
 
 Reference to the special encounter
 
@@ -60,7 +60,7 @@ Return the display name of this Action
 
 Return a description of this action with parameter placeholders
 
-### Encounter find_encounter( name: int ) {#method-find-encounter}
+### EncounterGroup find_encounter( name: int ) {#method-find-encounter}
 
 Find a special encounter by its name
 

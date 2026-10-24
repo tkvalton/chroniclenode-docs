@@ -18,7 +18,7 @@ Checks if group is within certain distance of a position
 
 | | |
 |---|---|
-| `bool` | [evaluate_encounter](#method-evaluate-encounter)( `encounter: Encounter` ) |
+| `bool` | [evaluate_encounter](#method-evaluate-encounter)( `encounter: EncounterGroup` ) |
 | `String` | [get_encounter_description](#method-get-encounter-description)() |
 | `String` | [get_encounter_function_description](#method-get-encounter-function-description)() |
 
@@ -38,7 +38,7 @@ True: every member of the group must be near. False: one is enough
 
 ## Method descriptions
 
-### bool evaluate_encounter( encounter: Encounter ) {#method-evaluate-encounter}
+### bool evaluate_encounter( encounter: EncounterGroup ) {#method-evaluate-encounter}
 
 Is the condition met for this encounter?
 

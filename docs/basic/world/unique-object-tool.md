@@ -35,7 +35,7 @@ The **Area Name** of the trigger area (what [quests](/basic/events-and-quests/qu
 
 ### Encounter
 
-All the [encounter](/basic/world/encounters) settings, including the reaction list with **Add Reaction**.
+An NPC has an **Encounter** setting (NPC Settings): *None*, one of the encounters of its world, or *New encounter*. **Edit encounter** shows all the [encounter](/basic/world/encounters) settings, including the reaction list with **Add Reaction**, in this panel (an encounter is a record, not a node you can select); **< Back to the NPC** returns.
 
 ## The position
 

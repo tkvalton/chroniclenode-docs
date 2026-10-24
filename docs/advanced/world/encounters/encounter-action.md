@@ -21,7 +21,7 @@ EncounterAction is the base class for actions that affect the entire encounter g
 
 | | | |
 |---|---|---|
-| `Encounter` | [encounter](#var-encounter) | `null` |
+| `EncounterGroup` | [encounter](#var-encounter) | `null` |
 | `float` | [cooldown_remaining](#var-cooldown-remaining) | `0.0` |
 | `GameHost.SystemHub` | [system_hub](#var-system-hub) |  |
 
@@ -29,7 +29,7 @@ EncounterAction is the base class for actions that affect the entire encounter g
 
 | | |
 |---|---|
-| `void` | [setup](#method-setup)( `_encounter: Encounter, p_system_hub: GameHost.SystemHub` ) |
+| `void` | [setup](#method-setup)( `_encounter: EncounterGroup, p_system_hub: GameHost.SystemHub` ) |
 | `bool` | [can_execute](#method-can-execute)() |
 | `bool` | [execute](#method-execute)() |
 | `void` | [process](#method-process)( `delta: float` ) |
@@ -59,7 +59,7 @@ Whether this action can interrupt current group activities
 
 ## Variable descriptions
 
-### Encounter encounter = null {#var-encounter}
+### EncounterGroup encounter = null {#var-encounter}
 
 Reference to the special encounter instance
 
@@ -73,7 +73,7 @@ Gameroot refrence for diverse actions
 
 ## Method descriptions
 
-### void setup( _encounter: Encounter, p_system_hub: GameHost.SystemHub ) {#method-setup}
+### void setup( _encounter: EncounterGroup, p_system_hub: GameHost.SystemHub ) {#method-setup}
 
 Setup this action with encounter reference
 

@@ -19,8 +19,8 @@ Base class for conditions that evaluate encounter state. Can target different en
 
 | | |
 |---|---|
-| `Encounter` | [get_target_encounter](#method-get-target-encounter)( `argument: Variant = null` ) |
-| `bool` | [evaluate_encounter](#method-evaluate-encounter)( `encounter: Encounter` ) |
+| `EncounterGroup` | [get_target_encounter](#method-get-target-encounter)( `argument: Variant = null` ) |
+| `bool` | [evaluate_encounter](#method-evaluate-encounter)( `encounter: EncounterGroup` ) |
 | `bool` | [evaluate](#method-evaluate)( `argument: Variant = null` ) |
 | `String` | [get_description](#method-get-description)() |
 | `String` | [get_encounter_description](#method-get-encounter-description)() |
@@ -28,10 +28,10 @@ Base class for conditions that evaluate encounter state. Can target different en
 | `String` | [get_function_description](#method-get-function-description)() |
 | `bool` | [is_valid](#method-is-valid)() |
 | `String` | [get_expected_argument_type](#method-get-expected-argument-type)() |
-| `Array[Entity]` | [get_alive_group_members](#method-get-alive-group-members)( `encounter: Encounter` ) |
-| `Array[Entity]` | [get_all_group_members](#method-get-all-group-members)( `encounter: Encounter` ) |
-| `Array[Entity]` | [get_combat_group_members](#method-get-combat-group-members)( `encounter: Encounter` ) |
-| `Vector3` | [get_encounter_center](#method-get-encounter-center)( `encounter: Encounter` ) |
+| `Array[Entity]` | [get_alive_group_members](#method-get-alive-group-members)( `encounter: EncounterGroup` ) |
+| `Array[Entity]` | [get_all_group_members](#method-get-all-group-members)( `encounter: EncounterGroup` ) |
+| `Array[Entity]` | [get_combat_group_members](#method-get-combat-group-members)( `encounter: EncounterGroup` ) |
+| `Vector3` | [get_encounter_center](#method-get-encounter-center)( `encounter: EncounterGroup` ) |
 
 ## Enumerations
 
@@ -58,11 +58,11 @@ Unique ID of encounter to target (only used when encounter_target is UNIQUE_ID)
 
 ## Method descriptions
 
-### Encounter get_target_encounter( argument: Variant = null ) {#method-get-target-encounter}
+### EncounterGroup get_target_encounter( argument: Variant = null ) {#method-get-target-encounter}
 
 Get the target encounter based on the targeting settings @param argument: The argument passed to evaluate() - could be Encounter or Entity @return: The Encounter to evaluate, or null if not found/invalid
 
-### bool evaluate_encounter( encounter: Encounter ) {#method-evaluate-encounter}
+### bool evaluate_encounter( encounter: EncounterGroup ) {#method-evaluate-encounter}
 
 Override this in subclasses to implement encounter-specific evaluation @param encounter: The target encounter to evaluate @return: true if condition is met for this encounter
 
@@ -94,19 +94,19 @@ Validate encounter targeting configuration
 
 The kind of thing the condition is checked against (an entity, an encounter ...).
 
-### Array[Entity] get_alive_group_members( encounter: Encounter ) {#method-get-alive-group-members}
+### Array[Entity] get_alive_group_members( encounter: EncounterGroup ) {#method-get-alive-group-members}
 
 Get all alive group members from the target encounter
 
-### Array[Entity] get_all_group_members( encounter: Encounter ) {#method-get-all-group-members}
+### Array[Entity] get_all_group_members( encounter: EncounterGroup ) {#method-get-all-group-members}
 
 Get all group members (alive and dead) from the target encounter
 
-### Array[Entity] get_combat_group_members( encounter: Encounter ) {#method-get-combat-group-members}
+### Array[Entity] get_combat_group_members( encounter: EncounterGroup ) {#method-get-combat-group-members}
 
 Get group members currently in combat from the target encounter
 
-### Vector3 get_encounter_center( encounter: Encounter ) {#method-get-encounter-center}
+### Vector3 get_encounter_center( encounter: EncounterGroup ) {#method-get-encounter-center}
 
 Get the encounter center position
 

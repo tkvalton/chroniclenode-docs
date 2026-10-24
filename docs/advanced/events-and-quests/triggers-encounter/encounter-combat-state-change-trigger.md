@@ -11,13 +11,13 @@ Triggers when an Encounter changes state (enters combat, exits combat, or is def
 | | | |
 |---|---|---|
 | `int` | [encounter_id](#prop-encounter-id) | `0` |
-| `Encounter.EncounterState` | [target_state](#prop-target-state) | `Encounter.EncounterState.IN_COMBAT` |
+| `EncounterGroup.EncounterState` | [target_state](#prop-target-state) | `EncounterGroup.EncounterState.IN_COMBAT` |
 
 ## Variables
 
 | | | |
 |---|---|---|
-| `Encounter` | [encounter](#var-encounter) |  |
+| `EncounterGroup` | [encounter](#var-encounter) |  |
 
 ## Methods
 
@@ -37,13 +37,13 @@ Triggers when an Encounter changes state (enters combat, exits combat, or is def
 
 The encounter to watch.
 
-### Encounter.EncounterState target_state = Encounter.EncounterState.IN_COMBAT {#prop-target-state}
+### EncounterGroup.EncounterState target_state = EncounterGroup.EncounterState.IN_COMBAT {#prop-target-state}
 
 The state to fire on (in combat, out of combat or defeated).
 
 ## Variable descriptions
 
-### Encounter encounter {#var-encounter}
+### EncounterGroup encounter {#var-encounter}
 
 Reference to the special encounter
 

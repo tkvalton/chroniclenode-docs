@@ -24,7 +24,7 @@ EncounterReaction handles group-level responses to encounter events. Similar to 
 | | | |
 |---|---|---|
 | `CombatSession` | [encounter_instance](#var-encounter-instance) | `null` |
-| `Encounter` | [encounter_node](#var-encounter-node) | `null` |
+| `EncounterGroup` | [encounter_node](#var-encounter-node) | `null` |
 | `float` | [cooldown_remaining](#var-cooldown-remaining) | `0.0` |
 | `bool` | [has_triggered](#var-has-triggered) | `false` |
 | `float` | [time_passed_timer](#var-time-passed-timer) | `0.0` |
@@ -101,7 +101,7 @@ Conditions that must be met for actions to execute
 
 Internal state
 
-### Encounter encounter_node = null {#var-encounter-node}
+### EncounterGroup encounter_node = null {#var-encounter-node}
 
 The encounter the reaction belongs to.
 

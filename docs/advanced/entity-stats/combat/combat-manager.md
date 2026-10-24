@@ -37,8 +37,8 @@ Complete combat orchestration system that handles damage calculations, effect po
 | `void` | [cleanup_environmental_effects](#method-cleanup-environmental-effects)() |
 | `void` | [handle_entity_entered_combat](#method-handle-entity-entered-combat)( `entity: Entity` ) |
 | `void` | [handle_entity_left_combat](#method-handle-entity-left-combat)( `entity: Entity` ) |
-| `void` | [handle_unique_encounter_combat_started](#method-handle-unique-encounter-combat-started)( `encounter_node: Encounter, initiating_entity: Entity` ) |
-| `void` | [handle_unique_encounter_combat_ended](#method-handle-unique-encounter-combat-ended)( `encounter_node: Encounter, reason: String` ) |
+| `void` | [handle_unique_encounter_combat_started](#method-handle-unique-encounter-combat-started)( `encounter_node: EncounterGroup, initiating_entity: Entity` ) |
+| `void` | [handle_unique_encounter_combat_ended](#method-handle-unique-encounter-combat-ended)( `encounter_node: EncounterGroup, reason: String` ) |
 | `bool` | [is_entity_in_encounter](#method-is-entity-in-encounter)( `entity: Entity` ) |
 | `CombatSession` | [get_encounter_for_entity](#method-get-encounter-for-entity)( `entity: Entity` ) |
 | `Array[Entity]` | [get_entities_in_encounter_with](#method-get-entities-in-encounter-with)( `entity: Entity` ) |
@@ -187,11 +187,11 @@ Process entity entering combat - find or create encounter
 
 Process entity leaving combat - remove from encounter
 
-### void handle_unique_encounter_combat_started( encounter_node: Encounter, initiating_entity: Entity ) {#method-handle-unique-encounter-combat-started}
+### void handle_unique_encounter_combat_started( encounter_node: EncounterGroup, initiating_entity: Entity ) {#method-handle-unique-encounter-combat-started}
 
 Handle when a unique encounter group enters combat
 
-### void handle_unique_encounter_combat_ended( encounter_node: Encounter, reason: String ) {#method-handle-unique-encounter-combat-ended}
+### void handle_unique_encounter_combat_ended( encounter_node: EncounterGroup, reason: String ) {#method-handle-unique-encounter-combat-ended}
 
 Handle when a unique encounter group ends combat
 

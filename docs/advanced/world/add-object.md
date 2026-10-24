@@ -22,15 +22,15 @@
 
 ## Placing
 
-`place_at(transform)` makes the node with `PlacementKinds.make_node`, works out its local transform in the parent (the container, or the encounter chosen in the menu), and adds it as **one action** of the editor's `EditorUndoRedoManager` (`add_child`, `set_owner` for the node and its children (an instance of a scene owns only itself: its nodes stay inside the scene file), a reference to keep it alive). A new encounter is the first step of the same action. Without a plugin (a test) the nodes are added directly.
+`place_at(transform)` makes the node with `PlacementKinds.make_node`, works out its local transform in the parent (the container), and adds it as **one action** of the editor's `EditorUndoRedoManager` (`add_child`, `set_owner` for the node and its children (an instance of a scene owns only itself: its nodes stay inside the scene file), a reference to keep it alive). An NPC is given the encounter chosen in the menu (`NPC.set_encounter_id`); *New encounter* makes its record with `EncounterRecords.create_for_world` (not part of the undo: a record that no NPC names is dropped when the scene is saved). Without a plugin (a test) the nodes are added directly.
 
 ## Where the database comes in
 
-The tool does not create database resources. The **node** does, when it enters a world scene in the editor (see the uniques): `NPC` / `InteractableObject` create their unique data, `TriggerArea` and `Encounter` theirs, each writes its position on `scene_pre_save`, and deleting the node deletes the data. A scene built by hand or by script gets the same uniques.
+The tool does not create database resources. The **node** does, when it enters a world scene in the editor (see the uniques): `NPC` / `InteractableObject` create their unique data, `TriggerArea` its own, each writes its position on `scene_pre_save`, and deleting the node deletes the data. A scene built by hand or by script gets the same uniques.
 
 ## Tests
 
-`tests/placement_tool_check.gd` (72 checks, the asset folder and categories included): the snap on terrain, a building, a slanted ray, a placed object, the plane; the kinds, their icons and nodes; the ghost; the tool placing, the encounter menu, the palette.
+`tests/placement_tool_check.gd` (90 checks, the asset folder and categories included): the snap on terrain, a building, a slanted ray, a placed object, the plane; the kinds, their icons and nodes; the ghost; the tool placing, the encounter menu, the palette.
 
 ## See also
 

@@ -19,7 +19,7 @@ Checks if a minimum number of players are within the encounter area
 | | |
 |---|---|
 | `String` | [get_encounter_function_description](#method-get-encounter-function-description)() |
-| `bool` | [evaluate_encounter](#method-evaluate-encounter)( `encounter: Encounter` ) |
+| `bool` | [evaluate_encounter](#method-evaluate-encounter)( `encounter: EncounterGroup` ) |
 | `String` | [get_encounter_description](#method-get-encounter-description)() |
 
 ## Property descriptions
@@ -42,7 +42,7 @@ True: measure from the center of the encounter. False: from any member of the gr
 
 The sentence the editor shows for the condition, with &#123;placeholders&#125; for its values.
 
-### bool evaluate_encounter( encounter: Encounter ) {#method-evaluate-encounter}
+### bool evaluate_encounter( encounter: EncounterGroup ) {#method-evaluate-encounter}
 
 Is the condition met for this encounter?
 

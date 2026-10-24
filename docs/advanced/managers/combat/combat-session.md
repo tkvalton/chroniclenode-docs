@@ -21,7 +21,7 @@ This class is designed to work with CombatSystem's encounter management. CombatS
 | `Array[CombatEvent]` | [events](#var-events) | `[]` |
 | `Vector3` | [encounter_center](#var-encounter-center) |  |
 | `float` | [max_join_distance](#var-max-join-distance) | `50.0` |
-| `Array[Encounter]` | [encounter_nodes](#var-encounter-nodes) | `[]` |
+| `Array[EncounterGroup]` | [encounter_nodes](#var-encounter-nodes) | `[]` |
 | `Array[EncounterReaction]` | [encounter_reactions](#var-encounter-reactions) | `[]` |
 
 ## Methods
@@ -31,14 +31,14 @@ This class is designed to work with CombatSystem's encounter management. CombatS
 | `void` | [record_event](#method-record-event)( `event: CombatEvent, limit: int` ) |
 | `bool` | [add_participant](#method-add-participant)( `entity: Entity` ) |
 | `bool` | [remove_participant](#method-remove-participant)( `entity: Entity` ) |
-| `bool` | [add_encounter_node](#method-add-encounter-node)( `node: Encounter` ) |
-| `bool` | [remove_encounter_node](#method-remove-encounter-node)( `node: Encounter` ) |
+| `bool` | [add_encounter_node](#method-add-encounter-node)( `node: EncounterGroup` ) |
+| `bool` | [remove_encounter_node](#method-remove-encounter-node)( `node: EncounterGroup` ) |
 | `bool` | [should_end_encounter](#method-should-end-encounter)() |
 | `void` | [end_encounter](#method-end-encounter)( `reason: String` ) |
 | `bool` | [can_entity_join](#method-can-entity-join)( `entity: Entity, target_entity: Entity = null` ) |
 | `bool` | [is_unique_encounter](#method-is-unique-encounter)() |
-| `bool` | [has_encounter_node](#method-has-encounter-node)( `node: Encounter` ) |
-| `Array[Encounter]` | [get_encounters](#method-get-encounters)() |
+| `bool` | [has_encounter_node](#method-has-encounter-node)( `node: EncounterGroup` ) |
+| `Array[EncounterGroup]` | [get_encounters](#method-get-encounters)() |
 | `bool` | [is_scripted_encounter](#method-is-scripted-encounter)() |
 | `Array[String]` | [get_hostile_factions](#method-get-hostile-factions)() |
 | `Array[Entity]` | [get_entities_by_faction](#method-get-entities-by-faction)( `faction_id: int` ) |
@@ -111,9 +111,9 @@ Geographic center point of the encounter (for proximity checks)
 
 Maximum distance entities can be from center to join this encounter
 
-### Array[Encounter] encounter_nodes = [] {#var-encounter-nodes}
+### Array[EncounterGroup] encounter_nodes = [] {#var-encounter-nodes}
 
-References to unique encounter nodes (supports multiple unique encounters)
+References to unique encounter groups (supports multiple unique encounters)
 
 ### Array[EncounterReaction] encounter_reactions = [] {#var-encounter-reactions}
 
@@ -133,13 +133,13 @@ Add an entity to this encounter
 
 Remove an entity from this encounter
 
-### bool add_encounter_node( node: Encounter ) {#method-add-encounter-node}
+### bool add_encounter_node( node: EncounterGroup ) {#method-add-encounter-node}
 
-Add a unique encounter node to this instance
+Add a unique encounter group to this instance
 
-### bool remove_encounter_node( node: Encounter ) {#method-remove-encounter-node}
+### bool remove_encounter_node( node: EncounterGroup ) {#method-remove-encounter-node}
 
-Remove a unique encounter node from this instance
+Remove a unique encounter group from this instance
 
 ### bool should_end_encounter() {#method-should-end-encounter}
 
@@ -157,11 +157,11 @@ Check if an entity can join this encounter based on proximity and combat state
 
 Check if this encounter involves any unique encounters
 
-### bool has_encounter_node( node: Encounter ) {#method-has-encounter-node}
+### bool has_encounter_node( node: EncounterGroup ) {#method-has-encounter-node}
 
 Check if this encounter involves a specific unique encounter
 
-### Array[Encounter] get_encounters() {#method-get-encounters}
+### Array[EncounterGroup] get_encounters() {#method-get-encounters}
 
 Get all encounters
 

@@ -11,7 +11,7 @@ The [World chapter](/basic/world/) explains the editors. This page is the map of
 | [`WorldContainer`](/advanced/world/runtime/world-container) | A node of the [game host](/advanced/game-host). Loads and unloads worlds, remembers them, applies their environment, positions the party | |
 | [`ObjectRegistry`](/advanced/world/runtime/object-registry) | A `RefCounted` that knows every NPC, interactable, trigger area and encounter of the loaded world, saves and restores them, and runs the level of detail | |
 | `UniqueEntityData`, `UniqueInteractableData`, `TriggerAreaData`, `UniqueEncounterData` | The **uniques**: one database resource per placed object (types `unique_entity`, `unique_interactable`, `trigger_area`, `unique_encounter`) | `data_classes/world/` |
-| [`TriggerArea`](/advanced/world/runtime/trigger-area), [`Encounter`](/advanced/world/runtime/encounter) | The nodes of the two objects that are not entities | `runtime_classes/world/` |
+| [`TriggerArea`](/advanced/world/runtime/trigger-area), [`Encounter`](/advanced/world/runtime/encounter-group) | The nodes of the two objects that are not entities | `runtime_classes/world/` |
 | `WeatherSystem`, `WorldSun`, `WorldSkyEnvironment`, the fog system | The look of the world | |
 
 A world is a [definition and an instance](/advanced/definitions-and-instances) in the usual sense: `WorldData` is the shared, never-changed definition; what the party did in it (dead NPCs, open chests) is the state the container keeps.
@@ -104,6 +104,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [EncounterAction](/advanced/world/encounters/encounter-action) | EncounterAction is the base class for actions that affect the entire encounter group. |
 | [EncounterQuestActivateAction](/advanced/world/encounters/encounter-quest-activate-action) | Activates a specific quest when the encounter reaction triggers |
 | [EncounterReaction](/advanced/world/encounters/encounter-reaction) | EncounterReaction handles group-level responses to encounter events. |
+| [EncounterRecords](/advanced/world/encounters/encounter-records) | What the editor needs to know about the encounters of a world. |
 | [ForceGroupTargetAction](/advanced/world/encounters/force-group-target-action) | Forces all group members to target the same enemy based on selection criteria |
 | [GroupFormationAction](/advanced/world/encounters/group-formation-action) | Organizes group members into specific formations |
 | [ModifyGroupBehaviorAction](/advanced/world/encounters/modify-group-behavior-action) | Modifies the group's overall behavior and aggression level |
@@ -120,7 +121,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [AudioProfileStack](/advanced/world/runtime/audio-profile-stack) | The audio profile that is on now. |
 | [AudioZone](/advanced/world/runtime/audio-zone) | A place that changes how the world sounds while the camera is inside it: a cave with echo, a house that muffles the weather outside, a tunnel. |
 | [ChronicleTerrainProvider](/advanced/world/runtime/chronicle-terrain-provider) | Answers the TerrainService from a ChronicleTerrain: heights, directions and holes come straight from the data of the terrain (no physics, no rendering: the same answer on a server as in front of a screen). |
-| [Encounter](/advanced/world/runtime/encounter) | Encounter is a designer-placeable node that coordinates group combat behavior. |
+| [EncounterGroup](/advanced/world/runtime/encounter-group) | An **encounter** while the game runs: a group of NPCs that fights as one. |
 | [FogExplorationData](/advanced/world/runtime/fog-exploration-data) | Stores fog of war exploration data for a single map. |
 | [FogOfWarCompositorEffect](/advanced/world/runtime/fog-of-war-compositor-effect) | CompositorEffect that renders fog of war as a post-process. |
 | [FogOfWarSystem](/advanced/world/runtime/fog-of-war-system) | FogOfWarSystem manages fog of war using a CompositorEffect for rendering. |

@@ -18,7 +18,7 @@ Checks if an encounter has a specific number of entities alive/dead. Uses Encoun
 
 | | |
 |---|---|
-| `bool` | [evaluate_encounter](#method-evaluate-encounter)( `encounter: Encounter` ) |
+| `bool` | [evaluate_encounter](#method-evaluate-encounter)( `encounter: EncounterGroup` ) |
 | `String` | [get_encounter_description](#method-get-encounter-description)() |
 | `String` | [get_encounter_function_description](#method-get-encounter-function-description)() |
 | `bool` | [is_valid](#method-is-valid)() |
@@ -42,7 +42,7 @@ Whether to count alive entities (true) or dead entities (false)
 
 ## Method descriptions
 
-### bool evaluate_encounter( encounter: Encounter ) {#method-evaluate-encounter}
+### bool evaluate_encounter( encounter: EncounterGroup ) {#method-evaluate-encounter}
 
 Is the condition met for this encounter?
 

@@ -1,22 +1,22 @@
 # Encounters: how they are built
 
-An [`Encounter`](/advanced/world/runtime/encounter) is a `Node3D` that coordinates the NPCs that are its children. Like a trigger area it makes and keeps its own record, here a [`UniqueEncounterData`](/advanced/world/world-data/unique-encounter-data), which holds both the **settings** (the formation, the behavior, the reactions) and the **placement** (position and rotation): an encounter is one object, with no separate definition.
+An encounter is a **record** and a **runtime group**, and not a node of the scene. The record is a [`UniqueEncounterData`](/advanced/world/world-data/unique-encounter-data): the **settings** (formation, behavior, reactions, respawn), the id of its world, and `world_position` (the centre of the group when the scene was last saved). An NPC belongs to it through `UniqueEntityData.encounter_id` (`NPC.set_encounter_id`, `get_encounter_id`; 0 = none). When the world loads, the [`ObjectRegistry`](/advanced/world/runtime/object-registry) makes one [`EncounterGroup`](/advanced/world/runtime/encounter-group) for each encounter the NPCs name (`_build_encounter_groups`) and gives it its members. The members can stand anywhere in the scene.
 
 ## Lifecycle
 
 | Step | What happens |
 |---|---|
-| In the editor | The node makes its `UniqueEncounterData` (`_check_and_create_unique_data`), syncs the position on `scene_pre_save` and removes the record when really deleted, like a [trigger area](/advanced/world/trigger-areas) |
-| The world loads | The registry calls `initialize_encounter(system_hub)`: caches the NPC children as the **original group members** (`original_group_members` and `group_member_lookup` for fast tests), deep-copies the reactions (`_setup_reactions`: each encounter node has its own copies of the shared resources, with their state), connects the signals of each member and sets the spacing timer |
-| A member enters combat | `_on_entity_entity_combat_state_changed`: if the encounter is `OUT_OF_COMBAT`, `_start_group_combat` (state `IN_COMBAT`, the formation is applied, `encounter_combat_started`) and the [`CombatManager`](/advanced/entity-stats/combat/combat-manager) is told (`handle_unique_encounter_combat_started`). With `auto_join_combat`, `_force_all_children_into_combat` sets the target of every living member that is not fighting and makes it enter combat |
+| In the editor | The placement tool's Encounter menu and the *Encounter* row of the Unique Object panel set `encounter_id` and make records with [`EncounterRecords`](/advanced/world/encounters/encounter-records) (`create_for_world`, which also lists the encounter in `WorldData.encounters`). On `scene_pre_save` the scene lists the encounters its NPCs name, drops the records no NPC names any more, and stores the centre of each (`UniqueEncounterData.update_center`) |
+| The world loads | `register_world_objects` registers the NPCs, then `_build_encounter_groups`: for every encounter id an NPC names it makes an `EncounterGroup` (a child of the world container) with the record and calls `initialize_encounter(system_hub, members)`: the members become the **original group members** (`original_group_members` and `group_member_lookup`), the reactions are deep-copied (`_setup_reactions`), the spacing timer starts and the combat signals of the members are connected. An id with no record is skipped with a warning |
+| A member enters combat | `_on_entity_entity_combat_state_changed`: if the encounter is `OUT_OF_COMBAT`, `_start_group_combat` (state `IN_COMBAT`, the formation is applied, `encounter_combat_started`) and the [`CombatManager`](/advanced/entity-stats/) hears of it (`handle_unique_encounter_combat_started`); with *Auto join combat* the other members are forced in |
 | A member leaves combat | `_check_group_combat_end`: if no original member is in combat, `_end_group_combat("no_combatants")` |
-| The fight ends | State becomes `DEFEATED` if the reason is `all_dead` or `group_defeated`, or `no_combatants` with nobody left alive; otherwise `OUT_OF_COMBAT` (the group ran the party off and can fight again). Tracking is cleared, reactions are cleaned up (and reset unless the reason was `all_dead`), `encounter_combat_ended(encounter, reason)` is emitted |
+| The fight ends | State becomes `DEFEATED` if the reason is `all_dead` or `group_defeated`, or `no_combatants` with nobody left alive; otherwise `OUT_OF_COMBAT`. Tracking is cleared, reactions are cleaned up and reset, `encounter_combat_ended` is emitted, and a defeated group that respawns starts its timer |
 
-Only an `OUT_OF_COMBAT` encounter starts group combat (`can_start_combat`). Members that join during the fight (`add_member`, `add_dynamic_participant`) are *dynamic participants*: they count as participants for the reactions and are dropped when the fight ends.
+Only an `OUT_OF_COMBAT` encounter starts group combat (`can_start_combat`). Members that join during the fight (`add_member`, which no longer reparents anything, and `add_dynamic_participant`) are *dynamic participants*: they count as participants for the reactions and are dropped when the fight ends.
 
-`set_active_state(system_hub, active)` shows or hides the encounter and every participant and switches processing; `encounter_activated` is emitted. Events and quests use it.
+`set_active_state(system_hub, active)` switches every participant and the processing of the group; `encounter_activated` is emitted. Events and quests use it.
 
-The registry saves each placed encounter (`Encounter.to_save_data`: `unique_id`, `encounter_state`, `is_active`) next to the NPCs, which are saved as NPCs, and `_restore_encounters` puts the state back. A defeated encounter that respawns starts its timer again from the beginning after a load (the time already waited is not saved).
+The registry saves each placed encounter (`EncounterGroup.to_save_data`: `unique_id`, `encounter_state`, `is_active`) next to the NPCs, which are saved as NPCs, and `_restore_encounters` puts the state back. A defeated encounter that respawns starts its timer again from the beginning after a load (the time already waited is not saved).
 
 ### Respawn
 

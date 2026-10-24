@@ -1,21 +1,16 @@
 <!-- generated from the code comments by scripts/scan-classes.mjs: change the comments in the code, not this page -->
 
-# Encounter
+# EncounterGroup
 
-**Inherits:** [Node3D](https://docs.godotengine.org/en/stable/classes/class_node3d.html)
+**Inherits:** [Node](https://docs.godotengine.org/en/stable/classes/class_node.html)
 
-Encounter is a designer-placeable node that coordinates group combat behavior. All entity children automatically become part of the encounter group and enter combat together. Uses UniqueEncounterData to control formations, spacing, and group tactics.
-
-## Properties
-
-| | | |
-|---|---|---|
-| `UniqueEncounterData` | [unique_data](#prop-unique-data) |  |
+An **encounter** while the game runs: a group of NPCs that fights as one. It is not a node of the scene. The encounter is a record (UniqueEncounterData) and an NPC belongs to it through the **Encounter** field of its own unique data (UniqueEntityData.encounter_id); the ObjectRegistry makes one EncounterGroup for every encounter of the world when the world loads and gives it its members. The members can stand anywhere in the scene. The group coordinates the fight: it joins the members to a fight together, applies the formation and the spacing, rotates who attacks, runs the reactions, and brings a defeated group back (respawn). Its place is the average position of its members (`get_center`, also `global_position`).
 
 ## Variables
 
 | | | |
 |---|---|---|
+| `UniqueEncounterData` | [unique_data](#var-unique-data) |  |
 | `bool` | [active](#var-active) | `true` |
 | `EncounterState` | [encounter_state](#var-encounter-state) | `EncounterState.OUT_OF_COMBAT` |
 | `CombatSession` | [encounter_instance](#var-encounter-instance) | `null` |
@@ -31,14 +26,16 @@ Encounter is a designer-placeable node that coordinates group combat behavior. A
 | `Array[EncounterReaction]` | [active_reactions](#var-active-reactions) | `[]` |
 | `ChronoManager` | [chrono_manager](#var-chrono-manager) |  |
 | `GameHost.SystemHub` | [system_hub](#var-system-hub) |  |
+| `Vector3:` | [global_position](#var-global-position) |  |
 
 ## Methods
 
 | | |
 |---|---|
-| `void` | [initialize_encounter](#method-initialize-encounter)( `system_hub: GameHost.SystemHub` ) |
-| `void` | [sync_to_unique_data](#method-sync-to-unique-data)() |
+| `void` | [initialize_encounter](#method-initialize-encounter)( `p_system_hub: GameHost.SystemHub, members: Array = []` ) |
 | `int` | [get_unique_id](#method-get-unique-id)() |
+| `String` | [get_display_name](#method-get-display-name)() |
+| `Vector3` | [get_center](#method-get-center)() |
 | `bool` | [is_original_group_member](#method-is-original-group-member)( `entity: Entity` ) |
 | `Array[Entity]` | [get_original_group_members](#method-get-original-group-members)() |
 | `Array[Entity]` | [get_living_group_members](#method-get-living-group-members)() |
@@ -51,7 +48,7 @@ Encounter is a designer-placeable node that coordinates group combat behavior. A
 | `bool` | [is_in_combat](#method-is-in-combat)() |
 | `bool` | [is_defeated](#method-is-defeated)() |
 | `bool` | [can_start_combat](#method-can-start-combat)() |
-| `void` | [set_active_state](#method-set-active-state)( `system_hub: GameHost.SystemHub, set_active: bool` ) |
+| `void` | [set_active_state](#method-set-active-state)( `p_system_hub: GameHost.SystemHub, set_active: bool` ) |
 | `void` | [respawn_group](#method-respawn-group)() |
 | `bool` | [is_entity_allowed_to_attack](#method-is-entity-allowed-to-attack)( `entity: Entity` ) |
 | `void` | [on_behavior_changed](#method-on-behavior-changed)() |
@@ -62,25 +59,25 @@ Encounter is a designer-placeable node that coordinates group combat behavior. A
 
 ### encounter_activated( activated: bool ) {#signal-encounter-activated}
 
-Signals for encounter events
+The encounter was switched on or off.
 
-### encounter_combat_started( encounter: Encounter ) {#signal-encounter-combat-started}
+### encounter_combat_started( encounter: EncounterGroup ) {#signal-encounter-combat-started}
 
 Emitted when the group goes into combat.
 
-### encounter_combat_ended( encounter: Encounter, reason: String ) {#signal-encounter-combat-ended}
+### encounter_combat_ended( encounter: EncounterGroup, reason: String ) {#signal-encounter-combat-ended}
 
 Emitted when the combat of the group ends, with the reason.
 
-### encounter_phase_changed( encounter: Encounter, phase_index: int ) {#signal-encounter-phase-changed}
+### encounter_phase_changed( encounter: EncounterGroup, phase_index: int ) {#signal-encounter-phase-changed}
 
 Emitted when the group moves to another phase (a boss fight).
 
-### group_behavior_changed( encounter: Encounter, new_behavior: UniqueEncounterData.GroupBehavior ) {#signal-group-behavior-changed}
+### group_behavior_changed( encounter: EncounterGroup, new_behavior: UniqueEncounterData.GroupBehavior ) {#signal-group-behavior-changed}
 
 Emitted when the group takes another behavior.
 
-### encounter_respawned( encounter: Encounter ) {#signal-encounter-respawned}
+### encounter_respawned( encounter: EncounterGroup ) {#signal-encounter-respawned}
 
 The defeated group came back (its respawn timer ran out)
 
@@ -88,20 +85,14 @@ The defeated group came back (its respawn timer ran out)
 
 ### enum EncounterState {#enum-encounterstate}
 
-Encounter state tracking
-
 - **OUT_OF_COMBAT** = `0`
 - **IN_COMBAT** = `1`
 
-## Property descriptions
-
-*Encounter Setup*
-
-### UniqueEncounterData unique_data {#prop-unique-data}
-
-The encounter data that controls this group's behavior AND tracks unique instance data
-
 ## Variable descriptions
+
+### UniqueEncounterData unique_data {#var-unique-data}
+
+The record of the encounter: its settings (formation, behavior, reactions, respawn) and what the world keeps of it
 
 ### bool active = true {#var-active}
 
@@ -141,7 +132,7 @@ The time the group last changed which member attacks.
 
 ### Array[Entity] original_group_members = [] {#var-original-group-members}
 
-Original group members (cached on ready for performance)
+The NPCs that belong to the encounter (their unique data names it)
 
 ### Dictionary group_member_lookup =   # entity_instance_id -&gt; bool {#var-group-member-lookup}
 
@@ -163,19 +154,27 @@ TimerSystem ref
 
 System hub for spawning/combat management
 
+### Vector3: global_position {#var-global-position}
+
+Where the group is: the average position of its living members (all of them when none is alive). The old node had a place; this keeps the name for what asks for it.
+
 ## Method descriptions
 
-### void initialize_encounter( system_hub: GameHost.SystemHub ) {#method-initialize-encounter}
+### void initialize_encounter( p_system_hub: GameHost.SystemHub, members: Array = [] ) {#method-initialize-encounter}
 
-Sets the encounter up with the hub of the game systems.
-
-### void sync_to_unique_data() {#method-sync-to-unique-data}
-
-Sync current state to unique data
+Sets the encounter up with the hub of the game systems and the NPCs that belong to it.
 
 ### int get_unique_id() {#method-get-unique-id}
 
 Get unique ID for this encounter
+
+### String get_display_name() {#method-get-display-name}
+
+The name of the encounter (for the debug tools and the editor)
+
+### Vector3 get_center() {#method-get-center}
+
+The average position of the living members (all the members when none is alive); the origin when it has none.
 
 ### bool is_original_group_member( entity: Entity ) {#method-is-original-group-member}
 
@@ -207,7 +206,7 @@ Get all participants (original + dynamic)
 
 ### void add_member( entity: Entity ) {#method-add-member}
 
-Add a member to the encounter (used by reinforcement actions)
+Add a member to the encounter (used by reinforcement actions). It joins as a dynamic participant: it stays where it stands and leaves the group when the fight ends
 
 ### int cleanup_invalid_participants() {#method-cleanup-invalid-participants}
 
@@ -225,7 +224,7 @@ Check if encounter has been defeated
 
 Check if encounter can start combat
 
-### void set_active_state( system_hub: GameHost.SystemHub, set_active: bool ) {#method-set-active-state}
+### void set_active_state( p_system_hub: GameHost.SystemHub, set_active: bool ) {#method-set-active-state}
 
 Sets the active state of the encounter and all its entities
 

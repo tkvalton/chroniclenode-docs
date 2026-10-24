@@ -2,14 +2,17 @@
 
 An **encounter** is a group of NPCs that fights as one: a wolf pack, a bandit camp, a boss and its guards. Without an encounter every NPC acts alone and only fights when it sees an enemy itself. With one, the group joins the fight together, keeps its formation, shares tactics, and **reacts** to what happens ("when half of us are dead, call for help").
 
-## Placing one
+## Making one
 
-1. The **Encounters** button of the toolbar (then click where it goes), or the **Encounter** menu of the NPC bar (*New encounter*), puts an Encounter node in the *Entities* container and selects it.
-2. **Drag NPCs onto it** in the scene tree, so they are its children. Every NPC child is a member of the group. (Place the NPCs with Add NPC first, or add them and then drag.)
-3. Move the Encounter node where the group should be. The members keep their own positions relative to it.
-4. Set it up in the [Unique Object panel](/basic/world/unique-object-tool).
+An encounter is **not a node** in the scene: it is a **record** (it shows in the [Uniques](/basic/world/uniques) list), and an NPC belongs to it through its own settings. The NPCs of an encounter can stand anywhere in the scene, in a camp, along a road, on two floors of a tower.
 
-The members are counted when the world loads. An NPC that joins later (reinforcements, a bystander) is a *dynamic participant* and is handled like a member while the fight lasts.
+1. **Place the first NPC** of the group with the NPCs button and choose **New encounter** in the **Encounter** menu of the palette: the encounter is made at the first click, and the menu then points at it, so the next NPCs you place belong to it too. Choose *No encounter* to go back to lone NPCs, or *New encounter* again for another group.
+2. **Or give an NPC an encounter later**: select it, and in the [Unique Object panel](/basic/world/unique-object-tool) (NPC Settings > Encounter) choose one of the encounters of the world, *None*, or *New encounter*.
+3. **Edit the encounter**: in the same place press **Edit encounter** for its settings (below); **< Back to the NPC** returns.
+
+The panel shows how many NPCs each encounter has. The [Uniques](/basic/world/uniques) list shows the members of each encounter and its centre. An encounter that has no NPC when the scene is saved is dropped.
+
+The group is **where its members are**: its centre is the average position of its living members, and the auto join radius is measured from it. The members are counted when the world loads. An NPC that joins later (reinforcements, a bystander) is a *dynamic participant* and is handled like a member while the fight lasts.
 
 ## Basic properties
 

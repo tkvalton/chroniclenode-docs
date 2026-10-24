@@ -13,7 +13,7 @@ ObjectRegistry - manages all NPCs, Interactables, Trigger areas, and special Enc
 | `Dictionary` | [placed_entities](#var-placed-entities) | `{}` |
 | `Dictionary` | [dynamic_entities](#var-dynamic-entities) | `{}` |
 | `Dictionary` | [placed_encounters](#var-placed-encounters) | `{}` |
-| `Array[Encounter]` | [dynamic_encounters](#var-dynamic-encounters) | `[]` |
+| `Array[EncounterGroup]` | [dynamic_encounters](#var-dynamic-encounters) | `[]` |
 | `Dictionary` | [placed_interactables](#var-placed-interactables) | `{}` |
 | `Dictionary` | [dynamic_interactables](#var-dynamic-interactables) | `{}` |
 | `Dictionary` | [placed_dropped_items](#var-placed-dropped-items) | `{}` |
@@ -37,7 +37,7 @@ ObjectRegistry - manages all NPCs, Interactables, Trigger areas, and special Enc
 | | |
 |---|---|
 | `void` | [process_lod](#method-process-lod)( `delta: float` ) |
-| `void` | [register_world_objects](#method-register-world-objects)( `entities: Array, interactables: Array, trigger_areas: Array, encounters: Array, dropped_items: Array = []` ) |
+| `void` | [register_world_objects](#method-register-world-objects)( `entities: Array, interactables: Array, trigger_areas: Array, dropped_items: Array = []` ) |
 | `void` | [register_entity](#method-register-entity)( `entity: Entity` ) |
 | `Entity` | [get_entity](#method-get-entity)( `entity_unique_id: int` ) |
 | `Array[Entity]` | [get_entities_by_data_id](#method-get-entities-by-data-id)( `definition_id: int` ) |
@@ -56,10 +56,10 @@ ObjectRegistry - manages all NPCs, Interactables, Trigger areas, and special Enc
 | `Array[InteractableObject]` | [get_dynamic_interactables](#method-get-dynamic-interactables)() |
 | `TriggerArea` | [get_trigger_area](#method-get-trigger-area)( `trigger_area_id: int` ) |
 | `Array[TriggerArea]` | [get_all_trigger_areas](#method-get-all-trigger-areas)() |
-| `void` | [register_encounter](#method-register-encounter)( `encounter: Encounter` ) |
-| `Encounter` | [get_encounter](#method-get-encounter)( `encounter_unique_id: int` ) |
-| `Array[Encounter]` | [get_all_encounters](#method-get-all-encounters)() |
-| `void` | [unregister_encounter](#method-unregister-encounter)( `encounter: Encounter` ) |
+| `void` | [register_encounter](#method-register-encounter)( `encounter: EncounterGroup, members: Array = []` ) |
+| `EncounterGroup` | [get_encounter](#method-get-encounter)( `encounter_unique_id: int` ) |
+| `Array[EncounterGroup]` | [get_all_encounters](#method-get-all-encounters)() |
+| `void` | [unregister_encounter](#method-unregister-encounter)( `encounter: EncounterGroup` ) |
 | `void` | [register_controller](#method-register-controller)( `entity: Entity, controller: EntityStateComponent` ) |
 | `void` | [unregister_controller](#method-unregister-controller)( `entity: Entity` ) |
 | `void` | [force_lod_update](#method-force-lod-update)( `entity: Entity` ) |
@@ -118,7 +118,7 @@ Dictionary of dynamic NPCs/entities keyed by instance_id (no UniqueEntityData)
 
 Dictionary of encounters keyed by unique_id for fast lookups
 
-### Array[Encounter] dynamic_encounters = [] {#var-dynamic-encounters}
+### Array[EncounterGroup] dynamic_encounters = [] {#var-dynamic-encounters}
 
 Array of dynamic encounters (no unique ID)
 
@@ -196,7 +196,7 @@ Track active interactions across all NPCs
 
 Thins out the behaviour of what is far from the player (called every frame by the WorldContainer: a RefCounted has no process of its own)
 
-### void register_world_objects( entities: Array, interactables: Array, trigger_areas: Array, encounters: Array, dropped_items: Array = [] ) {#method-register-world-objects}
+### void register_world_objects( entities: Array, interactables: Array, trigger_areas: Array, dropped_items: Array = [] ) {#method-register-world-objects}
 
 Register all world objects at once (called by WorldContainer after world loads) This handles pre-placed objects from the WorldScene containers
 
@@ -272,19 +272,19 @@ Get all trigger areas
 
 Get all trigger areas
 
-### void register_encounter( encounter: Encounter ) {#method-register-encounter}
+### void register_encounter( encounter: EncounterGroup, members: Array = [] ) {#method-register-encounter}
 
-Register a Encounter with the manager
+Register an encounter group with the manager (initializes it with its members and connects their signals). The group is a child of the world container while the world is loaded.
 
-### Encounter get_encounter( encounter_unique_id: int ) {#method-get-encounter}
+### EncounterGroup get_encounter( encounter_unique_id: int ) {#method-get-encounter}
 
 Get encounter by unique_id
 
-### Array[Encounter] get_all_encounters() {#method-get-all-encounters}
+### Array[EncounterGroup] get_all_encounters() {#method-get-all-encounters}
 
 Get all registered encounters (placed + dynamic)
 
-### void unregister_encounter( encounter: Encounter ) {#method-unregister-encounter}
+### void unregister_encounter( encounter: EncounterGroup ) {#method-unregister-encounter}
 
 Unregister a Encounter from the manager
 

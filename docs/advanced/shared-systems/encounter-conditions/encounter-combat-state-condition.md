@@ -10,13 +10,13 @@ Checks if an encounter is in a specific combat state. Uses EncounterCondition ta
 
 | | | |
 |---|---|---|
-| `Encounter.EncounterState` | [required_encounter_state](#prop-required-encounter-state) | `Encounter.EncounterState.IN_COMBAT` |
+| `EncounterGroup.EncounterState` | [required_encounter_state](#prop-required-encounter-state) | `EncounterGroup.EncounterState.IN_COMBAT` |
 
 ## Methods
 
 | | |
 |---|---|
-| `bool` | [evaluate_encounter](#method-evaluate-encounter)( `encounter: Encounter` ) |
+| `bool` | [evaluate_encounter](#method-evaluate-encounter)( `encounter: EncounterGroup` ) |
 | `String` | [get_encounter_description](#method-get-encounter-description)() |
 | `String` | [get_encounter_function_description](#method-get-encounter-function-description)() |
 | `bool` | [is_valid](#method-is-valid)() |
@@ -26,13 +26,13 @@ Checks if an encounter is in a specific combat state. Uses EncounterCondition ta
 
 *Combat State Check*
 
-### Encounter.EncounterState required_encounter_state = Encounter.EncounterState.IN_COMBAT {#prop-required-encounter-state}
+### EncounterGroup.EncounterState required_encounter_state = EncounterGroup.EncounterState.IN_COMBAT {#prop-required-encounter-state}
 
 The encounter state to check for
 
 ## Method descriptions
 
-### bool evaluate_encounter( encounter: Encounter ) {#method-evaluate-encounter}
+### bool evaluate_encounter( encounter: EncounterGroup ) {#method-evaluate-encounter}
 
 Is the condition met for this encounter?
 

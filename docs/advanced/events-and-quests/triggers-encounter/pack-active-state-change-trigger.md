@@ -17,7 +17,7 @@ Triggers when an encounter is activated or deactivated
 
 | | | |
 |---|---|---|
-| `Encounter` | [encounter](#var-encounter) |  |
+| `EncounterGroup` | [encounter](#var-encounter) |  |
 
 ## Methods
 
@@ -52,7 +52,7 @@ Fire when the encounter becomes active or inactive.
 
 ## Variable descriptions
 
-### Encounter encounter {#var-encounter}
+### EncounterGroup encounter {#var-encounter}
 
 Reference to the special encounter
 

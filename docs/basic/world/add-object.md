@@ -4,11 +4,10 @@ When a world scene is open in the 3D viewport, a row of **icon buttons** sits in
 
 | Button | What it places | Where it goes in the scene |
 |---|---|---|
-| **NPCs** | An NPC, chosen from the [NPC definitions](/basic/entities/npcs) | The *Entities* node, or an [encounter](/basic/world/encounters) |
+| **NPCs** | An NPC, chosen from the [NPC definitions](/basic/entities/npcs), optionally in an [encounter](/basic/world/encounters) | The *Entities* node |
 | **Interactables** | A chest, door, switch, destructible... chosen from the [definitions](/basic/entities/interactables) | The *Interactables* node |
 | **Dropped items** | An item that lies in the world ([Dropped items](/basic/items/dropped-items#placing-an-item-by-hand)) | The *DroppedItems* node |
 | **Dropped currencies** | A pile of money that lies in the world | The *DroppedItems* node |
-| **Encounters** | An empty [encounter](/basic/world/encounters) | The *Entities* node |
 | **Assets** | A scene of your own (a house, a tree, a rock, a prop) from the asset folder, see [Assets](#assets) | The *Assets* node |
 | **Volumes** | A [trigger area](/basic/world/trigger-areas), a [movement volume](/basic/world/movement-volumes) (water, lava, no gravity) or an [audio zone](/basic/world/audio-zones) (a cave, indoors) | The *Trigger areas* or *Volumes* node |
 
@@ -27,11 +26,11 @@ The thing on your mouse **stands on whatever is under the mouse**: the ground of
 
 ### NPCs and encounters
 
-The NPC palette has an **Encounter** menu:
+The NPC palette has an **Encounter** menu. The NPC always goes in *Entities* where you clicked; the menu says which [encounter](/basic/world/encounters) it belongs to:
 
-- **No encounter**: the NPC goes in *Entities* on its own.
-- **In Encounter_...**: one of the encounters of the scene; the NPC is added as its **child**, where you clicked.
-- **New encounter**: the first click makes an encounter at that place and the NPC is its child; the menu then points at that encounter, so the next NPCs go in it. To start another group, choose **New encounter** again.
+- **No encounter**: the NPC acts alone.
+- One of the encounters of this world (listed by name): the NPC belongs to it.
+- **New encounter**: the first click makes an encounter and the NPC belongs to it; the menu then points at that encounter, so the next NPCs go in it. To start another group, choose **New encounter** again.
 
 ### Volumes
 
@@ -67,7 +66,7 @@ An NPC is added with the *definition* you chose; change what is different about 
 
 ## Tips
 
-- A group of NPCs that should fight together belong **under an Encounter node**: use the Encounter menu, or drag them onto it in the scene tree. See [Encounters](/basic/world/encounters).
+- A group of NPCs that should fight together belong to **one encounter**: use the Encounter menu of the NPC palette, or the Encounter setting of each NPC. See [Encounters](/basic/world/encounters).
 - The placement and the [terrain tools](/basic/world/terrain) both want the left mouse button: turning on one turns the other off.
 - Right mouse button and the keys of the camera work as always while something is on your mouse.
 

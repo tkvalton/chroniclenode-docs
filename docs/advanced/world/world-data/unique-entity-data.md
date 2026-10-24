@@ -17,6 +17,7 @@ A placed NPC: what the world keeps about one NPC in one world. It holds the id o
 | `float` | [respawn_timer](#prop-respawn-timer) | `0.0` |
 | `bool` | [is_unique_encounter](#prop-is-unique-encounter) | `false` |
 | `bool` | [despawn_on_death](#prop-despawn-on-death) | `true` |
+| `int` | [encounter_id](#prop-encounter-id) | `0` |
 | `int` | [level_override](#prop-level-override) | `0` |
 | `Vector3` | [model_scale_override](#prop-model-scale-override) | `Vector3.ZERO` |
 | `int` | [faction_id](#prop-faction-id) | `0` |
@@ -100,6 +101,12 @@ Can only be killed once
 ### bool despawn_on_death = true {#prop-despawn-on-death}
 
 Entities Body despawn on death after x seconds
+
+*Encounter*
+
+### int encounter_id = 0 {#prop-encounter-id}
+
+The encounter this NPC belongs to (0 = none: it acts alone). NPCs with the same encounter fight as one group: they join a fight together, keep their formation, and react as a group. They can stand anywhere in the scene. Choose it in the Unique Object panel or with the Encounter menu of the placement bar. The encounter itself (its formation, behavior, reactions, respawn) is a record in the Uniques list
 
 *Overrides*
 

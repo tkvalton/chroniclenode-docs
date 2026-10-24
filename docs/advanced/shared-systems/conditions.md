@@ -8,7 +8,7 @@ A condition is a `Resource` with one job: answer `true` or `false` for some part
 
 | Member | What it does |
 |---|---|
-| `evaluate(argument: Variant = null) -> bool` | The question. `argument` is what the caller offers: usually an [`Entity`](/advanced/entities/runtime/entity), an [`Encounter`](/advanced/world/runtime/encounter), or a [`StatConditionContext`](/advanced/entity-stats/stats-and-pools/stat-condition-context) |
+| `evaluate(argument: Variant = null) -> bool` | The question. `argument` is what the caller offers: usually an [`Entity`](/advanced/entities/runtime/entity), an [`Encounter`](/advanced/world/runtime/encounter-group), or a [`StatConditionContext`](/advanced/entity-stats/stats-and-pools/stat-condition-context) |
 | `get_description() -> String` | A readable description for the editor and for debugging |
 | `get_function_description() -> String` | The same with `{field}` placeholders, used by the dialogs that edit a condition inline |
 | `is_valid() -> bool` | Is it configured well enough to run? |

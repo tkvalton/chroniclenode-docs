@@ -33,7 +33,7 @@ What each kind can override:
 | **NPC** | Active or hidden at the start, spawn delay, respawn time, killable once, despawn on death, **level**, model scale, [faction](/basic/behaviors/factions), experience worth and multiplier, **entity tags** (added, removed), behavior script, combat script, **loot rules**, (the older loot table and starting inventory), **stats**, interaction |
 | **Interactable** | Faction, lock item, **entity tags** (added, removed), interaction [cooldown](/basic/keywords#cooldown), damage threshold, whether it can be targeted directly or by area abilities, stats, **loot rules**, interaction |
 | **Trigger area** | Its area name (set on the node) |
-| **Encounter** | Formation, behavior, auto-join, reactions (the whole encounter is one unique) |
+| **Encounter** | Formation, behavior, auto-join, reactions (the whole encounter is one unique), with the NPCs that belong to it and its centre |
 
 **Loot rules** of a placed NPC or object **replace** all the [rules](/basic/items/loot-rules) of its definition when it has any: a unique boss with its own table, a chest with its own contents. Leave the list empty to use the definition's.
 

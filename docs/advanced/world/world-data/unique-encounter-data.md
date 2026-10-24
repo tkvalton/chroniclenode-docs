@@ -43,7 +43,7 @@ UniqueEncounterData defines both the behavior AND unique instance data for an en
 | `int` | [get_max_attackers](#method-get-max-attackers)( `group_size: int` ) |
 | `bool` | [should_enforce_spacing](#method-should-enforce-spacing)() |
 | `float` | [get_spacing_priority](#method-get-spacing-priority)() |
-| `void` | [update_position_from_node](#method-update-position-from-node)( `node: Node3D` ) |
+| `void` | [update_center](#method-update-center)( `center: Vector3` ) |
 | `String` | [get_effective_display_name](#method-get-effective-display-name)() |
 | `bool` | [save_to_disk](#method-save-to-disk)() |
 | `void` | [mark_defeated](#method-mark-defeated)() |
@@ -179,9 +179,9 @@ Check if spacing should be enforced based on behavior
 
 Get spacing priority (higher = more important to maintain spacing)
 
-### void update_position_from_node( node: Node3D ) {#method-update-position-from-node}
+### void update_center( center: Vector3 ) {#method-update-center}
 
-Update position and rotation from a node
+Keeps the centre of the group (the average position of its NPCs; the Uniques list frames it)
 
 ### String get_effective_display_name() {#method-get-effective-display-name}
 

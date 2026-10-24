@@ -107,6 +107,12 @@ export const groups = [
         "file": "data_classes/encounters/encounter_reaction.gd"
       },
       {
+        "name": "EncounterRecords",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\encounters\\encounter_records.gd",
+        "file": "data_classes/encounters/encounter_records.gd"
+      },
+      {
         "name": "ForceGroupTargetAction",
         "base": "EncounterAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\encounters\\actions\\types\\force_group_target_action.gd",
@@ -185,10 +191,10 @@ export const groups = [
         "file": "runtime_classes/world/terrain_provider/chronicle_terrain_provider.gd"
       },
       {
-        "name": "Encounter",
-        "base": "Node3D",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\encounter.gd",
-        "file": "runtime_classes/world/encounter.gd"
+        "name": "EncounterGroup",
+        "base": "Node",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\encounter_group.gd",
+        "file": "runtime_classes/world/encounter_group.gd"
       },
       {
         "name": "FogExplorationData",

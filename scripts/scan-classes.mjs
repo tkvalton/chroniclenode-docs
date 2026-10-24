@@ -170,7 +170,7 @@ const SYSTEMS = {
           ['runtime_classes/world/ambient_sound.gd', false],
           ['runtime_classes/world/audio_profile_stack.gd', false],
           ['runtime_classes/world/movement_volume_camera.gd', false],
-          ['runtime_classes/world/encounter.gd', false],
+          ['runtime_classes/world/encounter_group.gd', false],
           ['runtime_classes/world/weather_system.gd', false],
           ['runtime_classes/world/world_sun.gd', false],
           ['runtime_classes/world/world_sky_envrioment.gd', false],

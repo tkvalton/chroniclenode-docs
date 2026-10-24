@@ -17,7 +17,7 @@ Checks if the group's average health percentage meets specified criteria
 
 | | |
 |---|---|
-| `bool` | [evaluate_encounter](#method-evaluate-encounter)( `encounter: Encounter` ) |
+| `bool` | [evaluate_encounter](#method-evaluate-encounter)( `encounter: EncounterGroup` ) |
 | `String` | [get_encounter_description](#method-get-encounter-description)() |
 | `String` | [get_encounter_function_description](#method-get-encounter-function-description)() |
 
@@ -33,7 +33,7 @@ The average health percentage of the group to compare with
 
 ## Method descriptions
 
-### bool evaluate_encounter( encounter: Encounter ) {#method-evaluate-encounter}
+### bool evaluate_encounter( encounter: EncounterGroup ) {#method-evaluate-encounter}
 
 Is the condition met for this encounter?
 

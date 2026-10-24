@@ -51,6 +51,8 @@ Runtime Mode:
 | `void` | [setup_mount_crew](#method-setup-mount-crew)() |
 | `void` | [entity_death](#method-entity-death)( `announce: bool = true` ) |
 | `void` | [respawn_now](#method-respawn-now)() |
+| `void` | [set_encounter_id](#method-set-encounter-id)( `encounter_id: int` ) |
+| `int` | [get_encounter_id](#method-get-encounter-id)() |
 | `bool` | [save_unique_entity_data](#method-save-unique-entity-data)( `data: UniqueEntityData` ) |
 | `void` | [sync_to_unique_data](#method-sync-to-unique-data)() |
 | `int` | [get_experience_worth](#method-get-experience-worth)() |
@@ -142,6 +144,14 @@ Kills the NPC: the death, the loot, the experience, and the timers of the respaw
 ### void respawn_now() {#method-respawn-now}
 
 Brings the NPC back now, at its start, as if its respawn timer had run out (an encounter that respawns uses this)
+
+### void set_encounter_id( encounter_id: int ) {#method-set-encounter-id}
+
+Puts the NPC in an encounter (0 = takes it out of one). Its unique data keeps it; when the data is not made yet it is kept until it is.
+
+### int get_encounter_id() {#method-get-encounter-id}
+
+The encounter this NPC belongs to (0 = none).
 
 ### bool save_unique_entity_data( data: UniqueEntityData ) {#method-save-unique-entity-data}
 

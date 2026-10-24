@@ -29,6 +29,7 @@ Dynamic inspector for unique object data (NPC, Encounter, InteractableObject) Di
 | `void` | [setup](#method-setup)( `p_dialog_manager: DialogManager, p_plugin: EditorPlugin` ) |
 | `bool` | [load_node](#method-load-node)( `node: Node3D` ) |
 | `void` | [clear_inspector](#method-clear-inspector)() |
+| `void` | [load_encounter_record](#method-load-encounter-record)( `record: UniqueEncounterData` ) |
 
 ## Signals
 
@@ -43,7 +44,7 @@ Dynamic inspector for unique object data (NPC, Encounter, InteractableObject) Di
 
 ### Node3D current_node {#var-current-node}
 
-The selected node (NPC, Encounter, or InteractableObject)
+The selected node (NPC or InteractableObject)
 
 ### Resource current_unique_data {#var-current-unique-data}
 
@@ -98,4 +99,8 @@ Load a node's unique_data for editing
 ### void clear_inspector() {#method-clear-inspector}
 
 Clear the inspector
+
+### void load_encounter_record( record: UniqueEncounterData ) {#method-load-encounter-record}
+
+Shows the settings of an encounter (it has no node of its own: it is reached from one of its NPCs). A button goes back to the NPC.
 
