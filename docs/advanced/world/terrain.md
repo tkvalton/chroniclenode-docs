@@ -53,7 +53,10 @@ All in `editor_components/3d_scene_tools/terrain/`. The pieces know nothing of t
 | `TerrainBrushSettings` | Radius, strength, hardness, the shape, and the **kernels** (the weights a dab applies, made once per setting) |
 | `TerrainPicker` | A ray walked over the terrain's data (no physics) |
 | `TerrainBrushRing` | The ring: a decal made on the `RenderingServer`, in no scene. With a shape it draws the shape's outline |
-| `TerrainToolbar`, `TerrainOptionsBar`, `TerrainViewBar`, `TerrainToolDock` | The left strip, the bottom bar, the top bar, the Terrain tab |
+| `TerrainToolbar`, `TerrainOptionsBar`, `TerrainViewBar`, `TerrainCursorBar` | The left strip, the bottom bar, the top bar, the cursor bar |
+| `TerrainPaletteBar` | The row of textures (paint tools) or of foliage (foliage tools) above the bottom bar |
+| `TerrainSettingsMenu` | The Terrain settings drop-down: Objects, Navigation, World check, Hotkeys |
+| `TerrainClutter`, `TerrainClutterBrush` | The drawing of the clutter and the foliage (cells of 32 m made in workers, MultiMeshes on the RenderingServer), and the Add, Remove and Reset foliage tools |
 | `TerrainCreator`, `TerrainCreateDialog` | Make the terrain of a map (`res://src/data/terrain/<map id>/`) |
 | `TerrainTileEditor`, `TerrainTileOverlay` | Add and remove tiles with undo; draw the ghost squares |
 | `TerrainSaveManager` | The automatic saves, over several frames with a progress |

@@ -32,15 +32,15 @@ A hole is a square cell of **2 m**. A hole is neither drawn nor solid, so charac
 
 ## The cursor: ring colour and brush shape
 
-The **Cursor** section of the Terrain tab has two things.
+The **Cursor** bar at the top of the 3D viewport has the colour, the shape and **Add shape...**.
 
-**Ring colour** is the colour of the ring on the ground. Choose one that does not clash with the textures you paint.
+**The colour button** is the colour of the ring on the ground. Choose one that does not clash with the textures you paint.
 
-**Shape** is the footprint of the brush, for the sculpting tools and the painting tools alike. The first icon, **Round**, is the plain round brush. The others are grey pictures (white where the brush works fully, black where it does not), shown as icons for you to click: **Square, Diamond, Hexagon, Triangle, Star, Cross, Ring, Rough, Blob and Scatter** come with the toolkit. A square brush has square corners, a ring brush only works in a ring, a scatter brush leaves a spray of spots. **Hardness** softens the edges of a shape. The ring on the ground stays round and shows the brush's reach.
+**The shape button** opens the shapes to choose from. A shape is the footprint of the brush, for the sculpting tools and the painting tools alike. The first icon, **Round**, is the plain round brush. The others are grey pictures (white where the brush works fully, black where it does not), shown as icons in the list: **Square, Diamond, Hexagon, Triangle, Star, Cross, Ring, Rough, Blob and Scatter** come with the toolkit. A square brush has square corners, a ring brush only works in a ring, a scatter brush leaves a spray of spots. **Hardness** softens the edges of a shape. The ring on the ground stays round and shows the brush's reach.
 
 ### Your own shapes
 
-The shapes are the pictures in one folder of your project, **`res://src/data/terrain_brush_shapes/`**. The toolkit fills it the first time the terrain tool opens. To add a shape, drop a grey picture in the folder and press **Refresh** in the Textures section, or press **Add shape...** and pick a picture (it is copied into the folder). Delete the pictures you do not want. Any picture works: white is "full", black is "nothing".
+The shapes are the pictures in one folder of your project, **`res://src/data/terrain_brush_shapes/`**. The toolkit fills it the first time the terrain tool opens. To add a shape, drop a grey picture in the folder and open the shape list again, or press **Add shape...** and pick a picture (it is copied into the folder). Delete the pictures you do not want. Any picture works: white is "full", black is "nothing".
 
 ## Tips
 

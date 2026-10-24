@@ -24,7 +24,7 @@ The terrain **always saves with the scene** (Ctrl+S). These settings add saving 
 
 ## Navigation
 
-How the [navigation of the terrain](/basic/world/terrain-navigation) is baked (the **Bake navigation** button of the Terrain tab).
+How the [navigation of the terrain](/basic/world/terrain-navigation) is baked (**Terrain settings > Navigation** in the 3D editor).
 
 | Setting | What it does |
 |---|---|

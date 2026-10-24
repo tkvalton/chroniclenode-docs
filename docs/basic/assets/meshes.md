@@ -46,6 +46,10 @@ The tree lists the meshes by folder with their type. The **Tree filter** chooses
 | **Settings > Clean Up Metadata** | On the selected mesh, removes the old whole-mesh material settings (allowed, preferred and category) and keeps the per-surface ones |
 | **Settings > Generate Thumbnails** | Makes the preview pictures |
 
+## Pictures
+
+Every mesh in the tree has a **picture**, made by the editor and kept in `res://src/data/meshes/.thumbnails/` (**Settings > Generate Thumbnails** makes them all again). The picture of the mesh you select is shown big at the top of the panel on the right, with its name, its place in the library and its file.
+
 ## Settings of a mesh
 
 Select a mesh to see its category and the settings it can have. They are saved as you change them: **in the mesh file** itself for a `.tres` or `.res` mesh, and in the **mesh settings file** (`res://src/data/meshes/mesh_settings.tres`, under the UID of the model file) for every other format, because Godot cannot save into an imported file. A mesh looks the same either way: you never open the settings file.

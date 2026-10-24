@@ -2,7 +2,28 @@
 
 A **terrain texture** is one entry of the library your terrain is painted from: grass, rock, sand, snow, a dirt road. **Assets > Terrain Textures** is the list of them. A terrain keeps only the textures it is painted with, and each **16 m chunk** of it holds up to **8** of them (the number is set in [Terrain Settings](/basic/game-settings/terrain-settings)), so the library can be as big as you like.
 
-You paint the ground with these textures in the terrain editor: see [Terrain](/basic/world/terrain) and [Painting](/basic/world/terrain-painting). Textures are made here, in the Database; the Terrain tab of the 3D editor only lists them (press its **Refresh** button after adding some).
+You paint the ground with these textures in the terrain editor: see [Terrain](/basic/world/terrain) and [Painting](/basic/world/terrain-painting). Textures are made here, in the Database; the texture bar of the 3D editor only lists them (press its **Refresh** button after adding some).
+
+## The library folder
+
+The left side of the tab is a **tree of files**, like [Foliage](/basic/assets/foliage). **One folder is one texture**: put the maps of a texture in a folder of
+
+`res://src/data/terrain/library/`
+
+and the tab makes the entry for it, with its maps and a picture (the albedo):
+
+```
+src/data/terrain/library/
+  grass/                 grass_albedo.png, grass_normal.png, grass_orm.png     -> the texture Grass
+  forest/                a folder of folders is a pack
+    moss/                moss_albedo.png, moss_normal.png                      -> the texture Moss, in the pack Forest
+```
+
+- The maps are told apart by the **words in their names** (albedo, basecolor, diffuse, color / normal, nrm / orm, arm / roughness / height, displacement, bump / emission, emissive / sss, subsurface), the same words the drag and drop below uses. A file with *orm* in its name turns on *Roughness texture is ORM*. A folder with one picture whose name says nothing takes it as its albedo. A folder with no albedo is not a texture.
+- The **name** comes from the folder (`cobble_road` becomes *Cobble road*). The **pack** is the name of the folder the texture's folder is in; a texture directly in the library folder has none.
+- **Refresh** looks for new folders. Entries are only made for folders that have none: the numbers and the maps you changed are never overwritten. **Maps from the folder** (in the Texture maps section) puts the maps of the folder in the texture again.
+- A texture you made **by hand** before, whose albedo is a file of a library folder, becomes the entry of that folder and keeps its numbers. Textures with no folder stay in **Textures without a folder**. An entry whose folder is gone is kept (the terrain may paint with it) and shows in red under **Missing folders**.
+- Search the tree by name. Move folders in Godot's FileSystem dock as you like: the entry follows the albedo file.
 
 ## Texture maps
 
@@ -88,7 +109,7 @@ You can change a texture while the terrain is painted with it: replace its maps,
 
 ## Pack
 
-**Pack** is a name that groups textures: "Forest", "Desert", "Dungeon". Type a name, or choose one of the packs that exist with the **Packs** button. The Terrain tab of the 3D editor has a menu that shows one pack at a time (or **All textures**, or **No pack** for the textures that belong to none), so a big library stays easy to pick from. A texture belongs to one pack; leave it empty for none.
+**Pack** is a name that groups textures: "Forest", "Desert", "Dungeon". Type a name, or choose one of the packs that exist with the **Packs** button. The texture bar of the 3D editor has a menu that shows one pack at a time (or **All textures**, or **No pack** for the textures that belong to none), so a big library stays easy to pick from. A texture belongs to one pack; leave it empty for none.
 
 ## Surface
 

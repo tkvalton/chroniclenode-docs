@@ -9,6 +9,10 @@ A **model scene** is the body of something in the game: the scene that holds its
 
 Every `.tscn` file in those folders is an entry, named by its file name. The demo has two skeletons (`human_male`, `human_female`) and one interactable, a `target_dummy`.
 
+## Pictures
+
+Every scene in the lists has a **picture**, drawn by the editor from a corner above (a character stands in its rest pose) and kept in `res://src/data/model_scenes/.thumbnails/`. The picture of the scene you select is shown big at the top of the panel on the right, with its name and file. Pictures are made the first time the tab opens and when you press **Refresh Database**; delete the folder to make them all again.
+
 ## The editor
 
 | Control | What it does |

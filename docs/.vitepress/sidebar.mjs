@@ -101,6 +101,7 @@ const basicSystems = [
           page('Sculpting', '/basic/world/terrain-sculpting'),
           page('Painting', '/basic/world/terrain-painting'),
           page('Navigation', '/basic/world/terrain-navigation'),
+          page('Foliage tools', '/basic/world/terrain-foliage'),
           page('The Unique Object tool', '/basic/world/unique-object-tool'),
           page('Regions', '/basic/world/regions'),
           page('Movement volumes', '/basic/world/movement-volumes'),

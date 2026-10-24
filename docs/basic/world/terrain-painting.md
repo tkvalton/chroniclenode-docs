@@ -4,7 +4,7 @@ The **Textures** and **Colour** groups of the strip on the left of the 3D viewpo
 
 ## Choosing a texture
 
-The **Textures** section of the **Terrain tab** (next to the Inspector) lists the textures of your library with their previews.
+While a paint tool is on, the **texture bar** above the tool's settings (along the bottom of the 3D viewport) shows the textures of your library with their previews, in one row you can scroll.
 
 - The menu above the list chooses a **pack**: **All textures**, **No pack** (the textures that belong to none) or one of your packs. A pack is a group you name yourself ("Forest", "Desert", "Dungeon"); a texture joins a pack in the **Pack** section of the [Terrain Textures](/basic/assets/terrain-textures) editor.
 - Type in the **filter** to narrow the list by name.

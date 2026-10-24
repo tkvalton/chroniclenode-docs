@@ -41,10 +41,10 @@ If you delete the Terrain node and press the button again, the dialog offers **U
 
 Press the **Terrain** button to turn the mode on or off. When it is off the viewport is the editor's own. When it is on:
 
-- **The left strip** has the tools in groups: **View** (Select, Inspect), **Terrain** (Tiles), **Ground** (the sculpting tools), **Textures** and **Colour**. Hover an icon for its name, its key and what it does. **Undo and redo** are at the bottom of the strip. The first tool, **Select**, leaves the mouse as it normally is, so you can still move trees and buildings without leaving the mode.
-- **The bar along the bottom** shows the tool you chose and its settings. Every number has a slider and a box where you can type an exact value.
-- **The small bar at the top left** has the overlay buttons and a warning when tiles are not saved.
-- **The Terrain tab** next to the Inspector has the cursor, the texture library, the object tools and the world check.
+- **The left strip** has the tools in groups: **View** (Select, Inspect), **Terrain** (Tiles), **Ground** (the sculpting tools), **Textures**, **Colour** and **Foliage**. Hover an icon for its name, its key and what it does. **Undo and redo** are at the bottom of the strip. The first tool, **Select**, leaves the mouse as it normally is, so you can still move trees and buildings without leaving the mode.
+- **The bar along the bottom** shows the tool you chose and its settings. Every number has a slider and a box where you can type an exact value. Above it a **palette** shows while the tool needs one: the **textures** for the paint tools, the **foliage** for the foliage tools.
+- **The bars at the top left** are the overlay buttons with a warning when tiles are not saved, and the **Cursor** bar: the colour of the ring, the shape of the brush and **Add shape...**.
+- **Terrain settings**, a drop-down next to the Terrain button, has **Objects**, **Navigation**, **World check** and **Hotkeys**.
 - **A box in the bottom right corner** tells you what is under the mouse: position, tile, chunk, slope, surface and textures.
 
 ### Keys and mouse
@@ -60,7 +60,7 @@ Press the **Terrain** button to turn the mode on or off. When it is off the view
 | **Escape** | Cancels the stroke; with no stroke, goes back to Select |
 | Right mouse button | Moves the camera as always. The brush ring hides while you do, and the wheel stays Godot's (the flying speed) |
 
-The wheel alone zooms the camera as always. Every key can be changed: **Terrain tab > Hotkeys**.
+The wheel alone zooms the camera as always. Every key can be changed: **Terrain settings > Hotkeys**.
 
 ### What is shown over the ground
 
@@ -91,7 +91,7 @@ Both can be **undone** (Ctrl+Z). A new tile has no file until you save the scene
 ## Putting objects on the ground
 
 - **Add Object** puts a new NPC, interactable, region or other object on the ground that the middle of the 3D view looks at, so it appears where you are working. If the view looks at the sky or at nothing, it goes to the origin.
-- **Snap selected to the ground** (**Terrain tab > Objects**) puts the nodes you selected in the Scene dock on the terrain: the same place, the height of the ground. **Height above** raises them (a negative number sinks them) and **Tilt to the slope** makes them lean with the hill (their heading is kept). It can be undone. Objects over a hole or off the terrain are left where they are and the message says so. Godot's own *Snap Object to Floor* cannot find this terrain in the editor, so use this one.
+- **Snap selected to the ground** (**Terrain settings > Objects**) puts the nodes you selected in the Scene dock on the terrain: the same place, the height of the ground. **Height above** raises them (a negative number sinks them) and **Tilt to the slope** makes them lean with the hill (their heading is kept). It can be undone. Objects over a hole or off the terrain are left where they are and the message says so. Godot's own *Snap Object to Floor* cannot find this terrain in the editor, so use this one.
 
 ## Saving
 
@@ -101,7 +101,7 @@ On top of that, **Game Settings > Terrain Settings > Saving while editing** can 
 
 ## The world check
 
-**Terrain tab > World check > Check the world** looks for likely mistakes and lists them (it changes nothing). It also runs when you save the scene, and tells you with a message when it finds a problem. Double click a line about an object to select that object.
+**Terrain settings > World check > Check the world** looks for likely mistakes and lists them (it changes nothing). It also runs when you save the scene, and tells you with a message when it finds a problem. Double click a line about an object to select that object.
 
 | Finding | What it means |
 |---|---|

@@ -1,10 +1,10 @@
 # Terrain Navigation
 
-NPCs, companions and the party walk on a **navigation mesh**: a simplified copy of the ground that says where an entity can go. The terrain **bakes it for you**, one tile at a time, and saves it with the tiles. You bake from the **Terrain tab**, you can mark ground that nobody should walk on, and the world check tells you when the navigation is out of date.
+NPCs, companions and the party walk on a **navigation mesh**: a simplified copy of the ground that says where an entity can go. The terrain **bakes it for you**, one tile at a time, and saves it with the tiles. You bake from **Terrain settings > Navigation**, you can mark ground that nobody should walk on, and the world check tells you when the navigation is out of date.
 
 ## Baking
 
-Open the **Terrain tab** in the editor (the Terrain mode must be on). The **Navigation** section has:
+Open **Terrain settings > Navigation** next to the Terrain button (the Terrain mode must be on). The panel has:
 
 | Button | What it does |
 |---|---|
@@ -21,7 +21,7 @@ Each tile is baked once for every distinct entity size. On hilly ground at the d
 
 ### Out of date
 
-The navigation of a tile goes **out of date** when you change the ground there: sculpting, holes, not-walkable ground. The tiles **next to it** go out of date too, because a bake looks a few metres into its neighbours so that the meshes of two tiles meet exactly at the border. The Terrain tab and the [world check](/basic/world/terrain#the-world-check) say so; bake again before you test the game.
+The navigation of a tile goes **out of date** when you change the ground there: sculpting, holes, not-walkable ground. The tiles **next to it** go out of date too, because a bake looks a few metres into its neighbours so that the meshes of two tiles meet exactly at the border. The Navigation panel and the [world check](/basic/world/terrain#the-world-check) say so; bake again before you test the game.
 
 Undoing an edit does not make the navigation current again. Bake once you are happy with the ground.
 
@@ -99,7 +99,7 @@ A bake of the ground alone would let NPCs path through a house. So the bake also
 
 **Navigation objects group**: when a group name is set, only the nodes of that group (and their children) are used. Put your buildings in a group and name it there to keep decorations out of the bake.
 
-Moving, adding or removing such an object makes the tiles it touches **out of date**: *Bake navigation* notices it and bakes those tiles again, even if their ground did not change. (The Terrain tab can only say "N tiles out of date" for ground edits; objects are looked at when you press the button.)
+Moving, adding or removing such an object makes the tiles it touches **out of date**: *Bake navigation* notices it and bakes those tiles again, even if their ground did not change. (The Navigation panel can only say "N tiles out of date" for ground edits; objects are looked at when you press the button.)
 
 ## What is not included yet
 
