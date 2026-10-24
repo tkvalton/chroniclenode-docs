@@ -1,7 +1,7 @@
 # Trigger areas
 
 ::: info Formerly called regions
-The editor, the palette and these pages say **trigger area** so that it is not mixed up with a [zone](/basic/world/zones) (a named place of the map with a banner). Only the word changed: the node is still a `TriggerArea`, its record a `TriggerAreaData`, and nothing in an existing project has to be redone.
+The editor, the palette and these pages say **trigger area** so that it is not mixed up with a [zone](/basic/world/zones) (a named place of the map with a banner). The node is a `TriggerArea` and its record a `TriggerAreaData`.
 :::
 
 A **trigger area** (the `TriggerArea` node) is an area of a world that the game can *watch*: the old mill, the cave mouth, the market square. It does nothing by itself. It lets an [event](/basic/events-and-quests/events), a [quest](/basic/events-and-quests/quests) or a condition ask "is someone in there?" and react when they enter or leave.
