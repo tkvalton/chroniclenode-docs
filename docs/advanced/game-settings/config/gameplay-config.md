@@ -10,36 +10,6 @@ Configuration for gameplay rules and mechanics
 
 | | | |
 |---|---|---|
-| `bool` | [item_weight_enabled](#prop-item-weight-enabled) | `false` |
-| `bool` | [dropped_items_enabled](#prop-dropped-items-enabled) | `true` |
-| `DroppedItemsVisualSytle` | [dropped_items_visual_style](#prop-dropped-items-visual-style) | `DroppedItemsVisualSytle.MESH` |
-| `DroppedItemsPhysics` | [dropped_items_physics](#prop-dropped-items-physics) | `DroppedItemsPhysics.SETTLE_THEN_FREEZE` |
-| `bool` | [dropped_items_pickup_walk_over](#prop-dropped-items-pickup-walk-over) | `true` |
-| `bool` | [dropped_items_pickup_interact](#prop-dropped-items-pickup-interact) | `true` |
-| `bool` | [dropped_items_pickup_mouse_over](#prop-dropped-items-pickup-mouse-over) | `false` |
-| `bool` | [dropped_items_pickup_look_at](#prop-dropped-items-pickup-look-at) | `false` |
-| `float` | [dropped_items_walk_over_radius](#prop-dropped-items-walk-over-radius) | `1.2` |
-| `float` | [dropped_items_mouse_range](#prop-dropped-items-mouse-range) | `5.0` |
-| `float` | [dropped_items_pickup_delay](#prop-dropped-items-pickup-delay) | `1.0` |
-| `float` | [dropped_items_lifetime](#prop-dropped-items-lifetime) | `0.0` |
-| `DroppedItemsLabelMode` | [dropped_items_label_mode](#prop-dropped-items-label-mode) | `DroppedItemsLabelMode.HOVER_AND_TARGET` |
-| `float` | [dropped_items_scatter_radius](#prop-dropped-items-scatter-radius) | `1.0` |
-| `int` | [dropped_items_max_in_world](#prop-dropped-items-max-in-world) | `0` |
-| `bool` | [droped_items_saved_to_map](#prop-droped-items-saved-to-map) | `true` |
-| `PackedScene` | [dropped_items_scene](#prop-dropped-items-scene) |  |
-| `DurabilityMode` | [durability_mode](#prop-durability-mode) | `DurabilityMode.OFF` |
-| `float` | [durability_loss_per_hit](#prop-durability-loss-per-hit) | `1.0` |
-| `float` | [durability_loss_chance](#prop-durability-loss-chance) | `1.0` |
-| `bool` | [durability_one_piece_per_hit](#prop-durability-one-piece-per-hit) | `false` |
-| `BrokenBehavior` | [durability_broken_behavior](#prop-durability-broken-behavior) | `BrokenBehavior.NO_EFFECT` |
-| `float` | [durability_repair_cost_multiplier](#prop-durability-repair-cost-multiplier) | `0.25` |
-| `InventoryStyle` | [character_inventory_style](#prop-character-inventory-style) | `InventoryStyle.new()` |
-| `InventoryStyle` | [npc_inventory_style](#prop-npc-inventory-style) | `InventoryStyle.new()` |
-| `InventoryStyle` | [container_inventory_style](#prop-container-inventory-style) | `InventoryStyle.new()` |
-| `CalculationFormula` | [item_budget_formula](#prop-item-budget-formula) |  |
-| `LootLevelSource.Source` | [default_npc_loot_level](#prop-default-npc-loot-level) | `LootLevelSource.Source.HOLDER` |
-| `LootLevelSource.Source` | [default_object_loot_level](#prop-default-object-loot-level) | `LootLevelSource.Source.PARTY` |
-| `int` | [fallback_item_level](#prop-fallback-item-level) | `1` |
 | `int` | [max_active_quests](#prop-max-active-quests) | `20` |
 | `bool` | [quest_markers_enabled](#prop-quest-markers-enabled) | `true` |
 | `QuestFailureRule` | [default_quest_failure](#prop-default-quest-failure) | `QuestFailureRule.RETRY` |
@@ -75,6 +45,40 @@ Configuration for gameplay rules and mechanics
 | `int` | [max_save_slots](#prop-max-save-slots) | `10` |
 | `String` | [save_directory](#prop-save-directory) | `"user://saves/"` |
 | `bool` | [save_on_area_transition](#prop-save-on-area-transition) | `false` |
+| `BreathUsers` | [breath_users](#prop-breath-users) | `BreathUsers.PLAYERS` |
+| `float` | [breath_duration](#prop-breath-duration) | `20.0` |
+| `float` | [breath_recovery_speed](#prop-breath-recovery-speed) | `4.0` |
+| `int` | [drowning_effect_id](#prop-drowning-effect-id) | `0` |
+| `bool` | [item_weight_enabled](#prop-item-weight-enabled) | `false` |
+| `bool` | [dropped_items_enabled](#prop-dropped-items-enabled) | `true` |
+| `DroppedItemsVisualSytle` | [dropped_items_visual_style](#prop-dropped-items-visual-style) | `DroppedItemsVisualSytle.MESH` |
+| `DroppedItemsPhysics` | [dropped_items_physics](#prop-dropped-items-physics) | `DroppedItemsPhysics.SETTLE_THEN_FREEZE` |
+| `bool` | [dropped_items_pickup_walk_over](#prop-dropped-items-pickup-walk-over) | `true` |
+| `bool` | [dropped_items_pickup_interact](#prop-dropped-items-pickup-interact) | `true` |
+| `bool` | [dropped_items_pickup_mouse_over](#prop-dropped-items-pickup-mouse-over) | `false` |
+| `bool` | [dropped_items_pickup_look_at](#prop-dropped-items-pickup-look-at) | `false` |
+| `float` | [dropped_items_walk_over_radius](#prop-dropped-items-walk-over-radius) | `1.2` |
+| `float` | [dropped_items_mouse_range](#prop-dropped-items-mouse-range) | `5.0` |
+| `float` | [dropped_items_pickup_delay](#prop-dropped-items-pickup-delay) | `1.0` |
+| `float` | [dropped_items_lifetime](#prop-dropped-items-lifetime) | `0.0` |
+| `DroppedItemsLabelMode` | [dropped_items_label_mode](#prop-dropped-items-label-mode) | `DroppedItemsLabelMode.HOVER_AND_TARGET` |
+| `float` | [dropped_items_scatter_radius](#prop-dropped-items-scatter-radius) | `1.0` |
+| `int` | [dropped_items_max_in_world](#prop-dropped-items-max-in-world) | `0` |
+| `bool` | [droped_items_saved_to_map](#prop-droped-items-saved-to-map) | `true` |
+| `PackedScene` | [dropped_items_scene](#prop-dropped-items-scene) |  |
+| `DurabilityMode` | [durability_mode](#prop-durability-mode) | `DurabilityMode.OFF` |
+| `float` | [durability_loss_per_hit](#prop-durability-loss-per-hit) | `1.0` |
+| `float` | [durability_loss_chance](#prop-durability-loss-chance) | `1.0` |
+| `bool` | [durability_one_piece_per_hit](#prop-durability-one-piece-per-hit) | `false` |
+| `BrokenBehavior` | [durability_broken_behavior](#prop-durability-broken-behavior) | `BrokenBehavior.NO_EFFECT` |
+| `float` | [durability_repair_cost_multiplier](#prop-durability-repair-cost-multiplier) | `0.25` |
+| `InventoryStyle` | [character_inventory_style](#prop-character-inventory-style) | `InventoryStyle.new()` |
+| `InventoryStyle` | [npc_inventory_style](#prop-npc-inventory-style) | `InventoryStyle.new()` |
+| `InventoryStyle` | [container_inventory_style](#prop-container-inventory-style) | `InventoryStyle.new()` |
+| `CalculationFormula` | [item_budget_formula](#prop-item-budget-formula) |  |
+| `LootLevelSource.Source` | [default_npc_loot_level](#prop-default-npc-loot-level) | `LootLevelSource.Source.HOLDER` |
+| `LootLevelSource.Source` | [default_object_loot_level](#prop-default-object-loot-level) | `LootLevelSource.Source.PARTY` |
+| `int` | [fallback_item_level](#prop-fallback-item-level) | `1` |
 | `Texture2D` | [hitbox_outline_texture](#prop-hitbox-outline-texture) | `null` |
 | `Texture2D` | [selection_marker_texture](#prop-selection-marker-texture) | `null` |
 | `Texture2D` | [target_marker_texture](#prop-target-marker-texture) | `null` |
@@ -112,14 +116,14 @@ Configuration for gameplay rules and mechanics
 | `bool` | [rescale_npcs_on_respawn](#prop-rescale-npcs-on-respawn) | `true` |
 | `bool` | [rescale_npcs_on_party_change](#prop-rescale-npcs-on-party-change) | `true` |
 | `int` | [default_npc_growth_profile_id](#prop-default-npc-growth-profile-id) | `GrowthProfile.ID_DEFAULT` |
-| `CameraLogic` | [camera_logic](#prop-camera-logic) | `null` |
-| `ControllerLogic` | [player_controller_logic](#prop-player-controller-logic) | `null` |
 | `int` | [action_bar_slot_count](#prop-action-bar-slot-count) | `30` |
 | `ActionBarArrangement` | [action_bar_arrangement](#prop-action-bar-arrangement) | `ActionBarArrangement.FREE` |
 | `bool` | [action_bar_auto_fill](#prop-action-bar-auto-fill) | `false` |
 | `PlayerBasicAttack` | [player_basic_attack](#prop-player-basic-attack) | `PlayerBasicAttack.AUTO_ATTACK` |
 | `float` | [look_drag_threshold](#prop-look-drag-threshold) | `10.0` |
 | `bool` | [log_input_routing](#prop-log-input-routing) | `false` |
+| `ControllerLogic` | [player_controller_logic](#prop-player-controller-logic) | `null` |
+| `CameraLogic` | [camera_logic](#prop-camera-logic) | `null` |
 | `CombatStyle` | [combat_style](#prop-combat-style) | `CombatStyle.REAL_TIME` |
 | `DeathBehavior` | [death_behavior](#prop-death-behavior) | `DeathBehavior.RESPAWN_CHECKPOINT` |
 | `Array[DeathCurrencyLoss]` | [death_currency_losses](#prop-death-currency-losses) | `[]` |
@@ -128,10 +132,6 @@ Configuration for gameplay rules and mechanics
 | `DeathItemLoss` | [death_equipment_loss](#prop-death-equipment-loss) | `DeathItemLoss.KEEP` |
 | `float` | [death_item_loss_chance](#prop-death-item-loss-chance) | `1.0` |
 | `float` | [death_durability_loss](#prop-death-durability-loss) | `0.0` |
-| `BreathUsers` | [breath_users](#prop-breath-users) | `BreathUsers.PLAYERS` |
-| `float` | [breath_duration](#prop-breath-duration) | `20.0` |
-| `float` | [breath_recovery_speed](#prop-breath-recovery-speed) | `4.0` |
-| `int` | [drowning_effect_id](#prop-drowning-effect-id) | `0` |
 | `bool` | [use_threat_system](#prop-use-threat-system) | `true` |
 | `float` | [heal_threat_multiplier](#prop-heal-threat-multiplier) | `0.5` |
 | `float` | [damage_threat_multiplier](#prop-damage-threat-multiplier) | `1.0` |
@@ -161,10 +161,12 @@ Configuration for gameplay rules and mechanics
 | `float` | [glancing_reduction](#prop-glancing-reduction) | `40.0` |
 | `bool` | [glancing_other_effects_apply](#prop-glancing-other-effects-apply) | `true` |
 | `bool` | [npc_lod_enabled](#prop-npc-lod-enabled) | `true` |
+| `bool` | [lod_follows_view_distance](#prop-lod-follows-view-distance) | `false` |
 | `float` | [lod_distance_high](#prop-lod-distance-high) | `30.0` |
 | `float` | [lod_distance_medium](#prop-lod-distance-medium) | `100.0` |
 | `float` | [lod_distance_low](#prop-lod-distance-low) | `250.0` |
 | `float` | [lod_distance_minimal](#prop-lod-distance-minimal) | `400.0` |
+| `bool` | [lod_lock_outside_terrain](#prop-lod-lock-outside-terrain) | `true` |
 | `float` | [lod_interval_high](#prop-lod-interval-high) | `0.1` |
 | `float` | [lod_interval_medium](#prop-lod-interval-medium) | `0.5` |
 | `float` | [lod_interval_low](#prop-lod-interval-low) | `1.0` |
@@ -180,6 +182,7 @@ Configuration for gameplay rules and mechanics
 | `float` | [get_fog_edge_range](#method-get-fog-edge-range)() |
 | `float` | [get_lod_distance](#method-get-lod-distance)( `level: LODLevel` ) |
 | `float` | [get_lod_interval](#method-get-lod-interval)( `level: LODLevel` ) |
+| `Array[String]` | [get_lod_terrain_warnings](#method-get-lod-terrain-warnings)( `solid_radius: float = ChronicleTerrain.DEFAULT_COLLISION_RADIUS` ) |
 | `LODLevel` | [calculate_lod_level](#method-calculate-lod-level)( `distance: float` ) |
 | `bool` | [main_character_exists](#method-main-character-exists)() |
 | `float` | [get_kill_experience](#method-get-kill-experience)( `npc_level: int, fixed_worth: int = 0` ) |
@@ -368,6 +371,14 @@ Fog edge quality - controls smoothness of fog boundaries
 - **HIGH** = `3` - High quality smoothing - smooth edges
 - **ULTRA** = `4` - Maximum quality - very smooth (most expensive)
 
+### enum BreathUsers {#enum-breathusers}
+
+Who has to hold its breath where a movement volume asks for it (under water): nobody (breath is off), only the players, or everyone
+
+- **NOBODY** = `0`
+- **PLAYERS** = `1`
+- **EVERYONE** = `2`
+
 ### enum DurabilityMode {#enum-durabilitymode}
 
 Whether equipment wears out: off, or it loses durability when its owner deals and takes damage.
@@ -391,14 +402,6 @@ What happens to the items of a player who dies: they are kept, dropped on the gr
 - **DROP** = `1`
 - **DESTROY** = `2`
 
-### enum BreathUsers {#enum-breathusers}
-
-Who has to hold its breath where a movement volume asks for it (under water): nobody (breath is off), only the players, or everyone
-
-- **NOBODY** = `0`
-- **PLAYERS** = `1`
-- **EVERYONE** = `2`
-
 ## Constants
 
 - `const` **CONFIG_PATH** = `"res://src/data/config_data/gameplay_config.tres"` - The file the settings are saved in.
@@ -406,136 +409,6 @@ Who has to hold its breath where a movement volume asks for it (under water): no
 - `Dictionary` **SETTING_DESCRIPTIONS** = `{` - Dictionary of setting descriptions for tooltips and help text
 
 ## Property descriptions
-
-*Items &amp; Inventory*
-
-### bool item_weight_enabled = false {#prop-item-weight-enabled}
-
-(older switch: weight is a rule of the inventory styles below now, this one is not read)
-
-*Dropped Items*
-
-### bool dropped_items_enabled = true {#prop-dropped-items-enabled}
-
-Items can lie in the world: the player can drop them, loot and events can leave them on the ground
-
-### DroppedItemsVisualSytle dropped_items_visual_style = DroppedItemsVisualSytle.MESH {#prop-dropped-items-visual-style}
-
-What a dropped item looks like: the model of the item, or a flat picture of its icon
-
-### DroppedItemsPhysics dropped_items_physics = DroppedItemsPhysics.SETTLE_THEN_FREEZE {#prop-dropped-items-physics}
-
-What physics does to a dropped item (see the options)
-
-### bool dropped_items_pickup_walk_over = true {#prop-dropped-items-pickup-walk-over}
-
-Picking up by walking over the item
-
-### bool dropped_items_pickup_interact = true {#prop-dropped-items-pickup-interact}
-
-Picking up with the interact key when the item is near
-
-### bool dropped_items_pickup_mouse_over = false {#prop-dropped-items-pickup-mouse-over}
-
-Picking up by clicking the item with the mouse (within the mouse range)
-
-### bool dropped_items_pickup_look_at = false {#prop-dropped-items-pickup-look-at}
-
-Picking up what the crosshair is on with the interact key (first person controllers), within the mouse range
-
-### float dropped_items_walk_over_radius = 1.2 {#prop-dropped-items-walk-over-radius}
-
-How close a character must come to pick an item up by walking over it
-
-### float dropped_items_mouse_range = 5.0 {#prop-dropped-items-mouse-range}
-
-How far away an item can be and still be picked up with the mouse or by looking at it
-
-### float dropped_items_pickup_delay = 1.0 {#prop-dropped-items-pickup-delay}
-
-Seconds after an item lands before it can be picked up (so an item that is dropped is not taken straight back)
-
-### float dropped_items_lifetime = 0.0 {#prop-dropped-items-lifetime}
-
-Seconds an item lies in the world before it disappears (0 = for ever)
-
-### DroppedItemsLabelMode dropped_items_label_mode = DroppedItemsLabelMode.HOVER_AND_TARGET {#prop-dropped-items-label-mode}
-
-When the name of a dropped item is shown above it
-
-### float dropped_items_scatter_radius = 1.0 {#prop-dropped-items-scatter-radius}
-
-How far from where they come from several dropped items are scattered
-
-### int dropped_items_max_in_world = 0 {#prop-dropped-items-max-in-world}
-
-The most dropped items in the world at once (0 = no limit). When it is passed the oldest one disappears
-
-### bool droped_items_saved_to_map = true {#prop-droped-items-saved-to-map}
-
-Are dropped items kept in the save and when the player leaves a world and comes back
-
-### PackedScene dropped_items_scene {#prop-dropped-items-scene}
-
-The scene a dropped item is made from (empty = the one of the toolkit). It must have a DroppedItem script on its root: copy the toolkit scene and change how it looks
-
-*Durability*
-
-### DurabilityMode durability_mode = DurabilityMode.OFF {#prop-durability-mode}
-
-Off: nothing wears. On hits: the weapons of a character lose durability when it deals damage, the rest of its equipment when it takes damage. The numbers are on the equipment slots (Equipment Definitions &gt; Equipment Slots)
-
-### float durability_loss_per_hit = 1.0 {#prop-durability-loss-per-hit}
-
-How much durability a piece loses in a hit (multiplied by the loss multiplier of its slot)
-
-### float durability_loss_chance = 1.0 {#prop-durability-loss-chance}
-
-The chance that a piece wears in a hit (1 = every hit)
-
-### bool durability_one_piece_per_hit = false {#prop-durability-one-piece-per-hit}
-
-When a character takes damage only one random piece of its equipment wears, not all of them
-
-### BrokenBehavior durability_broken_behavior = BrokenBehavior.NO_EFFECT {#prop-durability-broken-behavior}
-
-What a piece of equipment that reaches 0 durability does
-
-### float durability_repair_cost_multiplier = 0.25 {#prop-durability-repair-cost-multiplier}
-
-What a vendor charges to repair: the vendor value of the item times the share that is missing times this
-
-*Inventory Styles*
-
-### InventoryStyle character_inventory_style = InventoryStyle.new() {#prop-character-inventory-style}
-
-The rules of the bag of the characters (players and companions): how items take space, the weight and what happens above the limit. The default is a list of slots from the Bag Slots stat and no weight
-
-### InventoryStyle npc_inventory_style = InventoryStyle.new() {#prop-npc-inventory-style}
-
-The rules of the bag of NPCs (an NPC definition can have its own)
-
-### InventoryStyle container_inventory_style = InventoryStyle.new() {#prop-container-inventory-style}
-
-The rules of containers: chests, bodies and other objects (a container can have its own). In slots mode a container's own Max slots is its number of slots
-
-*Item Generation*
-
-### CalculationFormula item_budget_formula {#prop-item-budget-formula}
-
-Turns the item level into the stat budget of a generated item (see ItemBudget): "Linear 20" gives 20 points of budget at level 1, 400 at level 20. A curve (hyperbolic, a soft cap) makes the high levels give less and less extra. Empty = Linear 20
-
-### LootLevelSource.Source default_npc_loot_level = LootLevelSource.Source.HOLDER {#prop-default-npc-loot-level}
-
-Where the item level of generated loot comes from when neither the loot table nor the rule of an NPC says (Holder = the level of the NPC)
-
-### LootLevelSource.Source default_object_loot_level = LootLevelSource.Source.PARTY {#prop-default-object-loot-level}
-
-The same for chests, crates and other objects (an object has no level of its own, so Holder falls back to the party)
-
-### int fallback_item_level = 1 {#prop-fallback-item-level}
-
-The item level used when a source cannot give one (no party yet, no world level)
 
 *Quests*
 
@@ -686,6 +559,154 @@ Save directory path
 ### bool save_on_area_transition = false {#prop-save-on-area-transition}
 
 Save on area transition
+
+*Breath*
+
+### BreathUsers breath_users = BreathUsers.PLAYERS {#prop-breath-users}
+
+Who has to hold its breath under water (see Movement Volumes). Nobody: swimming is free
+
+### float breath_duration = 20.0 {#prop-breath-duration}
+
+How many seconds an entity can hold its breath
+
+### float breath_recovery_speed = 4.0 {#prop-breath-recovery-speed}
+
+How fast the breath comes back above the surface compared with how fast it runs out (4 = four times as fast)
+
+### int drowning_effect_id = 0 {#prop-drowning-effect-id}
+
+The effect that is on an entity while it has no breath left (damage over time: it drowns). It is taken off when the breath comes back. 0 = nothing happens
+
+*Older switches*
+
+### bool item_weight_enabled = false {#prop-item-weight-enabled}
+
+(older switch: weight is a rule of the inventory styles below now, this one is not read)
+
+*Dropped Items*
+
+### bool dropped_items_enabled = true {#prop-dropped-items-enabled}
+
+Items can lie in the world: the player can drop them, loot and events can leave them on the ground
+
+### DroppedItemsVisualSytle dropped_items_visual_style = DroppedItemsVisualSytle.MESH {#prop-dropped-items-visual-style}
+
+What a dropped item looks like: the model of the item, or a flat picture of its icon
+
+### DroppedItemsPhysics dropped_items_physics = DroppedItemsPhysics.SETTLE_THEN_FREEZE {#prop-dropped-items-physics}
+
+What physics does to a dropped item (see the options)
+
+### bool dropped_items_pickup_walk_over = true {#prop-dropped-items-pickup-walk-over}
+
+Picking up by walking over the item
+
+### bool dropped_items_pickup_interact = true {#prop-dropped-items-pickup-interact}
+
+Picking up with the interact key when the item is near
+
+### bool dropped_items_pickup_mouse_over = false {#prop-dropped-items-pickup-mouse-over}
+
+Picking up by clicking the item with the mouse (within the mouse range)
+
+### bool dropped_items_pickup_look_at = false {#prop-dropped-items-pickup-look-at}
+
+Picking up what the crosshair is on with the interact key (first person controllers), within the mouse range
+
+### float dropped_items_walk_over_radius = 1.2 {#prop-dropped-items-walk-over-radius}
+
+How close a character must come to pick an item up by walking over it
+
+### float dropped_items_mouse_range = 5.0 {#prop-dropped-items-mouse-range}
+
+How far away an item can be and still be picked up with the mouse or by looking at it
+
+### float dropped_items_pickup_delay = 1.0 {#prop-dropped-items-pickup-delay}
+
+Seconds after an item lands before it can be picked up (so an item that is dropped is not taken straight back)
+
+### float dropped_items_lifetime = 0.0 {#prop-dropped-items-lifetime}
+
+Seconds an item lies in the world before it disappears (0 = for ever)
+
+### DroppedItemsLabelMode dropped_items_label_mode = DroppedItemsLabelMode.HOVER_AND_TARGET {#prop-dropped-items-label-mode}
+
+When the name of a dropped item is shown above it
+
+### float dropped_items_scatter_radius = 1.0 {#prop-dropped-items-scatter-radius}
+
+How far from where they come from several dropped items are scattered
+
+### int dropped_items_max_in_world = 0 {#prop-dropped-items-max-in-world}
+
+The most dropped items in the world at once (0 = no limit). When it is passed the oldest one disappears
+
+### bool droped_items_saved_to_map = true {#prop-droped-items-saved-to-map}
+
+Are dropped items kept in the save and when the player leaves a world and comes back
+
+### PackedScene dropped_items_scene {#prop-dropped-items-scene}
+
+The scene a dropped item is made from (empty = the one of the toolkit). It must have a DroppedItem script on its root: copy the toolkit scene and change how it looks
+
+*Durability*
+
+### DurabilityMode durability_mode = DurabilityMode.OFF {#prop-durability-mode}
+
+Off: nothing wears. On hits: the weapons of a character lose durability when it deals damage, the rest of its equipment when it takes damage. The numbers are on the equipment slots (Equipment Definitions &gt; Equipment Slots)
+
+### float durability_loss_per_hit = 1.0 {#prop-durability-loss-per-hit}
+
+How much durability a piece loses in a hit (multiplied by the loss multiplier of its slot)
+
+### float durability_loss_chance = 1.0 {#prop-durability-loss-chance}
+
+The chance that a piece wears in a hit (1 = every hit)
+
+### bool durability_one_piece_per_hit = false {#prop-durability-one-piece-per-hit}
+
+When a character takes damage only one random piece of its equipment wears, not all of them
+
+### BrokenBehavior durability_broken_behavior = BrokenBehavior.NO_EFFECT {#prop-durability-broken-behavior}
+
+What a piece of equipment that reaches 0 durability does
+
+### float durability_repair_cost_multiplier = 0.25 {#prop-durability-repair-cost-multiplier}
+
+What a vendor charges to repair: the vendor value of the item times the share that is missing times this
+
+*Inventory Styles*
+
+### InventoryStyle character_inventory_style = InventoryStyle.new() {#prop-character-inventory-style}
+
+The rules of the bag of the characters (players and companions): how items take space, the weight and what happens above the limit. The default is a list of slots from the Bag Slots stat and no weight
+
+### InventoryStyle npc_inventory_style = InventoryStyle.new() {#prop-npc-inventory-style}
+
+The rules of the bag of NPCs (an NPC definition can have its own)
+
+### InventoryStyle container_inventory_style = InventoryStyle.new() {#prop-container-inventory-style}
+
+The rules of containers: chests, bodies and other objects (a container can have its own). In slots mode a container's own Max slots is its number of slots
+
+*Item Generation*
+
+### CalculationFormula item_budget_formula {#prop-item-budget-formula}
+
+Turns the item level into the stat budget of a generated item (see ItemBudget): "Linear 20" gives 20 points of budget at level 1, 400 at level 20. A curve (hyperbolic, a soft cap) makes the high levels give less and less extra. Empty = Linear 20
+
+### LootLevelSource.Source default_npc_loot_level = LootLevelSource.Source.HOLDER {#prop-default-npc-loot-level}
+
+Where the item level of generated loot comes from when neither the loot table nor the rule of an NPC says (Holder = the level of the NPC)
+
+### LootLevelSource.Source default_object_loot_level = LootLevelSource.Source.PARTY {#prop-default-object-loot-level}
+
+The same for chests, crates and other objects (an object has no level of its own, so Holder falls back to the party)
+
+### int fallback_item_level = 1 {#prop-fallback-item-level}
+
+The item level used when a source cannot give one (no party yet, no world level)
 
 *Rig Markers*
 
@@ -855,16 +876,6 @@ NPCs that are alive take the new level when the party levels up, a member joins 
 
 The growth profile every NPC starts with (a GrowthProfile id; Entity Stats, Growth Profiles). It closes the chain of every NPC: a stat or pool that the NPC's own overrides and its own profile say nothing about grows as this profile says, then as its own definition says. 0 = none
 
-*Controller Logic*
-
-### CameraLogic camera_logic = null {#prop-camera-logic}
-
-Camera logic resource - defines camera behavior and settings
-
-### ControllerLogic player_controller_logic = null {#prop-player-controller-logic}
-
-Player controller logic resource - defines movement and control behavior
-
 *Action Bar*
 
 ### int action_bar_slot_count = 30 {#prop-action-bar-slot-count}
@@ -892,6 +903,18 @@ Pixels the mouse must movewhile a button is held before a drag gesture starts (e
 ### bool log_input_routing = false {#prop-log-input-routing}
 
 Print one line per mouse click saying whether it reached the world or was consumed by UI (and which Control consumed it). Handy for tracking down mouse_filter problems.
+
+*Controller*
+
+### ControllerLogic player_controller_logic = null {#prop-player-controller-logic}
+
+How the player moves and acts: the type (WASD with mouse, point and click for one character or for a party) and its settings. The logic is kept in this config: change it here and the game uses it. Keys and mouse buttons are in the Input Map; the camera that goes with it is on the Camera tab
+
+*Camera*
+
+### CameraLogic camera_logic = null {#prop-camera-logic}
+
+How the camera follows and looks: the type (third person, top-down focused or free) and its settings. Not every camera works with every controller: the warnings under the settings say so
 
 *Combat*
 
@@ -928,24 +951,6 @@ What share of the stacks in the bag, and of the pieces of equipment, is lost on 
 ### float death_durability_loss = 0.0 {#prop-death-durability-loss}
 
 The share of its maximum durability that every worn piece loses when the player dies (0 = none, 0.25 = a quarter). Needs durability on
-
-*Breath*
-
-### BreathUsers breath_users = BreathUsers.PLAYERS {#prop-breath-users}
-
-Who has to hold its breath under water (see Movement Volumes). Nobody: swimming is free
-
-### float breath_duration = 20.0 {#prop-breath-duration}
-
-How many seconds an entity can hold its breath
-
-### float breath_recovery_speed = 4.0 {#prop-breath-recovery-speed}
-
-How fast the breath comes back above the surface compared with how fast it runs out (4 = four times as fast)
-
-### int drowning_effect_id = 0 {#prop-drowning-effect-id}
-
-The effect that is on an entity while it has no breath left (damage over time: it drowns). It is taken off when the breath comes back. 0 = nothing happens
 
 *Threat*
 
@@ -1077,6 +1082,10 @@ Enable LOD system for NPCs
 
 *LOD Distance Thresholds*
 
+### bool lod_follows_view_distance = false {#prop-lod-follows-view-distance}
+
+Do the distances below follow the View distance setting of the player (Game Settings &gt; Quality)? Off: the AI of NPCs gets simpler at the same distances for every player, so the game plays the same on every computer. On: a player who halves the view distance halves these distances too (cheaper, but NPCs far away behave simpler for them)
+
 ### float lod_distance_high = 30.0 {#prop-lod-distance-high}
 
 Distance for HIGH detail (full updates)
@@ -1092,6 +1101,12 @@ Distance for LOW detail (basic updates)
 ### float lod_distance_minimal = 400.0 {#prop-lod-distance-minimal}
 
 Distance for MINIMAL detail (rare updates)
+
+*Terrain Range*
+
+### bool lod_lock_outside_terrain = true {#prop-lod-lock-outside-terrain}
+
+Entities that are not players stand still (no movement, no physics) wherever the terrain has ground it has not made solid: the terrain makes the ground solid only within its Collision radius of the players (96 m by default), so beyond it they would fall through the ground. They move again as soon as the ground is solid there. Only for maps with a ChronicleTerrain: a map without one is not affected. What they would have done meanwhile is not worked out (a later system will predict where they would be)
 
 *LOD Update Intervals*
 
@@ -1138,6 +1153,10 @@ Get LOD distance threshold for a given level
 ### float get_lod_interval( level: LODLevel ) {#method-get-lod-interval}
 
 Get update interval for a given LOD level
+
+### Array[String] get_lod_terrain_warnings( solid_radius: float = ChronicleTerrain.DEFAULT_COLLISION_RADIUS ) {#method-get-lod-terrain-warnings}
+
+What the NPC LOD distances mean next to the ground the terrain makes solid (solid_radius: the Collision radius of the terrain, 96 m by default). Empty = nothing to say.
 
 ### LODLevel calculate_lod_level( distance: float ) {#method-calculate-lod-level}
 

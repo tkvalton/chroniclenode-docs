@@ -29,6 +29,7 @@ Lightweight coordinator for world management Handles world transitions and deleg
 | `void` | [load_world](#method-load-world)( `system_hub: GameHost.SystemHub, world_data: WorldData, pending_spawn_override: Dictionary = {}, loading_screen: LoadingScreen = null` ) |
 | `void` | [unload_current_world](#method-unload-current-world)() |
 | `void` | [apply_world_environment_overrides](#method-apply-world-environment-overrides)( `system_hub: GameHost.SystemHub, world_data: WorldData` ) |
+| `void` | [position_party_at_spawn](#method-position-party-at-spawn)( `world_data: WorldData, pending_spawn_override: Dictionary` ) |
 | `InteractableObject` | [find_rabbit_hole_by_unique_id](#method-find-rabbit-hole-by-unique-id)( `unique_id: int` ) |
 | `int` | [get_current_world_id](#method-get-current-world-id)() |
 | `WorldData` | [get_current_world_data](#method-get-current-world-data)() |
@@ -114,6 +115,10 @@ Unload the current world
 ### void apply_world_environment_overrides( system_hub: GameHost.SystemHub, world_data: WorldData ) {#method-apply-world-environment-overrides}
 
 Applies the environment of a world (its sky, light, weather), the override of the world or the default one.
+
+### void position_party_at_spawn( world_data: WorldData, pending_spawn_override: Dictionary ) {#method-position-party-at-spawn}
+
+Places the party at the spawn point of the world (or the spawn override of a world change). Called when the world is loaded, and again when a new game creates its party.
 
 ### InteractableObject find_rabbit_hole_by_unique_id( unique_id: int ) {#method-find-rabbit-hole-by-unique-id}
 

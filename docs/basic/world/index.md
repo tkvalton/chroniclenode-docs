@@ -12,7 +12,7 @@ Everything the party meets in a world is placed in the scene and stored as a **u
 | [Worlds](/basic/world/worlds) | The Worlds editor: make a world, name it, give it music, weather, a loading screen and persistence |
 | [World Configs](/basic/world/world-configs) | Time, Sun, Sky and Environment: how the clock runs, the light, the sky and the fog |
 | [Uniques](/basic/world/uniques) | The list of everything placed in every world |
-| [Add Object](/basic/world/add-object) | The button in the 3D viewport that places an NPC, an interactable, a region or an encounter |
+| [Placing objects](/basic/world/add-object) | The buttons in the 3D viewport that place NPCs, interactables, dropped items, encounters and volumes: the model on your mouse, standing on the ground or any floor |
 | [The Unique Object tool](/basic/world/unique-object-tool) | The bottom panel that edits the thing you selected in the viewport |
 | [Regions](/basic/world/regions) | Areas of the map that [quests](/basic/events-and-quests/quests) and events can watch |
 | [Terrain](/basic/world/terrain) | The ground: make the terrain of a map, add tiles, save, and check it. With [Sculpting](/basic/world/terrain-sculpting) and [Painting](/basic/world/terrain-painting) for the brushes, and [Terrain Textures](/basic/assets/terrain-textures) for the library |
@@ -24,7 +24,7 @@ Everything the party meets in a world is placed in the scene and stored as a **u
 
 1. **Worlds > Settings > Create New Map.** Give it a name and a category. The scene opens in the 3D viewport with a *PartySpawn* marker: that is where the party appears when nothing says otherwise.
 2. **Build the place.** Make the [terrain](/basic/world/terrain) with the Terrain button of the 3D toolbar, then add models and lights: ordinary Godot work. Set the scene's *Terrain provider* if you use another terrain plugin such as Terrain3D (footsteps and surface effects ask it what the ground is).
-3. **Place the inhabitants** with **Add Object**: NPCs, interactables, regions, encounters. Each one becomes a unique in the database as soon as it is in the scene.
+3. **Place the inhabitants** with the **placement buttons**: NPCs, interactables, dropped items, encounters, volumes. Each one becomes a unique in the database as soon as it is in the scene.
 4. **Change what is different** about a placed object in the **Unique Object** panel: a stronger level 12 wolf, a locked chest, a guard with another patrol.
 5. **Set up the world** in the Worlds editor: music, weather, the light override, persistence.
 6. **Test it** with *Play Test World*, which starts the game in this world without the main menu.

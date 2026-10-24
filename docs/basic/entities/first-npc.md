@@ -39,7 +39,7 @@ She has no abilities and no AI script, which is what you want for a shopkeeper: 
 
 ## Part 4: place her
 
-17. Open a **world scene**. In the viewport toolbar click **Add Object**, choose **Add NPC** and pick **Marta**. Move her to where she should stand.
+17. Open a **world scene**. In the viewport toolbar click the **NPCs** button and pick **Marta** in the bar at the bottom. She is on your mouse: click where she should stand.
 18. With her selected, open the **Unique Object** panel. Under **Interactions** choose the **Conversation** interaction and set it to `marta_talk`. Save the scene. See [Uniques](/basic/world/uniques).
 
 ## Part 5: try it

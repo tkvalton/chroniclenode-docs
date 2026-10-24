@@ -26,6 +26,8 @@ The editor of the Model Scenes tab (Assets &gt; Model Scenes): the skeleton scen
 | `String` | [selected_interactable_path](#var-selected-interactable-path) | `""` |
 | `Node` | [current_skeleton_instance](#var-current-skeleton-instance) | `null` |
 | `SelectionType` | [current_selection_type](#var-current-selection-type) | `SelectionType.NONE` |
+| `AssetThumbnails` | [pictures](#var-pictures) | `AssetThumbnails.new(PICTURES_FOLDER)` |
+| `AssetPreviewHeader` | [header](#var-header) |  |
 
 ## Methods
 
@@ -45,6 +47,10 @@ The editor of the Model Scenes tab (Assets &gt; Model Scenes): the skeleton scen
 - **NONE** = `0`
 - **SKELETON** = `1`
 - **INTERACTABLE** = `2`
+
+## Constants
+
+- `String` **PICTURES_FOLDER** = `"res://src/data/model_scenes/.thumbnails/"` - The pictures of the scenes (drawn by the editor, kept in this folder) and the header of the info panel.
 
 ## Variable descriptions
 
@@ -109,6 +115,14 @@ The editor of the Model Scenes tab (Assets &gt; Model Scenes): the skeleton scen
 *No description yet.*
 
 ### SelectionType current_selection_type = SelectionType.NONE {#var-current-selection-type}
+
+*No description yet.*
+
+### AssetThumbnails pictures = AssetThumbnails.new(PICTURES_FOLDER) {#var-pictures}
+
+*No description yet.*
+
+### AssetPreviewHeader header {#var-header}
 
 *No description yet.*
 

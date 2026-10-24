@@ -65,6 +65,7 @@ Not managers, but used the same way from anywhere: the [`Database`](/advanced/da
 <!-- classes:managers/utilities -->
 | Class | What it is |
 |---|---|
+| [AssetThumbnails](/advanced/managers/utilities/asset-thumbnails) | The pictures of the files of an Assets library (meshes, scenes), kept as PNG files in a folder of their own (named by a hash of the path of the file) and in memory. |
 | [Durability](/advanced/managers/utilities/durability) | The durability of worn equipment: how it is given, how it wears, how it breaks and how it is repaired. |
 | [InputEventText](/advanced/managers/utilities/input-event-text) | The text of an input event for the screen: "Q", "Ctrl 2", "LMB", "Mouse 4", "Joy A". |
 | [InstanceUtility](/advanced/managers/utilities/instance-utility) | Utility script to help item/ability creation anywhere. |
@@ -75,6 +76,7 @@ Not managers, but used the same way from anywhere: the [`Database`](/advanced/da
 | [SceneStateReader](/advanced/managers/utilities/scene-state-reader) | Reads the nodes of a PackedScene from its saved state, without making the nodes. |
 | [SpeechDelivery](/advanced/managers/utilities/speech-delivery) | Delivers a line (SpeechLine) or an emote of the library (EmoteDefinition): the speaker plays the animation and the sound, and the players who are in the audience read the line in the chat. |
 | [SpeechLanguage](/advanced/managers/utilities/speech-language) | The languages of the game world (Common, Orcish, Elvish): a language is a **proficiency** with levels, so the understanding of it grows. |
+| [ViewDistance](/advanced/managers/utilities/view-distance) | The View distance setting of the player (Game Settings &gt; Quality), as a number everything that has a distance of its own can use: the terrain, foliage and props that hide at a distance, the distance the AI of NPCs gets simpler at (when the Gameplay Config says it follows). |
 <!-- /classes -->
 
 ### Combat sessions

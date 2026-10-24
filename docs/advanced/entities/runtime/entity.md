@@ -57,6 +57,8 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `Marker3D:` | [nameplate_marker](#var-nameplate-marker) |  |
 | `ChronoManager` | [chrono_manager](#var-chrono-manager) |  |
 | `WorldContainer` | [world_container](#var-world-container) |  |
+| `bool` | [ground_locked](#var-ground-locked) | `false` |
+| `float` | [ground_locked_seconds](#var-ground-locked-seconds) | `0.0` |
 | `float` | [seconds_stationary](#var-seconds-stationary) | `0.0` |
 | `float` | [seconds_moving](#var-seconds-moving) | `0.0` |
 | `Array[Entity]` | [temporarily_hostile_to](#var-temporarily-hostile-to) | `[]` |
@@ -523,6 +525,10 @@ Emitted when the entity uses up items (a potion): the item and how many.
 
 Emitted when the last item of a stack is used up.
 
+### ground_lock_changed( locked: bool ) {#signal-ground-lock-changed}
+
+Emitted when the entity is frozen because there is no solid ground under it, or let go again.
+
 ### movement_mode_changed( old_mode: MovementClaim.Mode, new_mode: MovementClaim.Mode ) {#signal-movement-mode-changed}
 
 Emitted when the way the entity moves changes (it enters water, leaves it, starts flying ...)
@@ -567,7 +573,11 @@ What is turning the entity: its own navigation (it faces where it walks) or dire
 
 ## Constants
 
+- `float` **GROUND_CHECK_INTERVAL** = `0.25` - How often the ground under the entity is looked at (seconds).
 - `float` **MOVING_SPEED_THRESHOLD** = `0.1` - Horizontal speed (units per second) above which the entity counts as moving
+- `int` **ANIMATION_FOOTSTEP_GRACE_MSEC** = `2000` - Seconds an animation call keeps the footsteps made from movement quiet (the animations make their own)
+- `float` **LANDING_MIN_AIR_SECONDS** = `0.25` - Seconds in the air before a landing is heard (a step off a kerb, or the drop at the spawn, makes no sound)
+- `float` **JUMP_MIN_UP_SPEED** = `1.0` - Upward speed (units per second) at which leaving the ground counts as a jump
 
 ## Property descriptions
 
@@ -732,6 +742,14 @@ SystemRefs
 ### WorldContainer world_container {#var-world-container}
 
 TODO: it's just 1 method, we should be able to get data from collision
+
+### bool ground_locked = false {#var-ground-locked}
+
+True while there is no solid ground under the entity (the terrain makes the ground solid only round the players): it stands still and does not fall. See Gameplay Config &gt; NPC LOD System &gt; Terrain Range.
+
+### float ground_locked_seconds = 0.0 {#var-ground-locked-seconds}
+
+How long it has been frozen (seconds), for whatever works out where it would be by now (a later system).
 
 ### float seconds_stationary = 0.0 {#var-seconds-stationary}
 

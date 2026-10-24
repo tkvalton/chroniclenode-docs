@@ -4,7 +4,7 @@
 
 **Inherits:** [SpaceVolume](/advanced/world/runtime/space-volume) < [Area3D](https://docs.godotengine.org/en/stable/classes/class_area3d.html)
 
-A space that changes how whoever is in it moves: water to swim in, a room with no gravity, a cloud to fly through, a pool of lava that hurts. Put it in a world scene (Add Object &gt; Add Movement Volume), give its CollisionShape3D the shape of the space, and choose what it does.
+A space that changes how whoever is in it moves: water to swim in, a room with no gravity, a cloud to fly through, a pool of lava that hurts. Put it in a world scene (the Volumes button of the 3D toolbar), give its CollisionShape3D the shape of the space, and choose what it does.
 
 ## Description
 
@@ -15,6 +15,10 @@ A space that changes how whoever is in it moves: water to swim in, a room with n
 - **The camera.** When the camera itself is inside, the screen is tinted and fogged (an underwater look), and the sound changes with an AudioProfile (muffled under water).
 
 The presets fill the fields for the usual cases: Water, Weightless and Lava.
+
+- **The look.** A volume draws nothing by itself. Give it a **look** and it draws the top, the bottom or all six faces of its box shape with a material of yours (a shader, or a texture): the water, the lava,
+
+a cloud. The Water and Lava presets come with a shader of the toolkit.
 
 ## Properties
 
@@ -34,6 +38,12 @@ The presets fill the fields for the usual cases: Water, Weightless and Lava.
 | `Submerged` | [holds_breath_when](#prop-holds-breath-when) | `Submerged.HEAD_UNDER_SURFACE` |
 | `float` | [head_height](#prop-head-height) | `1.6` |
 | `Array[int]` | [effects_inside](#prop-effects-inside) | `[]` |
+| `VolumeLook.Faces` | [look_faces](#prop-look-faces) | `VolumeLook.Faces.NONE:` |
+| `Material` | [look_material](#prop-look-material) | `null:` |
+| `Texture2D` | [look_texture](#prop-look-texture) | `null:` |
+| `Color` | [look_tint](#prop-look-tint) | `Color(0.2, 0.5, 0.7, 0.6):` |
+| `bool` | [look_double_sided](#prop-look-double-sided) | `true:` |
+| `int` | [look_grid](#prop-look-grid) | `24:` |
 | `bool` | [camera_effect_enabled](#prop-camera-effect-enabled) | `true` |
 | `Color` | [camera_tint](#prop-camera-tint) | `Color(0.1, 0.35, 0.45, 0.3)` |
 | `Color` | [camera_fog_color](#prop-camera-fog-color) | `Color(0.08, 0.28, 0.38)` |
@@ -44,6 +54,8 @@ The presets fill the fields for the usual cases: Water, Weightless and Lava.
 
 | | |
 |---|---|
+| `void` | [apply_preset](#method-apply-preset)() |
+| `ArrayMesh` | [get_look_mesh](#method-get-look-mesh)() |
 | `float` | [depth_of](#method-depth-of)( `entity: Entity` ) |
 
 ## Enumerations
@@ -144,6 +156,32 @@ How high above its feet the head of an entity is (to know when it is under the s
 
 Effects that are on every entity inside while it is inside (a damage over time for lava, a slow). They are put back when they end, and taken off when the entity leaves
 
+*Look*
+
+### VolumeLook.Faces look_faces = VolumeLook.Faces.NONE: {#prop-look-faces}
+
+What the volume draws: nothing, the top face (water), the bottom, or all six faces (a box of fog). It is made from a BOX shape; other shapes draw nothing
+
+### Material look_material = null: {#prop-look-material}
+
+The material of the look: any material, a ShaderMaterial included. Empty = a plain material with the texture and the tint below
+
+### Texture2D look_texture = null: {#prop-look-texture}
+
+A texture for the plain material (used when there is no material above)
+
+### Color look_tint = Color(0.2, 0.5, 0.7, 0.6): {#prop-look-tint}
+
+The tint of the plain material (the alpha makes it see-through)
+
+### bool look_double_sided = true: {#prop-look-double-sided}
+
+Every face is made twice, looking both ways, so the surface is seen from under it too
+
+### int look_grid = 24: {#prop-look-grid}
+
+How many cells the top and the bottom are cut in along a side: a shader that moves the surface (waves) needs the vertices
+
 *Camera and sound*
 
 ### bool camera_effect_enabled = true {#prop-camera-effect-enabled}
@@ -167,6 +205,14 @@ How thick the fog is (0 = none)
 How the sound changes while the camera is inside (muffled under water; echo in a cave). Empty = the sound does not change. The camera, not the character, decides
 
 ## Method descriptions
+
+### void apply_preset() {#method-apply-preset}
+
+Fills the fields from the preset (picking a preset in the inspector does this; code that makes a volume calls it).
+
+### ArrayMesh get_look_mesh() {#method-get-look-mesh}
+
+The mesh of the look (null when there is none).
 
 ### float depth_of( entity: Entity ) {#method-depth-of}
 

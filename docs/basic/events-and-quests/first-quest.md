@@ -48,9 +48,9 @@ The offer list shows the quest to players who meet its requirements, and the han
 ## Part 3: the farmer and the wolves
 
 17. In **Entities > NPCs**, click **Add** and make a `Farmer`. A level and a name are enough. Make sure he is not hostile: a faction that is friendly to the player (or none) does it.
-18. Open a **world scene** in the 3D editor. In the viewport toolbar, click **Add Object**, choose **Add NPC** and pick the **Farmer**. Move him where you want him. See [Add Object](/basic/world/add-object).
+18. Open a **world scene** in the 3D editor. In the viewport toolbar, click the **NPCs** button, pick the **Farmer** in the bar at the bottom and click where you want him. See [Add Object](/basic/world/add-object).
 19. With the farmer selected, open the **Unique Object** panel. Under **Interactions** choose the **Conversation** interaction and set the conversation to `farmer_talk`. See [Uniques](/basic/world/uniques).
-20. Click **Add Object > Add NPC** again and place three or four **Wolf** NPCs a little way from the farm. Save the scene.
+20. Choose the **Wolf** in the NPC bar and click to place three or four **Wolf** NPCs a little way from the farm. Save the scene.
 
 ## Part 4: try it
 

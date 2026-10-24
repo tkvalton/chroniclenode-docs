@@ -61,7 +61,7 @@ When several things drop together (the loot of a boss) they are **scattered** ar
 
 ## Placing an item by hand
 
-1. Open the map scene. In the 3D viewport use **Add Object > Add Dropped Item** (or **Add Dropped Currency**).
+1. Open the map scene. In the 3D viewport use the **Dropped items** button (or **Dropped currencies**), choose the item in the bar at the bottom and click where it lies.
 2. Pick the item in the catalog. It appears in the **DroppedItems** container of the map with a preview of its model or icon, and is selected.
 3. Move it where you want it. In the inspector set:
 

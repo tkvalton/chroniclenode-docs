@@ -78,7 +78,7 @@ The registry keeps two lists apart:
 
 `taken_placements` maps the placement id of a taken item to the seconds until it lies there again (`-1` = for ever). It is part of the save. `process_lod` (called every frame by the [world container](/advanced/world/runtime/world-container)) counts it down and calls `respawn()` on the item, which makes a fresh roll of its item and puts it back at its place.
 
-Placement ids are random positive numbers made by the Add Object tool (`DroppedItem.new_placement_id(container)`), and an item copied in the editor gets a new one when its `_ready` finds a sibling with the same id.
+Placement ids are random positive numbers made by the placement tool (`DroppedItem.new_placement_id(container)`), and an item copied in the editor gets a new one when its `_ready` finds a sibling with the same id.
 
 ## Saving
 

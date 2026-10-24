@@ -89,6 +89,12 @@ export const groups = [
     "slug": "utilities",
     "classes": [
       {
+        "name": "AssetThumbnails",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\asset_thumbnails.gd",
+        "file": "runtime_classes/utility/asset_thumbnails.gd"
+      },
+      {
         "name": "Durability",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\durability.gd",
@@ -147,6 +153,12 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\speech_language.gd",
         "file": "runtime_classes/utility/speech_language.gd"
+      },
+      {
+        "name": "ViewDistance",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\view_distance.gd",
+        "file": "runtime_classes/utility/view_distance.gd"
       }
     ]
   },

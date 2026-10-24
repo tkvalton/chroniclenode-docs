@@ -20,7 +20,7 @@ The interface has a channel of its own, so a zone that muffles the world **never
 
 ## Placing one
 
-1. Open the world scene and choose **Add Object > Add Audio Zone**. A zone appears in the *Volumes* node with a box shape of 10 × 4 × 10 and the **Cave** profile.
+1. Open the world scene, click the **Volumes** button and choose **Audio zone: cave** (or *indoors*), then click where it goes. A zone appears in the *Volumes* node with a box shape of 10 × 4 × 10 and the **Cave** profile.
 2. Resize the `CollisionShape3D` inside it (a box, a sphere, a cylinder or a capsule) over the place, and move the zone there.
 3. Change the **profile** (below) if the cave is not what you want.
 

@@ -167,6 +167,12 @@ export const groups = [
         "file": "runtime_classes/world/audio_zone.gd"
       },
       {
+        "name": "ChronicleTerrainProvider",
+        "base": "TerrainProvider",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\terrain_provider\\chronicle_terrain_provider.gd",
+        "file": "runtime_classes/world/terrain_provider/chronicle_terrain_provider.gd"
+      },
+      {
         "name": "Encounter",
         "base": "Node3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\encounter.gd",
@@ -251,6 +257,12 @@ export const groups = [
         "file": "runtime_classes/world/terrain_provider/terrain_provider.gd"
       },
       {
+        "name": "VolumeLook",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\volume_look.gd",
+        "file": "runtime_classes/world/volume_look.gd"
+      },
+      {
         "name": "VoxelTerrainProvider",
         "base": "TerrainProvider",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\terrain_provider\\voxel_tools_provider.gd",
@@ -292,12 +304,6 @@ export const groups = [
     "text": "Editor tools",
     "slug": "editor-tools",
     "classes": [
-      {
-        "name": "AddObjectToolbarManager",
-        "base": "RefCounted",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\add_object_toolbar_manager.gd",
-        "file": "editor_components/3d_scene_tools/add_object_toolbar_manager.gd"
-      },
       {
         "name": "EncounterReactionsEditor",
         "base": "VBoxContainer",

@@ -4,7 +4,7 @@ An **encounter** is a group of NPCs that fights as one: a wolf pack, a bandit ca
 
 ## Placing one
 
-1. **Add Object > Add Encounter** puts an Encounter node in the *Entities* container and selects it.
+1. The **Encounters** button of the toolbar (then click where it goes), or the **Encounter** menu of the NPC bar (*New encounter*), puts an Encounter node in the *Entities* container and selects it.
 2. **Drag NPCs onto it** in the scene tree, so they are its children. Every NPC child is a member of the group. (Place the NPCs with Add NPC first, or add them and then drag.)
 3. Move the Encounter node where the group should be. The members keep their own positions relative to it.
 4. Set it up in the [Unique Object panel](/basic/world/unique-object-tool).

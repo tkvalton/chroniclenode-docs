@@ -28,6 +28,7 @@ EntityDefinition contains all visual, audio, and display configuration for entit
 
 | | |
 |---|---|
+| `Vector3` | [get_collision_size](#method-get-collision-size)( `shape: EntityCollisionShape` ) *static* |
 | `void` | [set_entity_name](#method-set-entity-name)( `new_name: String` ) |
 | `String` | [get_entity_name](#method-get-entity-name)() |
 | `void` | [set_entity_id](#method-set-entity-id)( `new_id: int` ) |
@@ -66,6 +67,10 @@ EntityDefinition contains all visual, audio, and display configuration for entit
 - **SMALL** = `1`
 - **NORMAL** = `2`
 - **LARGE** = `3`
+
+## Constants
+
+- `Dictionary` **COLLISION_SIZES** = `{` - The capsule of every collision shape: x = radius, y = height, z = how high the capsule's centre is above the entity's feet. The one table the collision, the navigation bake and the navigation agents read.
 
 ## Property descriptions
 
@@ -120,6 +125,10 @@ The entity tags of this kind of entity (UITagDefinition ids: Boss, Elite, Rare .
 True when this definition is a template: other definitions follow it and it is not placed in the world.
 
 ## Method descriptions
+
+### Vector3 get_collision_size( shape: EntityCollisionShape ) {#method-get-collision-size}
+
+The capsule of a collision shape: x = radius, y = height, z = the height of its centre above the feet.
 
 ### void set_entity_name( new_name: String ) {#method-set-entity-name}
 

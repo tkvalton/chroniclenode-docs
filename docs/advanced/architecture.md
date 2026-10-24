@@ -61,7 +61,7 @@ An ability is used, its targeting is validated, the cost is paid, its use strate
 
 ## The editor plugin
 
-`plugin.gd` makes a main-screen **Database** editor with one sub-editor for each kind of content (`editor_components/editors/<area>/`), an **Add Object** menu in the 3D viewport, and a **Unique Object** panel at the bottom ([World](/advanced/world/)). On enable it sets the project up (main scene, shader parameters, audio buses, input actions). The editors are mostly built **by reflection**: the fields of a resource are its `@export` variables, grouped by `@export_group`, with the `##` comment as the tooltip. Add an export and the editor shows it; override a `_create_control_for_type` to draw it differently. The documentation is built the same way: the class pages of this section are generated from the same comments.
+`plugin.gd` makes a main-screen **Database** editor with one sub-editor for each kind of content (`editor_components/editors/<area>/`), placement buttons in the 3D viewport, and a **Unique Object** panel at the bottom ([World](/advanced/world/)). On enable it sets the project up (main scene, shader parameters, audio buses, input actions). The editors are mostly built **by reflection**: the fields of a resource are its `@export` variables, grouped by `@export_group`, with the `##` comment as the tooltip. Add an export and the editor shows it; override a `_create_control_for_type` to draw it differently. The documentation is built the same way: the class pages of this section are generated from the same comments.
 
 ## Conventions worth knowing
 

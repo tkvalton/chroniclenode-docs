@@ -2,7 +2,7 @@
 
 **Who this is for.** You do not need this section to *use* the editor, or to make a game with it (the Basic chapters cover that). It is for developers who want to **add to the editor or change it**: a new tab in the Database editor, a new kind of property field, a new dialog, a tool in the 3D viewport. If you only want to add your own abilities, effects, items or interface scenes, see [Extending the toolkit](/advanced/extending) instead.
 
-The editor side of the toolkit is an `EditorPlugin` (`plugin.gd`, "Unified Game Editor") that adds a main-screen **Database** editor, an **Add Object** menu to the 3D viewport and a **Unique Object** panel to the bottom dock. All of its code is in `addons/chroniclenode/editor_components/`. None of it runs in an exported game.
+The editor side of the toolkit is an `EditorPlugin` (`plugin.gd`, "Unified Game Editor") that adds a main-screen **Database** editor, placement buttons in the 3D viewport (NPCs, interactables, items, encounters, volumes) and a **Unique Object** panel to the bottom dock. All of its code is in `addons/chroniclenode/editor_components/`. None of it runs in an exported game.
 
 The pages after this one are the class reference, grouped by what the class is for. This page explains how the parts fit.
 
@@ -29,7 +29,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 
 ## The tools in the 3D viewport
 
-[`AddObjectToolbarManager`](/advanced/world/editor-tools/add-object-toolbar-manager), [`UniqueObjectInspector`](/advanced/world/editor-tools/unique-object-inspector) and [`EncounterReactionsEditor`](/advanced/world/editor-tools/encounter-reactions-editor) (see [Add Object](/advanced/world/add-object) and [the Unique Object tool](/advanced/world/unique-object-tool)), and the inspector plugins that show a unique's fields in Godot's own inspector.
+[`PlacementTool`](/advanced/world/add-object), [`UniqueObjectInspector`](/advanced/world/editor-tools/unique-object-inspector) and [`EncounterReactionsEditor`](/advanced/world/editor-tools/encounter-reactions-editor) (see [Add Object](/advanced/world/add-object) and [the Unique Object tool](/advanced/world/unique-object-tool)), and the inspector plugins that show a unique's fields in Godot's own inspector.
 
 ## Documentation links
 
@@ -85,8 +85,10 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [AnimationDatabaseEditor](/advanced/editor/assets/animation-database-editor) | The editor of the Animations tab (Assets &gt; Animations): the animation packages of the entities as a tree, the core animation map and the validation of the library. |
 | [AnimationFolderContextMenu](/advanced/editor/assets/animation-folder-context-menu) | Context menu scene for animation folder operations |
 | [AnimationPackageTree](/advanced/editor/assets/animation-package-tree) | Specialized tree for managing animation packages with the new simplified structure |
+| [AssetPreviewHeader](/advanced/editor/assets/asset-preview-header) | The top of the info panel of an Assets editor: the **picture** of the selected file, its **name**, a line about it (its kind) and its path. |
 | [AudioDatabaseEditor](/advanced/editor/assets/audio-database-editor) | The editor of the Audio tab (Assets &gt; Audio): the sound effects, music and ambience of the audio library as a tree, with a search bar, an import button, a player to listen to a sound, and the checks of the library. |
 | [CorePackageEditor](/advanced/editor/assets/core-package-editor) | Dynamic editor for AnimationCoreMap properties Automatically builds UI based on property structure and available animations |
+| [FoliageEditor](/advanced/editor/assets/foliage-editor) | The Foliage tab (Assets &gt; Foliage): the files of the two folders of the foliage library as a tree with a picture of each, and the entry of the file you select. |
 | [IconDatabaseEditor](/advanced/editor/assets/icon-database-editor) | The editor of the Icons tab (Assets &gt; Icons): every icon of the icon library as a grid, by category, with a search bar, an import button and the numbering of new icons. |
 | [MeshDatabaseEditor](/advanced/editor/assets/mesh-database-editor) | The editor of the Meshes tab (Assets &gt; Meshes): the equipment, facial and material meshes of the mesh library as a tree, with a search bar, an import button, the settings of the selected mesh (its per-surface materials) and the checks of the library. |
 | [ModelSceneDatabaseEditor](/advanced/editor/assets/model-scene-database-editor) | The editor of the Model Scenes tab (Assets &gt; Model Scenes): the skeleton scenes of entities and the scenes of interactable objects, each as a list with a search bar and a button to create a new one. |
@@ -219,8 +221,11 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [KillFalloffEditor](/advanced/editor/settings/kill-falloff-editor) | The editor of "Kill Experience Falloff" in the Gameplay Config (Leveling): an NPC under the level of the party gives less experience. |
 | [LevelGapEditor](/advanced/editor/settings/level-gap-editor) | The editor of "Level Gap Mode" in the Gameplay Config (Hit Rules): how the levels of the attacker and the target change the chance to hit. |
 | [LocalizationEditor](/advanced/editor/settings/localization-editor) | The Localization tab: the languages of the game, what is translated, the tables made from the data, a table editor to write the translations, and the CSV files that carry them in and out. |
+| [LogicSettingsControl](/advanced/editor/settings/logic-settings-control) | The settings of the player controller or of the camera, as they appear in the Controller and Camera tabs of the Gameplay Config: a **Type** dropdown (the logic classes the toolkit has) and the settings of that type below it, in sections like the rest of the Gameplay Config. |
 | [SettingsEditor](/advanced/editor/settings/settings-editor) | Dynamic editor for Settings resource Automatically extracts doc comments as tooltips and manages player accessibility |
 | [SettingsSection](/advanced/editor/settings/settings-section) | A section of a settings editor, built like the sections of the scene editors: a FoldableContainer (its title is the name of the section), a Panel behind it, a MarginContainer and a VBoxContainer for the rows. |
+| [TerrainConfigEditor](/advanced/editor/settings/terrain-config-editor) | The Terrain Settings tab (Game Settings): the TerrainConfig of the project. |
+| [TerrainLevelsEditor](/advanced/editor/settings/terrain-levels-editor) | The editor of "Presets" in the Terrain Settings: what Low, Medium, High and Ultra terrain detail mean in this game. |
 | [UISettingsEditor](/advanced/editor/settings/ui-settings-editor) | Editor for UISettingsConfig resource |
 <!-- /classes -->
 
@@ -257,6 +262,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [EnvironmentConfigEditor](/advanced/editor/world/environment-config-editor) | Editor panel for EnvironmentConfig |
 | [SkyConfigEditor](/advanced/editor/world/sky-config-editor) | Editor panel for SkyConfig |
 | [SunConfigEditor](/advanced/editor/world/sun-config-editor) | Editor panel for SunConfig |
+| [TerrainTextureEditor](/advanced/editor/world/terrain-texture-editor) | The Terrain Textures editor (the TerrainTextureDefinition database): the library a terrain is painted from. |
 | [TimeConfigEditor](/advanced/editor/world/time-config-editor) | Editor panel for TimeConfig |
 | [UniquesDatabaseEditor](/advanced/editor/world/uniques-database-editor) | The editor of the Uniques tab (World &gt; Uniques): lists the placed NPCs and objects of every world, filtered by kind, world and a search bar, and shows the unique that is selected. |
 | [WorldConfigEditor](/advanced/editor/world/world-config-editor) | Main editor for all world configuration types (Sky, Environment, Sun, Time) Designed to work with a pre-built scene containing the four config editors |
@@ -273,6 +279,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [ModularEquipmentTypeTagPropertyEditor](/advanced/editor/viewport-tools/modular-equipment-type-tag-property-editor) | The inspector editor of the equipment type tag of a modular equipment piece: a drop-down of the tags of the equipment types, which writes the chosen tag to the property. |
 | [SFXSelectionPropertyEditor](/advanced/editor/viewport-tools/sfx-selection-property-editor) | Property editor for SFXSelection resources using SFXSelectionDialog |
 | [UniqueObjectInspectorPlugin](/advanced/editor/viewport-tools/unique-object-inspector-plugin) | The inspector plugin that replaces the properties of a placed NPC, object, encounter, region or modular skeleton with the editors of the Unique Object panel. |
+| [WorldTestLauncher](/advanced/editor/viewport-tools/world-test-launcher) | Starts the game straight in one world (no main menu): the Test World button of the Worlds editor and the one in the 3D viewport next to Terrain and Add Object both use it. |
 <!-- /classes -->
 
 ### Catalogs

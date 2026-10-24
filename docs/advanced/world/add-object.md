@@ -1,42 +1,37 @@
-# Add Object: how it is built
+# Placing objects: how it is built
 
-[`AddObjectToolbarManager`](/advanced/world/editor-tools/add-object-toolbar-manager) is a `RefCounted` made by the plugin (`plugin.gd`: `_setup_add_object_manager_functionality`). It watches the editor and shows a `MenuButton` ("Add Object") in the 3D editor's menu container (`CONTAINER_SPATIAL_EDITOR_MENU`) while the open scene is a world scene.
+[`PlacementTool`](/advanced/world/add-object) is a `RefCounted` made by the plugin (`plugin.gd`: `placement_tool`). It replaced the Add Object menu manager. Files are in `editor_components/3d_scene_tools/placement/`.
 
-## What it watches
-
-| Signal | What it does |
+| Class | What it is |
 |---|---|
-| `EditorPlugin.scene_changed` | If the new root `is WorldScene`, keeps it as `current_world_scene` and shows the button; otherwise hides it |
-| `EditorPlugin.main_screen_changed` | The button is shown on the **3D** screen only |
+| `PlacementTool` | The buttons (one `Button` for each `PlacementKinds.Kind`, in a `HBoxContainer` in `CONTAINER_SPATIAL_EDITOR_MENU`, plus Test World), the palette, the ghost, the input and the placing. Watches `scene_changed` (a `WorldScene` shows the buttons) and `main_screen_changed` (3D only) |
+| `PlacementKinds` | Static: the kinds, what each lists (`entries`), the shape of the ghost (`ghost_of`) and the node each makes (`make_node`: the code of the old menu: `NPC.new()` with its definition, `InteractableObject.new()`, `DroppedItem.make_node()` with a placement id, `Encounter.new()`, the volumes with a box shape) |
+| `PlacementPalette` | The bar along the bottom of the viewport: the list with pictures, the search, the Encounter menu, *Align to the ground*. Signal `entry_chosen` |
+| `PlacementSnap` | The mouse ray: the terrain picker and a physics ray, the nearest wins; a hit on a placed object is skipped (the ray is cast again past it, up to 8 times); a plane when nothing is hit; `make_transform(hit, yaw, align)` |
+| `PlacementGhost` | The model on the mouse: parts (the `MeshInstance3D` nodes of the scene, taken apart like a foliage scene, or a capsule, box or ball) drawn with the `RenderingServer` at 45 percent transparency. No node, no script, no collision |
+| `PlacementKinds` (assets) | `ASSET_FOLDER`, `asset_files()` (every scene of the folder and its subfolders; the category is the path below the folder) and `asset_pictures()` (an `AssetThumbnails` that keeps its pictures in `ASSET_PICTURES`). The entries carry a `category`; `make_node` instantiates the scene and keeps its link to the file |
+| `PlacementIcons` | The SVG icons of the buttons |
 
-`activate()` / `deactivate()` are called by the plugin; `deactivate()` removes the button, frees the catalog dialog and disconnects the signals.
+## The mouse
 
-## The four choices
+`plugin.gd` passes every event of the 3D viewport to `PlacementTool.forward_input` first. Mouse motion moves the ghost (it is not consumed: the camera keeps working). A left click places and is consumed (with its release). Esc stops; Q, E and R turn the ghost. The terrain tool stops the placement when its mode goes on, and the placement turns the terrain mode off.
 
-| Menu item | Code | Result |
-|---|---|---|
-| Add NPC | opens the [`ListCatalog`](/advanced/editor/catalogs/list-catalog) on `"entities"`; `_on_entity_selected(id)` | [`NPC.new()`](/advanced/entities/runtime/npc) with `definition` = [`Database.get_resource("npc", id)`](/advanced/data-and-database/database-classes/database), a child of the `Entities` container |
-| Add Interactable | the catalog on `"interactables"`; `_on_interactable_selected(id)` | [`InteractableObject.new()`](/advanced/entities/runtime/interactable-object) with its definition, in `Interactables` |
-| Add Region | `_create_region_directly()` | [`Region.new()`](/advanced/world/runtime/region) in `Regions` |
-| Add Encounter | `_create_encounter_directly()` | [`Encounter.new()`](/advanced/world/runtime/encounter) in `Entities` |
+## The snap
 
-`_get_or_create_container(name)` finds a `Node3D` child of the world scene with that name or makes it. Every node is given `owner = current_world_scene` (so it is saved with the scene), named `<display name>_<unix time>`, placed at the origin, and selected.
+`PlacementSnap.find_along` casts a `TerrainPicker` ray over the terrain data (the editor makes no collision for the terrain) and a `PhysicsRayQueryParameters3D` ray in the world of the scene. The terrain gives the ground, the physics ray the floor of a building or a bridge; the nearest hit wins. About 72 microseconds for both, so it runs on every mouse move. The result is `{position, normal, source, collider}`.
+
+## Placing
+
+`place_at(transform)` makes the node with `PlacementKinds.make_node`, works out its local transform in the parent (the container, or the encounter chosen in the menu), and adds it as **one action** of the editor's `EditorUndoRedoManager` (`add_child`, `set_owner` for the node and its children (an instance of a scene owns only itself: its nodes stay inside the scene file), a reference to keep it alive). A new encounter is the first step of the same action. Without a plugin (a test) the nodes are added directly.
 
 ## Where the database comes in
 
-The manager does not create database resources. The **node** does, when it enters a world scene in the editor:
+The tool does not create database resources. The **node** does, when it enters a world scene in the editor (see the uniques): `NPC` / `InteractableObject` create their unique data, `Region` and `Encounter` theirs, each writes its position on `scene_pre_save`, and deleting the node deletes the data. A scene built by hand or by script gets the same uniques.
 
-- `NPC` / `InteractableObject` create their [`UniqueEntityData`](/advanced/world/world-data/unique-entity-data) / [`UniqueInteractableData`](/advanced/world/world-data/unique-interactable-data) in `_enter_tree` if they have none, with the id of the world from [`WorldScene.world_data`](/advanced/world/runtime/world-scene).
-- `Region` (`_check_and_create_region_data`) and `Encounter` (`_check_and_create_unique_data`) do the same for [`RegionData`](/advanced/world/world-data/region-data) and [`UniqueEncounterData`](/advanced/world/world-data/unique-encounter-data).
-- On `scene_pre_save` each node writes its position and rotation into its data (`update_position_from_node`, `_sync_position_to_data`).
-- Deleting the node runs its `_on_*_deleted` cleanup, which deletes the data from the database. A node that is only reparented is not deleted (`_check_if_really_deleted` waits a frame and checks it is still out of the tree).
+## Tests
 
-Because the nodes manage themselves, a scene edited by hand, copied, or built by script gets the same uniques as one built with the menu.
-
-## Extending
-
-To add a fifth kind, give your node the same four duties (create its data when it enters a world scene, sync on save, clean up on delete, register in [`ObjectRegistry`](/advanced/world/runtime/object-registry)), add an entry to `MenuItems` and `_on_menu_item_selected`, and a creation function like `_create_region_directly`.
+`tests/placement_tool_check.gd` (72 checks, the asset folder and categories included): the snap on terrain, a building, a slanted ray, a placed object, the plane; the kinds, their icons and nodes; the ghost; the tool placing, the encounter menu, the palette.
 
 ## See also
 
-- [World: how it is built](/advanced/world/), [Regions](/advanced/world/regions), [Encounters](/advanced/world/encounters).
+- [Placing objects](/basic/world/add-object)

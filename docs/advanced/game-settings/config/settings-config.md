@@ -66,6 +66,9 @@ Class representing the game settings
 | `ShadowSizeOption` | [shadow_size](#prop-shadow-size) | `ShadowSizeOption.MEDIUM` |
 | `ShadowQualityOption` | [shadow_quality](#prop-shadow-quality) | `ShadowQualityOption.MEDIUM` |
 | `MeshLodOption` | [mesh_lod](#prop-mesh-lod) | `MeshLodOption.HIGH` |
+| `float` | [view_distance_scale](#prop-view-distance-scale) | `1.0:` |
+| `TerrainDetailOption` | [terrain_detail](#prop-terrain-detail) | `TerrainDetailOption.HIGH:` |
+| `GroundClutterOption` | [ground_clutter](#prop-ground-clutter) | `GroundClutterOption.HIGH:` |
 | `ResolutionScalingOption` | [resolution_scaling_mode](#prop-resolution-scaling-mode) | `ResolutionScalingOption.BILINEAR` |
 | `float` | [fsr_sharpness](#prop-fsr-sharpness) | `1.0` |
 | `SSROption` | [SSR](#prop-ssr) | `SSROption.DISABLED` |
@@ -106,6 +109,10 @@ Class representing the game settings
 ### ui_setting_changed() {#signal-ui-setting-changed}
 
 Emitted when a setting of the interface changes.
+
+### terrain_setting_changed() {#signal-terrain-setting-changed}
+
+Emitted when a setting of the terrain (view distance, terrain detail) changes. The terrain of the world reads them again.
 
 ## Enumerations
 
@@ -199,6 +206,24 @@ Enumeration of valid mesh lod options for the game's settings
 - **HIGH** = `3`
 - **ULTRA** = `4`
 
+### enum TerrainDetailOption {#enum-terraindetailoption}
+
+Enumeration of terrain detail levels (the same order as the levels of the TerrainConfig)
+
+- **LOW** = `0`
+- **MEDIUM** = `1`
+- **HIGH** = `2`
+- **ULTRA** = `3`
+
+### enum GroundClutterOption {#enum-groundclutteroption}
+
+Enumeration of ground clutter amounts (Off, then the three levels of the TerrainConfig)
+
+- **OFF** = `0`
+- **LOW** = `1`
+- **MEDIUM** = `2`
+- **HIGH** = `3`
+
 ### enum SSROption {#enum-ssroption}
 
 Enumeration of valid Screen-Space Reflections options for the game's settings
@@ -289,6 +314,8 @@ Enumeration of crouch control modes
 - `Dictionary` **SHADOW_SIZE** = `{` - Dictionary of shadow size for the game's settings
 - `Dictionary` **SHADOW_QUALITY** = `{` - Dictionary of shadow quality for the game's settings
 - `Dictionary` **MESH_LOD** = `{` - Dictionary of mesh lod setting for the game's settings
+- `Dictionary` **TERRAIN_DETAIL** = `{` - Dictionary of terrain detail levels for the game's settings (what each level means is set in the Terrain Settings of the editor)
+- `Dictionary` **GROUND_CLUTTER** = `{` - Dictionary of ground clutter amounts for the game's settings (what each level means, in percent, is set in the Terrain Settings of the editor; Off is always none)
 - `Dictionary` **SSR_MODE** = `{` - Dictionary of SSR mode for the game's settings
 - `Dictionary` **SSAO_MODE** = `{` - Dictionary of SSAO mode for the game's settings
 - `Dictionary` **SSILM_MODE** = `{` - Dictionary of SSILM mode for the game's settings
@@ -544,6 +571,18 @@ The currently selected shadow quality
 ### MeshLodOption mesh_lod = MeshLodOption.HIGH {#prop-mesh-lod}
 
 The currently selected mesh lod mode
+
+### float view_distance_scale = 1.0: {#prop-view-distance-scale}
+
+How far the world is drawn, as a scale of the distances the game sets: 1 = as set, 0.5 = half as far. Terrain, and whatever the game ties to it (foliage, props, optionally the AI of NPCs)
+
+### TerrainDetailOption terrain_detail = TerrainDetailOption.HIGH: {#prop-terrain-detail}
+
+The level of terrain detail: how many textures of a chunk are drawn, how sharp they are and how far the detail reaches. What each level means is set by the game
+
+### GroundClutterOption ground_clutter = GroundClutterOption.HIGH: {#prop-ground-clutter}
+
+How much grass, weeds and pebbles there are: Off, or one of three amounts the game sets (in percent) in its Terrain Settings. Trees and bushes are not touched (they are level design)
 
 *Advanced Graphics*
 

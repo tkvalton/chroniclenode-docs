@@ -162,6 +162,7 @@ const SYSTEMS = {
           ['runtime_classes/world/region.gd', false],
           ['runtime_classes/world/space_volume.gd', false],
           ['runtime_classes/world/movement_volume.gd', false],
+          ['runtime_classes/world/volume_look.gd', false],
           ['runtime_classes/world/audio_zone.gd', false],
           ['runtime_classes/world/ambient_sound.gd', false],
           ['runtime_classes/world/audio_profile_stack.gd', false],

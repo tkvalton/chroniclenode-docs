@@ -117,6 +117,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [AmbientSound](/advanced/world/runtime/ambient-sound) | A sound that comes from a place in the world: a waterfall, a campfire, a market, wind in a ruin. |
 | [AudioProfileStack](/advanced/world/runtime/audio-profile-stack) | The audio profile that is on now. |
 | [AudioZone](/advanced/world/runtime/audio-zone) | A place that changes how the world sounds while the camera is inside it: a cave with echo, a house that muffles the weather outside, a tunnel. |
+| [ChronicleTerrainProvider](/advanced/world/runtime/chronicle-terrain-provider) | Answers the TerrainService from a ChronicleTerrain: heights, directions and holes come straight from the data of the terrain (no physics, no rendering: the same answer on a server as in front of a screen). |
 | [Encounter](/advanced/world/runtime/encounter) | Encounter is a designer-placeable node that coordinates group combat behavior. |
 | [FogExplorationData](/advanced/world/runtime/fog-exploration-data) | Stores fog of war exploration data for a single map. |
 | [FogOfWarCompositorEffect](/advanced/world/runtime/fog-of-war-compositor-effect) | CompositorEffect that renders fog of war as a post-process. |
@@ -130,7 +131,8 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [SpaceVolume](/advanced/world/runtime/space-volume) | A space in a world, given by the shape of its CollisionShape3D child (a box, sphere, cylinder or capsule). |
 | [TerraBrushProvider](/advanced/world/runtime/terra-brush-provider) | Tells which surface type the ground is at a position on a TerraBrush terrain: the texture under the position is looked up in `texture_surface_map`, and `default_surface` is used when it has no entry. |
 | [Terrain3DProvider](/advanced/world/runtime/terrain3-d-provider) | Tells which surface type the ground is at a position on a Terrain3D terrain: the texture under the position is looked up in `texture_surface_map`, and `default_surface` is used when it has no entry. |
-| [TerrainProvider](/advanced/world/runtime/terrain-provider) | The fallback surface type if detection fails |
+| [TerrainProvider](/advanced/world/runtime/terrain-provider) | The terrain of a world, seen by the TerrainService. |
+| [VolumeLook](/advanced/world/runtime/volume-look) | The look of a movement volume: a mesh made from its box shape (the top, the bottom or all six faces), with the material you give it (a shader, or a texture). |
 | [VoxelTerrainProvider](/advanced/world/runtime/voxel-terrain-provider) | Tells which surface type the ground is at a position on a voxel terrain (Voxel Tools): the voxel type under the position is looked up in `voxel_type_map`, and `default_surface` is used when it has no entry. |
 | [WeatherSystem](/advanced/world/runtime/weather-system) | Deals with weather application logic |
 | [WorldContainer](/advanced/world/runtime/world-container) | Lightweight coordinator for world management Handles world transitions and delegates object queries to the current WorldScene |
@@ -144,7 +146,6 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 <!-- classes:world/editor-tools -->
 | Class | What it is |
 |---|---|
-| [AddObjectToolbarManager](/advanced/world/editor-tools/add-object-toolbar-manager) | Scene-watching toolbar manager for adding objects to WorldScene Watches for new/deleted objects and handles database sync automatically |
 | [EncounterReactionsEditor](/advanced/world/editor-tools/encounter-reactions-editor) | Embedded editor for UniqueEncounterData.reactions property Used by UniqueObjectInspector to provide a custom interface for the reactions array |
 | [UniqueObjectInspector](/advanced/world/editor-tools/unique-object-inspector) | Dynamic inspector for unique object data (NPC, Encounter, InteractableObject) Displays in the bottom dock when one of these nodes is selected Similar to EffectDynamicPropertyPanel but for UniqueData resources |
 <!-- /classes -->

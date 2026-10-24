@@ -96,7 +96,7 @@ const basicSystems = [
         text: 'In the 3D viewport',
         collapsed: true,
         items: [
-          page('Add Object', '/basic/world/add-object'),
+          page('Placing objects', '/basic/world/add-object'),
           page('Terrain', '/basic/world/terrain'),
           page('Sculpting', '/basic/world/terrain-sculpting'),
           page('Painting', '/basic/world/terrain-painting'),
@@ -334,7 +334,7 @@ const worldAdvanced = {
   collapsed: true,
   items: [
     page('Overview', '/advanced/world/', { title: 'World: how it is built' }),
-    page('Add Object', '/advanced/world/add-object', { title: 'Add Object: how it is built' }),
+    page('Placing objects', '/advanced/world/add-object', { title: 'Placing objects: how it is built' }),
     page('The Unique Object tool', '/advanced/world/unique-object-tool', { title: 'The Unique Object tool: how it is built' }),
     page('Regions', '/advanced/world/regions', { title: 'Regions: how they are built' }),
     page('Movement volumes', '/advanced/world/movement-volumes', { title: 'Movement volumes: how they are built' }),

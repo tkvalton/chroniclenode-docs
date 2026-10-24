@@ -6,14 +6,36 @@ It works for the **player, the companions and NPCs**. It is **optional**: a game
 
 ## Placing one
 
-1. Open the world scene and choose **Add Object > Add Movement Volume**. A volume appears in the *Volumes* node, selected, with a box shape of 10 × 4 × 10. It is **water** to begin with.
+1. Open the world scene, click the **Volumes** button and choose **Water**, **Lava** or **Weightless**, then click where it goes. A volume appears in the *Volumes* node, selected, with a box shape of 10 × 4 × 10. It is **water** to begin with.
 2. **Size the shape.** Select the `CollisionShape3D` inside the volume and resize or reshape it (a box, a sphere, a cylinder or a capsule) over the space you want. The **top of the shape is the surface** of the water.
 3. **Move the volume** to the place and, if you want another kind of space, pick a **Preset** in the inspector.
-4. Add the **look of the water** yourself: a plane or a mesh with a water material, laid on the top of the shape. The volume does not draw anything. This keeps your water as pretty (or as cheap) as you want.
+4. Water and lava come with a **look** (see below). For any other volume, give it a look in the **Look** section, or draw your own mesh on the top of the shape.
 
 ::: tip The surface is only a height
-The volume does not need a mesh to work, and a mesh does not make water by itself. Put the mesh on the surface (the top of the shape) and the two match.
+The volume does not need a mesh to work, and a mesh does not make water by itself. The look is the mesh; the surface is the top of the shape.
 :::
+
+## The look
+
+A volume draws **nothing** until you give it a look (so volumes made before this stay as they were). The **Look** section of the inspector:
+
+| Field | What it does | Default |
+|---|---|---|
+| **Look faces** | What is drawn: **None**, **Top** (water, lava: the surface), **Bottom**, or **All sides** (a box of fog, a cloud: all six faces) | None |
+| **Look material** | The material of the look: any material, a shader included. Empty: a plain material with the texture and the tint below | empty |
+| **Look texture** | A picture for the plain material | none |
+| **Look tint** | The colour of the plain material; an alpha under 1 makes it see-through | blue, 60 percent |
+| **Look double sided** | Every face is also made looking the other way, so the surface is seen from under the water too | on |
+| **Look grid** | How many cells the top and the bottom are cut in along a side. A shader that makes waves moves the vertices, so it needs cells: 24 is fine for water, 1 for a flat picture | 24 |
+
+The look is made from the **box shape** of the volume and follows it when you resize the box with the gizmo. A sphere, a cylinder or a capsule draws nothing (the editor says so in the warning of the node). The mesh is not saved with the scene: it is made again when the scene loads.
+
+The **Water** and **Lava** presets come with a shader of the toolkit, as the *Look material*:
+
+- **Water**: waves that move the top, ripples in the shine, a colour that gets darker with the depth under the surface, foam where it meets the ground, a shine at a low angle. Its numbers (colours, wave height, speed, depth fade, foam width) are the **Shader parameters** of the material.
+- **Lava**: a dark crust moving over glowing cracks, a little bubbling.
+
+They are a start: replace the *Look material* with your own shader or material and the volume keeps working the same.
 
 ## Presets
 

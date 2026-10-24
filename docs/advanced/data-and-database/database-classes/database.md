@@ -17,11 +17,13 @@ All the resources extend DatabaseResource. The database also makes the few resou
 | | | |
 |---|---|---|
 | `Variant` | [REGISTRY](#var-registry) | `{ ... }` |
+| `bool` | [defer_scan](#var-defer-scan) | `false` |
 
 ## Methods
 
 | | |
 |---|---|
+| `void` | [flush_scan](#method-flush-scan)() *static* |
 | `void` | [ensure_initialized](#method-ensure-initialized)() *static* |
 | `PopupData` | [get_popup_data_by_scene_path](#method-get-popup-data-by-scene-path)( `scene_path: String` ) *static* |
 | `void` | [register_popup_data](#method-register-popup-data)( `popup: PopupData` ) *static* |
@@ -84,7 +86,15 @@ All the resources extend DatabaseResource. The database also makes the few resou
 
 Every type of resource: the key is the type name used everywhere (`"effect"`, `"npc"` ...), `path` is the folder of its files and `class` the class the resources must be. See the Database types page for the whole table. The type `"enviroment"` is spelled that way in the code.
 
+### bool defer_scan = false {#var-defer-scan}
+
+While this is set the editor's file scan after a save or a delete waits (a batch of saves sets it, then calls flush_scan once)
+
 ## Method descriptions
+
+### void flush_scan() {#method-flush-scan}
+
+Scans the files of the project in the editor (once, if a save or delete asked for it while defer_scan was set)
 
 ### void ensure_initialized() {#method-ensure-initialized}
 

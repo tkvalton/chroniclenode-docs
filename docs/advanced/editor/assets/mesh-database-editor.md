@@ -28,6 +28,8 @@ The editor of the Meshes tab (Assets &gt; Meshes): the equipment, facial and mat
 | `Dictionary` | [surface_constraints](#var-surface-constraints) | `{}  # surface_index -> {allowed: [], preferred: ""}` |
 | `String` | [current_tree_filter](#var-current-tree-filter) | `"all"  # "all", "weapons", or a tag name` |
 | `FileDialog` | [file_dialog](#var-file-dialog) |  |
+| `AssetThumbnails` | [pictures](#var-pictures) | `AssetThumbnails.new(DatabaseMeshes.THUMBNAILS_PATH)` |
+| `AssetPreviewHeader` | [header](#var-header) |  |
 | `Dictionary` | [current_import_context](#var-current-import-context) | `{}` |
 
 ## Methods
@@ -113,6 +115,14 @@ The editor of the Meshes tab (Assets &gt; Meshes): the equipment, facial and mat
 *No description yet.*
 
 ### FileDialog file_dialog {#var-file-dialog}
+
+*No description yet.*
+
+### AssetThumbnails pictures = AssetThumbnails.new(DatabaseMeshes.THUMBNAILS_PATH) {#var-pictures}
+
+The pictures of the meshes (the same folder and file names as DatabaseMeshes keeps them in), the files that still need one, and the header of the info panel.
+
+### AssetPreviewHeader header {#var-header}
 
 *No description yet.*
 

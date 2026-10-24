@@ -179,6 +179,12 @@ export const groups = [
         "file": "editor_components/editors/assets/animation/animation_package_tree_manager.gd"
       },
       {
+        "name": "AssetPreviewHeader",
+        "base": "PanelContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\asset_preview_header.gd",
+        "file": "editor_components/editors/assets/asset_preview_header.gd"
+      },
+      {
         "name": "AudioDatabaseEditor",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\audio_database_editor.gd",
@@ -189,6 +195,12 @@ export const groups = [
         "base": "ScrollContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\animation\\core_package_editor.gd",
         "file": "editor_components/editors/assets/animation/core_package_editor.gd"
+      },
+      {
+        "name": "FoliageEditor",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\foliage_editor.gd",
+        "file": "editor_components/editors/assets/foliage_editor.gd"
       },
       {
         "name": "IconDatabaseEditor",
@@ -767,6 +779,12 @@ export const groups = [
         "file": "editor_components/editors/settings/localization_editor.gd"
       },
       {
+        "name": "LogicSettingsControl",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\logic_settings_control.gd",
+        "file": "editor_components/editors/settings/logic_settings_control.gd"
+      },
+      {
         "name": "SettingsEditor",
         "base": "ConfigEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\settings_editor.gd",
@@ -777,6 +795,18 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\settings_section.gd",
         "file": "editor_components/editors/settings/settings_section.gd"
+      },
+      {
+        "name": "TerrainConfigEditor",
+        "base": "ConfigEditor",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\terrain_config_editor.gd",
+        "file": "editor_components/editors/settings/terrain_config_editor.gd"
+      },
+      {
+        "name": "TerrainLevelsEditor",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\terrain_levels_editor.gd",
+        "file": "editor_components/editors/settings/terrain_levels_editor.gd"
       },
       {
         "name": "UISettingsEditor",
@@ -923,6 +953,12 @@ export const groups = [
         "file": "editor_components/editors/world/config_editors/sun_config_editor.gd"
       },
       {
+        "name": "TerrainTextureEditor",
+        "base": "ResourceEditor",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\terrain_texture_editor.gd",
+        "file": "editor_components/editors/world/terrain_texture_editor.gd"
+      },
+      {
         "name": "TimeConfigEditor",
         "base": "BaseConfigEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\time_config_editor.gd",
@@ -981,6 +1017,12 @@ export const groups = [
         "base": "EditorInspectorPlugin",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\inspector_plugins\\unique_object_inspector_plugin.gd",
         "file": "editor_components/inspector_plugins/unique_object_inspector_plugin.gd"
+      },
+      {
+        "name": "WorldTestLauncher",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\world_test_launcher.gd",
+        "file": "editor_components/3d_scene_tools/world_test_launcher.gd"
       }
     ]
   },

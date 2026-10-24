@@ -8,8 +8,8 @@ A **region** is an area of a world that the game can *watch*: the old mill, the 
 
 ## Placing one
 
-1. Open the world scene, **Add Object > Add Region**. A region node appears in the *Regions* container and is selected.
-2. Give it a shape: add a `CollisionShape3D` as a child of the region, choose a box, a sphere or a capsule, and size and move it over the area. (The node shows a warning until it has a shape.)
+1. Open the world scene, click the **Volumes** button, choose **Trigger area** and click where it goes. A region node appears in the *Regions* container and is selected.
+2. It comes with a box shape (6 x 3 x 6 m): resize it with the gizmo over the area, or replace it with a sphere or a capsule (a `CollisionShape3D` child).
 3. Move the region node to the place. Moving the node moves the shape with it.
 4. Set its **Area Name** in the [Unique Object panel](/basic/world/unique-object-tool) (or in Godot's inspector): *The Old Mill*. Triggers and quest texts show this name ("Reach The Old Mill").
 
@@ -21,7 +21,7 @@ The region gets an id and a record in the database ([`RegionData`](/advanced/wor
 
 ## What a region sees
 
-A region placed from **Add Object** sits on the *Regions* [collision layer](/basic/game-settings/collision-layers) and sees the **player characters, NPCs and pets**. If you need it to see something else (a projectile, an interactable), change the node's collision *mask* in the inspector; a region you placed keeps the layers it is saved with.
+A region placed with the placement tool sits on the *Regions* [collision layer](/basic/game-settings/collision-layers) and sees the **player characters, NPCs and pets**. If you need it to see something else (a projectile, an interactable), change the node's collision *mask* in the inspector; a region you placed keeps the layers it is saved with.
 
 ## Watching a region
 
