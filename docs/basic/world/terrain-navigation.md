@@ -19,6 +19,10 @@ While it bakes, the top bar of the 3D view shows a **progress bar** with what is
 Each tile is baked once for every distinct entity size. On hilly ground at the default settings a mesh takes about a third of a second; making the cell size smaller (0.25) takes about five times longer.
 :::
 
+### Trees and other foliage
+
+The **foliage** you scatter or paint ([Foliage tools](/basic/world/terrain-foliage)) takes its ground out of the navigation: every tree of a foliage scene is a circle the bake carves out, so NPCs walk round trunks and bushes. The radius is the **Footprint radius** of the entry in the [Foliage library](/basic/assets/foliage), or, when that is 0, the reach of the collision shapes of the scene (a scene with no shapes takes nothing: grass and flowers never do). The bake works out the trees itself from the scatter, so it does not matter whether they are drawn at the moment. Painting, removing or moving trees makes the tiles they are on **out of date**: *Bake navigation* notices it, as it does for buildings.
+
 ### Out of date
 
 The navigation of a tile goes **out of date** when you change the ground there: sculpting, holes, not-walkable ground. The tiles **next to it** go out of date too, because a bake looks a few metres into its neighbours so that the meshes of two tiles meet exactly at the border. The Navigation panel and the [world check](/basic/world/terrain#the-world-check) say so; bake again before you test the game.
@@ -103,5 +107,8 @@ Moving, adding or removing such an object makes the tiles it touches **out of da
 
 ## What is not included yet
 
-- **Water, lava and other movement volumes** do not change the navigation yet.
+- **Water, lava and other movement volumes** do not change the navigation yet. They will be added together with the tools that place them.
+- **Caves.** A cave model placed over a hole, with its collision on the World Terrain layer, is baked together with the ground, so its floor and the ground at its mouth are one mesh. A cave that is a separate scene (reached through a teleport) has its own navigation. No links are needed.
+- **Ladders and the like** are interactables, not navigation: NPCs can be told to use them.
+- There is no button to bake **one tile**: *Bake navigation* already bakes only the tiles that changed.
 - If you already bake your own `NavigationRegion3D` for ground that the terrain covers, do not use both: the two meshes would overlap.

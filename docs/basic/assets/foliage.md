@@ -44,11 +44,9 @@ Problems of the entry are listed under the buttons (a mesh that cannot be read, 
 | **Collision** | Never | Whatever the scene has (it is optional) |
 | **Seen from** | Near the camera (40 m by default) | Far (250 m by default) |
 | **Shadows** | Off by default | On by default |
-| **Wind** | Yes | Yes |
-| **Bends away from the player walking through it** | Yes | No |
 | **Takes ground from the navigation** | No | Yes: a footprint |
 
-A foliage scene is **taken apart** when it is loaded: its MeshInstance3D nodes are drawn in bulk (a forest of one tree is a few draw calls). Lights, particles, scripts and other nodes are not used: the tab lists them as a problem of the entry.
+A foliage scene is **taken apart** when it is loaded: its MeshInstance3D nodes are drawn in bulk (a forest of one tree is a few draw calls), and the shapes of its StaticBody3D nodes become real collision bodies only **near the player and the party** (a pool: the trees of the whole world are not physics objects). Lights, particles, scripts and other nodes are not used: the tab lists them as a problem of the entry.
 
 ## Materials and variants
 
@@ -73,15 +71,17 @@ A **variant** is another entry for the same file, usually with other materials: 
 
 The same cell of ground always gives the same instances, and a lower amount only takes some away: **nothing moves** when the player changes the clutter setting.
 
-## View, Movement, Navigation
+## View and Navigation
 
 | Field | What it does |
 |---|---|
 | **View distance** | How far from the camera it is drawn, before the player's view distance scale. 0 = the usual for the kind |
 | **Casts shadows** | Off for ground scatter: many small shadows cost a lot and are hardly seen |
-| **Wind** | How much the wind bends it (not drawn yet) |
-| **Brush through** | Ground scatter: how much it bends away from the player (not drawn yet) |
-| **Footprint radius** | Foliage: the radius of ground it takes from the [navigation](/basic/world/terrain-navigation). 0: from the collision shapes of the scene |
+| **Footprint radius** | Foliage: the radius of ground it takes from the [navigation](/basic/world/terrain-navigation#trees-and-other-foliage). 0: from the collision shapes of the scene (no shapes, no footprint) |
+
+::: tip Wind and bending away from the player
+Entries have no wind or brush-through numbers: movement in the wind and under the player's feet is done by the **shader of the material** you give the mesh (a vertex shader that moves the top of a blade). The toolkit only draws the instances.
+:::
 
 ## See also
 

@@ -35,6 +35,13 @@ How the [navigation of the terrain](/basic/world/terrain-navigation) is baked (*
 | **Navigation objects group** | Only the nodes of this group and their children are used as objects (empty: every node of the map) |
 | **Navigation tiny, small, normal, large, huge** | Which entity [collision shape](/basic/world/terrain-navigation#entity-sizes) sizes get a mesh (all on by default). Shapes whose size rounds to the same agent share one mesh. Leave **Normal** on: the world's own questions about the ground use it |
 
+## Ground clutter
+
+| Setting | What it does |
+|---|---|
+| **Clutter grows on textures** | On: the [Ground clutter list of a terrain texture](/basic/assets/terrain-textures#ground-clutter) makes grass, weeds and pebbles appear where the texture is painted. Off: no texture grows anything, only what you painted with the [foliage tools](/basic/world/terrain-foliage) is drawn |
+| **Clutter low / medium / high percent** | What the player's **Ground clutter** setting means: the share of every clutter entry that is drawn on Low, Medium and High (35, 65 and 100 at first). Off is always none |
+
 ## Limits
 
 | Setting | What it does |
@@ -61,9 +68,10 @@ Under the table the editor shows what the settings cost: the memory of the textu
 
 ## The player's settings
 
-In the video settings of **Game Settings > Quality** the player gets two choices (you tick them in *Player accessible settings* like the others):
+In the video settings of **Game Settings > Quality** the player gets three choices (you tick them in *Player accessible settings* like the others):
 
 - **View distance scale** (0.5 to 1.5): how far the world is drawn compared with the distances you set. It scales the terrain, and whatever you tie to it with `ViewDistance.scaled(metres)` (foliage and props that hide at a distance).
 - **Terrain detail** (Low, Medium, High, Ultra): the level above.
+- **Ground clutter** (Off, Low, Medium, High): how much grass, weeds and pebbles there are. The three levels are the percentages of [Ground clutter](#ground-clutter) above; trees and bushes are not touched.
 
 The AI of NPCs gets simpler at a distance (the LOD distances of the [Gameplay Config](/basic/game-settings/gameplay-config)). By default these are **the same for every player**, so the game plays the same on every computer. Tick **LOD follows view distance** there if you want a player who halves the view distance to halve those distances too.

@@ -25,10 +25,6 @@ An effect is a **scene** (or, for two types, a material or a texture) in `res://
 | **Settings > Validate All VFX** | Checks every scene (root type, required nodes) and lists the failures |
 | **Open in Editor** | Opens the selected scene (a material or an image cannot be opened, the button says so) |
 
-## Pictures
-
-Every effect scene in the tree has a **picture**, drawn by the editor: the scene is started on a dark ground and photographed while its particles are alive, and the picture with the most in it is kept (an effect that shows nothing in a still picture keeps its icon). They are kept in `res://src/data/vfx/.thumbnails/`. The picture of the effect you select is shown big at the top of the panel on the right, with its name, its type and its file.
-
 ## Building an effect scene
 
 **Add New VFX Scene** makes the root node for the type you choose. Then build the effect under it with ordinary Godot nodes: particles, meshes, lights, an `AnimationPlayer`.

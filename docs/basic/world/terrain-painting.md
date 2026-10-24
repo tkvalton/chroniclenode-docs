@@ -26,6 +26,10 @@ Hover a texture to see its pack, its surface type and how many metres one repeat
 
 Lighten, Darken and Tint are on a **colour map**, a picture over the tile that is separate from the textures. They need a painted tile (paint it first). They change the look without changing which texture is where, and they undo on their own.
 
+## Foliage you painted by hand
+
+The Paint tool has a box in its bar, **Clear hand-placed foliage** (on at first). Where you paint, the foliage you placed with the [foliage tools](/basic/world/terrain-foliage) goes back to what the textures give, so the new texture's own clutter grows there. It is part of the same undo action as the stroke. Turn the box off to keep the trees you placed.
+
 ## Eight textures a chunk
 
 Each chunk of 16 m holds up to **8** textures (the number is set in [Terrain Settings](/basic/game-settings/terrain-settings)). Painting a ninth texture in a chunk **replaces the one with the least paint** there. This is how large terrains stay light enough to draw. If a texture you painted seems to vanish, the chunk was full: turn on the **Layer budget** overlay (top bar). Green is up to 4 textures, yellow 5 or 6, orange 7, red full.
