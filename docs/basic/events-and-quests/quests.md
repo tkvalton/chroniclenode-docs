@@ -2,7 +2,7 @@
 
 A **quest** is a job the player takes on: *Kill three wolves*, *Bring the herbs to the healer*, *Find the lost child*. **Events > Quests** is where you make them. A quest has **objectives** to complete, **rewards** when it is done, **requirements** to accept it, and rules for what happens when it is failed, given up, or done again.
 
-Most quests are offered and handed in through a [conversation](/basic/behaviors/conversations); an [event](/basic/events-and-quests/events) can also start, complete or fail a quest (the *Quest* actions), so a region, a timer or a death can give one.
+Most quests are offered and handed in through a [conversation](/basic/behaviors/conversations); an [event](/basic/events-and-quests/events) can also start, complete or fail a quest (the *Quest* actions), so a trigger area, a timer or a death can give one.
 
 ## The editor
 
@@ -15,11 +15,11 @@ Most quests are offered and handed in through a [conversation](/basic/behaviors/
 
 ### Objectives
 
-Right-click **Objectives** in the tree and **Add Objective**. An objective is a thing the player must do. It is made of an **event trigger** (the same [triggers](/basic/events-and-quests/event-triggers) that start events) and some display settings. "Kill 3 wolves" is an *Entity Death Type* trigger with a count of 3; "Talk to the king" is an *Entity Interact* trigger; "Reach the old mill" is a *Region Detection Player* trigger.
+Right-click **Objectives** in the tree and **Add Objective**. An objective is a thing the player must do. It is made of an **event trigger** (the same [triggers](/basic/events-and-quests/event-triggers) that start events) and some display settings. "Kill 3 wolves" is an *Entity Death Type* trigger with a count of 3; "Talk to the king" is an *Entity Interact* trigger; "Reach the old mill" is a *Trigger area Detection Player* trigger.
 
 | Setting | What it does | Default |
 |---|---|---|
-| **The trigger** | When the objective is done, and its own fields (which NPC, how many, which region) | |
+| **The trigger** | When the objective is done, and its own fields (which NPC, how many, which trigger area) | |
 | **Optional** | The quest can complete without it, and failing it does not fail the quest. The tree and the log show "(optional)". A required objective that fails fails the quest | off |
 | **Hide description** | The log does not show this objective until it is done | off |
 | **Progress display** | **None**, **X / Y** (a tally) or **Percent**. Used by objectives that count | X / Y |

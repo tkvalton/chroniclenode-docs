@@ -5,10 +5,10 @@ export const groups = [
     "slug": "world-data",
     "classes": [
       {
-        "name": "RegionData",
+        "name": "TriggerAreaData",
         "base": "DatabaseResource",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\region_data.gd",
-        "file": "data_classes/world/region_data.gd"
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\trigger_area_data.gd",
+        "file": "data_classes/world/trigger_area_data.gd"
       },
       {
         "name": "UniqueEncounterData",
@@ -239,12 +239,6 @@ export const groups = [
         "file": "runtime_classes/world/object_registery.gd"
       },
       {
-        "name": "Region",
-        "base": "Area3D",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\region.gd",
-        "file": "runtime_classes/world/region.gd"
-      },
-      {
         "name": "SpaceVolume",
         "base": "Area3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\space_volume.gd",
@@ -267,6 +261,12 @@ export const groups = [
         "base": "Node",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\terrain_provider\\terrain_provider.gd",
         "file": "runtime_classes/world/terrain_provider/terrain_provider.gd"
+      },
+      {
+        "name": "TriggerArea",
+        "base": "Area3D",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\trigger_area.gd",
+        "file": "runtime_classes/world/trigger_area.gd"
       },
       {
         "name": "VolumeLook",

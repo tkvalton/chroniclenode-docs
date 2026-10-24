@@ -983,10 +983,10 @@ export const groups = [
         "file": "editor_components/editors/world/world_database_editor.gd"
       },
       {
-        "name": "ZonesEditor",
-        "base": "ResourceEditor",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\zones_editor.gd",
-        "file": "editor_components/editors/world/zones_editor.gd"
+        "name": "WorldZonesSection",
+        "base": "FoldableContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\world_zones_section.gd",
+        "file": "editor_components/editors/world/world_zones_section.gd"
       }
     ]
   },
@@ -1521,6 +1521,12 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\skeleton_scene_converter.gd",
         "file": "editor_components/utility/skeleton_scene_converter.gd"
+      },
+      {
+        "name": "ToolbarIcons",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\toolbar_icons.gd",
+        "file": "editor_components/utility/toolbar_icons.gd"
       },
       {
         "name": "WorldSceneValidator",

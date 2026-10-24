@@ -166,7 +166,7 @@ The **Speak interaction** (text, voice line, animation, floating label) is the f
 |---|---|
 | **Everyone** | Every player (global) |
 | **Near the speaker or a point** | Players within a radius. The default is the **range of the channel** the line is on (Say 10 m, Yell 30 m, Emote 10 m) |
-| **Players in a region** | Only a player who is in that [region](/basic/world/regions) |
+| **Players in a trigger area** | Only a player who is in that [trigger area](/basic/world/trigger-areas) |
 | **The player who triggered it** | The one who used the switch or talked to the NPC |
 
 The default depends on the source: the line of an NPC goes to the players within the range of its channel (a distant NPC does not fill the chat), the line of a switch goes to the one who used it, the line of an event goes to everyone unless it names an area.
@@ -215,7 +215,7 @@ A channel can be one a player **types into**. Such a channel has:
 | Rule | Examples |
 |---|---|
 | **Proximity** | **Say** reaches 10 m, **Yell** 30 m. Players beyond the range do not get the line |
-| **Zone** | Only players in the same [region](/basic/world/regions) or world: a *Local defense* or *Zone* channel |
+| **Zone** | Only players in the same [trigger area](/basic/world/trigger-areas) or world: a *Local defense* or *Zone* channel |
 | **Group** | The members of a party, a raid, a guild or an officers' group: *Party*, *Raid*, *Guild*, *Officer* |
 | **Everyone** | A *Global* or *Trade* channel |
 | **Private** | **`/whisper <player> <text>`** goes to one player, and the sender sees what they sent |

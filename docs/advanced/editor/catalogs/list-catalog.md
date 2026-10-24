@@ -74,7 +74,7 @@ The catalog that picks one thing out of a list of database resources of any kind
 - **QUALITIES** = `38`
 - **SET_BONUSES** = `39`
 - **SOCKETS** = `40`
-- **REGIONS** = `41`
+- **TRIGGER_AREAS** = `41`
 - **QUESTS** = `42`
 - **QUESTLINES** = `43`
 - **EVENTS** = `44`
@@ -88,7 +88,7 @@ The catalog that picks one thing out of a list of database resources of any kind
 - **INTERACTABLES** = `52`
 - **UNIQUE_ENTITIES** = `53`
 - **UNIQUE_INTERACTABLES** = `54`
-- **UNIQUE_REGIONS** = `55`
+- **UNIQUE_TRIGGER_AREAS** = `55`
 - **UNIQUE_ENCOUNTERS** = `56`
 
 ## Variable descriptions

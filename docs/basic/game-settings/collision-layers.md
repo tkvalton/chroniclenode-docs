@@ -18,7 +18,7 @@ The layers themselves are fixed, because the game's code uses them by name. Only
 | 8 | **Items and loot** | Dropped items |
 | 9 | **Player pets** | Companions and pets of the player |
 | 10 | **Area effects** | The shapes of area effects |
-| 11 | **Regions** | [Quest](/basic/events-and-quests/quests) triggers and detection areas ([Regions](/basic/world/regions)) |
+| 11 | **Trigger areas** | [Quest](/basic/events-and-quests/quests) triggers and detection areas ([Trigger areas](/basic/world/trigger-areas)) |
 | 12 | **Camera detection** | What the camera collides with |
 | 13 | **Mouse detection** | What a mouse click can pick |
 
@@ -37,7 +37,7 @@ The layers themselves are fixed, because the game's code uses them by name. Only
 | Items and loot | terrain |
 | Player pets | terrain, NPCs, destructibles, interactables, moveable objects |
 | Area effects | player characters, NPCs, player pets |
-| Regions | player characters, NPCs, player pets |
+| Trigger areas | player characters, NPCs, player pets |
 | Camera detection | terrain, destructibles |
 | Mouse detection | player characters, NPCs, destructibles, interactables, items |
 
@@ -61,5 +61,5 @@ The layers themselves are fixed, because the game's code uses them by name. Only
 
 ## See also
 
-- [Regions](/basic/world/regions), [Controller & Camera](/basic/game-settings/controller-and-camera) (camera collision).
+- [Trigger areas](/basic/world/trigger-areas), [Controller & Camera](/basic/game-settings/controller-and-camera) (camera collision).
 - [How the layers are built](/advanced/game-settings/).

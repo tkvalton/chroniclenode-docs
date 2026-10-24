@@ -26,7 +26,7 @@ The conditions are in [Conditions](/basic/shared-systems/conditions), the requir
 
 ```text
           the world                        the game
-   a region is entered ─┐
+   a trigger area is entered ─┐
    an NPC dies ─────────┤   Event          Quest objective
    a timer runs out ────┼─► triggers ───►  (uses a trigger too:
    a quest completes ───┘     │             "kill 3 wolves")

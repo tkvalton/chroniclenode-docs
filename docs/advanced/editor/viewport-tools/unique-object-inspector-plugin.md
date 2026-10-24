@@ -4,7 +4,7 @@
 
 **Inherits:** `EditorInspectorPlugin`
 
-The inspector plugin that replaces the properties of a placed NPC, object, encounter, region or modular skeleton with the editors of the Unique Object panel. It shares one list catalog and one sound dialog between all its editors.
+The inspector plugin that replaces the properties of a placed NPC, object, encounter, trigger area or modular skeleton with the editors of the Unique Object panel. It shares one list catalog and one sound dialog between all its editors.
 
 ## Variables
 

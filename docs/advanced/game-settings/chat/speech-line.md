@@ -18,7 +18,7 @@ A **line**: something an entity says, or something that is described. Say and em
 | `int` | [language_id](#prop-language-id) | `0` |
 | `Audience` | [audience](#prop-audience) | `Audience.NEAR` |
 | `float` | [range_override](#prop-range-override) | `0.0` |
-| `int` | [region_id](#prop-region-id) | `0` |
+| `int` | [trigger_area_id](#prop-trigger-area-id) | `0` |
 | `float` | [bubble_seconds](#prop-bubble-seconds) | `5.0` |
 
 ## Methods
@@ -43,7 +43,7 @@ Who receives the line
 
 - **NEAR** = `0` - The players within the range of the channel of the line, from the one who says it (or from the point)
 - **EVERYONE** = `1` - Every player
-- **REGION** = `2` - The players who are in a region
+- **TRIGGER_AREA** = `2` - The players who are in a trigger area
 - **TRIGGERER** = `3` - The player who used the switch or talked to the NPC
 
 ## Property descriptions
@@ -80,9 +80,9 @@ Who receives the line
 
 For *Near*: how far the line is heard, in metres. 0 = the range of the channel (or of the emote)
 
-### int region_id = 0 {#prop-region-id}
+### int trigger_area_id = 0 {#prop-trigger-area-id}
 
-For *Region*: the region the players have to be in
+For *Trigger area*: the trigger area the players have to be in
 
 ### float bubble_seconds = 5.0 {#prop-bubble-seconds}
 

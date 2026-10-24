@@ -10,7 +10,7 @@ A **zone volume**: a box, sphere, cylinder or capsule (the shape of its Collisio
 
 | | | |
 |---|---|---|
-| `int` | [zone_id](#prop-zone-id) | `0` |
+| `int` | [zone_id](#prop-zone-id) | `0:` |
 | `int` | [zone_priority](#prop-zone-priority) | `0` |
 
 ## Methods
@@ -25,7 +25,7 @@ A **zone volume**: a box, sphere, cylinder or capsule (the shape of its Collisio
 
 ## Property descriptions
 
-### int zone_id = 0 {#prop-zone-id}
+### int zone_id = 0: {#prop-zone-id}
 
 The zone the party is in while it is inside this volume (a ZoneDefinition id)
 

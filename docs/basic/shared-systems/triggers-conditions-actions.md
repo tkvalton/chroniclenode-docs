@@ -37,11 +37,11 @@ So **conditions** are everywhere, **triggers** are used by events and quest obje
 
 ## Triggers: when
 
-A trigger is a **listener**. It is set up when the game starts and connects to what it watches: a death, a region, the clock, an item picked up, a quest. When it sees what it is for, it **fires**.
+A trigger is a **listener**. It is set up when the game starts and connects to what it watches: a death, a trigger area, the clock, an item picked up, a quest. When it sees what it is for, it **fires**.
 
 - An event can have **several triggers**. **Any one** of them starts it.
 - Triggers are set up again **after every change of world** (a door, a teleport) and **do not forget what they counted**: *kill 5 wolves* keeps its tally across a map change and across a save.
-- A trigger often has a **target** to pick: one unique NPC, any NPC of a type, a region, a player slot. A **player** trigger asks *which player*: the current one, any, or a numbered party slot.
+- A trigger often has a **target** to pick: one unique NPC, any NPC of a type, a trigger area, a player slot. A **player** trigger asks *which player*: the current one, any, or a numbered party slot.
 - In a quest the same trigger is an **objective**. What it counts becomes the progress ("3 / 5"), and the objective can be **optional** or **hidden**.
 
 All the kinds are on [Event triggers](/basic/events-and-quests/event-triggers).
@@ -51,7 +51,7 @@ All the kinds are on [Event triggers](/basic/events-and-quests/event-triggers).
 A condition is a **question**. It never changes anything and it can be asked as often as needed.
 
 - In every list, **all** conditions must be true. For "any of these", use the **Or** condition.
-- Conditions come in four categories: **General** (world: quests, variables, time, regions, doors), **Entity** (one entity: health, level, effects, items, distance), **Encounter** (a group fight) and **Event variables** (the local values of one event).
+- Conditions come in four categories: **General** (world: quests, variables, time, trigger areas, doors), **Entity** (one entity: health, level, effects, items, distance), **Encounter** (a group fight) and **Event variables** (the local values of one event).
 - An **entity condition** asks *about whom*. In a behavior or a stat effect, *the argument entity* is the owner of the thing: the enemy whose script it is, the holder of the stat. **In an event there is no such entity**, so an entity condition there looks at the **current player**, the party (*any* or *all* players) or a **unique id**.
 - Conditions that compare numbers share the same choices (equal, greater, less ...). See [Conditions](/basic/shared-systems/conditions).
 
@@ -109,7 +109,7 @@ The tools above meet the event system through **Trigger Event**: a combat script
 
 ## Examples
 
-**The mill (an event).** Trigger: *Region Detection Player*, the old mill, enters. Condition: *Global Variable* `mill_cleared` is false. Actions: *Spawn Entity* (ghost), *Popup* ("You hear a cold whisper..."), *Set Global Variable* `mill_haunted` = true.
+**The mill (an event).** Trigger: *Trigger area Detection Player*, the old mill, enters. Condition: *Global Variable* `mill_cleared` is false. Actions: *Spawn Entity* (ghost), *Popup* ("You hear a cold whisper..."), *Set Global Variable* `mill_haunted` = true.
 
 **Kill five wolves (a quest objective).** The objective's trigger is *Entity Death Type* (Wolf, 5). It counts, shows `3 / 5`, and completes the objective. The quest's **on complete** action runs *Activate Quest* for the next one.
 

@@ -12,7 +12,7 @@ A tool for making the **terrain** of a world: shaping the ground, painting it, a
 
 ## Placing uniques
 
-An improved version of the way [uniques](/basic/world/uniques) are placed: NPCs, interactables, [regions](/basic/world/regions) and [encounters](/basic/world/encounters) placed, moved and checked in the 3D view, with the terrain under them.
+An improved version of the way [uniques](/basic/world/uniques) are placed: NPCs, interactables, [trigger areas](/basic/world/trigger-areas) and [encounters](/basic/world/encounters) placed, moved and checked in the 3D view, with the terrain under them.
 
 ## Zones
 

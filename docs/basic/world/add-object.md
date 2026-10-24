@@ -10,9 +10,9 @@ When a world scene is open in the 3D viewport, a row of **icon buttons** sits in
 | **Dropped currencies** | A pile of money that lies in the world | The *DroppedItems* node |
 | **Encounters** | An empty [encounter](/basic/world/encounters) | The *Entities* node |
 | **Assets** | A scene of your own (a house, a tree, a rock, a prop) from the asset folder, see [Assets](#assets) | The *Assets* node |
-| **Volumes** | A [trigger area](/basic/world/regions), a [movement volume](/basic/world/movement-volumes) (water, lava, no gravity) or an [audio zone](/basic/world/audio-zones) (a cave, indoors) | The *Regions* or *Volumes* node |
+| **Volumes** | A [trigger area](/basic/world/trigger-areas), a [movement volume](/basic/world/movement-volumes) (water, lava, no gravity) or an [audio zone](/basic/world/audio-zones) (a cave, indoors) | The *Trigger areas* or *Volumes* node |
 
-The containers (*Entities*, *Interactables*, *Regions*, *DroppedItems*, *Volumes*, *Assets*) are made for you the first time they are needed. The buttons only show when the scene you have open is a world scene (its root is a *WorldScene*), in the 3D editor. **Test World** is next to them.
+The containers (*Entities*, *Interactables*, *TriggerAreas*, *DroppedItems*, *Volumes*, *Assets*) are made for you the first time they are needed. The **icons** of the buttons are the icons of the nodes (`res://addons/chroniclenode/assets/node_icons/`: `entity_icon.svg` for NPCs, `interactable_icon.svg`, `dropped_item_icon.svg`, `encounter_icon.svg`, and `trigger_area_icon.svg` for volumes), so the toolbar and the scene tree agree. Add a `dropped_currency_icon.svg`, `volume_icon.svg` or `asset_icon.svg` to that folder and the button takes it; without one it uses a plain outline from `res://addons/chroniclenode/assets/toolbar_icons/placement/`. The buttons only show when the scene you have open is a world scene (its root is a *WorldScene*), in the 3D editor. **Test World** is next to them.
 
 ## Placing one
 
@@ -38,6 +38,8 @@ The NPC palette has an **Encounter** menu:
 The **Volumes** palette lists the usual ones: **Trigger area** (the invisible area events and conditions watch), **Water**, **Lava**, **Weightless**, **Audio zone: cave**, **Audio zone: indoors** and **Zone volume** (puts the party in a [zone](/basic/world/zones#zone-volumes) while it is inside; choose the zone in the inspector). Each comes with a **box shape** (10 x 4 x 10 m, a trigger area 6 x 3 x 6 m) that you resize with the gizmo afterwards. Water and Lava come with their [look](/basic/world/movement-volumes#the-look).
 
 #### Your own presets
+
+The quickest way: set a volume up in the scene (a *River* with the right speed and a look, a *Swamp* with a slow effect, a *Mine* audio zone, a trigger area of the size of your doors), **select it**, open the **Volumes** palette and press **Save selected as preset...**. Give it a name. The preset shows in the palette, with a square of its colour; **Delete preset** takes the chosen one away. The rest of this section says what a preset is made of.
 
 After the usual ones the palette lists **your presets**: any scene in `res://src/data/volume_presets/` (and the folders in it). To make one, build a volume in a scene (a *River* with the right speed and a look, a *Sea* the size of the bay, a *Swamp* with a slow effect, a *Mine* audio zone), select it and **Save Branch as Scene** into that folder. It shows in the palette named after the file, with a ghost of its box. Placing it makes a **copy** with everything you set (the fields, the shape, the look, the audio profile); changing the preset afterwards does not change the volumes already placed.
 

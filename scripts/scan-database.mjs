@@ -62,7 +62,7 @@ const EDITED_IN = {
   unique_entity: ['The Unique Object tool', B + 'world/unique-object-tool'],
   unique_interactable: ['The Unique Object tool', B + 'world/unique-object-tool'],
   unique_encounter: ['The Unique Object tool', B + 'world/unique-object-tool'],
-  region: ['Regions', B + 'world/regions'],
+  trigger area: ['Trigger areas', B + 'world/trigger areas'],
   popup: ['Popups', B + 'events-and-quests/popups'],
 }
 

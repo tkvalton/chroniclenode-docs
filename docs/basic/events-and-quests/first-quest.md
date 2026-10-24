@@ -72,4 +72,4 @@ The offer list shows the quest to players who meet its requirements, and the han
 
 - **Make it a chain:** give the quest a *requirement* of another quest, or start the next one from the hand-in. See [Quest lines](/basic/events-and-quests/quest-lines).
 - **Make it cost something:** add a [hand-in cost](/basic/events-and-quests/quests#hand-in-cost) (*bring 5 wolf pelts*).
-- **React to the world:** an [event](/basic/events-and-quests/events) can give, complete or fail the quest from a region, a timer or a death.
+- **React to the world:** an [event](/basic/events-and-quests/events) can give, complete or fail the quest from a trigger area, a timer or a death.

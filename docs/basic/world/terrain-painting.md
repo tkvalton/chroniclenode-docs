@@ -47,6 +47,6 @@ A paint stroke is one undo step: Ctrl+Z gives the weights and the colours back e
 ## Tips
 
 - Paint the **big areas first** with a large soft brush, then add details with a smaller one.
-- **Replace** is the way to change a whole texture over a region without redoing the borders.
+- **Replace** is the way to change a whole texture over a trigger area without redoing the borders.
 - If a new tile is grey, paint it, or turn on **Paint new tiles with the chosen texture** in the Tiles tool next time.
 - Use a **Scatter** or **Rough** shape with a low strength for natural-looking patches of dirt on grass.

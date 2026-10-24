@@ -8,6 +8,12 @@
 
 A space in a world, given by the shape of its CollisionShape3D child (a box, sphere, cylinder or capsule). It is the base of the volumes that watch where the camera or an entity is: the MovementVolume and the AudioZone. It knows where its surface (the top of the shape) is and whether a point or the camera is inside.
 
+## Properties
+
+| | | |
+|---|---|---|
+| `Color` | [debug_color](#prop-debug-color) | `Color(0.0, 0.0, 0.0, 0.0):` |
+
 ## Methods
 
 | | |
@@ -15,6 +21,14 @@ A space in a world, given by the shape of its CollisionShape3D child (a box, sph
 | `float` | [get_surface_y](#method-get-surface-y)() |
 | `bool` | [contains_point](#method-contains-point)( `world_point: Vector3` ) |
 | `bool` | [is_camera_inside](#method-is-camera-inside)( `below_surface_only: bool = false` ) |
+
+## Property descriptions
+
+*Editor*
+
+### Color debug_color = Color(0.0, 0.0, 0.0, 0.0): {#prop-debug-color}
+
+The colour of the shape of this volume in the editor (and with Visible Collision Shapes): choose one to tell your volumes apart. A clear colour (alpha 0) leaves the colour Godot gives a shape
 
 ## Method descriptions
 

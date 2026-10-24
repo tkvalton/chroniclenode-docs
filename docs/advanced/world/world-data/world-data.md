@@ -18,8 +18,10 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `int` | [item_level](#prop-item-level) | `0` |
 | `Array[int]` | [unique_entities](#prop-unique-entities) | `[]` |
 | `Array[int]` | [unique_interactables](#prop-unique-interactables) | `[]` |
-| `Array[int]` | [regions](#prop-regions) | `[]` |
+| `Array[int]` | [trigger_areas](#prop-trigger-areas) | `[]` |
 | `Array[int]` | [encounters](#prop-encounters) | `[]` |
+| `Array[int]` | [zones](#prop-zones) | `[]` |
+| `int` | [default_zone_id](#prop-default-zone-id) | `0` |
 | `Texture` | [map_image](#prop-map-image) |  |
 | `Texture` | [loading_screen_texture_override](#prop-loading-screen-texture-override) |  |
 | `AudioAlbum` | [audio_album](#prop-audio-album) |  |
@@ -51,9 +53,9 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `void` | [add_unique_interactable](#method-add-unique-interactable)( `interactable_id: int` ) |
 | `void` | [remove_unique_interactable](#method-remove-unique-interactable)( `interactable_id: int` ) |
 | `bool` | [has_unique_interactable](#method-has-unique-interactable)( `interactable_id: int` ) |
-| `void` | [add_region](#method-add-region)( `region_id: int` ) |
-| `void` | [remove_region](#method-remove-region)( `region_id: int` ) |
-| `bool` | [has_region](#method-has-region)( `region_id: int` ) |
+| `void` | [add_trigger_area](#method-add-trigger-area)( `trigger_area_id: int` ) |
+| `void` | [remove_trigger_area](#method-remove-trigger-area)( `trigger_area_id: int` ) |
+| `bool` | [has_trigger_area](#method-has-trigger-area)( `trigger_area_id: int` ) |
 | `void` | [add_encounter](#method-add-encounter)( `encounter_id: int` ) |
 | `void` | [remove_encounter](#method-remove-encounter)( `encounter_id: int` ) |
 | `bool` | [has_encounter](#method-has-encounter)( `encounter_id: int` ) |
@@ -110,13 +112,21 @@ Unique entity IDs present in this world
 
 Unique interactable IDs present in this world
 
-### Array[int] regions = [] {#prop-regions}
+### Array[int] trigger_areas = [] {#prop-trigger-areas}
 
-Region IDs in this world
+Trigger area IDs in this world
 
 ### Array[int] encounters = [] {#prop-encounters}
 
 Encounter IDs in this world
+
+### Array[int] zones = [] {#prop-zones}
+
+The zones of this world (ZoneDefinition ids): its named places. Made in the Zones section of the Worlds editor; the terrain tool paints with them
+
+### int default_zone_id = 0 {#prop-default-zone-id}
+
+The zone of the whole map, wherever no zone is painted and no zone volume holds the place (0 = none)
 
 ### Texture map_image {#prop-map-image}
 
@@ -232,17 +242,17 @@ Remove reference to a unique interactable
 
 Check if world references a unique interactable
 
-### void add_region( region_id: int ) {#method-add-region}
+### void add_trigger_area( trigger_area_id: int ) {#method-add-trigger-area}
 
-Add reference to a region
+Add reference to a trigger area
 
-### void remove_region( region_id: int ) {#method-remove-region}
+### void remove_trigger_area( trigger_area_id: int ) {#method-remove-trigger-area}
 
-Remove reference to a region
+Remove reference to a trigger area
 
-### bool has_region( region_id: int ) {#method-has-region}
+### bool has_trigger_area( trigger_area_id: int ) {#method-has-trigger-area}
 
-Check if world references a region
+Check if world references a trigger area
 
 ### void add_encounter( encounter_id: int ) {#method-add-encounter}
 

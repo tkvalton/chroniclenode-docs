@@ -267,7 +267,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [UniquesDatabaseEditor](/advanced/editor/world/uniques-database-editor) | The editor of the Uniques tab (World &gt; Uniques): lists the placed NPCs and objects of every world, filtered by kind, world and a search bar, and shows the unique that is selected. |
 | [WorldConfigEditor](/advanced/editor/world/world-config-editor) | Main editor for all world configuration types (Sky, Environment, Sun, Time) Designed to work with a pre-built scene containing the four config editors |
 | [WorldDatabaseEditor](/advanced/editor/world/world-database-editor) | The editor of the Worlds tab (World &gt; Worlds): lists the world scenes with a search bar and a category filter, and edits the properties of the selected world (loading screen, persistence, level, audio, time, sun, sky and weather). |
-| [ZonesEditor](/advanced/editor/world/zones-editor) | The Zones editor (the ZoneDefinition database): the named places of the world. |
+| [WorldZonesSection](/advanced/editor/world/world-zones-section) | The **Zones** section of the Worlds editor: the named places of ONE world (Elderwood, its sub-zone The Old Mill, the Sunken Caves ...) and the default zone of the world. |
 <!-- /classes -->
 
 ### Viewport tools
@@ -279,7 +279,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [IdCatalogPropertyEditor](/advanced/editor/viewport-tools/id-catalog-property-editor) | Property editor for a whole number that is the id of a database entry (an item, a currency): a button that shows its name and opens the searchable catalog, and a clear button (sets 0). |
 | [ModularEquipmentTypeTagPropertyEditor](/advanced/editor/viewport-tools/modular-equipment-type-tag-property-editor) | The inspector editor of the equipment type tag of a modular equipment piece: a drop-down of the tags of the equipment types, which writes the chosen tag to the property. |
 | [SFXSelectionPropertyEditor](/advanced/editor/viewport-tools/sfx-selection-property-editor) | Property editor for SFXSelection resources using SFXSelectionDialog |
-| [UniqueObjectInspectorPlugin](/advanced/editor/viewport-tools/unique-object-inspector-plugin) | The inspector plugin that replaces the properties of a placed NPC, object, encounter, region or modular skeleton with the editors of the Unique Object panel. |
+| [UniqueObjectInspectorPlugin](/advanced/editor/viewport-tools/unique-object-inspector-plugin) | The inspector plugin that replaces the properties of a placed NPC, object, encounter, trigger area or modular skeleton with the editors of the Unique Object panel. |
 | [WorldTestLauncher](/advanced/editor/viewport-tools/world-test-launcher) | Starts the game straight in one world (no main menu): the Test World button of the Worlds editor and the one in the 3D viewport next to Terrain and Add Object both use it. |
 <!-- /classes -->
 
@@ -387,5 +387,6 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [ResourcePropertyForm](/advanced/editor/tools/resource-property-form) | Builds the fields of a resource from its exported variables, so a class that someone adds (a TurretSeat, a HoverDrive) is editable without an editor of its own: a switch for a bool, a number box for an int or a float (with the range of the export), a line for a String, a list for an enum, a color button, three boxes for a Vector3. |
 | [RPGShapeUtility](/advanced/editor/tools/rpg-shape-utility) | Unified utility class for creating RPG area effect shapes Supports both directional (origin-based, facing -Z) and centered (point-based) shapes Includes custom mesh shapes and Godot built-in shape wrappers |
 | [SkeletonSceneConverter](/advanced/editor/tools/skeleton-scene-converter) | Converts existing Skeleton3D scenes into GeneralSkeleton, ModularSkeleton, or CustomSkeleton Adds essential attachment points and weapon meshes based on skeleton type |
-| [WorldSceneValidator](/advanced/editor/tools/world-scene-validator) | Utility class for validating WorldScene context in editor Used by NPC, InteractableObject, and Region to ensure they're in a valid map |
+| [ToolbarIcons](/advanced/editor/tools/toolbar-icons) | Turns an SVG file into the picture of a toolbar button. |
+| [WorldSceneValidator](/advanced/editor/tools/world-scene-validator) | Utility class for validating WorldScene context in editor Used by NPC, InteractableObject, and Trigger area to ensure they're in a valid map |
 <!-- /classes -->

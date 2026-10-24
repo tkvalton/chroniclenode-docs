@@ -15,6 +15,10 @@ It works for the **player, the companions and NPCs**. It is **optional**: a game
 The volume does not need a mesh to work, and a mesh does not make water by itself. The look is the mesh; the surface is the top of the shape.
 :::
 
+## The colour in the editor
+
+Every volume (movement volume, audio zone, zone volume) and [trigger area](/basic/world/trigger-areas) has an **Editor > Debug Color**: the colour of its box in the 3D viewport (and with *Debug > Visible Collision Shapes* while playing). Water is blue, lava orange, weightless violet, an audio zone green, a trigger area pink, and a zone volume has the colour of its zone, so you tell them apart at a glance. Choose your own and it is put on the shape; a clear colour (alpha 0) leaves the colour Godot gives a shape. A preset keeps its colour.
+
 ## The look
 
 A volume draws **nothing** until you give it a look (so volumes made before this stay as they were). The **Look** section of the inspector:

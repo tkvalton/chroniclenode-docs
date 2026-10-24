@@ -70,8 +70,8 @@ The rows are in the order of the REGISTRY, grouped like the editor's categories.
 | `unique_entity` | `UniqueEntityData` | `src/data/unique_entities/` | [The Unique Object tool](/basic/world/unique-object-tool) |
 | `unique_interactable` | `UniqueInteractableData` | `src/data/unique_interactables/` | [The Unique Object tool](/basic/world/unique-object-tool) |
 | `unique_encounter` | `UniqueEncounterData` | `src/data/unique_encounters/` | [The Unique Object tool](/basic/world/unique-object-tool) |
-| **Regions** | | | |
-| `region` | `RegionData` | `src/data/regions/` | [Regions](/basic/world/regions) |
+| **Trigger areas** | | | |
+| `trigger_area` | `TriggerAreaData` | `src/data/trigger_areas/` | [Trigger areas](/basic/world/trigger-areas) |
 | **UI** | | | |
 | `popup` | `PopupData` | `src/data/popups/` | [Popups](/basic/events-and-quests/popups) |
 

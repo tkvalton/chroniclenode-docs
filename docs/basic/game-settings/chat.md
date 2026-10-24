@@ -138,14 +138,14 @@ A **line** is something an entity says, or something that is described. *Say*, *
 | **Animation**, **Sound** | The animation the speaker plays, and a sound (a voice line plays on the Voice channel with its subtitle) | none |
 | **Audience** | Who reads it (below) | Near |
 | **Range** | For *Near*: how far, in metres. `0` = the range of the channel (or of the emote) | `0` |
-| **Region** | For *Region*: the region the players have to be in | none |
+| **Trigger area** | For *Trigger area*: the trigger area the players have to be in | none |
 | **Bubble seconds** | How long a [speech bubble](#speech-bubbles) stays over the speaker. `0` = none | `5` |
 
 | Audience | Who gets the line |
 |---|---|
 | **Near** | The players within the range of the channel of the line, from the speaker (or from the point when nobody speaks) |
 | **Everyone** | Every player |
-| **Region** | Only the players who are in that [region](/basic/world/regions) |
+| **Trigger area** | Only the players who are in that [trigger area](/basic/world/trigger-areas) |
 | **The player who triggered it** | The one who used the switch or talked to the NPC |
 
 The speaker plays the animation and the sound whoever hears the line. A line with no speaker ("The ground rumbles.") is heard from the point it starts at. The texts of lines inside events, behavior scripts and combat scripts are translated like the other names: they are collected by the [Localization](/basic/game-settings/localization) tab under the keys `event/<id>/line/<n>`, `behavior_script/<id>/line/<n>` and `combat_script/<id>/line/<n>`, numbered in the order they come in the data (adding a line in the middle moves the numbers of the ones after it, so a translation is marked *needs review*).
@@ -154,7 +154,7 @@ The speaker plays the animation and the sound whoever hears the line. A line wit
 
 | Where | How |
 |---|---|
-| **A [Speak interaction](/basic/entities/interaction-types#speak)** of an NPC or an object | Its text is also written in the chat. **Kind** (say, yell or emote), **Emote**, **Audience**, **Range** and **Region** are in its *Chat* group; the default audience is the player who talked to it |
+| **A [Speak interaction](/basic/entities/interaction-types#speak)** of an NPC or an object | Its text is also written in the chat. **Kind** (say, yell or emote), **Emote**, **Audience**, **Range** and **Trigger area** are in its *Chat* group; the default audience is the player who talked to it |
 | **An NPC behavior task**, *Say or Emote* | The NPC says the line while it idles or walks its route: the guard yawns, the merchant calls out his wares. *Wait seconds* keeps the task going while the animation plays |
 | **A combat action**, *Say or Emote* | The NPC says the line in a fight. Put conditions on it (health below 50%) and a cooldown |
 | **An event action**, *Say or Emote* | An NPC (by its unique id) says it, or nobody does and it describes something. A target (for an emote), an origin for the range, and the line |

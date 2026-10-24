@@ -1,10 +1,10 @@
 <!-- generated from the code comments by scripts/scan-classes.mjs: change the comments in the code, not this page -->
 
-# RegionData
+# TriggerAreaData
 
 **Inherits:** [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Map this region belongs to
+Map this trigger area belongs to
 
 ## Properties
 
@@ -19,7 +19,7 @@ Map this region belongs to
 
 ### int map_id = 0 {#prop-map-id}
 
-Map this region belongs to
+Map this trigger area belongs to
 
 ### Vector3 world_position = Vector3.ZERO {#prop-world-position}
 
@@ -31,5 +31,5 @@ Rotation in world space
 
 ### bool is_active = true {#prop-is-active}
 
-Whether this region is currently active
+Whether this trigger area is currently active
 

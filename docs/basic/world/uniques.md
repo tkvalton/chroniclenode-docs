@@ -8,7 +8,7 @@ You do not make uniques here. You place objects with [Add Object](/basic/world/a
 
 | Control | What it does |
 |---|---|
-| **Type** | Which kind to list: **Entities** (NPCs), **Interactables**, **Regions** or **Encounters** |
+| **Type** | Which kind to list: **Entities** (NPCs), **Interactables**, **Trigger areas** or **Encounters** |
 | **Map** | Only the uniques of one world, or *All Maps* |
 | **Search** | Filters by name |
 | **Refresh** | Reads the list again |
@@ -32,7 +32,7 @@ What each kind can override:
 |---|---|
 | **NPC** | Active or hidden at the start, spawn delay, respawn time, killable once, despawn on death, **level**, model scale, [faction](/basic/behaviors/factions), experience worth and multiplier, **entity tags** (added, removed), behavior script, combat script, **loot rules**, (the older loot table and starting inventory), **stats**, interaction |
 | **Interactable** | Faction, lock item, **entity tags** (added, removed), interaction [cooldown](/basic/keywords#cooldown), damage threshold, whether it can be targeted directly or by area abilities, stats, **loot rules**, interaction |
-| **Region** | Its area name (set on the node) |
+| **Trigger area** | Its area name (set on the node) |
 | **Encounter** | Formation, behavior, auto-join, reactions (the whole encounter is one unique) |
 
 **Loot rules** of a placed NPC or object **replace** all the [rules](/basic/items/loot-rules) of its definition when it has any: a unique boss with its own table, a chest with its own contents. Leave the list empty to use the definition's.

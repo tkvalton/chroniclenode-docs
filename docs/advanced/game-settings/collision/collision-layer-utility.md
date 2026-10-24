@@ -67,7 +67,7 @@ The options of collision layer: world terrain, player characters, all npcs, envi
 - **ITEMS_LOOT** = `8`
 - **PLAYER_PETS** = `9`
 - **AREA_EFFECTS** = `10`
-- **REGIONS** = `11`
+- **TRIGGER_AREAS** = `11`
 - **CAMERA_DETECTION** = `12`
 - **MOUSE_DETECTION** = `13`
 

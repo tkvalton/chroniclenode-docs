@@ -6,7 +6,7 @@ An event looks like this in the editor:
 
 ```text
 Event: The mill is haunted
-├─ Triggers     Region Detection Player: The Old Mill, enters
+├─ Triggers     Trigger area Detection Player: The Old Mill, enters
 ├─ Conditions   Global Variable: mill_cleared is false
 └─ Actions      1. Spawn Entity: Ghost, at the mill door
                 2. Popup: "You hear a cold whisper..." (wait until closed)
@@ -27,15 +27,15 @@ The list on the left has every event. **Add** makes a new one. The right side ha
 
 ## Triggers: when
 
-A trigger is something the game can notice: an NPC dies, the party enters a region, a quest completes, the clock reaches 06:00. [Event triggers](/basic/events-and-quests/event-triggers) lists all of them by category.
+A trigger is something the game can notice: an NPC dies, the party enters a trigger area, a quest completes, the clock reaches 06:00. [Event triggers](/basic/events-and-quests/event-triggers) lists all of them by category.
 
 - An event can have **several triggers**. Any one of them starts it.
-- Each trigger has its own fields (which NPC, which region, how many).
+- Each trigger has its own fields (which NPC, which trigger area, how many).
 - Triggers are set up when the game starts and **set up again after every change of world**; a trigger does not forget what it counted.
 
 ## Conditions: if
 
-When a trigger fires, the event checks its **conditions**. They are the same [conditions](/basic/shared-systems/conditions) you use elsewhere: *Is level*, *Quest completed*, *Has item*, *Game time*, *Global variable*, *Player region presence*. **All of them must be true** (use the *Or* condition to say "any of these"). If one is not true, the event does not start, and nothing else happens.
+When a trigger fires, the event checks its **conditions**. They are the same [conditions](/basic/shared-systems/conditions) you use elsewhere: *Is level*, *Quest completed*, *Has item*, *Game time*, *Global variable*, *Player trigger area presence*. **All of them must be true** (use the *Or* condition to say "any of these"). If one is not true, the event does not start, and nothing else happens.
 
 ## Actions: do
 
@@ -64,7 +64,7 @@ Each event has its own **local variables**: named values of type int, float, boo
 
 **A door that opens when a switch is flipped.** Trigger: *Object Switch State Change* (the switch, turned on). Action: *Control Door* (the door, open).
 
-**A trap on the road.** Trigger: *Region Detection Player* (the road, enters). Condition: *Global Variable* `ambush_done` is false. Actions: *Spawn Entity* (three bandits), *Popup* ("Ambush!"), *Set Global Variable* `ambush_done` = true.
+**A trap on the road.** Trigger: *Trigger area Detection Player* (the road, enters). Condition: *Global Variable* `ambush_done` is false. Actions: *Spawn Entity* (three bandits), *Popup* ("Ambush!"), *Set Global Variable* `ambush_done` = true.
 
 **Hand out a quest at sunrise.** Trigger: *Game Time* 06:00. Action: *Activate Quest* (the daily quest). A quest that is already running is left as it is; one that was done or is on a cooldown starts again, because the event decides.
 

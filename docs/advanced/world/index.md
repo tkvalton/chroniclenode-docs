@@ -1,6 +1,6 @@
 # World: how it is built
 
-The [World chapter](/basic/world/) explains the editors. This page is the map of the code: what a world is made of, what happens when one is loaded, and how it is remembered. The other pages of this section cover the editor tools ([Add Object](/advanced/world/add-object), [the Unique Object tool](/advanced/world/unique-object-tool)) the placed object types that need a runtime of their own ([Regions](/advanced/world/regions), [Encounters](/advanced/world/encounters)) and the spaces that change how whoever is in them moves ([Movement volumes](/advanced/world/movement-volumes), [Audio zones](/advanced/world/audio-zones)).
+The [World chapter](/basic/world/) explains the editors. This page is the map of the code: what a world is made of, what happens when one is loaded, and how it is remembered. The other pages of this section cover the editor tools ([Add Object](/advanced/world/add-object), [the Unique Object tool](/advanced/world/unique-object-tool)) the placed object types that need a runtime of their own ([Trigger areas](/advanced/world/trigger-areas), [Encounters](/advanced/world/encounters)) and the spaces that change how whoever is in them moves ([Movement volumes](/advanced/world/movement-volumes), [Audio zones](/advanced/world/audio-zones)).
 
 ## The pieces
 
@@ -9,9 +9,9 @@ The [World chapter](/basic/world/) explains the editors. This page is the map of
 | [`WorldData`](/advanced/world/world-data/world-data) | The **definition** of a world: a database resource (type `world`) with the scene path, persistence, audio, weather and config overrides | `data_classes/world/` |
 | [`WorldScene`](/advanced/world/runtime/world-scene) | The root node of the scene of a world. Holds the `WorldData`, the party spawn, the respawn points, the terrain provider and the minimap and preview generators | `runtime_classes/world/` |
 | [`WorldContainer`](/advanced/world/runtime/world-container) | A node of the [game host](/advanced/game-host). Loads and unloads worlds, remembers them, applies their environment, positions the party | |
-| [`ObjectRegistry`](/advanced/world/runtime/object-registry) | A `RefCounted` that knows every NPC, interactable, region and encounter of the loaded world, saves and restores them, and runs the level of detail | |
-| `UniqueEntityData`, `UniqueInteractableData`, `RegionData`, `UniqueEncounterData` | The **uniques**: one database resource per placed object (types `unique_entity`, `unique_interactable`, `region`, `unique_encounter`) | `data_classes/world/` |
-| [`Region`](/advanced/world/runtime/region), [`Encounter`](/advanced/world/runtime/encounter) | The nodes of the two objects that are not entities | `runtime_classes/world/` |
+| [`ObjectRegistry`](/advanced/world/runtime/object-registry) | A `RefCounted` that knows every NPC, interactable, trigger area and encounter of the loaded world, saves and restores them, and runs the level of detail | |
+| `UniqueEntityData`, `UniqueInteractableData`, `TriggerAreaData`, `UniqueEncounterData` | The **uniques**: one database resource per placed object (types `unique_entity`, `unique_interactable`, `trigger_area`, `unique_encounter`) | `data_classes/world/` |
+| [`TriggerArea`](/advanced/world/runtime/trigger-area), [`Encounter`](/advanced/world/runtime/encounter) | The nodes of the two objects that are not entities | `runtime_classes/world/` |
 | `WeatherSystem`, `WorldSun`, `WorldSkyEnvironment`, the fog system | The look of the world | |
 
 A world is a [definition and an instance](/advanced/definitions-and-instances) in the usual sense: `WorldData` is the shared, never-changed definition; what the party did in it (dead NPCs, open chests) is the state the container keeps.
@@ -23,7 +23,7 @@ A world is a [definition and an instance](/advanced/definitions-and-instances) i
 1. Refuses if a load is already running or the data has no scene.
 2. **`unload_current_world()`**: captures what the world remembers (see below) into a cache, then frees the scene and clears the registry.
 3. Loads the scene (with the loading screen), adds it to the container and waits for `world_scene_ready`, so collision and physics exist.
-4. Registers the objects: `WorldScene` collects the nodes of its containers (`Entities`, `Interactables`, `Regions`) and the registry registers each one by its unique id. An NPC placed in the scene is `placed_*`; one spawned while the game runs is `dynamic_*`.
+4. Registers the objects: `WorldScene` collects the nodes of its containers (`Entities`, `Interactables`, `TriggerAreas`) and the registry registers each one by its unique id. An NPC placed in the scene is `placed_*`; one spawned while the game runs is `dynamic_*`.
 5. Restores what the world remembered, if the party is arriving by a swap (a loaded game restores in phase 4 of the load instead).
 6. Sets up the **fog of war** for the world and restores its explored image.
 7. Positions the party (`_position_party_at_spawn`), by priority: the pending **spawn override** (a rabbit hole id, or an exact position and rotation), else the `party_spawn` marker.
@@ -55,7 +55,7 @@ The spawn override is a dictionary: `{"type": "rabbit_hole", "id": <unique id of
 - spawns (`spawn_npc`, `spawn_pet`, `spawn_interactable`, `spawn_dynamic_entity`);
 - saves (`to_save_data`: placed objects by unique id with their state, dynamic ones with their definition id and position) and restores (`from_save_data`). A placed NPC that is not in the save is removed from the scene; a dynamic one is made again from its definition.
 
-Encounters and regions are registered for lookup (`get_encounter`, `get_region`). An encounter saves its state and whether it is active (`placed_encounters`); its members are NPCs and are saved as NPCs. A region has nothing to save.
+Encounters and trigger areas are registered for lookup (`get_encounter`, `get_trigger_area`). An encounter saves its state and whether it is active (`placed_encounters`); its members are NPCs and are saved as NPCs. A trigger area has nothing to save.
 
 The registry hooks the party for the [NPC level scaling](/advanced/entities/) rules: when the party's levels change, living NPCs rescale (see [`NpcLevels`](/advanced/entities/runtime/npc-levels)).
 
@@ -63,7 +63,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 
 | You want | Do |
 |---|---|
-| **A new kind of placed object** | A node that creates its own unique data in the editor (see `Region` and `Encounter`: a `_check_and_create_*` on enter, a sync on `scene_pre_save`, a cleanup on delete), is registered by `ObjectRegistry` (`register_*`), and is collected by `WorldScene`. Add a choice to `AddObjectToolbarManager` |
+| **A new kind of placed object** | A node that creates its own unique data in the editor (see `TriggerArea` and `Encounter`: a `_check_and_create_*` on enter, a sync on `scene_pre_save`, a cleanup on delete), is registered by `ObjectRegistry` (`register_*`), and is collected by `WorldScene`. Add a choice to `AddObjectToolbarManager` |
 | **A new world config field** | Add an `@export` to `TimeConfig`, `SunConfig`, `SkyConfig` or `EnvironmentConfig`; the config editor builds its fields from the exports, and groups with `@export_group`. Apply it in `ChronoManager`, `WorldSun` or `WorldSkyEnvironment` |
 | **A new spawn override** | Add a `match` branch to `WorldContainer._apply_gameroot_spawn_override` |
 | **A new persistence rule** | `WorldContainer._get_saved_world_state` and `_capture_current_world_state` |
@@ -75,7 +75,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 <!-- classes:world/world-data -->
 | Class | What it is |
 |---|---|
-| [RegionData](/advanced/world/world-data/region-data) | Map this region belongs to |
+| [TriggerAreaData](/advanced/world/world-data/trigger-area-data) | Map this trigger area belongs to |
 | [UniqueEncounterData](/advanced/world/world-data/unique-encounter-data) | UniqueEncounterData defines both the behavior AND unique instance data for an encounter. |
 | [UniqueEntityData](/advanced/world/world-data/unique-entity-data) | A placed NPC: what the world keeps about one NPC in one world. |
 | [UniqueInteractableData](/advanced/world/world-data/unique-interactable-data) | A placed object: what the world keeps about one interactable in one world. |
@@ -128,12 +128,12 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [Light](/advanced/world/runtime/light) | LightEffect manages light sources and associated audio effects in the game world. |
 | [MovementVolume](/advanced/world/runtime/movement-volume) | A space that changes how whoever is in it moves: water to swim in, a room with no gravity, a cloud to fly through, a pool of lava that hurts. |
 | [MovementVolumeCamera](/advanced/world/runtime/movement-volume-camera) | The look the screen gets while the camera is inside a movement volume (underwater: a tint over the screen and fog; the sound is the business of AudioProfileStack). |
-| [ObjectRegistry](/advanced/world/runtime/object-registry) | ObjectRegistry - manages all NPCs, Interactables, Regions, and special Encounters with advanced LOD system Integrated with CombatSystem's encounter management for coordinated combat behavior Features configurable LOD system via GameplayConfig, behavior optimization, and comprehensive performance management Handles registration, spawning, interaction tracking, and state management Provides centralized access for quest systems, events, and ability effects |
-| [Region](/advanced/world/runtime/region) | Region node that creates and manages its own RegionData in the database. |
+| [ObjectRegistry](/advanced/world/runtime/object-registry) | ObjectRegistry - manages all NPCs, Interactables, Trigger areas, and special Encounters with advanced LOD system Integrated with CombatSystem's encounter management for coordinated combat behavior Features configurable LOD system via GameplayConfig, behavior optimization, and comprehensive performance management Handles registration, spawning, interaction tracking, and state management Provides centralized access for quest systems, events, and ability effects |
 | [SpaceVolume](/advanced/world/runtime/space-volume) | A space in a world, given by the shape of its CollisionShape3D child (a box, sphere, cylinder or capsule). |
 | [TerraBrushProvider](/advanced/world/runtime/terra-brush-provider) | Tells which surface type the ground is at a position on a TerraBrush terrain: the texture under the position is looked up in `texture_surface_map`, and `default_surface` is used when it has no entry. |
 | [Terrain3DProvider](/advanced/world/runtime/terrain3-d-provider) | Tells which surface type the ground is at a position on a Terrain3D terrain: the texture under the position is looked up in `texture_surface_map`, and `default_surface` is used when it has no entry. |
 | [TerrainProvider](/advanced/world/runtime/terrain-provider) | The terrain of a world, seen by the TerrainService. |
+| [TriggerArea](/advanced/world/runtime/trigger-area) | Trigger area node that creates and manages its own TriggerAreaData in the database. |
 | [VolumeLook](/advanced/world/runtime/volume-look) | The look of a movement volume: a mesh made from its box shape (the top, the bottom or all six faces), with the material you give it (a shader, or a texture). |
 | [VoxelTerrainProvider](/advanced/world/runtime/voxel-terrain-provider) | Tells which surface type the ground is at a position on a voxel terrain (Voxel Tools): the voxel type under the position is looked up in `voxel_type_map`, and `default_surface` is used when it has no entry. |
 | [WeatherSystem](/advanced/world/runtime/weather-system) | Deals with weather application logic |

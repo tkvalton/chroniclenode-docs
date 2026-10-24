@@ -1,18 +1,17 @@
 <!-- generated from the code comments by scripts/scan-classes.mjs: change the comments in the code, not this page -->
 
-# RegionPresenceCondition
+# PlayerTriggerAreaPresenceCondition
 
 **Inherits:** [Condition](/advanced/shared-systems/condition-bases/condition) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Checks if entities are present in a specific region
+Checks if players are present in a specific trigger area
 
 ## Properties
 
 | | | |
 |---|---|---|
-| `int` | [region_id](#prop-region-id) | `0` |
-| `int` | [entity_unique_id](#prop-entity-unique-id) | `0` |
-| `int` | [required_faction](#prop-required-faction) | `0` |
+| `int` | [trigger_area_id](#prop-trigger-area-id) | `0` |
+| `PlayerEventAction.PlayerTarget` | [player_slot](#prop-player-slot) | `PlayerEventAction.PlayerTarget.ALL_PLAYERS` |
 | `bool` | [require_presence](#prop-require-presence) | `true` |
 
 ## Methods
@@ -29,21 +28,17 @@ Checks if entities are present in a specific region
 
 *Trigger Area Check*
 
-### int region_id = 0 {#prop-region-id}
+### int trigger_area_id = 0 {#prop-trigger-area-id}
 
-The region ID to check
+The trigger area ID to check
 
-### int entity_unique_id = 0 {#prop-entity-unique-id}
+### PlayerEventAction.PlayerTarget player_slot = PlayerEventAction.PlayerTarget.ALL_PLAYERS {#prop-player-slot}
 
-The specific entity unique ID to look for (0 = any entity)
-
-### int required_faction = 0 {#prop-required-faction}
-
-Required faction (empty = any faction)
+Which player slot to check for
 
 ### bool require_presence = true {#prop-require-presence}
 
-Whether entity should be present (true) or absent (false)
+Whether player should be present (true) or absent (false)
 
 ## Method descriptions
 

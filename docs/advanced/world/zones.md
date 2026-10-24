@@ -2,7 +2,7 @@
 
 This page is for developers. For the fields and the way to use them, see [Zones](/basic/world/zones).
 
-A zone is a database record with a name and a parent. **Where** zones are is kept in three places and the **tracker** says which one the party is in. Nothing here moves anyone or changes the look of the world: a zone only names a place.
+A zone is a database record with a name and a parent, **kept in the zone list of its world** (`WorldData.zones`; the default zone is `WorldData.default_zone_id`). **Where** zones are is kept in three places and the **tracker** says which one the party is in. Nothing here moves anyone or changes the look of the world: a zone only names a place.
 
 ## The pieces
 
@@ -14,6 +14,7 @@ A zone is a database record with a name and a parent. **Where** zones are is kep
 | `TerrainZoneBrush` | The three zone tools (paint, fill, erase) of the terrain editor |
 | [`ZoneVolume`](/advanced/world/runtime/zone-volume) | A `SpaceVolume` with `zone_id` and `zone_priority` (not `priority`: `Area3D` has one). In the group `zone_volumes` while the game runs; no monitoring, no layers |
 | [`ZoneTracker`](/advanced/world/runtime/zone-tracker) | Child of the `WorldContainer` (`world_container.zone_tracker`). Looks at the player in control every 0.2 s and fires the signals |
+| [`WorldZonesSection`](/advanced/editor/world/world-zones-section) | The Zones section of the Worlds editor, built in code: the zones of one world as a tree, the default zone, the fields of the chosen zone. `add_zone`, `delete_zone`, `world_changed` |
 | [`ZoneBanner`](/advanced/user-interface/in-game/zone-banner) | The banner of the screen, made by the `UIManager` and connected to `banner_requested` |
 | [`ZoneTrigger`](/advanced/events-and-quests/triggers-zone/zone-trigger) and [`PlayerInZoneCondition`](/advanced/shared-systems/general-conditions/player-in-zone-condition) | The event trigger (also the quest objective *Reach the zone*) and the condition |
 
@@ -40,7 +41,7 @@ The overlay is a pass of the terrain material (`terrain_overlay.gdshader`): the 
 
 1. every `ZoneVolume` of the group that contains the point (`contains_point`) and names a zone that exists: the highest `zone_priority`, then the smallest shape (`get_shape_size`);
 2. else the terrain's painted zone, when it exists in the database;
-3. else `default_zone_id` (`WorldScene.default_zone_id`) when it exists;
+3. else `default_zone_id` (`WorldData.default_zone_id` of the world scene) when it exists;
 4. else 0.
 
 A zone that does not exist counts as no zone at every step, so a deleted zone never leaves a ghost.
@@ -62,14 +63,14 @@ Any node with a `show_zone(title, subtitle)` method can take the place of `ZoneB
 
 ## The editor
 
-- `ZonesEditor` is a `ResourceEditor` (Database > World > Zones). Its *Part of* menu is made by `_fill_parent_options`: no parent, then every other zone in tree order (indented), without the zone itself and the zones inside it.
+- There is no zones tab in the Database: `WorldZonesSection` is in the Worlds editor. Its *Part of* menu lists the other zones of the world in tree order (indented), without the zone itself and the zones inside it. `ZoneLookup.get_tree_list(only_ids)` limits the list to the zones of one world (null = every zone; an empty list = none).
 - The placement tool lists **Zone volume** with the other volumes (`PlacementKinds`, key `zone_volume`).
-- A `WorldScene` and a `ZoneVolume` show their zone as a button that opens the catalog of zones (`UniqueObjectInspectorPlugin`, `IdCatalogPropertyEditor`), like the item of a dropped item.
-- `TerrainPaletteBar.Mode.ZONES` is the zone bar; `TerrainStrokeHandler.uses_zone` tells the options bar to show the swatch and the editor tool to show the bar (and to turn the zone overlay on); `uses_radius` and `get_ring_radius()` let a tool that works in squares show a ring of its own size.
+- A `ZoneVolume` shows its zone as a button that opens the catalog of zones (`UniqueObjectInspectorPlugin`, `IdCatalogPropertyEditor`), like the item of a dropped item.
+- `TerrainPaletteBar.Mode.ZONES` is the zone bar (it lists the zones of the `WorldScene` being edited); `TerrainStrokeHandler.uses_zone` tells the options bar to show the swatch and the editor tool to show the bar (and to turn the zone overlay on); `uses_radius` and `get_ring_radius()` let a tool that works in squares show a ring of its own size.
 
 ## Tests
 
-`tests/terrain_zones_audit.gd` (53 checks): the zone type and its chains, painting, filling, the palette of a tile (255 numbers), undo and redo, the three tools, saving into the tile and reading it back, removing a tile. `tests/zones_runtime_audit.gd` (48 checks): which zone a place is in, the tracker's events and banner rules, the trigger, the condition, the tokens and the banner.
+`tests/zones_world_check.gd` (23 checks: the section, a world's own zones, parents, the default zone, deleting), `tests/terrain_zones_audit.gd` (53 checks): the zone type and its chains, painting, filling, the palette of a tile (255 numbers), undo and redo, the three tools, saving into the tile and reading it back, removing a tile. `tests/zones_runtime_audit.gd` (48 checks): which zone a place is in, the tracker's events and banner rules, the trigger, the condition, the tokens and the banner.
 
 ## What is not done
 

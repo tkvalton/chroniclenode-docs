@@ -18,7 +18,7 @@ A spawner lives in an **area**. There will be two ways to make one:
 | **A volume** | A shape you place in the 3D view (a box, a sphere, a cylinder): everything inside it counts |
 | **Painted terrain** | You **paint** the ground with a brush: a mask of where things may appear. This is the way for a forest edge, a riverbank or a mountain ridge, which are not boxes. It belongs to the [terrain tool of the World Builder](/planned/world-builder) |
 
-The area can be made to **avoid** places: water, steep ground, the inside of a [region](/basic/world/regions) that is a town, the spot next to a player.
+The area can be made to **avoid** places: water, steep ground, the inside of a [trigger area](/basic/world/trigger-areas) that is a town, the spot next to a player.
 
 ## What: spawn tables
 

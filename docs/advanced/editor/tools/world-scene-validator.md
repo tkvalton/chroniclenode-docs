@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-Utility class for validating WorldScene context in editor Used by NPC, InteractableObject, and Region to ensure they're in a valid map
+Utility class for validating WorldScene context in editor Used by NPC, InteractableObject, and Trigger area to ensure they're in a valid map
 
 ## Methods
 

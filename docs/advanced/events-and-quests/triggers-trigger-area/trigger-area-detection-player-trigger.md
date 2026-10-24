@@ -1,16 +1,16 @@
 <!-- generated from the code comments by scripts/scan-classes.mjs: change the comments in the code, not this page -->
 
-# RegionDetectionPlayerTrigger
+# TriggerAreaDetectionPlayerTrigger
 
 **Inherits:** [EventTrigger](/advanced/events-and-quests/bases/event-trigger) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Triggers when a player-controlled entity enters or exits a detection region
+Triggers when a player-controlled entity enters or exits a detection trigger area
 
 ## Properties
 
 | | | |
 |---|---|---|
-| `int` | [region_id](#prop-region-id) | `0` |
+| `int` | [trigger_area_id](#prop-trigger-area-id) | `0` |
 | `TriggerMode` | [trigger_mode](#prop-trigger-mode) | `TriggerMode.ON_ENTER` |
 | `PlayerTarget` | [player_target](#prop-player-target) | `PlayerTarget.CURRENT_PLAYER` |
 
@@ -18,8 +18,8 @@ Triggers when a player-controlled entity enters or exits a detection region
 
 | | | |
 |---|---|---|
-| `String` | [region_name](#var-region-name) | `""` |
-| `Region` | [target_region](#var-target-region) | `null` |
+| `String` | [trigger_area_name](#var-trigger-area-name) | `""` |
+| `TriggerArea` | [target_trigger_area](#var-target-trigger-area) | `null` |
 
 ## Methods
 
@@ -29,9 +29,9 @@ Triggers when a player-controlled entity enters or exits a detection region
 | `String` | [get_function_description](#method-get-function-description)() |
 | `void` | [setup](#method-setup)() |
 | `void` | [cleanup](#method-cleanup)() |
-| `void` | [find_target_region](#method-find-target-region)() |
-| `void` | [connect_region_signals](#method-connect-region-signals)() |
-| `void` | [disconnect_region_signals](#method-disconnect-region-signals)() |
+| `void` | [find_target_trigger_area](#method-find-target-trigger-area)() |
+| `void` | [connect_trigger_area_signals](#method-connect-trigger-area-signals)() |
+| `void` | [disconnect_trigger_area_signals](#method-disconnect-trigger-area-signals)() |
 | `bool` | [is_matching_player](#method-is-matching-player)( `body: Node3D` ) |
 | `bool` | [is_triggered](#method-is-triggered)( `event_data: Dictionary` ) |
 | `String` | [generate_objective_description](#method-generate-objective-description)() |
@@ -75,9 +75,9 @@ Reuse PlayerTarget enum from PlayerEventTrigger
 
 ## Property descriptions
 
-### int region_id = 0 {#prop-region-id}
+### int trigger_area_id = 0 {#prop-trigger-area-id}
 
-The region ID to track
+The trigger area ID to track
 
 ### TriggerMode trigger_mode = TriggerMode.ON_ENTER {#prop-trigger-mode}
 
@@ -89,13 +89,13 @@ Which player(s) to detect
 
 ## Variable descriptions
 
-### String region_name = "" {#var-region-name}
+### String trigger_area_name = "" {#var-trigger-area-name}
 
-Region name - auto-populated from the target region if it exists
+Trigger area name - auto-populated from the target trigger area if it exists
 
-### Region target_region = null {#var-target-region}
+### TriggerArea target_trigger_area = null {#var-target-trigger-area}
 
-Reference to the target Region
+Reference to the target Trigger area
 
 ## Method descriptions
 
@@ -115,17 +115,17 @@ Starts listening: connects the signals the trigger waits for.
 
 Stops listening: disconnects the signals of the trigger.
 
-### void find_target_region() {#method-find-target-region}
+### void find_target_trigger_area() {#method-find-target-trigger-area}
 
-Finds the region the trigger watches by its id.
+Finds the trigger area the trigger watches by its id.
 
-### void connect_region_signals() {#method-connect-region-signals}
+### void connect_trigger_area_signals() {#method-connect-trigger-area-signals}
 
-Connects the signals of the region (an entity enters, an entity leaves).
+Connects the signals of the trigger area (an entity enters, an entity leaves).
 
-### void disconnect_region_signals() {#method-disconnect-region-signals}
+### void disconnect_trigger_area_signals() {#method-disconnect-trigger-area-signals}
 
-Disconnects the signals of the region.
+Disconnects the signals of the trigger area.
 
 ### bool is_matching_player( body: Node3D ) {#method-is-matching-player}
 

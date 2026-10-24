@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-ObjectRegistry - manages all NPCs, Interactables, Regions, and special Encounters with advanced LOD system Integrated with CombatSystem's encounter management for coordinated combat behavior Features configurable LOD system via GameplayConfig, behavior optimization, and comprehensive performance management Handles registration, spawning, interaction tracking, and state management Provides centralized access for quest systems, events, and ability effects
+ObjectRegistry - manages all NPCs, Interactables, Trigger areas, and special Encounters with advanced LOD system Integrated with CombatSystem's encounter management for coordinated combat behavior Features configurable LOD system via GameplayConfig, behavior optimization, and comprehensive performance management Handles registration, spawning, interaction tracking, and state management Provides centralized access for quest systems, events, and ability effects
 
 ## Variables
 
@@ -19,7 +19,7 @@ ObjectRegistry - manages all NPCs, Interactables, Regions, and special Encounter
 | `Dictionary` | [placed_dropped_items](#var-placed-dropped-items) | `{}` |
 | `Dictionary` | [dynamic_dropped_items](#var-dynamic-dropped-items) | `{}` |
 | `Dictionary` | [taken_placements](#var-taken-placements) | `{}` |
-| `Dictionary` | [regions](#var-regions) | `{}` |
+| `Dictionary` | [trigger_areas](#var-trigger-areas) | `{}` |
 | `Dictionary` | [active_controllers](#var-active-controllers) | `{}` |
 | `Dictionary` | [entity_lod_levels](#var-entity-lod-levels) | `{}` |
 | `float` | [optimization_timer](#var-optimization-timer) | `0.0` |
@@ -37,7 +37,7 @@ ObjectRegistry - manages all NPCs, Interactables, Regions, and special Encounter
 | | |
 |---|---|
 | `void` | [process_lod](#method-process-lod)( `delta: float` ) |
-| `void` | [register_world_objects](#method-register-world-objects)( `entities: Array, interactables: Array, regions: Array, encounters: Array, dropped_items: Array = []` ) |
+| `void` | [register_world_objects](#method-register-world-objects)( `entities: Array, interactables: Array, trigger_areas: Array, encounters: Array, dropped_items: Array = []` ) |
 | `void` | [register_entity](#method-register-entity)( `entity: Entity` ) |
 | `Entity` | [get_entity](#method-get-entity)( `entity_unique_id: int` ) |
 | `Array[Entity]` | [get_entities_by_data_id](#method-get-entities-by-data-id)( `definition_id: int` ) |
@@ -48,14 +48,14 @@ ObjectRegistry - manages all NPCs, Interactables, Regions, and special Encounter
 | `void` | [unregister_entity](#method-unregister-entity)( `entity: Entity` ) |
 | `void` | [register_interactable](#method-register-interactable)( `interactable: InteractableObject` ) |
 | `void` | [unregister_interactable](#method-unregister-interactable)( `interactable: InteractableObject` ) |
-| `void` | [register_region](#method-register-region)( `region: Region` ) |
-| `void` | [unregister_region](#method-unregister-region)( `region: Region` ) |
+| `void` | [register_trigger_area](#method-register-trigger-area)( `trigger_area: TriggerArea` ) |
+| `void` | [unregister_trigger_area](#method-unregister-trigger-area)( `trigger_area: TriggerArea` ) |
 | `InteractableObject` | [get_interactable](#method-get-interactable)( `unique_id: int` ) |
 | `Array[InteractableObject]` | [get_all_interactables](#method-get-all-interactables)() |
 | `Array[InteractableObject]` | [get_placed_interactables](#method-get-placed-interactables)() |
 | `Array[InteractableObject]` | [get_dynamic_interactables](#method-get-dynamic-interactables)() |
-| `Region` | [get_region](#method-get-region)( `region_id: int` ) |
-| `Array[Region]` | [get_all_regions](#method-get-all-regions)() |
+| `TriggerArea` | [get_trigger_area](#method-get-trigger-area)( `trigger_area_id: int` ) |
+| `Array[TriggerArea]` | [get_all_trigger_areas](#method-get-all-trigger-areas)() |
 | `void` | [register_encounter](#method-register-encounter)( `encounter: Encounter` ) |
 | `Encounter` | [get_encounter](#method-get-encounter)( `encounter_unique_id: int` ) |
 | `Array[Encounter]` | [get_all_encounters](#method-get-all-encounters)() |
@@ -142,9 +142,9 @@ Dropped items made while the game runs (dropped by the player, loot, events), by
 
 The placed dropped items that were taken, by placement id: the seconds until they lie there again (-1 = never)
 
-### Dictionary regions =  {#var-regions}
+### Dictionary trigger_areas =  {#var-trigger-areas}
 
-Dictionary of placed regions keyed by unique_id for fast lookups
+Dictionary of placed trigger areas keyed by unique_id for fast lookups
 
 ### Dictionary active_controllers =  {#var-active-controllers}
 
@@ -196,7 +196,7 @@ Track active interactions across all NPCs
 
 Thins out the behaviour of what is far from the player (called every frame by the WorldContainer: a RefCounted has no process of its own)
 
-### void register_world_objects( entities: Array, interactables: Array, regions: Array, encounters: Array, dropped_items: Array = [] ) {#method-register-world-objects}
+### void register_world_objects( entities: Array, interactables: Array, trigger_areas: Array, encounters: Array, dropped_items: Array = [] ) {#method-register-world-objects}
 
 Register all world objects at once (called by WorldContainer after world loads) This handles pre-placed objects from the WorldScene containers
 
@@ -240,13 +240,13 @@ Register an interactable with the manager (called during world loading or spawni
 
 Unregister an interactable from the manager
 
-### void register_region( region: Region ) {#method-register-region}
+### void register_trigger_area( trigger_area: TriggerArea ) {#method-register-trigger-area}
 
-Register an region with the manager (called during world loading or spawning)
+Register an trigger area with the manager (called during world loading or spawning)
 
-### void unregister_region( region: Region ) {#method-unregister-region}
+### void unregister_trigger_area( trigger_area: TriggerArea ) {#method-unregister-trigger-area}
 
-Unregister an region from the manager
+Unregister an trigger area from the manager
 
 ### InteractableObject get_interactable( unique_id: int ) {#method-get-interactable}
 
@@ -264,13 +264,13 @@ Get only placed interactables
 
 Get only dynamic interactables
 
-### Region get_region( region_id: int ) {#method-get-region}
+### TriggerArea get_trigger_area( trigger_area_id: int ) {#method-get-trigger-area}
 
-Get all regions
+Get all trigger areas
 
-### Array[Region] get_all_regions() {#method-get-all-regions}
+### Array[TriggerArea] get_all_trigger_areas() {#method-get-all-trigger-areas}
 
-Get all regions
+Get all trigger areas
 
 ### void register_encounter( encounter: Encounter ) {#method-register-encounter}
 

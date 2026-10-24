@@ -4,7 +4,7 @@
 
 **Inherits:** [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-UniqueEncounterData defines both the behavior AND unique instance data for an encounter. This is both the template (formation, tactics) AND the specific placement (position, defeated state). Similar to how Region works - combines definition and instance in one resource.
+UniqueEncounterData defines both the behavior AND unique instance data for an encounter. This is both the template (formation, tactics) AND the specific placement (position, defeated state). Similar to how Trigger area works - combines definition and instance in one resource.
 
 ## Properties
 

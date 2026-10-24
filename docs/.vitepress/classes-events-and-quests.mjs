@@ -560,31 +560,31 @@ export const groups = [
   },
   {
     "text": "Triggers: trigger area",
-    "slug": "triggers-region",
+    "slug": "triggers-trigger-area",
     "classes": [
       {
-        "name": "RegionDetectionAnyEntityTrigger",
+        "name": "TriggerAreaDetectionAnyEntityTrigger",
         "base": "EventTrigger",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\region\\region_detection_any_entity_trigger.gd",
-        "file": "data_classes/events/event_triggers/region/region_detection_any_entity_trigger.gd"
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\trigger_area\\trigger_area_detection_any_entity_trigger.gd",
+        "file": "data_classes/events/event_triggers/trigger_area/trigger_area_detection_any_entity_trigger.gd"
       },
       {
-        "name": "RegionDetectionFactionTrigger",
+        "name": "TriggerAreaDetectionFactionTrigger",
         "base": "EventTrigger",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\region\\region_detection_entity_faction_trigger.gd",
-        "file": "data_classes/events/event_triggers/region/region_detection_entity_faction_trigger.gd"
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\trigger_area\\trigger_area_detection_entity_faction_trigger.gd",
+        "file": "data_classes/events/event_triggers/trigger_area/trigger_area_detection_entity_faction_trigger.gd"
       },
       {
-        "name": "RegionDetectionPlayerTrigger",
+        "name": "TriggerAreaDetectionPlayerTrigger",
         "base": "EventTrigger",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\region\\region_detection_player_entity_trigger.gd",
-        "file": "data_classes/events/event_triggers/region/region_detection_player_entity_trigger.gd"
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\trigger_area\\trigger_area_detection_player_entity_trigger.gd",
+        "file": "data_classes/events/event_triggers/trigger_area/trigger_area_detection_player_entity_trigger.gd"
       },
       {
-        "name": "RegionDetectionUniqueEntityTrigger",
+        "name": "TriggerAreaDetectionUniqueEntityTrigger",
         "base": "EventTrigger",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\region\\region_detection_unique_entity_trigger.gd",
-        "file": "data_classes/events/event_triggers/region/region_detection_unique_entity_trigger.gd"
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\trigger_area\\trigger_area_detection_unique_entity_trigger.gd",
+        "file": "data_classes/events/event_triggers/trigger_area/trigger_area_detection_unique_entity_trigger.gd"
       }
     ]
   },

@@ -144,7 +144,7 @@ A sign, a book on a lectern, a note on a corpse. Using it opens the reading pane
 | **Font**, **Text size**, **Outline size**, **Text color** | How it looks | |
 | **Text duration** | Seconds the line stays. A longer voice line makes it stay longer | `5` |
 | **Voice line**, **Animation** | A sound and a social animation that go with it. A voice line is speech: it plays on the Voice channel, in the voice language of the player, with its subtitle | none |
-| **Kind**, **Emote**, **Audience**, **Range**, **Region** | The text is also written in the [chat](/basic/game-settings/chat#lines): as something said, yelled or described, or as an emote of the library. By default the player who talked to it reads it | Say |
+| **Kind**, **Emote**, **Audience**, **Range**, **Trigger area** | The text is also written in the [chat](/basic/game-settings/chat#lines): as something said, yelled or described, or as an emote of the library. By default the player who talked to it reads it | Say |
 
 ### Show UI Panel
 

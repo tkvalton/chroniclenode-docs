@@ -15,8 +15,8 @@ What is known about the zones from the database alone: who is whose parent, the 
 | `bool` | [is_inside](#method-is-inside)( `zone_id: int, ancestor_id: int` ) *static* |
 | `int` | [get_top](#method-get-top)( `zone_id: int` ) *static* |
 | `String` | [get_full_name](#method-get-full-name)( `zone_id: int, separator: String = " > "` ) *static* |
-| `Array[ZoneDefinition]` | [get_children](#method-get-children)( `zone_id: int` ) *static* |
-| `Array[Dictionary]` | [get_tree_list](#method-get-tree-list)() *static* |
+| `Array[ZoneDefinition]` | [get_children](#method-get-children)( `zone_id: int, only_ids: Variant = null` ) *static* |
+| `Array[Dictionary]` | [get_tree_list](#method-get-tree-list)( `only_ids: Variant = null` ) *static* |
 
 ## Constants
 
@@ -44,11 +44,11 @@ The zone above this one that has no parent (the zone itself when it has none).
 
 The name of the zone with its parents: "Elderwood &gt; The Old Mill".
 
-### Array[ZoneDefinition] get_children( zone_id: int ) {#method-get-children}
+### Array[ZoneDefinition] get_children( zone_id: int, only_ids: Variant = null ) {#method-get-children}
 
-The zones whose parent is this one (0 = the zones with no parent), sorted by name.
+The zones whose parent is this one (0 = the zones with no parent), sorted by name. `only_ids` (null = every zone) limits it to a list of zones, for example the zones of one world: a zone whose parent is not in the list counts as having none.
 
-### Array[Dictionary] get_tree_list() {#method-get-tree-list}
+### Array[Dictionary] get_tree_list( only_ids: Variant = null ) {#method-get-tree-list}
 
-Every zone as a flat list in tree order (a zone, then its sub-zones indented one more level): [&#123;"id", "depth", "zone"&#125;]. A parent that does not exist counts as no parent.
+Every zone (or the zones of `only_ids`) as a flat list in tree order (a zone, then its sub-zones indented one more level): [&#123;"id", "depth", "zone"&#125;]. A parent that does not exist counts as no parent.
 

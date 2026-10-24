@@ -50,7 +50,7 @@ The tables go out as **CSV files** that a translator opens in a spreadsheet. A f
 
 | Where | Texts |
 |---|---|
-| **Names and descriptions** | Every type the player reads: abilities, effects (that last), items and their kinds, stats, pools, status effects, proficiencies, damage types, schools, NPCs, classes, interactable objects, factions, mounts, worlds, regions, currencies, recipes, schools of crafting, skill pools and trees, vendors, trainers, equipment definitions (slots, types, classes, qualities, affixes, sets, sockets) |
+| **Names and descriptions** | Every type the player reads: abilities, effects (that last), items and their kinds, stats, pools, status effects, proficiencies, damage types, schools, NPCs, classes, interactable objects, factions, mounts, worlds, trigger areas, currencies, recipes, schools of crafting, skill pools and trees, vendors, trainers, equipment definitions (slots, types, classes, qualities, affixes, sets, sockets) |
 | **Parts inside them** | The nodes of a skill tree, the levels of a faction, the lessons of a trainer, the tiers and specializations of a profession, the pages of a readable, the steps of a combo, the objectives of a quest |
 | **Quests and conversations** | Quest text and hand-in text, objective descriptions, the chats and responses of conversations, popup titles and texts |
 | **Messages** | The floating text and the log phrase of a trigger tag, the speech and menu line of an interaction, the requirement message of an interactable object, the title of a readable |

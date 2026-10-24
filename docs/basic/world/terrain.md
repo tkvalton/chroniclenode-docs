@@ -90,7 +90,7 @@ Both can be **undone** (Ctrl+Z). A new tile has no file until you save the scene
 
 ## Putting objects on the ground
 
-- **Add Object** puts a new NPC, interactable, region or other object on the ground that the middle of the 3D view looks at, so it appears where you are working. If the view looks at the sky or at nothing, it goes to the origin.
+- **Add Object** puts a new NPC, interactable, trigger area or other object on the ground that the middle of the 3D view looks at, so it appears where you are working. If the view looks at the sky or at nothing, it goes to the origin.
 - **Snap selected to the ground** (**Terrain settings > Objects**) puts the nodes you selected in the Scene dock on the terrain: the same place, the height of the ground. **Height above** raises them (a negative number sinks them) and **Tilt to the slope** makes them lean with the hill (their heading is kept). It can be undone. Objects over a hole or off the terrain are left where they are and the message says so. Godot's own *Snap Object to Floor* cannot find this terrain in the editor, so use this one.
 
 ## Saving

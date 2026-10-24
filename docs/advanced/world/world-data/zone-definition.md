@@ -8,7 +8,7 @@ A **zone**: a named place of the map ("Elderwood", "The Sunken Caves", "Port Hav
 
 ## Description
 
-Where a zone is, is not stored here: it is painted on the terrain (the zone layer of the Terrain tool), or given by a ZoneVolume placed in the world (a cave under a hill), or it is the default zone of the world (WorldScene.default_zone_id). ZoneLookup answers "which zone is this point in" and ZoneTracker watches where the party is. See docs: World &gt; Zones.
+Where a zone is, is not stored here: it is painted on the terrain (the zone layer of the Terrain tool), or given by a ZoneVolume placed in the world (a cave under a hill), or it is the default zone of the world (WorldData.default_zone_id). ZoneLookup answers "which zone is this point in" and ZoneTracker watches where the party is. See docs: World &gt; Zones.
 
 ## Properties
 

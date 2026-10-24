@@ -629,10 +629,10 @@ export const groups = [
         "file": "data_classes/conditions/general/player_in_zone_condition.gd"
       },
       {
-        "name": "PlayerRegionPresenceCondition",
+        "name": "PlayerTriggerAreaPresenceCondition",
         "base": "Condition",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\general\\region_player_presence_condition.gd",
-        "file": "data_classes/conditions/general/region_player_presence_condition.gd"
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\general\\player_trigger_area_presence_condition.gd",
+        "file": "data_classes/conditions/general/player_trigger_area_presence_condition.gd"
       },
       {
         "name": "QuestActiveEntityCondition",
@@ -653,16 +653,16 @@ export const groups = [
         "file": "data_classes/conditions/general/random_chance_condition.gd"
       },
       {
-        "name": "RegionPresenceCondition",
-        "base": "Condition",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\general\\region_entity_presence_condition.gd",
-        "file": "data_classes/conditions/general/region_entity_presence_condition.gd"
-      },
-      {
         "name": "SwitchStateCondition",
         "base": "EntityCondition",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\general\\switch_state_condition.gd",
         "file": "data_classes/conditions/general/switch_state_condition.gd"
+      },
+      {
+        "name": "TriggerAreaPresenceCondition",
+        "base": "Condition",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\general\\trigger_area_entity_presence_condition.gd",
+        "file": "data_classes/conditions/general/trigger_area_entity_presence_condition.gd"
       }
     ]
   },

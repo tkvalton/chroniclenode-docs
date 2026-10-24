@@ -153,14 +153,14 @@ A [quest](/basic/events-and-quests/quests) changes state.
 
 ## Trigger area
 
-Something enters or leaves a [trigger area](/basic/world/regions) (a region).
+Something enters or leaves a [trigger area](/basic/world/trigger-areas) (a trigger area).
 
 | Trigger | What it does |
 |---|---|
-| [**Trigger Area Detection Any Entity**](/advanced/events-and-quests/triggers-region/region-detection-any-entity-trigger) (`RegionDetectionAnyEntityTrigger`) | Triggers when any entity enters or exits a detection region |
-| [**Trigger Area Detection Faction**](/advanced/events-and-quests/triggers-region/region-detection-faction-trigger) (`RegionDetectionFactionTrigger`) | Triggers when an entity of a specific faction enters or exits a detection region |
-| [**Trigger Area Detection Player**](/advanced/events-and-quests/triggers-region/region-detection-player-trigger) (`RegionDetectionPlayerTrigger`) | Triggers when a player-controlled entity enters or exits a detection region |
-| [**Trigger Area Detection Unique Entity**](/advanced/events-and-quests/triggers-region/region-detection-unique-entity-trigger) (`RegionDetectionUniqueEntityTrigger`) | Triggers when a specific entity (by unique_id) enters or exits a detection region |
+| [**Trigger Area Detection Any Entity**](/advanced/events-and-quests/triggers-trigger-area/trigger-area-detection-any-entity-trigger) (`TriggerAreaDetectionAnyEntityTrigger`) | Triggers when any entity enters or exits a detection trigger area |
+| [**Trigger Area Detection Faction**](/advanced/events-and-quests/triggers-trigger-area/trigger-area-detection-faction-trigger) (`TriggerAreaDetectionFactionTrigger`) | Triggers when an entity of a specific faction enters or exits a detection trigger area |
+| [**Trigger Area Detection Player**](/advanced/events-and-quests/triggers-trigger-area/trigger-area-detection-player-trigger) (`TriggerAreaDetectionPlayerTrigger`) | Triggers when a player-controlled entity enters or exits a detection trigger area |
+| [**Trigger Area Detection Unique Entity**](/advanced/events-and-quests/triggers-trigger-area/trigger-area-detection-unique-entity-trigger) (`TriggerAreaDetectionUniqueEntityTrigger`) | Triggers when a specific entity (by unique_id) enters or exits a detection trigger area |
 
 ## Zone
 

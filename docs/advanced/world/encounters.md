@@ -1,12 +1,12 @@
 # Encounters: how they are built
 
-An [`Encounter`](/advanced/world/runtime/encounter) is a `Node3D` that coordinates the NPCs that are its children. Like a region it makes and keeps its own record, here a [`UniqueEncounterData`](/advanced/world/world-data/unique-encounter-data), which holds both the **settings** (the formation, the behavior, the reactions) and the **placement** (position and rotation): an encounter is one object, with no separate definition.
+An [`Encounter`](/advanced/world/runtime/encounter) is a `Node3D` that coordinates the NPCs that are its children. Like a trigger area it makes and keeps its own record, here a [`UniqueEncounterData`](/advanced/world/world-data/unique-encounter-data), which holds both the **settings** (the formation, the behavior, the reactions) and the **placement** (position and rotation): an encounter is one object, with no separate definition.
 
 ## Lifecycle
 
 | Step | What happens |
 |---|---|
-| In the editor | The node makes its `UniqueEncounterData` (`_check_and_create_unique_data`), syncs the position on `scene_pre_save` and removes the record when really deleted, like a [region](/advanced/world/regions) |
+| In the editor | The node makes its `UniqueEncounterData` (`_check_and_create_unique_data`), syncs the position on `scene_pre_save` and removes the record when really deleted, like a [trigger area](/advanced/world/trigger-areas) |
 | The world loads | The registry calls `initialize_encounter(system_hub)`: caches the NPC children as the **original group members** (`original_group_members` and `group_member_lookup` for fast tests), deep-copies the reactions (`_setup_reactions`: each encounter node has its own copies of the shared resources, with their state), connects the signals of each member and sets the spacing timer |
 | A member enters combat | `_on_entity_entity_combat_state_changed`: if the encounter is `OUT_OF_COMBAT`, `_start_group_combat` (state `IN_COMBAT`, the formation is applied, `encounter_combat_started`) and the [`CombatManager`](/advanced/entity-stats/combat/combat-manager) is told (`handle_unique_encounter_combat_started`). With `auto_join_combat`, `_force_all_children_into_combat` sets the target of every living member that is not fighting and makes it enter combat |
 | A member leaves combat | `_check_group_combat_end`: if no original member is in combat, `_end_group_combat("no_combatants")` |

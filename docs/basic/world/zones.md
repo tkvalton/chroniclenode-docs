@@ -5,24 +5,23 @@ A **zone** is a **named place of the map**: *Elderwood*, *The Sunken Caves*, *Po
 A zone can have a **parent**: *The Old Mill* is a **sub-zone** of *Elderwood*. A party in the Old Mill is also in Elderwood.
 
 ::: info Not to be mixed up with trigger areas
-A [trigger area](/basic/world/regions) (what used to be called a region) is an invisible area that events *watch*. A zone is a named place of the map. A zone can be as small as a house, a trigger area as big as a field: they are two different tools.
+A [trigger area](/basic/world/trigger-areas) (formerly called a region) is an invisible area that events *watch*. A zone is a named place of the map. A zone can be as small as a house, a trigger area as big as a field: they are two different tools.
 :::
 
 ## Making zones
 
-**Database > World > Zones.** Make a zone with the **+** button and fill in:
+Zones belong to a **world**. Open the **Worlds** editor (Database > World > Worlds), choose the world and open its **Zones** section. **Add zone** makes a zone of this world, **Add sub-zone** makes one inside the zone chosen in the list, **Delete** takes one away (its sub-zones become part of its parent). The list shows the zones in tree order; choose one and fill in:
 
 | Field | What it does | Default |
 |---|---|---|
-| **Display name** | The name on the banner and in texts (`<zone>`) | the name you gave it |
+| **Name** | The name on the banner and in texts (`<zone>`) | New zone |
 | **Description** | Free text for you (and your own map or journal) | empty |
-| **Color** | The colour of the zone on the terrain editor's overlay and in the zone bar | green |
-| **Icon** | A picture for your own interface | none |
+| **Color** | The colour of the zone on the terrain editor's overlay, in the zone bar and on the shape of a zone volume | green |
 | **Part of** | The parent zone. The menu lists the other zones in tree order. A zone cannot be part of its own part | none (a zone of its own) |
 | **Banner** | Show the name when the party enters | on |
 | **Banner line** | The small line under the name (*Home of the old mill*). Empty = only the name | empty |
 
-The display name and the banner line are translated when you [localize](/basic/game-settings/localization) your game.
+Above the list, **Default zone** is the zone of the whole map (see below). The name and the banner line are translated when you [localize](/basic/game-settings/localization) your game.
 
 ## Where a zone is
 
@@ -35,7 +34,7 @@ There are three ways to say *where*, and they work together. For any place, the 
 
 ### Painting zones on the terrain
 
-In the 3D viewport, turn on the **Terrain** tool. The zone tools are the last group of its toolbar. Choosing one opens the **zone bar** under the viewport with the zones as coloured squares (a sub-zone shows an arrow before its name); click one to paint with it, or type in the filter. **Refresh** looks again for zones you made since.
+In the 3D viewport, turn on the **Terrain** tool. The zone tools are the last group of its toolbar. Choosing one opens the **zone bar** under the viewport with the zones **of the world of the open scene** as coloured squares (a sub-zone shows an arrow before its name); click one to paint with it, or type in the filter. **Refresh** looks again for zones you made since in the Worlds editor.
 
 | Tool | What it does |
 |---|---|
@@ -59,14 +58,14 @@ For a cave **under** a hill, a building, a tower with its own floors or a floati
 
 | Field | What it does |
 |---|---|
-| **Zone Id** | The zone the party is in while inside. Pick it from the list of zones |
+| **Zone Id** | The zone the party is in while inside. Pick it from the list of zones (the shape is drawn in the zone's colour in the editor) |
 | **Zone Priority** | Where volumes overlap, the highest wins. A volume always wins over the painted zone and the default zone |
 
 A volume needs no physics and costs nothing while the party is far away.
 
 ### The default zone of the world
 
-Select the root of the world scene and set **Default Zone Id** (Zones group): the zone of the whole map, wherever nothing else says otherwise. A forest world is *Elderwood*, and only the exceptions need painting.
+In the **Zones** section of the world, choose the **Default zone**: the zone of the whole map, wherever nothing else says otherwise. A forest world is *Elderwood*, and only the exceptions need painting.
 
 ## What the party sees and what the game can ask
 
@@ -90,6 +89,7 @@ A zone with **Banner** off is silent. The banner is a simple piece of interface 
 
 ## Good to know
 
+- **Zones are tied to their world.** An event, a condition or a zone volume can name a zone of any world; the zone bar of the terrain tool shows only the zones of its own world.
 - **Deleting a zone** is safe: the painted cells and the volumes that name it simply count as no zone, and its sub-zones become zones of their own.
 - **A loop of parents** (A in B in A) is cut where it closes; the Zones editor never offers a parent that would close one.
 - Zones are an **overlay of meaning**, not of looks: they do not change the sky, the fog, the music or the weather by themselves. A zone's own look, weather and music are [planned](/planned/zones).
@@ -97,7 +97,7 @@ A zone with **Banner** off is silent. The banner is a simple piece of interface 
 ## See also
 
 - [Placing objects](/basic/world/add-object) (the zone volume)
-- [Trigger areas](/basic/world/regions) (the invisible areas events watch)
+- [Trigger areas](/basic/world/trigger-areas) (the invisible areas events watch)
 - [Terrain](/basic/world/terrain) and [Painting](/basic/world/terrain-painting)
 - [Event triggers](/basic/events-and-quests/event-triggers), [Conditions](/basic/shared-systems/conditions), [Text tokens](/basic/shared-systems/text-tokens)
 - [Zones: how they are built](/advanced/world/zones)

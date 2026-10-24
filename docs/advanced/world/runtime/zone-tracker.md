@@ -14,7 +14,7 @@ when the party walks into its sub-zone *The Old Mill* from outside, and not when
 
 - `banner_requested` with the name for the screen, unless the zone has no banner or the party was in it a moment ago (walking back across a border does not show the banner again).
 
-Which zone is a place in: the zone volumes that contain it (highest priority, then the smallest), else the zone painted on the terrain, else the default zone of the world (WorldScene.default_zone_id), else none. The WorldContainer has one (`world_container.zone_tracker`). Event triggers, the condition and the text tokens ask it.
+Which zone is a place in: the zone volumes that contain it (highest priority, then the smallest), else the zone painted on the terrain, else the default zone of the world (WorldData.default_zone_id), else none. The WorldContainer has one (`world_container.zone_tracker`). Event triggers, the condition and the text tokens ask it.
 
 ## Variables
 

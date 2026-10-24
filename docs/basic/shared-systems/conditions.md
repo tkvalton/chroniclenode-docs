@@ -18,7 +18,7 @@ In every list, **all** the conditions must be true. For "any of these", use the 
 
 Click the add button next to the list of conditions. A dialog opens with a **Category**, a **Type** and its fields:
 
-- **General** conditions are about the world: quests, events, global variables, the time of day, the party, regions, doors and chests.
+- **General** conditions are about the world: quests, events, global variables, the time of day, the party, trigger areas, doors and chests.
 - **Entity** conditions are about one entity: its health, level, effects, items, distance, target.
 - **Encounter** conditions are about a group fight: how long it has lasted, how many are alive.
 
@@ -63,12 +63,12 @@ Conditions that compare a number offer the same choices: **equal**, **greater**,
 | [PartyIncludesClassCondition](/advanced/shared-systems/general-conditions/party-includes-class-condition) | Checks if the party includes a specific character class. |
 | [PartySizeCondition](/advanced/shared-systems/general-conditions/party-size-condition) | Checks if the party size meets certain criteria. |
 | [PlayerInZoneCondition](/advanced/shared-systems/general-conditions/player-in-zone-condition) | Checks whether the party is in a zone. |
-| [PlayerRegionPresenceCondition](/advanced/shared-systems/general-conditions/player-region-presence-condition) | Checks if players are present in a specific region |
+| [PlayerTriggerAreaPresenceCondition](/advanced/shared-systems/general-conditions/player-trigger-area-presence-condition) | Checks if players are present in a specific trigger area |
 | [QuestActiveEntityCondition](/advanced/shared-systems/general-conditions/quest-active-entity-condition) | Checks if a specific quest is currently active |
 | [QuestCompletedEntityCondition](/advanced/shared-systems/general-conditions/quest-completed-entity-condition) | Checks if a specific quest has been completed |
 | [RandomChanceCondition](/advanced/shared-systems/general-conditions/random-chance-condition) | Checks if a random roll succeeds based on percentage chance. |
-| [RegionPresenceCondition](/advanced/shared-systems/general-conditions/region-presence-condition) | Checks if entities are present in a specific region |
 | [SwitchStateCondition](/advanced/shared-systems/general-conditions/switch-state-condition) | Check if a switch is in the desired state Evaluates switch-specific conditions like ON/OFF state |
+| [TriggerAreaPresenceCondition](/advanced/shared-systems/general-conditions/trigger-area-presence-condition) | Checks if entities are present in a specific trigger area |
 <!-- /classes -->
 
 ### Entity

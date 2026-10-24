@@ -26,7 +26,7 @@
 
 ## Where the database comes in
 
-The tool does not create database resources. The **node** does, when it enters a world scene in the editor (see the uniques): `NPC` / `InteractableObject` create their unique data, `Region` and `Encounter` theirs, each writes its position on `scene_pre_save`, and deleting the node deletes the data. A scene built by hand or by script gets the same uniques.
+The tool does not create database resources. The **node** does, when it enters a world scene in the editor (see the uniques): `NPC` / `InteractableObject` create their unique data, `TriggerArea` and `Encounter` theirs, each writes its position on `scene_pre_save`, and deleting the node deletes the data. A scene built by hand or by script gets the same uniques.
 
 ## Tests
 

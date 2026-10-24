@@ -39,7 +39,7 @@ const CATEGORY_NOTES = {
     party: 'The party changes: it grows, shrinks, or someone joins or leaves.',
     player: 'Something happens to a player character: it levels up, dies, gains experience, learns a skill.',
     quest: 'A [quest](/basic/events-and-quests/quests) changes state.',
-    region: 'Something enters or leaves a [region](/basic/world/regions).',
+    trigger area: 'Something enters or leaves a [trigger area](/basic/world/trigger areas).',
     time: 'A time of day arrives, a timer runs out, or the game starts.',
     user_interface: 'A [popup](/basic/events-and-quests/popups) closes.',
     variable: 'A [global variable](/basic/events-and-quests/global-variables) changes.',

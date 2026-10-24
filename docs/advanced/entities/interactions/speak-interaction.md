@@ -22,7 +22,7 @@ Simple interaction that displays text and optionally plays a voice line
 | `int` | [emote_id](#prop-emote-id) | `0` |
 | `SpeechLine.Audience` | [audience](#prop-audience) | `SpeechLine.Audience.TRIGGERER` |
 | `float` | [range_override](#prop-range-override) | `0.0` |
-| `int` | [region_id](#prop-region-id) | `0` |
+| `int` | [trigger_area_id](#prop-trigger-area-id) | `0` |
 
 ## Variables
 
@@ -91,9 +91,9 @@ Who reads the line in the chat: by default the player who talked to it
 
 For *Near*: how far it is heard, in metres. 0 = the range of the channel
 
-### int region_id = 0 {#prop-region-id}
+### int trigger_area_id = 0 {#prop-trigger-area-id}
 
-For *Region*: the region the players have to be in
+For *Trigger area*: the trigger area the players have to be in
 
 ## Variable descriptions
 

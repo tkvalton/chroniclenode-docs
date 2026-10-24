@@ -4,7 +4,7 @@
 
 **Inherits:** [RigComponent](/advanced/assets/rig/rig-component) < [Node3D](https://docs.godotengine.org/en/stable/classes/class_node3d.html)
 
-InteractableRigComponent is the runtime rig for InteractableObjects. Extends RigComponent with interactable-specific slot mapping and scene management. InteractableScene is the authored visual template; this class is the runtime manager. Only three attachment regions exist: BASE, CHEST, and OVERHEAD. All entity VFX locations (hands, head, weapon, feet) are remapped to CHEST.
+InteractableRigComponent is the runtime rig for InteractableObjects. Extends RigComponent with interactable-specific slot mapping and scene management. InteractableScene is the authored visual template; this class is the runtime manager. Only three attachment trigger areas exist: BASE, CHEST, and OVERHEAD. All entity VFX locations (hands, head, weapon, feet) are remapped to CHEST.
 
 ## Variables
 
