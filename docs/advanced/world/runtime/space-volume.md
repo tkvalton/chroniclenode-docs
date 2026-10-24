@@ -4,7 +4,7 @@
 
 **Inherits:** [Area3D](https://docs.godotengine.org/en/stable/classes/class_area3d.html)
 
-**Inherited by:** [AudioZone](/advanced/world/runtime/audio-zone), [MovementVolume](/advanced/world/runtime/movement-volume)
+**Inherited by:** [AudioZone](/advanced/world/runtime/audio-zone), [MovementVolume](/advanced/world/runtime/movement-volume), [ZoneVolume](/advanced/world/runtime/zone-volume)
 
 A space in a world, given by the shape of its CollisionShape3D child (a box, sphere, cylinder or capsule). It is the base of the volumes that watch where the camera or an entity is: the MovementVolume and the AudioZone. It knows where its surface (the top of the shape) is and whether a point or the camera is inside.
 

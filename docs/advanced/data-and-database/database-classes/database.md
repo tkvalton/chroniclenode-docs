@@ -32,6 +32,7 @@ All the resources extend DatabaseResource. The database also makes the few resou
 | `SkyConfig` | [get_default_sky_config](#method-get-default-sky-config)() *static* |
 | `EnvironmentConfig` | [get_default_environment_config](#method-get-default-environment-config)() *static* |
 | `Array` | [get_all_stat_definitions](#method-get-all-stat-definitions)() *static* |
+| `void` | [reload_cache](#method-reload-cache)( `type: String` ) *static* |
 | `Dictionary` | [get_cache](#method-get-cache)( `type: String` ) *static* |
 | `bool` | [resource_exists](#method-resource-exists)( `type: String, id: int` ) *static* |
 | `DatabaseResource` | [create_resource](#method-create-resource)( `type: String, res_name: String, type_override: GDScript = null` ) *static* |
@@ -128,9 +129,13 @@ Get default environment config
 
 Every stat definition the entities get: the stats of the project, and the hidden stat of each proficiency (it carries the effects of the proficiency, see ProficiencyDefinition.get_virtual_stat). Not saved anywhere: made when asked for
 
+### void reload_cache( type: String ) {#method-reload-cache}
+
+The cache of a type: a dictionary id -&gt; resource of everything in its folder. Read from disk on the first call, then kept. An unknown type gives an empty dictionary. Forgets what was read of a type, so the next get_cache reads the folder again (the editor does it when a list of resources must be fresh).
+
 ### Dictionary get_cache( type: String ) {#method-get-cache}
 
-The cache of a type: a dictionary id -&gt; resource of everything in its folder. Read from disk on the first call, then kept. An unknown type gives an empty dictionary.
+*No description yet.*
 
 ### bool resource_exists( type: String, id: int ) {#method-resource-exists}
 

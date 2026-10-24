@@ -187,6 +187,7 @@ func get_entity_description() -> String:
 | [OrCondition](/advanced/shared-systems/general-conditions/or-condition) | A composite condition that passes if a specified number of its child conditions pass. |
 | [PartyIncludesClassCondition](/advanced/shared-systems/general-conditions/party-includes-class-condition) | Checks if the party includes a specific character class. |
 | [PartySizeCondition](/advanced/shared-systems/general-conditions/party-size-condition) | Checks if the party size meets certain criteria. |
+| [PlayerInZoneCondition](/advanced/shared-systems/general-conditions/player-in-zone-condition) | Checks whether the party is in a zone. |
 | [PlayerRegionPresenceCondition](/advanced/shared-systems/general-conditions/player-region-presence-condition) | Checks if players are present in a specific region |
 | [QuestActiveEntityCondition](/advanced/shared-systems/general-conditions/quest-active-entity-condition) | Checks if a specific quest is currently active |
 | [QuestCompletedEntityCondition](/advanced/shared-systems/general-conditions/quest-completed-entity-condition) | Checks if a specific quest has been completed |

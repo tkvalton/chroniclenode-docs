@@ -14,7 +14,8 @@ Everything the party meets in a world is placed in the scene and stored as a **u
 | [Uniques](/basic/world/uniques) | The list of everything placed in every world |
 | [Placing objects](/basic/world/add-object) | The buttons in the 3D viewport that place NPCs, interactables, dropped items, encounters and volumes: the model on your mouse, standing on the ground or any floor |
 | [The Unique Object tool](/basic/world/unique-object-tool) | The bottom panel that edits the thing you selected in the viewport |
-| [Regions](/basic/world/regions) | Areas of the map that [quests](/basic/events-and-quests/quests) and events can watch |
+| [Trigger areas](/basic/world/regions) | Invisible areas of the map that [quests](/basic/events-and-quests/quests) and events can watch (the regions) |
+| [Zones](/basic/world/zones) | Named places of the map with sub-zones: a banner when the party enters, events, quest objectives and text tokens; painted on the terrain, or placed as volumes |
 | [Terrain](/basic/world/terrain) | The ground: make the terrain of a map, add tiles, save, and check it. With [Sculpting](/basic/world/terrain-sculpting) and [Painting](/basic/world/terrain-painting) for the brushes, and [Terrain Textures](/basic/assets/terrain-textures) for the library |
 | [Movement volumes](/basic/world/movement-volumes) | Water to swim in, a room with no gravity, a pool of lava: spaces that change how whoever is in them moves, with breath and a look for the camera |
 | [Audio zones](/basic/world/audio-zones) | Caves, houses and tunnels that change how the world sounds while the camera is inside: muffle, echo and volume for each audio channel |

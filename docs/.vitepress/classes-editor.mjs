@@ -981,6 +981,12 @@ export const groups = [
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\world_database_editor.gd",
         "file": "editor_components/editors/world/world_database_editor.gd"
+      },
+      {
+        "name": "ZonesEditor",
+        "base": "ResourceEditor",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\zones_editor.gd",
+        "file": "editor_components/editors/world/zones_editor.gd"
       }
     ]
   },

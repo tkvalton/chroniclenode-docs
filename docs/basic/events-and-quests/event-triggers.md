@@ -151,16 +151,24 @@ A [quest](/basic/events-and-quests/quests) changes state.
 |---|---|
 | [**Quest State Change**](/advanced/events-and-quests/triggers-quest/quest-state-change-trigger) (`QuestStateChangeTrigger`) | Triggers when a specific quest changes state (activated, completed, or failed) |
 
-## Region
+## Trigger area
 
-Something enters or leaves a [region](/basic/world/regions).
+Something enters or leaves a [trigger area](/basic/world/regions) (a region).
 
 | Trigger | What it does |
 |---|---|
-| [**Region Detection Any Entity**](/advanced/events-and-quests/triggers-region/region-detection-any-entity-trigger) (`RegionDetectionAnyEntityTrigger`) | Triggers when any entity enters or exits a detection region |
-| [**Region Detection Faction**](/advanced/events-and-quests/triggers-region/region-detection-faction-trigger) (`RegionDetectionFactionTrigger`) | Triggers when an entity of a specific faction enters or exits a detection region |
-| [**Region Detection Player**](/advanced/events-and-quests/triggers-region/region-detection-player-trigger) (`RegionDetectionPlayerTrigger`) | Triggers when a player-controlled entity enters or exits a detection region |
-| [**Region Detection Unique Entity**](/advanced/events-and-quests/triggers-region/region-detection-unique-entity-trigger) (`RegionDetectionUniqueEntityTrigger`) | Triggers when a specific entity (by unique_id) enters or exits a detection region |
+| [**Trigger Area Detection Any Entity**](/advanced/events-and-quests/triggers-region/region-detection-any-entity-trigger) (`RegionDetectionAnyEntityTrigger`) | Triggers when any entity enters or exits a detection region |
+| [**Trigger Area Detection Faction**](/advanced/events-and-quests/triggers-region/region-detection-faction-trigger) (`RegionDetectionFactionTrigger`) | Triggers when an entity of a specific faction enters or exits a detection region |
+| [**Trigger Area Detection Player**](/advanced/events-and-quests/triggers-region/region-detection-player-trigger) (`RegionDetectionPlayerTrigger`) | Triggers when a player-controlled entity enters or exits a detection region |
+| [**Trigger Area Detection Unique Entity**](/advanced/events-and-quests/triggers-region/region-detection-unique-entity-trigger) (`RegionDetectionUniqueEntityTrigger`) | Triggers when a specific entity (by unique_id) enters or exits a detection region |
+
+## Zone
+
+The party enters or leaves a [zone](/basic/world/zones).
+
+| Trigger | What it does |
+|---|---|
+| [**Zone Entered Or Left**](/advanced/events-and-quests/triggers-zone/zone-trigger) (`ZoneTrigger`) | Fires when the party enters a zone, leaves it, or both. A zone counts when the party is in it or in one of its sub-zones. As the trigger of a quest objective it is *Reach the zone* |
 
 ## Time
 

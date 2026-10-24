@@ -35,7 +35,7 @@ The NPC palette has an **Encounter** menu:
 
 ### Volumes
 
-The **Volumes** palette lists the usual ones: **Trigger area** (the invisible area events and conditions watch), **Water**, **Lava**, **Weightless**, **Audio zone: cave** and **Audio zone: indoors**. Each comes with a **box shape** (10 x 4 x 10 m, a trigger area 6 x 3 x 6 m) that you resize with the gizmo afterwards. Water and Lava come with their [look](/basic/world/movement-volumes#the-look).
+The **Volumes** palette lists the usual ones: **Trigger area** (the invisible area events and conditions watch), **Water**, **Lava**, **Weightless**, **Audio zone: cave**, **Audio zone: indoors** and **Zone volume** (puts the party in a [zone](/basic/world/zones#zone-volumes) while it is inside; choose the zone in the inspector). Each comes with a **box shape** (10 x 4 x 10 m, a trigger area 6 x 3 x 6 m) that you resize with the gizmo afterwards. Water and Lava come with their [look](/basic/world/movement-volumes#the-look).
 
 #### Your own presets
 

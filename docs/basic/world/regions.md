@@ -1,10 +1,10 @@
-# Regions
+# Trigger areas (regions)
 
-::: info Planned rename
-The planned [zones](/planned/zones) will be the named areas of the map (with a banner, a look and weather). To keep the two apart, regions are planned to be called **trigger areas**. Only the name changes: nothing in an existing project has to be redone.
+::: info Regions are called trigger areas
+The editor, the palette and these pages say **trigger area** so that it is not mixed up with a [zone](/basic/world/zones) (a named place of the map with a banner). Only the word changed: the node is still a `Region`, its record a `RegionData`, and nothing in an existing project has to be redone.
 :::
 
-A **region** is an area of a world that the game can *watch*: the old mill, the cave mouth, the market square. It does nothing by itself. It lets an [event](/basic/events-and-quests/events), a [quest](/basic/events-and-quests/quests) or a condition ask "is someone in there?" and react when they enter or leave.
+A **trigger area** (the `Region` node) is an area of a world that the game can *watch*: the old mill, the cave mouth, the market square. It does nothing by itself. It lets an [event](/basic/events-and-quests/events), a [quest](/basic/events-and-quests/quests) or a condition ask "is someone in there?" and react when they enter or leave.
 
 ## Placing one
 

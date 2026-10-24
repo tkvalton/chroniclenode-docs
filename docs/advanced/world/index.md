@@ -80,6 +80,8 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [UniqueEntityData](/advanced/world/world-data/unique-entity-data) | A placed NPC: what the world keeps about one NPC in one world. |
 | [UniqueInteractableData](/advanced/world/world-data/unique-interactable-data) | A placed object: what the world keeps about one interactable in one world. |
 | [WorldData](/advanced/world/world-data/world-data) | Pure data storage for world information Contains only world metadata, spawn points, and references to unique objects |
+| [ZoneDefinition](/advanced/world/world-data/zone-definition) | A **zone**: a named place of the map ("Elderwood", "The Sunken Caves", "Port Haven"). |
+| [ZoneLookup](/advanced/world/world-data/zone-lookup) | What is known about the zones from the database alone: who is whose parent, the chain of a zone, its full name. |
 <!-- /classes -->
 
 ### World configs
@@ -139,6 +141,8 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [WorldScene](/advanced/world/runtime/world-scene) | WorldScene manages all objects within a specific map/scene Handles object discovery, tracking, and provides query methods |
 | [WorldSkyEnvironment](/advanced/world/runtime/world-sky-environment) | Preloaded stylized sky shader |
 | [WorldSun](/advanced/world/runtime/world-sun) | Currently active sun configuration |
+| [ZoneTracker](/advanced/world/runtime/zone-tracker) | Watches which **zone** the party is in and tells the game when it changes. |
+| [ZoneVolume](/advanced/world/runtime/zone-volume) | A **zone volume**: a box, sphere, cylinder or capsule (the shape of its CollisionShape3D child) that puts the party in a zone while it is inside. |
 <!-- /classes -->
 
 ### Editor tools

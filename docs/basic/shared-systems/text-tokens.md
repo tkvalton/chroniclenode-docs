@@ -21,6 +21,8 @@ The editors say so in the tooltip of a field that takes tokens, and the tooltip 
 | `<player level>` | The level of the player character | Everywhere |
 | `<party size>` | How many members the party has | Everywhere |
 | `<world name>` | The name of the world the player is in | Everywhere |
+| `<zone>` | The [zone](/basic/world/zones) the party is in: the top one, *Elderwood* when it is in *The Old Mill* | Everywhere |
+| `<sub zone>` | The sub-zone the party is in (the zone again when it is in no sub-zone) | Everywhere |
 | `<npc name>` | The name of the NPC the player is talking to | Conversation text only |
 | `<quest name>` | The name of the quest | Quest text only |
 | `<quest level>` | The level of the quest | Quest text only |
@@ -42,6 +44,8 @@ An objective text such as `Wolf pelts: <progress> / <target>` shows how far the 
 | `<player class>` | adventurer |
 | `<player level>`, `<party size>`, `<quest level>` | ? |
 | `<world name>` | this land |
+| `<zone>` | the wilds |
+| `<sub zone>` | this place |
 | `<npc name>` | someone |
 | `<quest name>` | the quest |
 | `<progress>` | 0 |

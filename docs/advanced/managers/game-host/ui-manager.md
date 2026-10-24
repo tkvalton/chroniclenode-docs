@@ -22,6 +22,7 @@ Manages UI layers, scene transitions, and overlay systems. Handles loading scree
 | `DebugMenu` | [debug_menu](#var-debug-menu) |  |
 | `Button` | [debug_toggle_button](#var-debug-toggle-button) |  |
 | `PopupManager` | [popups](#var-popups) |  |
+| `ZoneBanner` | [zone_banner](#var-zone-banner) |  |
 
 ## Methods
 
@@ -139,6 +140,10 @@ Debug menu toggle button (always visible when debug mode enabled)
 ### PopupManager popups {#var-popups}
 
 The popups of the game (tutorials, messages, toasts)
+
+### ZoneBanner zone_banner {#var-zone-banner}
+
+The banner with the name of a zone when the party enters it
 
 ## Method descriptions
 

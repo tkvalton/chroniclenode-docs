@@ -267,6 +267,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [UniquesDatabaseEditor](/advanced/editor/world/uniques-database-editor) | The editor of the Uniques tab (World &gt; Uniques): lists the placed NPCs and objects of every world, filtered by kind, world and a search bar, and shows the unique that is selected. |
 | [WorldConfigEditor](/advanced/editor/world/world-config-editor) | Main editor for all world configuration types (Sky, Environment, Sun, Time) Designed to work with a pre-built scene containing the four config editors |
 | [WorldDatabaseEditor](/advanced/editor/world/world-database-editor) | The editor of the Worlds tab (World &gt; Worlds): lists the world scenes with a search bar and a category filter, and edits the properties of the selected world (loading screen, persistence, level, audio, time, sun, sky and weather). |
+| [ZonesEditor](/advanced/editor/world/zones-editor) | The Zones editor (the ZoneDefinition database): the named places of the world. |
 <!-- /classes -->
 
 ### Viewport tools

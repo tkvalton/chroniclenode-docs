@@ -21,6 +21,7 @@ Lightweight coordinator for world management Handles world transitions and deleg
 | `FogOfWarSystem` | [fog_of_war_system](#var-fog-of-war-system) | `null` |
 | `Dictionary` | [fog_exploration_cache](#var-fog-exploration-cache) | `{}` |
 | `WeatherSystem` | [weather_system](#var-weather-system) |  |
+| `ZoneTracker` | [zone_tracker](#var-zone-tracker) |  |
 
 ## Methods
 
@@ -101,6 +102,10 @@ Cache of fog exploration data per world (persists across world transitions) Key:
 ### WeatherSystem weather_system {#var-weather-system}
 
 Weather system
+
+### ZoneTracker zone_tracker {#var-zone-tracker}
+
+Watches which zone the party is in (the events, the condition, the banner and the text tokens ask it)
 
 ## Method descriptions
 

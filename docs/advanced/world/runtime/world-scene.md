@@ -14,6 +14,7 @@ WorldScene manages all objects within a specific map/scene Handles object discov
 | `TerrainProvider` | [terrain_provider](#prop-terrain-provider) |  |
 | `Marker3D` | [party_spawn](#prop-party-spawn) |  |
 | `Array[Marker3D]` | [respawn_points](#prop-respawn-points) | `[]` |
+| `int` | [default_zone_id](#prop-default-zone-id) | `0` |
 | `Callable` | [generate_minimap](#prop-generate-minimap) | `_generate_minimap` |
 | `float` | [minimap_size](#prop-minimap-size) | `512.0` |
 | `int` | [minimap_grid_divisions](#prop-minimap-grid-divisions) | `4` |
@@ -83,6 +84,12 @@ Party spawn point marker
 ### Array[Marker3D] respawn_points = [] {#prop-respawn-points}
 
 Respawn/checkpoint points for player death respawning
+
+*Zones*
+
+### int default_zone_id = 0 {#prop-default-zone-id}
+
+The zone the party is in where no zone is painted on the ground and no zone volume holds it (0 = none). The zone of the whole map: "Elderwood" for a forest world, so only the exceptions need painting
 
 *Minimap Settings*
 

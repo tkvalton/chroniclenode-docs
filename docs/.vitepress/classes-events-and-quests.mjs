@@ -559,7 +559,7 @@ export const groups = [
     ]
   },
   {
-    "text": "Triggers: region",
+    "text": "Triggers: trigger area",
     "slug": "triggers-region",
     "classes": [
       {
@@ -585,6 +585,18 @@ export const groups = [
         "base": "EventTrigger",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\region\\region_detection_unique_entity_trigger.gd",
         "file": "data_classes/events/event_triggers/region/region_detection_unique_entity_trigger.gd"
+      }
+    ]
+  },
+  {
+    "text": "Triggers: zone",
+    "slug": "triggers-zone",
+    "classes": [
+      {
+        "name": "ZoneTrigger",
+        "base": "EventTrigger",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\zone\\zone_trigger.gd",
+        "file": "data_classes/events/event_triggers/zone/zone_trigger.gd"
       }
     ]
   },

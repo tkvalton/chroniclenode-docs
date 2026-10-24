@@ -204,6 +204,7 @@ The editor needs to know what an interface scene holds (to check the root class 
 | [InGameMenu](/advanced/user-interface/in-game/in-game-menu) | InGameMenu manages the pause menu during gameplay. |
 | [MessagesManager](/advanced/user-interface/in-game/messages-manager) | Displays the short messages that fade at the top of the screen: a viewer of every channel that is marked "also show as a fading message" in the Chat settings (System, Highlight, Warning, Level up, Quest ...). |
 | [PopupUI](/advanced/user-interface/in-game/popup-ui) | The root of a popup scene. |
+| [ZoneBanner](/advanced/user-interface/in-game/zone-banner) | The banner that shows the name of a zone when the party enters it: a big line (the zone, "Elderwood") and a small line under it (the sub-zone, or the line of the zone: "Home of the old mill"). |
 <!-- /classes -->
 
 ### Menus

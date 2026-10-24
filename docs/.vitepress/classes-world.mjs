@@ -33,6 +33,18 @@ export const groups = [
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\world_data.gd",
         "file": "data_classes/world/world_data.gd"
+      },
+      {
+        "name": "ZoneDefinition",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\zones\\zone_definition.gd",
+        "file": "data_classes/zones/zone_definition.gd"
+      },
+      {
+        "name": "ZoneLookup",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\zones\\zone_lookup.gd",
+        "file": "data_classes/zones/zone_lookup.gd"
       }
     ]
   },
@@ -297,6 +309,18 @@ export const groups = [
         "base": "DirectionalLight3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\world_sun.gd",
         "file": "runtime_classes/world/world_sun.gd"
+      },
+      {
+        "name": "ZoneTracker",
+        "base": "Node",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\zone_tracker.gd",
+        "file": "runtime_classes/world/zone_tracker.gd"
+      },
+      {
+        "name": "ZoneVolume",
+        "base": "SpaceVolume",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\zone_volume.gd",
+        "file": "runtime_classes/world/zone_volume.gd"
       }
     ]
   },

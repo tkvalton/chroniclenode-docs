@@ -27,7 +27,7 @@ Checks if entities are present in a specific region
 
 ## Property descriptions
 
-*Region Check*
+*Trigger Area Check*
 
 ### int region_id = 0 {#prop-region-id}
 

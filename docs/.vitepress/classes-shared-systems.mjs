@@ -623,6 +623,12 @@ export const groups = [
         "file": "data_classes/conditions/general/party_size_condition.gd"
       },
       {
+        "name": "PlayerInZoneCondition",
+        "base": "Condition",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\general\\player_in_zone_condition.gd",
+        "file": "data_classes/conditions/general/player_in_zone_condition.gd"
+      },
+      {
         "name": "PlayerRegionPresenceCondition",
         "base": "Condition",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\general\\region_player_presence_condition.gd",

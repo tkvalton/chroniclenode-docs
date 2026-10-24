@@ -561,6 +561,12 @@ export const groups = [
         "base": "Control",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\popups\\popup_ui.gd",
         "file": "ui_scenes/in_game/popups/popup_ui.gd"
+      },
+      {
+        "name": "ZoneBanner",
+        "base": "Control",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\zone_banner.gd",
+        "file": "ui_scenes/in_game/zone_banner.gd"
       }
     ]
   },
