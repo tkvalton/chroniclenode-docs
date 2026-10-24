@@ -54,8 +54,11 @@ A spawner has a **spawn table**, much like a [loot table](/basic/items/loot-tabl
 - An NPC (a [unique](/basic/world/uniques)) can have a **respawn timer** and an encounter can respawn its group.
 - A gathering node can respawn itself in place.
 
-## Still to decide
+## Decided
 
-- Whether an area can hold **several spawners** (a mixed forest) or one spawner has several tables.
-- How the **painted mask** is stored (a texture of the area, or paint data on the terrain itself).
-- Whether spawned things are saved one by one, or only the **state of the spawner** (how many, how long until the next).
+- **One Spawner node with three modes.** **Point**: one place, one spawn at a time (a boss spot, a random herb or ore, a loot spot, anything inside a building). **Volume**: a shape of the node (a box, sphere or cylinder); things appear at random places inside it, snapped down to the floor (caves, dungeon rooms). **Painted**: the node is the handle and a brush paints the ground it works on (forests, meadows, riverbanks).
+- **Spawn tables** are a database type in the World category, like loot tables: weighted entries (an NPC with a level range and a group size, an interactable, a dropped item, some money, a loot table roll, another table, or nothing). A spawn can be a **group** that fights together as an [encounter](/basic/world/encounters).
+- **Saving** keeps the state of each spawner (what stands where, when the next comes back), not every spawned thing.
+- **Painted areas fill near the player** and empty when far, so a huge forest costs nothing while nobody is there.
+- A thing comes back in the same kind of place it left (no "respawn somewhere else" setting).
+- **Encounters stop being nodes**: an NPC is given an encounter in its own settings, and the encounter is a record you can find in the Uniques list.
