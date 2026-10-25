@@ -79,6 +79,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [UniqueEncounterData](/advanced/world/world-data/unique-encounter-data) | UniqueEncounterData defines both the behavior AND unique instance data for an encounter. |
 | [UniqueEntityData](/advanced/world/world-data/unique-entity-data) | A placed NPC: what the world keeps about one NPC in one world. |
 | [UniqueInteractableData](/advanced/world/world-data/unique-interactable-data) | A placed object: what the world keeps about one interactable in one world. |
+| [UniqueSpawnerData](/advanced/world/world-data/unique-spawner-data) | A placed spawner: what the world keeps about one Spawner node in one world. |
 | [WorldData](/advanced/world/world-data/world-data) | Pure data storage for world information Contains only world metadata, spawn points, and references to unique objects |
 | [ZoneDefinition](/advanced/world/world-data/zone-definition) | A **zone**: a named place of the map ("Elderwood", "The Sunken Caves", "Port Haven"). |
 | [ZoneLookup](/advanced/world/world-data/zone-lookup) | What is known about the zones from the database alone: who is whose parent, the chain of a zone, its full name. |
@@ -131,6 +132,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [MovementVolumeCamera](/advanced/world/runtime/movement-volume-camera) | The look the screen gets while the camera is inside a movement volume (underwater: a tint over the screen and fog; the sound is the business of AudioProfileStack). |
 | [ObjectRegistry](/advanced/world/runtime/object-registry) | ObjectRegistry - manages all NPCs, Interactables, Trigger areas, and special Encounters with advanced LOD system Integrated with CombatSystem's encounter management for coordinated combat behavior Features configurable LOD system via GameplayConfig, behavior optimization, and comprehensive performance management Handles registration, spawning, interaction tracking, and state management Provides centralized access for quest systems, events, and ability effects |
 | [SpaceVolume](/advanced/world/runtime/space-volume) | A space in a world, given by the shape of its CollisionShape3D child (a box, sphere, cylinder or capsule). |
+| [Spawner](/advanced/world/runtime/spawner) | A **spawner**: a place in a world that makes things appear and keeps the place alive. |
 | [TerraBrushProvider](/advanced/world/runtime/terra-brush-provider) | Tells which surface type the ground is at a position on a TerraBrush terrain: the texture under the position is looked up in `texture_surface_map`, and `default_surface` is used when it has no entry. |
 | [Terrain3DProvider](/advanced/world/runtime/terrain3-d-provider) | Tells which surface type the ground is at a position on a Terrain3D terrain: the texture under the position is looked up in `texture_surface_map`, and `default_surface` is used when it has no entry. |
 | [TerrainProvider](/advanced/world/runtime/terrain-provider) | The terrain of a world, seen by the TerrainService. |

@@ -1,6 +1,6 @@
 # Spawn tables
 
-A **spawn table** says **what can appear** and **how likely** each thing is: three wolves, a stag, a patch of herbs, a few coins, or nothing at all. It is a list of **lines**, each with a **weight**, much like a [loot table](/basic/items/loot-tables). A spawner (see [Spawners](/planned/spawners)) rolls a table every time it makes something. One table can be used by any number of spawners.
+A **spawn table** says **what can appear** and **how likely** each thing is: three wolves, a stag, a patch of herbs, a few coins, or nothing at all. It is a list of **lines**, each with a **weight**, much like a [loot table](/basic/items/loot-tables). A spawner (see [Spawners](/basic/world/spawners)) rolls a table every time it makes something. One table can be used by any number of spawners.
 
 Make tables in **Database > World > Spawn Tables**. Give a table a name (*Forest animals*, *Graveyard undead*, *Meadow herbs*), then fill in its **Lines**.
 
@@ -43,6 +43,6 @@ Under the lines the editor lists problems in orange: a table with no lines, a li
 
 ## See also
 
-- [Spawners](/planned/spawners): the nodes that roll the tables (planned).
+- [Spawners](/basic/world/spawners): the nodes that roll the tables.
 - [Loot tables](/basic/items/loot-tables), [Encounters](/basic/world/encounters), [Zones](/basic/world/zones).
 - [How spawn tables are built](/advanced/world/spawn-tables).

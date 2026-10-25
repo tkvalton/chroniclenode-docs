@@ -29,6 +29,12 @@ export const groups = [
         "file": "data_classes/world/unique_interactable_data.gd"
       },
       {
+        "name": "UniqueSpawnerData",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\unique_spawner_data.gd",
+        "file": "data_classes/world/unique_spawner_data.gd"
+      },
+      {
         "name": "WorldData",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\world_data.gd",
@@ -267,6 +273,12 @@ export const groups = [
         "base": "Area3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\space_volume.gd",
         "file": "runtime_classes/world/space_volume.gd"
+      },
+      {
+        "name": "Spawner",
+        "base": "SpaceVolume",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\spawner.gd",
+        "file": "runtime_classes/world/spawner.gd"
       },
       {
         "name": "TerraBrushProvider",

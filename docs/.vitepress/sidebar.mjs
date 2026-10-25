@@ -103,9 +103,10 @@ const basicSystems = [
           page('Navigation', '/basic/world/terrain-navigation'),
           page('Foliage tools', '/basic/world/terrain-foliage'),
           page('The Unique Object tool', '/basic/world/unique-object-tool'),
-          page('Trigger areas', '/basic/world/trigger areas'),
+          page('Trigger areas', '/basic/world/trigger-areas'),
           page('Zones', '/basic/world/zones'),
           page('Spawn tables', '/basic/world/spawn-tables'),
+          page('Spawners', '/basic/world/spawners'),
           page('Movement volumes', '/basic/world/movement-volumes'),
           page('Audio zones', '/basic/world/audio-zones'),
           page('Encounters', '/basic/world/encounters'),
@@ -196,7 +197,6 @@ const basicSystems = [
     ['UI Settings', 'ui-settings', 'ui_settings'],
     ['Localization', 'localization', 'localization'],
   ], { after: [page('Controller & Camera', '/basic/game-settings/controller-and-camera'), page('Party Management', '/basic/game-settings/gameplay-party'), page('Leveling and experience', '/basic/game-settings/leveling-and-experience'), page('Combat rules', '/basic/game-settings/gameplay-combat'), page('Hit Rules', '/basic/game-settings/hit-rules'), page('Action bars and keybinds', '/basic/game-settings/action-bars-and-keybinds'), page('Panel keys', '/basic/game-settings/panel-keys')] }),
-  userInterface,
 ]
 
 // The interface: the scenes of the game's UI
@@ -224,6 +224,8 @@ const userInterface = {
     page('Messages and popups', '/basic/user-interface/messages-and-popups'),
   ],
 }
+
+basicSystems.push(userInterface)
 
 const sharedSystems = {
   text: 'Shared systems',
@@ -338,9 +340,10 @@ const worldAdvanced = {
     page('Overview', '/advanced/world/', { title: 'World: how it is built' }),
     page('Placing objects', '/advanced/world/add-object', { title: 'Placing objects: how it is built' }),
     page('The Unique Object tool', '/advanced/world/unique-object-tool', { title: 'The Unique Object tool: how it is built' }),
-    page('Trigger areas', '/advanced/world/trigger areas', { title: 'Trigger areas: how they are built' }),
+    page('Trigger areas', '/advanced/world/trigger-areas', { title: 'Trigger areas: how they are built' }),
     page('Zones', '/advanced/world/zones', { title: 'Zones: how they are built' }),
     page('Spawn tables', '/advanced/world/spawn-tables', { title: 'Spawn tables: how they are built' }),
+    page('Spawners', '/advanced/world/spawners', { title: 'Spawners: how they are built' }),
     page('Movement volumes', '/advanced/world/movement-volumes', { title: 'Movement volumes: how they are built' }),
     page('Audio zones', '/advanced/world/audio-zones', { title: 'Audio zones: how they are built' }),
     page('Encounters', '/advanced/world/encounters', { title: 'Encounters: how they are built' }),

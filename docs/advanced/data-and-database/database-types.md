@@ -2,7 +2,7 @@
 
 # Database types
 
-The [Database](/advanced/data-and-database/database-classes/database) knows 54 types of resource. Each row says the **type name** you pass to the database (`Database.get_resource("effect", id)`), the **class** every resource of the type must be,
+The [Database](/advanced/data-and-database/database-classes/database) knows 65 types of resource. Each row says the **type name** you pass to the database (`Database.get_resource("effect", id)`), the **class** every resource of the type must be,
 the **folder** its files are saved in (one `<id>.tres` file per resource) and the **editor tab** you make them in. Every class in the table extends [DatabaseResource](/advanced/data-and-database/database-classes/database-resource).
 
 The rows are in the order of the REGISTRY, grouped like the editor's categories. The type `enviroment` is spelled that way in the code.
@@ -32,6 +32,7 @@ The rows are in the order of the REGISTRY, grouped like the editor's categories.
 | `player_class_template` | `PlayerClassDefinition` | `src/data/player_classes/templates` | [Player Classes (templates)](/basic/entities/player-classes) |
 | `character` | `CharacterDefinition` | `src/data/characters/` | [Playable Character](/basic/entities/playable-character) |
 | `interactable` | `InteractableDefinition` | `src/data/interactables/` | [Interactables](/basic/entities/interactables) |
+| `interactable_template` | `InteractableDefinition` | `src/data/interactables/templates/` |  |
 | **Behaviors** | | | |
 | `faction` | `FactionDefinition` | `src/data/factions/` | [Factions](/basic/behaviors/factions) |
 | `conversation` | `Conversation` | `src/data/behaviors/conversations/` | [Conversations](/basic/behaviors/conversations) |
@@ -43,6 +44,8 @@ The rows are in the order of the REGISTRY, grouped like the editor's categories.
 | `immunity` | `ImmunityDefinition` | `src/data/stats/immunities/` | [Immunities](/basic/abilities-and-effects/immunities) |
 | `trigger_tag` | `TriggerTagDefinition` | `src/data/stats/trigger_tags/` | [Trigger Tags](/basic/entity-stats/trigger-tags) |
 | `entity_tag` | `EntityTagDefinition` | `src/data/entity_tags/` | [Entity Types](/basic/types-and-groups/entity-types) |
+| `ui_tag` | `UITagDefinition` | `src/data/ui_tags/` |  |
+| `emote` | `EmoteDefinition` | `src/data/emotes/` |  |
 | `group` | `GroupDefinition` | `src/data/groups/` | [Groups](/basic/types-and-groups/groups) |
 | `status_effect` | `StatusEffectDefinition` | `src/data/stats/status_effects/` | [Status Effects](/basic/abilities-and-effects/status-effects) |
 | `stat` | `StatDefinition` | `src/data/stats/` | [Stats](/basic/entity-stats/stats) |
@@ -57,6 +60,8 @@ The rows are in the order of the REGISTRY, grouped like the editor's categories.
 | `recipe` | `CraftingRecipeDefinition` | `src/data/crafting/recipes/` | [Craft Recipes](/basic/items/craft-recipes) |
 | `craft_school` | `CraftSchoolDefinition` | `src/data/crafting/schools/` | [Craft Schools](/basic/items/craft-schools) |
 | `vendor` | `VendorDefinition` | `src/data/vendors/` | [Vendors](/basic/items/vendors) |
+| `trainer` | `TrainerDefinition` | `src/data/trainers/` |  |
+| `mount` | `MountDefinition` | `src/data/mounts/` | [Mounts](/basic/entities/mounts) |
 | **Equipment Definitions** | | | |
 | `armor_class` | `ArmorClassDefinition` | `src/data/items/armor_classes/` | [Armor Class](/basic/equipment-definitions/armor-class) |
 | `weapon_class` | `WeaponClassDefinition` | `src/data/items/weapon_classes/` | [Weapon Class](/basic/equipment-definitions/weapon-class) |
@@ -64,14 +69,23 @@ The rows are in the order of the REGISTRY, grouped like the editor's categories.
 | `weapon_type` | `WeaponTypeDefinition` | `src/data/items/weapon_types/` | [Equipment Type](/basic/equipment-definitions/equipment-type) |
 | `equipment_slot` | `EquipmentSlotDefinition` | `src/data/items/equipment_slots/` | [Equipment Slot](/basic/equipment-definitions/equipment-slot) |
 | `quality` | `Quality` | `src/data/items/qualities/` | [Quality](/basic/equipment-definitions/quality) |
+| `affix` | `Affix` | `src/data/items/affixes/` | [Affixes](/basic/items/affixes) |
 | `set_bonus` | `SetBonusDefinition` | `src/data/items/set_bonuses/` | [Set Bonus](/basic/equipment-definitions/set-bonus) |
 | `socket` | `SocketDefinition` | `src/data/items/sockets/` | [Socket](/basic/types-and-groups/socket) |
 | **Unique Objects Data** | | | |
 | `unique_entity` | `UniqueEntityData` | `src/data/unique_entities/` | [The Unique Object tool](/basic/world/unique-object-tool) |
 | `unique_interactable` | `UniqueInteractableData` | `src/data/unique_interactables/` | [The Unique Object tool](/basic/world/unique-object-tool) |
 | `unique_encounter` | `UniqueEncounterData` | `src/data/unique_encounters/` | [The Unique Object tool](/basic/world/unique-object-tool) |
+| `unique_spawner` | `UniqueSpawnerData` | `src/data/unique_spawners/` | [The Unique Object tool](/basic/world/unique-object-tool) |
 | **Trigger areas** | | | |
 | `trigger_area` | `TriggerAreaData` | `src/data/trigger_areas/` | [Trigger areas](/basic/world/trigger-areas) |
+| **Spawning** | | | |
+| `spawn_table` | `SpawnTableDefinition` | `src/data/spawn_tables/` | [Spawn tables](/basic/world/spawn-tables) |
+| **Zones** | | | |
+| `zone` | `ZoneDefinition` | `src/data/zones/` | [Zones](/basic/world/zones) |
+| **Terrain** | | | |
+| `terrain_texture` | `TerrainTextureDefinition` | `src/data/terrain/textures/` | [Terrain Textures](/basic/assets/terrain-textures) |
+| `foliage` | `FoliageDefinition` | `src/data/foliage/entries/` | [Foliage](/basic/assets/foliage) |
 | **UI** | | | |
 | `popup` | `PopupData` | `src/data/popups/` | [Popups](/basic/events-and-quests/popups) |
 

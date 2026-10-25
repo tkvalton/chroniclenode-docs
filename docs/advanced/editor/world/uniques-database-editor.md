@@ -39,6 +39,7 @@ The editor of the Uniques tab (World &gt; Uniques): lists the placed NPCs and ob
 - **INTERACTABLES** = `1`
 - **TRIGGER_AREAS** = `2`
 - **ENCOUNTERS** = `3`
+- **SPAWNERS** = `4`
 
 ## Variable descriptions
 

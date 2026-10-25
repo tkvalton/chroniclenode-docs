@@ -20,6 +20,7 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `Array[int]` | [unique_interactables](#prop-unique-interactables) | `[]` |
 | `Array[int]` | [trigger_areas](#prop-trigger-areas) | `[]` |
 | `Array[int]` | [encounters](#prop-encounters) | `[]` |
+| `Array[int]` | [spawners](#prop-spawners) | `[]` |
 | `Array[int]` | [zones](#prop-zones) | `[]` |
 | `int` | [default_zone_id](#prop-default-zone-id) | `0` |
 | `Texture` | [map_image](#prop-map-image) |  |
@@ -53,6 +54,9 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `void` | [add_unique_interactable](#method-add-unique-interactable)( `interactable_id: int` ) |
 | `void` | [remove_unique_interactable](#method-remove-unique-interactable)( `interactable_id: int` ) |
 | `bool` | [has_unique_interactable](#method-has-unique-interactable)( `interactable_id: int` ) |
+| `void` | [add_spawner](#method-add-spawner)( `spawner_id: int` ) |
+| `void` | [remove_spawner](#method-remove-spawner)( `spawner_id: int` ) |
+| `bool` | [has_spawner](#method-has-spawner)( `spawner_id: int` ) |
 | `void` | [add_trigger_area](#method-add-trigger-area)( `trigger_area_id: int` ) |
 | `void` | [remove_trigger_area](#method-remove-trigger-area)( `trigger_area_id: int` ) |
 | `bool` | [has_trigger_area](#method-has-trigger-area)( `trigger_area_id: int` ) |
@@ -119,6 +123,10 @@ Trigger area IDs in this world
 ### Array[int] encounters = [] {#prop-encounters}
 
 Encounter IDs in this world
+
+### Array[int] spawners = [] {#prop-spawners}
+
+Spawner IDs in this world (UniqueSpawnerData)
 
 ### Array[int] zones = [] {#prop-zones}
 
@@ -241,6 +249,18 @@ Remove reference to a unique interactable
 ### bool has_unique_interactable( interactable_id: int ) {#method-has-unique-interactable}
 
 Check if world references a unique interactable
+
+### void add_spawner( spawner_id: int ) {#method-add-spawner}
+
+Add reference to a spawner
+
+### void remove_spawner( spawner_id: int ) {#method-remove-spawner}
+
+Remove reference to a spawner
+
+### bool has_spawner( spawner_id: int ) {#method-has-spawner}
+
+Check if world references a spawner
 
 ### void add_trigger_area( trigger_area_id: int ) {#method-add-trigger-area}
 

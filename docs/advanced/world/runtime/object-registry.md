@@ -13,6 +13,7 @@ ObjectRegistry - manages all NPCs, Interactables, Trigger areas, and special Enc
 | `Dictionary` | [placed_entities](#var-placed-entities) | `{}` |
 | `Dictionary` | [dynamic_entities](#var-dynamic-entities) | `{}` |
 | `Dictionary` | [placed_encounters](#var-placed-encounters) | `{}` |
+| `Dictionary` | [placed_spawners](#var-placed-spawners) | `{}` |
 | `Array[EncounterGroup]` | [dynamic_encounters](#var-dynamic-encounters) | `[]` |
 | `Dictionary` | [placed_interactables](#var-placed-interactables) | `{}` |
 | `Dictionary` | [dynamic_interactables](#var-dynamic-interactables) | `{}` |
@@ -37,7 +38,7 @@ ObjectRegistry - manages all NPCs, Interactables, Trigger areas, and special Enc
 | | |
 |---|---|
 | `void` | [process_lod](#method-process-lod)( `delta: float` ) |
-| `void` | [register_world_objects](#method-register-world-objects)( `entities: Array, interactables: Array, trigger_areas: Array, dropped_items: Array = []` ) |
+| `void` | [register_world_objects](#method-register-world-objects)( `entities: Array, interactables: Array, trigger_areas: Array, dropped_items: Array = [], spawners: Array = []` ) |
 | `void` | [register_entity](#method-register-entity)( `entity: Entity` ) |
 | `Entity` | [get_entity](#method-get-entity)( `entity_unique_id: int` ) |
 | `Array[Entity]` | [get_entities_by_data_id](#method-get-entities-by-data-id)( `definition_id: int` ) |
@@ -60,11 +61,15 @@ ObjectRegistry - manages all NPCs, Interactables, Trigger areas, and special Enc
 | `EncounterGroup` | [get_encounter](#method-get-encounter)( `encounter_unique_id: int` ) |
 | `Array[EncounterGroup]` | [get_all_encounters](#method-get-all-encounters)() |
 | `void` | [unregister_encounter](#method-unregister-encounter)( `encounter: EncounterGroup` ) |
+| `void` | [register_spawner](#method-register-spawner)( `spawner: Spawner` ) |
+| `Spawner` | [get_spawner](#method-get-spawner)( `spawner_unique_id: int` ) |
+| `Array[Spawner]` | [get_all_spawners](#method-get-all-spawners)() |
+| `void` | [unregister_spawner](#method-unregister-spawner)( `spawner: Spawner` ) |
 | `void` | [register_controller](#method-register-controller)( `entity: Entity, controller: EntityStateComponent` ) |
 | `void` | [unregister_controller](#method-unregister-controller)( `entity: Entity` ) |
 | `void` | [force_lod_update](#method-force-lod-update)( `entity: Entity` ) |
 | `void` | [set_entity_lod_level](#method-set-entity-lod-level)( `entity: Entity, level: GameplayConfig.LODLevel` ) |
-| `NPC` | [spawn_npc](#method-spawn-npc)( `entity_id: int, position: Vector3` ) |
+| `NPC` | [spawn_npc](#method-spawn-npc)( `entity_id: int, position: Vector3, level: int = 0` ) |
 | `Pet` | [spawn_pet](#method-spawn-pet)( `entity_id: int, summoner: Entity, position: Vector3` ) |
 | `InteractableObject` | [spawn_interactable](#method-spawn-interactable)( `interactable_id: int, position: Vector3, summoner: Entity = null` ) |
 | `Entity` | [spawn_dynamic_entity](#method-spawn-dynamic-entity)( `definition: EntityDefinition, position: Vector3, summoner: Entity = null` ) |
@@ -117,6 +122,10 @@ Dictionary of dynamic NPCs/entities keyed by instance_id (no UniqueEntityData)
 ### Dictionary placed_encounters =  {#var-placed-encounters}
 
 Dictionary of encounters keyed by unique_id for fast lookups
+
+### Dictionary placed_spawners =  {#var-placed-spawners}
+
+The spawners of the world by the id of their record
 
 ### Array[EncounterGroup] dynamic_encounters = [] {#var-dynamic-encounters}
 
@@ -196,7 +205,7 @@ Track active interactions across all NPCs
 
 Thins out the behaviour of what is far from the player (called every frame by the WorldContainer: a RefCounted has no process of its own)
 
-### void register_world_objects( entities: Array, interactables: Array, trigger_areas: Array, dropped_items: Array = [] ) {#method-register-world-objects}
+### void register_world_objects( entities: Array, interactables: Array, trigger_areas: Array, dropped_items: Array = [], spawners: Array = [] ) {#method-register-world-objects}
 
 Register all world objects at once (called by WorldContainer after world loads) This handles pre-placed objects from the WorldScene containers
 
@@ -288,6 +297,22 @@ Get all registered encounters (placed + dynamic)
 
 Unregister a Encounter from the manager
 
+### void register_spawner( spawner: Spawner ) {#method-register-spawner}
+
+Register a spawner: it starts working (it makes things while a player is near).
+
+### Spawner get_spawner( spawner_unique_id: int ) {#method-get-spawner}
+
+The spawner of a record id (null when there is none).
+
+### Array[Spawner] get_all_spawners() {#method-get-all-spawners}
+
+Every spawner of the world.
+
+### void unregister_spawner( spawner: Spawner ) {#method-unregister-spawner}
+
+Takes a spawner out of the registry (it stops working).
+
 ### void register_controller( entity: Entity, controller: EntityStateComponent ) {#method-register-controller}
 
 Register a behavior controller
@@ -304,7 +329,7 @@ Force LOD update for a specific entity (useful when entity becomes important)
 
 Set LOD level directly for an entity (bypasses distance calculation)
 
-### NPC spawn_npc( entity_id: int, position: Vector3 ) {#method-spawn-npc}
+### NPC spawn_npc( entity_id: int, position: Vector3, level: int = 0 ) {#method-spawn-npc}
 
 Spawn NPC at specified position (with UniqueEntityData)
 

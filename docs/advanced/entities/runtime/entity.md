@@ -23,6 +23,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `bool` | [is_initialized](#var-is-initialized) | `false` |
 | `String:` | [display_name](#var-display-name) |  |
 | `Variant` | [target](#var-target) |  |
+| `int` | [spawn_level_override](#var-spawn-level-override) | `0` |
 | `int` | [current_level](#var-current-level) | `0:` |
 | `AbilityInstance` | [casting_ability](#var-casting-ability) | `null:` |
 | `FactionDefinition` | [faction](#var-faction) |  |
@@ -607,9 +608,13 @@ The name shown above the entity and in the interface. The name of the entity. An
 
 The entity or object this entity has targeted now (null when none).
 
+### int spawn_level_override = 0 {#var-spawn-level-override}
+
+The level of the entity. Changing it recomputes the growth of its stats and pools. The level a spawner gave this NPC when it made it (0 = the level of its definition or its placed NPC). It is read when the NPC starts and keeps the level from then on.
+
 ### int current_level = 0: {#var-current-level}
 
-The level of the entity. Changing it recomputes the growth of its stats and pools.
+*No description yet.*
 
 ### AbilityInstance casting_ability = null: {#var-casting-ability}
 
