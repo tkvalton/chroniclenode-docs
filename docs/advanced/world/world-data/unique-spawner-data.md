@@ -25,6 +25,13 @@ A placed spawner: what the world keeps about one Spawner node in one world. It h
 | `float` | [max_slope](#prop-max-slope) | `45.0` |
 | `bool` | [only_walkable](#prop-only-walkable) | `true` |
 | `Color` | [paint_color](#prop-paint-color) | `Color(1.0, 0.55, 0.2, 1.0)` |
+| `bool` | [only_between_hours](#prop-only-between-hours) | `false` |
+| `float` | [from_hour](#prop-from-hour) | `20.0` |
+| `float` | [to_hour](#prop-to-hour) | `6.0` |
+| `WeatherRule` | [weather_rule](#prop-weather-rule) | `WeatherRule.ANY` |
+| `String` | [weather_name](#prop-weather-name) | `""` |
+| `int` | [condition_event_id](#prop-condition-event-id) | `0` |
+| `bool` | [leave_when_unmet](#prop-leave-when-unmet) | `false` |
 | `float` | [activation_radius](#prop-activation-radius) | `80.0` |
 | `float` | [min_player_distance](#prop-min-player-distance) | `12.0` |
 | `float` | [despawn_radius](#prop-despawn-radius) | `0.0` |
@@ -39,6 +46,14 @@ A placed spawner: what the world keeps about one Spawner node in one world. It h
 | `int` | [get_slot_count](#method-get-slot-count)() |
 
 ## Enumerations
+
+### enum WeatherRule {#enum-weatherrule}
+
+What the weather has to be for a spawner to work
+
+- **ANY** = `0` - The weather does not matter
+- **ONLY_IN** = `1` - Only while the weather is the one named below
+- **NOT_IN** = `2` - Never while the weather is the one named below
 
 ### enum Mode {#enum-mode}
 
@@ -115,6 +130,36 @@ NPCs only appear where they can walk (there is baked navigation there). A world 
 ### Color paint_color = Color(1.0, 0.55, 0.2, 1.0) {#prop-paint-color}
 
 The colour of the spawner on the ground while you paint it (Painted)
+
+*Only when*
+
+### bool only_between_hours = false {#prop-only-between-hours}
+
+The spawner only makes things between two hours of the game clock (a night spawner for undead). The window may cross midnight (from 20 to 6)
+
+### float from_hour = 20.0 {#prop-from-hour}
+
+The hour (0 to 24, 0.5 is half past midnight) the window starts
+
+### float to_hour = 6.0 {#prop-to-hour}
+
+The hour the window ends
+
+### WeatherRule weather_rule = WeatherRule.ANY {#prop-weather-rule}
+
+Whether the weather decides: only in a weather, or never in it
+
+### String weather_name = "" {#prop-weather-name}
+
+The weather the rule is about: the name of a weather of the VFX database ("rain"), or "clear" for no weather at all
+
+### int condition_event_id = 0 {#prop-condition-event-id}
+
+The conditions of this Event (Database &gt; Events) must all be met: the same conditions events use (a quest is running, a switch is on, a variable is high). The event itself is not run
+
+### bool leave_when_unmet = false {#prop-leave-when-unmet}
+
+What the spawner made leaves (when nothing is fighting) as soon as the conditions are no longer met, instead of staying until it is killed
 
 *Near the player*
 

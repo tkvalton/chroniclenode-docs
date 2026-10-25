@@ -29,6 +29,12 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `String` | [default_music_track](#prop-default-music-track) | `""` |
 | `String` | [default_ambient_track](#prop-default-ambient-track) | `""` |
 | `VFXSelectionWeather` | [default_weather](#prop-default-weather) |  |
+| `float` | [ground_wet_seconds](#prop-ground-wet-seconds) | `20.0` |
+| `float` | [ground_dry_seconds](#prop-ground-dry-seconds) | `240.0` |
+| `float` | [ground_snow_seconds](#prop-ground-snow-seconds) | `120.0` |
+| `float` | [ground_melt_seconds](#prop-ground-melt-seconds) | `300.0` |
+| `Color` | [ground_tint](#prop-ground-tint) | `Color(1.0, 0.75, 0.45)` |
+| `float` | [ground_tint_strength](#prop-ground-tint-strength) | `0.0` |
 | `TimeConfig` | [time_override](#prop-time-override) |  |
 | `SunConfig` | [sun_override](#prop-sun-override) |  |
 | `SkyConfig` | [sky_override](#prop-sky-override) |  |
@@ -163,6 +169,32 @@ Default ambient track if spawn point doesn't specify one
 ### VFXSelectionWeather default_weather {#prop-default-weather}
 
 Default weather for this world
+
+*Ground Weather*
+
+### float ground_wet_seconds = 20.0 {#prop-ground-wet-seconds}
+
+Seconds of play the ground takes to get soaked when the weather asks it
+
+### float ground_dry_seconds = 240.0 {#prop-ground-dry-seconds}
+
+Seconds of play the ground takes to dry again
+
+### float ground_snow_seconds = 120.0 {#prop-ground-snow-seconds}
+
+Seconds of play the snow takes to cover the ground
+
+### float ground_melt_seconds = 300.0 {#prop-ground-melt-seconds}
+
+Seconds of play the snow takes to melt
+
+### Color ground_tint = Color(1.0, 0.75, 0.45) {#prop-ground-tint}
+
+A colour the ground is tinted with in this world (autumn orange, a withered grey), as a season: the textures are multiplied by it
+
+### float ground_tint_strength = 0.0 {#prop-ground-tint-strength}
+
+How much of the tint shows (0 = none: the ground is as painted)
 
 *Environment Overrides*
 

@@ -268,6 +268,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [UniquesDatabaseEditor](/advanced/editor/world/uniques-database-editor) | The editor of the Uniques tab (World &gt; Uniques): lists the placed NPCs and objects of every world, filtered by kind, world and a search bar, and shows the unique that is selected. |
 | [WorldConfigEditor](/advanced/editor/world/world-config-editor) | Main editor for all world configuration types (Sky, Environment, Sun, Time) Designed to work with a pre-built scene containing the four config editors |
 | [WorldDatabaseEditor](/advanced/editor/world/world-database-editor) | The editor of the Worlds tab (World &gt; Worlds): lists the world scenes with a search bar and a category filter, and edits the properties of the selected world (loading screen, persistence, level, audio, time, sun, sky and weather). |
+| [WorldGroundSection](/advanced/editor/world/world-ground-section) | The **Ground weather** section of the Worlds editor: how fast the ground of this world gets wet and dries, how fast the snow builds and melts, and the tint of the ground (a season). |
 | [WorldZonesSection](/advanced/editor/world/world-zones-section) | The **Zones** section of the Worlds editor: the named places of ONE world (Elderwood, its sub-zone The Old Mill, the Sunken Caves ...) and the default zone of the world. |
 <!-- /classes -->
 

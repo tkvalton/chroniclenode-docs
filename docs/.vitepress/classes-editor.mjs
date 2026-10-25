@@ -989,6 +989,12 @@ export const groups = [
         "file": "editor_components/editors/world/world_database_editor.gd"
       },
       {
+        "name": "WorldGroundSection",
+        "base": "FoldableContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\world_ground_section.gd",
+        "file": "editor_components/editors/world/world_ground_section.gd"
+      },
+      {
         "name": "WorldZonesSection",
         "base": "FoldableContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\world_zones_section.gd",

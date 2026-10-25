@@ -10,6 +10,7 @@ Answers the TerrainService from a ChronicleTerrain: heights, directions and hole
 
 | | |
 |---|---|
+| `bool` | [supports](#method-supports)( `_feature: StringName` ) |
 | `float` | [get_height](#method-get-height)( `world: World3D, x: float, z: float` ) |
 | `Vector3` | [get_normal](#method-get-normal)( `world: World3D, x: float, z: float` ) |
 | `Dictionary` | [get_ground](#method-get-ground)( `world: World3D, position: Vector3, up: float, down: float, exclude: Array = [], mask: int = -1` ) |
@@ -21,6 +22,10 @@ Answers the TerrainService from a ChronicleTerrain: heights, directions and hole
 | `Dictionary` | [get_texture_weights](#method-get-texture-weights)( `position: Vector3` ) |
 
 ## Method descriptions
+
+### bool supports( _feature: StringName ) {#method-supports}
+
+Does this provider answer the thing from the data of its terrain? The base class knows nothing but the physics of the world, so it supports nothing. A plugin provider lists what it can. *(from [TerrainProvider](/advanced/world/runtime/terrain-provider))*
 
 ### float get_height( world: World3D, x: float, z: float ) {#method-get-height}
 

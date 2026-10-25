@@ -16,6 +16,8 @@ Where a zone is, is not stored here: it is painted on the terrain (the zone laye
 |---|---|---|
 | `int` | [parent_zone_id](#prop-parent-zone-id) | `0` |
 | `Color` | [color](#prop-color) | `Color(0.35, 0.7, 0.4)` |
+| `float` | [wetness_scale](#prop-wetness-scale) | `1.0` |
+| `float` | [snow_scale](#prop-snow-scale) | `1.0` |
 | `bool` | [show_banner](#prop-show-banner) | `true` |
 | `String` | [banner_subtitle](#prop-banner-subtitle) | `"":` |
 
@@ -28,6 +30,14 @@ The zone this one is a part of (0 = none: a zone of its own). A sub-zone is also
 ### Color color = Color(0.35, 0.7, 0.4) {#prop-color}
 
 The colour of the zone on the overlay of the terrain editor, the zone map and the palette
+
+### float wetness_scale = 1.0 {#prop-wetness-scale}
+
+How much of the rain reaches the ground in this zone (0 = none: a cave, under a roof; 1 = as the weather says; up to 2 = more). While the party is in the zone the ground dries or wets towards this. See docs: World &gt; Ground weather
+
+### float snow_scale = 1.0 {#prop-snow-scale}
+
+How much of the snow lies on the ground in this zone (0 = none, 1 = as the weather says, up to 2 = more: a mountain top)
 
 ### bool show_banner = true {#prop-show-banner}
 

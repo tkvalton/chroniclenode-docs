@@ -869,6 +869,12 @@ export const groups = [
         "file": "data_classes/events/event_actions/enviromental/set_enviroment_config_action.gd"
       },
       {
+        "name": "SetGroundWeatherAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\enviromental\\set_ground_weather_action.gd",
+        "file": "data_classes/events/event_actions/enviromental/set_ground_weather_action.gd"
+      },
+      {
         "name": "SetSkyConfigAction",
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\enviromental\\set_sky_config_action.gd",

@@ -183,6 +183,7 @@ func get_entity_description() -> String:
 | [EventCompletedEntityCondition](/advanced/shared-systems/general-conditions/event-completed-entity-condition) | Checks if a specific event has been completed |
 | [GameTimeCondition](/advanced/shared-systems/general-conditions/game-time-condition) | Checks if the current game time meets specified criteria. |
 | [GlobalVariableCondition](/advanced/shared-systems/general-conditions/global-variable-condition) | Universal condition for checking global variables of any type |
+| [GroundWeatherCondition](/advanced/shared-systems/general-conditions/ground-weather-condition) | Checks how wet the ground is or how much snow lies on it (what the terrain shows): "the snow is at least half" opens a pass, "the ground is dry" lets a fire be lit. |
 | [InteractableHealthCondition](/advanced/shared-systems/general-conditions/interactable-health-condition) | Checks if a destructible interactable's health meets certain criteria. |
 | [OrCondition](/advanced/shared-systems/general-conditions/or-condition) | A composite condition that passes if a specified number of its child conditions pass. |
 | [PartyIncludesClassCondition](/advanced/shared-systems/general-conditions/party-includes-class-condition) | Checks if the party includes a specific character class. |

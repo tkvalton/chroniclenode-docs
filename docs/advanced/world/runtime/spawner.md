@@ -36,6 +36,7 @@ It works only while a player is near (the activation radius) and never makes som
 | `void` | [reset](#method-reset)( `remove_what_stands: bool = true` ) |
 | `int` | [get_alive_count](#method-get-alive-count)() |
 | `void` | [tick](#method-tick)( `seconds: float` ) |
+| `bool` | [conditions_met](#method-conditions-met)() |
 | `Vector2i` | [chunk_of](#method-chunk-of)( `x: float, z: float` ) *static* |
 | `int` | [get_chunk_slot_count](#method-get-chunk-slot-count)( `chunk: Vector2i` ) |
 | `Array[Vector2i]` | [get_active_chunks](#method-get-active-chunks)() |
@@ -126,6 +127,10 @@ How many things the spawner made are standing now (NPCs that are alive, objects 
 ### void tick( seconds: float ) {#method-tick}
 
 One look at the slots: what went away starts its wait, what waited long enough can roll, an empty slot rolls and makes something when a player is near. `seconds` is the time since the last look.
+
+### bool conditions_met() {#method-conditions-met}
+
+Do the conditions of the spawner hold now: the hours of the game clock, the weather and the conditions of its Event (all that are set). A spawner with no conditions always works.
 
 ### Vector2i chunk_of( x: float, z: float ) {#method-chunk-of}
 

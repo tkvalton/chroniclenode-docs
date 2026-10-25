@@ -16,6 +16,7 @@ Tells which surface type the ground is at a position on a voxel terrain (Voxel T
 
 | | |
 |---|---|
+| `bool` | [supports](#method-supports)( `feature: StringName` ) |
 | `String` | [get_surface_type](#method-get-surface-type)( `position: Vector3` ) |
 
 ## Property descriptions
@@ -25,6 +26,10 @@ Tells which surface type the ground is at a position on a voxel terrain (Voxel T
 Which surface type each voxel type stands for.
 
 ## Method descriptions
+
+### bool supports( feature: StringName ) {#method-supports}
+
+What this provider answers from the voxels: the surface type. The ground itself is found by the physics of the world (a voxel terrain makes collision).
 
 ### String get_surface_type( position: Vector3 ) {#method-get-surface-type}
 

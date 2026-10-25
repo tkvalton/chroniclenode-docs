@@ -12,6 +12,7 @@ Deals with weather application logic
 |---|---|---|
 | `VFXWeather` | [current_weather](#var-current-weather) | `null` |
 | `WorldData:` | [world_data](#var-world-data) |  |
+| `TerrainWeatherDriver` | [ground](#var-ground) | `null` |
 | `GameHost.SystemHub` | [system_hub](#var-system-hub) |  |
 | `VFXManager:` | [vfx_manager](#var-vfx-manager) |  |
 
@@ -41,6 +42,10 @@ Current active weather VFX
 ### WorldData: world_data {#var-world-data}
 
 The current worlds data (a new world starts with its own default weather again)
+
+### TerrainWeatherDriver ground = null {#var-ground}
+
+What the weather does to the ground of the terrain (how wet it is, the snow, the tint of the world)
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 

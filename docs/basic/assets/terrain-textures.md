@@ -117,7 +117,7 @@ You can change a texture while the terrain is painted with it: replace its maps,
 
 ## Weather
 
-How the weather changes this ground. It does not use up one of the 8 texture slots of a chunk: rain and snow are drawn over the ground by the terrain itself, and these numbers say how each texture reacts.
+How the weather changes this ground (when it is wet and snowy is on the [Ground weather](/basic/world/ground-weather) page). It does not use up one of the 8 texture slots of a chunk: rain and snow are drawn over the ground by the terrain itself, and these numbers say how each texture reacts.
 
 | Field | What it does |
 |---|---|

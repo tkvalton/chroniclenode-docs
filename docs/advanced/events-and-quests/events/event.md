@@ -32,6 +32,7 @@ Self-managing event that handles its own trigger evaluation and condition checki
 | `void` | [set_system_hub](#method-set-system-hub)( `system_hub: GameHost.SystemHub` ) |
 | `void` | [setup_triggers](#method-setup-triggers)() |
 | `void` | [cleanup_triggers](#method-cleanup-triggers)() |
+| `bool` | [check_conditions](#method-check-conditions)() |
 | `bool` | [can_trigger](#method-can-trigger)() |
 | `void` | [start](#method-start)() |
 | `void` | [force_complete](#method-force-complete)() |
@@ -152,6 +153,10 @@ Setup this event's triggers (called by EventManager during initialization)
 ### void cleanup_triggers() {#method-cleanup-triggers}
 
 Cleanup this event's triggers
+
+### bool check_conditions() {#method-check-conditions}
+
+Are all the conditions of the event met (the event is not run)? A spawner asks it to know whether it may work.
 
 ### bool can_trigger() {#method-can-trigger}
 

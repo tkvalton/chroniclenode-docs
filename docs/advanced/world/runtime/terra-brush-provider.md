@@ -16,6 +16,7 @@ Tells which surface type the ground is at a position on a TerraBrush terrain: th
 
 | | |
 |---|---|
+| `bool` | [supports](#method-supports)( `feature: StringName` ) |
 | `String` | [get_surface_type](#method-get-surface-type)( `position: Vector3` ) |
 
 ## Property descriptions
@@ -25,6 +26,10 @@ Tells which surface type the ground is at a position on a TerraBrush terrain: th
 Which surface type each texture of the terrain stands for.
 
 ## Method descriptions
+
+### bool supports( feature: StringName ) {#method-supports}
+
+What this provider answers from the data of TerraBrush: the surface type. The ground itself is found by the physics of the world (TerraBrush makes collision).
 
 ### String get_surface_type( position: Vector3 ) {#method-get-surface-type}
 

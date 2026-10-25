@@ -1,7 +1,7 @@
 # Spawners
 
 ::: tip Built
-Everything the first design of this page asked for is built now: see [Spawners](/basic/world/spawners) (the three modes, the paint tools, events, conditions and the trigger). What is **not** built yet is below: conditions on the **time** a spawner works in (only at night, only in the rain) and faction or behaviour settings of the spawner itself. Until then, use an event with the conditions you need to switch a spawner on and off.
+Everything the first design of this page asked for is built now: see [Spawners](/basic/world/spawners) (the three modes, the paint tools, events, conditions and the trigger). What is **not** built yet is below: faction or behaviour settings of the spawner itself (what an NPC that spawns here is and what it does). The conditions (hours, weather, an event's conditions) are built: see [Spawners](/basic/world/spawners#conditions-of-a-spawner).
 :::
 
 A **spawner** makes the world fill itself: you describe **where** something can appear, **what** can appear, and **how often**, and the toolkit places it for you and keeps the place alive. It will cover both of the things a world is full of:

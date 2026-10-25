@@ -11,6 +11,7 @@ The editor of the Worlds tab (World &gt; Worlds): lists the world scenes with a 
 | | | |
 |---|---|---|
 | `WorldZonesSection` | [zones_section](#var-zones-section) |  |
+| `WorldGroundSection` | [ground_section](#var-ground-section) |  |
 | `Array[WorldData]` | [all_worlds](#var-all-worlds) | `[]` |
 | `Array[WorldData]` | [filtered_worlds](#var-filtered-worlds) | `[]` |
 | `int` | [selected_world_index](#var-selected-world-index) | `-1` |
@@ -31,6 +32,10 @@ The editor of the Worlds tab (World &gt; Worlds): lists the world scenes with a 
 ### WorldZonesSection zones_section {#var-zones-section}
 
 The Zones section (made in code)
+
+### WorldGroundSection ground_section {#var-ground-section}
+
+*No description yet.*
 
 ### Array[WorldData] all_worlds = [] {#var-all-worlds}
 

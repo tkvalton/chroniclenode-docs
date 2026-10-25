@@ -101,6 +101,9 @@ const basicSystems = [
           page('Sculpting', '/basic/world/terrain-sculpting'),
           page('Painting', '/basic/world/terrain-painting'),
           page('Navigation', '/basic/world/terrain-navigation'),
+          page('Ground weather', '/basic/world/ground-weather'),
+          page('Terrain streaming', '/basic/world/terrain-streaming'),
+          page('Other terrain plugins', '/basic/world/terrain-plugins'),
           page('Foliage tools', '/basic/world/terrain-foliage'),
           page('The Unique Object tool', '/basic/world/unique-object-tool'),
           page('Trigger areas', '/basic/world/trigger-areas'),
@@ -348,6 +351,9 @@ const worldAdvanced = {
     page('Audio zones', '/advanced/world/audio-zones', { title: 'Audio zones: how they are built' }),
     page('Encounters', '/advanced/world/encounters', { title: 'Encounters: how they are built' }),
     page('Terrain', '/advanced/world/terrain', { title: 'Terrain: how it is built' }),
+    page('Ground weather', '/advanced/world/ground-weather', { title: 'Ground weather: how it is built' }),
+    page('Terrain streaming', '/advanced/world/terrain-streaming', { title: 'Terrain streaming: how it is built' }),
+    page('Terrain providers', '/advanced/world/terrain-providers', { title: 'Terrain providers: how they are built' }),
   ],
 }
 

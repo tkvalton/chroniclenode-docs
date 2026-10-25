@@ -21,6 +21,8 @@ The terrain of a world, seen by the TerrainService. The base class answers every
 
 | | |
 |---|---|
+| `bool` | [supports](#method-supports)( `_feature: StringName` ) |
+| `Array[StringName]` | [get_features](#method-get-features)() |
 | `String` | [get_surface_type](#method-get-surface-type)( `_position: Vector3` ) |
 | `float` | [get_height](#method-get-height)( `world: World3D, x: float, z: float` ) |
 | `Vector3` | [get_normal](#method-get-normal)( `world: World3D, x: float, z: float` ) |
@@ -31,6 +33,17 @@ The terrain of a world, seen by the TerrainService. The base class answers every
 | `bool` | [is_navigable](#method-is-navigable)( `world: World3D, x: float, z: float` ) |
 | `Dictionary` | [get_texture_weights](#method-get-texture-weights)( `_position: Vector3` ) |
 | `int` | [get_area_id](#method-get-area-id)( `_position: Vector3` ) |
+
+## Constants
+
+- `StringName` **HEIGHTS** = `&"heights"` - What a terrain can be asked besides "where is the ground" (see supports). A provider says honestly which of them it answers from the data of its terrain; the toolkit features that need more than the ground (paint layers, streaming) work only with the terrain of the toolkit (ChronicleTerrain).
+- `StringName` **NORMALS** = `&"normals"` - the direction of the ground from the data
+- `StringName` **HOLES** = `&"holes"` - holes cut in the ground
+- `StringName` **SURFACE_TYPES** = `&"surface_types"` - the kind of ground (for footsteps)
+- `StringName` **TEXTURE_WEIGHTS** = `&"texture_weights"` - the textures under a place and how much of each
+- `StringName` **PAINT_LAYERS** = `&"paint_layers"` - paint layers on the ground: painted zones and Painted spawners
+- `StringName` **STREAMING** = `&"streaming"` - the tiles load and unload as the party moves
+- `StringName` **WEATHER** = `&"weather"` - the ground gets wet, snowy and tinted with the weather of the world
 
 ## Property descriptions
 
@@ -52,13 +65,21 @@ The total length of that search (metres).
 
 ## Method descriptions
 
+### bool supports( _feature: StringName ) {#method-supports}
+
+Does this provider answer the thing from the data of its terrain? The base class knows nothing but the physics of the world, so it supports nothing. A plugin provider lists what it can.
+
+### Array[StringName] get_features() {#method-get-features}
+
+Everything this provider supports.
+
 ### String get_surface_type( _position: Vector3 ) {#method-get-surface-type}
 
 To be overridden by specific plugin implementations
 
 ### float get_height( world: World3D, x: float, z: float ) {#method-get-height}
 
-The height of the highest ground at x, z (NAN when there is none).
+The height of the highest ground at x, z (NAN when there is none): the data of the terrain when the provider has them, else the physics of the world.
 
 ### Vector3 get_normal( world: World3D, x: float, z: float ) {#method-get-normal}
 

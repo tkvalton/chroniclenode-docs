@@ -35,6 +35,10 @@ The spawner gets an id and a record in the database ([`UniqueSpawnerData`](/adva
 | **Only walkable** | *Volume* and *Painted*: NPCs only appear where they can walk (baked navigation). A world with no baked navigation ignores this | on |
 | **Paint colour** | *Painted*: the colour of the spawner on the ground while you paint it (a colour of its own is chosen when the spawner is made) | |
 | **Activation radius** | The spawner only works while a player of the party is this close (metres). For a *Volume* spawner the distance is counted from its shape, for a *Painted* one from every chunk. `0` = it works everywhere (a painted spawner then works 80 m round the players) | 80 |
+| **Only between hours** | The spawner only makes things between two hours of the game clock (a night spawner for undead). *From hour* and *To hour* (0 to 24) may cross midnight: 20 to 6 | off |
+| **Weather rule** and **Weather name** | *Only in* a weather, or *Not in* it, by the name of a weather of the VFX database (`rain`; the name is not case sensitive). `clear` means no weather at all | any |
+| **Condition event** | The conditions of an **Event** (Database > Events) must all be met: the same conditions events use (a quest is running, a switch is on, a variable is high). The event itself is never run: it is only the place the conditions are written | none |
+| **Leave when unmet** | What the spawner made goes away (when nothing is fighting) as soon as the conditions are no longer met, instead of staying until it is killed. Off: what stands stays, only new things wait for the conditions | off |
 | **Min player distance** | Nothing appears this close to a player, so nothing pops up in front of the party (a Volume or Painted spawner looks at the place it picks and tries another) | 12 |
 | **Despawn radius** | What stands there when no player is within this distance leaves again (things in a fight stay), so a world full of spawners costs nothing while nobody is there. `0` = it stays. A *Painted* spawner always empties the chunks that are far: a chunk is let go when no player is within the despawn radius, or 1.25 times the activation radius when this is `0` | 0 |
 
@@ -67,6 +71,12 @@ The line of the table that comes up decides:
 | **Nothing** | Nothing: the spawner waits a respawn time and rolls again |
 
 When what the spawner made is gone, **the wait begins**: all the NPCs of a group dead, the object freed, the items taken. After the wait the corpses are taken away and the spawner rolls again. A spawner that is switched off makes nothing but leaves what stands there.
+
+## Conditions of a spawner
+
+A spawner can be limited to **when** it works, with the *Only when* fields of its settings (see the table above): the hours of the game clock, the weather, and the conditions of an event. All that are set must hold. While they do not, an empty place does not roll and a place that waits for its respawn keeps waiting; what already stands stays unless *Leave when unmet* is on. A Painted spawner opens no new chunks while they do not hold.
+
+For anything the fields do not cover, an [event](/basic/events-and-quests/events) can switch a spawner on and off with a trigger and conditions of its own (below).
 
 ## Events and conditions
 

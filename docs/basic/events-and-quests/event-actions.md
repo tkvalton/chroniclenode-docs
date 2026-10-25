@@ -169,6 +169,14 @@ Start, finish, fail or give up [quests](/basic/events-and-quests/quests) and que
 | [**Fail Quest**](/advanced/events-and-quests/actions-quest/fail-quest-action) (`FailQuestAction`) | Fails a running quest (the deadline passed, the one to protect died). |
 | [**Fail Quest Objective**](/advanced/events-and-quests/actions-quest/fail-quest-objective-action) (`FailQuestObjectiveAction`) | Fails one objective of a running quest. |
 
+## Ground weather
+
+Change how the ground looks in the weather.
+
+| Action | What it does |
+|---|---|
+| [**Set Ground Weather**](/advanced/events-and-quests/actions-environment/set-ground-weather-action) (`SetGroundWeatherAction`) | Changes how the terrain looks in the weather: how wet the ground is, how much snow lies on it, and its tint (a season). The levels can be set once or held until released. See [Ground weather](/basic/world/ground-weather). |
+
 ## Spawner
 
 Switch a [spawner](/basic/world/spawners) on or off, make it start over, or roll a [spawn table](/basic/world/spawn-tables) at a place.

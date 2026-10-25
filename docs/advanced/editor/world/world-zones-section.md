@@ -22,6 +22,8 @@ The **Zones** section of the Worlds editor: the named places of ONE world (Elder
 | `OptionButton` | [parent_option](#var-parent-option) |  |
 | `CheckBox` | [banner_check](#var-banner-check) |  |
 | `LineEdit` | [subtitle_edit](#var-subtitle-edit) |  |
+| `SpinBox` | [wetness_scale_spin](#var-wetness-scale-spin) |  |
+| `SpinBox` | [snow_scale_spin](#var-snow-scale-spin) |  |
 | `VBoxContainer` | [fields_box](#var-fields-box) |  |
 | `Label` | [hint_label](#var-hint-label) |  |
 
@@ -90,6 +92,14 @@ Something of the world changed (the zone list, the default zone): the editor sav
 *No description yet.*
 
 ### LineEdit subtitle_edit {#var-subtitle-edit}
+
+*No description yet.*
+
+### SpinBox wetness_scale_spin {#var-wetness-scale-spin}
+
+*No description yet.*
+
+### SpinBox snow_scale_spin {#var-snow-scale-spin}
 
 *No description yet.*
 

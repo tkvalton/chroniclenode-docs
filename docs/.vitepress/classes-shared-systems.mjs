@@ -599,6 +599,12 @@ export const groups = [
         "file": "data_classes/conditions/general/global_variable_condition.gd"
       },
       {
+        "name": "GroundWeatherCondition",
+        "base": "Condition",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\general\\ground_weather_condition.gd",
+        "file": "data_classes/conditions/general/ground_weather_condition.gd"
+      },
+      {
         "name": "InteractableHealthCondition",
         "base": "Condition",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\general\\interactable_destructible_health_condition.gd",

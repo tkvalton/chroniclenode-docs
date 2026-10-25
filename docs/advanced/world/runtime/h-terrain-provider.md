@@ -16,6 +16,7 @@ Tells which surface type the ground is at a position on a Heightmap Terrain (HTe
 
 | | |
 |---|---|
+| `bool` | [supports](#method-supports)( `feature: StringName` ) |
 | `String` | [get_surface_type](#method-get-surface-type)( `position: Vector3` ) |
 
 ## Property descriptions
@@ -25,6 +26,10 @@ Tells which surface type the ground is at a position on a Heightmap Terrain (HTe
 Which surface type each texture of the terrain stands for.
 
 ## Method descriptions
+
+### bool supports( feature: StringName ) {#method-supports}
+
+What this provider answers from the data of HTerrain: the height and the direction of the ground, and the surface type.
 
 ### String get_surface_type( position: Vector3 ) {#method-get-surface-type}
 
