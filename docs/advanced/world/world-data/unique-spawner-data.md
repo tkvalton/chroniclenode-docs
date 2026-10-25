@@ -21,6 +21,10 @@ A placed spawner: what the world keeps about one Spawner node in one world. It h
 | `float` | [respawn_min](#prop-respawn-min) | `60.0` |
 | `float` | [respawn_max](#prop-respawn-max) | `60.0` |
 | `bool` | [spawn_at_start](#prop-spawn-at-start) | `true` |
+| `float` | [density](#prop-density) | `4.0` |
+| `float` | [max_slope](#prop-max-slope) | `45.0` |
+| `bool` | [only_walkable](#prop-only-walkable) | `true` |
+| `Color` | [paint_color](#prop-paint-color) | `Color(1.0, 0.55, 0.2, 1.0)` |
 | `float` | [activation_radius](#prop-activation-radius) | `80.0` |
 | `float` | [min_player_distance](#prop-min-player-distance) | `12.0` |
 | `float` | [despawn_radius](#prop-despawn-radius) | `0.0` |
@@ -41,6 +45,8 @@ A placed spawner: what the world keeps about one Spawner node in one world. It h
 How the spawner chooses its places
 
 - **POINT** = `0` - One place (the spawner itself), one thing at a time
+- **VOLUME** = `1` - Random places inside the shape of the node (a cave, a room), snapped down to the floor, up to Max alive things at once
+- **PAINTED** = `2` - Random places on the ground painted for this spawner with the Paint spawner tool of the terrain, filled round the players
 
 ## Property descriptions
 
@@ -68,7 +74,7 @@ Whether the spawner works. An event can switch it on and off
 
 ### Mode mode = Mode.POINT {#prop-mode}
 
-How the spawner chooses its places: Point = the spawner itself
+How the spawner chooses its places: Point = the spawner itself, Volume = inside its shape, Painted = on the ground painted for it
 
 ### int spawn_table_id = 0 {#prop-spawn-table-id}
 
@@ -78,7 +84,7 @@ The spawn table the spawner rolls every time it makes something (Database &gt; W
 
 ### int max_alive = 1 {#prop-max-alive}
 
-How many things the spawner keeps alive at once (a Point spawner always keeps one: a group of NPCs from one line counts as one)
+How many things a Volume spawner keeps alive at once (a Point spawner always keeps one, a Painted spawner keeps as many as its density asks: a group of NPCs from one line counts as one)
 
 ### float respawn_min = 60.0 {#prop-respawn-min}
 
@@ -92,11 +98,29 @@ The most seconds before the next one comes (the time is chosen between the two n
 
 Whether the first thing appears at once when the spawner starts working (a player comes near), instead of waiting a respawn time
 
+### float density = 4.0 {#prop-density}
+
+For a Painted spawner: how many things stand on every 1000 square metres of painted ground (a chunk of 16 m by 16 m that is all painted is 256 square metres). Less than one means some chunks have none
+
+*Where it may appear*
+
+### float max_slope = 45.0 {#prop-max-slope}
+
+The steepest ground (degrees) a thing may appear on (Volume and Painted)
+
+### bool only_walkable = true {#prop-only-walkable}
+
+NPCs only appear where they can walk (there is baked navigation there). A world with no baked navigation ignores this
+
+### Color paint_color = Color(1.0, 0.55, 0.2, 1.0) {#prop-paint-color}
+
+The colour of the spawner on the ground while you paint it (Painted)
+
 *Near the player*
 
 ### float activation_radius = 80.0 {#prop-activation-radius}
 
-The spawner only works while a player of the party is this close (metres). 0 = it works everywhere, always
+The spawner only works while a player of the party is this close (metres; for a Volume spawner counted from its shape, for a Painted one from each chunk). 0 = it works everywhere, always (a Painted spawner then works 80 m round the players)
 
 ### float min_player_distance = 12.0 {#prop-min-player-distance}
 
@@ -122,5 +146,5 @@ The seconds a thing takes to come back this time (between the two numbers).
 
 ### int get_slot_count() {#method-get-slot-count}
 
-How many places the spawner keeps (a Point spawner has one).
+How many places the spawner keeps at the start (a Point spawner has one, a Volume spawner its Max alive; a Painted spawner makes its places per chunk near the players).
 

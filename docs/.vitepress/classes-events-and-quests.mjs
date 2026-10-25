@@ -601,6 +601,18 @@ export const groups = [
     ]
   },
   {
+    "text": "Triggers: spawner",
+    "slug": "triggers-spawner",
+    "classes": [
+      {
+        "name": "SpawnerTrigger",
+        "base": "EventTrigger",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_triggers\\spawner\\spawner_trigger.gd",
+        "file": "data_classes/events/event_triggers/spawner/spawner_trigger.gd"
+      }
+    ]
+  },
+  {
     "text": "Triggers: time",
     "slug": "triggers-time",
     "classes": [
@@ -723,6 +735,30 @@ export const groups = [
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\encounter\\encounter_set_active_state_action.gd",
         "file": "data_classes/events/event_actions/encounter/encounter_set_active_state_action.gd"
+      }
+    ]
+  },
+  {
+    "text": "Actions: spawner",
+    "slug": "actions-spawner",
+    "classes": [
+      {
+        "name": "ResetSpawnerAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\spawner\\reset_spawner_action.gd",
+        "file": "data_classes/events/event_actions/spawner/reset_spawner_action.gd"
+      },
+      {
+        "name": "SetSpawnerActiveAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\spawner\\set_spawner_active_action.gd",
+        "file": "data_classes/events/event_actions/spawner/set_spawner_active_action.gd"
+      },
+      {
+        "name": "SpawnFromTableAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\spawner\\spawn_from_table_action.gd",
+        "file": "data_classes/events/event_actions/spawner/spawn_from_table_action.gd"
       }
     ]
   },

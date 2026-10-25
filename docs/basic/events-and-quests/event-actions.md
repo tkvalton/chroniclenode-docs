@@ -169,6 +169,16 @@ Start, finish, fail or give up [quests](/basic/events-and-quests/quests) and que
 | [**Fail Quest**](/advanced/events-and-quests/actions-quest/fail-quest-action) (`FailQuestAction`) | Fails a running quest (the deadline passed, the one to protect died). |
 | [**Fail Quest Objective**](/advanced/events-and-quests/actions-quest/fail-quest-objective-action) (`FailQuestObjectiveAction`) | Fails one objective of a running quest. |
 
+## Spawner
+
+Switch a [spawner](/basic/world/spawners) on or off, make it start over, or roll a [spawn table](/basic/world/spawn-tables) at a place.
+
+| Action | What it does |
+|---|---|
+| [**Reset Spawner**](/advanced/events-and-quests/actions-spawner/reset-spawner-action) (`ResetSpawnerAction`) | Makes a spawner start over: what it made is taken away (or left standing and forgotten), every place is empty and the spawner rolls its table again at its next look, without waiting for a respawn time. |
+| [**Set Spawner Active**](/advanced/events-and-quests/actions-spawner/set-spawner-active-action) (`SetSpawnerActiveAction`) | Switches a spawner on or off. A spawner that is off makes nothing new (what it made stays); switching it on lets it work again. |
+| [**Spawn From Table**](/advanced/events-and-quests/actions-spawner/spawn-from-table-action) (`SpawnFromTableAction`) | Rolls a spawn table and makes what comes up at a place, once: an ambush from the bushes, a pack that runs out of the cave when a lever is pulled, loot that drops from the ceiling. |
+
 ## Time
 
 Skip ahead to a time of day, or advance the clock.

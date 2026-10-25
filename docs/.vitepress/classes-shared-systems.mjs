@@ -667,6 +667,24 @@ export const groups = [
     ]
   },
   {
+    "text": "Conditions: spawner",
+    "slug": "spawner-conditions",
+    "classes": [
+      {
+        "name": "SpawnerActiveCondition",
+        "base": "Condition",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\spawner\\spawner_active_condition.gd",
+        "file": "data_classes/conditions/spawner/spawner_active_condition.gd"
+      },
+      {
+        "name": "SpawnerAliveCountCondition",
+        "base": "Condition",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\spawner\\spawner_alive_count_condition.gd",
+        "file": "data_classes/conditions/spawner/spawner_alive_count_condition.gd"
+      }
+    ]
+  },
+  {
     "text": "Groups",
     "slug": "groups",
     "classes": [

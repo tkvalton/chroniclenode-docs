@@ -304,7 +304,7 @@ const advancedShared = {
   items: [
     page('Overview', '/advanced/shared-systems/', { title: 'Shared systems: how they are built' }),
     sharedSystem('Requirements', 'requirements', ['requirements']),
-    sharedSystem('Conditions', 'conditions', ['condition-bases', 'entity-conditions', 'encounter-conditions', 'event-conditions', 'general-conditions']),
+    sharedSystem('Conditions', 'conditions', ['condition-bases', 'entity-conditions', 'encounter-conditions', 'event-conditions', 'general-conditions', 'spawner-conditions']),
     sharedSystem('Rewards', 'rewards', ['rewards']),
     sharedSystem('Groups', 'groups', ['groups']),
     sharedSystem('Text tokens', 'text-tokens', ['text-tokens']),

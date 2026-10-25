@@ -170,6 +170,14 @@ The party enters or leaves a [zone](/basic/world/zones).
 |---|---|
 | [**Zone Entered Or Left**](/advanced/events-and-quests/triggers-zone/zone-trigger) (`ZoneTrigger`) | Fires when the party enters a zone, leaves it, or both. A zone counts when the party is in it or in one of its sub-zones. As the trigger of a quest objective it is *Reach the zone* |
 
+## Spawner
+
+Something happens at a [spawner](/basic/world/spawners).
+
+| Trigger | What it does |
+|---|---|
+| [**Spawner**](/advanced/events-and-quests/triggers-spawner/spawner-trigger) (`SpawnerTrigger`) | Triggers when something happens at a spawner: it makes something, what it made is gone (all the NPCs of a group killed, the object used up, the items taken), or it is switched on or off. A quest objective of "the wolves are cleared" is the second one. |
+
 ## Time
 
 A time of day arrives, a timer runs out, or the game starts.

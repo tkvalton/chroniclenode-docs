@@ -19,6 +19,7 @@ In every list, **all** the conditions must be true. For "any of these", use the 
 Click the add button next to the list of conditions. A dialog opens with a **Category**, a **Type** and its fields:
 
 - **General** conditions are about the world: quests, events, global variables, the time of day, the party, trigger areas, doors and chests.
+- **Spawner** conditions are about a [spawner](/basic/world/spawners): is it on, how many things of it are alive.
 - **Entity** conditions are about one entity: its health, level, effects, items, distance, target.
 - **Encounter** conditions are about a group fight: how long it has lasted, how many are alive.
 
@@ -71,46 +72,15 @@ Conditions that compare a number offer the same choices: **equal**, **greater**,
 | [TriggerAreaPresenceCondition](/advanced/shared-systems/general-conditions/trigger-area-presence-condition) | Checks if entities are present in a specific trigger area |
 <!-- /classes -->
 
-### Entity
+### Spawner
 
-<!-- classes:shared-systems/entity-conditions -->
+About a [spawner](/basic/world/spawners): whether it is on, and how many things it made are standing.
+
+<!-- classes:shared-systems/spawner-conditions -->
 | Class | What it is |
 |---|---|
-| [AbilityCooldownReadyCondition](/advanced/shared-systems/entity-conditions/ability-cooldown-ready-condition) | Checks if a specific ability is off cooldown and ready to use. |
-| [AlliesInRangeCondition](/advanced/shared-systems/entity-conditions/allies-in-range-condition) | Checks if a minimum number of allies are within a specified range. |
-| [AlliesInRangeHealthCondition](/advanced/shared-systems/entity-conditions/allies-in-range-health-condition) | Checks if minimum number of allies in range are above/below health threshold Consolidates HealthAbove and HealthBelow conditions with encounter support. |
-| [AlliesInRangeWithEffectCondition](/advanced/shared-systems/entity-conditions/allies-in-range-with-effect-condition) | Checks if minimum number of allies in range have/don't have specific effect Now supports encounter-aware searching and inverted logic. |
-| [CastingStateCondition](/advanced/shared-systems/entity-conditions/casting-state-condition) | Checks if the entity or target is currently casting/not casting. |
-| [CombatStateCondition](/advanced/shared-systems/entity-conditions/combat-state-condition) | Checks if the target entity is in combat or not. |
-| [EncounterDurationCondition](/advanced/shared-systems/entity-conditions/encounter-duration-condition) | Checks if the current encounter has been running for a specific duration. |
-| [EncounterFactionBalanceCondition](/advanced/shared-systems/entity-conditions/encounter-faction-balance-condition) | Checks the faction balance in the current encounter. |
-| [EnemiesInRangeCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-condition) | Checks if a minimum number of enemies are within a specified range. |
-| [EnemiesInRangeHealthCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-health-condition) | Checks if minimum number of enemies in range are above/below health threshold Consolidates HealthAbove and HealthBelow conditions with encounter support. |
-| [EnemiesInRangeWithEffectCondition](/advanced/shared-systems/entity-conditions/enemies-in-range-with-effect-condition) | Checks if minimum number of enemies in range have/don't have specific effect Now supports encounter-aware searching and inverted logic. |
-| [EntitiesInRangeHealthCondition](/advanced/shared-systems/entity-conditions/entities-in-range-health-condition) | Checks if minimum number of entities in range are above/below health threshold |
-| [EntitiesInRangeWithEffectCondition](/advanced/shared-systems/entity-conditions/entities-in-range-with-effect-condition) | Checks if minimum number of entities in range have/don't have specific effect |
-| [EntityDistanceToEntityCondition](/advanced/shared-systems/entity-conditions/entity-distance-to-entity-condition) | Checks distance between the target entity and another specific entity. |
-| [EntityDistanceToInteractableCondition](/advanced/shared-systems/entity-conditions/entity-distance-to-interactable-condition) | Checks distance between the target entity and a specific interactable object. |
-| [EntityHasTagCondition](/advanced/shared-systems/entity-conditions/entity-has-tag-condition) | Checks the type tags of an entity ("Undead", "Beast" ...). |
-| [EquippedWeaponTypeCondition](/advanced/shared-systems/entity-conditions/equipped-weapon-type-condition) | Checks the weapons an entity holds: "holds a one-handed weapon". |
-| [HasCurrencyCondition](/advanced/shared-systems/entity-conditions/has-currency-condition) | Check if the entity holds an amount of a currency (money, or anything a game counts as a currency: a quest track, a token) |
-| [HasEffectCondition](/advanced/shared-systems/entity-conditions/has-effect-condition) | Checks if the entity or target has a specific effect active. |
-| [HasEquippedCondition](/advanced/shared-systems/entity-conditions/has-equipped-condition) | Check if entity has specific equipment items equipped Evaluates whether the entity has the required equipment items currently equipped |
-| [HasItemCondition](/advanced/shared-systems/entity-conditions/has-item-condition) | Check if entity has specific items in their inventory Evaluates whether the entity has the required items and quantities |
-| [HasTargetCondition](/advanced/shared-systems/entity-conditions/has-target-condition) | Checks if the entity has a valid target. |
-| [HealthPercentCondition](/advanced/shared-systems/entity-conditions/health-percent-condition) | Checks if the entity's health is above/below a specified percentage. |
-| [IsAliveCondition](/advanced/shared-systems/entity-conditions/is-alive-condition) | Checks if the target entity is alive or dead. |
-| [IsLevelCondition](/advanced/shared-systems/entity-conditions/is-level-condition) | Checks if the target entity meets a level requirement. |
-| [IsPlayerClassCondition](/advanced/shared-systems/entity-conditions/is-player-class-condition) | Checks if the target entity is a Player with a specific class ID. |
-| [MetadataCondition](/advanced/shared-systems/entity-conditions/metadata-condition) | Check entity metadata with flexible operations and type handling |
-| [MovementStateCondition](/advanced/shared-systems/entity-conditions/movement-state-condition) | Checks whether the entity is standing still, moving, in the air or on the ground. |
-| [ProficiencyCondition](/advanced/shared-systems/entity-conditions/proficiency-condition) | Checks the level of an entity in a proficiency: "has Lockpicking 25 or more", "is untrained in swords". |
-| [TargetDistanceBetweenCondition](/advanced/shared-systems/entity-conditions/target-distance-between-condition) | Checks if the target is within a specified distance range (between min and max). |
-| [TargetDistanceCondition](/advanced/shared-systems/entity-conditions/target-distance-condition) | Checks if the target is closer/farther than a specified range. |
-| [TargetIsPlayerCondition](/advanced/shared-systems/entity-conditions/target-is-player-condition) | Checks if the target is a player entity. |
-| [WearingArmorClassCondition](/advanced/shared-systems/entity-conditions/wearing-armor-class-condition) | Checks the armor an entity wears: "wears at least three pieces of plate". |
-| [WorldPositionDistanceBetweenCondition](/advanced/shared-systems/entity-conditions/world-position-distance-between-condition) | Checks if the entity is within a specified distance range from a world position. |
-| [WorldPositionDistanceCondition](/advanced/shared-systems/entity-conditions/world-position-distance-condition) | Checks if the entity is within range or farther than a world position. |
+| [SpawnerActiveCondition](/advanced/shared-systems/spawner-conditions/spawner-active-condition) | Checks whether a spawner is switched on. |
+| [SpawnerAliveCountCondition](/advanced/shared-systems/spawner-conditions/spawner-alive-count-condition) | Checks how many things a spawner made are standing now (NPCs that are alive, objects that are there, items that lie): "the wolves of the forest are all dead" is a count of 0. |
 <!-- /classes -->
 
 ### Encounter

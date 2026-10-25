@@ -23,15 +23,22 @@ It works only while a player is near (the activation radius) and never makes som
 | `Array[Slot]` | [slots](#var-slots) | `[]` |
 | `bool` | [active](#var-active) | `true` |
 | `GameHost.SystemHub` | [system_hub](#var-system-hub) | `null` |
+| `ChronicleTerrain` | [terrain_source](#var-terrain-source) | `null` |
 
 ## Methods
 
 | | |
 |---|---|
+| `int` | [erase_paint](#method-erase-paint)( `scene_root: Node, spawner_id: int` ) *static* |
 | `int` | [get_unique_id](#method-get-unique-id)() |
 | `void` | [initialize_spawner](#method-initialize-spawner)( `p_system_hub: GameHost.SystemHub` ) |
 | `void` | [set_active_state](#method-set-active-state)( `is_on: bool` ) |
+| `void` | [reset](#method-reset)( `remove_what_stands: bool = true` ) |
+| `int` | [get_alive_count](#method-get-alive-count)() |
 | `void` | [tick](#method-tick)( `seconds: float` ) |
+| `Vector2i` | [chunk_of](#method-chunk-of)( `x: float, z: float` ) *static* |
+| `int` | [get_chunk_slot_count](#method-get-chunk-slot-count)( `chunk: Vector2i` ) |
+| `Array[Vector2i]` | [get_active_chunks](#method-get-active-chunks)() |
 | `Dictionary` | [to_save_data](#method-to-save-data)() |
 | `void` | [from_save_data](#method-from-save-data)( `data: Dictionary` ) |
 
@@ -44,6 +51,10 @@ Something was made: the position of the slot and what it made (nodes).
 ### slot_emptied( slot_index: int ) {#signal-slot-emptied}
 
 What a slot made is gone (killed, taken, used up): the respawn time starts.
+
+### active_changed( is_on: bool ) {#signal-active-changed}
+
+The spawner was switched on or off (an event does it).
 
 ## Enumerations
 
@@ -58,7 +69,9 @@ One of the things the spawner keeps: empty (it will roll when it can), alive (wh
 ## Constants
 
 - `float` **TICK** = `0.5` - The seconds between two looks of the spawner at its slots.
-- `float` **GROUP_RADIUS** = `1.5` - How far (metres) from the spawner the members of a group stand.
+- `int` **PLACE_TRIES** = `12` - How many tries a slot makes to find a good place before it waits for the next look.
+- `int` **CHUNK_CELLS** = `4` - Cells (of 4 m) along the side of a chunk (16 m): the squares a Painted spawner fills round the players.
+- `float` **CHUNK_SIZE** = `16.0` - The side of a chunk in metres.
 
 ## Property descriptions
 
@@ -80,7 +93,15 @@ Whether the spawner works now (the record says so at the start; an event can cha
 
 *No description yet.*
 
+### ChronicleTerrain terrain_source = null {#var-terrain-source}
+
+The terrain a Painted spawner reads its paint from: the terrain of the world, found when it is needed (set it to use another one: a test does).
+
 ## Method descriptions
+
+### int erase_paint( scene_root: Node, spawner_id: int ) {#method-erase-paint}
+
+Takes the paint of a Painted spawner off the ground of a scene (what is left of it when the spawner is deleted). Returns how many cells were cleared.
 
 ### int get_unique_id() {#method-get-unique-id}
 
@@ -94,13 +115,33 @@ Starts the spawner (the object registry calls it when the world loads).
 
 Switches the spawner on or off (an event does it). Off, it makes nothing and what it made stays.
 
+### void reset( remove_what_stands: bool = true ) {#method-reset}
+
+Starts over: what the spawner made is taken away (or, when `remove_what_stands` is off, left standing and forgotten) and every place is empty, so the next look rolls again. Waits are forgotten too.
+
+### int get_alive_count() {#method-get-alive-count}
+
+How many things the spawner made are standing now (NPCs that are alive, objects that are there, items that lie).
+
 ### void tick( seconds: float ) {#method-tick}
 
 One look at the slots: what went away starts its wait, what waited long enough can roll, an empty slot rolls and makes something when a player is near. `seconds` is the time since the last look.
 
+### Vector2i chunk_of( x: float, z: float ) {#method-chunk-of}
+
+*No description yet.*
+
+### int get_chunk_slot_count( chunk: Vector2i ) {#method-get-chunk-slot-count}
+
+How many places a chunk has: the density of the spawner over the painted ground of the chunk. The part after the comma is decided by the chunk itself (the same every time), so some chunks have one more.
+
+### Array[Vector2i] get_active_chunks() {#method-get-active-chunks}
+
+The chunks that have things now.
+
 ### Dictionary to_save_data() {#method-to-save-data}
 
-The state of the spawner for a save: for each slot whether it is alive, empty or waiting (with the time left), and what it made.
+The state of the spawner for a save: for each slot whether it is alive, empty or waiting (with the time left), and what it made. A Painted spawner saves only what is waiting, by chunk.
 
 ### void from_save_data( data: Dictionary ) {#method-from-save-data}
 

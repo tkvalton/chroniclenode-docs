@@ -65,6 +65,12 @@ export const groups = [
         "file": "data_classes/spawning/spawn_entry.gd"
       },
       {
+        "name": "SpawnMaker",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\spawning\\spawn_maker.gd",
+        "file": "data_classes/spawning/spawn_maker.gd"
+      },
+      {
         "name": "SpawnTableDefinition",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\spawning\\spawn_table_definition.gd",

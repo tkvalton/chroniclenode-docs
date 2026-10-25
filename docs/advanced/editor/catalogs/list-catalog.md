@@ -90,6 +90,7 @@ The catalog that picks one thing out of a list of database resources of any kind
 - **UNIQUE_INTERACTABLES** = `54`
 - **UNIQUE_TRIGGER_AREAS** = `55`
 - **UNIQUE_ENCOUNTERS** = `56`
+- **UNIQUE_SPAWNERS** = `57`
 
 ## Variable descriptions
 

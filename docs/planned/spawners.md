@@ -1,7 +1,7 @@
 # Spawners
 
-::: warning Partly built
-The **Point** spawner is built: see [Spawners](/basic/world/spawners). This page describes the rest that is planned: the **Volume** and the **Painted** modes, events and conditions. What a world does today without them: everything else is **placed by hand**, and what comes back after it is gone is decided by the thing itself (an [encounter](/basic/world/encounters) that respawns its group, an NPC with a respawn timer, a [gathering node](/basic/entities/interaction-types#gather) that fills up again).
+::: tip Built
+Everything the first design of this page asked for is built now: see [Spawners](/basic/world/spawners) (the three modes, the paint tools, events, conditions and the trigger). What is **not** built yet is below: conditions on the **time** a spawner works in (only at night, only in the rain) and faction or behaviour settings of the spawner itself. Until then, use an event with the conditions you need to switch a spawner on and off.
 :::
 
 A **spawner** makes the world fill itself: you describe **where** something can appear, **what** can appear, and **how often**, and the toolkit places it for you and keeps the place alive. It will cover both of the things a world is full of:
