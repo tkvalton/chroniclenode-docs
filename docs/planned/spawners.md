@@ -20,9 +20,9 @@ A spawner lives in an **area**. There will be two ways to make one:
 
 The area can be made to **avoid** places: water, steep ground, the inside of a [trigger area](/basic/world/trigger-areas) that is a town, the spot next to a player.
 
-## What: spawn tables
+## What: spawn tables (built)
 
-A spawner has a **spawn table**, much like a [loot table](/basic/items/loot-tables):
+The tables are built: see [Spawn tables](/basic/world/spawn-tables). A spawner has a **spawn table**, much like a [loot table](/basic/items/loot-tables):
 
 | Field | What it does |
 |---|---|

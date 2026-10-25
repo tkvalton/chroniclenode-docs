@@ -49,6 +49,24 @@ export const groups = [
     ]
   },
   {
+    "text": "Spawning",
+    "slug": "spawning",
+    "classes": [
+      {
+        "name": "SpawnEntry",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\spawning\\spawn_entry.gd",
+        "file": "data_classes/spawning/spawn_entry.gd"
+      },
+      {
+        "name": "SpawnTableDefinition",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\spawning\\spawn_table_definition.gd",
+        "file": "data_classes/spawning/spawn_table_definition.gd"
+      }
+    ]
+  },
+  {
     "text": "World configs",
     "slug": "world-configs",
     "classes": [

@@ -947,6 +947,12 @@ export const groups = [
         "file": "editor_components/editors/world/config_editors/sky_config_editor.gd"
       },
       {
+        "name": "SpawnTablesEditor",
+        "base": "ResourceEditor",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\spawn_tables_editor.gd",
+        "file": "editor_components/editors/world/spawn_tables_editor.gd"
+      },
+      {
         "name": "SunConfigEditor",
         "base": "BaseConfigEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\sun_config_editor.gd",

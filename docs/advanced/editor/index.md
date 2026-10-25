@@ -261,6 +261,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [BaseConfigEditor](/advanced/editor/world/base-config-editor) | Base class for config editors that dynamically generate UI from exports |
 | [EnvironmentConfigEditor](/advanced/editor/world/environment-config-editor) | Editor panel for EnvironmentConfig |
 | [SkyConfigEditor](/advanced/editor/world/sky-config-editor) | Editor panel for SkyConfig |
+| [SpawnTablesEditor](/advanced/editor/world/spawn-tables-editor) | The Spawn Tables editor (the SpawnTableDefinition database, World &gt; Spawn Tables): a name, a description and the lines of the table. |
 | [SunConfigEditor](/advanced/editor/world/sun-config-editor) | Editor panel for SunConfig |
 | [TerrainTextureEditor](/advanced/editor/world/terrain-texture-editor) | The Terrain Textures editor (the TerrainTextureDefinition database): the library a terrain is painted from. |
 | [TimeConfigEditor](/advanced/editor/world/time-config-editor) | Editor panel for TimeConfig |

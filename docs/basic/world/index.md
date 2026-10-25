@@ -15,6 +15,7 @@ Everything the party meets in a world is placed in the scene and stored as a **u
 | [Placing objects](/basic/world/add-object) | The buttons in the 3D viewport that place NPCs, interactables, dropped items, volumes and assets: the model on your mouse, standing on the ground or any floor |
 | [The Unique Object tool](/basic/world/unique-object-tool) | The bottom panel that edits the thing you selected in the viewport |
 | [Trigger areas](/basic/world/trigger-areas) | Invisible areas of the map that [quests](/basic/events-and-quests/quests) and events can watch (formerly regions) |
+| [Spawn tables](/basic/world/spawn-tables) | What can appear and how likely each thing is (NPCs in groups, interactables, dropped items and money, nothing): the lists the [spawners](/planned/spawners) roll |
 | [Zones](/basic/world/zones) | Named places of the map with sub-zones: a banner when the party enters, events, quest objectives and text tokens; painted on the terrain, or placed as volumes |
 | [Terrain](/basic/world/terrain) | The ground: make the terrain of a map, add tiles, save, and check it. With [Sculpting](/basic/world/terrain-sculpting) and [Painting](/basic/world/terrain-painting) for the brushes, and [Terrain Textures](/basic/assets/terrain-textures) for the library |
 | [Movement volumes](/basic/world/movement-volumes) | Water to swim in, a room with no gravity, a pool of lava: spaces that change how whoever is in them moves, with breath and a look for the camera |

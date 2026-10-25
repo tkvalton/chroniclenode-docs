@@ -150,6 +150,7 @@ const SYSTEMS = {
           ['data_classes/zones', true],
         ],
       },
+      { text: 'Spawning', slug: 'spawning', dirs: [['data_classes/spawning', true]] },
       { text: 'World configs', slug: 'world-configs', dirs: [['data_classes/world/configs', true]] },
       { text: 'Encounters', slug: 'encounters', dirs: [['data_classes/encounters', true]] },
       { text: 'Audio profiles', slug: 'audio-profiles', dirs: [['data_classes/audio', true]] },
