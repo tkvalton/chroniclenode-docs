@@ -1,30 +1,8 @@
-# The World Builder
+# The World Builder: what is left
 
-::: warning Not built yet
-This page describes a planned feature, and the largest one planned: a set of tools for building a world inside the editor. Today you build the ground and the scenery with Godot's own tools, and place what lives in the world with the [Add Object](/basic/world/add-object) and [Unique Object](/basic/world/unique-object-tool) tools.
+::: tip Mostly built
+The terrain tool, the placement tools, zones, spawners, water and lava volumes, ground weather and terrain streaming are built: see [World](/basic/world/). This page keeps **what is not built yet**.
 :::
-
-The **World Builder** is a toolkit of its own, made for ChronicleNode. It will open the way to features that need to know the shape of the ground and the water.
-
-## The terrain tool
-
-A tool for making the **terrain** of a world: shaping the ground, painting it, and the rest of what a terrain editor does. It is the biggest part of the work, and several other features sit on top of it.
-
-## Placing uniques
-
-An improved version of the way [uniques](/basic/world/uniques) are placed: NPCs, interactables, [trigger areas](/basic/world/trigger-areas) and [encounters](/basic/world/encounters) placed, moved and checked in the 3D view, with the terrain under them.
-
-## Zones
-
-The named areas of the map and their sub-zones: laid out in **chunks**, **painted** with a brush, or made as **volumes** for what is above and below (caves, floating islands). See [Zones](/planned/zones).
-
-## Spawn areas
-
-The painted terrain and the volumes of the [spawners](/planned/spawners): where NPCs and gathering nodes appear by themselves.
-
-## Water placement
-
-A tool for placing [water](/basic/world/movement-volumes): the sea, lakes and rivers, with their shapes, their depth and the demo shaders that go with them. The swimming itself is built; this is the tool that makes the surface and the shape.
 
 ## Local events
 
@@ -34,6 +12,21 @@ Today, making a switch open a door takes an [event](/basic/events-and-quests/eve
 - The connection is **drawn in the 3D view** as a line between the two, so you can see how a room works.
 - Events stay for what is bigger than one room: quests, conversations, things that happen across the game.
 
-## Where it will live
+## The ground
 
-The tools will be part of the editor, next to the [tools you already have for the 3D viewport](/basic/world/add-object). Dropped items already have a placement tool of their own: see [dropped items](/basic/items/dropped-items#placing-an-item-by-hand).
+| What | Today |
+|---|---|
+| **Marks**: footprints in snow, tyre tracks, scorch marks | Not built. The ground shows wetness, snow and a tint ([Ground weather](/basic/world/ground-weather)), nothing that a character leaves |
+| **Permanent change of a place**: a burned forest, winter replacing summer after a quest | Not built. The tint of a world and *Hold* of the [Set Ground Weather](/basic/world/ground-weather#events-and-conditions) action change the look of all the ground |
+| **Local weather**: snow on the mountain, rain in the valley | One weather for the world; a [zone](/basic/world/zones) can shelter the ground from it |
+| **A calendar and seasons** | There is no calendar, only the hour of the day |
+| **Wind in the grass and brushing through it** | Not built |
+| **Navigation over water and lava**, and links for caves and ladders | Not built: the navigation bake ignores them |
+
+## Streaming
+
+[Terrain streaming](/basic/world/terrain-streaming) loads the ground round the party. The **things on the ground** (placed NPCs and objects) are not streamed yet: an NPC on a tile that is not loaded stands still, and nothing simulates where it would have walked.
+
+## Other terrain plugins
+
+[Other plugins](/basic/world/terrain-plugins) work through a provider. The providers of Terrain3D and HTerrain are tested only against small stand-ins, and painted zones, painted spawners, streaming and ground weather need the terrain of the toolkit.
