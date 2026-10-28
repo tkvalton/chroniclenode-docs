@@ -95,6 +95,18 @@ How the spawner chooses its places: Point = the spawner itself, Volume = inside 
 
 The spawn table the spawner rolls every time it makes something (Database &gt; World &gt; Spawn Tables)
 
+### float max_slope = 45.0 {#prop-max-slope}
+
+The steepest ground (degrees) a thing may appear on (Volume and Painted)
+
+### bool only_walkable = true {#prop-only-walkable}
+
+NPCs only appear where they can walk (there is baked navigation there). A world with no baked navigation ignores this
+
+### Color paint_color = Color(1.0, 0.55, 0.2, 1.0) {#prop-paint-color}
+
+The colour of the spawner on the ground while you paint it (a Painted spawner only)
+
 *How often*
 
 ### int max_alive = 1 {#prop-max-alive}
@@ -116,20 +128,6 @@ Whether the first thing appears at once when the spawner starts working (a playe
 ### float density = 4.0 {#prop-density}
 
 For a Painted spawner: how many things stand on every 1000 square metres of painted ground (a chunk of 16 m by 16 m that is all painted is 256 square metres). Less than one means some chunks have none
-
-*Where it may appear*
-
-### float max_slope = 45.0 {#prop-max-slope}
-
-The steepest ground (degrees) a thing may appear on (Volume and Painted)
-
-### bool only_walkable = true {#prop-only-walkable}
-
-NPCs only appear where they can walk (there is baked navigation there). A world with no baked navigation ignores this
-
-### Color paint_color = Color(1.0, 0.55, 0.2, 1.0) {#prop-paint-color}
-
-The colour of the spawner on the ground while you paint it (Painted)
 
 *Only when*
 

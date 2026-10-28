@@ -27,13 +27,13 @@ The spawner gets an id and a record in the database ([`UniqueSpawnerData`](/adva
 | **Is active** | Whether the spawner works. An event can switch it on and off (planned) | on |
 | **Mode** | How the spawner chooses its places: *Point*, *Volume* or *Painted* | Point |
 | **Spawn table** | What it rolls every time it makes something | none |
-| **Max alive** | *Volume* only: how many things the spawner keeps alive at once (each is a place of the volume; a group counts as one) | 1 |
+| **Max alive** | *Volume* only (a Point spawner does not show it): how many things the spawner keeps alive at once (each is a place of the volume; a group counts as one) | 1 |
 | **Density** | *Painted* only: how many things stand on every 1000 square metres of painted ground. A chunk of 16 x 16 m that is all painted is 256 m2, so a density of `4` gives about one thing a chunk. Less than one thing a chunk means some chunks have none | 4 |
 | **Respawn min / max** | The seconds between what it made going away and the next one coming. The time is chosen between the two numbers | 60 and 60 |
 | **Spawn at start** | Whether the first thing appears at once when the spawner starts working (a player comes near), or only after a respawn time | on |
 | **Max slope** | *Volume* and *Painted*: the steepest ground (degrees) a thing may appear on | 45 |
 | **Only walkable** | *Volume* and *Painted*: NPCs only appear where they can walk (baked navigation). A world with no baked navigation ignores this | on |
-| **Paint colour** | *Painted*: the colour of the spawner on the ground while you paint it (a colour of its own is chosen when the spawner is made) | |
+| **Paint colour** | *Painted*: the colour of the spawner on the ground while you paint it (a colour of its own is chosen when the spawner is made). Only a Painted spawner shows it in the panel | |
 | **Activation radius** | The spawner only works while a player of the party is this close (metres). For a *Volume* spawner the distance is counted from its shape, for a *Painted* one from every chunk. `0` = it works everywhere (a painted spawner then works 80 m round the players) | 80 |
 | **Only between hours** | The spawner only makes things between two hours of the game clock (a night spawner for undead). *From hour* and *To hour* (0 to 24) may cross midnight: 20 to 6 | off |
 | **Weather rule** and **Weather name** | *Only in* a weather, or *Not in* it, by the name of a weather of the VFX database (`rain`; the name is not case sensitive). `clear` means no weather at all | any |
