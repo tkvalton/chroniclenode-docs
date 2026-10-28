@@ -1,6 +1,6 @@
 # The Unique Object tool
 
-The **Unique Object** panel is at the bottom of the editor (next to Output and Debugger). It shows the unique of whatever you select in a world scene, and edits it. Select an NPC, an interactable, a trigger area or an encounter in the scene tree or the 3D viewport and the panel opens by itself. Select anything else and it empties.
+The **Unique Object** panel starts at the bottom of the editor (next to Output and Debugger). It is a **dock** like the others: drag its tab to any other dock position (left, right, bottom), or **right-click the tab and make it floating** to have it in a window of its own (on a second screen, say). The editor remembers where you put it. It shows the unique of whatever you select in a world scene, and edits it. Select an NPC, an interactable, a trigger area or an encounter in the scene tree or the 3D viewport and the panel opens by itself. Select anything else and it empties (it stays where it is: a floating panel is not closed from under you).
 
 It is how you say "this one is different": the same *Goblin* definition, but this goblin is level 8, hostile to the town [faction](/basic/behaviors/factions), and guards a chest.
 

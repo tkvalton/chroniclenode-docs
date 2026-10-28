@@ -41,7 +41,7 @@ If you delete the Terrain node and press the button again, the dialog offers **U
 
 Press the **Terrain** button to turn the mode on or off. When it is off the viewport is the editor's own. When it is on:
 
-- **The left strip** has the tools in **families**: **View** (Select, Inspect), **Terrain** (Tiles), **Ground** (the sculpting tools and the holes), **Navigation**, **Textures** (the paint tools, and Lighten, Darken and Tint), **Foliage** and **Zones**. The first column has one button for each family and shows the tool you used last in it; press it to use that tool. The tools of the family that is on show in a second column beside it. Hover an icon for its name, its key and what it does. The first tool, **Select**, leaves the mouse as it normally is, so you can still move trees and buildings without leaving the mode. The **spawner** tools are not here: they show in a strip over the viewport while a Painted spawner is selected (see [Spawners](/basic/world/spawners#painting-a-spawner)).
+- **The left strip** has the tools in **families**: **View** (Select, Inspect), **Terrain** (Tiles), **Ground** (the sculpting tools and the holes), **Navigation**, **Textures** (the paint tools, and Lighten, Darken and Tint), **Foliage** and **Zones**. The strip on the left of the viewport has one button for each family (grass for Foliage, the mountain for Ground and so on); press one to use the tool you used last in it. The tools of the family that is on show in a **panel inside the viewport**, on its left edge under the Perspective menu. The editor **remembers** the tool of each family and the tool that was on when you left the mode, between sessions. Hover an icon for its name, its key and what it does. The first tool, **Select**, leaves the mouse as it normally is, so you can still move trees and buildings without leaving the mode. The **spawner** tools are not here: they show in a strip over the viewport while a Painted spawner is selected (see [Spawners](/basic/world/spawners#painting-a-spawner)).
 - **Undo and redo** are two buttons in the toolbar of the 3D viewport, just before the **Terrain** button. They undo and redo everything in the scene, the strokes of the terrain and the objects you placed alike.
 - **The bars at the top** sit on the same row as the viewport's **Perspective** menu, to the right of it.
 - **The bar along the bottom** shows the tool you chose and its settings. Every number has a slider and a box where you can type an exact value. Above it a **palette** shows while the tool needs one: the **textures** for the paint tools, the **foliage** for the foliage tools.
@@ -78,13 +78,28 @@ The buttons of the top bar show things over the terrain **in the editor only** (
 | **Not walkable** | The cells marked not walkable (orange), see [Navigation](/basic/world/terrain-navigation) |
 | **Navigation mesh** | The baked navigation (green) |
 
-## Adding and removing tiles
+## Adding, removing, copying and pasting tiles
 
 Choose the **Tiles** tool. Green squares appear on the free tiles next to the terrain, and the tile under the mouse is highlighted with its coordinates.
 
-- **Click** a green square to add a tile there.
-- **Ctrl + click** a tile to remove it. It asks first, and tells you what is lost.
-- The bottom bar has **X** and **Z** boxes (they follow the mouse) with **Add tile** and **Remove tile** buttons, to work on an exact tile, and **Paint new tiles with the chosen texture** (off: new tiles are grey).
+The bar at the bottom of the viewport has four modes for a click:
+
+| Mode | What a click does |
+|---|---|
+| **Add** | **Click** a green square to add a flat tile there (**Ctrl + click** removes a tile, as before). **Paint new tiles with the chosen texture** is off by default (new tiles are grey). |
+| **Remove** | Click a tile to remove it. It asks first, and tells you what is lost. |
+| **Select** | **Drag** over the tiles to select a rectangle of them (it shows in blue). Then **Copy**, **Cut** (copy and remove) or **Delete**. |
+| **Paste** | Shows what you copied under the mouse; a click puts it down with its north-west tile at the tile you click. You can paste again and again. |
+
+In Add and Remove the **X** and **Z** boxes (they follow the mouse) with **Add tile** and **Remove tile** buttons work on an exact tile.
+
+**What Copy takes:** for each tile its **shape**, its **holes**, the cells marked **not walkable**, its **textures and colours**, and the **foliage you painted by hand**. It does not take the **objects** that stand on the ground, the **zones** or the **spawner paint**: those belong to the place. Cut and Delete remove the tiles and take everything on them with the removal, as before. A rectangle can have gaps (a place with no tile): only the tiles that exist are copied.
+
+**Paste:**
+- A place where there is a tile already is **left alone** (the toast says how many). Tick **Replace tiles that are there** to paste over them: the old tile comes back with Ctrl+Z, and the zones painted on it stay.
+- **Blend the edges** (on by default): a pasted tile next to a tile that was there takes its height along the shared edge and fades back to the copied shape over **32 m**, so there is no crack. The tiles of a pasted block join as they did where they came from. Off: an exact copy; you smooth the seams by hand.
+- A paste or a delete of many tiles is **one** Ctrl+Z.
+- The navigation of the pasted tiles is out of date until you bake it again.
 
 A new tile **joins its neighbours without a seam**: its edges copy the edges of the tiles next to it, the ground beside such an edge blends from their heights to a flat level over 96 m, and the rest is flat. You can then sculpt it. A tile away from the others (an island) is allowed; you get a message, and the world check lists it. **The last tile of a terrain cannot be removed.**
 
