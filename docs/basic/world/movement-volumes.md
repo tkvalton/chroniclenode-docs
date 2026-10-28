@@ -6,10 +6,11 @@ It works for the **player, the companions and NPCs**. It is **optional**: a game
 
 ## Placing one
 
-1. Open the world scene, click the **Volumes** button and choose **Water**, **Lava** or **Weightless**, then click where it goes. A volume appears in the *Volumes* node, selected, with a box shape of 10 × 4 × 10. It is **water** to begin with.
-2. **Size the shape.** Select the `CollisionShape3D` inside the volume and resize or reshape it (a box, a sphere, a cylinder or a capsule) over the space you want. The **top of the shape is the surface** of the water.
-3. **Move the volume** to the place and, if you want another kind of space, pick a **Preset** in the inspector.
-4. Water and lava come with a **look** (see below). For any other volume, give it a look in the **Look** section, or draw your own mesh on the top of the shape.
+1. Open the world scene, click the **Volumes** button and choose **Movement volume**, then click where it goes. A volume appears in the *Volumes* node, selected, with a box shape of 10 × 4 × 10.
+2. **Choose a preset.** The [Unique Object panel](/basic/world/unique-object-tool) opens with the volume. Its **Preset** menu has **Water**, **Weightless**, **Lava** and **River**, and your own (see below). You can leave it on *No preset* and set every field by hand.
+3. **Size the shape.** Select the `CollisionShape3D` inside the volume and resize or reshape it (a box, a sphere, a cylinder or a capsule) over the space you want. The **top of the shape is the surface** of the water.
+4. **Move the volume** to the place. All the settings of a volume are in the Unique Object panel (the Inspector keeps only what Godot itself gives a node: the transform, the collision).
+5. Water, lava and river come with a **look** (see below). For any other volume, give it a look in the **Look** page, or draw your own mesh on the top of the shape.
 
 ::: tip The surface is only a height
 The volume does not need a mesh to work, and a mesh does not make water by itself. The look is the mesh; the surface is the top of the shape.
@@ -43,14 +44,38 @@ They are a start: replace the *Look material* with your own shader or material a
 
 ## Presets
 
-A preset fills the fields below for the usual cases. What you change afterwards stays; a preset is picked when you choose it, never again when the scene loads.
+A preset fills in the settings for the usual cases. It is a **copy**: the numbers are the volume's own afterwards, and changing a preset later does not change the volumes made from it. A volume does not need a preset.
+
+The **Preset** menu is the first thing in the strip at the top of the Unique Object panel:
 
 | Preset | What it is |
 |---|---|
-| **Custom** | Nothing is filled in: you set the fields |
-| **Water** (the default) | Swim, float up to the surface, a surface with a shallow part to wade in, hold your breath under it, leap out of it, and the underwater look of the camera |
+| **No preset** | Nothing is filled in: you set the fields |
+| **Water** | Swim, float up to the surface, a surface with a shallow part to wade in, hold your breath under it, leap out of it, and the underwater look of the camera |
 | **Weightless** | Fly, no gravity, no surface, no breath, no camera look: a space station, a sky |
 | **Lava** | Only slows whoever is in it. Give it an **effect** (below) to burn them |
+| **River** | Water that [flows](#flow): 2.5 m/s towards the front of the volume, a shallower wading depth |
+| *Yours* | The ones you save (below) |
+
+Choosing a preset is one undo step, and with several volumes selected it is given to all of them. After you change a number, the menu says **(modified)** beside the preset name.
+
+**Your own presets.** Set a volume up (a *Swamp* with a slow effect and a green look, a fast *Rapids*), then press **Save as preset...** and give it a name. It is saved in `res://src/data/movement_volume_presets/` and appears in the menu after the toolkit's. **Update preset** puts the numbers of the volume into the preset it was made from; **Delete preset** removes one of yours (the volumes made from it keep their numbers). The presets of the toolkit cannot be changed or deleted, but you can save a volume made from one under a new name.
+
+::: tip The old way still works too
+The **Volumes** palette also keeps *scene presets*: a whole volume with its shape saved as a scene in `res://src/data/volume_presets/` (it works for trigger areas and audio zones as well). A preset in the menu above is only the **settings** of a movement volume.
+:::
+
+## Flow
+
+A volume can **carry** whoever is in it, like a river or a wind. It is added to how they move: with nobody steering, a swimmer drifts with the current; a strong flow sweeps them downstream and a weak one can be swum against.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Flow strength** | How fast it carries, in metres per second. `0` = it is still | `0` |
+| **Flow direction** | The way it carries, in the space of the volume: **turn the volume** to point it (the default is the front of the volume, -Z) | front |
+| **Flow pushes walkers** | Carries entities that **walk** through it (shallow water that is only waded) too. Off: only swimmers and flyers are carried | off |
+
+A river is a *Swim* volume with a flow; a wind is a *Fly* volume with a flow. Several volumes add up (a river with a gust over it). A leap out of the water ignores the flow for a moment. The **River** preset is a good start.
 
 ## Movement
 

@@ -41,6 +41,22 @@ Select several NPCs (or several interactables, or several spawners) in the scene
 | **Stats Override** | The same tick box, for the stats of a destructible. It matters when the object can be targeted |
 | **Interactions** | The interaction of this object |
 
+### Dropped item and pile of currency
+
+Select an item or a pile of currency lying in the world: the panel has **Lies here: An item / A pile of currency**. For an item it shows the **Item** (a picker) and, only when the item can stack, the **Stack**; for currency, the **Currency** and the **Amount**. The other settings (item level of a generated item, respawn time, lifetime, physics) are in the pages. Select several and a change is made to all of them. The Inspector no longer lists these settings.
+
+### Volumes
+
+A **movement volume**, an **audio zone** and a **zone volume** are edited in the panel too (the Inspector keeps only what Godot gives a node):
+
+| Volume | Strip | Pages |
+|---|---|---|
+| **Movement volume** | **Preset** menu (with *Save as preset...*), **Moves as**, **Affects**, **Speed** | Movement, Surface and shallow water, Breath, Effects while inside, [Flow](/basic/world/movement-volumes#flow), Look, Camera and sound, Editor. See [Movement volumes](/basic/world/movement-volumes) |
+| **Audio zone** | **Sound** (the audio profile) | Editor (the colour of the box) |
+| **Zone volume** | **Zone**, **Priority** | Editor |
+
+A change to a volume is a normal editor change: **Ctrl+Z** undoes it, and the scene is marked as changed. Select several volumes of one kind and a change is made to all of them.
+
 ### Trigger area
 
 The **Area Name** of the trigger area (what [quests](/basic/events-and-quests/quests) and triggers call it), and, for your information, the world it is in and its position. The area itself is the collision shape under the Trigger area node. See [Trigger areas](/basic/world/trigger-areas).

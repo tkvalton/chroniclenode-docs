@@ -63,7 +63,7 @@ When several things drop together (the loot of a boss) they are **scattered** ar
 
 1. Open the map scene. In the 3D viewport use the **Dropped items** button (or **Dropped currencies**), choose the item in the bar at the bottom and click where it lies.
 2. Pick the item in the catalog. It appears in the **DroppedItems** container of the map with a preview of its model or icon, and is selected.
-3. Move it where you want it. In the inspector set:
+3. Move it where you want it. Its settings are in the [Unique Object panel](/basic/world/unique-object-tool#dropped-item-and-pile-of-currency) (the Inspector no longer lists them). The strip at the top has **Lies here: An item / A pile of currency**, the item and its stack (the stack only shows for an item that can stack), or the currency and its amount; the pages have the rest:
 
 | Field | What it does |
 |---|---|
