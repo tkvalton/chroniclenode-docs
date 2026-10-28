@@ -77,7 +77,8 @@ A **variant** is another entry for the same file, usually with other materials: 
 
 | Field | What it does |
 |---|---|
-| **Density** | The most instances a square metre can have. The weight of the texture and the player's setting then thin it out. Grass 2 to 8, pebbles 0.2 to 1, a tree 0.005 to 0.05 |
+| **Density** | The most plants one square metre can have: it is the **ceiling** for everything (see [How much grows, and where](/basic/world/terrain-foliage#how-much-grows-and-where)). Short grass 40 to 60, long grass 8 to 15, pebbles 0.2 to 1, a tree 0.005 to 0.05 |
+| **Spacing (m)** | No two of these closer than this. For trees and bushes, which overlap otherwise (3 = at least 3 m apart). 0 = off. It never makes it thicker: the density is still the most there can be. For a density of 4 or less, up to 24 m |
 | **Smallest size, Biggest size** | The size of an instance is a random number between the two (1 = as the mesh is) |
 | **Height factor** | The height also varies on its own: the size is multiplied by a number between these two (1 and 1: the height follows the size) |
 | **Rotation offset X, Y, Z (degrees)** | Turns the mesh (ground scatter) or the whole scene (foliage) before anything else, about its own origin. For a file that was made 90 degrees off or lying on its side. The random facing and the lean are added to it |
@@ -87,9 +88,12 @@ A **variant** is another entry for the same file, usually with other materials: 
 | **Sunk into the ground** | Metres the instance is put into the ground |
 | **Lowest and highest slope** | The slope it grows on, in degrees. A cliff plant: lowest 50. Grass: highest 35 |
 | **Lowest and highest height** | Metres above sea. Both 0: everywhere |
-| **Patchiness, patch size** | A slow noise leaves part of the ground bare (0.5 about half) in patches of the size you give |
+| **Patchiness** | The **share of the ground left bare**, in patches: 0 none, 0.5 half, 1 all. It shapes what textures grow and what you paint by hand alike |
+| **Patch size (m)** | How wide a patch is, and the bare gaps between patches. Patchiness says how much is bare; patch size says how big the patches are |
 
 The same cell of ground always gives the same instances, and a lower amount only takes some away: **nothing moves** when the player changes the clutter setting.
+
+**The members of a group** share the places, the patches and the spacing of their group, and take turns on the places: the group has the numbers of *where* and *how much* (density, spacing, slope, height, patchiness, patch size, view distance), each scene has the numbers of *how it looks*.
 
 ## View and Navigation
 

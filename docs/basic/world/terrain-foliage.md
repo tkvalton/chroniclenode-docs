@@ -30,6 +30,36 @@ The tools work on **one entry at a time**, the one you chose (Remove all works o
 
 The amounts are saved in the tiles, with the rest of the painting, when you save the scene.
 
+## How much grows, and where
+
+Many numbers meet in the foliage, so here they are in the order they are used. Each answers one question, and each lives in **one** place.
+
+| Question | The number | Where it is |
+|---|---|---|
+| How thick can it be at most? | **Density**: the most plants in a square metre (short grass 55, long grass 12, a tree 0.02) | the foliage entry (a group has one for all its scenes) |
+| Where do the textures grow it, and how much of the density? | **Weight** of the entry in the **Ground clutter** list of a texture: 1 = the full density, 0.2 = a fifth | the terrain texture |
+| Where do you add it by hand? | The **foliage brush**: painting up to the full density, never more | the brush |
+| Which scene of a group is placed, how often? | **Weight** of each scene in the group (2 = twice as often as 1, 0 = never) | the group |
+| How much of the ground is left bare? | **Patchiness**: 0 none, 0.5 half, 1 all | the foliage entry |
+| How big are the patches and the gaps? | **Patch size** in metres | the foliage entry |
+| How close can two stand? | **Spacing** in metres | the foliage entry |
+| What can the player turn down? | The clutter setting of the game's settings: it only **takes some away**, nothing moves | the player |
+
+In words, for one square metre of ground: *the density is the most there can be; the texture weight or the brush decides how much of that there is; patchiness and patch size cut patches out of it; spacing keeps neighbours apart; the player's setting can thin it out further.*
+
+**A worked example.** Short grass with density 55, on a texture with the weight 0.5, patchiness 0.3 and patch size 10 m: about 27 blades a square metre where it grows, in patches of about 10 m, with about 30% of the ground bare between them. Paint the same grass by hand with the brush at full and the bare parts stay bare (patchiness applies to the brush too), but where it grows it is the full 55, not more. A tree with density 0.02 and spacing 4 m: one tree in 50 square metres at most, and none closer than 4 m to another.
+
+**Things that are easy to mix up**
+- *Density* is how thick, *weight* is how much of that grows **here**. A weight never makes it thicker than the density.
+- *Patchiness* is how much is **bare**, *patch size* is how **big** the patches are. They work together: patchiness 0.4 and patch size 20 m is groves of about 20 m with clearings between them.
+- *Spacing* only keeps plants apart, it does not make a forest thinner by itself. If it takes too many away, raise the density.
+- A **group** has the density, spacing, patchiness and patch size; its scenes only have how they look, and their **weights** in the group say how often each is placed. A tree in a group never has a density of its own.
+
+**The brush numbers** do not say how much grows, only what one stroke does:
+- **Radius**: the size of the brush on the ground, in metres.
+- **Strength**: how much **one stroke** does, as a share of the way to full. At 1 a stroke puts down (or takes away) everything under the core of the brush at once; at 0.3 it goes 30% of the way, and you paint again to add more. Holding the mouse still adds nothing more.
+- **Hardness**: how big the full-strength core is, as a share of the radius. At 1 the brush is at full strength right to its edge; at 0.5 it is full in the inner half and fades to nothing at the edge; at 0 only the centre is full. A soft edge makes your strokes thin out into what is round them.
+
 ## What you see
 
 While you paint, the cells of 32 m near the camera are made again behind the scenes and swapped in when they are ready, so the picture does not flicker. Entries are drawn up to their **view distance** (40 m for ground scatter, 250 m for foliage by default, scaled by the player's view distance setting). A cell is made in a worker thread, so a big brush costs frames, not seconds.

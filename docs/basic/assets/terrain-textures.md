@@ -66,6 +66,7 @@ A texture can grow **ground clutter** by itself: at the bottom of its editor the
 
 - The clutter follows the paint: **painting another texture over the ground takes the clutter away**, nothing is stored for it. Only clutter you place by hand is kept, and the paint tool has a *Clear hand-placed clutter where I paint* tick (on by default) for that.
 - The same mesh with other materials is several entries: give each its own weight to shape the variety.
+- The **weight** is how much of the entry's **density** grows on this texture (1 = all of it, 0.2 = a fifth). It never makes it thicker than the density. See [How much grows, and where](/basic/world/terrain-foliage#how-much-grows-and-where).
 - An empty list: nothing grows by itself. Foliage (trees, bushes) is not in this list: it is placed by rules and by hand.
 - The rows only list ground clutter; an entry that was deleted shows as *missing* until you change or remove the row.
 
