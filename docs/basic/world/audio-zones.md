@@ -28,7 +28,7 @@ If the camera is inside several zones (a cellar in a house) the one it **entered
 
 ## The audio profile
 
-In the [Unique Object panel](/basic/world/unique-object-tool#volumes) an audio zone shows its profile in full (the page **Sound**): a **Preset** menu (**Cave**, **Indoors**, **Underwater**, **Large hall**, **Muffled** and your own), the fade time and room size, and for each of the five channels how muffled it is, how loud and how much reverb. Choosing a preset gives the zone a **copy** of it; **Save as preset...** keeps the profile of the zone as a preset of the project (a file in `res://src/data/audio_profiles/`), **Delete preset** removes one of yours. A [movement volume](/basic/world/movement-volumes) shows the same box in its page **Camera and sound**.
+In the [Unique Object panel](/basic/world/unique-object-tool#volumes) an audio zone shows its profile in full (the page **Sound**): a **Preset** menu (**Cave**, **Indoors**, **Underwater**, **Large hall**, **Muffled** and your own), the fade time and room size, and for each of the five channels how muffled it is, how loud and how much reverb. Choosing a preset gives the zone a **copy** of it; **Save as preset...** keeps the profile of the zone as a preset of the project (a file in `res://src/data/audio_profiles/`), **Delete preset** removes one of yours. A [movement volume](/basic/world/movement-volumes) shows the same box in its page **Sound**.
 
 A zone has one **profile**: a resource that says what each channel does inside. You can use the three the toolkit gives you, change them, or make your own (a *Create New Resource > AudioProfile*, saved as a file you reuse in many zones).
 

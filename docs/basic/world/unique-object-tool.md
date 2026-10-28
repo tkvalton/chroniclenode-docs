@@ -10,7 +10,7 @@ The panel has three parts:
 
 - **The header**: the **name** of the object, its **type** (NPC, Interactable, Spawner, Trigger area, Encounter), its **id**, and two buttons: **Open definition** (edit the definition this object follows, in a window) and **Reset overrides (3)** (put everything this object overrides back to what its definition says; it asks first).
 - **The key fields**: a strip of the few fields you set on most objects, each on a panel of its own. For an NPC: **Level**, **Faction**, **Active**, **Encounter**. For an interactable: **Faction**, **Locked by**, **Cooldown**. For a spawner: **Active**, **Spawn table** and, unless it is a Point spawner, **Max alive**. They are not repeated in the sections.
-- **The sections**: a list on the left (NPC Settings, Stats Overrides, Interactions...) and the fields of the chosen one on the right, with its sub-groups side by side. A small amber number beside a section says how many fields in it are overridden. In a narrow dock (or a floating window) the list moves to the top. The panel remembers the section you were in.
+- **The pages**: a list on the left (for an NPC: Spawn Properties, Overrides, Loot & Inventory, Stats Overrides, Interactions) and the fields of the chosen one on the right, in columns. There are no boxes: a group of settings is a page. A big editor (stats, interaction, loot rules) fills the whole page. A small amber number beside a section says how many fields in it are overridden. In a narrow dock (or a floating window) the list moves to the top. The panel remembers the section you were in.
 
 Changes are saved as you make them. Every name and every field has a short **tooltip**.
 
@@ -26,7 +26,8 @@ Select several NPCs (or several interactables, or several spawners) in the scene
 
 | Page | Fields |
 |---|---|
-| **NPC Settings** | Two boxes side by side. **Spawn Properties**: **Is active** (hidden and switched off at the start if not), **Spawn delay**, **Respawn timer** (`0` = it does not respawn), **Is unique encounter** (can only be killed once), **Despawn on death** (the body goes after some seconds). **Overrides**: **Model scale override**, **Experience worth override**, the **tags** this NPC has or lacks compared with its definition (**Added** and **Removed UI tags**, each with a button to choose them), **Experience multiplier** (a rarer version: `3`), **Behavior script**, **Combat script**. (Level and Faction are in the strip) |
+| **Spawn Properties** | **Is active** (hidden and switched off at the start if not), **Spawn delay**, **Respawn timer** (`0` = it does not respawn), **Is unique encounter** (can only be killed once), **Despawn on death** (the body goes after some seconds) |
+| **Overrides** | **Model scale override**, **Experience worth override**, the **tags** this NPC has or lacks compared with its definition (**Added** and **Removed UI tags**, each with a button to choose them), **Experience multiplier** (a rarer version: `3`), **Behavior script**, **Combat script**. (Level and Faction are in the strip) |
 | **Loot & Inventory** | The loot rules (**Add a rule**; hover the buttons for how rules work), the **Loot table override**, and a folded **Inventory override** box with items and currency |
 | **Stats Overrides** | A **Stats Override** tick box, **off** for a new NPC (it has the stats of its definition). Ticking it makes a copy of the NPC's [stats data](/basic/entities/npcs#stats) that you can change for this NPC alone: pools, base values, weapon damage, immunities and, last, the [growth profile](/basic/entity-stats/growth-profiles) and growth overrides. A line above the stats says **what differs from the definition**, stat by stat. Unticking goes back to the definition |
 | **Interactions** | The [interaction](/basic/entities/npcs) of this NPC (dialogue, vendor...) if it differs from its definition. **Remove interaction** takes the NPC's own away: it follows its definition again |
@@ -51,7 +52,7 @@ A **movement volume**, an **audio zone** and a **zone volume** are edited in the
 
 | Volume | Strip | Pages |
 |---|---|---|
-| **Movement volume** | **Preset** menu (with *Save as preset...*), **Moves as**, **Affects**, **Speed** | Movement, Surface and shallow water, Breath, Effects while inside, [Flow](/basic/world/movement-volumes#flow), Look, Camera and sound, Editor. See [Movement volumes](/basic/world/movement-volumes) |
+| **Movement volume** | **Preset** menu (with *Save as preset...*), **Moves as**, **Affects**, **Speed** | Movement, Surface and shallow water, Breath, Effects while inside, [Flow](/basic/world/movement-volumes#flow), Look, Camera, Sound, Editor. See [Movement volumes](/basic/world/movement-volumes) |
 | **Audio zone** | none | **Sound**: the [audio profile](/basic/world/audio-zones#the-audio-profile) in full, with a preset menu. Editor (the colour of the box) |
 | **Zone volume** | **Zone**, **Priority** | Editor |
 

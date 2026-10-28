@@ -182,7 +182,7 @@ Every face is made twice, looking both ways, so the surface is seen from under i
 
 How many cells the top and the bottom are cut in along a side: a shader that moves the surface (waves) needs the vertices
 
-*Camera and sound*
+*Camera*
 
 ### bool camera_effect_enabled = true {#prop-camera-effect-enabled}
 
@@ -199,6 +199,8 @@ The color of the fog inside
 ### float camera_fog_density = 0.05 {#prop-camera-fog-density}
 
 How thick the fog is (0 = none)
+
+*Sound*
 
 ### AudioProfile audio_profile = null {#prop-audio-profile}
 
