@@ -37,7 +37,7 @@ The top of the NPC and interactable editors.
 | **What this entity changed** | A list of what the entity has that the template does not (+50 health, an ability it added ...), each with a **Reset** button that gives the template's value back, and **Reset everything** |
 | Warnings (yellow) | A template removed something this entity changed, or the template was deleted (the entity keeps its values) |
 
-In the stats table an entity that follows a template has a **Template** column and what differs is amber: *Strength 60 (template 10, +50)*, with a reset arrow. The stats editor has a **Preview at level** box at the top: the table and the pool cards show the value at that level (the base plus the growth), and the **Level growth** fold says **where each growth comes from** (the entity's own entry, the growth profile, or the stat itself).
+In the stats table an entity that follows a template has a column with the value of the template and what differs is amber: *Strength 60 (template 10, +50)*, with a reset arrow. The **Preview at level** tick box at the top adds the growth and the value at a level to the table and the pool cards (the base plus the growth), and the **Level growth** fold says **where each growth comes from** (the entity's own entry, the growth profile, or the stat itself).
 
 **An Elite Warrior** is the *Warrior* template (its stats, attacks and combat behaviour) with the *Elite* growth profile chosen on the NPC. The template can suggest *Heavy*; the NPC says *Elite*. You make one template per kind of creature and one profile per way of growing, not one template for every pair.
 

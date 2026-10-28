@@ -51,7 +51,7 @@ More abilities come from [level rewards](#level-rewards) and [skill trees](#skil
 
 ## Action bar
 
-The **Action bar** section plans the bar of the class: for each **slot** the **ability** that belongs on it and whether the slot is **locked**. *Add a slot* adds a row. The ability can be one the character **does not know yet**:
+The **Action bar** plan is in the **Abilities** section, under the abilities of the class. It plans the bar of the class: for each **slot** the **ability** that belongs on it and whether the slot is **locked**. *Add a slot* adds a row. The ability can be one the character **does not know yet**:
 
 - A known ability is on its slot when the character is made.
 - An ability that is not known yet is **reserved**: the slot waits, and the ability goes there the moment it is learned (a level reward, a quest, a trainer, a skill tree). A slot without a lock is used once; a **locked** slot keeps its plan (forget the ability and learn it again and it goes back, and the player cannot use the slot for anything else).
