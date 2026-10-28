@@ -11,7 +11,7 @@ An entry is a row in the **Ground clutter** list of a [terrain texture](/basic/a
 | `res://src/data/foliage/ground_scatter/` | **Meshes**: `.glb`, `.gltf`, `.fbx`, `.obj`, `.blend`, and `.res` / `.tres` files that hold a mesh | Ground scatter |
 | `res://src/data/foliage/foliage/` | **Scenes**: `.tscn`, `.scn`, `.glb`, `.gltf`, `.fbx`, `.blend` | Foliage |
 
-Make folders inside them for your own order (`grass/`, `trees/`): the tree of the tab follows them. Materials and textures go elsewhere in your project (the toolkit's test set keeps them in `res://assets/foliage/`); only meshes and scenes are read from the two folders. Folders that start with a dot are ignored.
+Make folders inside them for your own order (`grass/`, `weeds/`): the tree of the tab follows them. **In the foliage folder a subfolder is a group** (see [Groups](#groups-a-folder-of-scenes-is-one-brush)). Materials and textures go elsewhere in your project (the toolkit's test set keeps them in `res://assets/foliage/`); only meshes and scenes are read from the two folders. Folders that start with a dot are ignored.
 
 The tab makes the entries when it opens and when you press **Refresh**:
 
@@ -47,6 +47,25 @@ Problems of the entry are listed under the buttons (a mesh that cannot be read, 
 | **Takes ground from the navigation** | No | Yes: a footprint |
 
 A foliage scene is **taken apart** when it is loaded: its MeshInstance3D nodes are drawn in bulk (a forest of one tree is a few draw calls), and the shapes of its StaticBody3D nodes become real collision bodies only **near the player and the party** (a pool: the trees of the whole world are not physics objects). Lights, particles, scripts and other nodes are not used: the tab lists them as a problem of the entry.
+
+## Groups: a folder of scenes is one brush
+
+In the **foliage** folder, **every subfolder is a group**, and the group is **one brush**. Put four birch scenes in `foliage/birch_trees/` and the terrain tool has one brush, **Birch Trees**, that places all four at random. A scene that is in the foliage folder itself, with no folder, is a brush of its own. (Ground scatter does not have groups: its folders are only for your order, and each mesh has its own density.)
+
+- The tab makes the group when it finds the folder, named after it (`birch_trees` becomes *Birch Trees*). In the tree the folder **is** the group: select it.
+- A **new scene** put in the folder joins the group with weight 1; a scene taken away leaves it. The weights you chose stay.
+- The scenes of a group are **not brushes of their own** and are not in the brush list. If you want a tree as a brush by itself, keep it out of a folder.
+
+Select the group to set:
+
+| Setting | What it does |
+|---|---|
+| **Members of the group** | One row for each scene: its picture, its name, its **weight** and the share of the group that gives. A scene with weight 2 is placed twice as often as one with weight 1, weight 0 is never |
+| **Placing** and **View** | Where and how much the **group** grows: the density, the slope, the heights, the patches, how far it is drawn and the shadows. These are the group's, not the scenes' |
+
+Select **a scene** of the group to set how **it** looks: its size, the height factor, the rotation offset, the lean, the brightness and the sink. Where it grows is the group's, and the page says so. **Reset the group** puts every weight back to 1 and takes the numbers of where it grows from its scenes again.
+
+The brush paints the group, so the **Add**, **Remove** and **Reset** tools work on all its scenes at once. A scene you painted by itself before the folder became a group is still drawn as it was.
 
 ## Materials and variants
 
