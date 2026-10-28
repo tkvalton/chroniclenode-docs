@@ -6,9 +6,21 @@ It is how you say "this one is different": the same *Goblin* definition, but thi
 
 ## The panel
 
-The header has the **name** of the object, a row of **group buttons** (one per section), and, at the right, the **type** (NPC, Interactable, Trigger area, Encounter) and the **id**. Click a group button to show its fields; sections have columns for their sub-groups.
+The panel has three parts:
 
-Changes are saved as you make them. A field left at its empty value (`0`, empty, `-1`) uses the definition; only what you fill in overrides it.
+- **The header**: the **name** of the object, its **type** (NPC, Interactable, Spawner, Trigger area, Encounter), its **id**, and two buttons: **Open definition** (edit the definition this object follows, in a window) and **Reset overrides (3)** (put everything this object overrides back to what its definition says; it asks first).
+- **The key fields**: a strip of the few fields you set on most objects. For an NPC: **Level**, **Faction**, **Active**, **Encounter**. For an interactable: **Faction**, **Locked by**, **Cooldown**. For a spawner: **Active**, **Spawn table**, **Max alive**. They are not repeated in the sections.
+- **The sections**: a list on the left (NPC Settings, Stats Overrides, Interactions...) and the fields of the chosen one on the right, with its sub-groups side by side. A small amber number beside a section says how many fields in it are overridden. In a narrow dock (or a floating window) the list moves to the top. The panel remembers the section you were in.
+
+Changes are saved as you make them.
+
+### Overrides
+
+An object follows its definition until you change something. A field you changed is shown with an **amber name** and a **reset arrow** at its right: click the arrow and the object follows the definition again for that field. A field that follows the definition says what the definition has, in grey: *(definition: 8)*. Settings that belong to this object alone (an NPC being active, its spawn delay, its respawn timer, its encounter) are never marked, and a spawner has settings only.
+
+### Several objects at once
+
+Select several NPCs (or several interactables, or several spawners) in the scene tree or the viewport and the panel edits **all of them**: the header says *3 selected* and lists their ids (hover for all of them). A field where they differ says **mixed**; what you set is set on every selected object, and **Reset overrides** resets them all. Objects of different kinds (an NPC and a chest) are not edited together; the panel shows the first one. If the selected objects follow different definitions, **Open definition** is not shown.
 
 ### NPC
 
