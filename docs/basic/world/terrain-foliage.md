@@ -18,18 +18,21 @@ Turn the terrain mode on, choose a foliage tool and pick the entry in the **foli
 | Tool | What it does |
 |---|---|
 | **Add foliage** | Paints more of the chosen entry where you go. Ctrl at the start of the stroke takes it away |
-| **Remove foliage** | Takes the chosen entry away where you paint (also what a texture grows). Ctrl at the start adds it |
+| **Remove selected foliage** | Takes the chosen entry away where you paint (also what a texture grows). Ctrl at the start adds it |
+| **Remove all foliage** | Takes **every** kind of foliage away where you paint, what the textures grow and what you painted by hand, with no entry chosen (the foliage bar is not shown). It works on all the entries that are drawn there at once, and one Ctrl+Z gives them all back. Ctrl at the start gives the foliage back: every entry goes to what the textures give |
 | **Reset foliage** | Puts the chosen entry back to what the textures give: what you painted by hand is forgotten |
 
 The **paint tools** have a box in their bar, **Clear hand-placed foliage** (on at first): where you paint a texture, the foliage you painted by hand goes back to what the textures give, so the clutter of the new texture grows there. Turn it off to keep a tree you placed when you repaint the ground round it. The paint and the clearing are one undo action.
 
-The tools work on **one entry at a time**, the one you chose. Radius, strength and hardness are the ones of the bar at the bottom, and the **shape** of the [Cursor bar](/basic/world/terrain-sculpting#the-cursor-ring-colour-and-brush-shape) works here too (a square brush, a ring, a spray of spots). Strength is how fast it grows or goes away; hardness is how much of the brush works fully. A stroke is one undo action.
+The tools work on **one entry at a time**, the one you chose (Remove all works on every entry). Radius, strength and hardness are the ones of the bar at the bottom, and the **shape** of the [Cursor bar](/basic/world/terrain-sculpting#the-cursor-ring-colour-and-brush-shape) works here too (a square brush, a ring, a spray of spots). Strength is how fast it grows or goes away; hardness is how much of the brush works fully. A stroke is one undo action.
 
 The amounts are saved in the tiles, with the rest of the painting, when you save the scene.
 
 ## What you see
 
 While you paint, the cells of 32 m near the camera are made again behind the scenes and swapped in when they are ready, so the picture does not flicker. Entries are drawn up to their **view distance** (40 m for ground scatter, 250 m for foliage by default, scaled by the player's view distance setting). A cell is made in a worker thread, so a big brush costs frames, not seconds.
+
+**The edge fades.** The last quarter of the view distance of an entry **fades out in a circle round the camera**, and what comes into range fades in: the foliage thins out and is gone, it does not switch off a square cell at a time. The **Foliage fade** property of the Terrain node (*Drawing*, default 0.25) is the share of the view distance the fade takes; 0 turns it off. It is done by the **material**: the materials of the entries are copied with the *Distance Fade* of a StandardMaterial3D set to *Pixel Dither* (cheap, and nothing has to be sorted). A material that already has a distance fade of its own is left as it is, and a **material with your own shader does not fade** (give it a fade in the shader, or it is cut off at the view distance).
 
 ## Trees are solid, and the navigation goes round them
 
