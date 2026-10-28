@@ -1,6 +1,6 @@
 # Placing objects
 
-When a world scene is open in the 3D viewport, a row of **icon buttons** sits in the viewport's toolbar next to the Terrain button. They place the things a world is made of. (They replace the old *Add Object* drop-down.)
+When a world scene is open in the 3D viewport, a row of **icon buttons** sits in the viewport's toolbar next to the Terrain button. They place the things a world is made of. (They replace the old *Add Object* drop-down.) In a scene whose root is a **StaticBody3D** (a building or a room you made as a scene of its own) only the **Volumes** button is there: audio zones, trigger areas, water and the other volumes go in it.
 
 | Button | What it places | Where it goes in the scene |
 |---|---|---|
