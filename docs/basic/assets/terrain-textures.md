@@ -39,7 +39,11 @@ A texture is made of up to seven **texture maps**: the colour, the bumps, how ro
 | **Height texture** | A grey texture of how high each point of this texture is (white is high). It shapes how the texture **blends with its neighbours** (below). Empty: the texture blends plainly |
 | **Height blend** | How much the height texture shapes the blend: 0 not at all, 1 a lot |
 | **Parallax depth (m)** | How deep the height texture makes the ground **look**, in metres, when you see it at an angle (below). 0 = flat. A few centimetres is plenty: 0.03 for cobbles, 0.08 for rough rock |
-| **Anti-tiling** | Ticked by default. Turn it off for textures whose regular pattern is the point: bricks, floor tiles, paving (see [Anti-tiling](#anti-tiling)) |
+| **Anti-tiling** | Ticked by default. Turn it off for textures whose regular pattern is the point: bricks, floor tiles, paving (see [Detiling](#detiling)) |
+| **Detile strength** | How much of the hex tiling shows for this texture: 0 none (only the second look far away), 1 fully | 1 |
+| **Detile rotation** | How far each look is turned: 0 not at all (a texture with lines, such as planks or a road), 1 any angle | 1 |
+| **Detile contrast** | The contrast ramp of hex tiling for this texture. 0 = the one of the terrain; 0.5 blurs, 0.75 is the recommended one, near 0.99 shows the grid | 0 |
+| **Far detiling** | How much of the second look is mixed in far away: 0 none, 1 as it is | 1 |
 | **Metallic** | How metallic the ground is, 0 to 1: a metal plate, a grate, iron ore. With an ORM texture its metal (blue) channel is multiplied by this: 1 uses the texture as it is, 0 ignores it. Without an ORM texture the whole texture has exactly this metallic. The colour texture is then the colour of the shine, as for any metal material |
 | **Subsurface texture** | How much light passes through the surface: backlit grass and leaves, ice, thin sand. White = a lot. The red channel is read. Empty: none |
 | **Subsurface strength** | How much subsurface scattering the texture gets (1 = as the texture says) |
@@ -63,9 +67,29 @@ A texture can grow **ground clutter** by itself: at the bottom of its editor the
 - An empty list: nothing grows by itself. Foliage (trees, bushes) is not in this list: it is placed by rules and by hand.
 - The rows only list ground clutter; an entry that was deleted shows as *missing* until you change or remove the row.
 
-### Anti-tiling
+### Detiling
 
-A texture is a small picture repeated over the ground, and from far away you can see the repeats line up in rows. **Anti-tiling** hides that: beyond about 12 m the colour texture is read a second time (turned, at another scale) and mixed in where a slow noise says so, and the brightness of the ground varies a little over 50 to 270 m. Near the camera nothing changes. It only costs when the terrain detail level has **Anti-tiling** ticked in [Terrain Settings](/basic/game-settings/terrain-settings), and a texture can opt out with its own **Anti-tiling** tick (bricks, tiles and pavement should: a regular pattern is what they are).
+A texture is a small picture repeated over the ground, and you can see the repeats line up in rows. **Detiling** hides that. **How** is chosen on the **terrain** (**Terrain settings > Detiling** in the 3D toolbar, kept in the terrain's manifest), and **how much, for this texture** is set here:
+
+| Method of the terrain | What it does | Costs |
+|---|---|---|
+| **Off** | The textures repeat as they are | nothing |
+| **Blend** | Beyond about 12 m the colour texture is read a second time (turned, at another scale) and mixed in where a slow noise says so. Near the camera nothing changes | one more colour read per texture, far away |
+| **Hex tiling** | Near and in the middle distance (the **Hex reach**, 60 m) every texture is read **three times** at the corners of a triangle grid, each with a random offset and turn, and the looks are mixed so that the **contrast is kept** and the grid does not show (after Mikkelsen, *Practical Real-Time Hex-Tiling*, 2022). The colour and the normal map are done together so the bump follows the colour; the roughness, occlusion and metal map too if **Hex tiling for the ORM map too** is on. Beyond the reach the second look of Blend takes over | three reads per map, for the strongest textures of a chunk only |
+
+The brightness of the ground also varies a little over 50 to 270 m (the **Colour variation** of the terrain; 0 turns it off). The level of **terrain detail of the player** can only lower what the terrain asks for: **Low** turns detiling off, **Medium** gives hex tiling to one texture of a chunk, **High** to three, **Ultra** to four (the **Hex detiling slots** column of [Terrain Settings](/basic/game-settings/terrain-settings)); a level with no slots uses Blend.
+
+A texture opts out with its own **Anti-tiling** tick (bricks, tiles and pavement should: a regular pattern is what they are). For a texture with lines you want to keep roughly straight (planks, a road), set **Detile rotation** to 0: the looks are still moved but not turned, so the lines stay parallel. A texture with a **parallax depth** is detiled too, but its depth is read at the plain places: close up the depth and the colour can disagree a little; lower its **Detile strength** if it shows.
+
+| Terrain option | What it does | Default |
+|---|---|---|
+| **Method** | Off, Blend or Hex tiling | Blend |
+| **Hex reach** | How far from the camera hex tiling reaches (m); it fades out over the last 40 percent | 60 |
+| **Hex textures** | How many textures of a chunk get hex tiling (the strongest ones; the others keep Blend) | 3 |
+| **Contrast** | The contrast ramp for a texture that does not set its own | 0.75 |
+| **Rotation** | A master number for the turning of every texture: 0 turns no look | 1 |
+| **Colour variation** | How much the brightness of the ground varies over 50 to 270 m | 1 |
+| **Hex tiling for the ORM map too** | Three more reads per texture | off |
 
 ### What a subsurface texture is
 

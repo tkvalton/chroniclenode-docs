@@ -44,7 +44,7 @@ Press the **Terrain** button to turn the mode on or off. When it is off the view
 - **The left strip** has the tools in groups: **View** (Select, Inspect), **Terrain** (Tiles), **Ground** (the sculpting tools), **Textures**, **Colour** and **Foliage**. Hover an icon for its name, its key and what it does. **Undo and redo** are at the bottom of the strip. The first tool, **Select**, leaves the mouse as it normally is, so you can still move trees and buildings without leaving the mode.
 - **The bar along the bottom** shows the tool you chose and its settings. Every number has a slider and a box where you can type an exact value. Above it a **palette** shows while the tool needs one: the **textures** for the paint tools, the **foliage** for the foliage tools.
 - **The bars at the top left** are the overlay buttons with a warning when tiles are not saved, and the **Cursor** bar: the colour of the ring, the shape of the brush and **Add shape...**.
-- **Terrain settings**, a drop-down next to the Terrain button, has **Objects**, **Navigation**, **World check** and **Hotkeys**.
+- **Terrain settings**, a drop-down next to the Terrain button, has **Objects**, **Navigation**, **World check**, **Detiling** (how this terrain hides the repeats of its textures: [Detiling](/basic/assets/terrain-textures#detiling)) and **Hotkeys**.
 - **A box in the bottom right corner** tells you what is under the mouse: position, tile, chunk, slope, surface and textures.
 
 ### Keys and mouse
