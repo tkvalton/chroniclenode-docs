@@ -61,6 +61,7 @@ A **variant** is another entry for the same file, usually with other materials: 
 | **Density** | The most instances a square metre can have. The weight of the texture and the player's setting then thin it out. Grass 2 to 8, pebbles 0.2 to 1, a tree 0.005 to 0.05 |
 | **Smallest size, Biggest size** | The size of an instance is a random number between the two (1 = as the mesh is) |
 | **Height factor** | The height also varies on its own: the size is multiplied by a number between these two (1 and 1: the height follows the size) |
+| **Rotation offset X, Y, Z (degrees)** | Turns the mesh (ground scatter) or the whole scene (foliage) before anything else, about its own origin. For a file that was made 90 degrees off or lying on its side. The random facing and the lean are added to it |
 | **Random rotation** | Each instance faces a random way round |
 | **Lean with the ground** | 0 stands straight up, 1 is at right angles to the ground |
 | **Brightness variation** | How much darker some instances are than others |
