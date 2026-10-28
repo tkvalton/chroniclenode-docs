@@ -20,6 +20,8 @@ Turn the terrain mode on, choose a foliage tool and pick the entry in the **foli
 | **Add foliage** | Paints more of the chosen entry where you go. Ctrl at the start of the stroke takes it away |
 | **Remove selected foliage** | Takes the chosen entry away where you paint (also what a texture grows). Ctrl at the start adds it |
 | **Remove all foliage** | Takes **every** kind of foliage away where you paint, what the textures grow and what you painted by hand, with no entry chosen (the foliage bar is not shown). It works on all the entries that are drawn there at once, and one Ctrl+Z gives them all back. Ctrl at the start gives the foliage back: every entry goes to what the textures give |
+| **Remove ground clutter** | Takes away only what the **textures** grow (the entries in the ground clutter list of the texture painted there: grass, weeds, pebbles) and leaves the trees and bushes you placed by hand. No entry needs to be chosen. Ctrl at the start restores it |
+| **Restore ground clutter** | Gives back what the textures grow where you took it away (those entries go back to what the textures give). Ctrl at the start removes it |
 | **Reset foliage** | Puts the chosen entry back to what the textures give: what you painted by hand is forgotten |
 
 The **paint tools** have a box in their bar, **Clear hand-placed foliage** (on at first): where you paint a texture, the foliage you painted by hand goes back to what the textures give, so the clutter of the new texture grows there. Turn it off to keep a tree you placed when you repaint the ground round it. The paint and the clearing are one undo action.
