@@ -43,9 +43,9 @@ The editor lists, in yellow, what is wrong: a parent that no longer exists, a pa
 
 ## Using a profile
 
-- **On an NPC**: in the NPC's Stats section, **Growth profile**. *Default* means the project default ([Gameplay Config](/basic/game-settings/gameplay-config)). An NPC that follows a [template](/basic/entities/templates) has the growth of the template instead (the section shows it and does not edit it).
-- **On a template**: the same section of the template. Every NPC that follows it grows the same way.
-- **To see the result**: the **Preview at a level** section of the Stats section lists every stat and pool at the level you choose, with where each one's growth comes from (the NPC's override, the profile, or the stat itself).
+- **On an NPC**: in the NPC's Stats section, **Growth profile**. *Default* means the project default ([Gameplay Config](/basic/game-settings/gameplay-config)). An NPC that follows a [template](/basic/entities/templates) chooses its growth itself: with *Default* it grows like the profile its **template suggests**, else like the project default. Warrior template plus *Elite* profile is an Elite Warrior.
+- **On a template**: the same section of the template names the profile it **suggests** to the NPCs that follow it; an NPC can pick another.
+- **To see the result**: the **Preview at level** box of the Stats page shows every stat and pool at the level you choose, and the **Level growth** fold says where each one's growth comes from (the NPC's entry, the profile, or the stat itself).
 - **For every NPC**: Gameplay Config > Party Management > NPC Level Scaling > **Default NPC growth profile**. The toolkit makes a profile called *Default* for every project; it has no entries, so a new project grows as its stats say until you fill it in.
 - **On one placed NPC**: a [unique NPC](/basic/world/uniques) copies the stats of its definition and can change the profile or add overrides for itself.
 

@@ -56,13 +56,15 @@ An NPC can **follow a [template](/basic/entities/templates)**: the stats, pools,
 
 The **Stats** section is the same *stats data* a [player class](/basic/entities/player-classes#stats) has: the pools, the core stat overrides (an NPC's **weapon damage** and **weapon speed** are how hard and how fast its bite hits), the base value of each stat, permanent [immunities](/basic/abilities-and-effects/immunities) and level growth overrides.
 
-Above the list of stats a **Show** menu filters it by [stat group](/basic/entity-stats/stat-groups): *All stats*, one group (Primary, Offensive ...) or *In no group*, so a long list reads one group at a time.
+The Stats page has, from the top: a line saying **what the NPC follows** (a template) and **what it grows like**, and a **Preview at level** box; the **Resources** (a card for each pool, with its maximum and how it grows); the **Stats** table; and three folds, **Combat basics** (the core stats: weapon damage, speeds, carry capacity, sight), **Immunities** and **Level growth (advanced)**.
+
+The table lists the stats that are **set** (not at their default); the **Show** menu lists all stats, or one [stat group](/basic/entity-stats/stat-groups), and **+ Add stat** shows one that is at its default. Each row has the base value, what the template says (when it follows one), the growth at the preview level and the value at that level; a value that differs from the template is amber with a reset arrow.
 
 An NPC levels with its **level**: its stats grow with it by their *level growth*, so a level 20 wolf is a stronger wolf than a level 5 one without a second definition.
 
 | Field | What it does | Default |
 |---|---|---|
-| **Growth profile** | The [growth profile](/basic/entity-stats/growth-profiles) of this kind of NPC (Heavy, Caster, Minion...): which stats and pools grow, and how fast. *Default* is the profile the Gameplay Config names for every NPC | Default |
+| **Growth profile** (in the **Level growth** fold) | The [growth profile](/basic/entity-stats/growth-profiles) of this NPC (Heavy, Caster, Elite...): which stats and pools grow, and how fast. *Default* is the profile the [template](/basic/entities/templates) suggests, else the one the Gameplay Config names for every NPC. An NPC that follows a template still chooses its own | Default |
 | **Level growth overrides** (*Add Override*) | A growth for one stat or pool of this NPC only. It wins over the profile | none |
 
 A pool and the stats that feed it all grow with the level, and the **weapon damage** of an NPC that has some can grow too (a profile entry for *Weapon Damage*). When the level changes (a respawn, level scaling) the NPC keeps its share of health. See [Growth Profiles](/basic/entity-stats/growth-profiles#what-happens-when-an-npc-changes-level).
@@ -93,7 +95,7 @@ When an NPC dies it becomes a **corpse** that can be looted, if it has anything 
 
 ## Bag
 
-The bag of an NPC follows the **NPC inventory style** of the [Gameplay Config](/basic/game-settings/gameplay-config#inventory-styles): slots from the Bag Slots stat, no limit, weight. **Own inventory style** (the NPC editor, **Bag**) gives this NPC rules of its own, for example a pack mule with a high carry capacity. See [Inventories](/basic/shared-systems/inventories#inventory-styles).
+The bag of an NPC has **no limit and no weight**: it holds as many things as it is given, so there is nothing to set (the inventory styles of the Gameplay Config are for characters and containers). See [Inventories](/basic/shared-systems/inventories#inventory-styles).
 
 ## Ability ranks
 

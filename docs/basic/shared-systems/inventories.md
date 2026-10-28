@@ -80,7 +80,7 @@ A [vendor](/basic/items/vendors) is **not** a bag: it is a list of goods, each w
 
 ## Inventory styles
 
-Different games hold items in different ways. An **inventory style** is the set of rules of one kind of owner. The **Gameplay Config** (Inventory Styles) has the style of the **characters** (players and companions), of **NPCs** and of **containers**; an NPC and a container can have **an own style** that replaces the project's (the NPC editor, **Bag**; the container interaction, **Inventory style**). The default style is a list of slots from the Bag Slots stat, with no weight, which is how inventories always worked.
+Different games hold items in different ways. An **inventory style** is the set of rules of one kind of owner. The **Gameplay Config** (Inventory Styles) has the style of the **characters** (players and companions) and of **containers**; a container can have **an own style** that replaces the project's (the container interaction, **Inventory style**). The bag of an **NPC** has no limit and no weight. The default style is a list of slots from the Bag Slots stat, with no weight, which is how inventories always worked.
 
 | Field | What it does | Default |
 |---|---|---|

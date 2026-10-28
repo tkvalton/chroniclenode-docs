@@ -73,7 +73,6 @@ Configuration for gameplay rules and mechanics
 | `BrokenBehavior` | [durability_broken_behavior](#prop-durability-broken-behavior) | `BrokenBehavior.NO_EFFECT` |
 | `float` | [durability_repair_cost_multiplier](#prop-durability-repair-cost-multiplier) | `0.25` |
 | `InventoryStyle` | [character_inventory_style](#prop-character-inventory-style) | `InventoryStyle.new()` |
-| `InventoryStyle` | [npc_inventory_style](#prop-npc-inventory-style) | `InventoryStyle.new()` |
 | `InventoryStyle` | [container_inventory_style](#prop-container-inventory-style) | `InventoryStyle.new()` |
 | `CalculationFormula` | [item_budget_formula](#prop-item-budget-formula) |  |
 | `LootLevelSource.Source` | [default_npc_loot_level](#prop-default-npc-loot-level) | `LootLevelSource.Source.HOLDER` |
@@ -681,10 +680,6 @@ What a vendor charges to repair: the vendor value of the item times the share th
 ### InventoryStyle character_inventory_style = InventoryStyle.new() {#prop-character-inventory-style}
 
 The rules of the bag of the characters (players and companions): how items take space, the weight and what happens above the limit. The default is a list of slots from the Bag Slots stat and no weight
-
-### InventoryStyle npc_inventory_style = InventoryStyle.new() {#prop-npc-inventory-style}
-
-The rules of the bag of NPCs (an NPC definition can have its own)
 
 ### InventoryStyle container_inventory_style = InventoryStyle.new() {#prop-container-inventory-style}
 

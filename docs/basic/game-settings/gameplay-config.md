@@ -114,7 +114,6 @@ How the bags of characters, NPCs and containers work: slots or no limit, weight,
 | Field | What it does | Default |
 |---|---|---|
 | **Character inventory style** | The bag of players and companions | Slots from Bag Slots, no weight |
-| **Npc inventory style** | The bag of NPCs. An NPC can have its own (the NPC editor, Bag) | the same |
 | **Container inventory style** | Chests, bodies and other objects. A container can have its own | the same |
 
 ### Items and inventory

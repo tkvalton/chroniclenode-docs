@@ -16,7 +16,7 @@ The NPC keeps its own values (the editor shows and edits them as always) and rem
 |---|---|
 | **Numbers**: the base value of a stat, the maximum of a pool, the core values (movement speed, weapon damage ...) | The difference is added. 50 more stays 50 more |
 | **Lists**: pools, immunities, abilities (an NPC's active and passive abilities, its basic attack) | What the template adds is added, what it takes away is taken away. What the NPC added for itself stays |
-| **Growth**: the growth profile and the growth overrides | They are the template's. An NPC that follows a template **cannot change its growth**; one that follows nothing can |
+| **Growth**: the growth profile and the growth overrides | They are the **NPC's own**. A template only **suggests**: an NPC that has no growth profile of its own grows like the profile of its template, and the template's growth entries apply to the stats the NPC has no entry for. Choose another profile on the NPC and that one wins |
 
 A stat can be set to **Always this value**: right-click it in the stats list. It keeps the value you give it whatever the template does.
 
@@ -31,13 +31,15 @@ The top of the NPC and interactable editors.
 | Part | What it does |
 |---|---|
 | **Follows template** | The template the entity follows. Choose one to follow it, *No template* to stop. Following keeps the values the entity has (what differs from the template is what it changed) and gives it the growth of the template. A new, blank NPC can **take the values of the template** too: the box in the question is on for it |
-| **Edit template**, **Stop following** | Open the template, or let the entity go with the values it has (its growth can be changed again) |
+| **Edit template**, **Stop following** | Open the template, or let the entity go with the values it has (its growth stays its own) |
 | **Templates** | A menu: **New template...** makes a blank one, and every template is listed with the number of entities that follow it. Choosing one opens it for editing |
 | **Save as template...** | Makes a template from what this entity is now. The box says whether this entity follows the new template from then on |
 | **What this entity changed** | A list of what the entity has that the template does not (+50 health, an ability it added ...), each with a **Reset** button that gives the template's value back, and **Reset everything** |
 | Warnings (yellow) | A template removed something this entity changed, or the template was deleted (the entity keeps its values) |
 
-In the stats list an entity that follows a template shows what differs: *Strength (Base: 60) [template: 10, +50]*. Below the growth section, a followed template's growth is written out and not editable. The same stats editor has a **Preview at a level**: pick a level and it lists every stat and pool at that level, with the **base**, the **growth** and **where the growth comes from** (the entity's own override, the growth profile, or the stat itself).
+In the stats table an entity that follows a template has a **Template** column and what differs is amber: *Strength 60 (template 10, +50)*, with a reset arrow. The stats editor has a **Preview at level** box at the top: the table and the pool cards show the value at that level (the base plus the growth), and the **Level growth** fold says **where each growth comes from** (the entity's own entry, the growth profile, or the stat itself).
+
+**An Elite Warrior** is the *Warrior* template (its stats, attacks and combat behaviour) with the *Elite* growth profile chosen on the NPC. The template can suggest *Heavy*; the NPC says *Elite*. You make one template per kind of creature and one profile per way of growing, not one template for every pair.
 
 ## Editing a template
 
