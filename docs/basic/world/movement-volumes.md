@@ -43,6 +43,19 @@ The **Water**, **River** and **Lava** presets come with a shader of the toolkit,
 
 They are a start: replace the *Look material* with your own shader or material and the volume keeps working the same. The look grid of Water and River is 64: waves need vertices (a wave of 1 metre needs cells of a quarter of a metre), so raise it for big water.
 
+### A river that winds
+
+A **River (follows a path)** is a movement volume whose space is not a box but a **ribbon along a curve**. Place it from the **Volumes** palette: it comes with the *River* preset and a **Path** (a `Path3D`) child with an S-shaped course of about 60 metres.
+
+1. **Shape the course.** Select the **Path** in the scene tree and drag its points and their handles in the 3D viewport, as for any Path3D (add points with the Path3D tools in the toolbar). The river follows at once.
+2. **Set the river** in the **River** page of the Unique Object panel: **Width**, **Depth** (how deep the water is under its surface), **Segment length** (the pieces it is cut in; shorter follows a tight bend better and costs more).
+3. **The height of the path is the surface.** A path that goes down makes a river that runs downhill: the water, the swimming and the wading follow the height of the path beside you.
+4. **The flow runs along the river** at every bend, at the *Flow strength* of the volume: a swimmer is carried round the bend, and the ripples of the river shader stream along it. The arrows in the viewport follow the course.
+
+Everything else works as for a box: the presets, the look and its shader inputs, *Affects*, breath, the effects inside, the camera and sound, the reflection probe (one picture over the whole river: for a long river, make it of several rivers). Click the water in the viewport to select the river; the banks fade the waves to nothing, so a river that ends in a lake meets it at the same height.
+
+The river is made of boxes (one for each piece) that the game uses to know who is in the water; they are not saved with the scene, and they are made again when you edit the path.
+
 ### A reflection probe
 
 Water mirrors the **sky** by itself. To have it mirror what stands around it (a tower, a wall, trees), tick **Reflection probe** in the **Reflections** page of the volume. The volume then takes a picture of its surroundings from a point above the water and the water reflects it. The settings:

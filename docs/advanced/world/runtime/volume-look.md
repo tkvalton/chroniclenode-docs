@@ -17,6 +17,7 @@ The look of a movement volume: a mesh made from its box shape (the top, the bott
 | `bool` | [has_flow_parameters](#method-has-flow-parameters)( `material: Material` ) *static* |
 | `bool` | [apply_flow](#method-apply-flow)( `material: Material, direction: Vector3, strength: float` ) *static* |
 | `bool` | [has_parameter](#method-has-parameter)( `material: Material, parameter: String, type: int` ) *static* |
+| `void` | [apply_vertex_flow](#method-apply-vertex-flow)( `material: Material, on: bool` ) *static* |
 | `void` | [apply_size](#method-apply-size)( `material: Material, box_size: Vector3` ) *static* |
 | `int` | [auto_grid](#method-auto-grid)( `box_size: Vector3` ) *static* |
 | `ShaderMaterial` | [make_lava_material](#method-make-lava-material)() *static* |
@@ -67,6 +68,10 @@ Gives the material the flow of a volume: the direction on the ground plane (x an
 ### bool has_parameter( material: Material, parameter: String, type: int ) {#method-has-parameter}
 
 Does the shader of the material have a parameter of this name and type?
+
+### void apply_vertex_flow( material: Material, on: bool ) {#method-apply-vertex-flow}
+
+Tells a shader that has a use_vertex_flow switch (the river shader) to take the flow and the banks from the mesh (a river that winds): the colour of a vertex is its flow, the texture x is across the river
 
 ### void apply_size( material: Material, box_size: Vector3 ) {#method-apply-size}
 

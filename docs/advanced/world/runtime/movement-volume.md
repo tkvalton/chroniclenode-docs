@@ -68,6 +68,8 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 | `ReflectionProbe` | [get_reflection_probe](#method-get-reflection-probe)() |
 | `ArrayMesh` | [get_look_mesh](#method-get-look-mesh)() |
 | `Vector3` | [get_flow_velocity](#method-get-flow-velocity)() |
+| `Vector3` | [get_flow_at](#method-get-flow-at)( `_world_point: Vector3` ) |
+| `float` | [get_surface_y_at](#method-get-surface-y-at)( `_world_point: Vector3` ) |
 | `float` | [depth_of](#method-depth-of)( `entity: Entity` ) |
 
 ## Enumerations
@@ -276,6 +278,14 @@ The mesh of the look (null when there is none).
 ### Vector3 get_flow_velocity() {#method-get-flow-velocity}
 
 The push of the flow in the world: the direction of the volume turned the way the volume is turned, at the strength of the flow. Zero when it does not flow.
+
+### Vector3 get_flow_at( _world_point: Vector3 ) {#method-get-flow-at}
+
+The push of the flow at a point of the world. Everywhere the same for a box; a river runs along its course, so it differs from place to place (RiverVolume)
+
+### float get_surface_y_at( _world_point: Vector3 ) {#method-get-surface-y-at}
+
+The height of the water surface at a point of the world (the top of the box; a river is higher or lower from place to place)
 
 ### float depth_of( entity: Entity ) {#method-depth-of}
 
