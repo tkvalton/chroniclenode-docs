@@ -4,6 +4,10 @@ The **Unique Object** panel starts at the bottom of the editor (next to Output a
 
 It is how you say "this one is different": the same *Goblin* definition, but this goblin is level 8, hostile to the town [faction](/basic/behaviors/factions), and guards a chest.
 
+## Selecting what you placed
+
+Click an NPC, an interactable or a spawner in the 3D viewport and it is selected, wherever you click on it: its body, an arm, the weapon, the gap between the legs, the red capsule of a spawner. An invisible box around each of them takes the click (the preview model itself cannot be selected, which is why clicks on it used to find nothing). The box is the size of the model, and never smaller than a person; it draws nothing.
+
 ## The panel
 
 The panel has three parts:

@@ -1049,6 +1049,12 @@ export const groups = [
         "file": "editor_components/3d_scene_tools/movement_preset_bar.gd"
       },
       {
+        "name": "PlacedPickGizmoPlugin",
+        "base": "EditorNode3DGizmoPlugin",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\placed_pick_gizmo.gd",
+        "file": "editor_components/3d_scene_tools/placed_pick_gizmo.gd"
+      },
+      {
         "name": "SFXSelectionPropertyEditor",
         "base": "EditorProperty",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\inspector_plugins\\sfx_selection_property_editor.gd",
