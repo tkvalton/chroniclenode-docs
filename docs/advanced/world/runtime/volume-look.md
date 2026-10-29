@@ -16,6 +16,8 @@ The look of a movement volume: a mesh made from its box shape (the top, the bott
 | `ShaderMaterial` | [make_river_material](#method-make-river-material)() *static* |
 | `bool` | [has_flow_parameters](#method-has-flow-parameters)( `material: Material` ) *static* |
 | `bool` | [apply_flow](#method-apply-flow)( `material: Material, direction: Vector3, strength: float` ) *static* |
+| `bool` | [has_parameter](#method-has-parameter)( `material: Material, parameter: String, type: int` ) *static* |
+| `void` | [apply_size](#method-apply-size)( `material: Material, box_size: Vector3` ) *static* |
 | `ShaderMaterial` | [make_lava_material](#method-make-lava-material)() *static* |
 
 ## Enumerations
@@ -59,6 +61,14 @@ Does the material have a shader with a flow_direction (vec2) and a flow_speed (f
 ### bool apply_flow( material: Material, direction: Vector3, strength: float ) {#method-apply-flow}
 
 Gives the material the flow of a volume: the direction on the ground plane (x and z of the direction in the space of the volume) and the speed. False when the material has no such parameters.
+
+### bool has_parameter( material: Material, parameter: String, type: int ) {#method-has-parameter}
+
+Does the shader of the material have a parameter of this name and type?
+
+### void apply_size( material: Material, box_size: Vector3 ) {#method-apply-size}
+
+Gives the shader the size of the volume (half of its box), for the water that flattens towards the edge of its volume. Nothing happens when the shader has no volume_half_size.
 
 ### ShaderMaterial make_lava_material() {#method-make-lava-material}
 

@@ -38,25 +38,32 @@ The look is made from the **box shape** of the volume and follows it when you re
 
 The **Water**, **River** and **Lava** presets come with a shader of the toolkit, as the *Look material*:
 
-- **Water** (a lake, still water): waves that move the top, ripples in the shine, a colour that gets darker with the depth under the surface, foam where it meets the ground, a shine at a low angle.
-- **River** (flowing water): ripples that stream along the flow, stretched into long streaks, with white water where it runs fast, the same colours that deepen, the foam at the bank and the shine. It flows the way the volume flows: **turn the volume** and the river turns, or change the *Flow* settings.
+- **Water** (a lake, still water) and **River** (flowing water) are made the same way, and look like water because of these parts: **waves with real height** (sharp crests, flat troughs, four of them at different lengths), **ripples** that bend the light, **refraction** (the ground under the water is seen through it, bent by the ripples, and tinted darker the deeper it is), a **mirror of the sky** at a low angle (the reflection comes from the sky of your world environment: with no sky in the environment there is nothing to mirror), **foam** where the water meets the bank, and a **soft edge** where it ends instead of a hard line. The river's waves and ripples travel along the flow, stretched into long streaks, with white water where it runs fast. It flows the way the volume flows: **turn the volume** and the river turns, or change the *Flow* settings.
 - **Lava**: a dark crust moving over glowing cracks, a little bubbling.
 
-They are a start: replace the *Look material* with your own shader or material and the volume keeps working the same.
+They are a start: replace the *Look material* with your own shader or material and the volume keeps working the same. The look grid of Water and River is 64: waves need vertices (a wave of 1 metre needs cells of a quarter of a metre), so raise it for big water.
+
+### Water that touches water
+
+Two volumes side by side (a river running into a lake) show no step between them when: they touch without overlapping, their tops are at the same height, and the **Edge fade** of both is above 0. The waves flatten to nothing towards the edge of each volume (over *Edge fade* metres), so both meet at the surface height whatever their waves are. The waves and ripples are worked out from the place in the world, so two volumes with the same numbers have the same waves and no seam at all. Colours and flow are the volume's own: a river and a lake with different colours show where one ends. Do not overlap two water volumes: both draw their water over the overlap.
 
 ### The parameters of the shader
 
 Every `uniform` of the shader of the *Look material* has an input in the **Look** page, under the material: a number (a slider range when the shader gives one with `hint_range`), a switch, a vector, a colour, a texture. Change one and the water changes at once, in the viewport. The words in a comment right above a `uniform` are the tooltip of its input. **Reset to the shader's defaults** takes every value back. One change is one step of Undo. Select **one** volume to see them (with several selected the page does not show them, since they would change one material).
 
-The river shader has these:
+The river shader has these (the lake has the same, with a wave direction and a ripple speed instead of the flow, and no streaks):
 
 | Parameter | What it does |
 |---|---|
-| **Shallow color**, **Deep color**, **Foam color** | The colours of thin water, of deep water and of the foam |
+| **Shallow color**, **Deep color**, **Foam color** | The colours of thin water, of deep water and of the foam. The alpha of the first two is how much the colour covers what is under it: lower and you see the bed |
 | **Flow direction**, **Flow speed** | The way and how fast it flows. Hidden while *Look follows flow* is on: they come from the *Flow* settings |
-| **Ripple scale**, **Stretch**, **Ripple strength** | The size of the ripples, how long they are along the flow, how much they bend the light |
-| **Wave height**, **Wave scale** | The waves of the surface (they need the *Look grid*) |
-| **Depth fade**, **Foam width**, **Streak foam**, **Roughness value** | How deep before it is dark, the foam at the bank, the white water of a fast river, how glossy |
+| **Wave height**, **Wave length**, **Wave steepness** | The waves: how high, how long the main one is, how sharp the crests (they need the *Look grid*) |
+| **Ripple scale**, **Stretch**, **Ripple strength** | The size of the small ripples, how long they are along the flow, how much they bend the light |
+| **Refraction strength** | How much the bed under the water is bent by the surface |
+| **Depth fade** | How deep the water must be to reach the deep colour |
+| **Shore softness**, **Foam width**, **Streak foam** | The soft edge where the water ends, the foam at the bank, the white water of a fast river |
+| **Reflectivity**, **Roughness value** | How strongly the water mirrors the sky (0.5 is water, 1 a mirror), and how sharp the glints are |
+| **Edge fade** | How far from the edge of the volume the waves flatten to nothing (for water that touches water) |
 
 The tooltip of the *Look material* of any of your own shaders works the same: write the `uniform`s, comment them, and the page has the inputs. Make a copy of the river shader and change it to start.
 

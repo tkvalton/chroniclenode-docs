@@ -6,6 +6,12 @@
 
 Factory for creating UI controls with consistent styling and behavior Uses class-based controls for complex components
 
+## Variables
+
+| | | |
+|---|---|---|
+| `float` | [compact_width](#var-compact-width) | `0.0` |
+
 ## Methods
 
 | | |
@@ -48,6 +54,12 @@ Factory for creating UI controls with consistent styling and behavior Uses class
 | `HBoxContainer` | [create_shape_selection_button_field](#method-create-shape-selection-button-field)( `label_text: String, initial_shape: Shape3D, dialog_manager: DialogManager, tooltip: String, callback: Callable, target_container: Control = null, button_text: String = "Configure Shape", context: String = ""` ) *static* |
 | `HBoxContainer` | [create_animation_selection_button_field](#method-create-animation-selection-button-field)( `label_text: String, initial_selection: AnimationSelection, dialog_manager: DialogManager, tooltip: String, callback: Callable, target_container: Control = null, button_text: String = "Select Animation"` ) *static* |
 | `HBoxContainer` | [create_unified_resource_button_field](#method-create-unified-resource-button-field)( `label_text: String, category: String, current_resource: Resource, dialog_manager: DialogManager, tooltip: String, callback: Callable, target_container: Control = null` ) *static* |
+
+## Variable descriptions
+
+### float compact_width = 0.0 {#var-compact-width}
+
+When above 0, a row is this wide (not the width of the whole panel): the label has a share of it and the input stretches over the rest, so the name and its input stay together. The Unique Object panel sets it while it builds a page; the other editors leave it at 0 (the label takes the room, the input is at the far side).
 
 ## Method descriptions
 

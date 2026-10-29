@@ -46,6 +46,7 @@ Dynamic inspector for unique object data (NPC, Encounter, InteractableObject) Di
 - `Dictionary` **DEFINITION_PROPERTY** = `{` - The property of the definition that an override replaces, to show what the definition says
 - `Color` **OVERRIDE_COLOR** = `Color(0.82, 0.6, 0.23, 1.0)`
 - `float` **NARROW_WIDTH** = `760.0` - Narrower than this (in editor units) the list of sections moves from the side to the top
+- `float` **ROW_WIDTH** = `640.0` - Populate properties based on the unique_data type The rows of the panel are a fixed width (the name, then its input right next to it), not the width of the whole panel
 
 ## Variable descriptions
 
