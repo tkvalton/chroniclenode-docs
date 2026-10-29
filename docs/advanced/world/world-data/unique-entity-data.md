@@ -92,7 +92,7 @@ Delay timer for the spawn
 
 ### float respawn_timer = 0.0 {#prop-respawn-timer}
 
-0 = no respawn
+0 = no respawn (the default: a placed NPC is an authored one, and a spawner is what brings mobs back). Set it for an important NPC that must return after it died
 
 ### bool is_unique_encounter = false {#prop-is-unique-encounter}
 

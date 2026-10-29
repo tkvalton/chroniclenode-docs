@@ -2,6 +2,8 @@
 
 A **spawner** (the `Spawner` node) makes things appear in a world and keeps the place alive. It rolls a [spawn table](/basic/world/spawn-tables) and makes what comes up: an NPC, or a group of them, an [interactable](/basic/entities/interactables) (a herb, an ore vein), an item or some money on the ground, a roll of a [loot table](/basic/items/loot-tables), or nothing. When what it made is gone (killed, taken, used up) it waits a while and rolls again.
 
+A spawner is for the living part of a world, the mobs that are killed and come back, like an MMO. For a character that is placed by hand because the story needs it (a vendor, a quest giver, a boss), place an [NPC](/basic/world/add-object#an-npc-or-a-spawner) instead.
+
 A spawner has one of three **modes**. They differ only in **where** things appear; the table, the respawn times and the rest work the same.
 
 | Mode | Where things appear | Use it for |
