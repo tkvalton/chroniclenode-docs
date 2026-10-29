@@ -23,6 +23,8 @@ Universal file list that works with any resource type via ResourceManager Suppor
 |---|---|
 | `void` | [setup_managers](#method-setup-managers)( `p_resource_manager: ResourceManager` ) |
 | `void` | [configure_auto_population](#method-configure-auto-population)( `p_resource_type: String, p_auto_populate: bool` ) |
+| `void` | [enable_group_filter](#method-enable-group-filter)( `all_text: String, none_text: String, groups: Array, matches: Callable` ) |
+| `int` | [get_group_filter_id](#method-get-group-filter-id)() |
 | `void` | [set_file_icon](#method-set-file-icon)( `icon: Texture2D` ) |
 | `void` | [populate_all_files](#method-populate-all-files)() |
 | `void` | [refresh_from_manager](#method-refresh-from-manager)() |
@@ -49,6 +51,10 @@ Universal file list that works with any resource type via ResourceManager Suppor
 ### file_double_clicked( file_path: String, resource: Resource ) {#signal-file-double-clicked}
 
 ### file_popup_menu_requested( at_position: Vector2, file_path: String, resource: Resource ) {#signal-file-popup-menu-requested}
+
+## Constants
+
+- `int` **ALL_GROUPS_ID** = `-2` - The id of the "all" entry of the group menu (an OptionButton takes -1 to mean "the index", so -1 itself cannot be an id)
 
 ## Variable descriptions
 
@@ -85,6 +91,14 @@ Universal file list that works with any resource type via ResourceManager Suppor
 ### void configure_auto_population( p_resource_type: String, p_auto_populate: bool ) {#method-configure-auto-population}
 
 *No description yet.*
+
+### void enable_group_filter( all_text: String, none_text: String, groups: Array, matches: Callable ) {#method-enable-group-filter}
+
+Adds a menu above the list that switches between groups. `groups`: [&#123;"id": int, "name": String&#125;], `matches`: (resource, group_id) -&gt; bool, where group id 0 means "in no group". The menu starts on "All", keeps the group that was chosen when it is rebuilt, and shows only the entries of the chosen group
+
+### int get_group_filter_id() {#method-get-group-filter-id}
+
+The group the menu is on (-1 = all, 0 = no group)
 
 ### void set_file_icon( icon: Texture2D ) {#method-set-file-icon}
 

@@ -2,7 +2,7 @@
 
 <Shot name="stats-editor" caption="The Stats editor (Entity Stats > Stats)." />
 
-A **stat** is a number every entity has: Strength, Armor, Critical Strike Rating, Movement Speed. A stat is a resource in the [database](/basic/database): the list on the left shows every stat, the fields on the right are the one you selected. What makes a stat interesting is its **stat effects**, the things it does with its points.
+A **stat** is a number every entity has: Strength, Armor, Critical Strike Rating, Movement Speed. A stat is a resource in the [database](/basic/database): the list on the left shows every stat (a menu above it switches between [stat groups](/basic/entity-stats/stat-groups), and the filter box searches by name), the fields on the right are the one you selected. What makes a stat interesting is its **stat effects**, the things it does with its points.
 
 ## Basic properties
 
@@ -99,7 +99,7 @@ The demo project comes with a TBC-style set of stats. Everything in it is an ord
 | Family | Stats | What they do |
 |---|---|---|
 | **Primary** | Strength, Agility, Stamina, **Intellect**, **Wisdom**, **Charisma** | Strength: Attack Power and carry capacity. Agility: Ranged Attack Power, Critical Strike Rating, Haste, Dodge. Stamina: health and health regeneration. Intellect: Mana and Spell Power. Wisdom: Mana per 5 Seconds and Healing Power. Charisma: Experience Gain and Magic Find |
-| **Power** | Attack Power, Ranged Attack Power, Spell Power, Healing Power, Bonus Damage | Flat damage and healing. Spell Power only adds to abilities of the *Magic* school |
+| **Power** | Attack Power, Ranged Attack Power, Spell Power, Healing Power, Bonus Damage | Attack Power raises your **Weapon Damage** (1 a point), so it helps the abilities that use the weapon and not spells; an NPC without a weapon needs Weapon Damage set in its stats. Ranged Attack Power adds to ranged hits. Spell Power adds to damage and heals of abilities of the *Magic* school. Healing Power adds to heals |
 | **Penetration** | Armor Penetration, Spell Penetration | Each point makes your hits ignore 1 % of the Armor, or of the resistances, of whoever you hit |
 | **Critical strike** | Critical Strike Chance, Critical Strike Damage, Critical Strike Rating | The chance rolls the critical strike, the damage says how hard it hits, and the rating turns into chance (20 points are 1 %, with diminishing returns) |
 | **Multistrike** | Multistrike Chance, Multistrike Damage, Multistrike Rating | The same three for [multistrike](/basic/entity-stats/trigger-tags): a hit that strikes again. The damage effect of the ability decides which hits can; Multistrike Damage raises the share of the extra hits |
@@ -117,7 +117,7 @@ The demo project comes with a TBC-style set of stats. Everything in it is an ord
 | You want | Stat effects |
 |---|---|
 | **Armor** that stops a share of physical damage and never reaches 100 % | A Calculation Modifier Effect on **Damage Taken**, Percentage Decrease, [Damage Type](/basic/types-and-groups/damage-types) *Physical*, with a **Hyperbolic** formula (max `100`, K `100`) |
-| **Strength** that adds attack power | A Multiplier Effect with Target Stat *Attack Power*, Add, **Linear** `2` per point |
+| **Strength** that adds attack power | A Multiplier Effect with Target Stat *Attack Power*, Add, **Linear** `2` per point. Attack Power itself is a Multiplier Effect on *Weapon Damage* |
 | **Stamina** that adds health | A Pool Modifier Effect on *Health*, property max value, Add, **Linear** `1` per point |
 | **Dodge** | A Calculation Trigger Effect on **Damage Taken** with Trigger Kind **Avoid**, a **Hyperbolic** formula for the chance (max `75`, K `300`) |
 | **Critical Strike Chance** | A Calculation Trigger Effect with a *Critical Strike* tag, a **Linear** chance of `1` per point (1 point is 1 %). **Critical Strike Rating** is a Multiplier Effect that adds `0.05` Critical Strike Chance per point behind a **Soft cap** of `400` points |
