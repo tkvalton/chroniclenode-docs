@@ -9,7 +9,7 @@ Loot rules replace the old fixed **Inventory** and the single **Loot table** of 
 | Field | What it does |
 |---|---|
 | **When** | The trigger (below) |
-| **Drops** | Where the drops go: **In its inventory** (the player opens a window and takes what they want) or **On the ground** (dropped items around the holder; only for On Death and On Destroyed). See [Where the drops go](#where-the-drops-go) | In its inventory |
+| **Drops** | Where the drops go: **Project default** (the Gameplay Config says: *Npc loot delivery* and *Object loot delivery*), **In its inventory** (the player opens a window and takes what they want) or **On the ground** (dropped items around the holder; only for On Death and On Destroyed). See [Where the drops go](#where-the-drops-go) | Project default |
 | **Table** | A **shared table** from Items > Loot Tables, or **its own table** edited right there on the rule: "this guard carries the key" needs no entry in the shared list |
 | **Item level** | Where the item level of generated items comes from, with an offset and a lowest and highest level ([below](#where-the-item-level-comes-from)) |
 | **The receiver changes it** | The one who gets the loot (the killer, the one who opens the chest) changes the **amount** with its *loot quantity* and the **quality** with its *magic find* ([Loot Tables](/basic/items/loot-tables#stats-that-change-loot)). On by default |
@@ -30,7 +30,7 @@ A rule on **Initialize** or **First Access** rolls once; the holder remembers it
 
 ### Where the drops go
 
-By default the drops go **into the inventory of the holder**: a body or a chest, which the player opens to take what they want. A rule with the trigger **On Death** or **On Destroyed** can put them **on the ground** instead (*Drops: On the ground*): the loot lies around the body or the wreck as [dropped items](/basic/items/dropped-items), picked up by walking over it, with the interact key or with the mouse, as the Gameplay Config says. There is no loot window, and an NPC or an object whose rules all drop on the ground has nothing to loot.
+By default a rule follows the **project** (Gameplay Config > Dropped Items: *Npc loot delivery*, *Object loot delivery*), so a game that wants loot on the ground sets it once. The project starts on the **inventory of the holder**: a body or a chest, which the player opens to take what they want. A rule with the trigger **On Death** or **On Destroyed** can put them **on the ground** instead (*Drops: On the ground*): the loot lies around the body or the wreck as [dropped items](/basic/items/dropped-items), picked up by walking over it, with the interact key or with the mouse, as the Gameplay Config says. There is no loot window, and an NPC or an object whose rules all drop on the ground has nothing to loot.
 
 - The receiver (the killer) and the item level work the same: the amounts, the quality and the level are rolled as before; only the delivery changes.
 - Several drops are scattered around the place; money lies as piles of coins.

@@ -143,6 +143,7 @@ Items that lie in the world: see [Dropped items](/basic/items/dropped-items) for
 
 | Field | What it does | Default |
 |---|---|---|
+| **Npc loot delivery**, **Object loot delivery** | Where the loot of NPCs, and of destroyed objects, goes when the loot rule says **Project default**: into the body or the wreck (looted through a window) or on the ground as dropped items. A rule can choose for itself | In the body |
 | **Dropped items enabled** | The switch of the feature. Off: nothing lies in the world, and a loot rule that drops on the ground puts the loot in the inventory of the body | on |
 | **Visual style** | **Mesh**: the model of the item. **Sprite**: a flat picture of its icon that faces the camera | Mesh |
 | **Physics** | **Place on ground**: put under where it is dropped and kept still. **Settle then freeze**: thrown, it falls and bounces, and is frozen once it rests. **Always simulated**: a physics body as long as it lies there | Settle then freeze |
