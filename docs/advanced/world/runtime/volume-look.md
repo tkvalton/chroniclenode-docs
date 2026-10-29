@@ -10,7 +10,7 @@ The look of a movement volume: a mesh made from its box shape (the top, the bott
 
 | | |
 |---|---|
-| `ArrayMesh` | [build_mesh](#method-build-mesh)( `size: Vector3, faces: Faces, grid: int = 24, double_sided: bool = true` ) *static* |
+| `ArrayMesh` | [build_mesh](#method-build-mesh)( `size: Vector3, faces: Faces, grid: int = 24, double_sided: bool = true, proportional: bool = false` ) *static* |
 | `Material` | [make_material](#method-make-material)( `material: Material, texture: Texture2D, tint: Color` ) *static* |
 | `ShaderMaterial` | [make_water_material](#method-make-water-material)() *static* |
 | `ShaderMaterial` | [make_river_material](#method-make-river-material)() *static* |
@@ -18,6 +18,7 @@ The look of a movement volume: a mesh made from its box shape (the top, the bott
 | `bool` | [apply_flow](#method-apply-flow)( `material: Material, direction: Vector3, strength: float` ) *static* |
 | `bool` | [has_parameter](#method-has-parameter)( `material: Material, parameter: String, type: int` ) *static* |
 | `void` | [apply_size](#method-apply-size)( `material: Material, box_size: Vector3` ) *static* |
+| `int` | [auto_grid](#method-auto-grid)( `box_size: Vector3` ) *static* |
 | `ShaderMaterial` | [make_lava_material](#method-make-lava-material)() *static* |
 
 ## Enumerations
@@ -35,10 +36,11 @@ The look of a movement volume: a mesh made from its box shape (the top, the bott
 - `String` **LAVA_SHADER** = `"res://addons/chroniclenode/assets/shaders/volume_lava.gdshader"`
 - `String` **RIVER_SHADER** = `"res://addons/chroniclenode/assets/shaders/volume_river.gdshader"`
 - `int` **SIDE_CELLS** = `4` - How many cells the sides of a box are cut in (they are flat: waves are for the top).
+- `float` **AUTO_CELL** = `0.5` - The cells of a look mesh when the volume works them out itself (Look grid 0): about this many metres each
 
 ## Method descriptions
 
-### ArrayMesh build_mesh( size: Vector3, faces: Faces, grid: int = 24, double_sided: bool = true ) {#method-build-mesh}
+### ArrayMesh build_mesh( size: Vector3, faces: Faces, grid: int = 24, double_sided: bool = true, proportional: bool = false ) {#method-build-mesh}
 
 The mesh of a box of this size, centred on the origin: the top and the bottom are grids of `grid` x `grid` cells (a shader that moves the surface needs the vertices), the sides are coarse. With `double_sided` every face is made again looking the other way (a surface seen from under the water). Null for NONE.
 
@@ -69,6 +71,10 @@ Does the shader of the material have a parameter of this name and type?
 ### void apply_size( material: Material, box_size: Vector3 ) {#method-apply-size}
 
 Gives the shader the size of the volume (half of its box), for the water that flattens towards the edge of its volume. Nothing happens when the shader has no volume_half_size.
+
+### int auto_grid( box_size: Vector3 ) {#method-auto-grid}
+
+How many cells the long side of the look has for a box of this size when the grid is automatic: AUTO_CELL metres each, at least 8, at most 128
 
 ### ShaderMaterial make_lava_material() {#method-make-lava-material}
 

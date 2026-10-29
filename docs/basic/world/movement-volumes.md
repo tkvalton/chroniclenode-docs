@@ -32,7 +32,7 @@ A volume draws **nothing** until you give it a look (so volumes made before this
 | **Look texture** | A picture for the plain material | none |
 | **Look tint** | The colour of the plain material; an alpha under 1 makes it see-through | blue, 60 percent |
 | **Look double sided** | Every face is also made looking the other way, so the surface is seen from under the water too | on |
-| **Look grid** | How many cells the top and the bottom are cut in along a side. A shader that makes waves moves the vertices, so it needs cells: 24 is fine for water, 1 for a flat picture | 24 |
+| **Look grid** | How many cells the top and the bottom are cut in along the long side. A shader that makes waves moves the vertices, so it needs cells. **0 = automatic**: about half a metre a cell (up to 128), with fewer cells across a thin river than along it. The Water and River presets use 0. 1 is enough for a flat picture | 24 |
 
 The look is made from the **box shape** of the volume and follows it when you resize the box with the gizmo. A sphere, a cylinder or a capsule draws nothing (the editor says so in the warning of the node). The mesh is not saved with the scene: it is made again when the scene loads.
 
@@ -42,6 +42,19 @@ The **Water**, **River** and **Lava** presets come with a shader of the toolkit,
 - **Lava**: a dark crust moving over glowing cracks, a little bubbling.
 
 They are a start: replace the *Look material* with your own shader or material and the volume keeps working the same. The look grid of Water and River is 64: waves need vertices (a wave of 1 metre needs cells of a quarter of a metre), so raise it for big water.
+
+### A reflection probe
+
+Water mirrors the **sky** by itself. To have it mirror what stands around it (a tower, a wall, trees), tick **Reflection probe** in the **Reflections** page of the volume. The volume then takes a picture of its surroundings from a point above the water and the water reflects it. The settings:
+
+| Field | What it does | Default |
+|---|---|---|
+| **Reflection probe** | Gives the volume a [reflection probe](https://docs.godotengine.org/en/stable/classes/class_reflectionprobe.html) (a box shape is needed) | off |
+| **Reflection probe updates** | Takes the picture again every frame, so that what moves shows in the water. It costs more. Off: one picture, when the volume is made | off |
+| **Reflection probe height** | How high above the water the picture is taken, in metres | 4 |
+| **Reflection probe range** | How far around the volume the probe sees and reaches, in metres | 20 |
+
+It is one picture from one point: good for a pond or a lake, rough for a long river (a river can be made of several volumes, each with its own probe) and wrong for things very close to the shore. A probe also changes the reflections of whatever stands inside its box. The look of the water is left out of the picture (it lives on layer 20 while the probe is on, so the water does not reflect itself).
 
 ### Water that touches water
 

@@ -50,6 +50,10 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 | `Color` | [look_tint](#prop-look-tint) | `Color(0.2, 0.5, 0.7, 0.6):` |
 | `bool` | [look_double_sided](#prop-look-double-sided) | `true:` |
 | `int` | [look_grid](#prop-look-grid) | `24:` |
+| `bool` | [reflection_probe](#prop-reflection-probe) | `false:` |
+| `bool` | [reflection_probe_updates](#prop-reflection-probe-updates) | `false:` |
+| `float` | [reflection_probe_height](#prop-reflection-probe-height) | `4.0:` |
+| `float` | [reflection_probe_range](#prop-reflection-probe-range) | `20.0:` |
 | `bool` | [camera_effect_enabled](#prop-camera-effect-enabled) | `true` |
 | `Color` | [camera_tint](#prop-camera-tint) | `Color(0.1, 0.35, 0.45, 0.3)` |
 | `Color` | [camera_fog_color](#prop-camera-fog-color) | `Color(0.08, 0.28, 0.38)` |
@@ -61,6 +65,7 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 | | |
 |---|---|
 | `void` | [apply_preset](#method-apply-preset)() |
+| `ReflectionProbe` | [get_reflection_probe](#method-get-reflection-probe)() |
 | `ArrayMesh` | [get_look_mesh](#method-get-look-mesh)() |
 | `Vector3` | [get_flow_velocity](#method-get-flow-velocity)() |
 | `float` | [depth_of](#method-depth-of)( `entity: Entity` ) |
@@ -96,6 +101,7 @@ When an entity inside holds its breath
 
 - `float` **EFFECT_CHECK_INTERVAL** = `0.5` - How often (seconds) the entities inside are looked at again for the effects they should have
 - `float` **RECONCILE_INTERVAL** = `1.0` - How often (seconds) the bodies inside are counted again, in case the engine missed one entering
+- `int` **LOOK_LAYER** = `1 << 19` - The layer of the look when the volume has a reflection probe (layer 20): the probe leaves it out, so the water does not mirror itself. Cameras see all layers
 
 ## Property descriptions
 
@@ -209,7 +215,25 @@ Every face is made twice, looking both ways, so the surface is seen from under i
 
 ### int look_grid = 24: {#prop-look-grid}
 
-How many cells the top and the bottom are cut in along a side: a shader that moves the surface (waves) needs the vertices
+How many cells the top and the bottom are cut in along the long side: a shader that moves the surface (waves) needs the vertices. 0 = worked out from the size of the volume (about half a metre a cell, up to 128), which water wants
+
+*Reflections*
+
+### bool reflection_probe = false: {#prop-reflection-probe}
+
+Gives the water a reflection probe: a picture of what is around it (trees, rocks, buildings, not only the sky), taken from above the water, that the water mirrors. For a box shape. The probe is only as exact as one picture from one point: good for a pond or a lake, rough for a long river (use several volumes). It also changes the reflections of what stands inside its box
+
+### bool reflection_probe_updates = false: {#prop-reflection-probe-updates}
+
+Take the picture again every frame, so that what moves shows in the water (it costs more). Off: once, when the volume is made
+
+### float reflection_probe_height = 4.0: {#prop-reflection-probe-height}
+
+How high above the water the picture is taken, in metres
+
+### float reflection_probe_range = 20.0: {#prop-reflection-probe-range}
+
+How far around the volume the probe sees and reaches, in metres
 
 *Camera*
 
@@ -240,6 +264,10 @@ How the sound changes while the camera is inside (muffled under water; echo in a
 ### void apply_preset() {#method-apply-preset}
 
 Fills the fields from the preset (picking a preset in the inspector does this; code that makes a volume calls it).
+
+### ReflectionProbe get_reflection_probe() {#method-get-reflection-probe}
+
+The probe of the volume (null when it has none)
 
 ### ArrayMesh get_look_mesh() {#method-get-look-mesh}
 
