@@ -24,16 +24,10 @@ A **stat** is a number every entity has: Strength, Armor, Critical Strike Rating
 | **Decimal places** | How many decimals are shown (0 to 3), for Float only. The value itself keeps more | `1` |
 | **Display suffix** | Text after the value: `%`, `sec`, `pts` | none |
 | **Allow negative values** | Lets the value go below zero, for debuffs and penalties | off |
-
-## Items
-
-| Field | What it does | Default |
-|---|---|---|
 | **Can be on items** | Tick it for the stats that gear and affixes may give (Strength, Armor, Haste...). The item editors only offer these stats when you add a bonus to a piece of equipment or an affix, so the list stays short. A stat already on an item stays in its list | off |
 | **Budget cost per point** (shown when the stat can be on items) | What one point of the stat costs in the stat budget of a [generated item](/basic/items/item-generation#the-budget). `1` = a point costs as much as a point of Strength. `2` = it costs double, so the same budget buys half as many points. Crit rating can cost 2 and Dodge 3 | `1` |
 
-
-The editor of an item shows the cost of each written bonus next to it ("= 240 budget"). The value of a rolled stat is rounded to whole points for an integer stat and to its decimals for a decimal stat.
+These are the last two rows of the Value settings. The editor of an item shows the cost of each written bonus next to it ("= 240 budget"). The value of a rolled stat is rounded to whole points for an integer stat and to its decimals for a decimal stat.
 
 ## Stat groups
 
@@ -45,7 +39,7 @@ A stat has no growth of its own: **growth belongs to the entity**. A Warrior gro
 
 ## Stat effects
 
-The list at the bottom holds the stat's **stat effects**. Click **Add Stat Effect** and choose a type. Each effect is in a box of its own, **Stat effect 1**, **Stat effect 2**..., and has a switch to turn it off without deleting it, a collapse button, and a delete button. Above the effects is a folded **Items** box. The four **target calculations** of an effect are one row of tick boxes. The other fields of an effect are in boxes: **What it changes**, **Only when a tag fired** (the tag the effect needs), **How much** (the value and how it scales), **Which hits** (the school, melee or ranged...) and **Conditions**. Hover a box title for what it holds.
+The list at the bottom holds the stat's **stat effects**. Click **Add Stat Effect** and choose a type. Each effect is in a box of its own, **Stat effect 1**, **Stat effect 2**..., and has a switch to turn it off without deleting it, a collapse button, and a delete button. Above the effects is nothing else: the growth is the entity's, and the item settings are in the Value settings. The four **target calculations** of an effect are one row of tick boxes. The other fields of an effect are in boxes: **What it changes**, **Only when a tag fired** (the tag the effect needs), **How much** (the value and how it scales), **Which hits** (the school, melee or ranged...) and **Conditions**. Hover a box title for what it holds.
 
 Most effects share these parts:
 

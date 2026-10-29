@@ -47,7 +47,7 @@ The **Preview at level** tick box of the stats editor (in the [NPC](/basic/entit
 
 ## Growth is not the item budget
 
-[Item budget](/basic/entity-stats/stats#items) is a different idea that only matters for generated items: what a point of a stat *costs* when the item level is turned into points to spend. Growth is about entities levelling; budget is about the gear they wear.
+[Item budget](/basic/entity-stats/stats#value-settings) is a different idea that only matters for generated items: what a point of a stat *costs* when the item level is turned into points to spend. Growth is about entities levelling; budget is about the gear they wear.
 
 ## See also
 

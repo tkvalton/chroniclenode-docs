@@ -80,5 +80,5 @@ Tiers of an affix are just other affixes: **Heavy** (levels 1 to 20) and **Massi
 
 ## See also
 
-- [Generated Items](/basic/items/item-generation), [Quality](/basic/equipment-definitions/quality), [Items](/basic/items/items), [Stats](/basic/entity-stats/stats#items)
+- [Generated Items](/basic/items/item-generation), [Quality](/basic/equipment-definitions/quality), [Items](/basic/items/items), [Stats](/basic/entity-stats/stats#value-settings)
 - [Generated items: how they are built](/advanced/items/generation) (Advanced)
