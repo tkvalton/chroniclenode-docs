@@ -188,6 +188,16 @@ When the **camera itself** is inside the volume (under the surface of one that h
 | **Camera fog color / density** | The fog while inside. `0` density = no fog | blue-green, `0.05` |
 | **Audio profile** | How the sound changes while the camera is inside: an [audio profile](/basic/world/audio-zones#the-audio-profile) (Water gives the *Underwater* one: the music, effects, voices and ambiance are muffled, the interface is not). Empty = the sound does not change. It works with the camera effect switched off | Underwater |
 
+### Footsteps in the volume
+
+| Field | What it does | Default (water) |
+|---|---|---|
+| **Footstep surface** | What the footsteps of whoever is in the volume sound like: the kind of ground, in the words of the folders of your [footstep sounds](/basic/assets/audio#sounds-of-an-entity) (`water`, `mud`, `snow`). It wins over the terrain and the floor while they walk, run or wade in the volume. Empty = the ground under them decides | water |
+
+- **On foot.** A shallow water with *Footstep surface* `water` makes the walk and run sounds of the `water` folder (`motion/humanoid/footsteps/water/walk/`) instead of the grass or rock under it. A mud pit, a swamp, a field of deep snow work the same way: name the volume's ground and put the sounds in that folder. A volume that has no sound for the movement (no `mud/run` folder) leaves the sound to the terrain, so nothing goes silent.
+- **Swimming.** A swimmer makes a **swim sound** (a stroke) every few metres swum: `motion/<type>/footsteps/<surface>/swim/`, with the surface of the volume or `water` when it has none. The distance between strokes is **Footstep stride swim** in the [Gameplay Config](/basic/game-settings/gameplay-config#footsteps). Floating still makes none, and a flying entity makes none. If the swim animation calls for the strokes itself (a *Call Method* track calling `_on_animation_swim_stroke_emit`), the movement adds none.
+- The toolkit's demo has `water/walk`, `water/run` and `water/jump`: add a `water/swim` folder with your strokes to hear the swim sounds.
+
 With **volumes inside volumes** (a pool in a cave pool) the one the camera entered last decides; when the camera leaves it, the first look comes back. Everything the look changed is put back when the camera is out.
 
 ## NPCs

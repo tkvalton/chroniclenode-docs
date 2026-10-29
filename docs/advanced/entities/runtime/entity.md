@@ -289,6 +289,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `void` | [set_current_target_on](#method-set-current-target-on)() |
 | `void` | [set_current_target_off](#method-set-current-target-off)() |
 | `void` | [set_map_marker_icon](#method-set-map-marker-icon)( `type: Entity.MapMarkerType` ) |
+| `String` | [get_footstep_surface_override](#method-get-footstep-surface-override)() |
 | `String` | [get_current_surface_type](#method-get-current-surface-type)() |
 | `Dictionary` | [to_save_data](#method-to-save-data)() |
 | `void` | [from_save_data](#method-from-save-data)( `save_data: Dictionary, system_hub: GameHost.SystemHub` ) |
@@ -580,6 +581,7 @@ What is turning the entity: its own navigation (it faces where it walks) or dire
 - `int` **ANIMATION_FOOTSTEP_GRACE_MSEC** = `2000` - Seconds an animation call keeps the footsteps made from movement quiet (the animations make their own)
 - `float` **LANDING_MIN_AIR_SECONDS** = `0.25` - Seconds in the air before a landing is heard (a step off a kerb, or the drop at the spawn, makes no sound)
 - `float` **JUMP_MIN_UP_SPEED** = `1.0` - Upward speed (units per second) at which leaving the ground counts as a jump
+- `String` **SWIM_SURFACE** = `"water"` - The kind of ground a swimmer's strokes sound like when the water does not say (the folder of the swim sounds)
 
 ## Property descriptions
 
@@ -1654,6 +1656,10 @@ Takes the target marks off the entity.
 ### void set_map_marker_icon( type: Entity.MapMarkerType ) {#method-set-map-marker-icon}
 
 Sets the picture of the mini map mark of the entity.
+
+### String get_footstep_surface_override() {#method-get-footstep-surface-override}
+
+What the ground sounds like where the entity is, when a movement volume it is in says so (a shallow water, a mud, see the Sound group of the volume): the kind of ground, or "" when nothing says. The volume with the highest priority wins, of two equal ones the later. Nothing during a leap out of the water.
 
 ### String get_current_surface_type() {#method-get-current-surface-type}
 

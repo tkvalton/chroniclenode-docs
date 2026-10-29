@@ -59,6 +59,7 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 | `Color` | [camera_fog_color](#prop-camera-fog-color) | `Color(0.08, 0.28, 0.38)` |
 | `float` | [camera_fog_density](#prop-camera-fog-density) | `0.05` |
 | `AudioProfile` | [audio_profile](#prop-audio-profile) | `null` |
+| `String` | [footstep_surface](#prop-footstep-surface) | `""` |
 
 ## Methods
 
@@ -260,6 +261,10 @@ How thick the fog is (0 = none)
 ### AudioProfile audio_profile = null {#prop-audio-profile}
 
 How the sound changes while the camera is inside (muffled under water; echo in a cave). Empty = the sound does not change. The camera, not the character, decides
+
+### String footstep_surface = "" {#prop-footstep-surface}
+
+What the footsteps of whoever is in the volume sound like: the kind of ground (the words of the folders of your footstep sounds: "water", "mud", "snow"). It wins over the terrain and the surface type of the floor, while they walk or wade in it. Swimming in it makes the "swim" sounds of the same kind of ground. Empty = the ground under them decides (and a swimmer uses "water")
 
 ## Method descriptions
 

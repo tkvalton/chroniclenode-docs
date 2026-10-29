@@ -71,8 +71,9 @@ How the footstep, jump and landing sounds of entities are timed. The sounds them
 | **Footsteps from movement** | The game makes a footstep every stride of ground an entity walks, a jump sound when it leaves the ground and a landing sound when it comes down. It needs nothing in the animations. Turn it off if your animations call for the sounds themselves | on |
 | **Footstep stride walk** | Metres between two footsteps while walking or crouching | `0.8` |
 | **Footstep stride run** | Metres between two footsteps while running | `1.5` |
+| **Footstep stride swim** | Metres between two swim sounds (strokes) while swimming in a [movement volume](/basic/world/movement-volumes#footsteps-in-the-volume) | `1.6` |
 
-If an animation calls for a footstep itself (a *Call Method* track on the walk or run animation calling `_on_animation_walk_footstep_emit` or `_on_animation_run_footstep_emit` on the entity animation player; `_on_animation_jump_start_emit` and `_on_animation_jump_end_emit` for jumps), the game uses those calls and the movement adds none for that kind of sound.
+If an animation calls for a footstep itself (a *Call Method* track on the walk or run animation calling `_on_animation_walk_footstep_emit` or `_on_animation_run_footstep_emit` on the entity animation player; `_on_animation_jump_start_emit` and `_on_animation_jump_end_emit` for jumps, `_on_animation_swim_stroke_emit` for swim strokes), the game uses those calls and the movement adds none for that kind of sound.
 
 ### Developer
 

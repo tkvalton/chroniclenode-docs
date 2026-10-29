@@ -26,6 +26,7 @@ Add one with `Entity.add_movement_claim` and take it away with `Entity.remove_mo
 | `bool` | [follows_camera_pitch](#var-follows-camera-pitch) | `true` |
 | `bool` | [vertical_control](#var-vertical-control) | `true` |
 | `Vector3` | [flow_velocity](#var-flow-velocity) | `Vector3.ZERO` |
+| `String` | [footstep_surface](#var-footstep-surface) | `""` |
 | `int` | [priority](#var-priority) | `0` |
 
 ## Enumerations
@@ -95,6 +96,10 @@ Can the entity steer up and down (jump, crouch and the camera pitch)? A boat can
 ### Vector3 flow_velocity = Vector3.ZERO {#var-flow-velocity}
 
 How fast the water or the wind carries the entity (a river, a current), in the world, metres per second. It is added to how the entity moves, and the claims add up
+
+### String footstep_surface = "" {#var-footstep-surface}
+
+What the ground sounds like to the entity while it is in this (the kind of ground of its footsteps: "water", "mud", the words of the folders of your footstep sounds). Empty = no say: the ground under it decides
 
 ### int priority = 0 {#var-priority}
 
