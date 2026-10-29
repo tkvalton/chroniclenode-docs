@@ -14,6 +14,12 @@ A space in a world, given by the shape of its CollisionShape3D child (a box, sph
 |---|---|---|
 | `Color` | [debug_color](#prop-debug-color) | `Color(0.0, 0.0, 0.0, 0.0):` |
 
+## Variables
+
+| | | |
+|---|---|---|
+| `Array[Entity]` | [entities_inside](#var-entities-inside) | `[]` |
+
 ## Methods
 
 | | |
@@ -29,6 +35,12 @@ A space in a world, given by the shape of its CollisionShape3D child (a box, sph
 ### Color debug_color = Color(0.0, 0.0, 0.0, 0.0): {#prop-debug-color}
 
 The colour of the shape of this volume in the editor (and with Visible Collision Shapes): choose one to tell your volumes apart. A clear colour (alpha 0) leaves the colour Godot gives a shape
+
+## Variable descriptions
+
+### Array[Entity] entities_inside = [] {#var-entities-inside}
+
+The entities (players, NPCs, pets) that are inside the volume now. Filled while the game runs, for a volume that watches entities
 
 ## Method descriptions
 

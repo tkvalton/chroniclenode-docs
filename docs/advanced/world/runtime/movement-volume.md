@@ -40,11 +40,12 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 | `Submerged` | [holds_breath_when](#prop-holds-breath-when) | `Submerged.HEAD_UNDER_SURFACE` |
 | `float` | [head_height](#prop-head-height) | `1.6` |
 | `Array[int]` | [effects_inside](#prop-effects-inside) | `[]` |
-| `float` | [flow_strength](#prop-flow-strength) | `0.0` |
-| `Vector3` | [flow_direction](#prop-flow-direction) | `Vector3(0.0, 0.0, -1.0)` |
+| `float` | [flow_strength](#prop-flow-strength) | `0.0:` |
+| `Vector3` | [flow_direction](#prop-flow-direction) | `Vector3(0.0, 0.0, -1.0):` |
 | `bool` | [flow_pushes_walkers](#prop-flow-pushes-walkers) | `false` |
 | `VolumeLook.Faces` | [look_faces](#prop-look-faces) | `VolumeLook.Faces.NONE:` |
 | `Material` | [look_material](#prop-look-material) | `null:` |
+| `bool` | [look_follows_flow](#prop-look-follows-flow) | `true:` |
 | `Texture2D` | [look_texture](#prop-look-texture) | `null:` |
 | `Color` | [look_tint](#prop-look-tint) | `Color(0.2, 0.5, 0.7, 0.6):` |
 | `bool` | [look_double_sided](#prop-look-double-sided) | `true:` |
@@ -168,11 +169,11 @@ Effects that are on every entity inside while it is inside (a damage over time f
 
 *Flow*
 
-### float flow_strength = 0.0 {#prop-flow-strength}
+### float flow_strength = 0.0: {#prop-flow-strength}
 
 How fast the water or the air carries whoever is in it, in metres per second (0 = it is still). A river, a current, a wind
 
-### Vector3 flow_direction = Vector3(0.0, 0.0, -1.0) {#prop-flow-direction}
+### Vector3 flow_direction = Vector3(0.0, 0.0, -1.0): {#prop-flow-direction}
 
 The way it carries them, in the space of the volume: turn the volume to point it (the default is the front of the volume, -Z)
 
@@ -189,6 +190,10 @@ What the volume draws: nothing, the top face (water), the bottom, or all six fac
 ### Material look_material = null: {#prop-look-material}
 
 The material of the look: any material, a ShaderMaterial included. Empty = a plain material with the texture and the tint below
+
+### bool look_follows_flow = true: {#prop-look-follows-flow}
+
+When the shader of the material has a flow direction and a flow speed (the river shader), they are the flow of this volume, set for you. Turn it off to set them yourself in the parameters below
 
 ### Texture2D look_texture = null: {#prop-look-texture}
 

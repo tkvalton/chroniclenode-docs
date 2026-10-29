@@ -13,6 +13,9 @@ The look of a movement volume: a mesh made from its box shape (the top, the bott
 | `ArrayMesh` | [build_mesh](#method-build-mesh)( `size: Vector3, faces: Faces, grid: int = 24, double_sided: bool = true` ) *static* |
 | `Material` | [make_material](#method-make-material)( `material: Material, texture: Texture2D, tint: Color` ) *static* |
 | `ShaderMaterial` | [make_water_material](#method-make-water-material)() *static* |
+| `ShaderMaterial` | [make_river_material](#method-make-river-material)() *static* |
+| `bool` | [has_flow_parameters](#method-has-flow-parameters)( `material: Material` ) *static* |
+| `bool` | [apply_flow](#method-apply-flow)( `material: Material, direction: Vector3, strength: float` ) *static* |
 | `ShaderMaterial` | [make_lava_material](#method-make-lava-material)() *static* |
 
 ## Enumerations
@@ -28,6 +31,7 @@ The look of a movement volume: a mesh made from its box shape (the top, the bott
 
 - `String` **WATER_SHADER** = `"res://addons/chroniclenode/assets/shaders/volume_water.gdshader"`
 - `String` **LAVA_SHADER** = `"res://addons/chroniclenode/assets/shaders/volume_lava.gdshader"`
+- `String` **RIVER_SHADER** = `"res://addons/chroniclenode/assets/shaders/volume_river.gdshader"`
 - `int` **SIDE_CELLS** = `4` - How many cells the sides of a box are cut in (they are flat: waves are for the top).
 
 ## Method descriptions
@@ -43,6 +47,18 @@ The material a look has: the one given, else a plain one with the texture and th
 ### ShaderMaterial make_water_material() {#method-make-water-material}
 
 The water of the Water preset: the shipped water shader with its usual numbers.
+
+### ShaderMaterial make_river_material() {#method-make-river-material}
+
+The river of the River preset: water that flows (the shader has flow_direction and flow_speed, which a volume with "Look follows flow" sets from its own flow).
+
+### bool has_flow_parameters( material: Material ) {#method-has-flow-parameters}
+
+Does the material have a shader with a flow_direction (vec2) and a flow_speed (float) to set?
+
+### bool apply_flow( material: Material, direction: Vector3, strength: float ) {#method-apply-flow}
+
+Gives the material the flow of a volume: the direction on the ground plane (x and z of the direction in the space of the volume) and the speed. False when the material has no such parameters.
 
 ### ShaderMaterial make_lava_material() {#method-make-lava-material}
 

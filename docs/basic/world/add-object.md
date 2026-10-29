@@ -43,6 +43,14 @@ The quickest way: set a volume up in the scene (a *River* with the right speed a
 
 After the usual ones the palette lists **your presets**: any scene in `res://src/data/volume_presets/` (and the folders in it). To make one, build a volume in a scene (a *River* with the right speed and a look, a *Sea* the size of the bay, a *Swamp* with a slow effect, a *Mine* audio zone), select it and **Save Branch as Scene** into that folder. It shows in the palette named after the file, with a ghost of its box. Placing it makes a **copy** with everything you set (the fields, the shape, the look, the audio profile); changing the preset afterwards does not change the volumes already placed.
 
+::: tip Two kinds of preset
+A preset made with **Save selected as preset...** here keeps the **whole volume**: its shape, its audio profile, its look. The **Preset** menu of a movement volume in the [Unique Object panel](/basic/world/unique-object-tool) keeps only its **numbers** (speed, flow, effects, look material), without the shape. Use the first for a ready-made place (a *Sea* the size of the bay), the second to give any volume the settings of water, lava or a river.
+:::
+
+#### Your own volumes
+
+A script that **extends `SpaceVolume`** is a volume of your own. Put it in `res://src/volumes/` and it is in the Volumes palette, named after the script (with a box shape of 10 × 4 × 10); its exported settings are in the Unique Object panel like those of the volumes of the toolkit, and a click in the viewport selects it. How to write one is in [Your own volumes](/advanced/world/custom-volumes).
+
 ### Assets
 
 The **Assets** button places the scenes you collect in one folder: `res://src/data/world_assets/`. Put a scene there (a `.tscn` or `.scn`, or a `.glb`, `.gltf`, `.fbx` or `.blend` model) and it is in the palette.

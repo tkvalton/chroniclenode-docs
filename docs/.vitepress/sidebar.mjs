@@ -350,6 +350,7 @@ const worldAdvanced = {
     page('Spawners', '/advanced/world/spawners', { title: 'Spawners: how they are built' }),
     page('Movement volumes', '/advanced/world/movement-volumes', { title: 'Movement volumes: how they are built' }),
     page('Audio zones', '/advanced/world/audio-zones', { title: 'Audio zones: how they are built' }),
+    page('Your own volumes', '/advanced/world/custom-volumes'),
     page('Encounters', '/advanced/world/encounters', { title: 'Encounters: how they are built' }),
     page('Terrain', '/advanced/world/terrain', { title: 'Terrain: how it is built' }),
     page('Ground weather', '/advanced/world/ground-weather', { title: 'Ground weather: how it is built' }),

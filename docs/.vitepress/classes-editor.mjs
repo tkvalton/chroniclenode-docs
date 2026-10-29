@@ -1049,6 +1049,12 @@ export const groups = [
         "file": "editor_components/3d_scene_tools/movement_preset_bar.gd"
       },
       {
+        "name": "MovementVolumeGizmoPlugin",
+        "base": "EditorNode3DGizmoPlugin",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\movement_volume_gizmo.gd",
+        "file": "editor_components/3d_scene_tools/movement_volume_gizmo.gd"
+      },
+      {
         "name": "PlacedPickGizmoPlugin",
         "base": "EditorNode3DGizmoPlugin",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\placed_pick_gizmo.gd",
@@ -1061,10 +1067,22 @@ export const groups = [
         "file": "editor_components/inspector_plugins/sfx_selection_property_editor.gd"
       },
       {
+        "name": "ShaderParameterBox",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\shader_parameter_box.gd",
+        "file": "editor_components/3d_scene_tools/shader_parameter_box.gd"
+      },
+      {
         "name": "UniqueObjectInspectorPlugin",
         "base": "EditorInspectorPlugin",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\inspector_plugins\\unique_object_inspector_plugin.gd",
         "file": "editor_components/inspector_plugins/unique_object_inspector_plugin.gd"
+      },
+      {
+        "name": "VolumeShapeGizmoPlugin",
+        "base": "EditorNode3DGizmoPlugin",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\volume_shape_gizmo.gd",
+        "file": "editor_components/3d_scene_tools/volume_shape_gizmo.gd"
       },
       {
         "name": "WorldTestLauncher",

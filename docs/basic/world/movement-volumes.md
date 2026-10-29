@@ -8,7 +8,7 @@ It works for the **player, the companions and NPCs**. It is **optional**: a game
 
 1. Open the world scene, click the **Volumes** button and choose **Movement volume**, then click where it goes. A volume appears in the *Volumes* node, selected, with a box shape of 10 × 4 × 10.
 2. **Choose a preset.** The [Unique Object panel](/basic/world/unique-object-tool) opens with the volume. Its **Preset** menu has **Water**, **Weightless**, **Lava** and **River**, and your own (see below). You can leave it on *No preset* and set every field by hand.
-3. **Size the shape.** Select the `CollisionShape3D` inside the volume and resize or reshape it (a box, a sphere, a cylinder or a capsule) over the space you want. The **top of the shape is the surface** of the water.
+3. **Size the shape.** Click the volume in the viewport (it is the volume that is selected, not the shape inside it) and drag the **handles** on it: a box has three, a sphere one (its radius), a cylinder and a capsule two (radius and height). They resize from the centre, and one drag is one step of Undo. To reshape it (a sphere instead of a box) select the `CollisionShape3D` in the scene tree. The **top of the shape is the surface** of the water.
 4. **Move the volume** to the place. All the settings of a volume are in the Unique Object panel (the Inspector keeps only what Godot itself gives a node: the transform, the collision).
 5. Water, lava and river come with a **look** (see below). For any other volume, give it a look in the **Look** page, or draw your own mesh on the top of the shape.
 
@@ -27,7 +27,8 @@ A volume draws **nothing** until you give it a look (so volumes made before this
 | Field | What it does | Default |
 |---|---|---|
 | **Look faces** | What is drawn: **None**, **Top** (water, lava: the surface), **Bottom**, or **All sides** (a box of fog, a cloud: all six faces) | None |
-| **Look material** | The material of the look: any material, a shader included. Empty: a plain material with the texture and the tint below | empty |
+| **Look material** | The material of the look: any material, a shader included. Empty: a plain material with the texture and the tint below. When it is a shader, the page shows an input for **every parameter of the shader** under it (see below) | empty |
+| **Look follows flow** | When the shader has a *flow direction* and a *flow speed* (the river shader), they are the flow of this volume, set for you. Turn it off to set them yourself | on |
 | **Look texture** | A picture for the plain material | none |
 | **Look tint** | The colour of the plain material; an alpha under 1 makes it see-through | blue, 60 percent |
 | **Look double sided** | Every face is also made looking the other way, so the surface is seen from under the water too | on |
@@ -35,12 +36,29 @@ A volume draws **nothing** until you give it a look (so volumes made before this
 
 The look is made from the **box shape** of the volume and follows it when you resize the box with the gizmo. A sphere, a cylinder or a capsule draws nothing (the editor says so in the warning of the node). The mesh is not saved with the scene: it is made again when the scene loads.
 
-The **Water** and **Lava** presets come with a shader of the toolkit, as the *Look material*:
+The **Water**, **River** and **Lava** presets come with a shader of the toolkit, as the *Look material*:
 
-- **Water**: waves that move the top, ripples in the shine, a colour that gets darker with the depth under the surface, foam where it meets the ground, a shine at a low angle. Its numbers (colours, wave height, speed, depth fade, foam width) are the **Shader parameters** of the material.
+- **Water** (a lake, still water): waves that move the top, ripples in the shine, a colour that gets darker with the depth under the surface, foam where it meets the ground, a shine at a low angle.
+- **River** (flowing water): ripples that stream along the flow, stretched into long streaks, with white water where it runs fast, the same colours that deepen, the foam at the bank and the shine. It flows the way the volume flows: **turn the volume** and the river turns, or change the *Flow* settings.
 - **Lava**: a dark crust moving over glowing cracks, a little bubbling.
 
 They are a start: replace the *Look material* with your own shader or material and the volume keeps working the same.
+
+### The parameters of the shader
+
+Every `uniform` of the shader of the *Look material* has an input in the **Look** page, under the material: a number (a slider range when the shader gives one with `hint_range`), a switch, a vector, a colour, a texture. Change one and the water changes at once, in the viewport. The words in a comment right above a `uniform` are the tooltip of its input. **Reset to the shader's defaults** takes every value back. One change is one step of Undo. Select **one** volume to see them (with several selected the page does not show them, since they would change one material).
+
+The river shader has these:
+
+| Parameter | What it does |
+|---|---|
+| **Shallow color**, **Deep color**, **Foam color** | The colours of thin water, of deep water and of the foam |
+| **Flow direction**, **Flow speed** | The way and how fast it flows. Hidden while *Look follows flow* is on: they come from the *Flow* settings |
+| **Ripple scale**, **Stretch**, **Ripple strength** | The size of the ripples, how long they are along the flow, how much they bend the light |
+| **Wave height**, **Wave scale** | The waves of the surface (they need the *Look grid*) |
+| **Depth fade**, **Foam width**, **Streak foam**, **Roughness value** | How deep before it is dark, the foam at the bank, the white water of a fast river, how glossy |
+
+The tooltip of the *Look material* of any of your own shaders works the same: write the `uniform`s, comment them, and the page has the inputs. Make a copy of the river shader and change it to start.
 
 ## Presets
 
@@ -76,6 +94,8 @@ A volume can **carry** whoever is in it, like a river or a wind. It is added to 
 | **Flow pushes walkers** | Carries entities that **walk** through it (shallow water that is only waded) too. Off: only swimmers and flyers are carried | off |
 
 A river is a *Swim* volume with a flow; a wind is a *Fly* volume with a flow. Several volumes add up (a river with a gust over it). A leap out of the water ignores the flow for a moment. The **River** preset is a good start.
+
+The editor draws the flow: **arrows** across the volume that point the way it carries, longer when it is stronger. They turn with the volume and follow the numbers as you change them. Nothing is drawn for a volume that does not flow.
 
 ## Movement
 
