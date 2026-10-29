@@ -47,7 +47,7 @@ When a stat has no growth formula the editor shows a yellow note. It is only a n
 
 ## Stat effects
 
-The list at the bottom holds the stat's **stat effects**. Click **Add Stat Effect** and choose a type. Each effect is in a box of its own, **Stat effect 1**, **Stat effect 2**..., and has a switch to turn it off without deleting it, a collapse button, and a delete button. Above the effects are **Level growth** and a folded **Item budget** box. The four **target calculations** of an effect are one row of tick boxes.
+The list at the bottom holds the stat's **stat effects**. Click **Add Stat Effect** and choose a type. Each effect is in a box of its own, **Stat effect 1**, **Stat effect 2**..., and has a switch to turn it off without deleting it, a collapse button, and a delete button. Above the effects are **Level growth** and a folded **Item budget** box. The four **target calculations** of an effect are one row of tick boxes. The other fields of an effect are in boxes: **What it changes**, **Only when a tag fired** (the tag the effect needs), **How much** (the value and how it scales), **Which hits** (the school, melee or ranged...) and **Conditions**. Hover a box title for what it holds.
 
 Most effects share these parts:
 
