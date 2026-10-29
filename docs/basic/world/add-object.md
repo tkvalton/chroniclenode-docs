@@ -35,7 +35,7 @@ The NPC palette has an **Encounter** menu. The NPC always goes in *Entities* whe
 
 ### Volumes
 
-The **Volumes** palette lists the usual ones: **Trigger area** (the invisible area events and conditions watch), **Movement volume** (water, lava, weightless, a straight river: choose a preset in the [Unique Object panel](/basic/world/unique-object-tool#volumes)), **River (follows a path)** (a [river that winds](/basic/world/movement-volumes#a-river-that-winds), along a Path3D), **Audio zone: cave**, **Audio zone: indoors** and **Zone volume** (puts the party in a [zone](/basic/world/zones#zone-volumes) while it is inside; choose the zone in the inspector). Each comes with a **box shape** (10 x 4 x 10 m, a trigger area 6 x 3 x 6 m) that you resize with the gizmo afterwards. The presets of a movement volume come with their [look](/basic/world/movement-volumes#the-look).
+The **Volumes** palette lists the usual ones: **Trigger area** (the invisible area events and conditions watch), **Movement volume** (water, lava, weightless, a straight river: choose a preset in the [Unique Object panel](/basic/world/unique-object-tool#volumes)), **River (follows a path)** (a [river that winds](/basic/world/movement-volumes#a-river-that-winds): click its points on the ground, then shape it with handles and join it to a lake), **Audio zone: cave**, **Audio zone: indoors** and **Zone volume** (puts the party in a [zone](/basic/world/zones#zone-volumes) while it is inside; choose the zone in the inspector). Each comes with a **box shape** (10 x 4 x 10 m, a trigger area 6 x 3 x 6 m) that you resize with the gizmo afterwards. The presets of a movement volume come with their [look](/basic/world/movement-volumes#the-look).
 
 #### Your own presets
 

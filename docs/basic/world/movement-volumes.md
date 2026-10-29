@@ -45,16 +45,57 @@ They are a start: replace the *Look material* with your own shader or material a
 
 ### A river that winds
 
-A **River (follows a path)** is a movement volume whose space is not a box but a **ribbon along a curve**. Place it from the **Volumes** palette: it comes with the *River* preset and a **Path** (a `Path3D`) child with an S-shaped course of about 60 metres.
+A **River (follows a path)** is a movement volume whose space is not a box but a **ribbon along a curve**. You draw it with clicks and shape it with handles on its points.
 
-1. **Shape the course.** Select the **Path** in the scene tree and drag its points and their handles in the 3D viewport, as for any Path3D (add points with the Path3D tools in the toolbar). The river follows at once.
-2. **Set the river** in the **River** page of the Unique Object panel: **Width**, **Depth** (how deep the water is under its surface), **Segment length** (the pieces it is cut in; shorter follows a tight bend better and costs more).
-3. **The height of the path is the surface.** A path that goes down makes a river that runs downhill: the water, the swimming and the wading follow the height of the path beside you.
-4. **The flow runs along the river** at every bend, at the *Flow strength* of the volume: a swimmer is carried round the bend, and the ripples of the river shader stream along it. The arrows in the viewport follow the course.
+#### Draw it
 
-Everything else works as for a box: the presets, the look and its shader inputs, *Affects*, breath, the effects inside, the camera and sound, the reflection probe (one picture over the whole river: for a long river, make it of several rivers). Click the water in the viewport to select the river; the banks fade the waves to nothing, so a river that ends in a lake meets it at the same height.
+1. Open the **Volumes** palette and choose **River (follows a path)**. The palette shows **Water above ground**: how high the water goes above the ground where you click (0.5 m to start with). The river is a sheet of water over the ground: sculpt the bed with the [terrain tools](/basic/world/terrain-painting) first, then put the water a little above it.
+2. **Click on the ground** for each point. The river is made at the first click and follows the mouse as you go.
+3. **Drag while you click** to pull the curve of that point. A plain click leaves the curve to the toolkit (**Auto**: a smooth curve through the points around it, nothing to pull).
+4. **Enter** or a **double click** ends the river (one step of Undo). **Backspace** takes the last point back. **Esc** throws the river away; a second **Esc** stops the tool.
 
-The river is made of boxes (one for each piece) that the game uses to know who is in the water; they are not saved with the scene, and they are made again when you edit the path.
+#### Shape it
+
+Select the river: a bar shows over the viewport and every point of the course gets handles.
+
+| Handle | What dragging it does |
+|---|---|
+| **The point** (a dot on the course) | Moves the point. It slides over the ground at the *Water above ground* of the river. Hold **Alt** to move it freely sideways at its own height (to make the water run downhill or level) |
+| **The bank** (a small dot at the side of the river) | Widens or narrows the river **at this point**. Between two points the river changes width smoothly |
+| **The curve** (small dots joined to the point by a line; only on the point you are editing, and only when its curve is not Auto) | Pulls the curve out of the point |
+
+The bar over the viewport has, for the point you last touched: its **Width**, its **Curve** (**Auto**: smooth, nothing to pull; **Mirrored**: one handle, the other side is its mirror; **Free**: two handles, a corner if you want one) and **Remove point** (a river keeps at least two). **Water above ground** is the height used when you move a point over the ground.
+
+- **Ctrl + click on the river** adds a point there, between the two points it is nearest to.
+- **Ctrl + click on the ground** extends the river from the end that is nearer.
+- Every change is one step of Undo.
+
+The width set in the **River** page of the [Unique Object panel](/basic/world/unique-object-tool#volumes) makes every point that wide; the handles then make one point wider or narrower than the rest. **Depth** is how deep the water is under its surface, and **Segment length** is the size of the pieces the river is cut in (shorter follows a tight bend better and costs more).
+
+#### Marked in red
+
+The tool marks stretches that will not work, in red on the course and in the warnings of the node:
+
+- **A bend tighter than half the width.** The banks would fold on the inside of the bend. The ribbon narrows there so that it does not fold, but round the bend or narrow the river.
+- **A slope steeper than 25 degrees.** A river does not fall, and **waterfalls are not supported**: lower the points gradually.
+
+#### Join it to a lake or another river
+
+Drag an **end** of the river onto a lake (or onto another river) and it **joins**: a green post marks the end, the bar says *Joined to...*. A joined end:
+
+- takes the **height** of that water, and the river comes down to it over its last few metres;
+- takes the **width** of the river it joins (for a lake it keeps its own);
+- **fades out** over its last two metres, into the edge of the lake, so there is no seam.
+
+Drag the end away to free it, or press **Free start / Free end** in the bar. If you **move the lake** afterwards, press **Join ends again** so the river takes its new height. A tributary joins the middle of another river the same way: both flows act on a swimmer where they meet.
+
+#### What it is
+
+The height of the path is the surface: a path that goes down makes a river that runs downhill, and the swimming and wading follow it. **The flow runs along the river** at every bend, at the *Flow strength* of the volume: a swimmer is carried round the bend, and the ripples of the river shader stream along it. The arrows in the viewport follow the course.
+
+Everything else works as for a box: the presets, the look and its shader inputs, *Affects*, breath, the effects inside, the camera and sound, the reflection probe (one picture over the whole river: for a long river, make it of several rivers). Click the water in the viewport to select the river.
+
+The river is made of boxes (one for each piece, tipped with the slope) that the game uses to know who is in the water; they are not saved with the scene, and they are made again when you edit the river. What is saved is the **Path** (a `Path3D` child, which you can also edit with the Godot tools) and, on the river, the width and curve mode of each point.
 
 ### A reflection probe
 

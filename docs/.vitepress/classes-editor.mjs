@@ -1061,6 +1061,30 @@ export const groups = [
         "file": "editor_components/3d_scene_tools/placed_pick_gizmo.gd"
       },
       {
+        "name": "RiverEditBar",
+        "base": "PanelContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\river_edit_bar.gd",
+        "file": "editor_components/3d_scene_tools/river_edit_bar.gd"
+      },
+      {
+        "name": "RiverEditing",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\river_editing.gd",
+        "file": "editor_components/3d_scene_tools/river_editing.gd"
+      },
+      {
+        "name": "RiverGizmoPlugin",
+        "base": "EditorNode3DGizmoPlugin",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\river_gizmo.gd",
+        "file": "editor_components/3d_scene_tools/river_gizmo.gd"
+      },
+      {
+        "name": "RiverTool",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\river_tool.gd",
+        "file": "editor_components/3d_scene_tools/river_tool.gd"
+      },
+      {
         "name": "SFXSelectionPropertyEditor",
         "base": "EditorProperty",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\inspector_plugins\\sfx_selection_property_editor.gd",

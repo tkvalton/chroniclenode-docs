@@ -72,6 +72,7 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 | `Vector3` | [get_flow_at](#method-get-flow-at)( `_world_point: Vector3` ) |
 | `float` | [get_surface_y_at](#method-get-surface-y-at)( `_world_point: Vector3` ) |
 | `float` | [depth_of](#method-depth-of)( `entity: Entity` ) |
+| `float` | [horizontal_distance](#method-horizontal-distance)( `world_point: Vector3` ) |
 
 ## Enumerations
 
@@ -295,4 +296,8 @@ The height of the water surface at a point of the world (the top of the box; a r
 ### float depth_of( entity: Entity ) {#method-depth-of}
 
 How deep an entity stands below the surface (its feet)
+
+### float horizontal_distance( world_point: Vector3 ) {#method-horizontal-distance}
+
+How far a point of the world is from the water of this volume, seen from above (0 over it): the box of its first box shape, else far away. Where the end of a river can join it
 
