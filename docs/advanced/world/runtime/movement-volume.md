@@ -36,6 +36,7 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 | `bool` | [has_surface](#prop-has-surface) | `true` |
 | `float` | [wade_depth](#prop-wade-depth) | `1.0` |
 | `float` | [wade_speed_multiplier](#prop-wade-speed-multiplier) | `0.8` |
+| `float` | [swim_depth](#prop-swim-depth) | `1.35` |
 | `bool` | [allows_surface_leap](#prop-allows-surface-leap) | `true` |
 | `Submerged` | [holds_breath_when](#prop-holds-breath-when) | `Submerged.HEAD_UNDER_SURFACE` |
 | `float` | [head_height](#prop-head-height) | `1.6` |
@@ -157,6 +158,10 @@ Where the water is shallower than this an entity wades (walks, slower); deeper i
 ### float wade_speed_multiplier = 0.8 {#prop-wade-speed-multiplier}
 
 The speed while wading compared with outside the water
+
+### float swim_depth = 1.35 {#prop-swim-depth}
+
+How deep a swimmer sits in the water: the distance from the surface down to its feet while it floats, in metres. About the height of a person's shoulders, so that the body is in the water and the head is out. Swimming up stops a little higher than this. 0 = worked out from the wade depth (80 %)
 
 ### bool allows_surface_leap = true {#prop-allows-surface-leap}
 

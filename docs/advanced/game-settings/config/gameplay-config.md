@@ -24,7 +24,7 @@ Configuration for gameplay rules and mechanics
 | `bool` | [footsteps_from_movement](#prop-footsteps-from-movement) | `true` |
 | `float` | [footstep_stride_walk](#prop-footstep-stride-walk) | `0.8` |
 | `float` | [footstep_stride_run](#prop-footstep-stride-run) | `1.5` |
-| `float` | [footstep_stride_swim](#prop-footstep-stride-swim) | `1.6` |
+| `float` | [footstep_swim_interval](#prop-footstep-swim-interval) | `1.3` |
 | `bool` | [developer_commands](#prop-developer-commands) | `false` |
 | `bool` | [fog_of_war_enabled](#prop-fog-of-war-enabled) | `true` |
 | `int` | [fog_layers](#prop-fog-layers) | `2` |
@@ -472,9 +472,9 @@ The distance in metres between two footsteps while walking (or crouching)
 
 The distance in metres between two footsteps while running
 
-### float footstep_stride_swim = 1.6 {#prop-footstep-stride-swim}
+### float footstep_swim_interval = 1.3 {#prop-footstep-swim-interval}
 
-The distance in metres between two swim sounds (a stroke) while swimming
+The time in seconds between two swim sounds (a stroke) while swimming and moving
 
 *Developer*
 

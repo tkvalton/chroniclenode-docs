@@ -195,6 +195,7 @@ A volume with a surface lets entities **wade** where the water is shallow: they 
 |---|---|---|
 | **Has surface** | The top of the shape is a surface: an entity cannot swim up through it, and floats just under it. Off for a volume with no top (a weightless room) | on |
 | **Wade depth** | Where the water is shallower than this an entity wades; deeper, it swims. `0` swims as soon as it is in | `1` |
+| **Swim depth** | How deep a swimmer sits: the distance from the surface down to its feet while it floats, in metres. About the height of a person's shoulders, so the body is in the water and the head is out. Swimming up stops a little higher than this (a quarter of a metre). `0` works it out from the wade depth (80 %) | `1.35` |
 | **Wade speed multiplier** | The speed while wading, compared with outside the water | `0.8` |
 | **Allows surface leap** | Jump at the surface to leap out of the water | on |
 
@@ -241,7 +242,7 @@ The order of the sounds, for something on foot: the volume (*Footstep surface*),
 
 - **On foot.** A shallow water with *Footstep surface* `water` makes the walk and run sounds of the `water` folder (`motion/humanoid/footsteps/water/walk/`) instead of the grass or rock under it. A mud pit, a swamp, a field of deep snow work the same way: name the volume's ground and put the sounds in that folder. A volume that has no sound for the movement (no `mud/run` folder) leaves the sound to the terrain, so nothing goes silent.
 - **Swimming.** While an entity swims, **every** sound of its movement is the sound of *Footstep swim*, and never the floor or the terrain under the water.
-  - A **stroke** every few metres swum is the folder `swim`: `motion/<type>/footsteps/<footstep swim>/swim/`. The distance between strokes is **Footstep stride swim** in the [Gameplay Config](/basic/game-settings/gameplay-config#footsteps). Floating still makes none, and a flying entity makes none.
+  - A **stroke** while it swims on is the folder `swim`: `motion/<type>/footsteps/<footstep swim>/swim/`. The time between two strokes is **Footstep swim interval** in the [Gameplay Config](/basic/game-settings/gameplay-config#footsteps): a stroke takes the same time however fast it goes, so it is far less often than a footstep. Floating still makes none, and a flying entity makes none.
   - **Jumping into the water** (and not landing: the entity is in the volume) makes the landing sound of the water, once. **Leaping out** of the water makes its take-off sound. Both are the folder `jump` of the same kind of ground (`water_deep/jump/`); a folder `jump_start` or `jump_end` is used first when it exists, so a jump in and a leap out can have their own sounds.
   - Coming out of the water onto the bank makes no landing sound.
   - If the swim animation calls for the strokes itself (a *Call Method* track calling `_on_animation_swim_stroke_emit`), the movement adds none.
