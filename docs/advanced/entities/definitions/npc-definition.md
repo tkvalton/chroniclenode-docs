@@ -19,7 +19,6 @@ NPCDefinition extends EntityDefinition with combat stats, AI behavior, and loot 
 | `TemplateBaseline` | [template_baseline](#prop-template-baseline) |  |
 | `Array[int]` | [template_fixed_stats](#prop-template-fixed-stats) | `[]` |
 | `Array[LootRule]` | [loot_rules](#prop-loot-rules) | `[]` |
-| `InventoryStyle` | [inventory_style](#prop-inventory-style) | `null` |
 | `LootTableLogic` | [loot_table_logic](#prop-loot-table-logic) | `LootTableLogic.NONE` |
 | `int` | [loot_table](#prop-loot-table) | `0` |
 | `Dictionary` | [inventory](#prop-inventory) | `{ ... }` |
@@ -163,10 +162,6 @@ Stats whose base value does not follow the template (they have the value set her
 ### Array[LootRule] loot_rules = [] {#prop-loot-rules}
 
 What this NPC hands out and when: each rule is a loot table with a trigger (when it is made, when it dies, the first time someone opens its pockets) and a source for the item level of what drops (see LootRule). A placed NPC can replace the rules
-
-### InventoryStyle inventory_style = null {#prop-inventory-style}
-
-The rules of this NPC's bag (space, weight). Empty = the style of the NPCs of the Gameplay Config
 
 ### LootTableLogic loot_table_logic = LootTableLogic.NONE {#prop-loot-table-logic}
 

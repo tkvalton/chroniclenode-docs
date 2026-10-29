@@ -56,7 +56,7 @@ A Hyperbolic formula multiplies its **K** by the factor, a Soft cap multiplies i
 ## Where formulas are used
 
 - On the **stat effects** of a stat: each effect that turns points into a value has its formula and diminishing returns, with a preview of the curve as a graph and a table.
-- For **growth per level**: a stat or pool can grow as the character levels, with the same two slots. The input is the *levels gained* (level − 1), so level 1 has no growth, and "+2 per level" is a Linear formula of `2`. A **max growth** can cap the total, and one kind of entity (a warrior, a mage) can have its own growth for a stat that replaces the stat's own.
+- For **growth per level**: a stat or pool can grow as the character levels, with the same two slots. The input is the *levels gained* (level − 1), so level 1 has no growth, and "+2 per level" is a Linear formula of `2`. A **max growth** can cap the total, and the growth is written for the entity (a warrior, a mage), in a [growth profile](/basic/entity-stats/growth-profiles) or an override. See [Growth](/basic/shared-systems/growth).
 
 ## Formulas of your own
 

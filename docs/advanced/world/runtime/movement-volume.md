@@ -14,8 +14,9 @@ A space that changes how whoever is in it moves: water to swim in, a room with n
 - **Effects.** Effects (damage over time for lava, a slow, a buff) that are on whoever is inside, and come off when it leaves.
 - **The camera.** When the camera itself is inside, the screen is tinted and fogged (an underwater look), and the sound changes with an AudioProfile (muffled under water).
 
-The presets fill the fields for the usual cases: Water, Weightless and Lava.
+The presets fill the fields for the usual cases: Water, Weightless, Lava and River (the Unique Object panel has a menu of them, and *Save as preset* for your own).
 
+- **Flow.** A volume can carry whoever is in it, like a river or a wind: a direction (the way the volume points: turn it) and a speed. It is added to how they move: a strong current sweeps them away, a weak one can be swum against.
 - **The look.** A volume draws nothing by itself. Give it a **look** and it draws the top, the bottom or all six faces of its box shape with a material of yours (a shader, or a texture): the water, the lava,
 
 a cloud. The Water and Lava presets come with a shader of the toolkit.
@@ -24,6 +25,7 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 
 | | | |
 |---|---|---|
+| `String` | [preset_name](#prop-preset-name) | `""` |
 | `Preset` | [preset](#prop-preset) | `Preset.CUSTOM:` |
 | `MovementClaim.Mode` | [mode](#prop-mode) | `MovementClaim.Mode.SWIM` |
 | `Affects` | [affects](#prop-affects) | `Affects.EVERYONE` |
@@ -38,6 +40,9 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 | `Submerged` | [holds_breath_when](#prop-holds-breath-when) | `Submerged.HEAD_UNDER_SURFACE` |
 | `float` | [head_height](#prop-head-height) | `1.6` |
 | `Array[int]` | [effects_inside](#prop-effects-inside) | `[]` |
+| `float` | [flow_strength](#prop-flow-strength) | `0.0` |
+| `Vector3` | [flow_direction](#prop-flow-direction) | `Vector3(0.0, 0.0, -1.0)` |
+| `bool` | [flow_pushes_walkers](#prop-flow-pushes-walkers) | `false` |
 | `VolumeLook.Faces` | [look_faces](#prop-look-faces) | `VolumeLook.Faces.NONE:` |
 | `Material` | [look_material](#prop-look-material) | `null:` |
 | `Texture2D` | [look_texture](#prop-look-texture) | `null:` |
@@ -56,6 +61,7 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 |---|---|
 | `void` | [apply_preset](#method-apply-preset)() |
 | `ArrayMesh` | [get_look_mesh](#method-get-look-mesh)() |
+| `Vector3` | [get_flow_velocity](#method-get-flow-velocity)() |
 | `float` | [depth_of](#method-depth-of)( `entity: Entity` ) |
 
 ## Enumerations
@@ -91,6 +97,10 @@ When an entity inside holds its breath
 - `float` **RECONCILE_INTERVAL** = `1.0` - How often (seconds) the bodies inside are counted again, in case the engine missed one entering
 
 ## Property descriptions
+
+### String preset_name = "" {#prop-preset-name}
+
+The name of the preset this volume was made from (the menu of the Unique Object panel; empty = none). It only says where the numbers came from: they are this volume's own now
 
 ### Preset preset = Preset.CUSTOM: {#prop-preset}
 
@@ -156,6 +166,20 @@ How high above its feet the head of an entity is (to know when it is under the s
 
 Effects that are on every entity inside while it is inside (a damage over time for lava, a slow). They are put back when they end, and taken off when the entity leaves
 
+*Flow*
+
+### float flow_strength = 0.0 {#prop-flow-strength}
+
+How fast the water or the air carries whoever is in it, in metres per second (0 = it is still). A river, a current, a wind
+
+### Vector3 flow_direction = Vector3(0.0, 0.0, -1.0) {#prop-flow-direction}
+
+The way it carries them, in the space of the volume: turn the volume to point it (the default is the front of the volume, -Z)
+
+### bool flow_pushes_walkers = false {#prop-flow-pushes-walkers}
+
+Carries entities that walk through it (shallow water) too, and not only the ones that swim or fly
+
 *Look*
 
 ### VolumeLook.Faces look_faces = VolumeLook.Faces.NONE: {#prop-look-faces}
@@ -215,6 +239,10 @@ Fills the fields from the preset (picking a preset in the inspector does this; c
 ### ArrayMesh get_look_mesh() {#method-get-look-mesh}
 
 The mesh of the look (null when there is none).
+
+### Vector3 get_flow_velocity() {#method-get-flow-velocity}
+
+The push of the flow in the world: the direction of the volume turned the way the volume is turned, at the strength of the flow. Zero when it does not flow.
 
 ### float depth_of( entity: Entity ) {#method-depth-of}
 

@@ -32,6 +32,7 @@ The default style is the one the toolkit always had: slots, the number of them f
 | | |
 |---|---|
 | `EncumbranceTier` | [get_step_for](#method-get-step-for)( `percent: float` ) |
+| `InventoryStyle` | [for_npc](#method-for-npc)() *static* |
 | `InventoryStyle` | [for_entity](#method-for-entity)( `entity: Entity` ) *static* |
 | `Array[Dictionary]` | [validate](#method-validate)() |
 
@@ -127,9 +128,13 @@ Encumbrance: the steps, each with the share of the capacity it starts at and the
 
 The highest step of encumbrance that a load of this many percent of the capacity has reached (null = none)
 
+### InventoryStyle for_npc() {#method-for-npc}
+
+*No description yet.*
+
 ### InventoryStyle for_entity( entity: Entity ) {#method-for-entity}
 
-The style of the owner: an NPC definition's own, else the project's for NPCs; a player (and a companion) the project's for characters
+The style of the owner: an NPC has no limit; a player (and a companion) has the project's style for characters
 
 ### Array[Dictionary] validate() {#method-validate}
 

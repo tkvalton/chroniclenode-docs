@@ -25,6 +25,7 @@ Add one with `Entity.add_movement_claim` and take it away with `Entity.remove_mo
 | `bool` | [allows_surface_leap](#var-allows-surface-leap) | `false` |
 | `bool` | [follows_camera_pitch](#var-follows-camera-pitch) | `true` |
 | `bool` | [vertical_control](#var-vertical-control) | `true` |
+| `Vector3` | [flow_velocity](#var-flow-velocity) | `Vector3.ZERO` |
 | `int` | [priority](#var-priority) | `0` |
 
 ## Enumerations
@@ -90,6 +91,10 @@ Does an entity moving through this follow the camera up and down (look up and mo
 ### bool vertical_control = true {#var-vertical-control}
 
 Can the entity steer up and down (jump, crouch and the camera pitch)? A boat cannot: it floats on the surface
+
+### Vector3 flow_velocity = Vector3.ZERO {#var-flow-velocity}
+
+How fast the water or the wind carries the entity (a river, a current), in the world, metres per second. It is added to how the entity moves, and the claims add up
 
 ### int priority = 0 {#var-priority}
 

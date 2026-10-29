@@ -46,7 +46,7 @@ A critical strike is *Percent Increase* with magnitude `100`: the tag alone does
 
 | You want | How |
 |---|---|
-| **Critical strikes** | A stat *Critical Strike Rating* with a Calculation Trigger Effect for the tag *Critical Strike*. The tag adds +100 % |
+| **Critical strikes** | A stat *Critical Strike Chance* with a Calculation Trigger Effect for the tag *Critical Strike*. The tag adds +100 % |
 | **Expertise, defense** | A **Trigger Rule Effect** that changes the rolls of the opponent. Choose *every tag of kind* Avoid or Boost, or one tag. See [Stat recipes](/basic/entity-stats/stat-recipes) |
 | **Crit damage as its own stat** | A stat with a **Trigger Rule Effect** on the tag, *Magnitude bonus* |
 | **Luck** | A Trigger Rule Effect with no tag and *Chance bonus*: it adds to every roll |

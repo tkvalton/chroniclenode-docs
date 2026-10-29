@@ -426,7 +426,7 @@ export const groups = [
       },
       {
         "name": "StatsDataEditor",
-        "base": "BoxContainer",
+        "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\entities\\property_editors\\stats_data_editor.gd",
         "file": "editor_components/editors/entities/property_editors/stats_data_editor.gd"
       },
@@ -935,6 +935,12 @@ export const groups = [
         "file": "editor_components/editors/world/config_editors/base_config_editor.gd"
       },
       {
+        "name": "DetileSlider",
+        "base": "HBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\detile_slider.gd",
+        "file": "editor_components/editors/world/detile_slider.gd"
+      },
+      {
         "name": "EnvironmentConfigEditor",
         "base": "BaseConfigEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\environment_config_editor.gd",
@@ -957,6 +963,12 @@ export const groups = [
         "base": "BaseConfigEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\sun_config_editor.gd",
         "file": "editor_components/editors/world/config_editors/sun_config_editor.gd"
+      },
+      {
+        "name": "TerrainDetilePreview",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\terrain_detile_preview.gd",
+        "file": "editor_components/editors/world/terrain_detile_preview.gd"
       },
       {
         "name": "TerrainTextureEditor",
@@ -1007,6 +1019,12 @@ export const groups = [
     "slug": "viewport-tools",
     "classes": [
       {
+        "name": "AudioProfileBox",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\audio_profile_box.gd",
+        "file": "editor_components/3d_scene_tools/audio_profile_box.gd"
+      },
+      {
         "name": "EntityDataPropertyEditor",
         "base": "EditorProperty",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\inspector_plugins\\entity_data_property_editor.gd",
@@ -1023,6 +1041,12 @@ export const groups = [
         "base": "EditorProperty",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\inspector_plugins\\modular_equipment_type_tag_property_editor.gd",
         "file": "editor_components/inspector_plugins/modular_equipment_type_tag_property_editor.gd"
+      },
+      {
+        "name": "MovementPresetBar",
+        "base": "HBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\movement_preset_bar.gd",
+        "file": "editor_components/3d_scene_tools/movement_preset_bar.gd"
       },
       {
         "name": "SFXSelectionPropertyEditor",

@@ -100,7 +100,7 @@ Can this object be targeted directly by single-target abilities?
 
 Can this object be hit by area-of-effect abilities?
 
-*Stats Override*
+*Stats*
 
 ### StatsData stats_override {#prop-stats-override}
 

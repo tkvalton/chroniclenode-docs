@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-What the stats and pools of an entity are at a level, and where the growth of each comes from (the preview of the stats editors). It reads the same layers as StatsComponent.growth_of: the override of the entity itself, then the growth profiles (its own, the parents, the project's default for an NPC), then the definition of the stat or pool.
+What the stats and pools of an entity are at a level, and where the growth of each comes from (the preview of the stats editors). It reads the same layers as StatsComponent.growth_of: the override of the entity itself, then the growth profiles (its own, the parents, the project's default for an NPC), and nothing else: growth belongs to the entity only.
 
 ## Methods
 

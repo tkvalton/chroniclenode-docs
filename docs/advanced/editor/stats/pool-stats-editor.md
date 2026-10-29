@@ -12,7 +12,6 @@ Pool Stats Editor for managing pool definitions with damage type absorption
 |---|---|---|
 | `PoolDefinition:` | [current_pool_stat](#var-current-pool-stat) |  |
 | `Array` | [available_damage_types](#var-available-damage-types) | `[]  # Array of {id: int, name: String}` |
-| `GrowthEditor` | [growth_editor](#var-growth-editor) |  |
 
 ## Methods
 
@@ -31,10 +30,6 @@ Pool Stats Editor for managing pool definitions with damage type absorption
 ### Array available_damage_types = []  # Array of id: int, name: String {#var-available-damage-types}
 
 Available damage types for selection
-
-### GrowthEditor growth_editor {#var-growth-editor}
-
-*No description yet.*
 
 ## Method descriptions
 

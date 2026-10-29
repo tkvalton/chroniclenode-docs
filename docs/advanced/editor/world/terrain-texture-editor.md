@@ -24,7 +24,9 @@ Files can be **dragged from the FileSystem dock** onto the Albedo, Normal, Rough
 | `Button` | [source_show_button](#var-source-show-button) |  |
 | `Button` | [source_reload_button](#var-source-reload-button) |  |
 | `Button` | [source_delete_button](#var-source-delete-button) |  |
-| `Dictionary` | [detile_boxes](#var-detile-boxes) | `{}` |
+| `Dictionary` | [detile_boxes](#var-detile-boxes) | `{}  # (DetileSlider)` |
+| `TerrainDetilePreview` | [detile_preview](#var-detile-preview) |  |
+| `Dictionary` | [sections](#var-sections) | `{}` |
 
 ## Methods
 
@@ -81,9 +83,17 @@ Files can be **dragged from the FileSystem dock** onto the Albedo, Normal, Rough
 
 *No description yet.*
 
-### Dictionary detile_boxes =  {#var-detile-boxes}
+### Dictionary detile_boxes =   # (DetileSlider) {#var-detile-boxes}
 
 The rows of the Detiling numbers of a texture (made in code under the Anti-tiling check box): property name -&gt; its box
+
+### TerrainDetilePreview detile_preview {#var-detile-preview}
+
+The preview of the detiling (under the numbers)
+
+### Dictionary sections =  {#var-sections}
+
+The sub sections of the textures part of the editor (name -&gt; the section), made in code from the rows of the scene
 
 ## Method descriptions
 

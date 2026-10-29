@@ -244,6 +244,7 @@ const sharedSystems = {
     page('Skill tiers and specializations', '/basic/shared-systems/skill-tiers-and-specializations'),
     page('Text tokens', '/basic/shared-systems/text-tokens'),
     page('Clocks', '/basic/shared-systems/clocks'),
+    page('Growth', '/basic/shared-systems/growth'),
     page('Formulas', '/basic/shared-systems/formulas'),
   ],
 }

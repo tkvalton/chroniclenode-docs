@@ -15,7 +15,7 @@ The loot table says WHAT can drop; the rule says WHEN (the trigger) and at what 
 | | | |
 |---|---|---|
 | `Trigger` | [trigger](#prop-trigger) | `Trigger.ON_DEATH` |
-| `Delivery` | [delivery](#prop-delivery) | `Delivery.INVENTORY` |
+| `Delivery` | [delivery](#prop-delivery) | `Delivery.INHERIT` |
 | `int` | [table_id](#prop-table-id) | `0` |
 | `LootTable` | [own_table](#prop-own-table) |  |
 | `LootLevelSource` | [level_source](#prop-level-source) |  |
@@ -25,6 +25,7 @@ The loot table says WHAT can drop; the rule says WHEN (the trigger) and at what 
 
 | | |
 |---|---|
+| `Delivery` | [get_delivery](#method-get-delivery)( `holder_is_npc: bool` ) |
 | `LootTable` | [get_table](#method-get-table)() |
 | `bool` | [has_table](#method-has-table)() |
 | `String` | [get_trigger_name](#method-get-trigger-name)( `value: Trigger` ) *static* |
@@ -51,6 +52,7 @@ Where the drops go: into the inventory of the holder (a body or a chest is loote
 
 - **INVENTORY** = `0` - The drops go into the inventory of the holder; the player opens it to take them
 - **GROUND** = `1` - The drops lie on the ground around the holder as dropped items. There is no loot window. Needs On Death or On Destroyed
+- **INHERIT** = `2` - The project decides (Gameplay Config &gt; Dropped Items: where the loot of NPCs and of objects goes)
 
 ## Property descriptions
 
@@ -58,7 +60,7 @@ Where the drops go: into the inventory of the holder (a body or a chest is loote
 
 When the rule rolls (on death, on first access, on initialize ...).
 
-### Delivery delivery = Delivery.INVENTORY {#prop-delivery}
+### Delivery delivery = Delivery.INHERIT {#prop-delivery}
 
 Where the drops go: the inventory of the holder, or the ground around it (see Gameplay Config &gt; Dropped Items). On the ground only works for On Death and On Destroyed
 
@@ -79,6 +81,10 @@ Where the item level of the drops comes from. Inherit = the loot table's own sou
 The one who gets the loot (the killer, the one who opens the chest, the one who picks the pocket) changes it with their loot quantity and magic find
 
 ## Method descriptions
+
+### Delivery get_delivery( holder_is_npc: bool ) {#method-get-delivery}
+
+The delivery that counts: the one of the rule, or (when it follows the project) the project's choice for this kind of holder. Only a death or a destruction can leave loot on the ground
 
 ### LootTable get_table() {#method-get-table}
 

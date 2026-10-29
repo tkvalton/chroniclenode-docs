@@ -25,11 +25,13 @@ A **stat** is a number every entity has: Strength, Armor, Critical Strike Rating
 | **Display suffix** | Text after the value: `%`, `sec`, `pts` | none |
 | **Allow negative values** | Lets the value go below zero, for debuffs and penalties | off |
 
-## Item budget
+## Items
 
 | Field | What it does | Default |
 |---|---|---|
-| **Budget cost per point** | What one point of the stat costs in the stat budget of a [generated item](/basic/items/item-generation#the-budget). `1` = a point costs as much as a point of Strength. `2` = it costs double, so the same budget buys half as many points. Crit rating can cost 2 and Dodge 3. A stat that is never on gear can stay at `1` | `1` |
+| **Can be on items** | Tick it for the stats that gear and affixes may give (Strength, Armor, Haste...). The item editors only offer these stats when you add a bonus to a piece of equipment or an affix, so the list stays short. A stat already on an item stays in its list | off |
+| **Budget cost per point** (shown when the stat can be on items) | What one point of the stat costs in the stat budget of a [generated item](/basic/items/item-generation#the-budget). `1` = a point costs as much as a point of Strength. `2` = it costs double, so the same budget buys half as many points. Crit rating can cost 2 and Dodge 3 | `1` |
+
 
 The editor of an item shows the cost of each written bonus next to it ("= 240 budget"). The value of a rolled stat is rounded to whole points for an integer stat and to its decimals for a decimal stat.
 
@@ -39,15 +41,11 @@ Tick the [stat groups](/basic/entity-stats/stat-groups) the stat is in (Primary,
 
 ## Level growth
 
-A stat can grow as the entity levels up. **Growth formula** turns the *levels gained* (level - 1) into a value, so level 1 has none: a Linear formula of `2` is "+2 per level". Add **Diminishing returns** to make growth slow down (after level 40, say), and **Max growth** to cap the total. Without a formula the stat does not grow. See [Formulas](/basic/shared-systems/formulas).
-
-The value of the stat is `(base + growth + bonus) x multiplier`, so growth comes on top of the base. A kind of NPC can replace the growth of a stat with a [growth profile](/basic/entity-stats/growth-profiles) (a Heavy grows Strength faster than a Caster), and a single class or NPC with *level growth overrides* in its stats data.
-
-When a stat has no growth formula the editor shows a yellow note. It is only a note: most stats should not grow, and a stat can still grow for some NPCs through a profile.
+A stat has no growth of its own: **growth belongs to the entity**. A Warrior grows its Strength by 2 per level and a Mage by 0.5, so the growth is written for the kind of entity, in a [growth profile](/basic/entity-stats/growth-profiles) or in the *level growth overrides* of a class or an NPC. The value of the stat is `(base + growth + bonus) x multiplier`, so growth comes on top of the base. A stat that no profile or override lists does not grow. See [Growth](/basic/shared-systems/growth) for how growth, templates and levels work together.
 
 ## Stat effects
 
-The list at the bottom holds the stat's **stat effects**. Click **Add Stat Effect** and choose a type. Each effect is in a box of its own, **Stat effect 1**, **Stat effect 2**..., and has a switch to turn it off without deleting it, a collapse button, and a delete button. Above the effects are **Level growth** and a folded **Item budget** box. The four **target calculations** of an effect are one row of tick boxes. The other fields of an effect are in boxes: **What it changes**, **Only when a tag fired** (the tag the effect needs), **How much** (the value and how it scales), **Which hits** (the school, melee or ranged...) and **Conditions**. Hover a box title for what it holds.
+The list at the bottom holds the stat's **stat effects**. Click **Add Stat Effect** and choose a type. Each effect is in a box of its own, **Stat effect 1**, **Stat effect 2**..., and has a switch to turn it off without deleting it, a collapse button, and a delete button. Above the effects is a folded **Items** box. The four **target calculations** of an effect are one row of tick boxes. The other fields of an effect are in boxes: **What it changes**, **Only when a tag fired** (the tag the effect needs), **How much** (the value and how it scales), **Which hits** (the school, melee or ranged...) and **Conditions**. Hover a box title for what it holds.
 
 Most effects share these parts:
 
@@ -100,6 +98,26 @@ Several effects choose how their value changes a number:
 | **Set Value** | Replaces the number |
 | **Percentage Of Max**, **Percentage Of Base** | The value is a percentage of the maximum or of the base value |
 
+## The stats of the demo
+
+The demo project comes with a TBC-style set of stats. Everything in it is an ordinary stat that you can change or delete. The numbers are a starting point.
+
+| Family | Stats | What they do |
+|---|---|---|
+| **Primary** | Strength, Agility, Stamina, **Intellect**, **Wisdom**, **Charisma** | Strength: Attack Power and carry capacity. Agility: Ranged Attack Power, Critical Strike Rating, Haste, Dodge. Stamina: health and health regeneration. Intellect: Mana and Spell Power. Wisdom: Mana per 5 Seconds and Healing Power. Charisma: Experience Gain and Magic Find |
+| **Power** | Attack Power, Ranged Attack Power, Spell Power, Healing Power, Bonus Damage | Flat damage and healing. Spell Power only adds to abilities of the *Magic* school |
+| **Penetration** | Armor Penetration, Spell Penetration | Each point makes your hits ignore 1 % of the Armor, or of the resistances, of whoever you hit |
+| **Critical strike** | Critical Strike Chance, Critical Strike Damage, Critical Strike Rating | The chance rolls the critical strike, the damage says how hard it hits, and the rating turns into chance (20 points are 1 %, with diminishing returns) |
+| **Multistrike** | Multistrike Chance, Multistrike Damage, Multistrike Rating | The same three for [multistrike](/basic/entity-stats/trigger-tags): a hit that strikes again. The damage effect of the ability decides which hits can; Multistrike Damage raises the share of the extra hits |
+| **Avoidance** | Dodge, Parry Chance, Block Chance, Block Value, Defense | The chance to dodge, parry or block, and how much a block takes off. Block Chance and Parry Chance start at 0: give the entity a base value, or put it on its [template](/basic/entities/templates) |
+| **Hit and haste** | Hit Rating, Expertise, Weapon Skill, Haste | Accuracy, and the speed of attacks and spells |
+| **Resistances** | Fire, Frost, Nature, Shadow, Holy, Magic, Poison Resistance, **All Resistance** | One for each [damage type](/basic/types-and-groups/damage-types) of the demo; All Resistance adds a point to each. Spell Penetration ignores part of them |
+| **Regeneration** | Mana per 5 Seconds, Health per 5 Seconds | Added to the regeneration of the pool |
+| **Speed bonuses** | Movement, Attack Speed, Cast Speed and Carry Capacity Bonus | A percentage on top of the core stat |
+| **Utility** | Stealth, Detection, Experience Gain, Magic Find, Loot Quantity, Life Steal, Damage Reflection | Detection adds to Sight Range. Stealth is only a number your own code, abilities and conditions can read |
+
+**Why ratings?** A rating is a stat that turns into a chance, so that gear can say "+40 Critical Strike Rating" and a template can still say "5 % Critical Strike Chance". Dodge, Block Chance, Haste and Defense already work like ratings (a point is a fraction of a percent), so they have no second stat.
+
 ## Examples
 
 | You want | Stat effects |
@@ -108,7 +126,7 @@ Several effects choose how their value changes a number:
 | **Strength** that adds attack power | A Multiplier Effect with Target Stat *Attack Power*, Add, **Linear** `2` per point |
 | **Stamina** that adds health | A Pool Modifier Effect on *Health*, property max value, Add, **Linear** `1` per point |
 | **Dodge** | A Calculation Trigger Effect on **Damage Taken** with Trigger Kind **Avoid**, a **Hyperbolic** formula for the chance (max `75`, K `300`) |
-| **Critical Strike Rating** | A Calculation Trigger Effect with a *Critical Strike* tag, a **Linear** chance of `0.05` per point behind a **Soft cap** of `400` points |
+| **Critical Strike Chance** | A Calculation Trigger Effect with a *Critical Strike* tag, a **Linear** chance of `1` per point (1 point is 1 %). **Critical Strike Rating** is a Multiplier Effect that adds `0.05` Critical Strike Chance per point behind a **Soft cap** of `400` points |
 | **Accuracy** or **evasion** | A Hit Chance Effect, Side *Accuracy* or *Evasion*, a Linear formula of `0.1`. See [Stat recipes](/basic/entity-stats/stat-recipes#hit-chance) |
 | **A mastery** | A Calculation Modifier Effect on Damage Done with **Only these abilities** (or **Only these effects**): the damage of the abilities the stat names goes up. For a talent or a passive, use the [Ability Boost](/basic/abilities-and-effects/effect-types) effect |
 | **Expertise** | A Trigger Rule Effect that changes the rolls of *whoever defends against the owner*, for the tags of kind Avoid, Chance bonus, Linear `-0.25`. See [Stat recipes](/basic/entity-stats/stat-recipes#expertise) |

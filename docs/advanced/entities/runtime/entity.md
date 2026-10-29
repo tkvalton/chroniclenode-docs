@@ -187,6 +187,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `void` | [add_movement_claim](#method-add-movement-claim)( `claim: MovementClaim` ) |
 | `bool` | [remove_movement_claim](#method-remove-movement-claim)( `source: Object` ) |
 | `MovementClaim` | [get_movement_claim_of](#method-get-movement-claim-of)( `source: Object` ) |
+| `Vector3` | [get_flow_velocity](#method-get-flow-velocity)() |
 | `float` | [get_movement_speed_multiplier](#method-get-movement-speed-multiplier)() |
 | `void` | [suspend_movement_claims](#method-suspend-movement-claims)( `seconds: float` ) |
 | `void` | [leap_out_of_water](#method-leap-out-of-water)() |
@@ -1245,6 +1246,10 @@ Takes the claim of a source away. True when it had one
 ### MovementClaim get_movement_claim_of( source: Object ) {#method-get-movement-claim-of}
 
 The claim a source has on this entity, or null
+
+### Vector3 get_flow_velocity() {#method-get-flow-velocity}
+
+How fast the water or the wind carries the entity now: the flows of all its claims added (a river and a gust). Nothing during a leap out of the water
 
 ### float get_movement_speed_multiplier() {#method-get-movement-speed-multiplier}
 

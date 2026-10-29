@@ -32,6 +32,8 @@ The Foliage tab (Assets &gt; Foliage): the files of the two folders of the folia
 | `ConfirmationDialog` | [variant_dialog](#var-variant-dialog) |  |
 | `LineEdit` | [variant_name_edit](#var-variant-name-edit) |  |
 | `FoliageDefinition` | [current_entry](#var-current-entry) | `null` |
+| `VBoxContainer` | [group_box](#var-group-box) |  |
+| `Label` | [member_note](#var-member-note) |  |
 
 ## Methods
 
@@ -45,6 +47,8 @@ The Foliage tab (Assets &gt; Foliage): the files of the two folders of the folia
 ## Constants
 
 - `float` **PREVIEW_SIZE** = `160.0`
+- `Array[String]` **LOOK_PROPERTIES** = `["scale_min", "scale_max", "height_min", "height_max", "rotation_offset:x", "...` - How a scene looks (a member keeps these; a group does not have them) and where and how much it grows (the group has these; a member does not).
+- `Array[String]` **GROWTH_PROPERTIES** = `["density", "spacing", "slope_min", "slope_max", "altitude_min", "altitude_ma...`
 
 ## Variable descriptions
 
@@ -133,6 +137,14 @@ The Foliage tab (Assets &gt; Foliage): the files of the two folders of the folia
 *No description yet.*
 
 ### FoliageDefinition current_entry = null {#var-current-entry}
+
+*No description yet.*
+
+### VBoxContainer group_box {#var-group-box}
+
+*No description yet.*
+
+### Label member_note {#var-member-note}
 
 *No description yet.*
 

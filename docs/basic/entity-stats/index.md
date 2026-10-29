@@ -28,7 +28,7 @@ value = (base + growth + bonus) x multiplier
 | Part | Where it comes from |
 |---|---|
 | **Base** | The starting value of the entity. The stat's *Default value*, or the value the entity's own stats data sets |
-| **Growth** | What the entity gained from its level, if the stat has **Level growth** |
+| **Growth** | What the entity gained from its level, if its [growth](/basic/shared-systems/growth) has an entry for the stat |
 | **Bonus** | What gear, buffs and the stat effects of other stats add |
 | **Multiplier** | Starts at 1. Buffs and effects can raise or lower it |
 

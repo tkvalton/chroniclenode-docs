@@ -4,7 +4,7 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
-"Level Growth" section of the stat and pool editors: the formula and optional diminishing returns that turn the levels gained (level - 1) into growth, plus a ceiling and a small table of the result at a few levels. Edits `growth_formula`, `growth_returns` and `growth_max` of the resource it is set up with (a StatDefinition or a PoolDefinition). See docs/systems/entity-stats.md, section 18.6.
+"Level Growth" section of the stat and pool editors: the formula and optional diminishing returns that turn the levels gained (level - 1) into growth, plus a ceiling and a small table of the result at a few levels. Edits `growth_formula`, `growth_returns` and `growth_max` of the resource it is set up with (an entry of a growth profile or of an entity: a GrowthOverride). See docs/systems/entity-stats.md, section 18.6.
 
 ## Methods
 
@@ -21,7 +21,7 @@
 
 ### void setup( resource: Resource ) {#method-setup}
 
-Shows the growth of `resource` (a StatDefinition, a PoolDefinition or a GrowthOverride)
+Shows the growth of `resource` (a GrowthOverride)
 
 ### void set_expanded( expanded: bool ) {#method-set-expanded}
 

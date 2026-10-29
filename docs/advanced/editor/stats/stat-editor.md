@@ -12,7 +12,6 @@ Unified Stat Editor for managing stat definitions with composable StatEffect sys
 |---|---|---|
 | `StatDefinition:` | [current_stat](#var-current-stat) |  |
 | `Array[StatEffectPropertyEditor]` | [stat_effect_editors](#var-stat-effect-editors) | `[]` |
-| `GrowthEditor` | [growth_editor](#var-growth-editor) |  |
 | `VBoxContainer` | [budget_box](#var-budget-box) |  |
 | `Label` | [problems_label](#var-problems-label) |  |
 
@@ -29,10 +28,6 @@ Unified Stat Editor for managing stat definitions with composable StatEffect sys
 *No description yet.*
 
 ### Array[StatEffectPropertyEditor] stat_effect_editors = [] {#var-stat-effect-editors}
-
-*No description yet.*
-
-### GrowthEditor growth_editor {#var-growth-editor}
 
 *No description yet.*
 

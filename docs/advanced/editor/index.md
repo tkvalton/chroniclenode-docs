@@ -138,7 +138,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [PlayerClassLevelRewardEditor](/advanced/editor/entities/player-class-level-reward-editor) | Editor for PlayerClassDefinition level rewards only Experience requirements are now managed in GameplayConfig |
 | [SkillTreeListEditor](/advanced/editor/entities/skill-tree-list-editor) | The list of skill trees of something that can hold trees (a character, and later a profession or a faction): the trees are listed, Add picks one from the catalog and Remove takes the selected one out. |
 | [StarterEquipmentEditor](/advanced/editor/entities/starter-equipment-editor) | The starting equipment of a player class, or the equipment override of a character: one row for each equipment slot, with the item in it, a button to choose another, one to see it and one to take it out. |
-| [StatsDataEditor](/advanced/editor/entities/stats-data-editor) | Unified editor for StatsData configuration Works for both EntityDefinition and InteractableObject stats |
+| [StatsDataEditor](/advanced/editor/entities/stats-data-editor) | The editor of a StatsData: the pools (as cards), the stats (a table of the ones that are set, with what the template or the definition says, how they grow and what they are at a level), the core stats, the immunities and, folded away, the level growth. |
 | [TemplateSection](/advanced/editor/entities/template-section) | The Template section of the NPC and interactable editors: which template the entity follows (and what it changed on top of it), or, when the resource is a template, who uses it. |
 <!-- /classes -->
 
@@ -259,10 +259,12 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | Class | What it is |
 |---|---|
 | [BaseConfigEditor](/advanced/editor/world/base-config-editor) | Base class for config editors that dynamically generate UI from exports |
+| [DetileSlider](/advanced/editor/world/detile-slider) | A slider with its number written next to it: the control of the detiling numbers (the Terrain Textures editor and the Detiling panel of the terrain tool). |
 | [EnvironmentConfigEditor](/advanced/editor/world/environment-config-editor) | Editor panel for EnvironmentConfig |
 | [SkyConfigEditor](/advanced/editor/world/sky-config-editor) | Editor panel for SkyConfig |
 | [SpawnTablesEditor](/advanced/editor/world/spawn-tables-editor) | The Spawn Tables editor (the SpawnTableDefinition database, World &gt; Spawn Tables): a name, a description and the lines of the table. |
 | [SunConfigEditor](/advanced/editor/world/sun-config-editor) | Editor panel for SunConfig |
+| [TerrainDetilePreview](/advanced/editor/world/terrain-detile-preview) | The preview of the Detiling section of the Terrain Textures editor: the albedo of the texture repeated over three squares, as it is (the repeats line up), with hex tiling (what the ground shows near the camera) and with the second look (what it shows far away), drawn by the same code as the ground (terrain_hex.gdshaderinc). |
 | [TerrainTextureEditor](/advanced/editor/world/terrain-texture-editor) | The Terrain Textures editor (the TerrainTextureDefinition database): the library a terrain is painted from. |
 | [TimeConfigEditor](/advanced/editor/world/time-config-editor) | Editor panel for TimeConfig |
 | [UniquesDatabaseEditor](/advanced/editor/world/uniques-database-editor) | The editor of the Uniques tab (World &gt; Uniques): lists the placed NPCs and objects of every world, filtered by kind, world and a search bar, and shows the unique that is selected. |
@@ -277,9 +279,11 @@ Many editors build their controls **in code** by reflecting over the resource's 
 <!-- classes:editor/viewport-tools -->
 | Class | What it is |
 |---|---|
+| [AudioProfileBox](/advanced/editor/viewport-tools/audio-profile-box) | Everything an audio profile holds, for the Unique Object panel: a menu of presets (Cave, Indoors, Underwater... |
 | [EntityDataPropertyEditor](/advanced/editor/viewport-tools/entity-data-property-editor) | Property editor for selecting EntityDefinition using ListCatalog |
 | [IdCatalogPropertyEditor](/advanced/editor/viewport-tools/id-catalog-property-editor) | Property editor for a whole number that is the id of a database entry (an item, a currency): a button that shows its name and opens the searchable catalog, and a clear button (sets 0). |
 | [ModularEquipmentTypeTagPropertyEditor](/advanced/editor/viewport-tools/modular-equipment-type-tag-property-editor) | The inspector editor of the equipment type tag of a modular equipment piece: a drop-down of the tags of the equipment types, which writes the chosen tag to the property. |
+| [MovementPresetBar](/advanced/editor/viewport-tools/movement-preset-bar) | The preset row of the Unique Object panel for a movement volume: a menu of the presets (Water, Lava... |
 | [SFXSelectionPropertyEditor](/advanced/editor/viewport-tools/sfx-selection-property-editor) | Property editor for SFXSelection resources using SFXSelectionDialog |
 | [UniqueObjectInspectorPlugin](/advanced/editor/viewport-tools/unique-object-inspector-plugin) | The inspector plugin that replaces the properties of a placed NPC, object, encounter, trigger area or modular skeleton with the editors of the Unique Object panel. |
 | [WorldTestLauncher](/advanced/editor/viewport-tools/world-test-launcher) | Starts the game straight in one world (no main menu): the Test World button of the Worlds editor and the one in the 3D viewport next to Terrain and Add Object both use it. |

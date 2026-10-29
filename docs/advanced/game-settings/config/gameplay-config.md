@@ -51,6 +51,8 @@ Configuration for gameplay rules and mechanics
 | `int` | [drowning_effect_id](#prop-drowning-effect-id) | `0` |
 | `bool` | [item_weight_enabled](#prop-item-weight-enabled) | `false` |
 | `bool` | [dropped_items_enabled](#prop-dropped-items-enabled) | `true` |
+| `int` | [npc_loot_delivery](#prop-npc-loot-delivery) | `0` |
+| `int` | [object_loot_delivery](#prop-object-loot-delivery) | `0` |
 | `DroppedItemsVisualSytle` | [dropped_items_visual_style](#prop-dropped-items-visual-style) | `DroppedItemsVisualSytle.MESH` |
 | `DroppedItemsPhysics` | [dropped_items_physics](#prop-dropped-items-physics) | `DroppedItemsPhysics.SETTLE_THEN_FREEZE` |
 | `bool` | [dropped_items_pickup_walk_over](#prop-dropped-items-pickup-walk-over) | `true` |
@@ -588,6 +590,14 @@ The effect that is on an entity while it has no breath left (damage over time: i
 ### bool dropped_items_enabled = true {#prop-dropped-items-enabled}
 
 Items can lie in the world: the player can drop them, loot and events can leave them on the ground
+
+### int npc_loot_delivery = 0 {#prop-npc-loot-delivery}
+
+Where the loot of NPCs goes when its rule says "project default": into the body (looted through a window) or on the ground as dropped items (needs the switch above). A rule can say otherwise
+
+### int object_loot_delivery = 0 {#prop-object-loot-delivery}
+
+The same for the loot of objects that are destroyed (a crate, a barrel)
 
 ### DroppedItemsVisualSytle dropped_items_visual_style = DroppedItemsVisualSytle.MESH {#prop-dropped-items-visual-style}
 

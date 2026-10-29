@@ -17,5 +17,6 @@ The names of the gain channels the toolkit asks about (`StatsComponent.modify_ga
 - `String` **STATUS_DURATION** = `"status_duration"` - The duration of a status effect put on this entity (tenacity: a percentage decrease shortens stuns)
 - `String` **EFFECT_DURATION** = `"effect_duration"` - The duration of the timed effects this entity puts on others or on itself (a buff or a debuff that lasts 20 % longer)
 - `String` **SHIELD_STRENGTH** = `"shield_strength"` - The size of the shields this entity puts up (Absorb Shield effects): shield power
+- `String` **MULTISTRIKE_DAMAGE** = `"multistrike_damage"` - The damage of the extra hits of a multistrike, as a percentage of the hit (the percentage of the damage effect, plus what the stats of the attacker add)
 - `String` **RESOURCE_DRAIN_TAKEN** = `"resource_drain_taken"` - How much resource others drain from this entity (a drain effect on its mana): a percentage decrease is resistance to mana burn
 

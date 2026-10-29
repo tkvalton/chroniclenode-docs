@@ -14,9 +14,6 @@ Definition for pool stats - contains ALL logic for damage absorption, overfill, 
 | `float` | [default_max_value](#prop-default-max-value) | `100.0` |
 | `float` | [default_current_value](#prop-default-current-value) | `100.0` |
 | `StartValue` | [start_value](#prop-start-value) | `StartValue.STARTS_FULL` |
-| `CalculationFormula` | [growth_formula](#prop-growth-formula) |  |
-| `DiminishingReturns` | [growth_returns](#prop-growth-returns) |  |
-| `float` | [growth_max](#prop-growth-max) | `0.0` |
 | `GenerationLogic` | [pool_gen](#prop-pool-gen) | `GenerationLogic.REGEN` |
 | `float` | [gen_rate](#prop-gen-rate) | `0.0` |
 | `float` | [gen_value](#prop-gen-value) | `0.0` |
@@ -47,7 +44,6 @@ Definition for pool stats - contains ALL logic for damage absorption, overfill, 
 | `float` | [get_total_max_value](#method-get-total-max-value)() |
 | `PoolInstance` | [create_instance](#method-create-instance)( `chorno_manager: ChronoManager, initial_current_value: float = -1.0` ) |
 | `String` | [get_pool_description](#method-get-pool-description)() |
-| `float` | [calculate_growth](#method-calculate-growth)( `level: int, context: FormulaContext = null` ) |
 
 ## Enumerations
 
@@ -86,20 +82,6 @@ The value the pool starts with when it does not start full
 ### StartValue start_value = StartValue.STARTS_FULL {#prop-start-value}
 
 Does the pool start full or empty?
-
-*Level Growth*
-
-### CalculationFormula growth_formula {#prop-growth-formula}
-
-How the maximum of the pool grows with the entity's level, from the same two slots an effect has, with the levels gained (level - 1) as the input: "+2 per level" is a Linear formula of 2. Empty (default) = the pool maximum does not grow. The growth adds to the pool's capacity (health per level)
-
-### DiminishingReturns growth_returns {#prop-growth-returns}
-
-Optional diminishing returns on the levels gained (growth that slows after level 40)
-
-### float growth_max = 0.0 {#prop-growth-max}
-
-Ceiling on the total growth (0 = none)
 
 *Generation/Decay*
 
@@ -210,8 +192,4 @@ The maximum of the pool including its overfill.
 ### String get_pool_description() {#method-get-pool-description}
 
 ========== UTILITY METHODS ==========
-
-### float calculate_growth( level: int, context: FormulaContext = null ) {#method-calculate-growth}
-
-The growth of the pool maximum at `level` (0 when it does not grow)
 

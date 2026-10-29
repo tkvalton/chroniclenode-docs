@@ -291,7 +291,7 @@ Tells the stats the entity's level (Entity.current_level calls this whenever it 
 
 ### float growth_of( definition: Resource, context: FormulaContext = null ) {#method-growth-of}
 
-The level growth of a stat or pool at the current level, from the first layer that has an answer: the entity's own override, the growth profiles (its own, the parents, the project default), then the stat's or pool's definition. The weapon damage of an entity without an intrinsic weapon does not grow
+The level growth of a stat or pool at the current level, from the first layer that has an answer: the entity's own override, then the growth profiles (its own, the parents, the project default). Growth belongs to the entity only: a stat or pool no layer lists does not grow. The weapon damage of an entity without an intrinsic weapon does not grow
 
 ### void refresh_conditional_effects() {#method-refresh-conditional-effects}
 

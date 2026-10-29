@@ -32,6 +32,7 @@ Main container for the unified game editor system
 
 | | |
 |---|---|
+| `bool` | [open_resource](#method-open-resource)( `resource: Resource` ) |
 | `void` | [make_floating](#method-make-floating)() |
 | `void` | [dock_to_editor](#method-dock-to-editor)() |
 | `bool` | [is_floating](#method-is-floating)() |
@@ -136,6 +137,10 @@ Main container for the unified game editor system
 *No description yet.*
 
 ## Method descriptions
+
+### bool open_resource( resource: Resource ) {#method-open-resource}
+
+Opens a definition in its own editor of the Database: the category and the tab are chosen and the definition is loaded there. False when this kind of definition has no editor to go to.
 
 ### void make_floating() {#method-make-floating}
 

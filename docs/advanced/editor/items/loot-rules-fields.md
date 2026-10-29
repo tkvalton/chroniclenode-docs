@@ -6,6 +6,12 @@
 
 The editor of the loot rules of an NPC, an object or a placed one: for each rule the trigger (when it rolls), the loot table (a shared one, or one of its own that is edited here), where the item level of the drops comes from, and whether the one who gets the loot changes it. A holder can have several rules. See docs/systems/ability-ranks-and-item-generation.md, section 8.
 
+## Variables
+
+| | | |
+|---|---|---|
+| `bool` | [compact](#var-compact) | `false` |
+
 ## Methods
 
 | | |
@@ -24,6 +30,12 @@ What holds the loot: the triggers it can use differ (an NPC dies, an object is d
 
 - **NPC** = `0`
 - **OBJECT** = `1`
+
+## Variable descriptions
+
+### bool compact = false {#var-compact}
+
+The form of the Unique Object panel: no title and no long text (the text is the tooltip of the buttons)
 
 ## Method descriptions
 

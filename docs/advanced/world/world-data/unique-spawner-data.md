@@ -17,14 +17,14 @@ A placed spawner: what the world keeps about one Spawner node in one world. It h
 | `bool` | [is_active](#prop-is-active) | `true` |
 | `Mode` | [mode](#prop-mode) | `Mode.POINT` |
 | `int` | [spawn_table_id](#prop-spawn-table-id) | `0` |
+| `float` | [max_slope](#prop-max-slope) | `45.0` |
+| `bool` | [only_walkable](#prop-only-walkable) | `true` |
+| `Color` | [paint_color](#prop-paint-color) | `Color(1.0, 0.55, 0.2, 1.0)` |
 | `int` | [max_alive](#prop-max-alive) | `1` |
 | `float` | [respawn_min](#prop-respawn-min) | `60.0` |
 | `float` | [respawn_max](#prop-respawn-max) | `60.0` |
 | `bool` | [spawn_at_start](#prop-spawn-at-start) | `true` |
 | `float` | [density](#prop-density) | `4.0` |
-| `float` | [max_slope](#prop-max-slope) | `45.0` |
-| `bool` | [only_walkable](#prop-only-walkable) | `true` |
-| `Color` | [paint_color](#prop-paint-color) | `Color(1.0, 0.55, 0.2, 1.0)` |
 | `bool` | [only_between_hours](#prop-only-between-hours) | `false` |
 | `float` | [from_hour](#prop-from-hour) | `20.0` |
 | `float` | [to_hour](#prop-to-hour) | `6.0` |

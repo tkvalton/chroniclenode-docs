@@ -160,7 +160,7 @@ Older override for the loot table - if 0, uses the loot table of the definition
 
 Older override for starting inventory - if empty, uses EntityDefinition.inventory
 
-*Stats Overrides*
+*Stats*
 
 ### StatsData stats_override {#prop-stats-override}
 

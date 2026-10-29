@@ -2,7 +2,7 @@
 
 A **growth profile** says how a *kind* of entity gets stronger with its level. *Heavy*, *Caster*, *Minion*, *Elite*, *Ranger*, *Assassin*: each one is a short list of "this stat grows like this, this pool grows like that". An NPC picks one, and a level 20 NPC of that kind is a stronger version of a level 5 one without a second definition.
 
-Without profiles, growth belongs to the stat or pool itself ([Stats](/basic/entity-stats/stats#level-growth), [Pool](/basic/entity-stats/pool#level-growth)), so *every* entity that has the stat grows the same way, the player and the rat included. The only other way to differ was an override on each NPC, which for 200 NPCs is 200 overrides. A profile is that override, written once and shared.
+Growth belongs to the entity, never to the [stat](/basic/entity-stats/stats#level-growth) or the [pool](/basic/entity-stats/pool#level-growth) (see [Growth](/basic/shared-systems/growth) for the whole picture and for how it differs from a [template](/basic/entities/templates)). The way to write it for one entity is an override on that NPC, which for 200 NPCs is 200 overrides. A profile is that override, written once and shared.
 
 ## What an NPC asks
 
@@ -14,11 +14,10 @@ When a stat or pool needs its growth at a level, it asks the layers below in thi
 | 2 | The NPC's **growth profile** | The NPC's Stats section, *Growth profile* |
 | 3 | The profile's **parent**, the parent's parent... | The profile's *Builds on* |
 | 4 | The **project's default profile** | [Gameplay Config](/basic/game-settings/leveling-and-experience#npc-level-scaling), *Default NPC growth profile* |
-| 5 | The **stat's or pool's own growth** | The [Stats](/basic/entity-stats/stats#level-growth) or [Pool](/basic/entity-stats/pool#level-growth) editor |
 
-An entry **replaces** what is below it, even an entry with no formula (that means "this stat does not grow for this kind of NPC"). A stat or pool that a layer does not list is left to the layer below. So a profile only ever lists what is *different*.
+An entry **replaces** what is below it, even an entry with no formula (that means "this stat does not grow for this kind of NPC"). A stat or pool that a layer does not list is left to the layer below, and one that no layer lists **does not grow**. So a profile only ever lists what is *different*.
 
-A player character does not use the project default profile: its growth is its class's overrides (a class can name a profile too) and the stats' own growth.
+A player character does not use the project default profile: its growth is its class's overrides, and the profile the class names.
 
 ## The editor
 
@@ -55,7 +54,7 @@ The demo project comes with a family of seven. They build on the *Default* profi
 
 | Profile | Builds on | Entries (per level) |
 |---|---|---|
-| **Default** | | Health pool `+8`, Mana pool `+5`, Weapon Damage `+1` |
+| **Default** | | Health pool `+8`, Mana pool `+5`, Weapon Damage `+1`, Strength `+2`, Agility `+1.5`, Stamina `+3` |
 | **Heavy** | Default | Strength `+3`, Stamina `+4`, Health pool `+14`, Weapon Damage `+1.5` |
 | **Caster** | Default | Health pool `+5`, Mana pool `+12`, Stamina `+1.5` |
 | **Minion** | Default | Strength, Stamina and Agility: no growth (an entry with no formula), Health pool `+3`, Weapon Damage `+0.5` |
@@ -83,14 +82,14 @@ An NPC that is in a fight waits for the end of it (see [NPC level scaling](/basi
 
 Growth only comes from formulas, so a stat with no growth anywhere does not change. Check in this order:
 
-1. Does the stat or pool have a **growth formula** of its own (Stats / Pool editor)? When it has none, the editor shows a yellow note: *no growth*. That is allowed, and fine if intended.
-2. Does the NPC's profile, or one of its parents, or the **Default** profile list the stat or pool?
-3. Does the NPC have an **override** for it with no formula? That stops the stat from growing for that NPC.
-4. Does the stat count for what you are looking at? Health comes from the *Health pool* (its own growth), from stats that feed it (an effect like "Stamina gives health"), and from the base value. A stat that grows but is used by nothing does not change how hard the NPC hits or how long it lives.
-5. Is the NPC's **level** really different? With level scaling off, a level 5 NPC stays level 5.
+1. Does the NPC's profile, or one of its parents, or the **Default** profile list the stat or pool?
+2. Does the NPC have an **override** for it with no formula? That stops the stat from growing for that NPC.
+3. Does the stat count for what you are looking at? Health comes from the *Health pool* (its own growth), from stats that feed it (an effect like "Stamina gives health"), and from the base value. A stat that grows but is used by nothing does not change how hard the NPC hits or how long it lives.
+4. Is the NPC's **level** really different? With level scaling off, a level 5 NPC stays level 5.
 
 ## See also
 
-- [Stats](/basic/entity-stats/stats#level-growth) and [Pool](/basic/entity-stats/pool#level-growth): the growth of a single stat or pool.
+- [Growth](/basic/shared-systems/growth): growth, templates and levels together.
+- [Stats](/basic/entity-stats/stats#level-growth) and [Pool](/basic/entity-stats/pool#level-growth).
 - [NPCs](/basic/entities/npcs), [Player Classes](/basic/entities/player-classes), [Gameplay Config](/basic/game-settings/leveling-and-experience#npc-level-scaling).
 - [Growth, core stats and gain channels](/advanced/entity-stats/growth-and-core-stats): how it is built.

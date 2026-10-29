@@ -28,7 +28,7 @@ Every builder adds its rows to `container` and calls `on_changed` (no arguments)
 | `void` | [add_curve](#method-add-curve)( `container: Container, label_text: String, resource: Resource, property_name: String, on_changed: Callable` ) *static* |
 | `void` | [add_vfx_selection](#method-add-vfx-selection)( `container: Container, label_text: String, current: VFXSelection, on_picked: Callable` ) *static* |
 | `void` | [add_sfx_selection](#method-add-sfx-selection)( `container: Container, label_text: String, current: SFXSelection, on_picked: Callable` ) *static* |
-| `OptionButton` | [add_database_picker](#method-add-database-picker)( `container: Container, label_text: String, database_type: String, current: Resource, none_text: String, on_changed: Callable` ) *static* |
+| `OptionButton` | [add_database_picker](#method-add-database-picker)( `container: Container, label_text: String, database_type: String, current: Resource, none_text: String, on_changed: Callable, only: Callable = Callable()` ) *static* |
 | `IdMultiSelect` | [add_id_checklist](#method-add-id-checklist)( `container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable, single: bool = false` ) *static* |
 | `void` | [add_id_picker](#method-add-id-picker)( `container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable` ) *static* |
 | `void` | [add_enum_checklist](#method-add-enum-checklist)( `container: Container, label_text: String, hint_names: Array, values: Array, on_changed: Callable` ) *static* |
@@ -90,9 +90,9 @@ A picker for a resource of a database type (trigger tag, entity tag ...). The cu
 
 A row for a sound (an SFXSelection): a button that says what is set and opens the sound dialog, and a Clear button. `on_picked` gets the selection (null when cleared)
 
-### OptionButton add_database_picker( container: Container, label_text: String, database_type: String, current: Resource, none_text: String, on_changed: Callable ) {#method-add-database-picker}
+### OptionButton add_database_picker( container: Container, label_text: String, database_type: String, current: Resource, none_text: String, on_changed: Callable, only: Callable = Callable() ) {#method-add-database-picker}
 
-*No description yet.*
+`only`: when set, the picker offers only the entries it returns true for (and the current one, so nothing already chosen disappears)
 
 ### IdMultiSelect add_id_checklist( container: Container, label_text: String, database_type: String, ids: Array, on_changed: Callable, single: bool = false ) {#method-add-id-checklist}
 

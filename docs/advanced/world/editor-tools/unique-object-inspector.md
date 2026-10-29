@@ -11,23 +11,22 @@ Dynamic inspector for unique object data (NPC, Encounter, InteractableObject) Di
 | | | |
 |---|---|---|
 | `Node3D` | [current_node](#var-current-node) |  |
-| `Resource` | [current_unique_data](#var-current-unique-data) |  |
+| `Object` | [current_unique_data](#var-current-unique-data) |  |
 | `DialogManager` | [dialog_manager](#var-dialog-manager) |  |
 | `EditorPlugin` | [plugin](#var-plugin) |  |
 | `bool` | [is_loading](#var-is-loading) | `false` |
 | `Dictionary` | [property_sections](#var-property-sections) | `{}` |
 | `ScrollContainer` | [scroll_container](#var-scroll-container) |  |
 | `VBoxContainer` | [properties_container](#var-properties-container) |  |
-| `Dictionary` | [group_buttons](#var-group-buttons) | `{}` |
 | `Dictionary` | [group_sections](#var-group-sections) | `{}` |
-| `String` | [current_group](#var-current-group) | `""` |
 
 ## Methods
 
 | | |
 |---|---|
 | `void` | [setup](#method-setup)( `p_dialog_manager: DialogManager, p_plugin: EditorPlugin` ) |
-| `bool` | [load_node](#method-load-node)( `node: Node3D` ) |
+| `bool` | [load_node](#method-load-node)( `node: Node3D, others: Array = []` ) |
+| `bool` | [is_node_backed](#method-is-node-backed)( `node: Object` ) *static* |
 | `void` | [clear_inspector](#method-clear-inspector)() |
 | `void` | [load_encounter_record](#method-load-encounter-record)( `record: UniqueEncounterData` ) |
 
@@ -39,6 +38,14 @@ Dynamic inspector for unique object data (NPC, Encounter, InteractableObject) Di
 
 - `Dictionary` **SETTING_DESCRIPTIONS** = `{` - Dictionary of setting descriptions for tooltips and help text
 - `Array[String]` **EXCLUDED_PROPERTIES** = `[` - Properties that should be excluded from the inspector
+- `Dictionary` **KEY_FIELDS** = `{` - The fields of the strip along the top, by kind of object, with the short name each has there (the same fields, not repeated in the pages)
+- `Array[String]` **INLINE_SUBGROUPS** = `["Basic Properties", "Targeting"]` - Sub-groups of a script are pages of their own (the panel has no boxes); these ones are not: they are the fields of the page of their group, one after the other
+- `Array[String]` **NODE_EXCLUDED** = `["preset", "preset_name", "placement_id", "unique_data"]` - Properties of a node that the panel never shows (the preset has a menu of its own, the placement id is how the game remembers a placed item was taken)
+- `Dictionary` **NODE_ARRAY_DATABASES** = `{"effects_inside": "effect"}` - The databases an array of ids is chosen from, for the nodes whose property name says nothing
+- `Array[String]` **NPC_SETTINGS** = `["is_active", "spawn_delay", "respawn_timer", "is_unique_encounter", "despawn...` - Settings of a placed NPC that are not overrides of its definition (they are never marked, and "Reset overrides" leaves them)
+- `Dictionary` **DEFINITION_PROPERTY** = `{` - The property of the definition that an override replaces, to show what the definition says
+- `Color` **OVERRIDE_COLOR** = `Color(0.82, 0.6, 0.23, 1.0)`
+- `float` **NARROW_WIDTH** = `760.0` - Narrower than this (in editor units) the list of sections moves from the side to the top
 
 ## Variable descriptions
 
@@ -46,9 +53,9 @@ Dynamic inspector for unique object data (NPC, Encounter, InteractableObject) Di
 
 The selected node (NPC or InteractableObject)
 
-### Resource current_unique_data {#var-current-unique-data}
+### Object current_unique_data {#var-current-unique-data}
 
-The UniqueData resource being edited
+The record being edited (a UniqueData resource), or the node itself for a volume or a dropped item
 
 ### DialogManager dialog_manager {#var-dialog-manager}
 
@@ -74,17 +81,9 @@ Main container
 
 *No description yet.*
 
-### Dictionary group_buttons =  {#var-group-buttons}
-
-group_name -&gt; Button
-
 ### Dictionary group_sections =  {#var-group-sections}
 
-group_name -&gt; VBoxContainer
-
-### String current_group = "" {#var-current-group}
-
-*No description yet.*
+group_name -&gt; the page (VBoxContainer) of the group
 
 ## Method descriptions
 
@@ -92,9 +91,13 @@ group_name -&gt; VBoxContainer
 
 Setup references needed for operation
 
-### bool load_node( node: Node3D ) {#method-load-node}
+### bool load_node( node: Node3D, others: Array = [] ) {#method-load-node}
 
-Load a node's unique_data for editing
+Load a node's unique_data for editing. `others` are more selected nodes of the same kind: the panel then edits them all at once (a field where they differ says "mixed").
+
+### bool is_node_backed( node: Object ) {#method-is-node-backed}
+
+Is this a node whose settings the panel edits on the node itself (it has no record of its own)?
 
 ### void clear_inspector() {#method-clear-inspector}
 

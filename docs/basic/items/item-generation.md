@@ -11,7 +11,7 @@ You choose how much to randomize. A game with hand-made gear never touches this 
 | **Item level** | How powerful an item is, as a number. It decides how big the bonuses of a generated item are and which [affixes](/basic/items/affixes) can roll on it. It is **not** a level the player needs to use the item (that is a [requirement](/basic/shared-systems/requirements#level)) | The item, and wherever the item is given ([loot rules](/basic/items/loot-rules), [rewards](/basic/shared-systems/rewards#item-reward), shops) |
 | **Quality** | A tier (Common, Rare, Epic ...) with a color. It also says **how much** an item of that tier rolls: its stat budget and how many affixes | [Quality](/basic/equipment-definitions/quality) |
 | **Affix** | A bonus an item can roll: "Heavy" (+Strength), "of the Monkey" (+Agility **or** +Dodge). It says **what** the bonus is, never how big | [Affixes](/basic/items/affixes) |
-| **Stat budget** | A pool of points the bonuses of an item share. It grows with the item level, and each stat costs a different amount per point, so +400 Strength, or +200 Crit and +200 Hit, are the same value | [Gameplay Config](/basic/game-settings/gameplay-config#item-generation), [Stats](/basic/entity-stats/stats#item-budget), [Equipment Slot](/basic/equipment-definitions/equipment-slot#item-budget) |
+| **Stat budget** | A pool of points the bonuses of an item share. It grows with the item level, and each stat costs a different amount per point, so +400 Strength, or +200 Crit and +200 Hit, are the same value | [Gameplay Config](/basic/game-settings/gameplay-config#item-generation), [Stats](/basic/entity-stats/stats#items), [Equipment Slot](/basic/equipment-definitions/equipment-slot#item-budget) |
 
 ## What happens when a generated item is made
 
@@ -36,7 +36,7 @@ budget = (budget of the item level) × (weight of the slot) × (multiplier of th
 | Multiplier of the item | **Budget multiplier** in the item's **Generation** section. A two-handed axe 1.5 | `1` |
 | Budget multiplier of the quality | The [quality](/basic/equipment-definitions/quality#stat-budget). Common 1, Rare 2 ... | `1` |
 
-**Stat cost.** Every [stat](/basic/entity-stats/stats#item-budget) has a **budget cost per point** (default `1`). A stat that costs `2` gets half the points for the same slice: crit rating can cost 2 and dodge 3. This is what makes stats comparable.
+**Stat cost.** Every [stat](/basic/entity-stats/stats#items) has a **budget cost per point** (default `1`). A stat that costs `2` gets half the points for the same slice: crit rating can cost 2 and dodge 3. This is what makes stats comparable.
 
 **Effect cost.** An [effect](/basic/abilities-and-effects/effects) on an item or an affix has a **fixed budget cost** you write on it (a burn-on-hit proc: `150`). Effects are not scaled by the budget. An effect that costs more than what is left is simply **not rolled**.
 

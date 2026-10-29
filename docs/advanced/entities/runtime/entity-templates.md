@@ -12,9 +12,9 @@ The entity keeps its **own full values** as always (so the editors are the edito
 
 - numbers (stat base values, pool maximums, the core stat values): the difference is added
 - lists (abilities, pools, immunities): what the template added is added, what it took away is taken away
-- the growth profile and the growth of the template are the template's (an entity that follows a template cannot change them)
+- the growth is the entity's own: its growth profile and its growth entries are chosen on the entity. The template only suggests (an entity that has no profile of its own grows like
 
-The game asks `resolve` for the definition to use, and the editors call `sync` when they open an entity, so what is saved is always up to date.
+the profile of its template, and the entries of the template that the entity has no entry for apply too), see `suggest_growth` The game asks `resolve` for the definition to use, and the editors call `sync` when they open an entity, so what is saved is always up to date.
 
 ## Methods
 
@@ -42,6 +42,7 @@ The game asks `resolve` for the definition to use, and the editors call `sync` w
 | `int` | [sync_users](#method-sync-users)( `template: Resource` ) *static* |
 | `Array[Dictionary]` | [overrides_of](#method-overrides-of)( `holder: Resource` ) *static* |
 | `void` | [reset_override](#method-reset-override)( `holder: Resource, row: Dictionary` ) *static* |
+| `void` | [suggest_growth](#method-suggest-growth)( `own: StatsData, theirs: StatsData` ) *static* |
 
 ## Constants
 
@@ -96,7 +97,7 @@ A copy of what the template is now: the baseline
 
 ### void link( holder: Resource, template: Resource, take_values: bool = false ) {#method-link}
 
-The entity follows the template from now on. Its own values stay (what differs from the template is what it added); the growth becomes the template's. With `take_values` the entity takes the template's stats, pools, immunities and abilities instead of its own (a new, blank entity)
+The entity follows the template from now on. Its own values stay (what differs from the template is what it added); its growth stays its own (the template suggests one). With `take_values` the entity takes the template's stats, pools, immunities and abilities instead of its own (a new, blank entity)
 
 ### void link_unique( unique: Resource, definition: Resource ) {#method-link-unique}
 
@@ -137,4 +138,8 @@ What the entity has that its template does not, as rows: &#123;"kind", "id", "na
 ### void reset_override( holder: Resource, row: Dictionary ) {#method-reset-override}
 
 Gives one row of overrides_of back to the template (the entity has the value of the template again)
+
+### void suggest_growth( own: StatsData, theirs: StatsData ) {#method-suggest-growth}
+
+What a template suggests for the growth of an entity: when the entity has no growth profile of its own it takes the one of the template, and the growth entries of the template that the entity has no entry for are added. The entity's own profile and entries always come first. Works on a copy (the game's copy, or the one a preview is worked out from): it is never saved
 

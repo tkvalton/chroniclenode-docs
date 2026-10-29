@@ -44,6 +44,9 @@ Make your own with Create New Resource &gt; AudioProfile, or start from one of t
 | `AudioProfile` | [make_underwater](#method-make-underwater)() *static* |
 | `AudioProfile` | [make_cave](#method-make-cave)() *static* |
 | `AudioProfile` | [make_indoors](#method-make-indoors)() *static* |
+| `AudioProfile` | [make_hall](#method-make-hall)() *static* |
+| `AudioProfile` | [make_muffled](#method-make-muffled)() *static* |
+| `Array[AudioProfile]` | [built_ins](#method-built-ins)() *static* |
 
 ## Constants
 
@@ -163,4 +166,16 @@ In a cave: echo on the sounds of the world, a little less of the music and the h
 ### AudioProfile make_indoors() {#method-make-indoors}
 
 Indoors: the ambiance of the outside is muffled and quieter, a short reverb on the sounds of the room
+
+### AudioProfile make_hall() {#method-make-hall}
+
+A big hall or a cathedral: a long echo on everything the room makes
+
+### AudioProfile make_muffled() {#method-make-muffled}
+
+Behind a wall: everything of the world is dull and quiet (a muffled party next door), the interface is not
+
+### Array[AudioProfile] built_ins() {#method-built-ins}
+
+The profiles the toolkit ships, in the order of the preset menu
 

@@ -8,6 +8,10 @@ Bigger mechanics that many systems share, such as [requirements](/basic/shared-s
 This list is growing. Entries are added as the pages that use them are written.
 :::
 
+## Growth
+
+What an entity gains from its level: a stat or pool that rises by some amount for each level gained. Growth belongs to the entity, through a [growth profile](/basic/entity-stats/growth-profiles) shared by a kind of entity or an entry of its own, never to the stat. A stat that no entry lists does not grow. How it differs from a [template](/basic/entities/templates), and how it works with levels and stats, is on the [Growth](/basic/shared-systems/growth) page.
+
 ## Global cooldown
 
 A short pause that is shared by abilities. When an ability that is *on the global cooldown* is used, it starts the global cooldown, and until it ends no other ability that is on the global cooldown can be used. Abilities that are *not* on it can still be used.
