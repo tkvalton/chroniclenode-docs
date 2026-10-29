@@ -27,6 +27,7 @@ Add one with `Entity.add_movement_claim` and take it away with `Entity.remove_mo
 | `bool` | [vertical_control](#var-vertical-control) | `true` |
 | `Vector3` | [flow_velocity](#var-flow-velocity) | `Vector3.ZERO` |
 | `String` | [footstep_surface](#var-footstep-surface) | `""` |
+| `String` | [footstep_swim](#var-footstep-swim) | `""` |
 | `int` | [priority](#var-priority) | `0` |
 
 ## Enumerations
@@ -100,6 +101,10 @@ How fast the water or the wind carries the entity (a river, a current), in the w
 ### String footstep_surface = "" {#var-footstep-surface}
 
 What the ground sounds like to the entity while it is in this (the kind of ground of its footsteps: "water", "mud", the words of the folders of your footstep sounds). Empty = no say: the ground under it decides
+
+### String footstep_swim = "" {#var-footstep-swim}
+
+What the ground sounds like to an entity that SWIMS in this ("water_deep"): the sounds of its strokes, and of jumping into and out of the water. Empty = the footstep surface above, else "water"
 
 ### int priority = 0 {#var-priority}
 

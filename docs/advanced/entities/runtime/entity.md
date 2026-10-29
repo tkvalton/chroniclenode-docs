@@ -289,6 +289,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `void` | [set_current_target_on](#method-set-current-target-on)() |
 | `void` | [set_current_target_off](#method-set-current-target-off)() |
 | `void` | [set_map_marker_icon](#method-set-map-marker-icon)( `type: Entity.MapMarkerType` ) |
+| `String` | [get_footstep_swim_override](#method-get-footstep-swim-override)() |
 | `String` | [get_footstep_surface_override](#method-get-footstep-surface-override)() |
 | `String` | [get_current_surface_type](#method-get-current-surface-type)() |
 | `Dictionary` | [to_save_data](#method-to-save-data)() |
@@ -1656,6 +1657,10 @@ Takes the target marks off the entity.
 ### void set_map_marker_icon( type: Entity.MapMarkerType ) {#method-set-map-marker-icon}
 
 Sets the picture of the mini map mark of the entity.
+
+### String get_footstep_swim_override() {#method-get-footstep-swim-override}
+
+What the water sounds like to a swimmer, when a movement volume it swims in says so (Footstep Swim): the kind of ground, or "" when nothing says
 
 ### String get_footstep_surface_override() {#method-get-footstep-surface-override}
 

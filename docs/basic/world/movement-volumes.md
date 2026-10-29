@@ -166,6 +166,7 @@ A volume can **carry** whoever is in it, like a river or a wind. It is added to 
 | **Flow strength** | How fast it carries, in metres per second. `0` = it is still | `0` |
 | **Flow direction** | The way it carries, in the space of the volume: **turn the volume** to point it (the default is the front of the volume, -Z) | front |
 | **Flow pushes walkers** | Carries entities that **walk** through it (shallow water that is only waded) too. Off: only swimmers and flyers are carried | off |
+| **Flow scales with width** | *(rivers that wind only)* The water runs faster where the river is narrow and slower where it is wide: the flow strength is the speed at the river's average width, and at each place it is that times the average width over the width there (between half and double). Swimmers are carried that fast and the ripples run that fast. Off: the same speed everywhere | off |
 
 A river is a *Swim* volume with a flow; a wind is a *Fly* volume with a flow. Several volumes add up (a river with a gust over it). A leap out of the water ignores the flow for a moment. The **River** preset is a good start.
 
@@ -233,11 +234,18 @@ When the **camera itself** is inside the volume (under the surface of one that h
 
 | Field | What it does | Default (water) |
 |---|---|---|
-| **Footstep surface** | What the footsteps of whoever is in the volume sound like: the kind of ground, in the words of the folders of your [footstep sounds](/basic/assets/audio#sounds-of-an-entity) (`water`, `mud`, `snow`). It wins over the terrain and the floor while they walk, run or wade in the volume. Empty = the ground under them decides | water |
+| **Footstep surface** | What the footsteps of whoever **walks, runs or wades** in the volume sound like: the kind of ground, in the words of the folders of your [footstep sounds](/basic/assets/audio#sounds-of-an-entity) (`water`, `mud`, `snow`). It wins over the terrain and the floor. Empty = the ground under them decides | water |
+| **Footstep swim** | What the sounds of whoever **swims** in the volume are (`water_deep`): their strokes, and the sounds of jumping into and out of the water. Empty = the footstep surface is used, and `water` when that is empty too | water_deep |
+
+The order of the sounds, for something on foot: the volume (*Footstep surface*), then the floor it stands on (the `surface_type` meta of a StaticBody3D, else the surface of the terrain texture), then the default surface of the terrain.
 
 - **On foot.** A shallow water with *Footstep surface* `water` makes the walk and run sounds of the `water` folder (`motion/humanoid/footsteps/water/walk/`) instead of the grass or rock under it. A mud pit, a swamp, a field of deep snow work the same way: name the volume's ground and put the sounds in that folder. A volume that has no sound for the movement (no `mud/run` folder) leaves the sound to the terrain, so nothing goes silent.
-- **Swimming.** A swimmer makes a **swim sound** (a stroke) every few metres swum: `motion/<type>/footsteps/<surface>/swim/`, with the surface of the volume or `water` when it has none. The distance between strokes is **Footstep stride swim** in the [Gameplay Config](/basic/game-settings/gameplay-config#footsteps). Floating still makes none, and a flying entity makes none. If the swim animation calls for the strokes itself (a *Call Method* track calling `_on_animation_swim_stroke_emit`), the movement adds none.
-- The toolkit's demo has `water/walk`, `water/run` and `water/jump`: add a `water/swim` folder with your strokes to hear the swim sounds.
+- **Swimming.** While an entity swims, **every** sound of its movement is the sound of *Footstep swim*, and never the floor or the terrain under the water.
+  - A **stroke** every few metres swum is the folder `swim`: `motion/<type>/footsteps/<footstep swim>/swim/`. The distance between strokes is **Footstep stride swim** in the [Gameplay Config](/basic/game-settings/gameplay-config#footsteps). Floating still makes none, and a flying entity makes none.
+  - **Jumping into the water** (and not landing: the entity is in the volume) makes the landing sound of the water, once. **Leaping out** of the water makes its take-off sound. Both are the folder `jump` of the same kind of ground (`water_deep/jump/`); a folder `jump_start` or `jump_end` is used first when it exists, so a jump in and a leap out can have their own sounds.
+  - Coming out of the water onto the bank makes no landing sound.
+  - If the swim animation calls for the strokes itself (a *Call Method* track calling `_on_animation_swim_stroke_emit`), the movement adds none.
+- The toolkit's demo has `water/walk`, `water/run` and `water/jump`. Add `water_deep/swim` (your strokes) and `water_deep/jump` (the splash) to hear a swimmer.
 
 With **volumes inside volumes** (a pool in a cave pool) the one the camera entered last decides; when the camera leaves it, the first look comes back. Everything the look changed is put back when the camera is out.
 

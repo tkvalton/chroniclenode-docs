@@ -60,6 +60,7 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 | `float` | [camera_fog_density](#prop-camera-fog-density) | `0.05` |
 | `AudioProfile` | [audio_profile](#prop-audio-profile) | `null` |
 | `String` | [footstep_surface](#prop-footstep-surface) | `""` |
+| `String` | [footstep_swim](#prop-footstep-swim) | `""` |
 
 ## Methods
 
@@ -265,7 +266,11 @@ How the sound changes while the camera is inside (muffled under water; echo in a
 
 ### String footstep_surface = "" {#prop-footstep-surface}
 
-What the footsteps of whoever is in the volume sound like: the kind of ground (the words of the folders of your footstep sounds: "water", "mud", "snow"). It wins over the terrain and the surface type of the floor, while they walk or wade in it. Swimming in it makes the "swim" sounds of the same kind of ground. Empty = the ground under them decides (and a swimmer uses "water")
+What the footsteps of whoever is in the volume sound like while they WALK or WADE: the kind of ground (the words of the folders of your footstep sounds: "water", "mud", "snow"). It wins over the terrain and the surface type of the floor. Empty = the ground under them decides
+
+### String footstep_swim = "" {#prop-footstep-swim}
+
+What the sounds of whoever SWIMS in the volume are: the kind of ground ("water_deep"). A swimmer makes the "swim" sounds of it, and the "jump" sounds when it jumps into the water (and does not land: it is in the volume) or leaps out of it. Empty = the footstep surface above is used, and "water" when that is empty too
 
 ## Method descriptions
 
