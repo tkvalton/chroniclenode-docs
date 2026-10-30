@@ -55,8 +55,8 @@ Change the weather and the time, sun, sky and environment configs, and spawn vis
 | Action | What it does |
 |---|---|
 | [**Create VFX**](/advanced/events-and-quests/actions-environment/create-vfx-action) (`CreateVFXAction`) | Spawn a VFX at a specific position or on a target |
-| [**Set Environment Config**](/advanced/events-and-quests/actions-environment/set-environment-config-action) (`SetEnvironmentConfigAction`) | Change the environment configuration at runtime |
-| [**Set Sky Config**](/advanced/events-and-quests/actions-environment/set-sky-config-action) (`SetSkyConfigAction`) | Change the sky configuration at runtime |
+| [**Set Environment Config**](/advanced/events-and-quests/actions-environment/set-environment-config-action) (`SetEnvironmentConfigAction`) | Change the environment configuration at runtime, at once or blended over seconds (fog, light, sun, colour grade, camera, wind slide to the new look). See [Changing a look over time](/basic/world/world-configs#changing-a-look-over-time) |
+| [**Set Sky Config**](/advanced/events-and-quests/actions-environment/set-sky-config-action) (`SetSkyConfigAction`) | Change the sky configuration at runtime, at once or blended over seconds |
 | [**Set Sun Config**](/advanced/events-and-quests/actions-environment/set-sun-config-action) (`SetSunConfigAction`) | Change the path of the sun at runtime (where it stands and when it rises and sets; how it looks is the Environment config) |
 | [**Set Time Config**](/advanced/events-and-quests/actions-environment/set-time-config-action) (`SetTimeConfigAction`) | Change the time configuration at runtime |
 | [**Set Weather**](/advanced/events-and-quests/actions-environment/set-weather-action) (`SetWeatherAction`) | Change the current map's weather at runtime |

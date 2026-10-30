@@ -11,6 +11,7 @@ Action to change the sky configuration at runtime Applies through system_hub.app
 | | | |
 |---|---|---|
 | `SkyConfig` | [sky_config](#prop-sky-config) |  |
+| `float` | [blend_seconds](#prop-blend-seconds) | `0.0` |
 
 ## Methods
 
@@ -25,6 +26,10 @@ Action to change the sky configuration at runtime Applies through system_hub.app
 ### SkyConfig sky_config {#prop-sky-config}
 
 Sky configuration to apply
+
+### float blend_seconds = 0.0 {#prop-blend-seconds}
+
+Seconds the sky takes to change into it (0 = at once). Colours, clouds and stars slide from one sky to the other
 
 ## Method descriptions
 

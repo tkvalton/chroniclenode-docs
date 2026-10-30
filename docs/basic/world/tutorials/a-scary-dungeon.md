@@ -44,4 +44,5 @@ Look at it in the Environment bar: choose `Dungeon sky` and `Dungeon mood`. When
 |---|---|
 | **The fear lasts as long as a monster is near** | Make a [Screen Look effect](/basic/world/camera-effects#the-screen-look-effect) and a **Camera Shake effect** (mode *While it lasts*) and give them to the player with an aura |
 | **Rumbling in the whole dungeon** | A **Camera Shake** action with a **position** and a **radius** from the boss room: the farther the party is, the weaker it is |
+| **A mood that comes in slowly** | Give the Set Environment Config and Set Sky Config actions a **Blend seconds** (`4`): the dungeon darkens over four seconds as the party goes down the stairs. See [Changing a look over time](/basic/world/world-configs#changing-a-look-over-time) |
 | **A look you can switch off from another event** | Give the Screen Look a name and send a **Screen Look** action with the operation **Clear** and the same name |

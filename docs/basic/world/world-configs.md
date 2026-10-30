@@ -107,6 +107,21 @@ The grade of the numbers is applied after the LUT. When a world has no grade at 
 
 The player's **Colour-blind mode** (Protanopia, Deuteranopia, Tritanopia, with a strength) is baked into the **same** table: one lookup, no extra cost. It corrects the colours **of the world**. The interface colours are the [Accessibility settings](/basic/game-settings/settings#ui). In the Environment Debugger bar, **Colour blindness** shows the world **as a person with that condition sees it**, so you can check that what matters (enemies, loot, water, danger) can still be told apart; it is only for you, the game shows what the player chose.
 
+## Changing a look over time
+
+The **Set Environment Config** and **Set Sky Config** event actions have **Blend seconds**. With `0` the look changes at once, as it always did; with a time the new look **slides in**: walking into a swamp, a quest that turns the valley to winter, a spell that darkens the sky. The blend starts from the look that is **shown now**, even if another change is half way, so there is never a jump.
+
+| What | How it changes |
+|---|---|
+| Numbers (fog density, brightness, exposure, glow amount, the colour grade numbers, wind), colours, directions | Slide from one to the other |
+| Switches and lists of choices (fog on or off, the fog mode, the tonemapper) | Change at the **halfway point** |
+| The **sun** | A look with a sun going to a look with none (or the other way) **fades** the sun through zero instead of switching it: it dims out, then is gone |
+| The **LUT** of the colour grade | **Crossfades** between the two LUTs (or fades in from none) |
+| The **sky** | Colours, clouds and stars slide. A change between a sky shader and a flat background colour switches at the halfway point: to blend smoothly give both looks a sky with the colours you want |
+| The clock, the **path** of the sun, the music | Do not blend (a different path is a different world) |
+
+The change ends exactly on the config you chose. Zones will use the same blend when they get a look of their own.
+
 ## See also
 
 - [Worlds](/basic/world/worlds) to choose configs for a world, [Gameplay Config](/basic/game-settings/gameplay-config) for the fog of war.

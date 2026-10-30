@@ -23,11 +23,18 @@ Preloaded stylized sky shader
 | | |
 |---|---|
 | `void` | [set_day_night_cycle](#method-set-day-night-cycle)( `enabled: bool` ) |
-| `void` | [apply_sky_config](#method-apply-sky-config)( `config: SkyConfig` ) |
+| `void` | [apply_sky_config](#method-apply-sky-config)( `config: SkyConfig, blend_seconds: float = 0.0` ) |
 | `void` | [update_sky_environment](#method-update-sky-environment)( `current_time: float` ) |
 | `Dictionary` | [calculate_sky_parameters](#method-calculate-sky-parameters)( `current_time: float` ) |
 | `void` | [apply_params](#method-apply-params)( `params: Dictionary` ) |
-| `void` | [apply_environment_config](#method-apply-environment-config)( `config: EnvironmentConfig` ) |
+| `void` | [apply_environment_config](#method-apply-environment-config)( `config: EnvironmentConfig, blend_seconds: float = 0.0` ) |
+| `bool` | [is_blending](#method-is-blending)() |
+
+## Signals
+
+### environment_applied( config: EnvironmentConfig ) {#signal-environment-applied}
+
+Sent every time the environment is shown, and at every step of a blend: the sun shines by the Sun Light of the environment that is shown
 
 ## Constants
 
@@ -37,11 +44,11 @@ Preloaded stylized sky shader
 
 ### SkyConfig current_sky_config {#var-current-sky-config}
 
-Currently active sky and environment configurations
+The sky that is shown now (while one sky blends into another: the blend)
 
 ### EnvironmentConfig current_environment_config {#var-current-environment-config}
 
-The environment (sky, light, fog) that is set now.
+The environment (sky, light, fog) that is shown now (while one environment blends into another: the blend).
 
 ### ShaderMaterial sky_material {#var-sky-material}
 
@@ -69,7 +76,7 @@ The manager of time and timers.
 
 Enable or disable day/night cycle (typically called from external system)
 
-### void apply_sky_config( config: SkyConfig ) {#method-apply-sky-config}
+### void apply_sky_config( config: SkyConfig, blend_seconds: float = 0.0 ) {#method-apply-sky-config}
 
 Apply a SkyConfig to reconfigure the sky
 
@@ -85,7 +92,11 @@ Calculate sky parameters based on time of day
 
 Apply parameters from a parameter dictionary to the shader
 
-### void apply_environment_config( config: EnvironmentConfig ) {#method-apply-environment-config}
+### void apply_environment_config( config: EnvironmentConfig, blend_seconds: float = 0.0 ) {#method-apply-environment-config}
 
-Apply an EnvironmentConfig to reconfigure environment settings
+Apply an EnvironmentConfig to reconfigure environment settings. With `blend_seconds` above 0 the environment changes into it over that time (fog, light, sun, colour grade, camera, wind), starting from the look shown now, even if it is in the middle of another change
+
+### bool is_blending() {#method-is-blending}
+
+Is a look changing into another now?
 
