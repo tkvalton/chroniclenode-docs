@@ -31,7 +31,7 @@ A bar opens at the top of the viewport:
 The shadow size setting is not part of the preview: the shadow atlas belongs to the editor's own viewports.
 
 ::: tip A sky you cannot see
-The **Fog** of a new Environment config has **Sky affect** at `1`: fog can fully hide the sky, and the sky shows as one flat colour, whatever the hour. Lower it (try `0` to `0.3`) to see the sky. The preview makes this easy to find.
+The **Fog** of a new Environment config has **Sky affect** at `0.2`, so the sky stays visible and the fog is mostly down by the horizon. At `1` fog fully hides the sky and it shows as one flat colour, whatever the hour. For a mist that lies low (in valleys, on the ground) use **Height** and **Height density**: everything under Height gets foggier the lower it is, at any distance. `0.02` is a light haze, `0.1` is thick. Height is a world height in metres, so it suits flat or gently rolling maps; it is off by default (Height density `0`).
 :::
 
 ## Time
@@ -90,7 +90,7 @@ These are the *artistic* settings of the scene's environment. The costly renderi
 |---|---|
 | **Tonemap** | The algorithm (Filmic by default) and the exposure |
 | **Wind** | The wind of the world: the direction it blows towards on the ground and how strong it is (0 still, 1 a breeze, 2 a storm; a new config has 0.35). Plants sway with it and your own shaders read it: see [Shader globals](/basic/world/shader-globals#the-wind). A weather with its own wind takes its place while it lasts |
-| **Fog Settings** | On/off, the mode, colour, density, how much it blends with the sky, how much it hides the sky (**Sky affect**: `1` hides the sky completely), and sun scatter ("god rays") |
+| **Fog Settings** | On/off, the mode, colour, density, how much it blends with the sky, how much it hides the sky (**Sky affect**: `1` hides the sky completely, the default is `0.2`), a low-lying mist (**Height**, **Height density**), and sun scatter ("god rays") |
 | **Volumetric Fog Settings** | A costlier, more realistic fog: density, colour, emission, light scattering direction, its length, and how much global light and ambient light go into it. Off by default. The **config decides whether the world has volumetric fog**; the player's *Volumetric fog* video setting only turns it off or chooses how smooth it is (it never turns it on in a world that has none) |
 | **Ambient Light** | Where ambient light comes from (the sky, a colour, or none), its colour and brightness, and how much the sky contributes |
 
