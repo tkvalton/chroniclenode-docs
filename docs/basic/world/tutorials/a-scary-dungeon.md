@@ -14,7 +14,7 @@ In this tutorial a dungeon gets a mood of its own (dark, close, a little cold), 
 
 1. Open **World > World Configs > Sky** and click **Create New**: `Dungeon sky`. Set **Background mode** to **Custom Color** and the **Background color** to near black. There is no sky shader to draw.
 2. Open the **Environment** tab, **Create New**: `Dungeon mood`.
-3. In **Sun Light** set **Sun max energy**, **Sun min energy** and **Sun dawn dusk energy** to `0.05`: a faint glow from nowhere. (Underground you can also leave the sun out: the light of your torches is what matters.)
+3. In **Sun Light** untick **Sun enabled**. There is no sun underground: no sunlight and no sun shadows, only what you light yourself (the torches, the ambient light below).
 4. In **Ambient Light** set the **Ambient light source** to a colour (a dim blue-grey) and **Ambient light energy** to `0.4`.
 5. In **Fog Settings** set **Fog density** to `0.03`, the colour dark blue-grey and **Fog sky affect** to `1`.
 

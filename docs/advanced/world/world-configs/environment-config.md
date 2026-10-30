@@ -43,6 +43,7 @@ Controls fog, volumetric fog, tonemap, ambient lighting, and wind. These are art
 | `Color` | [ambient_light_color](#prop-ambient-light-color) | `Color(1, 1, 1, 1)` |
 | `float` | [ambient_light_energy](#prop-ambient-light-energy) | `1.0` |
 | `float` | [ambient_light_sky_contribution](#prop-ambient-light-sky-contribution) | `1.0` |
+| `bool` | [sun_enabled](#prop-sun-enabled) | `true` |
 | `float` | [sun_max_energy](#prop-sun-max-energy) | `1.0` |
 | `float` | [sun_min_energy](#prop-sun-min-energy) | `0.5` |
 | `float` | [sun_dawn_dusk_energy](#prop-sun-dawn-dusk-energy) | `1.0` |
@@ -208,6 +209,10 @@ Ambient light brightness
 How much sky contributes to ambient light (0 = none, 1 = full)
 
 *Sun Light*
+
+### bool sun_enabled = true {#prop-sun-enabled}
+
+Is there a sun here? Off: no sunlight and no sun shadows at all, for an inside, a cave or a dungeon lit only by its own lights (the light nodes and the ambient light of this config). The sky shader, if there is one, loses its sun too: use a flat background colour in the Sky config
 
 ### float sun_max_energy = 1.0 {#prop-sun-max-energy}
 
