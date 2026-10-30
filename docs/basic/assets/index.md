@@ -15,6 +15,7 @@ Unlike the rest of the editor, assets are not `.tres` records with an id. They a
 | [Icons](/basic/assets/icons) | The pictures of items, abilities and the interface, by number | `src/data/icons/` |
 | [Terrain Textures](/basic/assets/terrain-textures) | The textures the terrain is painted with: maps, tiling, surface types, packs | `src/data/worlds/terrain/textures/` |
 | [Foliage](/basic/assets/foliage) | Ground clutter (grass, weeds, pebbles: a mesh) and foliage (trees, bushes: a scene) that the terrain scatters | `src/data/worlds/foliage/` |
+| [Build Size](/basic/assets/build-size) | What the project weighs and where it could weigh less: sizes, duplicates, oversize pictures, sounds, files nothing uses | the whole project |
 
 ## Where to start
 

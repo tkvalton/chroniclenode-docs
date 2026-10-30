@@ -191,6 +191,12 @@ export const groups = [
         "file": "editor_components/editors/assets/audio_database_editor.gd"
       },
       {
+        "name": "BuildSizeEditor",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\build_size_editor.gd",
+        "file": "editor_components/editors/assets/build_size_editor.gd"
+      },
+      {
         "name": "CorePackageEditor",
         "base": "ScrollContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\animation\\core_package_editor.gd",
@@ -1535,6 +1541,12 @@ export const groups = [
         "file": "editor_components/utility/animation_property_mapper.gd"
       },
       {
+        "name": "BuildSizeReport",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\build_size_report.gd",
+        "file": "editor_components/utility/build_size_report.gd"
+      },
+      {
         "name": "DialogManager",
         "base": "Node",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\managers\\dialog_manager.gd",
@@ -1623,6 +1635,12 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\toolbar_icons.gd",
         "file": "editor_components/utility/toolbar_icons.gd"
+      },
+      {
+        "name": "UsedAssets",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\used_assets.gd",
+        "file": "editor_components/utility/used_assets.gd"
       },
       {
         "name": "WorldSceneValidator",

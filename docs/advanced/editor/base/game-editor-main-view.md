@@ -10,6 +10,7 @@ Main container for the unified game editor system
 
 | | | |
 |---|---|---|
+| `BuildSizeEditor` | [build_size_editor](#var-build-size-editor) |  |
 | `ResourceManager  # For ResourceManager-based editors` | [resource_manager](#var-resource-manager) |  |
 | `EditorPlugin` | [plugin](#var-plugin) |  |
 | `DockState` | [dock_state](#var-dock-state) | `DockState.DOCKED` |
@@ -67,6 +68,10 @@ Main container for the unified game editor system
 - **GAME_SETTINGS** = `10`
 
 ## Variable descriptions
+
+### BuildSizeEditor build_size_editor {#var-build-size-editor}
+
+The Build Size tab (made in code: it has no scene).
 
 ### ResourceManager  # For ResourceManager-based editors resource_manager {#var-resource-manager}
 

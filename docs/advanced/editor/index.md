@@ -87,6 +87,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [AnimationPackageTree](/advanced/editor/assets/animation-package-tree) | Specialized tree for managing animation packages with the new simplified structure |
 | [AssetPreviewHeader](/advanced/editor/assets/asset-preview-header) | The top of the info panel of an Assets editor: the **picture** of the selected file, its **name**, a line about it (its kind) and its path. |
 | [AudioDatabaseEditor](/advanced/editor/assets/audio-database-editor) | The editor of the Audio tab (Assets &gt; Audio): the sound effects, music and ambience of the audio library as a tree, with a search bar, an import button, a player to listen to a sound, and the checks of the library. |
+| [BuildSizeEditor](/advanced/editor/assets/build-size-editor) | The Build Size tab of the Assets: scans the project and shows what it weighs and where it could weigh less (BuildSizeReport): by kind and folder, the largest files, duplicates, oversize textures, sounds with a smaller import setting, and the files nothing uses. |
 | [CorePackageEditor](/advanced/editor/assets/core-package-editor) | Dynamic editor for AnimationCoreMap properties Automatically builds UI based on property structure and available animations |
 | [FoliageEditor](/advanced/editor/assets/foliage-editor) | The Foliage tab (Assets &gt; Foliage): the files of the two folders of the foliage library as a tree with a picture of each, and the entry of the file you select. |
 | [IconDatabaseEditor](/advanced/editor/assets/icon-database-editor) | The editor of the Icons tab (Assets &gt; Icons): every icon of the icon library as a grid, by category, with a search bar, an import button and the numbering of new icons. |
@@ -389,6 +390,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | Class | What it is |
 |---|---|
 | [AnimationPropertyMapper](/advanced/editor/tools/animation-property-mapper) | Maps AnimationCoreMap properties to their filesystem folders Used by editors to populate dropdowns and validate animations |
+| [BuildSizeReport](/advanced/editor/tools/build-size-report) | What the project weighs and where it could weigh less: size by kind of file and by folder, the largest files, files that are there twice, textures that are bigger than they need to be, sounds that could be smaller (stereo where the sound is positional, uncompressed where it is short, WAV where it is long), and the files nothing uses (see UsedAssets). |
 | [DialogManager](/advanced/editor/tools/dialog-manager) | Centralized dialog management with guaranteed clean connections |
 | [DocsLinks](/advanced/editor/tools/docs-links) | Where the online documentation is, and which page belongs to which tab of the Database editor. |
 | [EditorThemeManager](/advanced/editor/tools/editor-theme-manager) | Centralized theme and icon management for the Event System Provides consistent theming across all UI components and handles editor integration |
@@ -404,5 +406,6 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [RPGShapeUtility](/advanced/editor/tools/rpg-shape-utility) | Unified utility class for creating RPG area effect shapes Supports both directional (origin-based, facing -Z) and centered (point-based) shapes Includes custom mesh shapes and Godot built-in shape wrappers |
 | [SkeletonSceneConverter](/advanced/editor/tools/skeleton-scene-converter) | Converts existing Skeleton3D scenes into GeneralSkeleton, ModularSkeleton, or CustomSkeleton Adds essential attachment points and weapon meshes based on skeleton type |
 | [ToolbarIcons](/advanced/editor/tools/toolbar-icons) | Turns an SVG file into the picture of a toolbar button. |
+| [UsedAssets](/advanced/editor/tools/used-assets) | Which files does the project use? |
 | [WorldSceneValidator](/advanced/editor/tools/world-scene-validator) | Utility class for validating WorldScene context in editor Used by NPC, InteractableObject, and Trigger area to ensure they're in a valid map |
 <!-- /classes -->
