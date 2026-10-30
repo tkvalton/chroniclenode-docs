@@ -112,6 +112,7 @@ const basicSystems = [
           page('Spawners', '/basic/world/spawners'),
           page('Movement volumes', '/basic/world/movement-volumes'),
           page('Flying', '/basic/world/flying'),
+          page('Camera effects', '/basic/world/camera-effects'),
           page('Shader globals', '/basic/world/shader-globals'),
           page('Audio zones', '/basic/world/audio-zones'),
           page('Encounters', '/basic/world/encounters'),

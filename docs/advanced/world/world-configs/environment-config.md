@@ -16,6 +16,8 @@ Controls fog, volumetric fog, tonemap, ambient lighting, and wind. These are art
 |---|---|---|
 | `Environment.ToneMapper` | [tonemap_mode](#prop-tonemap-mode) | `Environment.TONE_MAPPER_FILMIC` |
 | `float` | [tonemap_exposure](#prop-tonemap-exposure) | `1.0` |
+| `float` | [tonemap_white](#prop-tonemap-white) | `1.0` |
+| `float` | [sky_rotation_degrees](#prop-sky-rotation-degrees) | `0.0` |
 | `Vector3` | [wind_direction](#prop-wind-direction) | `Vector3(1.0, 0.0, 0.0)` |
 | `float` | [wind_intensity](#prop-wind-intensity) | `0.35` |
 | `bool` | [fog_enabled](#prop-fog-enabled) | `true` |
@@ -23,7 +25,9 @@ Controls fog, volumetric fog, tonemap, ambient lighting, and wind. These are art
 | `Color` | [fog_light_color](#prop-fog-light-color) | `Color(0.518, 0.553, 0.608, 1)` |
 | `float` | [fog_density](#prop-fog-density) | `0.01` |
 | `float` | [fog_aerial_perspective](#prop-fog-aerial-perspective) | `0.0` |
-| `float` | [fog_sky_affect](#prop-fog-sky-affect) | `1.0` |
+| `float` | [fog_sky_affect](#prop-fog-sky-affect) | `0.2` |
+| `float` | [fog_height](#prop-fog-height) | `10.0` |
+| `float` | [fog_height_density](#prop-fog-height-density) | `0.0` |
 | `float` | [fog_sun_scatter](#prop-fog-sun-scatter) | `0.0` |
 | `bool` | [volumetric_fog_enabled](#prop-volumetric-fog-enabled) | `false` |
 | `float` | [volumetric_fog_density](#prop-volumetric-fog-density) | `0.0095` |
@@ -39,6 +43,26 @@ Controls fog, volumetric fog, tonemap, ambient lighting, and wind. These are art
 | `Color` | [ambient_light_color](#prop-ambient-light-color) | `Color(1, 1, 1, 1)` |
 | `float` | [ambient_light_energy](#prop-ambient-light-energy) | `1.0` |
 | `float` | [ambient_light_sky_contribution](#prop-ambient-light-sky-contribution) | `1.0` |
+| `float` | [glow_amount](#prop-glow-amount) | `1.0` |
+| `float` | [ssao_amount](#prop-ssao-amount) | `1.0` |
+| `float` | [exposure](#prop-exposure) | `1.0` |
+| `bool` | [auto_exposure_enabled](#prop-auto-exposure-enabled) | `false` |
+| `float` | [auto_exposure_speed](#prop-auto-exposure-speed) | `0.5` |
+| `float` | [auto_exposure_scale](#prop-auto-exposure-scale) | `0.4` |
+| `bool` | [dof_far_enabled](#prop-dof-far-enabled) | `false` |
+| `float` | [dof_far_distance](#prop-dof-far-distance) | `20.0` |
+| `float` | [dof_far_transition](#prop-dof-far-transition) | `10.0` |
+| `bool` | [dof_near_enabled](#prop-dof-near-enabled) | `false` |
+| `float` | [dof_near_distance](#prop-dof-near-distance) | `2.0` |
+| `float` | [dof_near_transition](#prop-dof-near-transition) | `1.0` |
+| `float` | [dof_amount](#prop-dof-amount) | `0.1` |
+| `Texture2D` | [grade_lut](#prop-grade-lut) |  |
+| `float` | [grade_lut_strength](#prop-grade-lut-strength) | `1.0` |
+| `float` | [grade_brightness](#prop-grade-brightness) | `1.0` |
+| `float` | [grade_contrast](#prop-grade-contrast) | `1.0` |
+| `float` | [grade_saturation](#prop-grade-saturation) | `1.0` |
+| `Color` | [grade_tint](#prop-grade-tint) | `Color.WHITE` |
+| `float` | [grade_tint_amount](#prop-grade-tint-amount) | `0.0` |
 
 ## Property descriptions
 
@@ -51,6 +75,16 @@ Tonemapping algorithm
 ### float tonemap_exposure = 1.0 {#prop-tonemap-exposure}
 
 Overall brightness adjustment
+
+### float tonemap_white = 1.0 {#prop-tonemap-white}
+
+The brightness that is shown as pure white (higher = a flatter, less burnt picture). Filmic, ACES and AgX tonemappers use it
+
+*Sky*
+
+### float sky_rotation_degrees = 0.0 {#prop-sky-rotation-degrees}
+
+Turns the whole sky (clouds, stars, the colours) around the vertical axis, in degrees. The sun is not moved: its direction is in the Sun config
 
 *Wind*
 
@@ -84,9 +118,17 @@ Fog density (higher = thicker fog)
 
 Blend between fog color and sky color (0 = fog color, 1 = sky color)
 
-### float fog_sky_affect = 1.0 {#prop-fog-sky-affect}
+### float fog_sky_affect = 0.2 {#prop-fog-sky-affect}
 
-How much fog affects sky rendering (0 = no effect, 1 = full effect)
+How much fog affects sky rendering (0 = no effect, 1 = full effect). Low keeps the sky clear and the fog down on the ground
+
+### float fog_height = 10.0 {#prop-fog-height}
+
+Height (in metres, world Y) under which the fog gets thicker the lower things are: a mist that lies in the valleys and on the ground. Needs Height Density above 0
+
+### float fog_height_density = 0.0 {#prop-fog-height-density}
+
+How quickly the fog thickens below Height (0 = no height fog). It works on what is under Height at any distance: 0.02 is a light haze, 0.1 is thick (something 10 m under Height is 63 % fogged)
 
 ### float fog_sun_scatter = 0.0 {#prop-fog-sun-scatter}
 
@@ -151,4 +193,90 @@ Ambient light brightness
 ### float ambient_light_sky_contribution = 1.0 {#prop-ambient-light-sky-contribution}
 
 How much sky contributes to ambient light (0 = none, 1 = full)
+
+*Glow and Occlusion*
+
+### float glow_amount = 1.0 {#prop-glow-amount}
+
+How strongly bright things glow in this world: 0 = no glow even if the player turned Glow on, 1 = normal, up to 4. The player's Glow setting still switches it on or off
+
+### float ssao_amount = 1.0 {#prop-ssao-amount}
+
+How dark corners and contact shadows are in this world (screen space ambient occlusion): 0 = none even if the player turned it on, 1 = normal, up to 4
+
+*Camera*
+
+### float exposure = 1.0 {#prop-exposure}
+
+How bright the picture is as the camera sees it (1 = as it is). Not the same as the player's Brightness setting
+
+### bool auto_exposure_enabled = false {#prop-auto-exposure-enabled}
+
+The camera adapts to dark and bright places, as an eye does (Forward+ renderer only)
+
+### float auto_exposure_speed = 0.5 {#prop-auto-exposure-speed}
+
+How fast the exposure adapts (higher = faster)
+
+### float auto_exposure_scale = 0.4 {#prop-auto-exposure-scale}
+
+How strongly the auto exposure works: 0 = not at all, higher = brighter darks
+
+### bool dof_far_enabled = false {#prop-dof-far-enabled}
+
+Blur what is far from the camera (Forward+ and Mobile renderers). Off by default: it changes the whole feel of a game
+
+### float dof_far_distance = 20.0 {#prop-dof-far-distance}
+
+From this distance (metres) things start to blur
+
+### float dof_far_transition = 10.0 {#prop-dof-far-transition}
+
+Over how many metres the blur grows to its full amount
+
+### bool dof_near_enabled = false {#prop-dof-near-enabled}
+
+Blur what is very close to the camera
+
+### float dof_near_distance = 2.0 {#prop-dof-near-distance}
+
+Things closer than this (metres) are blurred
+
+### float dof_near_transition = 1.0 {#prop-dof-near-transition}
+
+Over how many metres the blur fades out
+
+### float dof_amount = 0.1 {#prop-dof-amount}
+
+How strong the blur is at its most
+
+*Colour Grade*
+
+### Texture2D grade_lut {#prop-grade-lut}
+
+A colour lookup table (LUT): a picture of a strip of N squares of N by N (16 squares of 16 by 16 = 256 x 16), graded in any image editor. Start from assets/color_grading/neutral_lut_16.png. Empty = none
+
+### float grade_lut_strength = 1.0 {#prop-grade-lut-strength}
+
+How much of the LUT is used (0 = none, 1 = all of it)
+
+### float grade_brightness = 1.0 {#prop-grade-brightness}
+
+Brightness of the colours (1 = as they are)
+
+### float grade_contrast = 1.0 {#prop-grade-contrast}
+
+How far apart darks and lights are (1 = as they are)
+
+### float grade_saturation = 1.0 {#prop-grade-saturation}
+
+How strong the colours are (1 = as they are, 0 = black and white)
+
+### Color grade_tint = Color.WHITE {#prop-grade-tint}
+
+A colour the picture is tinted with (a cold blue for a cave, a warm orange for a desert)
+
+### float grade_tint_amount = 0.0 {#prop-grade-tint-amount}
+
+How much of the tint is used (0 = none)
 

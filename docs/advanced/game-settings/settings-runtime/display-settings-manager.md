@@ -19,7 +19,7 @@ DisplaySettingsManager handles video and graphics settings in the game. It contr
 |---|---|
 | `void` | [bind](#method-bind)( `target: WorldEnvironment` ) |
 | `void` | [apply_settings](#method-apply-settings)( `settings: SettingsConfig` ) |
-| `void` | [restore_defaults](#method-restore-defaults)( `settings: SettingsConfig` ) |
+| `bool` | [apply_property](#method-apply-property)( `settings: SettingsConfig, property_name: String, value: Variant` ) |
 | `void` | [apply_world_environment_settings](#method-apply-world-environment-settings)( `settings: SettingsConfig` ) |
 | `void` | [set_window_mode](#method-set-window-mode)( `settings: SettingsConfig, window_mode_option: SettingsConfig.WindowModeOption` ) |
 | `SettingsConfig.WindowModeOption` | [get_window_mode_option](#method-get-window-mode-option)( `settings: SettingsConfig` ) |
@@ -76,9 +76,9 @@ Points the manager at an Environment node (the one of the game, or the preview o
 
 Applies settings to the display system
 
-### void restore_defaults( settings: SettingsConfig ) {#method-restore-defaults}
+### bool apply_property( settings: SettingsConfig, property_name: String, value: Variant ) {#method-apply-property}
 
-Restore default display settings
+Changes ONE video setting from its name (what the settings menu does when the player moves a control): the value is stored in `settings` and applied to the viewport, the window or the world at once. Returns false when the name is not a video setting handled here (the caller then just stores the value).
 
 ### void apply_world_environment_settings( settings: SettingsConfig ) {#method-apply-world-environment-settings}
 

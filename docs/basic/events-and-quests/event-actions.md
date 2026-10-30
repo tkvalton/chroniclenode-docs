@@ -175,6 +175,8 @@ Change how the ground looks in the weather.
 
 | Action | What it does |
 |---|---|
+| [**Camera Shake**](/advanced/events-and-quests/actions-environment/camera-shake-action) (`CameraShakeAction`) | Shakes the camera of the player: amount, duration, and optionally a position and a radius so it is weaker the farther the camera is. See [Camera effects](/basic/world/camera-effects) |
+| [**Screen Look**](/advanced/events-and-quests/actions-environment/screen-look-action) (`ScreenLookAction`) | Sets a named look of the screen (tint, vignette, blur, grey, colour fringes, grain, field of view kick), for a time or until another Screen Look action clears it by name. See [Camera effects](/basic/world/camera-effects) |
 | [**Set Ground Weather**](/advanced/events-and-quests/actions-environment/set-ground-weather-action) (`SetGroundWeatherAction`) | Changes how the terrain looks in the weather: how wet the ground is, how much snow lies on it, and its tint (a season). The levels can be set once or held until released. See [Ground weather](/basic/world/ground-weather). |
 
 ## Spawner

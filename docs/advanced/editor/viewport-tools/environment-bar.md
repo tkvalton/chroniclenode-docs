@@ -22,6 +22,7 @@ The bar at the top of the 3D viewport while the environment preview is on: which
 | `Button` | [play_button](#var-play-button) |  |
 | `SpinBox` | [speed_spin](#var-speed-spin) |  |
 | `CheckBox` | [video_check](#var-video-check) |  |
+| `OptionButton` | [blind_option](#var-blind-option) |  |
 
 ## Methods
 
@@ -87,6 +88,10 @@ The configs the world has by itself (its overrides, else the defaults): marked i
 *No description yet.*
 
 ### CheckBox video_check {#var-video-check}
+
+*No description yet.*
+
+### OptionButton blind_option {#var-blind-option}
 
 *No description yet.*
 

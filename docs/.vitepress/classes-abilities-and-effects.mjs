@@ -845,6 +845,12 @@ export const groups = [
         "file": "data_classes/effects/status_and_control/effect_ability_reflect.gd"
       },
       {
+        "name": "CameraShakeEffect",
+        "base": "Effect",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\status_and_control\\effect_camera_shake.gd",
+        "file": "data_classes/effects/status_and_control/effect_camera_shake.gd"
+      },
+      {
         "name": "CharmEffect",
         "base": "Effect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\status_and_control\\effect_charm.gd",
@@ -909,6 +915,12 @@ export const groups = [
         "base": "Effect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\status_and_control\\effect_school_lock.gd",
         "file": "data_classes/effects/status_and_control/effect_school_lock.gd"
+      },
+      {
+        "name": "ScreenLookEffect",
+        "base": "Effect",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\status_and_control\\effect_screen_look.gd",
+        "file": "data_classes/effects/status_and_control/effect_screen_look.gd"
       },
       {
         "name": "StatusEffect",

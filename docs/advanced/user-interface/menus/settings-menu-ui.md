@@ -29,6 +29,7 @@ Dynamically builds and manages the runtime settings menu from Settings resource
 | | |
 |---|---|
 | `void` | [initialize_ui](#method-initialize-ui)( `system_hub: GameHost.SystemHub` ) |
+| `bool` | [is_accessible](#method-is-accessible)( `accessible: Dictionary, prop_name: String` ) *static* |
 | `void` | [hide_setting_description](#method-hide-setting-description)() |
 | `void` | [restore_default_settings](#method-restore-default-settings)() |
 | `void` | [on_exit_pressed](#method-on-exit-pressed)() |
@@ -84,6 +85,10 @@ SystemRefs
 ### void initialize_ui( system_hub: GameHost.SystemHub ) {#method-initialize-ui}
 
 Sets the part up with the hub of the game systems: connects the signals it listens to and fills it.
+
+### bool is_accessible( accessible: Dictionary, prop_name: String ) {#method-is-accessible}
+
+Does the player see this setting? A setting the game has not decided about (it is not in the list yet: it was added after the Game Settings were saved) is shown, as the Game Settings editor shows it ticked; the developer hides it by unticking it.
 
 ### void hide_setting_description() {#method-hide-setting-description}
 

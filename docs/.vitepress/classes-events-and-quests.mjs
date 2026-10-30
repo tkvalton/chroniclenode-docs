@@ -857,10 +857,22 @@ export const groups = [
     "slug": "actions-environment",
     "classes": [
       {
+        "name": "CameraShakeAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\enviromental\\camera_shake_action.gd",
+        "file": "data_classes/events/event_actions/enviromental/camera_shake_action.gd"
+      },
+      {
         "name": "CreateVFXAction",
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\enviromental\\create_vfx_action.gd",
         "file": "data_classes/events/event_actions/enviromental/create_vfx_action.gd"
+      },
+      {
+        "name": "ScreenLookAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\enviromental\\screen_look_action.gd",
+        "file": "data_classes/events/event_actions/enviromental/screen_look_action.gd"
       },
       {
         "name": "SetEnvironmentConfigAction",

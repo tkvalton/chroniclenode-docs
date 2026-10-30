@@ -17,12 +17,13 @@ Everything the party meets in a world is placed in the scene and stored as a **u
 | [Trigger areas](/basic/world/trigger-areas) | Invisible areas of the map that [quests](/basic/events-and-quests/quests) and events can watch (formerly regions) |
 | [Spawn tables](/basic/world/spawn-tables) | What can appear and how likely each thing is (NPCs in groups, interactables, dropped items and money, nothing): the lists the [spawners](/basic/world/spawners) roll |
 | [Spawners](/basic/world/spawners) | Nodes that make NPCs, objects and items appear from a spawn table and keep the place alive (Point spawner built; Volume and Painted planned) |
-| [Zones](/basic/world/zones) | Named places of the map with sub-zones: a banner when the party enters, events, quest objectives and text tokens; painted on the terrain, or placed as volumes |
+| [Zones](/basic/world/zones) | Named places of the map with sub-zones: a banner when the party enters, events, quest objectives and [text tokens](/basic/shared-systems/text-tokens); painted on the terrain, or placed as volumes |
 | [Ground weather](/basic/world/ground-weather) | The ground gets wet and snowy with the weather, takes time to dry, can be sheltered by a zone, and can be tinted as a season |
 | [Terrain streaming](/basic/world/terrain-streaming) | A world of many kilometres: only the tiles round the party are in memory |
 | [Other terrain plugins](/basic/world/terrain-plugins) | Terrain3D, HTerrain, TerraBrush or a voxel terrain: what the toolkit reads from each, and what needs the terrain of the toolkit |
 | [Terrain](/basic/world/terrain) | The ground: make the terrain of a map, add tiles, save, and check it. With [Sculpting](/basic/world/terrain-sculpting) and [Painting](/basic/world/terrain-painting) for the brushes, and [Terrain Textures](/basic/assets/terrain-textures) for the library |
 | [Movement volumes](/basic/world/movement-volumes) | Water to swim in, a room with no gravity, a pool of lava: spaces that change how whoever is in them moves, with breath and a look for the camera |
+| [Camera effects](/basic/world/camera-effects) | How the screen looks (tint, vignette, blur, grey) and the shake of the camera, from effects, events and water; what the player can turn down |
 | [Audio zones](/basic/world/audio-zones) | Caves, houses and tunnels that change how the world sounds while the camera is inside: muffle, echo and volume for each audio channel |
 | [Encounters](/basic/world/encounters) | A group of NPCs that fights as one, with formations and reactions |
 

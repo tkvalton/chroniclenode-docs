@@ -36,7 +36,7 @@ The settings are in tabs. Next to every setting is a **checkbox**: ticked means 
 |---|---|---|
 | **UI scale** | Size of the HUD and the panels, `0.5` to `1.5` | `1` |
 | **Text size** | Size of the text, `0.5` to `1.5` | `1` |
-| **Nameplates** | Four kinds of nameplate, each on or off and each with its own **only in combat** choice: **player** characters friendly to you (yourself, your party: off by default), **friendly** NPCs (vendors, quest givers, allies: on, only in combat by default), **enemy** (hostile and neutral NPCs, players against you: on) and **pet**; one more choice puts every kind in combat only (the nameplates of the player's side show while you or they are in combat, an enemy while it is in combat itself); what auras show (none, buffs, debuffs, both); what auras show (none, buffs, debuffs, both); health text (none, current, current and maximum, percent...); resource bar; cast bar; class colours; the maximum distance (`0` = unlimited) | all on, 80 m |
+| **Nameplates** | Four kinds of nameplate, each on or off and each with its own **only in combat** choice: **player** characters friendly to you (yourself, your party: off by default), **friendly** NPCs (vendors, [quest](/basic/events-and-quests/quests) givers, allies: on, only in combat by default), **enemy** (hostile and neutral NPCs, players against you: on) and **pet**; one more choice puts every kind in combat only (the nameplates of the player's side show while you or they are in combat, an enemy while it is in combat itself); what auras show (none, buffs, debuffs, both); what auras show (none, buffs, debuffs, both); health text (none, current, current and maximum, percent...); resource bar; cast bar; class colours; the maximum distance (`0` = unlimited) | all on, 80 m |
 | **Party Frames** | Health text, resource bars, which debuffs show, class colour on the health bar | on |
 | **Action Bar** | [Cooldown](/basic/keywords#cooldown) text, [global cooldown](/basic/keywords#global-cooldown) text, left-click to use a button (*not used yet*), health and resource text, cast bar | on |
 | **Accessibility** | The colours that stand for **the player**, **friendly**, **hostile**, **neutral** and **pet** entities (for colour-blind players), the colours of the interruptible and uninterruptible **cast bar**, and the action bar's cast bar and health bar | blue, green, red, yellow, light blue |
@@ -54,6 +54,7 @@ The settings are in tabs. Next to every setting is a **checkbox**: ticked means 
 | **Quality** | Shadow size, shadow quality, mesh level of detail | Medium, Medium, High |
 | **Advanced Graphics** | Resolution scaling (bilinear, FSR 1.0, FSR 2.2) with FSR sharpness; screen-space reflections, ambient occlusion and indirect lighting; SDFGI; glow; volumetric fog | mostly low or off |
 | **Adjustments** | Brightness, contrast and saturation, `0.1` to `2` | `1` |
+| **Camera and Screen** | **Field of view offset** (degrees wider or narrower than the camera of the game, `-30` to `30`), **Camera shake** (`0` to `1`), **Screen effects** (Off, Reduced, Full), **Depth of field** (on/off, in the worlds that have it) and **Colour-blind mode** (None, Protanopia, Deuteranopia, Tritanopia) with its **strength**. See [Camera effects](/basic/world/camera-effects) | `0`, `1`, Full, on, None, `1` |
 
 ### Audio
 

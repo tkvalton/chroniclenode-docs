@@ -85,6 +85,12 @@ Class representing the game settings
 | `float` | [brightness](#prop-brightness) | `1.0` |
 | `float` | [contrast](#prop-contrast) | `1.0` |
 | `float` | [saturation](#prop-saturation) | `1.0` |
+| `float` | [field_of_view_offset](#prop-field-of-view-offset) | `0.0` |
+| `float` | [camera_shake](#prop-camera-shake) | `1.0` |
+| `ScreenEffectsOption` | [screen_effects](#prop-screen-effects) | `ScreenEffectsOption.FULL` |
+| `bool` | [depth_of_field](#prop-depth-of-field) | `true` |
+| `ColourBlindOption` | [colour_blind_mode](#prop-colour-blind-mode) | `ColourBlindOption.NONE` |
+| `float` | [colour_blind_strength](#prop-colour-blind-strength) | `1.0` |
 | `float` | [master_volume](#prop-master-volume) | `1.0` |
 | `float` | [music_volume](#prop-music-volume) | `1` |
 | `float` | [sfx_volume](#prop-sfx-volume) | `1` |
@@ -281,6 +287,23 @@ Enumeration of valid volumetric fog options for the game's settings
 - **DISABLED** = `0`
 - **LOW** = `1`
 - **HIGH** = `2`
+
+### enum ScreenEffectsOption {#enum-screeneffectsoption}
+
+How much of the screen effects of the game the player wants (a stun's blur, a hurt vignette, flashes, grain, a shake of the field of view)
+
+- **OFF** = `0`
+- **REDUCED** = `1`
+- **FULL** = `2`
+
+### enum ColourBlindOption {#enum-colourblindoption}
+
+The kinds of colour blindness the picture of the world can be corrected for
+
+- **NONE** = `0`
+- **PROTANOPIA** = `1`
+- **DEUTERANOPIA** = `2`
+- **TRITANOPIA** = `3`
 
 ### enum AurasOptions {#enum-aurasoptions}
 
@@ -617,45 +640,71 @@ The currenly selected resolution scaling mode
 
 ### float fsr_sharpness = 1.0 {#prop-fsr-sharpness}
 
-The current value for fsr sharpness
+How sharp the picture is when the resolution scaling mode is FSR (higher = sharper)
 
 ### SSROption SSR = SSROption.DISABLED {#prop-ssr}
 
-The currently selected shadow size
+Screen space reflections: shiny surfaces (water, wet ground, metal) reflect what is on the screen. Costs frame rate
 
 ### SSAOOption SSAO = SSAOOption.DISABLED {#prop-ssao}
 
-The currently selected shadow quality
+Screen space ambient occlusion: soft shadows in corners and where things touch. Costs frame rate
 
 ### SSILOption SSIL = SSILOption.LOW {#prop-ssil}
 
-The currently selected mesh lod mode
+Screen space indirect lighting: lit surfaces bounce a little light onto their neighbours. Costs frame rate
 
 ### SDFGIOption sdfgi = SDFGIOption.LOW {#prop-sdfgi}
 
-The currently selected shadow size
+Global illumination: light bounces around the whole scene. Low is half resolution, High full resolution. Costs a lot of frame rate
 
 ### GlowOption glow = GlowOption.LOW {#prop-glow}
 
-The currently selected shadow quality
+Glow (bloom): bright things glow. Low is cheaper, High is smoother
 
 ### VolumetricFogOption volumetric_fog = VolumetricFogOption.LOW {#prop-volumetric-fog}
 
-The currently selected mesh lod mode
+Volumetric fog: fog that light shines through, if the world has it. Low is cheaper, High is smoother
 
 *Adjustments*
 
 ### float brightness = 1.0 {#prop-brightness}
 
-The current value for fsr sharpness
+How bright the picture is (1 = as the game made it)
 
 ### float contrast = 1.0 {#prop-contrast}
 
-The current value for fsr sharpness
+How far apart the darks and lights are (1 = as the game made it)
 
 ### float saturation = 1.0 {#prop-saturation}
 
-The current value for fsr sharpness
+How strong the colours are (1 = as the game made it, 0.1 nearly grey)
+
+*Camera and Screen*
+
+### float field_of_view_offset = 0.0 {#prop-field-of-view-offset}
+
+How much wider (or narrower) the camera sees than the game made it, in degrees: 0 = as the game made it. The game keeps the result between 30 and 120 degrees
+
+### float camera_shake = 1.0 {#prop-camera-shake}
+
+How much the camera shakes (explosions, hits, quakes): 1 = as the game made it, 0 = not at all
+
+### ScreenEffectsOption screen_effects = ScreenEffectsOption.FULL {#prop-screen-effects}
+
+How many screen effects there are: off, reduced (tints and a soft vignette only) or full
+
+### bool depth_of_field = true {#prop-depth-of-field}
+
+Blur of things that are far or very close to the camera, in the worlds that have it
+
+### ColourBlindOption colour_blind_mode = ColourBlindOption.NONE {#prop-colour-blind-mode}
+
+Corrects the colours of the world for a kind of colour blindness (the interface colours are in the Accessibility settings)
+
+### float colour_blind_strength = 1.0 {#prop-colour-blind-strength}
+
+How strong the colour-blind correction is (1 = full)
 
 *Audio*
 

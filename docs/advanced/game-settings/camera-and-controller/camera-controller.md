@@ -17,6 +17,7 @@ Moves the camera of the player: it holds the current camera logic, the camera so
 | `RemoteTransform3D` | [minimap_transform](#var-minimap-transform) |  |
 | `DirectionalLight3D` | [mini_map_light](#var-mini-map-light) |  |
 | `RemoteTransform3D` | [weather_transform](#var-weather-transform) |  |
+| `CameraLook` | [look](#var-look) |  |
 
 ## Methods
 
@@ -62,6 +63,10 @@ The light of the mini map.
 ### RemoteTransform3D weather_transform {#var-weather-transform}
 
 The remote transform that moves the weather with the player camera.
+
+### CameraLook look {#var-look}
+
+The look of the screen and the shake of the camera (an effect, an event, a zone or the water asks it): see CameraLook.
 
 ## Method descriptions
 

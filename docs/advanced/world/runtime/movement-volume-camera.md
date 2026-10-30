@@ -20,6 +20,7 @@ The look the screen gets while the camera is inside a movement volume (underwate
 ## Constants
 
 - `int` **OVERLAY_LAYER** = `90`
+- `String` **LOOK_KEY** = `"movement_volume"` - The key of the tint in the layers of the CameraLook (with a camera in the game the tint is a layer of its look, under the interface; without one, as in a test, it is a rect of its own)
 
 ## Method descriptions
 

@@ -209,6 +209,12 @@ export const groups = [
         "file": "runtime_classes/player/camera/camera_logic.gd"
       },
       {
+        "name": "CameraLook",
+        "base": "Node",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\player\\camera\\camera_look.gd",
+        "file": "runtime_classes/player/camera/camera_look.gd"
+      },
+      {
         "name": "ControllerLogic",
         "base": "Resource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\player\\controller\\controller_logic.gd",
@@ -279,6 +285,12 @@ export const groups = [
         "base": "Node3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\player\\controller\\radius_marker.gd",
         "file": "runtime_classes/player/controller/radius_marker.gd"
+      },
+      {
+        "name": "ScreenLook",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\player\\camera\\screen_look.gd",
+        "file": "runtime_classes/player/camera/screen_look.gd"
       },
       {
         "name": "ThirdPersonCameraLogic",

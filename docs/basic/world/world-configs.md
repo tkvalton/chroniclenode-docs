@@ -25,6 +25,7 @@ A bar opens at the top of the viewport:
 | **Time** | The hour of the day: the sun, the sky colours, the stars and the light follow it. **Play** lets the day go by (the speed is in hours of the game per second) |
 | **Default video settings** | Shows it with the video settings of the project (the defaults you set in Game Settings): reflections, ambient occlusion, indirect light, glow, volumetric fog quality, brightness, contrast and saturation. Off: none of those |
 | **Use for this world** | Makes the shown Sun, Sky and Environment the configs of this world (a config that is the default is stored as *no override*) and saves the world |
+| **Colour blindness** | Shows the world as a person with that kind of colour blindness sees it (normal vision, no red, no green, no blue), to check that things can be told apart. Only a view for you: the game uses the player's own setting |
 | **World's own** | Goes back to the configs the world has now |
 | **World Configs** | Opens the editor of the configs. The preview **follows every change you make there** (each change is saved and the viewport shows it when you come back to it). **Refresh** only reads the lists again, for a config you just made |
 
@@ -88,11 +89,30 @@ These are the *artistic* settings of the scene's environment. The costly renderi
 
 | Group | What it sets |
 |---|---|
-| **Tonemap** | The algorithm (Filmic by default) and the exposure |
+| **Tonemap** | The algorithm (Filmic by default), the exposure, and **Tonemap white** (the brightness shown as pure white: higher = a flatter, less burnt picture) |
+| **Sky** | **Sky rotation degrees**: turns the whole sky (clouds, stars, colours) around. The sun is not moved: its direction is in the Sun config |
 | **Wind** | The wind of the world: the direction it blows towards on the ground and how strong it is (0 still, 1 a breeze, 2 a storm; a new config has 0.35). Plants sway with it and your own shaders read it: see [Shader globals](/basic/world/shader-globals#the-wind). A weather with its own wind takes its place while it lasts |
 | **Fog Settings** | On/off, the mode, colour, density, how much it blends with the sky, how much it hides the sky (**Sky affect**: `1` hides the sky completely, the default is `0.2`), a low-lying mist (**Height**, **Height density**), and sun scatter ("god rays") |
 | **Volumetric Fog Settings** | A costlier, more realistic fog: density, colour, emission, light scattering direction, its length, and how much global light and ambient light go into it. Off by default. The **config decides whether the world has volumetric fog**; the player's *Volumetric fog* video setting only turns it off or chooses how smooth it is (it never turns it on in a world that has none) |
 | **Ambient Light** | Where ambient light comes from (the sky, a colour, or none), its colour and brightness, and how much the sky contributes |
+| **Glow and Occlusion** | **Glow amount** and **SSAO amount**: how much of the effect *this world* has (`1` normal, `0` none, up to `4`). The player's Glow and Ambient occlusion settings stay the **switch and the quality**: with `0` a world has none even when the player turned it on, and with `2` it glows twice as much for the player who has it on. A neon city wants more glow, a desert almost none |
+| **Camera** | The camera of the world: **Exposure**, **Auto exposure** (the camera adapts to dark and bright places; speed and scale), and **depth of field** (**far** blur from a distance, **near** blur, and the amount). Off by default: depth of field and auto exposure change the whole feel of a game, so a developer opts in. The player has a **Depth of field** setting that turns the world's blur off |
+| **Colour Grade** | The colours of this world: **Brightness**, **Contrast**, **Saturation**, a **Tint** and its amount, and a **LUT** (below). All of it is baked into **one colour lookup table** that the renderer applies while it tonemaps, so a grade costs nothing. The player's own Brightness, Contrast and Saturation are applied first and the grade after them |
+
+### The colour grade and the LUT
+
+A **LUT** (colour lookup table) is a small picture that says what each colour becomes: any look a colourist can make (a sepia flashback, teal and orange, a cold dungeon) in one file.
+
+1. Open `assets/color_grading/neutral_lut_16.png` (a strip of 16 squares of 16 by 16: every colour comes out as it went in; `neutral_lut_32.png` has 32 squares for finer grades).
+2. Put a screenshot of your game in an image editor (Krita, GIMP, Photoshop), put the neutral strip next to it in the same image, and grade the whole image (curves, colour balance, hue and saturation).
+3. Cut the strip out again and save it as a picture. It must still be a strip of N squares of N by N (256 x 16 for 16 squares).
+4. Give it to **Colour Grade > Grade lut** of the Environment config. **Grade lut strength** (`0` to `1`) mixes it with the original.
+
+The grade of the numbers is applied after the LUT. When a world has no grade at all there is no table and no cost. Free LUT packs for other engines work as they are if they are saved as a horizontal strip.
+
+### Colour blindness
+
+The player's **Colour-blind mode** (Protanopia, Deuteranopia, Tritanopia, with a strength) is baked into the **same** table: one lookup, no extra cost. It corrects the colours **of the world**. The interface colours are the [Accessibility settings](/basic/game-settings/settings#ui). In the Environment Debugger bar, **Colour blindness** shows the world **as a person with that condition sees it**, so you can check that what matters (enemies, loot, water, danger) can still be told apart; it is only for you, the game shows what the player chose.
 
 ## See also
 
