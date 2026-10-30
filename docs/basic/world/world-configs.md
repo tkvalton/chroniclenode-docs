@@ -26,7 +26,7 @@ A bar opens at the top of the viewport:
 | **Default video settings** | Shows it with the video settings of the project (the defaults you set in Game Settings): reflections, ambient occlusion, indirect light, glow, volumetric fog quality, brightness, contrast and saturation. Off: none of those |
 | **Use for this world** | Makes the shown Sun, Sky and Environment the configs of this world (a config that is the default is stored as *no override*) and saves the world |
 | **World's own** | Goes back to the configs the world has now |
-| **World Configs** | Opens the editor of the configs. After a change press **Refresh** and the preview shows it |
+| **World Configs** | Opens the editor of the configs. The preview **follows every change you make there** (each change is saved and the viewport shows it when you come back to it). **Refresh** only reads the lists again, for a config you just made |
 
 The shadow size setting is not part of the preview: the shadow atlas belongs to the editor's own viewports.
 
@@ -52,14 +52,14 @@ The sun is a directional light that follows the clock.
 |---|---|---|
 | **Day night cycle** | On: the sun moves and changes with the time. Off: a static sun | on |
 
-**With the cycle off (Static Sun):** a fixed **rotation**, **light energy** and **light color**.
+**With the cycle off (Static Sun):** a fixed **rotation** (the height of the sun: `0` on the horizon, `-90` straight overhead; the direction it shines from is the **Sun Direction**), **light energy** and **light color**.
 
 **With the cycle on:**
 
 | Group | Fields |
 |---|---|
 | **Day Night Timing** | The hour the sun **rises** (`6`) and **sets** (`20.5`) |
-| **Rotation** | The angle of the sun at noon (`-45`) and at midnight (`45`) |
+| **Sun Direction** | The **heading** of the sun's path, in degrees (also for a static sun). `90` (the default): the sun rises in the east (+X), is overhead at midday and sets in the west (-X), the way the maps are laid out. `0` is the old path: rising to the south (+Z), setting to the north (-Z). `180` and `270` are the opposite ones |
 | **Light Intensity** | The **maximum** energy at noon, the **minimum** at night, the energy at **dawn and dusk** |
 | **Light Colors** | The colours of day, dawn, dusk and night light |
 

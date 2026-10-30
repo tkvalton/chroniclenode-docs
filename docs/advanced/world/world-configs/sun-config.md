@@ -20,8 +20,7 @@ Controls the appearance, behavior, and timing of the sun (DirectionalLight3D). S
 | `Color` | [static_light_color](#prop-static-light-color) | `Color("fffff2ff")` |
 | `float` | [sun_rise_hour](#prop-sun-rise-hour) | `6.0` |
 | `float` | [sun_set_hour](#prop-sun-set-hour) | `20.5` |
-| `float` | [x_axis_rotation_day](#prop-x-axis-rotation-day) | `-45.0` |
-| `float` | [x_axis_rotation_night](#prop-x-axis-rotation-night) | `45.0` |
+| `float` | [sun_heading](#prop-sun-heading) | `90.0` |
 | `float` | [max_light_energy](#prop-max-light-energy) | `1.0` |
 | `float` | [min_light_energy](#prop-min-light-energy) | `0.5` |
 | `float` | [dawn_dusk_light_energy](#prop-dawn-dusk-light-energy) | `1.0` |
@@ -44,7 +43,7 @@ Enable day/night cycle (false = static sun configuration)
 
 ### float static_rotation = -45.0 {#prop-static-rotation}
 
-Static sun rotation (X-axis degrees, when day_night_cycle = false)
+Static sun height (degrees, when day_night_cycle = false): 0 is on the horizon, -90 is straight overhead. The direction it shines from is the heading of the Rotation group
 
 ### float static_light_energy = 2.0 {#prop-static-light-energy}
 
@@ -64,15 +63,11 @@ Hour when sun rises (0-24)
 
 Hour when sun sets (0-24)
 
-*Rotation*
+*Sun Direction*
 
-### float x_axis_rotation_day = -45.0 {#prop-x-axis-rotation-day}
+### float sun_heading = 90.0 {#prop-sun-heading}
 
-Sun X-axis rotation at noon (degrees)
-
-### float x_axis_rotation_night = 45.0 {#prop-x-axis-rotation-night}
-
-Sun X-axis rotation at midnight (degrees)
+The direction of the sun's path across the sky, in degrees round the up axis. 90 (the default): the sun rises in the east (+X), crosses the sky overhead and sets in the west (-X), the way the maps are laid out. 0: it rises in the south (+Z) and sets in the north (-Z). 180 and 270 are the opposite ones
 
 *Light Intensity*
 
