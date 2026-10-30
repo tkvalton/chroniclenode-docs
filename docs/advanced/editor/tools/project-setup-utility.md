@@ -25,7 +25,7 @@ Setup the main game scene
 
 ### void setup_global_shader_parameters() {#method-setup-global-shader-parameters}
 
-Setup all global shader parameters needed for the project
+Setup all global shader parameters needed for the project: every global of the toolkit (ShaderGlobals.LIST) that Project Settings does not have yet. Runs every time the editor starts, so a project made with an older version of the toolkit gets the new ones too
 
 ### void setup_audio_buses() {#method-setup-audio-buses}
 

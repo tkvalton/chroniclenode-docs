@@ -17,7 +17,7 @@ Controls fog, volumetric fog, tonemap, ambient lighting, and wind. These are art
 | `Environment.ToneMapper` | [tonemap_mode](#prop-tonemap-mode) | `Environment.TONE_MAPPER_FILMIC` |
 | `float` | [tonemap_exposure](#prop-tonemap-exposure) | `1.0` |
 | `Vector3` | [wind_direction](#prop-wind-direction) | `Vector3(1.0, 0.0, 0.0)` |
-| `float` | [wind_intensity](#prop-wind-intensity) | `0.0` |
+| `float` | [wind_intensity](#prop-wind-intensity) | `0.35` |
 | `bool` | [fog_enabled](#prop-fog-enabled) | `true` |
 | `Environment.FogMode` | [fog_mode](#prop-fog-mode) | `Environment.FOG_MODE_EXPONENTIAL` |
 | `Color` | [fog_light_color](#prop-fog-light-color) | `Color(0.518, 0.553, 0.608, 1)` |
@@ -56,11 +56,11 @@ Overall brightness adjustment
 
 ### Vector3 wind_direction = Vector3(1.0, 0.0, 0.0) {#prop-wind-direction}
 
-Wind direction (3D vector, typically horizontal)
+The direction the wind blows towards on the ground (x and z of the vector; up and down are ignored)
 
-### float wind_intensity = 0.0 {#prop-wind-intensity}
+### float wind_intensity = 0.35 {#prop-wind-intensity}
 
-Wind intensity/strength
+How strong the wind is: 0 still, 1 a breeze, 2 a storm (plants sway with it; your own shaders read the globals WindDirection and WindIntensity)
 
 *Fog Settings*
 

@@ -91,9 +91,9 @@ Plants sway in the wind of the world and bend away from whoever walks through th
 
 To use one, give the entry's mesh a **ShaderMaterial** with the shader. The mesh must have its **root at the origin (y = 0)** and grow upwards, and the height setting must match it: the root stays put and the tip moves most.
 
-- **Wind.** The gusts travel over the ground, so a field moves together. The game sets it with `FoliageWind.set_wind(direction_degrees, strength, speed)` (0 degrees blows towards -Z, strength 0 still, 1 a breeze, 2 a storm). A gentle breeze is on at first. A weather event or a script can change it.
+- **Wind.** The gusts travel over the ground, so a field moves together. The game sets it with `FoliageWind.set_wind(direction_degrees, strength, speed)` (0 degrees blows towards -Z, strength 0 still, 1 a breeze, 2 a storm). The wind is the **Wind** of the [Environment config](/basic/world/world-configs#environment) of the world (a breeze at first); a weather with its own wind takes its place while it lasts. A script can set it with `FoliageWind.set_wind`. More in [Shader globals](/basic/world/shader-globals#the-wind).
 - **Walking through.** The players and the entities near the camera (at most 8 at once, within 40 m) press the plants near them down and aside. A mounted or flying entity is above the plants and pushes nothing. The plants spring back when the body has gone.
-- A shader of your own can read the same two global parameters, `foliage_wind` and `foliage_pushers`, with `foliage_wind.gdshaderinc`.
+- A shader of your own can read the same global parameters, `foliage_wind` and `foliage_pushers`, with `foliage_wind.gdshaderinc` (the [list of shader globals](/basic/world/shader-globals) the plugin adds to your project).
 
 ::: info Not here
 Wind and walking through need the shaders above: a plant with an ordinary material stands still. A scatter-by-rules brush (fill a tile by its rules) may come later.

@@ -68,7 +68,7 @@ These are the *artistic* settings of the scene's environment. The costly renderi
 | Group | What it sets |
 |---|---|
 | **Tonemap** | The algorithm (Filmic by default) and the exposure |
-| **Wind** | The direction and strength of the wind, for things that sway |
+| **Wind** | The wind of the world: the direction it blows towards on the ground and how strong it is (0 still, 1 a breeze, 2 a storm; a new config has 0.35). Plants sway with it and your own shaders read it: see [Shader globals](/basic/world/shader-globals#the-wind). A weather with its own wind takes its place while it lasts |
 | **Fog Settings** | On/off, the mode, colour, density, how much it blends with the sky, how much it hides the sky, and sun scatter ("god rays") |
 | **Volumetric Fog Settings** | A costlier, more realistic fog: density, colour, emission, light scattering direction, its length, and how much global light and ambient light go into it. Off by default |
 | **Ambient Light** | Where ambient light comes from (the sky, a colour, or none), its colour and brightness, and how much the sky contributes |
