@@ -30,7 +30,7 @@ The packages are fixed; you fill their folders.
 
 | Package | Categories | What it is for |
 |---|---|---|
-| **core** | movement, combat system, death, interact | What every entity needs: idles, walk and run in eight directions, crouch, sprint, strafe, turn, jump, fall, landing, swim; combat idle, block, dodge, hit, sheathe and unsheathe; death; using an object |
+| **core** | movement, combat system, death, interact | What every entity needs: idles, walk and run in eight directions, crouch, sprint, strafe, turn, jump, fall, landing, swim (also up and down), fly; combat idle, block, dodge, hit, sheathe and unsheathe; death; using an object |
 | **ability_animations** | casting, special attack, spell cast, weapon, aim, reload | What an [ability](/basic/abilities-and-effects/abilities) plays: the wind-up of a cast, the release of a spell, a special attack, a weapon swing (a folder for each kind of weapon, with several animations to pick from at random), aiming and reloading |
 | **social** | actions, emotes, random | Emotes (picked at random), small actions with a start, a loop and an end, and idle behaviour such as talking |
 | **status_effects** | one folder for each effect | What an entity does while it is stunned, frozen, feared and so on: a **start**, a **loop** and an **end** animation |
@@ -50,7 +50,7 @@ An entity type can **inherit** from another. A `humanoid_female` that has no jum
 | **Settings > Validate All Animations** | Checks every entity type and tells how many have problems |
 | **Settings > Build Animation Library** | Builds the Godot `AnimationLibrary` of one entity type, to look at or to use in your own animation tree |
 | **Parent Entity** | The entity type this one inherits from, or none |
-| **The map** | One drop-down for each animation: pick the file that plays. The groups are Movement (idles, walk, crouch walk, run, sprint, strafe, turn, crouch turn, jump, fall, landing, swim), Combat System (combat idle, block, dodge, hit, sheathe, unsheathe), Death and Interact Object |
+| **The map** | One drop-down for each animation: pick the file that plays. The groups are Movement (idles, walk, crouch walk, run, sprint, strafe, turn, crouch turn, jump, fall, landing, swim, fly: each fly animation that is empty plays the swimming one, see [Flying](/basic/world/flying#animations-of-flying)), Combat System (combat idle, block, dodge, hit, sheathe, unsheathe), Death and Interact Object |
 
 An animation left empty falls back to the parent's.
 

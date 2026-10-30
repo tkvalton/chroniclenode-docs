@@ -104,12 +104,14 @@ entity.add_movement_claim(claim)      # it flies
 entity.remove_movement_claim(self)    # it walks again
 ```
 
-A claim with no surface (`surface_y = INF`, the default) has no ceiling and no float. A built-in flight effect and ability are planned ([Flying](/planned/flying)).
+A claim with no surface (`surface_y = INF`, the default) has no ceiling and no float.
+
+The built-in way is the **Flight effect** (`FlightEffect`): it makes one claim per effect instance with its settings, and the **Land effect** (`LandEffect`) ends flights. A claim can also carry a **`logic`** (a `FlightLogic`): once per physics frame, just before the entity is moved, `logic.shape_velocity(delta)` may change `entity.velocity` (momentum, a glide). Extend `FlightLogic` and choose the script in the Flight effect; each entity gets its own copy. The claim has `use_air_animations` (play the fly animations) and `animation_override` (one pose animation). See [Flying](/basic/world/flying#your-own-flight).
 
 ## What is not done
 
 - **NPC navigation in 3D.** NPCs get the claims, the animations and the speed, but their pathfinding is the flat navigation mesh of the world.
-- **Animations for flying.** Flying uses the swim animations.
+- **Obstacle avoidance and a ceiling** for flyers: see [Flying: what is planned](/planned/flying).
 - **Water currents** and **buoyancy that depends on the weight** are not part of it.
 
 ## Tests

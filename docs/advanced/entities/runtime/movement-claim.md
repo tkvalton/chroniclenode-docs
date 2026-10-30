@@ -28,6 +28,9 @@ Add one with `Entity.add_movement_claim` and take it away with `Entity.remove_mo
 | `Vector3` | [flow_velocity](#var-flow-velocity) | `Vector3.ZERO` |
 | `String` | [footstep_surface](#var-footstep-surface) | `""` |
 | `String` | [footstep_swim](#var-footstep-swim) | `""` |
+| `FlightLogic` | [logic](#var-logic) | `null` |
+| `bool` | [use_air_animations](#var-use-air-animations) | `true` |
+| `String` | [animation_override](#var-animation-override) | `""` |
 | `int` | [priority](#var-priority) | `0` |
 
 ## Enumerations
@@ -105,6 +108,18 @@ What the ground sounds like to the entity while it is in this (the kind of groun
 ### String footstep_swim = "" {#var-footstep-swim}
 
 What the ground sounds like to an entity that SWIMS in this ("water_deep"): the sounds of its strokes, and of jumping into and out of the water. Empty = the footstep surface above, else "water"
+
+### FlightLogic logic = null {#var-logic}
+
+The logic that shapes the velocity of the entity while this claim decides (momentum, a glide: see FlightLogic). Null = the entity moves as it asks
+
+### bool use_air_animations = true {#var-use-air-animations}
+
+Play the flying animations while this claim decides (they fall back to the swimming ones when an entity has none). Only used with the mode Fly
+
+### String animation_override = "" {#var-animation-override}
+
+The name of one animation that plays instead of all the swimming or flying ones while this claim decides (a floating pose). Empty = none
 
 ### int priority = 0 {#var-priority}
 

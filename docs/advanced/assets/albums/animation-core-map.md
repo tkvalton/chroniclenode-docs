@@ -14,6 +14,7 @@ Parent package for animation inheritance When an animation is empty/null, the sy
 | `String` | [idle_standing](#prop-idle-standing) | `"idle_standing"` |
 | `String` | [idle_crouch](#prop-idle-crouch) | `"idle_crouch"` |
 | `String` | [idle_swim](#prop-idle-swim) | `"idle_swim"` |
+| `String` | [idle_fly](#prop-idle-fly) | `"idle_fly"` |
 | `String` | [walk_f](#prop-walk-f) | `"walk_f"` |
 | `String` | [walk_b](#prop-walk-b) | `"walk_b"` |
 | `String` | [walk_l](#prop-walk-l) | `"walk_l"` |
@@ -75,6 +76,18 @@ Parent package for animation inheritance When an animation is empty/null, the sy
 | `String` | [swim_fr](#prop-swim-fr) | `"swim_fr"` |
 | `String` | [swim_bl](#prop-swim-bl) | `"swim_bl"` |
 | `String` | [swim_br](#prop-swim-br) | `"swim_br"` |
+| `String` | [swim_up](#prop-swim-up) | `"swim_up"` |
+| `String` | [swim_down](#prop-swim-down) | `"swim_down"` |
+| `String` | [fly_f](#prop-fly-f) | `"fly_f"` |
+| `String` | [fly_b](#prop-fly-b) | `"fly_b"` |
+| `String` | [fly_l](#prop-fly-l) | `"fly_l"` |
+| `String` | [fly_r](#prop-fly-r) | `"fly_r"` |
+| `String` | [fly_fl](#prop-fly-fl) | `"fly_fl"` |
+| `String` | [fly_fr](#prop-fly-fr) | `"fly_fr"` |
+| `String` | [fly_bl](#prop-fly-bl) | `"fly_bl"` |
+| `String` | [fly_br](#prop-fly-br) | `"fly_br"` |
+| `String` | [fly_up](#prop-fly-up) | `"fly_up"` |
+| `String` | [fly_down](#prop-fly-down) | `"fly_down"` |
 | `String` | [combat_idle_unarmed](#prop-combat-idle-unarmed) | `"combat_idle"` |
 | `String` | [combat_idle_shield](#prop-combat-idle-shield) | `"combat_idle_shield"` |
 | `String` | [combat_idle_one_hand](#prop-combat-idle-one-hand) | `"combat_idle_1h"` |
@@ -149,6 +162,10 @@ The animation of standing still crouching.
 ### String idle_swim = "idle_swim" {#prop-idle-swim}
 
 The animation of standing still swimming.
+
+### String idle_fly = "idle_fly" {#prop-idle-fly}
+
+The animation of standing still flying (floating in the air). Empty uses the swimming one.
 
 *Walk*
 
@@ -415,6 +432,56 @@ The animation of swimming backward and left.
 ### String swim_br = "swim_br" {#prop-swim-br}
 
 The animation of swimming backward and right.
+
+### String swim_up = "swim_up" {#prop-swim-up}
+
+The animation of swimming up.
+
+### String swim_down = "swim_down" {#prop-swim-down}
+
+The animation of swimming down.
+
+*Fly*
+
+### String fly_f = "fly_f" {#prop-fly-f}
+
+The animation of flying (floating) forward. Every fly animation that is empty uses the swimming one.
+
+### String fly_b = "fly_b" {#prop-fly-b}
+
+The animation of flying backward.
+
+### String fly_l = "fly_l" {#prop-fly-l}
+
+The animation of flying left.
+
+### String fly_r = "fly_r" {#prop-fly-r}
+
+The animation of flying right.
+
+### String fly_fl = "fly_fl" {#prop-fly-fl}
+
+The animation of flying forward and left.
+
+### String fly_fr = "fly_fr" {#prop-fly-fr}
+
+The animation of flying forward and right.
+
+### String fly_bl = "fly_bl" {#prop-fly-bl}
+
+The animation of flying backward and left.
+
+### String fly_br = "fly_br" {#prop-fly-br}
+
+The animation of flying backward and right.
+
+### String fly_up = "fly_up" {#prop-fly-up}
+
+The animation of flying up.
+
+### String fly_down = "fly_down" {#prop-fly-down}
+
+The animation of flying down.
 
 *Combat Idle*
 

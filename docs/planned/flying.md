@@ -1,28 +1,22 @@
-# Flying
+# Flying: what is planned
 
-::: warning Partly built
-**Flying inside a space** is built: a [movement volume](/basic/world/movement-volumes) with the *Weightless* preset lets everyone in it fly (jump goes up, crouch goes down, you move where the camera looks). What is still planned is flying **because of what an entity is or does**, not because of where it is.
+::: tip Flying is built
+Flying is an **effect**: see [Flying](/basic/world/flying). This page lists what it does **not** do yet.
 :::
 
-Flying is very close to [swimming](/basic/world/movement-volumes): both are **free movement in 3D**, with no gravity. Underneath, anything can ask for it by adding a *movement claim* to an entity ([how it is built](/advanced/world/movement-volumes#claims)). A volume is one asker; the planned ones are:
+The flight of the demo is **floating** (movement in 3D like a swimmer's, with no gravity). Everything below is left for later, each as its own small step.
 
-## What it will do
+## Planned
 
-- A **flight effect and ability**: an [ability](/basic/abilities-and-effects/abilities) or [effect](/basic/abilities-and-effects/effects) that grants flight for a while (a wizard who levitates), or for as long as a toggle is on.
-- A **trait of the entity**: a dragon or a bird that flies by definition.
-- A **mount** that flies exists: see [mounts](/basic/entities/mounts) (a flying mount gives a flying claim).
-- Animations of flying of their own. Today flying uses the swim animations.
+- **A ceiling.** A highest height above the ground a flyer can reach, so it cannot leave the world.
+- **Places where flying is not allowed** (a dungeon, a city, a quest area): a volume or a zone that ends the flight of whoever enters.
+- **A flight resource.** Flying that costs stamina or mana and ends when it runs out. For now give the Flight effect a duration, or use a periodic effect that drains a stat and a Land effect when it is empty.
+- **NPCs that find their way in the air.** A flying NPC goes straight at its goal. Planned: holding a height above the ground (a bat over a field), avoiding trees, cliffs and walls, perching on a point and taking off again.
+- **A toggle key and take-off and landing states** for players who want flight to feel like a mount.
+- **Fall damage** for every fall, flyers included (it does not exist yet).
+- **Melee, targeting and area shapes** reviewed for entities above and below each other.
 
-## What exists today
+## See also
 
-- The claims on the movement of an entity, and the 3D movement they give (up, down and forward along the camera).
-- The weightless volume.
-- Flying NPCs get the speed and the animations, but they **path on the flat navigation** of the world.
-
-## Still to decide
-
-- How an entity takes off and lands.
-- Whether flying costs a resource (stamina, mana) and what happens when it runs out in the air.
-- How NPCs **find their way** in the air, since the navigation of a world only covers its walkable ground.
-- How melee, targeting and camera work for entities above and below each other.
-- Whether a world can forbid flying (a dungeon, a city).
+- [Flying](/basic/world/flying)
+- [Movement volumes](/basic/world/movement-volumes)

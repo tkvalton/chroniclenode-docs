@@ -8,7 +8,7 @@ Nothing on these pages can be used today. A page can change before its feature s
 
 | Feature | What it is | What exists today |
 |---|---|---|
-| [Flying](/planned/flying) | Entities that can fly because of what they are, an ability or an effect | Flying in a [weightless movement volume](/basic/world/movement-volumes), and the claims that anything can add |
+| [Flying](/planned/flying) | A ceiling, no-fly places, a flight resource, NPCs that avoid obstacles in the air | [Flying](/basic/world/flying) as an effect (floating, with your own flight logic), the Land effect, fly and swim up and down animations |
 | [The World Builder](/planned/world-builder) | What is left of it: local events (a switch wired to a door, drawn in the 3D view), marks on the ground, local weather, streaming of what stands on the ground | The terrain tool, placement, [zones](/basic/world/zones), [spawners](/basic/world/spawners), [ground weather](/basic/world/ground-weather) and [terrain streaming](/basic/world/terrain-streaming) are built |
 | [Localization](/planned/localization) | What is left of the localization tool: more forms for money and a few small leftovers |
 | [Chat box, messages and the combat log](/planned/chat-box) | One message manager with channels; the chat box, toasts and labels are viewers; the combat log becomes a tab; detailed, optionally kept combat logs; typing and developer commands | A [combat log](/basic/user-interface/hud) in the HUD and short [messages](/basic/user-interface/messages-and-popups) that fade |

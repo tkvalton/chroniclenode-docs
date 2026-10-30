@@ -857,6 +857,24 @@ export const groups = [
         "file": "data_classes/effects/status_and_control/effect_clear.gd"
       },
       {
+        "name": "FlightClasses",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\status_and_control\\flight_classes.gd",
+        "file": "data_classes/effects/status_and_control/flight_classes.gd"
+      },
+      {
+        "name": "FlightEffect",
+        "base": "Effect",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\status_and_control\\effect_flight.gd",
+        "file": "data_classes/effects/status_and_control/effect_flight.gd"
+      },
+      {
+        "name": "FlightLogic",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\status_and_control\\flight_logic\\flight_logic.gd",
+        "file": "data_classes/effects/status_and_control/flight_logic/flight_logic.gd"
+      },
+      {
         "name": "ImmunityEffect",
         "base": "Effect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\status_and_control\\effect_immunity.gd",
@@ -867,6 +885,12 @@ export const groups = [
         "base": "Effect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\status_and_control\\effect_interrupt.gd",
         "file": "data_classes/effects/status_and_control/effect_interrupt.gd"
+      },
+      {
+        "name": "LandEffect",
+        "base": "Effect",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\status_and_control\\effect_land.gd",
+        "file": "data_classes/effects/status_and_control/effect_land.gd"
       },
       {
         "name": "ResurrectEffect",

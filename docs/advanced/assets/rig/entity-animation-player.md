@@ -23,6 +23,8 @@ EntityAnimationPlayer A specialized AnimationPlayer for game entities with robus
 |---|---|
 | `void` | [setup_animations](#method-setup-animations)( `system_hub: GameHost.SystemHub, entity_data: EntityDefinition` ) |
 | `void` | [setup_animation_tree](#method-setup-animation-tree)( `tree_resource_path: String = DEFAULT_TREE_PATH` ) |
+| `void` | [set_free_movement_look](#method-set-free-movement-look)( `air: bool, pose: String = ""` ) |
+| `void` | [set_free_vertical_motion](#method-set-free-vertical-motion)( `fraction: float` ) |
 | `void` | [play_movement](#method-play-movement)( `movement_data: MovementData` ) |
 | `void` | [play_turning_animation](#method-play-turning-animation)( `turn_direction: float, is_crouched: bool = false, is_swimming: bool = false` ) |
 | `void` | [set_turn_direction](#method-set-turn-direction)( `turn_direction: float` ) |
@@ -179,6 +181,19 @@ Every animation slot the player knows (idle, walk, run, turn, jump, fall, swim, 
 - **PUSH** = `105`
 - **PULL** = `106`
 - **CLIMB** = `107`
+- **SWIM_UP** = `108`
+- **SWIM_DOWN** = `109`
+- **IDLE_FLY** = `110`
+- **FLY_F** = `111`
+- **FLY_B** = `112`
+- **FLY_L** = `113`
+- **FLY_R** = `114`
+- **FLY_FL** = `115`
+- **FLY_FR** = `116`
+- **FLY_BL** = `117`
+- **FLY_BR** = `118`
+- **FLY_UP** = `119`
+- **FLY_DOWN** = `120`
 
 ## Constants
 
@@ -211,6 +226,7 @@ Every animation slot the player knows (idle, walk, run, turn, jump, fall, swim, 
 - `String` **LAND_SOFT** = `"LandSoft"` - The name of the soft landing node in the animation tree.
 - `String` **LAND_MEDIUM** = `"LandMedium"` - The name of the medium landing node in the animation tree.
 - `String` **LAND_HARD** = `"LandHard"` - The name of the hard landing node in the animation tree.
+- `float` **VERTICAL_BLEND** = `2.0` - How far up and down the swimming blend space reaches: the swim up and swim down animations sit at (0, VERTICAL_BLEND) and (0, -VERTICAL_BLEND), beyond the ring of the swim animations, so swimming or flying up and sideways blends the two and the usual positions (inside the ring) are not changed.
 - `String` **DEFAULT_UNARMED_STANCE** = `"combat_idle"` - Default stance animation when unarmed
 - `Array[float]` **TURN_POSITIONS** = `[-1.0, -0.5, 0.0, 0.5, 1.0]` - Turn blend space layout, by blend POSITION (not point index - the order of points inside the tree resource is not guaranteed, and it did not match the order assumed here before):   -1.0 = turn 180 left, -0.5 = turn 90 left, 0.0 = idle (center), 0.5 = turn 90 right, 1.0 = turn 180 right
 
@@ -249,6 +265,14 @@ Builds the player for an entity: reads the animation map of its definition.
 ### void setup_animation_tree( tree_resource_path: String = DEFAULT_TREE_PATH ) {#method-setup-animation-tree}
 
 Sets up the animation tree from a tree resource (the default one if none is given). Needs setup_animations first.
+
+### void set_free_movement_look( air: bool, pose: String = "" ) {#method-set-free-movement-look}
+
+What the entity does in a free movement mode: `air` plays the flying animations (they fall back to the swimming ones), `pose` is the name of one animation that plays instead of all of them (empty = none). The claim on the movement of the entity says it (see MovementClaim).
+
+### void set_free_vertical_motion( fraction: float ) {#method-set-free-vertical-motion}
+
+How fast the entity moves up (1) or down (-1) in a free movement mode, as a share of its vertical speed. The swimming blend moves towards the swim up or swim down animation with it.
 
 ### void play_movement( movement_data: MovementData ) {#method-play-movement}
 

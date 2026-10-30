@@ -271,7 +271,7 @@ An NPC in the water **swims**: the swim animations play, it floats and moves wit
 
 - The volume sees the **player characters, NPCs and pets**. It does not need the collision layers of the entities to be changed.
 - The surface is worked out from a **box, sphere, cylinder or capsule**. With another shape the node shows a warning and takes the position of the volume as the surface (turn **Has surface** off if there is none).
-- A **swimming flag** is the only thing the animation system needs: it already has the swim animations (idle in water and swimming in eight directions). Flying has no animations of its own and uses them.
+- A **swimming flag** is the only thing the animation system needs: it has the swim animations (idle in water, swimming in eight directions, up and down). A flying entity has its own **fly** set that falls back to the swim animations: see [Flying](/basic/world/flying#animations-of-flying).
 - A volume can be **moved at runtime** (a tide, a lift of water): its surface is read again every frame.
 
 See [Movement volumes: how they are built](/advanced/world/movement-volumes) for the pieces, how to give an entity flight from a script or an effect, and the details of the breath.

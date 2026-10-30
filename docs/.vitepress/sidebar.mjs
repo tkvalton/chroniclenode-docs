@@ -111,6 +111,7 @@ const basicSystems = [
           page('Spawn tables', '/basic/world/spawn-tables'),
           page('Spawners', '/basic/world/spawners'),
           page('Movement volumes', '/basic/world/movement-volumes'),
+          page('Flying', '/basic/world/flying'),
           page('Audio zones', '/basic/world/audio-zones'),
           page('Encounters', '/basic/world/encounters'),
         ],
