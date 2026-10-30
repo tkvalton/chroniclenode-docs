@@ -26,6 +26,7 @@ A space in a world, given by the shape of its CollisionShape3D child (a box, sph
 |---|---|
 | `float` | [get_surface_y](#method-get-surface-y)() |
 | `bool` | [contains_point](#method-contains-point)( `world_point: Vector3` ) |
+| `float` | [get_surface_y_at](#method-get-surface-y-at)( `_world_point: Vector3` ) |
 | `bool` | [is_camera_inside](#method-is-camera-inside)( `below_surface_only: bool = false` ) |
 
 ## Property descriptions
@@ -51,6 +52,10 @@ The height of the surface (the top of the shape) in the world
 ### bool contains_point( world_point: Vector3 ) {#method-contains-point}
 
 Is a world point inside the shape of the volume? (for the camera: it is not a body)
+
+### float get_surface_y_at( _world_point: Vector3 ) {#method-get-surface-y-at}
+
+The height of the surface at a point of the world. The same everywhere for a box; a river that runs downhill has its own height at each place
 
 ### bool is_camera_inside( below_surface_only: bool = false ) {#method-is-camera-inside}
 

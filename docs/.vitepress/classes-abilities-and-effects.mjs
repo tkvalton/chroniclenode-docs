@@ -909,6 +909,12 @@ export const groups = [
         "base": "Effect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\status_and_control\\effect_threat.gd",
         "file": "data_classes/effects/status_and_control/effect_threat.gd"
+      },
+      {
+        "name": "WaterBreathingEffect",
+        "base": "Effect",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\status_and_control\\effect_water_breathing.gd",
+        "file": "data_classes/effects/status_and_control/effect_water_breathing.gd"
       }
     ]
   },

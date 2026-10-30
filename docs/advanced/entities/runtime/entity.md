@@ -202,6 +202,8 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `MountSession` | [start_mount](#method-start-mount)( `definition: MountDefinition, mount_entity: Entity = null, drive_logic: DriveLogic = null, seat_index: int = -1, force: bool = false` ) |
 | `bool` | [dismount](#method-dismount)( `reason: String = ""` ) |
 | `bool` | [uses_breath](#method-uses-breath)() |
+| `bool` | [is_breath_exempt](#method-is-breath-exempt)() |
+| `void` | [hold_breath_exempt](#method-hold-breath-exempt)( `hold: bool` ) |
 | `float` | [get_breath_maximum](#method-get-breath-maximum)() |
 | `float` | [get_breath](#method-get-breath)() |
 | `bool` | [is_drowning](#method-is-drowning)() |
@@ -818,7 +820,7 @@ What a save says about the ride of this entity as a rider, kept until the mounts
 
 ### bool breath_exempt = false {#var-breath-exempt}
 
-An entity that never needs to hold its breath (a water creature, a potion of water breathing: set it from a script or an effect)
+An entity that never needs to hold its breath (a water creature: set it from a script). A WaterBreathingEffect holds it for a while instead, see hold_breath_exempt
 
 ### float breath = -1.0 {#var-breath}
 
@@ -1309,6 +1311,14 @@ Gets off the mount. False when this entity is not riding
 ### bool uses_breath() {#method-uses-breath}
 
 Does this entity hold its breath where a volume asks for it? The Gameplay Config says who (nobody, the players, everyone); an exempt entity never does
+
+### bool is_breath_exempt() {#method-is-breath-exempt}
+
+Does the entity breathe where there is no air: it is exempt for good (breath_exempt), or an effect holds it
+
+### void hold_breath_exempt( hold: bool ) {#method-hold-breath-exempt}
+
+A WaterBreathingEffect takes (true) or gives back (false) the exemption. Taking it saves an entity that is drowning: its breath is full at once
 
 ### float get_breath_maximum() {#method-get-breath-maximum}
 

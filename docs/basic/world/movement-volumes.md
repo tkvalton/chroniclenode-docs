@@ -87,13 +87,13 @@ Drag an **end** of the river onto a lake (or onto another river) and it **joins*
 - takes the **width** of the river it joins (for a lake it keeps its own);
 - **fades out** over its last two metres, into the edge of the lake, so there is no seam.
 
-Drag the end away to free it, or press **Free start / Free end** in the bar. If you **move the lake** afterwards, press **Join ends again** so the river takes its new height. A tributary joins the middle of another river the same way: both flows act on a swimmer where they meet.
+Drag the end away to free it, or press **Free start / Free end** in the bar. If you **move the lake** (or raise or lower it), the river **follows by itself**: its end keeps the height of the water it joins. **Join ends again** only looks again for water under each end (for an end that is over other water now). A tributary joins the middle of another river the same way: both flows act on a swimmer where they meet.
 
 #### What it is
 
 The height of the path is the surface: a path that goes down makes a river that runs downhill, and the swimming and wading follow it. **The flow runs along the river** at every bend, at the *Flow strength* of the volume: a swimmer is carried round the bend, and the ripples of the river shader stream along it. The arrows in the viewport follow the course.
 
-Everything else works as for a box: the presets, the look and its shader inputs, *Affects*, breath, the effects inside, the camera and sound, the reflection probe (one picture over the whole river: for a long river, make it of several rivers). Click the water in the viewport to select the river.
+Everything else works as for a box: the presets, the look and its shader inputs, *Affects*, breath, the effects inside, the camera and sound, the reflection probe. A probe is one picture from one point, so a river gets **one probe for each stretch** of its course: **Reflection probe length** in the *Reflections* page (40 m by default; at most 24 probes, a very long river gets longer stretches). Click the water in the viewport to select the river.
 
 The river is made of boxes (one for each piece, tipped with the slope) that the game uses to know who is in the water; they are not saved with the scene, and they are made again when you edit the river. What is saved is the **Path** (a `Path3D` child, which you can also edit with the Godot tools) and, on the river, the width and curve mode of each point.
 
@@ -154,7 +154,9 @@ Choosing a preset is one undo step, and with several volumes selected it is give
 **Your own presets.** Set a volume up (a *Swamp* with a slow effect and a green look, a fast *Rapids*), then press **Save as preset...** and give it a name. It is saved in `res://src/data/movement_volume_presets/` and appears in the menu after the toolkit's. **Update preset** puts the numbers of the volume into the preset it was made from; **Delete preset** removes one of yours (the volumes made from it keep their numbers). The presets of the toolkit cannot be changed or deleted, but you can save a volume made from one under a new name.
 
 ::: tip The old way still works too
-The **Volumes** palette also keeps *scene presets*: a whole volume with its shape saved as a scene in `res://src/data/volume_presets/` (it works for trigger areas and audio zones as well). A preset in the menu above is only the **settings** of a movement volume.
+The presets of the movement volumes are **one list**: the **Volumes** palette has an entry for each of them (Water, Weightless, Lava, River and yours), so placing one gives a movement volume with the numbers already set (not its size: resize it in the viewport), and **Save selected as preset...** in the palette saves a selected movement volume as one of these presets: the same files, the same menu in the panel. Delete one of yours with **Delete preset** in the palette or in the panel.
+
+The palette also keeps *scene presets*: a whole volume with its shape saved as a scene in `res://src/data/volume_presets/`. That is for what has no preset menu: trigger areas, audio zones, zone volumes and a river that follows a path. Scene presets you made of movement volumes before this still work and stay in the list.
 :::
 
 ## Flow
@@ -210,6 +212,8 @@ A volume can make whoever is **under the surface** hold their breath. How long, 
 | **Holds breath when** | **Never**, **Head under surface** (when the head is below the water), or **Always inside** (a room with no air) | Head under surface |
 | **Head height** | How high the head of an entity is above its feet. The head is under when the feet are deeper than this | `1.6` |
 
+Some entities **never need air**: a water creature (set **Breath exempt** on the entity in a script), or whoever has a **Water Breathing** [effect](/basic/abilities-and-effects/effect-types) (a potion, a spell, an aura, a trait). While the effect lasts the target loses no breath, and one that was drowning is saved at once (its breath is full again). Two of them on one target end independently; the target breathes again when the last one ends.
+
 The breath **runs down** while the entity is under, and **comes back** (faster) when it is above the surface. At **0** the entity **drowns**: the *drowning effect* of the Gameplay Config is on it (a damage over time, for example) until the breath comes back. The player sees the breath in the **breath bar** of the HUD, which shows while the breath is not full.
 
 ## Effects while inside
@@ -252,7 +256,7 @@ With **volumes inside volumes** (a pool in a cave pool) the one the camera enter
 
 ## NPCs
 
-An NPC in the water **swims**: the swim animations play, it floats and moves with the water's speed. Its **pathfinding stays flat** (it follows the navigation of the world and does not choose a depth), so for now an NPC does not hunt a player at the bottom of a lake. NPC navigation in 3D is planned.
+An NPC in the water **swims**: the swim animations play, it floats and moves with the water's speed. There is no navigation mesh in the water, so a swimming NPC **goes straight at where it is going**, up and down included: it dives to a goal deep in the water, follows a player who swims, and chases a target at the bottom of a lake. It does not rise through the surface: a goal on the bank is reached when the NPC is beside it, and it wades or walks on from there as soon as the water is shallow. A flying NPC (a creature in a *Fly* volume) moves the same way.
 
 ## Good to know
 

@@ -24,18 +24,23 @@ Class representing the game settings
 | `float` | [ui_scale](#prop-ui-scale) | `1.0:` |
 | `float` | [text_size](#prop-text-size) | `1.0:` |
 | `bool` | [nameplate_in_combat_only](#prop-nameplate-in-combat-only) | `false:` |
+| `bool` | [player_nameplates](#prop-player-nameplates) | `false:` |
+| `bool` | [player_nameplates_in_combat_only](#prop-player-nameplates-in-combat-only) | `false:` |
 | `bool` | [friendly_nameplates](#prop-friendly-nameplates) | `true:` |
+| `bool` | [friendly_nameplates_in_combat_only](#prop-friendly-nameplates-in-combat-only) | `true:` |
 | `AurasOptions` | [friendly_nameplates_auras](#prop-friendly-nameplates-auras) | `AurasOptions.BUFFS_AND_DEBUFFS:` |
 | `HealthDisplayOption` | [friendly_nameplates_health_text](#prop-friendly-nameplates-health-text) | `HealthDisplayOption.CURRENT_MAX:` |
 | `bool` | [friendly_nameplates_resource_bar](#prop-friendly-nameplates-resource-bar) | `false:` |
 | `bool` | [friendly_nameplates_cast_bar](#prop-friendly-nameplates-cast-bar) | `true:` |
 | `bool` | [class_colour_nameplates](#prop-class-colour-nameplates) | `true:` |
 | `bool` | [enemy_nameplates](#prop-enemy-nameplates) | `true:` |
+| `bool` | [enemy_nameplates_in_combat_only](#prop-enemy-nameplates-in-combat-only) | `false:` |
 | `AurasOptions` | [enemy_nameplates_auras](#prop-enemy-nameplates-auras) | `AurasOptions.BUFFS_AND_DEBUFFS:` |
 | `HealthDisplayOption` | [enemy_nameplates_health_text](#prop-enemy-nameplates-health-text) | `HealthDisplayOption.CURRENT_MAX:` |
 | `bool` | [enemy_nameplates_resource_bar](#prop-enemy-nameplates-resource-bar) | `true:` |
 | `bool` | [enemy_nameplates_cast_bar](#prop-enemy-nameplates-cast-bar) | `true:` |
 | `bool` | [pet_nameplates](#prop-pet-nameplates) | `true:` |
+| `bool` | [pet_nameplates_in_combat_only](#prop-pet-nameplates-in-combat-only) | `false:` |
 | `float` | [nameplate_max_distance](#prop-nameplate-max-distance) | `80.0:` |
 | `HealthDisplayOption` | [party_frames_health_text](#prop-party-frames-health-text) | `HealthDisplayOption.CURRENT_MAX:` |
 | `bool` | [party_frames_resource_bar](#prop-party-frames-resource-bar) | `true:` |
@@ -390,11 +395,23 @@ Adjust text size
 
 ### bool nameplate_in_combat_only = false: {#prop-nameplate-in-combat-only}
 
-If nameplates show only during combat
+If every kind of nameplate shows only during combat (each kind has its own setting below as well)
+
+### bool player_nameplates = false: {#prop-player-nameplates}
+
+Nameplates over the player characters that are friendly to you: yourself, your party, other players
+
+### bool player_nameplates_in_combat_only = false: {#prop-player-nameplates-in-combat-only}
+
+Player nameplates show only while you or that player is in combat
 
 ### bool friendly_nameplates = true: {#prop-friendly-nameplates}
 
-Are friendly nameplates currently enabled?
+Nameplates over friendly NPCs: vendors, quest givers, allies
+
+### bool friendly_nameplates_in_combat_only = true: {#prop-friendly-nameplates-in-combat-only}
+
+Friendly NPC nameplates show only while you or that NPC is in combat
 
 ### AurasOptions friendly_nameplates_auras = AurasOptions.BUFFS_AND_DEBUFFS: {#prop-friendly-nameplates-auras}
 
@@ -418,7 +435,11 @@ Are class color nameplates currently enabled?
 
 ### bool enemy_nameplates = true: {#prop-enemy-nameplates}
 
-Are enemy nameplates currently enabled?
+Are enemy nameplates currently enabled? (Hostile and neutral NPCs, and the players that are against you)
+
+### bool enemy_nameplates_in_combat_only = false: {#prop-enemy-nameplates-in-combat-only}
+
+Enemy nameplates show only while that enemy is in combat
 
 ### AurasOptions enemy_nameplates_auras = AurasOptions.BUFFS_AND_DEBUFFS: {#prop-enemy-nameplates-auras}
 
@@ -439,6 +460,10 @@ Are enemy nameplates cast bars currently enabled?
 ### bool pet_nameplates = true: {#prop-pet-nameplates}
 
 Are pet nameplates currently enabled?
+
+### bool pet_nameplates_in_combat_only = false: {#prop-pet-nameplates-in-combat-only}
+
+Pet nameplates show only while you or that pet is in combat
 
 ### float nameplate_max_distance = 80.0: {#prop-nameplate-max-distance}
 
