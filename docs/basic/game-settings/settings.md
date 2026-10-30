@@ -76,9 +76,13 @@ When the game starts it reads your defaults and puts the player's changes on top
 Your own `settings.cfg` hides edits to a default (you changed it once, so your change wins). Press **Clear User Settings** to see what a new player sees.
 :::
 
+## Which settings the player sees
+
+The Game Settings editor has a checkbox for every setting: tick it to show the setting in the player's menu, untick it to hide it. **A setting that is not in the list yet** (you updated the toolkit, or added a keybind, after you last saved the Game Settings) **is shown** until you untick it, the same as the editor shows it ticked. Open the Game Settings editor after an update and look through the new ticks once.
+
 ## What is applied
 
-Display and audio settings take effect at once while the player changes them (the window mode, resolution, VSync, anti-aliasing, shadows, the volume buses). Mouse settings are read on every look event. The interface settings are read by the nameplates, party frames and action bar when they update.
+Display and audio settings take effect at once while the player changes them (the window mode, resolution, resolution scaling, VSync, anti-aliasing, shadows, mesh detail, the effects of Advanced Graphics, brightness, contrast, saturation, the volume buses). Mouse settings are read on every look event. The interface settings are read by the nameplates, party frames and action bar when they update.
 
 ## See also
 
