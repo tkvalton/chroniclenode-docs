@@ -84,8 +84,8 @@ The rows are in the order of the REGISTRY, grouped like the editor's categories.
 | **Zones** | | | |
 | `zone` | `ZoneDefinition` | `src/data/zones/` | [Zones](/basic/world/zones) |
 | **Terrain** | | | |
-| `terrain_texture` | `TerrainTextureDefinition` | `src/data/terrain/textures/` | [Terrain Textures](/basic/assets/terrain-textures) |
-| `foliage` | `FoliageDefinition` | `src/data/foliage/entries/` | [Foliage](/basic/assets/foliage) |
+| `terrain_texture` | `TerrainTextureDefinition` | `src/data/worlds/terrain/textures/` | [Terrain Textures](/basic/assets/terrain-textures) |
+| `foliage` | `FoliageDefinition` | `src/data/worlds/foliage/entries/` | [Foliage](/basic/assets/foliage) |
 | **UI** | | | |
 | `popup` | `PopupData` | `src/data/popups/` | [Popups](/basic/events-and-quests/popups) |
 

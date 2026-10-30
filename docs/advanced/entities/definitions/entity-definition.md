@@ -15,6 +15,7 @@ EntityDefinition contains all visual, audio, and display configuration for entit
 | `PackedScene` | [entity_model](#prop-entity-model) |  |
 | `Vector3` | [model_scale](#prop-model-scale) | `Vector3(1.0, 1.0, 1.0)` |
 | `EntityCollisionShape` | [entity_collision_shape](#prop-entity-collision-shape) | `EntityCollisionShape.NORMAL` |
+| `Texture2D` | [footprint_texture](#prop-footprint-texture) |  |
 | `String` | [animation_type](#prop-animation-type) | `""` |
 | `Array[String]` | [animation_packages](#prop-animation-packages) | `["core", "ability_animations", "transitions"]` |
 | `String` | [selected_voice_type](#prop-selected-voice-type) | `""` |
@@ -87,6 +88,10 @@ Scale multiplier applied to the entity model
 ### EntityCollisionShape entity_collision_shape = EntityCollisionShape.NORMAL {#prop-entity-collision-shape}
 
 Collision shape size category for physics interactions
+
+### Texture2D footprint_texture {#prop-footprint-texture}
+
+The picture of one footprint of this kind of entity (a boot sole, a paw, a hoof): a white shape on a transparent background, the toes pointing up. The ground tints it and says how long it stays. Empty = this entity leaves no footprints
 
 *Animation Configuration*
 

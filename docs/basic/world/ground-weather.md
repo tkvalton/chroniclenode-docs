@@ -52,14 +52,14 @@ Feet, spells and vehicles can leave **marks** on the ground: footprints, scorch 
 
 ### Footprints
 
-A step leaves a footprint when the ground says so, in this order:
+Only an entity that has a **Footprint** picture (in its [NPC](/basic/entities/npcs) or [playable character](/basic/entities/playable-character) settings) leaves footprints: the picture is the shape (a boot, a paw, a hoof), so a ghost or a floating creature simply has none. Where the footprint shows, and in what colour and for how long, is up to the ground, in this order:
 
 1. **A body of the world** (a StaticBody3D: a wooden floor, a stone bridge) with the meta `footprints` (true or false) decides for itself. The metas `footprint_color` (a Color) and `footprint_fade` (seconds) set how it looks. This wins over the terrain under it.
 2. **Snow on the ground** (the weather) on a texture that takes snow leaves pale footprints that last a long time. The weather forces this, whatever the texture says.
 3. **A terrain texture with Leaves footprints on** ([Footprints](/basic/assets/terrain-textures#footprints)) leaves them in its own colour for its own time. Sand, mud and soft earth.
 4. **Soft ground in heavy rain** (a texture that darkens a lot when wet) leaves dark footprints that fill up fast.
 
-Nothing else leaves footprints: grass, rock and stone stay clean. The feet take turns (left, right), the toes point the way the entity faces, and the size comes from the size of the entity. Footprints are drawn only near the camera.
+Nothing else leaves footprints: grass, rock and stone stay clean. The feet take turns (left, right), the toes point the way the entity faces, and the size comes from the size of the entity. Use a white shape: the ground tints it. Footprints are drawn only near the camera.
 
 The switch, the limit and the distance are in the [Gameplay Config](/basic/game-settings/gameplay-config#ground-marks).
 

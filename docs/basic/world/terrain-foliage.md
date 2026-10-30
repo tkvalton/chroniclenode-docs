@@ -30,15 +30,6 @@ The tools work on **one entry at a time**, the one you chose (Remove all works o
 
 The amounts are saved in the tiles, with the rest of the painting, when you save the scene.
 
-### The whole map at once
-
-The **Terrain settings** drop-down next to the Terrain button has a **Foliage...** panel with two buttons. Both ask first, work on **every tile and every entry**, and are **one undo action**:
-
-- **Remove all foliage from the map...** takes every kind of foliage away from the whole map: what the textures grow and what you painted by hand.
-- **Reset all foliage to the textures...** forgets everything you painted or removed by hand on the whole map; the foliage is what the textures grow again.
-
-If there is nothing to change (no foliage to remove, nothing painted by hand to reset) a message says so and nothing is added to the undo list.
-
 ## How much grows, and where
 
 Many numbers meet in the foliage, so here they are in the order they are used. Each answers one question, and each lives in **one** place.

@@ -8,8 +8,8 @@ An entry is a row in the **Ground clutter** list of a [terrain texture](/basic/a
 
 | Folder | What goes in it | Kind |
 |---|---|---|
-| `res://src/data/foliage/ground_scatter/` | **Meshes**: `.glb`, `.gltf`, `.fbx`, `.obj`, `.blend`, and `.res` / `.tres` files that hold a mesh | Ground scatter |
-| `res://src/data/foliage/foliage/` | **Scenes**: `.tscn`, `.scn`, `.glb`, `.gltf`, `.fbx`, `.blend` | Foliage |
+| `res://src/data/worlds/foliage/ground_scatter/` | **Meshes**: `.glb`, `.gltf`, `.fbx`, `.obj`, `.blend`, and `.res` / `.tres` files that hold a mesh | Ground scatter |
+| `res://src/data/worlds/foliage/foliage/` | **Scenes**: `.tscn`, `.scn`, `.glb`, `.gltf`, `.fbx`, `.blend` | Foliage |
 
 Make folders inside them for your own order (`grass/`, `weeds/`): the tree of the tab follows them. **In the foliage folder a subfolder is a group** (see [Groups](#groups-a-folder-of-scenes-is-one-brush)). Materials and textures go elsewhere in your project (the toolkit's test set keeps them in `res://assets/foliage/`); only meshes and scenes are read from the two folders. Folders that start with a dot are ignored.
 
@@ -23,7 +23,7 @@ The tab makes the entries when it opens and when you press **Refresh**:
 
 The **left side** is the tree: the two folders and the files in them, each with its **picture**. Search by name, filter to *Ground scatter*, *Foliage* or *With problems*, **Refresh**, and **Pictures** to make the missing pictures or all of them again.
 
-The **pictures** are made by the editor and kept in `res://src/data/foliage/.thumbnails/` (add that folder to `.gitignore` if you do not want them in version control). A mesh is drawn by the editor's own preview. A scene is drawn by the toolkit from a corner above, lit by a sun.
+The **pictures** are made by the editor and kept in `res://src/data/worlds/foliage/.thumbnails/` (add that folder to `.gitignore` if you do not want them in version control). A mesh is drawn by the editor's own preview. A scene is drawn by the toolkit from a corner above, lit by a sun.
 
 The **right side** shows the big picture, the file, the **name** of the entry and its buttons:
 

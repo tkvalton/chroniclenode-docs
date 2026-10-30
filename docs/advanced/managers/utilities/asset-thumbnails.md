@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-The pictures of the files of an Assets library (meshes, scenes), kept as PNG files in a folder of their own (named by a hash of the path of the file) and in memory. The editor makes them: resources and meshes by its own previewer, scenes drawn here in a viewport added to a node of the editor, from a corner above, lit by a sun, because the previewer gives nothing for most scenes. Connect to `made` to hear each picture arrive. var pictures := AssetThumbnails.new("res://src/data/foliage/.thumbnails/") pictures.request(paths, false, self, func(path): return path.get_extension() == "tscn")
+The pictures of the files of an Assets library (meshes, scenes), kept as PNG files in a folder of their own (named by a hash of the path of the file) and in memory. The editor makes them: resources and meshes by its own previewer, scenes drawn here in a viewport added to a node of the editor, from a corner above, lit by a sun, because the previewer gives nothing for most scenes. Connect to `made` to hear each picture arrive. var pictures := AssetThumbnails.new("res://src/data/worlds/foliage/.thumbnails/") pictures.request(paths, false, self, func(path): return path.get_extension() == "tscn")
 
 ## Variables
 

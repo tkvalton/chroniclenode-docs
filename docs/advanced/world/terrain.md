@@ -57,7 +57,7 @@ All in `editor_components/3d_scene_tools/terrain/`. The pieces know nothing of t
 | `TerrainPaletteBar` | The row of textures (paint tools) or of foliage (foliage tools) above the bottom bar |
 | `TerrainSettingsMenu` | The Terrain settings drop-down: Objects, Navigation, World check, Hotkeys |
 | `TerrainClutter`, `TerrainClutterBrush` | The drawing of the clutter and the foliage (cells of 32 m made in workers, MultiMeshes on the RenderingServer), and the Add, Remove and Reset foliage tools |
-| `TerrainCreator`, `TerrainCreateDialog` | Make the terrain of a map (`res://src/data/terrain/<map id>/`) |
+| `TerrainCreator`, `TerrainCreateDialog` | Make the terrain of a map (`res://src/data/worlds/terrain/<map id>/`) |
 | `TerrainTileEditor`, `TerrainTileOverlay` | Add and remove tiles with undo; draw the ghost squares |
 | `TerrainSaveManager` | The automatic saves, over several frames with a progress |
 | `TerrainWorldCheck` | The rules of the world check |

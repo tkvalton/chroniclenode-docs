@@ -28,12 +28,12 @@ A world has **one terrain**. A second terrain node in the same scene is ignored 
 | Setting | What it does |
 |---|---|
 | **Tiles across / deep** | How many tiles the terrain is wide and deep, 1 to 8 each way (default 2 x 2 = 512 m). You can add more tiles later |
-| **Where** | **From the origin**: tile 0, 0 has its corner at the origin and the terrain grows east and south. **Centred on the origin**: the origin is in the middle |
+| **Where** | **Centred on the origin** (the default): the origin is in the middle, so the terrain grows in every direction. **From the origin**: tile 0, 0 has its corner at the origin and the terrain grows east and south only (positive coordinates) |
 | **Start height** | The ground starts flat at this height |
 | **Lowest height** and **Height range** | The range of heights the whole terrain can hold. Make it big enough for your tallest mountain and deepest valley; you can change what is *in* it freely, the range not so easily |
 | **Fill the ground with a texture** | Off: the ground starts grey and you paint it yourself. On: pick a texture and every new tile is painted with it |
 
-4. Press **Create**. The files are written to `res://src/data/terrain/<map id>/` (the `terrain.tres` file and a `tiles` folder), a **Terrain** node is added to the scene, and the Terrain mode turns on. **Save the scene** to keep the node.
+4. Press **Create**. The files are written to `res://src/data/worlds/terrain/<map id>/` (the `terrain.tres` file and a `tiles` folder), a **Terrain** node is added to the scene, and the Terrain mode turns on. **Save the scene** to keep the node.
 
 If you delete the Terrain node and press the button again, the dialog offers **Use it**: the terrain files of the map are still there.
 
@@ -46,7 +46,7 @@ Press the **Terrain** button to turn the mode on or off. When it is off the view
 - **The bars at the top** sit on the same row as the viewport's **Perspective** menu, to the right of it.
 - **The bar along the bottom** shows the tool you chose and its settings. Every number has a slider and a box where you can type an exact value. Above it a **palette** shows while the tool needs one: the **textures** for the paint tools, the **foliage** for the foliage tools.
 - **The bars at the top left** are the overlay buttons with a warning when tiles are not saved, and the **Cursor** bar: the colour of the ring, the shape of the brush and **Add shape...**.
-- **Terrain settings**, a drop-down next to the Terrain button, has **Objects**, **Navigation**, **World check**, **Detiling** (how this terrain hides the repeats of its textures: [Detiling](/basic/assets/terrain-textures#detiling)), **Foliage** (remove or reset all the foliage of the map at once: [Foliage tools](/basic/world/terrain-foliage#the-whole-map-at-once)) and **Hotkeys**.
+- **Terrain settings**, a drop-down next to the Terrain button, has **Objects**, **Navigation**, **World check**, **Detiling** (how this terrain hides the repeats of its textures: [Detiling](/basic/assets/terrain-textures#detiling)) and **Hotkeys**.
 - **A box in the bottom right corner** tells you what is under the mouse: position, tile, chunk, slope, surface and textures.
 
 ### Keys and mouse

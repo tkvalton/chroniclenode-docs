@@ -16,6 +16,7 @@ Entity Editor for managing NPCDefinitions resources
 | `Array[String]` | [available_voice_types](#var-available-voice-types) | `[]` |
 | `Array[String]` | [available_voice_variants](#var-available-voice-variants) | `[]` |
 | `Array[String]` | [available_motion_entities](#var-available-motion-entities) | `[]` |
+| `EditorResourcePicker` | [footprint_picker](#var-footprint-picker) |  |
 | `Array[String]` | [available_animation_types](#var-available-animation-types) | `[]` |
 | `Array[String]` | [available_attack_tags](#var-available-attack-tags) | `[]` |
 | `Array[String]` | [available_stance_tags](#var-available-stance-tags) | `[]` |
@@ -54,6 +55,10 @@ Entity Editor for managing NPCDefinitions resources
 *No description yet.*
 
 ### Array[String] available_motion_entities = [] {#var-available-motion-entities}
+
+*No description yet.*
+
+### EditorResourcePicker footprint_picker {#var-footprint-picker}
 
 *No description yet.*
 

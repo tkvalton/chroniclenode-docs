@@ -18,6 +18,7 @@ CharacterEditor for managing CharacterDefinition resources CharacterDefinition i
 | `Array[String]` | [available_animation_types](#var-available-animation-types) | `[]` |
 | `Array[String]` | [available_voice_types](#var-available-voice-types) | `[]` |
 | `Array[String]` | [available_voice_variants](#var-available-voice-variants) | `[]` |
+| `EditorResourcePicker` | [footprint_picker](#var-footprint-picker) |  |
 | `Array[String]` | [available_motion_entities](#var-available-motion-entities) | `[]` |
 | `bool` | [item_selection_mode](#var-item-selection-mode) | `false` |
 
@@ -65,6 +66,10 @@ CharacterEditor for managing CharacterDefinition resources CharacterDefinition i
 *No description yet.*
 
 ### Array[String] available_voice_variants = [] {#var-available-voice-variants}
+
+*No description yet.*
+
+### EditorResourcePicker footprint_picker {#var-footprint-picker}
 
 *No description yet.*
 

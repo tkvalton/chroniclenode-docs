@@ -4,7 +4,7 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
-The Foliage tab (Assets &gt; Foliage): the files of the two folders of the foliage library as a tree with a picture of each, and the entry of the file you select. The folders: src/data/foliage/ground_scatter/   meshes: grass, weeds, pebbles, small rocks src/data/foliage/foliage/          scenes: trees, bushes, big rocks (Open in Editor opens the scene) An entry is made for every file the tab finds; a variant (Add variant) is another entry for the same file, usually with other materials. See docs: Assets &gt; Foliage.
+The Foliage tab (Assets &gt; Foliage): the files of the two folders of the foliage library as a tree with a picture of each, and the entry of the file you select. The folders: src/data/worlds/foliage/ground_scatter/   meshes: grass, weeds, pebbles, small rocks src/data/worlds/foliage/foliage/          scenes: trees, bushes, big rocks (Open in Editor opens the scene) An entry is made for every file the tab finds; a variant (Add variant) is another entry for the same file, usually with other materials. See docs: Assets &gt; Foliage.
 
 ## Variables
 

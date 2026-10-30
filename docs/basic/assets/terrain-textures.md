@@ -8,12 +8,12 @@ You paint the ground with these textures in the terrain editor: see [Terrain](/b
 
 The left side of the tab is a **tree of files**, like [Foliage](/basic/assets/foliage). **One folder is one texture**: put the maps of a texture in a folder of
 
-`res://src/data/terrain/library/`
+`res://src/data/worlds/terrain/library/`
 
 and the tab makes the entry for it, with its maps and a picture (the albedo):
 
 ```
-src/data/terrain/library/
+src/data/worlds/terrain/library/
   grass/                 grass_albedo.png, grass_normal.png, grass_orm.png     -> the texture Grass
   forest/                a folder of folders is a pack
     moss/                moss_albedo.png, moss_normal.png                      -> the texture Moss, in the pack Forest
@@ -158,7 +158,7 @@ How the weather changes this ground (when it is wet and snowy is on the [Ground 
 
 ## Footprints
 
-Whether walking on this ground leaves footprints (the full list of rules is on the [Ground weather](/basic/world/ground-weather#footprints) page). Snow on the ground and soft ground in heavy rain leave footprints whatever these say.
+Whether walking on this ground shows the footprints of the entities that have a footprint picture (their shape comes from the entity; this ground gives the tint, the opacity and the time) (the full list of rules is on the [Ground weather](/basic/world/ground-weather#footprints) page). Snow on the ground and soft ground in heavy rain leave footprints whatever these say.
 
 | Field | What it does |
 |---|---|
