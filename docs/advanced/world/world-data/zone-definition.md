@@ -18,6 +18,10 @@ Where a zone is, is not stored here: it is painted on the terrain (the zone laye
 | `Color` | [color](#prop-color) | `Color(0.35, 0.7, 0.4)` |
 | `float` | [wetness_scale](#prop-wetness-scale) | `1.0` |
 | `float` | [snow_scale](#prop-snow-scale) | `1.0` |
+| `int` | [sky_config_id](#prop-sky-config-id) | `0` |
+| `int` | [environment_config_id](#prop-environment-config-id) | `0` |
+| `float` | [look_blend_seconds](#prop-look-blend-seconds) | `3.0` |
+| `bool` | [look_replaces_event](#prop-look-replaces-event) | `false` |
 | `bool` | [show_banner](#prop-show-banner) | `true` |
 | `String` | [banner_subtitle](#prop-banner-subtitle) | `"":` |
 
@@ -38,6 +42,22 @@ How much of the rain reaches the ground in this zone (0 = none: a cave, under a 
 ### float snow_scale = 1.0 {#prop-snow-scale}
 
 How much of the snow lies on the ground in this zone (0 = none, 1 = as the weather says, up to 2 = more: a mountain top)
+
+### int sky_config_id = 0 {#prop-sky-config-id}
+
+The sky of this zone: the id of a Sky config (0 = the zone has none of its own: it takes the sky of the zone it is a part of, then the sky of the world). The party sees it blended in over the seconds below
+
+### int environment_config_id = 0 {#prop-environment-config-id}
+
+The environment of this zone (fog, ambient light, the sun's light, the colour grade ...): the id of an Environment config (0 = none of its own: the parent zone's, then the world's)
+
+### float look_blend_seconds = 3.0 {#prop-look-blend-seconds}
+
+Seconds the look of this zone takes to come when the party walks into it (and to go when it walks out into a place with none)
+
+### bool look_replaces_event = false {#prop-look-replaces-event}
+
+An event that sets a sky or an environment wins over the zones. Tick this and the look of this zone replaces such an event look when the party walks in
 
 ### bool show_banner = true {#prop-show-banner}
 

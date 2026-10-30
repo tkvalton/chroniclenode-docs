@@ -21,10 +21,11 @@ A bar opens at the top of the viewport:
 
 | Control | What it does |
 |---|---|
+| **Look at** | Shown when the world has zones: **The world**, or one of its [zones](/basic/world/zones#a-look-for-each-zone). A zone shows the sky and environment it has (its own, or the ones it takes from the zone above and the world). The sun path is always the world's |
 | **Sun**, **Sky**, **Env** | Which config to look at. The first one shown is the world's own (its override, else the default), marked *(world)* in the list. Choose another to try it |
 | **Time** | The hour of the day: the sun, the sky colours, the stars and the light follow it. **Play** lets the day go by (the speed is in hours of the game per second) |
 | **Default video settings** | Shows it with the video settings of the project (the defaults you set in Game Settings): reflections, ambient occlusion, indirect light, glow, volumetric fog quality, brightness, contrast and saturation. Off: none of those |
-| **Use for this world** | Makes the shown Sun, Sky and Environment the configs of this world (a config that is the default is stored as *no override*) and saves the world |
+| **Use for this world** | Makes the shown Sun, Sky and Environment the configs of this world (a config that is the default is stored as *no override*) and saves the world. With a zone chosen in **Look at** it reads **Use for this zone** and gives the zone the shown Sky and Environment (one that is the same as the zone would take anyway is stored as none) |
 | **Colour blindness** | Shows the world as a person with that kind of colour blindness sees it (normal vision, no red, no green, no blue), to check that things can be told apart. Only a view for you: the game uses the player's own setting |
 | **World's own** | Goes back to the configs the world has now |
 | **World Configs** | Opens the editor of the configs. The preview **follows every change you make there** (each change is saved and the viewport shows it when you come back to it). **Refresh** only reads the lists again, for a config you just made |
@@ -120,7 +121,7 @@ The **Set Environment Config** and **Set Sky Config** event actions have **Blend
 | The **sky** | Colours, clouds and stars slide. A change between a sky shader and a flat background colour switches at the halfway point: to blend smoothly give both looks a sky with the colours you want |
 | The clock, the **path** of the sun, the music | Do not blend (a different path is a different world) |
 
-The change ends exactly on the config you chose. Zones will use the same blend when they get a look of their own.
+The change ends exactly on the config you chose. [Zones](/basic/world/zones#a-look-for-each-zone) use the same blend when the party walks into one.
 
 ## See also
 

@@ -22,6 +22,7 @@ Lightweight coordinator for world management Handles world transitions and deleg
 | `Dictionary` | [fog_exploration_cache](#var-fog-exploration-cache) | `{}` |
 | `WeatherSystem` | [weather_system](#var-weather-system) |  |
 | `ZoneTracker` | [zone_tracker](#var-zone-tracker) |  |
+| `ZoneLookDriver` | [zone_look_driver](#var-zone-look-driver) |  |
 
 ## Methods
 
@@ -106,6 +107,10 @@ Weather system
 ### ZoneTracker zone_tracker {#var-zone-tracker}
 
 Watches which zone the party is in (the events, the condition, the banner and the text tokens ask it)
+
+### ZoneLookDriver zone_look_driver {#var-zone-look-driver}
+
+Gives the party the sky and the environment of the zone it is in.
 
 ## Method descriptions
 

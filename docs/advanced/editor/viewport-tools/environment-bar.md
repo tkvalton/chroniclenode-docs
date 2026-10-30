@@ -23,6 +23,9 @@ The bar at the top of the 3D viewport while the environment preview is on: which
 | `SpinBox` | [speed_spin](#var-speed-spin) |  |
 | `CheckBox` | [video_check](#var-video-check) |  |
 | `OptionButton` | [blind_option](#var-blind-option) |  |
+| `Label` | [zone_label](#var-zone-label) |  |
+| `OptionButton` | [zone_option](#var-zone-option) |  |
+| `Button` | [use_button](#var-use-button) |  |
 
 ## Methods
 
@@ -30,10 +33,21 @@ The bar at the top of the 3D viewport while the environment preview is on: which
 |---|---|
 | `void` | [bind](#method-bind)( `p_preview: EnvironmentPreview, p_sun: SunConfig, p_sky: SkyConfig, p_environment: EnvironmentConfig` ) |
 | `void` | [refresh](#method-refresh)() |
+| `void` | [set_zones](#method-set-zones)( `zone_ids: Array` ) |
+| `void` | [select_zone](#method-select-zone)( `zone_id: int` ) |
+| `int` | [selected_zone_id](#method-selected-zone-id)() |
 
 ## Signals
 
 ### use_for_world_requested( sun: SunConfig, sky: SkyConfig, environment: EnvironmentConfig ) {#signal-use-for-world-requested}
+
+### use_for_zone_requested( zone_id: int, sky: SkyConfig, environment: EnvironmentConfig ) {#signal-use-for-zone-requested}
+
+"Use for this zone": the zone that is shown and the sky and environment chosen
+
+### zone_chosen( zone_id: int ) {#signal-zone-chosen}
+
+Another zone (or the world: 0) was chosen to look at
 
 ### world_configs_requested() {#signal-world-configs-requested}
 
@@ -95,6 +109,18 @@ The configs the world has by itself (its overrides, else the defaults): marked i
 
 *No description yet.*
 
+### Label zone_label {#var-zone-label}
+
+*No description yet.*
+
+### OptionButton zone_option {#var-zone-option}
+
+*No description yet.*
+
+### Button use_button {#var-use-button}
+
+*No description yet.*
+
 ## Method descriptions
 
 ### void bind( p_preview: EnvironmentPreview, p_sun: SunConfig, p_sky: SkyConfig, p_environment: EnvironmentConfig ) {#method-bind}
@@ -104,4 +130,16 @@ Shows a preview: fills the lists and puts the controls where the preview is
 ### void refresh() {#method-refresh}
 
 Reads the lists again (a config was made or changed) and keeps what is chosen
+
+### void set_zones( zone_ids: Array ) {#method-set-zones}
+
+The zones of the world the bar can look at (the ids of WorldData.zones): the choice "The world" and one for each, sub-zones indented. No zones: the choice is hidden
+
+### void select_zone( zone_id: int ) {#method-select-zone}
+
+Chooses what is looked at (0 = the world) without telling anybody
+
+### int selected_zone_id() {#method-selected-zone-id}
+
+*No description yet.*
 

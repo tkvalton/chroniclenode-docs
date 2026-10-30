@@ -27,6 +27,8 @@ The Environment button of the 3D toolbar, shown while a world scene is open: it 
 | `void` | [start](#method-start)() |
 | `void` | [stop](#method-stop)() |
 | `Dictionary` | [world_configs](#method-world-configs)() |
+| `Dictionary` | [zone_configs](#method-zone-configs)( `zone_id: int` ) |
+| `bool` | [use_for_zone](#method-use-for-zone)( `zone_id: int, sky: SkyConfig, environment: EnvironmentConfig` ) |
 | `bool` | [use_for_world](#method-use-for-world)( `sun: SunConfig, sky: SkyConfig, environment: EnvironmentConfig` ) |
 
 ## Variable descriptions
@@ -80,6 +82,14 @@ Takes the preview and the bar away
 ### Dictionary world_configs() {#method-world-configs}
 
 The configs the open world has by itself: its overrides, else the defaults of the project. &#123;"time", "sun", "sky", "environment"&#125;
+
+### Dictionary zone_configs( zone_id: int ) {#method-zone-configs}
+
+The configs of a place for the preview: the world's sun path, and the sky and environment the zone has (its own, or from the zone above), else the world's. Zone 0 is the world itself.
+
+### bool use_for_zone( zone_id: int, sky: SkyConfig, environment: EnvironmentConfig ) {#method-use-for-zone}
+
+Gives a zone the sky and the environment that are shown (the ones it would take without its own are stored as none: the zone follows them when they change). Returns false when nothing was saved
 
 ### bool use_for_world( sun: SunConfig, sky: SkyConfig, environment: EnvironmentConfig ) {#method-use-for-world}
 

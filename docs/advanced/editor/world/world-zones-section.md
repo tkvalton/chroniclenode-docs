@@ -4,7 +4,7 @@
 
 **Inherits:** `FoldableContainer`
 
-The **Zones** section of the Worlds editor: the named places of ONE world (Elderwood, its sub-zone The Old Mill, the Sunken Caves ...) and the default zone of the world. A zone belongs to the world whose list it is in (WorldData.zones); the terrain tool paints with the zones of the world of the scene, and an event or a condition can name any zone. A zone has a name, a description, a colour, a parent (a sub-zone is a part of its parent), a banner (on or off, with a line under the name). See docs: World &gt; Zones.
+The **Zones** section of the Worlds editor: the named places of ONE world (Elderwood, its sub-zone The Old Mill, the Sunken Caves ...) and the default zone of the world. A zone belongs to the world whose list it is in (WorldData.zones); the terrain tool paints with the zones of the world of the scene, and an event or a condition can name any zone. A zone has a name, a description, a colour, a parent (a sub-zone is a part of its parent), a banner (on or off, with a line under the name), how much rain and snow reach the ground, and its look (a sky and an environment of its own, or the ones of the zone it is a part of and of the world). See docs: World &gt; Zones.
 
 ## Variables
 
@@ -24,6 +24,10 @@ The **Zones** section of the Worlds editor: the named places of ONE world (Elder
 | `LineEdit` | [subtitle_edit](#var-subtitle-edit) |  |
 | `SpinBox` | [wetness_scale_spin](#var-wetness-scale-spin) |  |
 | `SpinBox` | [snow_scale_spin](#var-snow-scale-spin) |  |
+| `OptionButton` | [sky_option](#var-sky-option) |  |
+| `OptionButton` | [environment_option](#var-environment-option) |  |
+| `SpinBox` | [blend_spin](#var-blend-spin) |  |
+| `CheckBox` | [replace_check](#var-replace-check) |  |
 | `VBoxContainer` | [fields_box](#var-fields-box) |  |
 | `Label` | [hint_label](#var-hint-label) |  |
 
@@ -100,6 +104,22 @@ Something of the world changed (the zone list, the default zone): the editor sav
 *No description yet.*
 
 ### SpinBox snow_scale_spin {#var-snow-scale-spin}
+
+*No description yet.*
+
+### OptionButton sky_option {#var-sky-option}
+
+*No description yet.*
+
+### OptionButton environment_option {#var-environment-option}
+
+*No description yet.*
+
+### SpinBox blend_spin {#var-blend-spin}
+
+*No description yet.*
+
+### CheckBox replace_check {#var-replace-check}
 
 *No description yet.*
 

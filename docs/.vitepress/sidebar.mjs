@@ -127,6 +127,7 @@ const basicSystems = [
           page('2. Colour grading with a LUT', '/basic/world/tutorials/colour-grading-with-a-lut'),
           page('3. A scary dungeon', '/basic/world/tutorials/a-scary-dungeon'),
           page('4. Can everyone see your world?', '/basic/world/tutorials/can-everyone-see-your-world'),
+          page('5. A mood for each zone', '/basic/world/tutorials/a-mood-for-each-zone'),
         ],
       },
     ],

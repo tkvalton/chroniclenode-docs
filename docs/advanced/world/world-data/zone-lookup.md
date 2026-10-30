@@ -12,6 +12,8 @@ What is known about the zones from the database alone: who is whose parent, the 
 |---|---|
 | `ZoneDefinition` | [get_zone](#method-get-zone)( `zone_id: int` ) *static* |
 | `Array[int]` | [get_chain](#method-get-chain)( `zone_id: int` ) *static* |
+| `ZoneDefinition` | [get_look_owner](#method-get-look-owner)( `zone_id: int, kind: String` ) *static* |
+| `int` | [get_look_id](#method-get-look-id)( `zone_id: int, kind: String` ) *static* |
 | `bool` | [is_inside](#method-is-inside)( `zone_id: int, ancestor_id: int` ) *static* |
 | `int` | [get_top](#method-get-top)( `zone_id: int` ) *static* |
 | `String` | [get_full_name](#method-get-full-name)( `zone_id: int, separator: String = " > "` ) *static* |
@@ -20,6 +22,8 @@ What is known about the zones from the database alone: who is whose parent, the 
 
 ## Constants
 
+- `String` **LOOK_SKY** = `"sky"` - The two looks a zone can have
+- `String` **LOOK_ENVIRONMENT** = `"environment"`
 - `int` **MAX_DEPTH** = `16` - The longest chain of parents that is followed
 
 ## Method descriptions
@@ -31,6 +35,14 @@ What is known about the zones from the database alone: who is whose parent, the 
 ### Array[int] get_chain( zone_id: int ) {#method-get-chain}
 
 The zone, then its parent, then the parent of that, up to the top: [zone id, parent id, ...]. Empty for 0 or an unknown zone.
+
+### ZoneDefinition get_look_owner( zone_id: int, kind: String ) {#method-get-look-owner}
+
+The zone that gives the look of a place: the zone itself if it has a config of that kind, else its parent, up to the top. Null when none of them has one (the world's look shows). `kind` is LOOK_SKY or LOOK_ENVIRONMENT; the two kinds are looked for one by one.
+
+### int get_look_id( zone_id: int, kind: String ) {#method-get-look-id}
+
+The id of the config a place's look comes from (0 = the world's)
 
 ### bool is_inside( zone_id: int, ancestor_id: int ) {#method-is-inside}
 
