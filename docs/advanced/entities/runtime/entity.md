@@ -75,6 +75,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `FactionDefinition` | [faction_before_mount](#var-faction-before-mount) | `null` |
 | `Dictionary` | [pending_mount_state](#var-pending-mount-state) | `{}` |
 | `bool` | [breath_exempt](#var-breath-exempt) | `false` |
+| `bool` | [leaves_footprints](#var-leaves-footprints) | `true` |
 | `float` | [breath](#var-breath) | `-1.0` |
 | `AimProvider` | [aim_provider](#var-aim-provider) | `null` |
 | `Array` | [loot_rolled](#var-loot-rolled) | `[]` |
@@ -821,6 +822,10 @@ What a save says about the ride of this entity as a rider, kept until the mounts
 ### bool breath_exempt = false {#var-breath-exempt}
 
 An entity that never needs to hold its breath (a water creature: set it from a script). A WaterBreathingEffect holds it for a while instead, see hold_breath_exempt
+
+### bool leaves_footprints = true {#var-leaves-footprints}
+
+Does this entity leave footprints where the ground takes them (turn it off for a ghost, a spirit, something that floats)
 
 ### float breath = -1.0 {#var-breath}
 

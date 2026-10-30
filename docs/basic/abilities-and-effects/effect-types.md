@@ -183,6 +183,7 @@ A proc effect waits for something to happen to its holder, and then applies its 
 |---|---|
 | [**Grant Reward**](/advanced/abilities-and-effects/effects-utility/grant-reward-effect) (`GrantRewardEffect`) | Gives the target a *Reward*: abilities, items, currency, effects. Can take it back when the effect ends |
 | [**Access Entity Inventory**](/advanced/abilities-and-effects/effects-utility/access-entity-inventory-effect) (`AccessEntityInventoryEffect`) | Opens the inventory of the target, like looting it: the pickpocket. It first rolls the [**On First Access** loot rules](/basic/items/loot-rules#pickpocketing) of the target, so an NPC that is made to be robbed always has something to steal |
+| [**Ground Mark**](/advanced/abilities-and-effects/effects-utility/ground-mark-effect) (`GroundMarkEffect`) | Leaves a mark on the ground at the target: a scorch, crater, stain, footprint, tyre track or your own picture, with a size, colour and fade time. See [marks on the ground](/basic/world/ground-weather#marks-on-the-ground) |
 | [**Unlock Interactable**](/advanced/abilities-and-effects/effects-utility/effect-unlock-interactable) (`EffectUnlockInteractable`) | Tries to unlock a locked object, with a base chance that a stat of the caster can raise |
 
 ## See also

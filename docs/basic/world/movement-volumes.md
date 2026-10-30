@@ -97,6 +97,15 @@ Everything else works as for a box: the presets, the look and its shader inputs,
 
 The river is made of boxes (one for each piece, tipped with the slope) that the game uses to know who is in the water; they are not saved with the scene, and they are made again when you edit the river. What is saved is the **Path** (a `Path3D` child, which you can also edit with the Godot tools) and, on the river, the width and curve mode of each point.
 
+### The shore and the bed: wet ground and caustics
+
+Water also changes **the ground around it and under it**, when the terrain of the world has water volumes in it. Turn on **Shore effects** (the Water and River presets have it on; *Look* page):
+
+- **Wet shore.** The ground next to the water is darker and shinier, the way each texture is when it rains (a texture's *wet darkening* and *wet roughness* in the [Terrain Textures](/basic/assets/terrain-textures) say how much). It is wet up to **Shore wet height** above the water (0.4 m by default): a flat, gentle bank is wet over a wide strip (up to 8 metres from the water, fading out), a steep one over a narrow strip. The wet shore adds to the rain: the ground is as wet as the wetter of the two. `0` gives no wet shore, only the caustics.
+- **Caustics.** The bed under the water shows the light of the sun gathered by the waves: a network of thin bright curves that wobble and drift. They are strongest in shallow water and fade out by about 7 metres of depth.
+
+The terrain does it from a map of the water that the volumes give it: a picture of the world seen from above, one texel for each metre (larger when water is spread over a very wide world: at most 1024 texels across), with the height of the water in each. The map follows the water: a lake you move, raise or lower, or a river you reshape, updates the ground a moment later. It needs the ground to be a terrain of the toolkit (the *Terrain* node); other meshes are not wet.
+
 ### A reflection probe
 
 Water mirrors the **sky** by itself. To have it mirror what stands around it (a tower, a wall, trees), tick **Reflection probe** in the **Reflections** page of the volume. The volume then takes a picture of its surroundings from a point above the water and the water reflects it. The settings:

@@ -73,6 +73,16 @@ How the footstep, jump and landing sounds of entities are timed. The sounds them
 | **Footstep stride run** | Metres between two footsteps while running | `1.5` |
 | **Footstep swim interval** | Seconds between two swim sounds (strokes) while swimming and moving in a [movement volume](/basic/world/movement-volumes#footsteps-in-the-volume): about the time of one stroke of your swim animation | `1.3` |
 
+### Ground marks
+
+Footprints and the other [marks on the ground](/basic/world/ground-weather#marks-on-the-ground).
+
+| Field | What it does | Default |
+|---|---|---|
+| **Footprints enabled** | Feet leave footprints on ground that takes them (the terrain textures and the weather say which). Off = no footprints at all; the Ground Mark effect still works | on |
+| **Footprint limit** | The most marks (footprints, tracks, scorches) on the ground at once; the oldest is used again. `0` = no marks | `96` |
+| **Footprint view distance** | How far from the camera marks are drawn, in metres | `40` |
+
 If an animation calls for a footstep itself (a *Call Method* track on the walk or run animation calling `_on_animation_walk_footstep_emit` or `_on_animation_run_footstep_emit` on the entity animation player; `_on_animation_jump_start_emit` and `_on_animation_jump_end_emit` for jumps, `_on_animation_swim_stroke_emit` for swim strokes), the game uses those calls and the movement adds none for that kind of sound.
 
 ### Developer

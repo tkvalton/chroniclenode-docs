@@ -34,6 +34,7 @@ WorldScene manages all objects within a specific map/scene Handles object discov
 | `Dictionary` | [get_world_objects](#method-get-world-objects)() |
 | `AABB` | [get_scene_bounds](#method-get-scene-bounds)() |
 | `String` | [get_terrain_surface_type](#method-get-terrain-surface-type)( `target_position: Vector3` ) |
+| `Dictionary` | [get_ground_hit](#method-get-ground-hit)( `position: Vector3` ) |
 | `int` | [get_world_id](#method-get-world-id)() |
 | `String` | [get_display_name](#method-get-display-name)() |
 
@@ -131,6 +132,10 @@ Get the bounds of the entire scene (uses same area as minimap)
 ### String get_terrain_surface_type( target_position: Vector3 ) {#method-get-terrain-surface-type}
 
 The kind of ground at a position (for footsteps): the object under it first, then the terrain.
+
+### Dictionary get_ground_hit( position: Vector3 ) {#method-get-ground-hit}
+
+Updated raycast to return the full result dictionary The ground under a foot at a position, from half a metre above it to a metre below: &#123;"position", "normal", "collider"&#125;, or &#123;&#125; when there is none (for the marks on the ground)
 
 ### int get_world_id() {#method-get-world-id}
 

@@ -51,6 +51,8 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 | `Color` | [look_tint](#prop-look-tint) | `Color(0.2, 0.5, 0.7, 0.6):` |
 | `bool` | [look_double_sided](#prop-look-double-sided) | `true:` |
 | `int` | [look_grid](#prop-look-grid) | `24:` |
+| `bool` | [shore_effects](#prop-shore-effects) | `false:` |
+| `float` | [shore_wet_height](#prop-shore-wet-height) | `0.4:` |
 | `bool` | [reflection_probe](#prop-reflection-probe) | `false:` |
 | `bool` | [reflection_probe_updates](#prop-reflection-probe-updates) | `false:` |
 | `float` | [reflection_probe_height](#prop-reflection-probe-height) | `4.0:` |
@@ -68,6 +70,7 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 | | |
 |---|---|
 | `void` | [apply_preset](#method-apply-preset)() |
+| `Array[Dictionary]` | [water_shapes](#method-water-shapes)() |
 | `ReflectionProbe` | [get_reflection_probe](#method-get-reflection-probe)() |
 | `ArrayMesh` | [get_look_mesh](#method-get-look-mesh)() |
 | `Vector3` | [get_flow_velocity](#method-get-flow-velocity)() |
@@ -227,6 +230,14 @@ Every face is made twice, looking both ways, so the surface is seen from under i
 
 How many cells the top and the bottom are cut in along the long side: a shader that moves the surface (waves) needs the vertices. 0 = worked out from the size of the volume (about half a metre a cell, up to 128), which water wants
 
+### bool shore_effects = false: {#prop-shore-effects}
+
+The ground near this water is wet (darker and shinier, the way each texture is when it rains) and the bed under it shows the light of caustics: the shimmer of water on a bottom. The terrain does it, from the height of the water (a map the volume gives it); the ground and the water must be in the world of a terrain. For water: the Water and River presets have it on
+
+### float shore_wet_height = 0.4: {#prop-shore-wet-height}
+
+How high above the water the ground is still wet, in metres: a flat bank is wet over a wide strip, a steep one over a narrow strip. 0 = no wet shore, only the caustics under the water
+
 *Reflections*
 
 ### bool reflection_probe = false: {#prop-reflection-probe}
@@ -282,6 +293,10 @@ What the sounds of whoever SWIMS in the volume are: the kind of ground ("water_d
 ### void apply_preset() {#method-apply-preset}
 
 Fills the fields from the preset (picking a preset in the inspector does this; code that makes a volume calls it).
+
+### Array[Dictionary] water_shapes() {#method-water-shapes}
+
+The shapes of water this volume gives the picture of the water (see WaterMapData): its box. Empty for a volume that is not water or has no box
 
 ### ReflectionProbe get_reflection_probe() {#method-get-reflection-probe}
 

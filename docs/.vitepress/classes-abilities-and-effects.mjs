@@ -939,6 +939,12 @@ export const groups = [
         "base": "Effect",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\utility\\effect_grant_reward.gd",
         "file": "data_classes/effects/utility/effect_grant_reward.gd"
+      },
+      {
+        "name": "GroundMarkEffect",
+        "base": "Effect",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\effects\\utility\\effect_ground_mark.gd",
+        "file": "data_classes/effects/utility/effect_ground_mark.gd"
       }
     ]
   },

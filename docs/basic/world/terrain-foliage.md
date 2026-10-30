@@ -30,6 +30,15 @@ The tools work on **one entry at a time**, the one you chose (Remove all works o
 
 The amounts are saved in the tiles, with the rest of the painting, when you save the scene.
 
+### The whole map at once
+
+The **Terrain settings** drop-down next to the Terrain button has a **Foliage...** panel with two buttons. Both ask first, work on **every tile and every entry**, and are **one undo action**:
+
+- **Remove all foliage from the map...** takes every kind of foliage away from the whole map: what the textures grow and what you painted by hand.
+- **Reset all foliage to the textures...** forgets everything you painted or removed by hand on the whole map; the foliage is what the textures grow again.
+
+If there is nothing to change (no foliage to remove, nothing painted by hand to reset) a message says so and nothing is added to the undo list.
+
 ## How much grows, and where
 
 Many numbers meet in the foliage, so here they are in the order they are used. Each answers one question, and each lives in **one** place.
@@ -80,8 +89,23 @@ The **Inspect** tool's box in the corner of the viewport has a line **Foliage**:
 - **Ground clutter** is a video setting of the player: **Off**, **Low**, **Medium**, **High**. Off draws no grass, weeds or pebbles; the other three are percentages **you** set in [Terrain Settings](/basic/game-settings/terrain-settings#ground-clutter) (35, 65 and 100 at first). The scatter keeps that share of every entry, so nothing moves when the player changes it. Trees and bushes are level design: the setting does not touch them.
 - **Clutter grows on textures** (Terrain Settings) turns the texture lists off for the whole project: only what you painted by hand is drawn.
 
+## Wind and walking through plants
+
+Plants sway in the wind of the world and bend away from whoever walks through them. This is done by the **shader of the material**, not by settings on the entry. Two shaders are included (folder `assets/shaders` of the plugin):
+
+| Shader | For | Settings of the material |
+|---|---|---|
+| `foliage_plant.gdshader` | grass, flowers, weeds, small plants | picture, root and tip colour, **Plant height** (the height of your mesh in metres), **Wind amount**, **Stiffness**, **Brush amount**, translucency |
+| `foliage_tree.gdshader` | the crown, branches and trunk of trees and bushes | picture, tint, **Tree height**, **Sway amount**, **Stiffness**, **Flutter amount** (0 for a trunk), **Brush amount** (above 0 for a bush a body can push through), translucency |
+
+To use one, give the entry's mesh a **ShaderMaterial** with the shader. The mesh must have its **root at the origin (y = 0)** and grow upwards, and the height setting must match it: the root stays put and the tip moves most.
+
+- **Wind.** The gusts travel over the ground, so a field moves together. The game sets it with `FoliageWind.set_wind(direction_degrees, strength, speed)` (0 degrees blows towards -Z, strength 0 still, 1 a breeze, 2 a storm). A gentle breeze is on at first. A weather event or a script can change it.
+- **Walking through.** The players and the entities near the camera (at most 8 at once, within 40 m) press the plants near them down and aside. A mounted or flying entity is above the plants and pushes nothing. The plants spring back when the body has gone.
+- A shader of your own can read the same two global parameters, `foliage_wind` and `foliage_pushers`, with `foliage_wind.gdshaderinc`.
+
 ::: info Not here
-Wind and bending away from the player are done by the shader of your material, not by settings on the entry. A scatter-by-rules brush (fill a tile by its rules) may come later.
+Wind and walking through need the shaders above: a plant with an ordinary material stands still. A scatter-by-rules brush (fill a tile by its rules) may come later.
 :::
 
 ## See also

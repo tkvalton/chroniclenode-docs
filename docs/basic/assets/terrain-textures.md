@@ -156,6 +156,16 @@ How the weather changes this ground (when it is wet and snowy is on the [Ground 
 | **Wet roughness** | How rough it is when fully wet (lower is shinier) |
 | **Snow cover** | How much of the snow layer sticks to it when it snows: 1 all of it, 0 none (a swept road, a roof, lava) |
 
+## Footprints
+
+Whether walking on this ground leaves footprints (the full list of rules is on the [Ground weather](/basic/world/ground-weather#footprints) page). Snow on the ground and soft ground in heavy rain leave footprints whatever these say.
+
+| Field | What it does |
+|---|---|
+| **Leaves footprints** | Walking on this ground leaves footprints: on for sand, mud, soft earth. Off for grass, rock and stone |
+| **Footprint fade** | How many seconds a footprint stays before it fades out |
+| **Footprint colour** | The colour of the footprint and how strong it is (the alpha): dark for mud and wet sand, pale for dust |
+
 ## Tips
 
 - Keep the library textures all the same size; the library resizes them to the size in the Terrain Settings anyway.

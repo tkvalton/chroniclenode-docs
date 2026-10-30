@@ -46,9 +46,31 @@ A [zone](/basic/world/zones) has **Rain reaches** and **Snow reaches** (0 to 2):
 
 A script can do the same: `WeatherSystem.ground` (a `TerrainWeatherDriver`) has `set_levels`, `hold_levels` and `release_levels`, and `TerrainWeather.set_tint(color, strength)`.
 
+## Marks on the ground
+
+Feet, spells and vehicles can leave **marks** on the ground: footprints, scorch marks, craters, stains and tyre tracks. A mark is a flat picture projected on the terrain (and on the floors and slopes it lies on), it fades out after some seconds, and the oldest are used again when there are too many, so they cost very little.
+
+### Footprints
+
+A step leaves a footprint when the ground says so, in this order:
+
+1. **A body of the world** (a StaticBody3D: a wooden floor, a stone bridge) with the meta `footprints` (true or false) decides for itself. The metas `footprint_color` (a Color) and `footprint_fade` (seconds) set how it looks. This wins over the terrain under it.
+2. **Snow on the ground** (the weather) on a texture that takes snow leaves pale footprints that last a long time. The weather forces this, whatever the texture says.
+3. **A terrain texture with Leaves footprints on** ([Footprints](/basic/assets/terrain-textures#footprints)) leaves them in its own colour for its own time. Sand, mud and soft earth.
+4. **Soft ground in heavy rain** (a texture that darkens a lot when wet) leaves dark footprints that fill up fast.
+
+Nothing else leaves footprints: grass, rock and stone stay clean. The feet take turns (left, right), the toes point the way the entity faces, and the size comes from the size of the entity. Footprints are drawn only near the camera.
+
+The switch, the limit and the distance are in the [Gameplay Config](/basic/game-settings/gameplay-config#ground-marks).
+
+### Other marks: the Ground Mark effect
+
+The [**Ground Mark** effect](/basic/abilities-and-effects/effect-types#utility) puts a mark where the target stands (or where an area effect lands): a **scorch** under a fireball, a **crater** under a slam, a **stain** (blood, slime, oil), a **footprint**, a **tyre track**, or **your own picture**. You choose its size, colour, how long it lasts and whether it is turned at random.
+
+A script can put one anywhere: `weather_system.marks.add_mark(kind, position, normal, yaw, size, color, fade_seconds)` on the `GroundMarkManager` of the world (kinds: `GroundMarkTextures.Kind.FOOTPRINT`, `TRACK`, `SCORCH`, `CRATER`, `BLOB`). Tyre tracks have no hook on mounts yet: a script that calls `add_mark` with the `TRACK` kind makes them.
+
 ## Not built
 
-- **Marks**: footprints in snow, tyre tracks, scorch marks (a layer of marks painted at run time round the players).
 - **Permanent change**: a burned forest, a plague, winter replacing summer in one place by a quest (alternate layer data of a tile, kept as a difference in the save). The **season tint** and *Hold* are the cheap version of this: they change how the whole ground looks, not what lies where.
 - **Local weather** other than by zone: one ground for the whole terrain, whatever is far away.
 

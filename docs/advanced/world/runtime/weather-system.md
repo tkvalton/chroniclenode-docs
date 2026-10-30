@@ -13,6 +13,8 @@ Deals with weather application logic
 | `VFXWeather` | [current_weather](#var-current-weather) | `null` |
 | `WorldData:` | [world_data](#var-world-data) |  |
 | `TerrainWeatherDriver` | [ground](#var-ground) | `null` |
+| `FoliageWindDriver` | [wind](#var-wind) | `null` |
+| `GroundMarkManager` | [marks](#var-marks) | `null` |
 | `GameHost.SystemHub` | [system_hub](#var-system-hub) |  |
 | `VFXManager:` | [vfx_manager](#var-vfx-manager) |  |
 
@@ -46,6 +48,14 @@ The current worlds data (a new world starts with its own default weather again)
 ### TerrainWeatherDriver ground = null {#var-ground}
 
 What the weather does to the ground of the terrain (how wet it is, the snow, the tint of the world)
+
+### FoliageWindDriver wind = null {#var-wind}
+
+What moves in the world, for the plants: the wind and the bodies that push through grass (the plant shaders read them)
+
+### GroundMarkManager marks = null {#var-marks}
+
+The marks on the ground of the world: footprints, tracks, scorches (decals that fade out)
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 

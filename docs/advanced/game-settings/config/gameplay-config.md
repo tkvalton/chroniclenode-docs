@@ -24,6 +24,9 @@ Configuration for gameplay rules and mechanics
 | `bool` | [footsteps_from_movement](#prop-footsteps-from-movement) | `true` |
 | `float` | [footstep_stride_walk](#prop-footstep-stride-walk) | `0.8` |
 | `float` | [footstep_stride_run](#prop-footstep-stride-run) | `1.5` |
+| `bool` | [footprints_enabled](#prop-footprints-enabled) | `true` |
+| `int` | [footprint_limit](#prop-footprint-limit) | `96` |
+| `float` | [footprint_view_distance](#prop-footprint-view-distance) | `40.0` |
 | `float` | [footstep_swim_interval](#prop-footstep-swim-interval) | `1.3` |
 | `bool` | [developer_commands](#prop-developer-commands) | `false` |
 | `bool` | [fog_of_war_enabled](#prop-fog-of-war-enabled) | `true` |
@@ -471,6 +474,18 @@ The distance in metres between two footsteps while walking (or crouching)
 ### float footstep_stride_run = 1.5 {#prop-footstep-stride-run}
 
 The distance in metres between two footsteps while running
+
+### bool footprints_enabled = true {#prop-footprints-enabled}
+
+The feet leave footprints on ground that takes them (sand, mud, snow ...: the terrain textures and the weather say which), and the Ground Mark effect and scripts can put marks on the ground
+
+### int footprint_limit = 96 {#prop-footprint-limit}
+
+The most marks (footprints, tracks, scorches ...) there can be on the ground at once: the oldest is used again
+
+### float footprint_view_distance = 40.0 {#prop-footprint-view-distance}
+
+How far from the camera the marks on the ground are drawn, in metres
 
 ### float footstep_swim_interval = 1.3 {#prop-footstep-swim-interval}
 
