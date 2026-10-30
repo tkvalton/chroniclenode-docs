@@ -36,7 +36,7 @@ void fragment() {
 }
 ```
 
-A plant that sways with the wind of the world can use the ready-made shaders instead: see [Foliage tools](/basic/world/terrain-foliage#wind-and-walking-through-plants).
+A plant that sways with the wind of the world can use the ready-made shaders instead: see [Foliage tools](/basic/world/terrain-foliage#foliage-shaders-wind-walking-through-and-light).
 
 ## The wind
 

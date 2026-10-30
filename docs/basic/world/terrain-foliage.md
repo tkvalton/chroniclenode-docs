@@ -80,18 +80,59 @@ The **Inspect** tool's box in the corner of the viewport has a line **Foliage**:
 - **Ground clutter** is a video setting of the player: **Off**, **Low**, **Medium**, **High**. Off draws no grass, weeds or pebbles; the other three are percentages **you** set in [Terrain Settings](/basic/game-settings/terrain-settings#ground-clutter) (35, 65 and 100 at first). The scatter keeps that share of every entry, so nothing moves when the player changes it. Trees and bushes are level design: the setting does not touch them.
 - **Clutter grows on textures** (Terrain Settings) turns the texture lists off for the whole project: only what you painted by hand is drawn.
 
-## Wind and walking through plants
+## Foliage shaders: wind, walking through, and light
 
-Plants sway in the wind of the world and bend away from whoever walks through them. This is done by the **shader of the material**, not by settings on the entry. Two shaders are included (folder `assets/shaders` of the plugin):
+Plants sway in the wind of the world and bend away from whoever walks through them, and a plant made of flat cards can be **lit well**. This is done by the **shader of the material**, not by settings on the entry. The shaders are in the folder `assets/shaders` of the plugin: one for small plants and one for trees and bushes, each in **three ways of lighting**.
 
-| Shader | For | Settings of the material |
+| For | Lit per pixel (the usual) | Lit per vertex | Unshaded |
+|---|---|---|---|
+| Grass, flowers, weeds, small plants | `foliage_plant.gdshader` | `foliage_plant_vertex_lit.gdshader` | `foliage_plant_unshaded.gdshader` |
+| The leaves, needles, branches and trunks of trees and bushes | `foliage_tree.gdshader` | `foliage_tree_vertex_lit.gdshader` | `foliage_tree_unshaded.gdshader` |
+
+To use one, give the entry's mesh a **ShaderMaterial** with the shader. The mesh must have its **root at the origin (y = 0)** and grow upwards, and **Plant height** (or **Tree height**) must be the height of that mesh in metres: the root stays put and the tip moves most. A material is made for one height, so a mesh of another height needs a material of its own.
+
+### Why plants light badly, and the fix
+
+A plant made of flat cards is lit by the way each card happens to face the sun: one blade bright, the next one black, and a field looks patchy. A crown of leaf cards looks like a heap of shards. The shaders fix it in two ways:
+
+- **The normals are not the ones of the mesh.** For a plant they are turned **up to the sky** (like the ground it grows on); for a crown they point **away from the middle of the crown**, as on a ball, so the whole crown is lit like one soft shape. This is the **Normal mode** and **Normal soften**.
+- **The light wraps round the card** (**Light wrap**), light shines **through a thin leaf** seen against the sun (**Translucency**), and there is no shiny highlight.
+
+The three lightings:
+
+- **Lit per pixel**: the soft light described above, with shadows. Use this one unless you have a reason.
+- **Lit per vertex**: the light is worked out at the corners of the triangles, which is cheaper and softer still. There is no wrap of the light (turn the normal mode towards the sky or the crown to soften it).
+- **Unshaded**: no light at all: the colours as they are, a flat painted look, the cheapest. It gets no sunlight and no shadows, so night is as bright as day: **Flat brightness** sets how bright it is.
+
+### The settings
+
+Both shaders (and all three lightings) have the same settings, in groups in the material:
+
+| Group | Setting | What it does |
 |---|---|---|
-| `foliage_plant.gdshader` | grass, flowers, weeds, small plants | picture, root and tip colour, **Plant height** (the height of your mesh in metres), **Wind amount**, **Stiffness**, **Brush amount**, translucency |
-| `foliage_tree.gdshader` | the crown, branches and trunk of trees and bushes | picture, tint, **Tree height**, **Sway amount**, **Stiffness**, **Flutter amount** (0 for a trunk), **Brush amount** (above 0 for a bush a body can push through), translucency |
+| Look | **Albedo texture** | The picture (alpha cuts out the shape). Empty = plain colour: grass blades |
+| | **Root color**, **Tip color** (plants) / **Tint** (trees) | The colour at the root and at the tip; the tint of a tree. The vertex colours of the mesh and the tint variation of the scatter are used too |
+| | **Alpha cutoff** | Pixels with less alpha than this are not drawn |
+| | **UV scale** (trees) | How often the picture repeats (a trunk: 1 by 2) |
+| | **Roughness** (trees) | How rough the surface is |
+| Movement | **Plant height** / **Tree height** | The height of the mesh in metres |
+| | **Wind amount** / **Sway amount** | 0 = still, 1 = as the wind says, 2 = twice as much |
+| | **Stiffness** | 0 = bends from the ground up, 1 = only the top bends (a thick trunk) |
+| | **Flutter amount** (trees) | How much the leaves flutter by themselves (0 for a trunk) |
+| | **Brush amount** | How much a body that walks through bends it: 0 = not at all (a tree), 1 = as much as it can (a low bush) |
+| Lighting | **Normal mode** | *Plants:* Mesh normals, Up, or a Mix of mesh and up. *Trees:* Mesh normals (a trunk), Canopy (a ball: leaves made of cards), or Up |
+| | **Normal soften** | How far the normals go towards the sky or the ball (0 = the mesh, 1 = all the way) |
+| | **Canopy center**, **Canopy radius** (trees) | Where the middle of the crown is (a move from 65 percent of the tree's height) and how big it is (0 = 40 percent of the height) |
+| | **Inner tint**, **Outer tint** (trees) | Leaves deep in the crown are darker: the colour is mixed from one to the other by how deep the leaf is |
+| | **Light wrap** | How far the light wraps round a card (lit per pixel only) |
+| | **Translucency** | How much light shows through a thin leaf |
+| | **Flat brightness** | How bright the plant is without light (unshaded only) |
 
-To use one, give the entry's mesh a **ShaderMaterial** with the shader. The mesh must have its **root at the origin (y = 0)** and grow upwards, and the height setting must match it: the root stays put and the tip moves most.
+For a **trunk** use the tree shader with **Normal mode = Mesh normals**, **Flutter amount = 0** and a high **Stiffness**, so the trunk sways with the crown.
 
-- **Wind.** The gusts travel over the ground, so a field moves together. The game sets it with `FoliageWind.set_wind(direction_degrees, strength, speed)` (0 degrees blows towards -Z, strength 0 still, 1 a breeze, 2 a storm). The wind is the **Wind** of the [Environment config](/basic/world/world-configs#environment) of the world (a breeze at first); a weather with its own wind takes its place while it lasts. A script can set it with `FoliageWind.set_wind`. More in [Shader globals](/basic/world/shader-globals#the-wind).
+### The wind and the push
+
+- **Wind.** The gusts travel over the ground, so a field moves together. The wind is the **Wind** of the [Environment config](/basic/world/world-configs#environment) of the world (a breeze at first); a weather with its own wind takes its place while it lasts. A script can set it with `FoliageWind.set_wind`. More in [Shader globals](/basic/world/shader-globals#the-wind).
 - **Walking through.** The players and the entities near the camera (at most 8 at once, within 40 m) press the plants near them down and aside. A mounted or flying entity is above the plants and pushes nothing. The plants spring back when the body has gone.
 - A shader of your own can read the same global parameters, `world_wind` and `foliage_pushers`, with `foliage_wind.gdshaderinc` (the [list of shader globals](/basic/world/shader-globals) the plugin adds to your project).
 
