@@ -12,6 +12,7 @@ Preloaded stylized sky shader
 |---|---|---|
 | `SkyConfig` | [current_sky_config](#var-current-sky-config) |  |
 | `EnvironmentConfig` | [current_environment_config](#var-current-environment-config) |  |
+| `SunConfig` | [sun_path](#var-sun-path) |  |
 | `ShaderMaterial` | [sky_material](#var-sky-material) |  |
 | `bool` | [day_night_cycle](#var-day-night-cycle) | `true` |
 | `float` | [transition_duration](#var-transition-duration) | `3.0` |
@@ -23,6 +24,7 @@ Preloaded stylized sky shader
 | | |
 |---|---|
 | `void` | [set_day_night_cycle](#method-set-day-night-cycle)( `enabled: bool` ) |
+| `void` | [set_sun_path](#method-set-sun-path)( `path: SunConfig` ) |
 | `void` | [apply_sky_config](#method-apply-sky-config)( `config: SkyConfig, blend_seconds: float = 0.0` ) |
 | `void` | [update_sky_environment](#method-update-sky-environment)( `current_time: float` ) |
 | `Dictionary` | [calculate_sky_parameters](#method-calculate-sky-parameters)( `current_time: float` ) |
@@ -50,9 +52,13 @@ The sky that is shown now (while one sky blends into another: the blend)
 
 The environment (sky, light, fog) that is shown now (while one environment blends into another: the blend).
 
+### SunConfig sun_path {#var-sun-path}
+
+The sun of the world (when it rises and sets): the sky changes at those hours. Set by the game host
+
 ### ShaderMaterial sky_material {#var-sky-material}
 
-The material of the sky.
+The material of the sky when it is a shader (null for a sky of another kind, a procedural sky for example).
 
 ### bool day_night_cycle = true {#var-day-night-cycle}
 
@@ -76,6 +82,10 @@ The manager of time and timers.
 
 Enable or disable day/night cycle (typically called from external system)
 
+### void set_sun_path( path: SunConfig ) {#method-set-sun-path}
+
+The sun of the world is another one (or a new world): the sky follows its hours from now on
+
 ### void apply_sky_config( config: SkyConfig, blend_seconds: float = 0.0 ) {#method-apply-sky-config}
 
 Apply a SkyConfig to reconfigure the sky
@@ -86,11 +96,11 @@ Initial setup - directly updates sky without interpolation
 
 ### Dictionary calculate_sky_parameters( current_time: float ) {#method-calculate-sky-parameters}
 
-Calculate sky parameters based on time of day
+Calculate sky parameters based on time of day (the colours, the clouds and the stars of the stylized sky, by the sun's hours)
 
 ### void apply_params( params: Dictionary ) {#method-apply-params}
 
-Apply parameters from a parameter dictionary to the shader
+Sets the parameters of the sky from a dictionary: parameter name -&gt; value, as the driver of the sky makes them (hour_params)
 
 ### void apply_environment_config( config: EnvironmentConfig, blend_seconds: float = 0.0 ) {#method-apply-environment-config}
 

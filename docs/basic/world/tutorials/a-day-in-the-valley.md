@@ -43,5 +43,6 @@ Each change shows in the viewport as you make it.
 
 | You want | Do this |
 |---|---|
+| **A fog that changes colour with the day** | In **By the Hour** of the Environment give **Fog color by hour** a gradient (dark blue at night, warm at dusk): the Debugger's time slider moves it |
 | **A sun that does not move** | In the Sun config untick **Day night cycle** and set **Static rotation**. Its brightness is the **Static Sun Light** group of the Environment |
 | **Another place with another mood** | Make a second Environment (a swamp, a cave) and give it to that [world](/basic/world/worlds#config-overrides), or to a zone when zones can have one |

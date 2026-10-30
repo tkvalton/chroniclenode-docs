@@ -336,9 +336,13 @@ Emitted with the result of a heal the entity gave to someone.
 
 Emitted with the result of a heal the entity received.
 
+### entity_landed( fall_height: float ) {#signal-entity-landed}
+
+Death signal - forwarded from StatsComponent via mediator Emitted when the entity has just died, before its effects are removed: death procs (and a resurrection) run on it. entity_died follows The entity came down from a fall: how far it fell (metres)
+
 ### entity_dying( entity: Entity ) {#signal-entity-dying}
 
-Death signal - forwarded from StatsComponent via mediator Emitted when the entity has just died, before its effects are removed: death procs (and a resurrection) run on it. entity_died follows
+The entity is dying (its health reached 0)
 
 ### entity_died( entity: Entity ) {#signal-entity-died}
 

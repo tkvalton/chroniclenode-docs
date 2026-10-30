@@ -61,12 +61,13 @@ At night the same light runs the same arc: it is the moon.
 
 ## Sky
 
-The sky is a stylised shader that blends between day, dusk and night.
+The sky is a stylised shader that blends between day, dusk and night, **shown by a sky driver**: leave the **Driver** empty for the stylized sky, or give a panorama driver (a picture for the day and one for the night), a procedural sky, or a driver of your own for your own shader: see [Your own sky](/basic/world/your-own-sky).
 
 | Group | What it sets |
 |---|---|
+| **Sky Driver** | What shows the sky (empty = the stylized sky): see [Your own sky](/basic/world/your-own-sky) |
 | **Background** | The background mode (sky or a flat colour), the colour, and a brightness multiplier |
-| **Time of Day** | When sunrise and sunset begin, and the seconds a change between them takes |
+| **Time of Day** | The seconds a change between day, dusk and night takes. The sky changes at the hours the **Sun config** says the sun rises and sets (half an hour before to half an hour after): the sky has no hours of its own |
 | **Sky Colors: Day, Night, Dusk** | The top colour, the horizon colour and the colour of the sun's glow, for each |
 | **Cloud Settings** | The colour and density of clouds by day, night and dusk; the quality of the clouds (samples, shadow samples); scale, edge smoothness and shadow strength |
 | **High Clouds** | The density of a second, higher layer (`0` = none) |
@@ -92,6 +93,7 @@ These are the *artistic* settings of the scene's environment. The costly renderi
 | **Glow and Occlusion** | **Glow amount** and **SSAO amount**: how much of the effect *this world* has (`1` normal, `0` none, up to `4`). The player's Glow and Ambient occlusion settings stay the **switch and the quality**: with `0` a world has none even when the player turned it on, and with `2` it glows twice as much for the player who has it on. A neon city wants more glow, a desert almost none |
 | **Camera** | The camera of the world: **Exposure**, **Auto exposure** (the camera adapts to dark and bright places; speed and scale), and **depth of field** (**far** blur from a distance, **near** blur, and the amount). Off by default: depth of field and auto exposure change the whole feel of a game, so a developer opts in. The player has a **Depth of field** setting that turns the world's blur off |
 | **Colour Grade** | The colours of this world: **Brightness**, **Contrast**, **Saturation**, a **Tint** and its amount, and a **LUT** (below). All of it is baked into **one colour lookup table** that the renderer applies while it tonemaps, so a grade costs nothing. The player's own Brightness, Contrast and Saturation are applied first and the grade after them |
+| **By the Hour** | Settings that follow the time of day, each a line whose left end is 0:00 and right end 24:00: **Fog color by hour** and **Ambient color by hour** (a *Gradient*: dark blue at night, warm at dusk), **Tint by hour** for the grade, and **Fog density by hour**, **Ambient energy by hour** and **Exposure by hour** (a *Curve*: the number the setting is multiplied with; open the curve and raise its **Max Value** above `1` to go above the setting). Empty = all day as the setting says. They follow the clock of the game (the Debugger follows its time slider). A sun that stays where it is keeps its day |
 
 ### The colour grade and the LUT
 
@@ -121,7 +123,9 @@ The **Set Environment Config** and **Set Sky Config** event actions have **Blend
 | The **sky** | Colours, clouds and stars slide. A change between a sky shader and a flat background colour switches at the halfway point: to blend smoothly give both looks a sky with the colours you want |
 | The clock, the **path** of the sun, the music | Do not blend (a different path is a different world) |
 
-The change ends exactly on the config you chose. [Zones](/basic/world/zones#a-look-for-each-zone) use the same blend when the party walks into one.
+The change ends exactly on the config you chose.
+
+**How long it holds.** A look an event set holds until another event, the **Clear Environment Look** action, or the next world. **Hold seconds** on the Set actions ends it by itself after that long (the zone's look, or the world's, comes back over the blend seconds); `0` = until cleared. **Clear Environment Look** ends the sky, the environment, or both, over its own blend seconds. [Zones](/basic/world/zones#a-look-for-each-zone) use the same blend when the party walks into one.
 
 ## See also
 

@@ -23,6 +23,7 @@ Zones belong to a **world**. Open the **Worlds** editor (Database > World > Worl
 | **Rain reaches**, **Snow reaches** | How much of the rain and the snow reach the ground in the zone (a cave: `0`, a mountain top: more snow). See [Ground weather](/basic/world/ground-weather) | `1` |
 | **Sky**, **Environment** | The [sky and environment](/basic/world/world-configs) the party sees in the zone. The first choice, **Same as the zone above, or the world**, gives it none of its own | the first choice |
 | **Look blends** | Seconds the look takes to come when the party walks in (and to go when it walks out into a place with no look of its own) | `3` |
+| **Screen tint**, **Dark corners**, **Grey**, **Film grain** | The screen of the zone: a tint over the picture (its alpha is how strong), dark corners, grey and grain, as a layer of the [camera look](/basic/world/camera-effects) that blends in and out with the look. A zone with none takes the screen of the zone above | none |
 | **Replaces an event's look** | See [A look for each zone](#a-look-for-each-zone) | off |
 
 Above the list, **Default zone** is the zone of the whole map (see below). The name and the banner line are translated when you [localize](/basic/game-settings/localization) your game.
@@ -76,6 +77,7 @@ In the **Zones** section of the world, choose the **Default zone**: the zone of 
 A zone can have a **sky** and an **environment** of its own: a swamp with a green fog and a dim sun, a cave with no sun at all, a forest where the light comes down in pale shafts. The party that walks in sees the look **blend in** over the seconds you set, and blend out when it leaves.
 
 - **A zone with none of its own** takes the look of the zone it is a part of (the Old Mill takes Elderwood's), and then the look of the **world**. The sky and the environment are looked for one by one: a cave can have its own environment and keep the sky of the world.
+- **The screen too.** A zone can tint the picture, darken the corners, grey it or add grain (the fields above): a damp green haze in a swamp, a grey wash in a ruin. It is laid under the screen looks of effects and events and fades with the look.
 - **The sun's path is the world's**, always (one sun per world). How the sun *looks* is part of the environment, so a zone can dim it, warm it or [switch it off](/basic/world/world-configs#environment) (an inside).
 - **An event look is king.** An event that sets a sky or an environment (the [Set Sky Config and Set Environment Config](/basic/events-and-quests/event-actions) actions) wins over the zones: the party can walk from zone to zone and the look the event made stays. Tick **Replaces an event's look** on a zone and walking into it ends the event look of that kind and shows the zone's. A new world ends event looks too.
 - **A world that has just been loaded** shows the zone the party stands in at once (no blend from the world's look).

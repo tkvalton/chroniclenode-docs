@@ -52,6 +52,7 @@ Class representing the game settings
 | `HealthDisplayOption` | [action_bar_health_text](#prop-action-bar-health-text) | `HealthDisplayOption.CURRENT_MAX:` |
 | `HealthDisplayOption` | [action_bar_resource_text](#prop-action-bar-resource-text) | `HealthDisplayOption.CURRENT_MAX:` |
 | `bool` | [action_bar_cast_bar](#prop-action-bar-cast-bar) | `true:` |
+| `ColourSetOption` | [colour_set](#prop-colour-set) | `ColourSetOption.DEFAULT` |
 | `Color` | [player_color](#prop-player-color) | `Color(0.2, 0.6, 1.0):  # Blue` |
 | `Color` | [friendly_color](#prop-friendly-color) | `Color(0.2, 1.0, 0.3):` |
 | `Color` | [hostile_color](#prop-hostile-color) | `Color(1.0, 0.2, 0.2):` |
@@ -305,6 +306,13 @@ The kinds of colour blindness the picture of the world can be corrected for
 - **DEUTERANOPIA** = `2`
 - **TRITANOPIA** = `3`
 
+### enum ColourSetOption {#enum-coloursetoption}
+
+The colours of the interface for the entities and the bars: the ones of the game, or a set that people with colour blindness can tell apart
+
+- **DEFAULT** = `0`
+- **COLOUR_BLIND_SAFE** = `1`
+
 ### enum AurasOptions {#enum-aurasoptions}
 
 Enumeration of valid nameplate aura display options for the game's settings
@@ -353,6 +361,7 @@ Enumeration of crouch control modes
 - `Dictionary` **AURAS_MODE** = `{` - Dictionary of nameplate aura display options for the game's settings
 - `Dictionary` **HEALTH_DISPLAY** = `{` - Dictionary of nameplate aura display options for the game's settings
 - `Dictionary` **CROUCH_MODE** = `{` - Dictionary of crouch mode options for the game's settings
+- `Dictionary` **COLOUR_BLIND_SAFE_PALETTE** = `{` - The colours of the colour-blind safe set: the Okabe-Ito colours (blue, vermillion, yellow, sky blue, orange, reddish purple)
 - `Dictionary` **PROPERTY_ENUM_MAP** = `{` - Central mapping: property name -&gt; enum dictionary Add your enum properties here to make them work in runtime menus automatically
 - `Dictionary` **SETTING_DESCRIPTIONS** = `{` - Dictionary of setting descriptions for tooltips and help text Add descriptions for your settings here - they'll show up in both editor and runtime
 
@@ -537,6 +546,10 @@ Resource bar text display mode
 Action bar cast bar visibility
 
 *Accessibility*
+
+### ColourSetOption colour_set = ColourSetOption.DEFAULT {#prop-colour-set}
+
+The colours of the interface below: the game's, or a colour-blind safe set (blue, orange, yellow, sky blue: the Okabe-Ito colours). Choosing one writes the colours below; change one after that if you like
 
 ### Color player_color = Color(0.2, 0.6, 1.0):  # Blue {#prop-player-color}
 

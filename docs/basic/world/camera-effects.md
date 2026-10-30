@@ -26,7 +26,7 @@ Looks come in **layers**. Several can be on at the same time (poisoned while und
 
 | Who asks for a look | Priority |
 |---|---|
-| a [zone](/basic/world/zones) (planned) | `10` |
+| a [zone](/basic/world/zones#a-look-for-each-zone) (its screen tint, dark corners, grey, grain) | `10` |
 | a **Screen Look effect** | `20` (you can change it) |
 | a **Screen Look event action** | `50` |
 | the water of a [movement volume](/basic/world/movement-volumes) | `100` |
@@ -71,6 +71,21 @@ Two actions are in the **Environment** group of the event editor.
 | **Screen Look** | **Set** a look with a **name** (the look numbers, **fade seconds**, and **hold seconds** to take it off by itself; `0` = until cleared), or **Clear** the look of that name. The same name again replaces the look. An event look is laid over the looks of effects (priority `50`) |
 
 Use them for story: a flashback is a Screen Look with desaturate and a warm tint, cleared by another action when it ends.
+
+## Automatic shake
+
+The camera can shake **by itself** when the character lands hard or takes a big hit. Both are **off by default**, in the **Automatic Shake** options of the camera (Gameplay Config > Controller & Camera, the camera tab):
+
+| Option | What it does | Default |
+|---|---|---|
+| **Shake on landing** | The camera shakes when the character lands from a fall | off |
+| **Landing min height** | Falls shorter than this (metres) do not shake it | `3` |
+| **Landing shake amount** | How hard the shortest shaking fall shakes (0 to 1); a fall ten metres longer shakes fully | `0.3` |
+| **Shake on big hit** | The camera shakes when the character takes a big hit | off |
+| **Big hit min percent** | A hit shakes it when it takes at least this many percent of the character's health at once | `15` |
+| **Big hit shake amount** | How hard a big hit shakes (0 to 1) | `0.4` |
+
+The player's **Camera shake** setting scales them like every other shake. For more control (a shake by an ability, a shake from where something happens) use the [Camera Shake effect or action](#the-camera-shake-effect).
 
 ## Water
 

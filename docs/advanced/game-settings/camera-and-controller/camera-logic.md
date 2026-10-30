@@ -32,6 +32,12 @@ Child classes:
 | `float` | [field_of_view](#prop-field-of-view) | `75.0` |
 | `float` | [near_clip](#prop-near-clip) | `0.05` |
 | `float` | [far_clip](#prop-far-clip) | `500.0` |
+| `bool` | [shake_on_landing](#prop-shake-on-landing) | `false` |
+| `float` | [landing_min_height](#prop-landing-min-height) | `3.0` |
+| `float` | [landing_shake_amount](#prop-landing-shake-amount) | `0.3` |
+| `bool` | [shake_on_big_hit](#prop-shake-on-big-hit) | `false` |
+| `float` | [big_hit_min_percent](#prop-big-hit-min-percent) | `15.0` |
+| `float` | [big_hit_shake_amount](#prop-big-hit-shake-amount) | `0.4` |
 | `float` | [zoom_min](#prop-zoom-min) | `3.0` |
 | `float` | [zoom_max](#prop-zoom-max) | `10.0` |
 | `float` | [zoom_speed](#prop-zoom-speed) | `2.0` |
@@ -126,6 +132,32 @@ Near clipping plane
 ### float far_clip = 500.0 {#prop-far-clip}
 
 Far clipping plane (view distance)
+
+*Automatic Shake*
+
+### bool shake_on_landing = false {#prop-shake-on-landing}
+
+The camera shakes when the character lands from a fall. Off by default; the player's Camera shake setting scales it
+
+### float landing_min_height = 3.0 {#prop-landing-min-height}
+
+Falls shorter than this (metres) do not shake the camera
+
+### float landing_shake_amount = 0.3 {#prop-landing-shake-amount}
+
+How hard a landing shakes at the shortest fall that shakes (0 to 1); a longer fall shakes more, up to 1
+
+### bool shake_on_big_hit = false {#prop-shake-on-big-hit}
+
+The camera shakes when the character takes a big hit. Off by default
+
+### float big_hit_min_percent = 15.0 {#prop-big-hit-min-percent}
+
+A hit shakes the camera when it takes at least this many percent of the character's health at once
+
+### float big_hit_shake_amount = 0.4 {#prop-big-hit-shake-amount}
+
+How hard a big hit shakes (0 to 1)
 
 *Zoom*
 

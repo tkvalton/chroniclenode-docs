@@ -13,6 +13,7 @@ What is known about the zones from the database alone: who is whose parent, the 
 | `ZoneDefinition` | [get_zone](#method-get-zone)( `zone_id: int` ) *static* |
 | `Array[int]` | [get_chain](#method-get-chain)( `zone_id: int` ) *static* |
 | `ZoneDefinition` | [get_look_owner](#method-get-look-owner)( `zone_id: int, kind: String` ) *static* |
+| `ZoneDefinition` | [get_screen_owner](#method-get-screen-owner)( `zone_id: int` ) *static* |
 | `int` | [get_look_id](#method-get-look-id)( `zone_id: int, kind: String` ) *static* |
 | `bool` | [is_inside](#method-is-inside)( `zone_id: int, ancestor_id: int` ) *static* |
 | `int` | [get_top](#method-get-top)( `zone_id: int` ) *static* |
@@ -39,6 +40,10 @@ The zone, then its parent, then the parent of that, up to the top: [zone id, par
 ### ZoneDefinition get_look_owner( zone_id: int, kind: String ) {#method-get-look-owner}
 
 The zone that gives the look of a place: the zone itself if it has a config of that kind, else its parent, up to the top. Null when none of them has one (the world's look shows). `kind` is LOOK_SKY or LOOK_ENVIRONMENT; the two kinds are looked for one by one.
+
+### ZoneDefinition get_screen_owner( zone_id: int ) {#method-get-screen-owner}
+
+The zone that gives the screen of a place: the zone itself if it changes the screen, else its parent, up to the top. Null when none does.
 
 ### int get_look_id( zone_id: int, kind: String ) {#method-get-look-id}
 

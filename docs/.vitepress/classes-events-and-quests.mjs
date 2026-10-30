@@ -863,6 +863,12 @@ export const groups = [
         "file": "data_classes/events/event_actions/enviromental/camera_shake_action.gd"
       },
       {
+        "name": "ClearEnvironmentLookAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\enviromental\\clear_enviroment_look_action.gd",
+        "file": "data_classes/events/event_actions/enviromental/clear_enviroment_look_action.gd"
+      },
+      {
         "name": "CreateVFXAction",
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\enviromental\\create_vfx_action.gd",

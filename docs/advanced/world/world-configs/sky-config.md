@@ -14,11 +14,10 @@ Controls all visual aspects of the sky including colors, clouds, stars, and atmo
 
 | | | |
 |---|---|---|
+| `SkyDriver` | [driver](#prop-driver) |  |
 | `Environment.BGMode` | [background_mode](#prop-background-mode) | `Environment.BG_SKY` |
 | `Color` | [background_color](#prop-background-color) | `Color(0, 0, 0, 1)` |
 | `float` | [background_energy_multiplier](#prop-background-energy-multiplier) | `1.0` |
-| `float` | [sun_rise_hour](#prop-sun-rise-hour) | `5.5` |
-| `float` | [sun_set_hour](#prop-sun-set-hour) | `20.5` |
 | `float` | [transition_duration](#prop-transition-duration) | `3.0` |
 | `Color` | [day_top_color](#prop-day-top-color) | `Color("6699ffff")` |
 | `Color` | [day_bottom_color](#prop-day-bottom-color) | `Color("99ccffff")` |
@@ -53,6 +52,12 @@ Controls all visual aspects of the sky including colors, clouds, stars, and atmo
 
 ## Property descriptions
 
+*Sky Driver*
+
+### SkyDriver driver {#prop-driver}
+
+What shows this sky: empty = the stylized sky of the toolkit (day, dusk and night colours, clouds, stars, sun and moon discs). Another driver shows a panorama picture for the day and one for the night, Godot's procedural sky, or your own sky shader (a script that extends SkyDriver). The colours of the day, dusk and night below are used by every driver. The hours the sky changes are the sun's: see the Sun config
+
 *Background*
 
 ### Environment.BGMode background_mode = Environment.BG_SKY {#prop-background-mode}
@@ -68,14 +73,6 @@ Background color (when using BG_COLOR mode)
 Background brightness multiplier
 
 *Time of Day*
-
-### float sun_rise_hour = 5.5 {#prop-sun-rise-hour}
-
-Hour when sunrise begins (slightly before sun_rise_hour)
-
-### float sun_set_hour = 20.5 {#prop-sun-set-hour}
-
-Hour when sunset begins (slightly before sun_set_hour)
 
 ### float transition_duration = 3.0 {#prop-transition-duration}
 

@@ -61,6 +61,8 @@ Older versions kept the controller and the camera as **presets** (files in `src/
 
 Every camera has **Zoom with window open**: whether the wheel and the zoom keys zoom while a window is open (on for the third person camera, off for the top-down cameras).
 
+Every camera also has the **Automatic Shake** options (shake on a hard landing, shake on a big hit; both off by default): see [Camera effects](/basic/world/camera-effects#automatic-shake).
+
 The top-down cameras have their own zoom, angle and nameplate-scaling options (the camera tilts more steeply as it zooms out, and nameplates shrink with distance).
 
 ## Pairings

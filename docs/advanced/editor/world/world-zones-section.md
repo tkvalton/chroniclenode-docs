@@ -28,6 +28,10 @@ The **Zones** section of the Worlds editor: the named places of ONE world (Elder
 | `OptionButton` | [environment_option](#var-environment-option) |  |
 | `SpinBox` | [blend_spin](#var-blend-spin) |  |
 | `CheckBox` | [replace_check](#var-replace-check) |  |
+| `ColorPickerButton` | [tint_button](#var-tint-button) |  |
+| `SpinBox` | [vignette_spin](#var-vignette-spin) |  |
+| `SpinBox` | [desaturate_spin](#var-desaturate-spin) |  |
+| `SpinBox` | [grain_spin](#var-grain-spin) |  |
 | `VBoxContainer` | [fields_box](#var-fields-box) |  |
 | `Label` | [hint_label](#var-hint-label) |  |
 
@@ -120,6 +124,22 @@ Something of the world changed (the zone list, the default zone): the editor sav
 *No description yet.*
 
 ### CheckBox replace_check {#var-replace-check}
+
+*No description yet.*
+
+### ColorPickerButton tint_button {#var-tint-button}
+
+*No description yet.*
+
+### SpinBox vignette_spin {#var-vignette-spin}
+
+*No description yet.*
+
+### SpinBox desaturate_spin {#var-desaturate-spin}
+
+*No description yet.*
+
+### SpinBox grain_spin {#var-grain-spin}
 
 *No description yet.*
 

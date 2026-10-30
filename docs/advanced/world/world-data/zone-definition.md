@@ -22,8 +22,20 @@ Where a zone is, is not stored here: it is painted on the terrain (the zone laye
 | `int` | [environment_config_id](#prop-environment-config-id) | `0` |
 | `float` | [look_blend_seconds](#prop-look-blend-seconds) | `3.0` |
 | `bool` | [look_replaces_event](#prop-look-replaces-event) | `false` |
+| `Color` | [screen_tint](#prop-screen-tint) | `Color(0.0, 0.0, 0.0, 0.0)` |
+| `float` | [screen_vignette](#prop-screen-vignette) | `0.0` |
+| `Color` | [screen_vignette_color](#prop-screen-vignette-color) | `Color.BLACK` |
+| `float` | [screen_desaturate](#prop-screen-desaturate) | `0.0` |
+| `float` | [screen_grain](#prop-screen-grain) | `0.0` |
 | `bool` | [show_banner](#prop-show-banner) | `true` |
 | `String` | [banner_subtitle](#prop-banner-subtitle) | `"":` |
+
+## Methods
+
+| | |
+|---|---|
+| `bool` | [has_screen_look](#method-has-screen-look)() |
+| `ScreenLook` | [make_screen_look](#method-make-screen-look)() |
 
 ## Property descriptions
 
@@ -59,6 +71,26 @@ Seconds the look of this zone takes to come when the party walks into it (and to
 
 An event that sets a sky or an environment wins over the zones. Tick this and the look of this zone replaces such an event look when the party walks in
 
+### Color screen_tint = Color(0.0, 0.0, 0.0, 0.0) {#prop-screen-tint}
+
+The screen of this zone: a tint over the picture (its alpha is how strong; 0 = none), dark corners, grey and film grain: a damp green haze in a swamp, a grey wash in a ruin. Laid under the effects and events that change the screen, blended in over the look seconds above. A zone with none of these takes the screen of the zone above
+
+### float screen_vignette = 0.0 {#prop-screen-vignette}
+
+How dark the corners of the screen are in this zone (0 = not at all)
+
+### Color screen_vignette_color = Color.BLACK {#prop-screen-vignette-color}
+
+The colour of the dark corners
+
+### float screen_desaturate = 0.0 {#prop-screen-desaturate}
+
+How grey the picture is in this zone (0 = the colours as they are, 1 = black and white)
+
+### float screen_grain = 0.0 {#prop-screen-grain}
+
+How much film grain the picture has in this zone
+
 ### bool show_banner = true {#prop-show-banner}
 
 Show the banner (the name, and the line under it) when the party enters the zone
@@ -66,4 +98,14 @@ Show the banner (the name, and the line under it) when the party enters the zone
 ### String banner_subtitle = "": {#prop-banner-subtitle}
 
 The line under the name on the banner ("Home of the old mill"). Empty = only the name. Reading it gives the translation when the game is played in another language (see Localization)
+
+## Method descriptions
+
+### bool has_screen_look() {#method-has-screen-look}
+
+Does this zone change the screen (a tint, dark corners, grey or grain)?
+
+### ScreenLook make_screen_look() {#method-make-screen-look}
+
+The screen of this zone as a ScreenLook (what CameraLook shows)
 

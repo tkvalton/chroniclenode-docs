@@ -12,6 +12,9 @@ The plugin **adds all of them to your project** every time the editor starts (ne
 | `terrain_snow` | float | How much snow lies on the ground: 0 none, 1 covered | The ground weather |
 | `terrain_tint` | vec4 | rgb = the colour the ground is tinted with, a = how much of it shows | The ground weather (the tint of the [world config](/basic/world/worlds)) |
 | `world_wind` | vec4 | x, y = the direction the wind blows towards on the ground (x, z) as a unit vector, z = how strong (0 still, 1 a breeze, 2 a storm), w = how fast the gusts go | The wind (below) |
+| `world_time` | float | The hour of the day, 0 to 24 (12 for a sun that stays where it is) | The sky of the world (every game minute) |
+| `world_day_factor` | float | How much of the day it is: 0 at night, 1 in daylight, between at sunrise and sunset (the hours of the Sun config) | The sky of the world |
+| `world_cloud_cover` | float | How cloudy the sky is: 0 clear, 1 overcast (the cloud density of the sky shown) | The sky of the world |
 | `foliage_pushers` | sampler2D | 8 x 1 float texture: each texel (x, y, z, radius) of a body that pushes plants aside (radius 0 = nobody) | The bodies near the camera |
 | `water_map` | sampler2D | The picture of the water for the wet shore and the caustics of the terrain | [Movement volumes](/basic/world/movement-volumes#the-shore-and-the-bed-wet-ground-and-caustics) with shore effects |
 | `water_map_rect` | vec4 | x, z = the corner of the water picture in the world, z = the size of a texel in metres, w = how far the shore reaches | The same |

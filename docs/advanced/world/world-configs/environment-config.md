@@ -77,6 +77,12 @@ Controls fog, volumetric fog, tonemap, ambient lighting, and wind. These are art
 | `float` | [grade_saturation](#prop-grade-saturation) | `1.0` |
 | `Color` | [grade_tint](#prop-grade-tint) | `Color.WHITE` |
 | `float` | [grade_tint_amount](#prop-grade-tint-amount) | `0.0` |
+| `Gradient` | [fog_color_by_hour](#prop-fog-color-by-hour) |  |
+| `Curve` | [fog_density_by_hour](#prop-fog-density-by-hour) |  |
+| `Gradient` | [ambient_color_by_hour](#prop-ambient-color-by-hour) |  |
+| `Curve` | [ambient_energy_by_hour](#prop-ambient-energy-by-hour) |  |
+| `Curve` | [exposure_by_hour](#prop-exposure-by-hour) |  |
+| `Gradient` | [grade_tint_by_hour](#prop-grade-tint-by-hour) |  |
 
 ## Property descriptions
 
@@ -357,4 +363,30 @@ A colour the picture is tinted with (a cold blue for a cave, a warm orange for a
 ### float grade_tint_amount = 0.0 {#prop-grade-tint-amount}
 
 How much of the tint is used (0 = none)
+
+*By the Hour*
+
+### Gradient fog_color_by_hour {#prop-fog-color-by-hour}
+
+The colour of the fog by the hour of the day. The line is the day: the left end is 0:00, the right end 24:00. Empty = the Fog light color above all day
+
+### Curve fog_density_by_hour {#prop-fog-density-by-hour}
+
+How thick the fog is by the hour: the value is what Fog density is multiplied with (1 = as it is, 2 = twice as thick, 0 = none). The line is the day: left 0:00, right 24:00 (open the curve and raise its Max Value above 1 to go above the setting). Empty = all day as Fog density
+
+### Gradient ambient_color_by_hour {#prop-ambient-color-by-hour}
+
+The colour of the ambient light by the hour (when its source is a colour). Left 0:00, right 24:00. Empty = the Ambient light color all day
+
+### Curve ambient_energy_by_hour {#prop-ambient-energy-by-hour}
+
+How strong the ambient light is by the hour: what Ambient light energy is multiplied with (a darker night, a brighter noon). Left 0:00, right 24:00 (open the curve and raise its Max Value above 1 to go above the setting). Empty = all day as it is
+
+### Curve exposure_by_hour {#prop-exposure-by-hour}
+
+How bright the camera sees the world by the hour: what Exposure is multiplied with. Left 0:00, right 24:00 (raise the curve's Max Value above 1 to go above it). Empty = all day as Exposure
+
+### Gradient grade_tint_by_hour {#prop-grade-tint-by-hour}
+
+The tint of the colour grade by the hour (its strength is Grade tint amount). Left 0:00, right 24:00. Empty = the Grade tint all day
 
