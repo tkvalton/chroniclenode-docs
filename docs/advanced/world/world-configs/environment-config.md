@@ -43,6 +43,19 @@ Controls fog, volumetric fog, tonemap, ambient lighting, and wind. These are art
 | `Color` | [ambient_light_color](#prop-ambient-light-color) | `Color(1, 1, 1, 1)` |
 | `float` | [ambient_light_energy](#prop-ambient-light-energy) | `1.0` |
 | `float` | [ambient_light_sky_contribution](#prop-ambient-light-sky-contribution) | `1.0` |
+| `float` | [sun_max_energy](#prop-sun-max-energy) | `1.0` |
+| `float` | [sun_min_energy](#prop-sun-min-energy) | `0.5` |
+| `float` | [sun_dawn_dusk_energy](#prop-sun-dawn-dusk-energy) | `1.0` |
+| `Color` | [sun_day_color](#prop-sun-day-color) | `Color("fffff2ff")` |
+| `Color` | [sun_dawn_color](#prop-sun-dawn-color) | `Color("ffcc99ff")` |
+| `Color` | [sun_dusk_color](#prop-sun-dusk-color) | `Color("ffb380ff")` |
+| `Color` | [sun_night_color](#prop-sun-night-color) | `Color("6f7080")` |
+| `DirectionalLight3D.SkyMode` | [sun_sky_mode](#prop-sun-sky-mode) | `DirectionalLight3D.SKY_MODE_LIGHT_AND_SKY` |
+| `float` | [sun_angular_distance](#prop-sun-angular-distance) | `0.5` |
+| `float` | [sun_indirect_energy](#prop-sun-indirect-energy) | `1.0` |
+| `float` | [sun_volumetric_fog_energy](#prop-sun-volumetric-fog-energy) | `1.0` |
+| `float` | [sun_static_energy](#prop-sun-static-energy) | `2.0` |
+| `Color` | [sun_static_color](#prop-sun-static-color) | `Color("fffff2ff")` |
 | `float` | [glow_amount](#prop-glow-amount) | `1.0` |
 | `float` | [ssao_amount](#prop-ssao-amount) | `1.0` |
 | `float` | [exposure](#prop-exposure) | `1.0` |
@@ -194,6 +207,66 @@ Ambient light brightness
 
 How much sky contributes to ambient light (0 = none, 1 = full)
 
+*Sun Light*
+
+### float sun_max_energy = 1.0 {#prop-sun-max-energy}
+
+How bright the sun is at noon
+
+### float sun_min_energy = 0.5 {#prop-sun-min-energy}
+
+How bright it is at night (the moon: the same light on the same path)
+
+### float sun_dawn_dusk_energy = 1.0 {#prop-sun-dawn-dusk-energy}
+
+How bright it is at dawn and dusk
+
+*Sun Light Colors*
+
+### Color sun_day_color = Color("fffff2ff") {#prop-sun-day-color}
+
+The colour of the light at noon
+
+### Color sun_dawn_color = Color("ffcc99ff") {#prop-sun-dawn-color}
+
+The colour at sunrise
+
+### Color sun_dusk_color = Color("ffb380ff") {#prop-sun-dusk-color}
+
+The colour at sunset
+
+### Color sun_night_color = Color("6f7080") {#prop-sun-night-color}
+
+The colour at night
+
+*Sun Light Properties*
+
+### DirectionalLight3D.SkyMode sun_sky_mode = DirectionalLight3D.SKY_MODE_LIGHT_AND_SKY {#prop-sun-sky-mode}
+
+How the light affects the sky: light only (the sky shader does not see it), sky only, or both
+
+### float sun_angular_distance = 0.5 {#prop-sun-angular-distance}
+
+Angular size of the sun (the bigger, the softer its shadows)
+
+### float sun_indirect_energy = 1.0 {#prop-sun-indirect-energy}
+
+How much the sun contributes to global illumination
+
+### float sun_volumetric_fog_energy = 1.0 {#prop-sun-volumetric-fog-energy}
+
+How much the sun lights volumetric fog (god rays)
+
+*Static Sun Light*
+
+### float sun_static_energy = 2.0 {#prop-sun-static-energy}
+
+How bright a sun that stays where it is (a Sun config with the day-night cycle off) is
+
+### Color sun_static_color = Color("fffff2ff") {#prop-sun-static-color}
+
+Its colour
+
 *Glow and Occlusion*
 
 ### float glow_amount = 1.0 {#prop-glow-amount}
@@ -254,7 +327,7 @@ How strong the blur is at its most
 
 ### Texture2D grade_lut {#prop-grade-lut}
 
-A colour lookup table (LUT): a picture of a strip of N squares of N by N (16 squares of 16 by 16 = 256 x 16), graded in any image editor. Start from assets/color_grading/neutral_lut_16.png. Empty = none
+A colour lookup table (LUT): a picture of a strip of N squares of N by N (16 squares of 16 by 16 = 256 x 16), graded in any image editor. Start from addons/chroniclenode/assets/color_grading/neutral_lut_16.png. Empty = none
 
 ### float grade_lut_strength = 1.0 {#prop-grade-lut-strength}
 

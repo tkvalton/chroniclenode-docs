@@ -92,7 +92,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 |---|---|
 | [EnvironmentConfig](/advanced/world/world-configs/environment-config) | Configuration for Environment visual settings |
 | [SkyConfig](/advanced/world/world-configs/sky-config) | Configuration for the sky shader appearance |
-| [SunConfig](/advanced/world/world-configs/sun-config) | Configuration for the directional sun light |
+| [SunConfig](/advanced/world/world-configs/sun-config) | The PATH of the sun: where it is in the sky and when. |
 | [TimeConfig](/advanced/world/world-configs/time-config) | Configuration for time flow and day/night cycle timing |
 <!-- /classes -->
 
@@ -143,7 +143,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [WorldContainer](/advanced/world/runtime/world-container) | Lightweight coordinator for world management Handles world transitions and delegates object queries to the current WorldScene |
 | [WorldScene](/advanced/world/runtime/world-scene) | WorldScene manages all objects within a specific map/scene Handles object discovery, tracking, and provides query methods |
 | [WorldSkyEnvironment](/advanced/world/runtime/world-sky-environment) | Preloaded stylized sky shader |
-| [WorldSun](/advanced/world/runtime/world-sun) | Currently active sun configuration |
+| [WorldSun](/advanced/world/runtime/world-sun) | The sun of the game: a DirectionalLight3D that follows the game clock. |
 | [ZoneTracker](/advanced/world/runtime/zone-tracker) | Watches which **zone** the party is in and tells the game when it changes. |
 | [ZoneVolume](/advanced/world/runtime/zone-volume) | A **zone volume**: a box, sphere, cylinder or capsule (the shape of its CollisionShape3D child) that puts the party in a zone while it is inside. |
 <!-- /classes -->

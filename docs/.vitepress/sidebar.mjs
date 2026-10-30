@@ -118,6 +118,17 @@ const basicSystems = [
           page('Encounters', '/basic/world/encounters'),
         ],
       },
+      {
+        text: 'Tutorials',
+        collapsed: true,
+        items: [
+          page('About the tutorials', '/basic/world/tutorials/'),
+          page('1. A day in the valley', '/basic/world/tutorials/a-day-in-the-valley'),
+          page('2. Colour grading with a LUT', '/basic/world/tutorials/colour-grading-with-a-lut'),
+          page('3. A scary dungeon', '/basic/world/tutorials/a-scary-dungeon'),
+          page('4. Can everyone see your world?', '/basic/world/tutorials/can-everyone-see-your-world'),
+        ],
+      },
     ],
   }),
   system('Events & Quests', 'events-and-quests', [

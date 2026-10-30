@@ -5,9 +5,9 @@ A **world config** sets how a world *looks* and how its *clock* runs. There are 
 | Config | What it controls |
 |---|---|
 | **Time** | How long a game day lasts, how fast time runs, what time it is at the start |
-| **Sun** | The directional light: its colour, strength and angle through the day |
+| **Sun** | The **path** of the sun: where it stands and when it rises and sets, one per world |
 | **Sky** | The sky shader: colours of day, dusk and night, clouds, stars, the sun and moon discs |
-| **Environment** | The Godot `Environment`: tonemap, fog, volumetric fog, ambient light, wind |
+| **Environment** | The **mood** of a place: how bright and what colour the sun is, tonemap, fog, ambient light, wind, glow, the camera and the colour grade |
 
 **World > World Configs** shows the four side by side. Each has a **Config** drop-down (pick which one to edit), **Create New** (name it, and a new one starts with the default values), and the fields of the selected config. Changes are saved as you make them.
 
@@ -47,24 +47,16 @@ The game clock **keeps running between worlds**. Going through a door does not s
 
 ## Sun
 
-The sun is a directional light that follows the clock.
+The sun config is the **path** of the sun: where it is in the sky and when. A planet has one sun that rises and sets the same way in every valley, so this is one config per world. **How the sun looks** (how bright, what colour, how soft its shadows are) is the mood of a place and lives in the [Environment config](#environment) (the **Sun Light** groups), so a zone or an event that changes the environment can dim or warm the sun **without moving it**.
 
 | Field | What it does | Default |
 |---|---|---|
-| **Day night cycle** | On: the sun moves and changes with the time. Off: a static sun | on |
+| **Day night cycle** | On: the sun moves with the time. Off: a sun that stays where it is | on |
+| **Static rotation** | With the cycle off: the height of the sun, `0` on the horizon, `-90` straight overhead | `-45` |
+| **Sun rise hour**, **Sun set hour** | With the cycle on: the hour the sun rises and sets | `6`, `20.5` |
+| **Sun heading** | The direction of the path, in degrees (also for a static sun). `90` (the default): the sun rises in the east (+X), is overhead at midday and sets in the west (-X), the way the maps are laid out. `0` is the old path: rising to the south (+Z), setting to the north (-Z). `180` and `270` are the opposite ones | `90` |
 
-**With the cycle off (Static Sun):** a fixed **rotation** (the height of the sun: `0` on the horizon, `-90` straight overhead; the direction it shines from is the **Sun Direction**), **light energy** and **light color**.
-
-**With the cycle on:**
-
-| Group | Fields |
-|---|---|
-| **Day Night Timing** | The hour the sun **rises** (`6`) and **sets** (`20.5`) |
-| **Sun Direction** | The **heading** of the sun's path, in degrees (also for a static sun). `90` (the default): the sun rises in the east (+X), is overhead at midday and sets in the west (-X), the way the maps are laid out. `0` is the old path: rising to the south (+Z), setting to the north (-Z). `180` and `270` are the opposite ones |
-| **Light Intensity** | The **maximum** energy at noon, the **minimum** at night, the energy at **dawn and dusk** |
-| **Light Colors** | The colours of day, dawn, dusk and night light |
-
-**DirectionalLight3D Settings** (always): **Sky mode** (does the sun light the sky, the scene, or both), **Angular distance** (the size of the sun: bigger means softer shadows), **Light indirect energy** and **Light volumetric fog energy**.
+At night the same light runs the same arc: it is the moon.
 
 ## Sky
 
@@ -94,6 +86,7 @@ These are the *artistic* settings of the scene's environment. The costly renderi
 | **Wind** | The wind of the world: the direction it blows towards on the ground and how strong it is (0 still, 1 a breeze, 2 a storm; a new config has 0.35). Plants sway with it and your own shaders read it: see [Shader globals](/basic/world/shader-globals#the-wind). A weather with its own wind takes its place while it lasts |
 | **Fog Settings** | On/off, the mode, colour, density, how much it blends with the sky, how much it hides the sky (**Sky affect**: `1` hides the sky completely, the default is `0.2`), a low-lying mist (**Height**, **Height density**), and sun scatter ("god rays") |
 | **Volumetric Fog Settings** | A costlier, more realistic fog: density, colour, emission, light scattering direction, its length, and how much global light and ambient light go into it. Off by default. The **config decides whether the world has volumetric fog**; the player's *Volumetric fog* video setting only turns it off or chooses how smooth it is (it never turns it on in a world that has none) |
+| **Sun Light** | How the sun **looks** here: its **maximum** energy at noon, **minimum** at night and at **dawn and dusk**; its **colours** at day, dawn, dusk and night; **Sky mode** (does the sun light the sky, the scene or both), **Angular distance** (the size of the sun: bigger means softer shadows), **Indirect energy** and **Volumetric fog energy**; and the **Static Sun Light** (energy and colour of a sun that stays where it is). The *path* (when and where) is the Sun config |
 | **Ambient Light** | Where ambient light comes from (the sky, a colour, or none), its colour and brightness, and how much the sky contributes |
 | **Glow and Occlusion** | **Glow amount** and **SSAO amount**: how much of the effect *this world* has (`1` normal, `0` none, up to `4`). The player's Glow and Ambient occlusion settings stay the **switch and the quality**: with `0` a world has none even when the player turned it on, and with `2` it glows twice as much for the player who has it on. A neon city wants more glow, a desert almost none |
 | **Camera** | The camera of the world: **Exposure**, **Auto exposure** (the camera adapts to dark and bright places; speed and scale), and **depth of field** (**far** blur from a distance, **near** blur, and the amount). Off by default: depth of field and auto exposure change the whole feel of a game, so a developer opts in. The player has a **Depth of field** setting that turns the world's blur off |
@@ -103,7 +96,7 @@ These are the *artistic* settings of the scene's environment. The costly renderi
 
 A **LUT** (colour lookup table) is a small picture that says what each colour becomes: any look a colourist can make (a sepia flashback, teal and orange, a cold dungeon) in one file.
 
-1. Open `assets/color_grading/neutral_lut_16.png` (a strip of 16 squares of 16 by 16: every colour comes out as it went in; `neutral_lut_32.png` has 32 squares for finer grades).
+1. Open `addons/chroniclenode/assets/color_grading/neutral_lut_16.png` (a strip of 16 squares of 16 by 16: every colour comes out as it went in).
 2. Put a screenshot of your game in an image editor (Krita, GIMP, Photoshop), put the neutral strip next to it in the same image, and grade the whole image (curves, colour balance, hue and saturation).
 3. Cut the strip out again and save it as a picture. It must still be a strip of N squares of N by N (256 x 16 for 16 squares).
 4. Give it to **Colour Grade > Grade lut** of the Environment config. **Grade lut strength** (`0` to `1`) mixes it with the original.

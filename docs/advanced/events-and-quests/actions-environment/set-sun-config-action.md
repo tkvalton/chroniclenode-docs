@@ -4,7 +4,7 @@
 
 **Inherits:** [EventAction](/advanced/events-and-quests/bases/event-action) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Action to change the sun configuration at runtime Applies through system_hub.apply_environment_configs() and world_sun
+Action to change the PATH of the sun at runtime: where it stands and when it rises and sets (how bright and what colour it is belongs to the Environment config) Applies through system_hub.apply_environment_configs() and world_sun
 
 ## Properties
 
