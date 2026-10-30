@@ -89,7 +89,7 @@ Plants sway in the wind of the world and bend away from whoever walks through th
 | Grass, flowers, weeds, small plants | `foliage_plant.gdshader` | `foliage_plant_vertex_lit.gdshader` | `foliage_plant_unshaded.gdshader` |
 | The leaves, needles, branches and trunks of trees and bushes | `foliage_tree.gdshader` | `foliage_tree_vertex_lit.gdshader` | `foliage_tree_unshaded.gdshader` |
 
-To use one, give the entry's mesh a **ShaderMaterial** with the shader. The mesh must have its **root at the origin (y = 0)** and grow upwards, and **Plant height** (or **Tree height**) must be the height of that mesh in metres: the root stays put and the tip moves most. A material is made for one height, so a mesh of another height needs a material of its own.
+To use one, give the entry's mesh a **ShaderMaterial** with the shader. **Plant height** (or **Tree height**) is how tall the plant stands **in the world, in metres**: the root stays put and the tip moves most. Heights are measured in the world from the foot, so it does not matter whether the model was made Y-up or Z-up, in metres or centimetres, or scaled in its scene; if the **origin of the model is not at the foot** (it is in the middle of the tree, say) set **Origin above foot** to how many metres above the foot it is. A material is made for one height, so a mesh of another height needs a material of its own.
 
 ### Why plants light badly, and the fix
 
@@ -114,21 +114,35 @@ Both shaders (and all three lightings) have the same settings, in groups in the 
 | | **Root color**, **Tip color** (plants) / **Tint** (trees) | The colour at the root and at the tip; the tint of a tree. The vertex colours of the mesh and the tint variation of the scatter are used too |
 | | **Alpha cutoff** | Pixels with less alpha than this are not drawn |
 | | **UV scale** (trees) | How often the picture repeats (a trunk: 1 by 2) |
+| | **Use normal map**, **Normal texture**, **Normal strength** (trees) | The bumps of the bark. The mesh needs tangents, as an imported model with a normal map has |
 | | **Roughness** (trees) | How rough the surface is |
-| Movement | **Plant height** / **Tree height** | The height of the mesh in metres |
+| Movement | **Plant height** / **Tree height** | How tall it stands in the world, in metres |
+| | **Origin above root** / **Origin above foot** | How far above its foot the origin of the model is, in metres (0 = at the foot) |
 | | **Wind amount** / **Sway amount** | 0 = still, 1 = as the wind says, 2 = twice as much |
 | | **Stiffness** | 0 = bends from the ground up, 1 = only the top bends (a thick trunk) |
 | | **Flutter amount** (trees) | How much the leaves flutter by themselves (0 for a trunk) |
 | | **Brush amount** | How much a body that walks through bends it: 0 = not at all (a tree), 1 = as much as it can (a low bush) |
 | Lighting | **Normal mode** | *Plants:* Mesh normals, Up, or a Mix of mesh and up. *Trees:* Mesh normals (a trunk), Canopy (a ball: leaves made of cards), or Up |
 | | **Normal soften** | How far the normals go towards the sky or the ball (0 = the mesh, 1 = all the way) |
-| | **Canopy center**, **Canopy radius** (trees) | Where the middle of the crown is (a move from 65 percent of the tree's height) and how big it is (0 = 40 percent of the height) |
+| | **Canopy center**, **Canopy radius** (trees) | Where the middle of the crown is (a move in metres from 65 percent of the tree's height) and how big it is in metres (0 = 40 percent of the height) |
 | | **Inner tint**, **Outer tint** (trees) | Leaves deep in the crown are darker: the colour is mixed from one to the other by how deep the leaf is |
 | | **Light wrap** | How far the light wraps round a card (lit per pixel only) |
 | | **Translucency** | How much light shows through a thin leaf |
 | | **Flat brightness** | How bright the plant is without light (unshaded only) |
 
-For a **trunk** use the tree shader with **Normal mode = Mesh normals**, **Flutter amount = 0** and a high **Stiffness**, so the trunk sways with the crown.
+For a **trunk** use the tree shader with **Normal mode = Mesh normals**, **Flutter amount = 0** and a high **Stiffness**, so the trunk sways with the crown (the whole tree follows one bend that grows with the height; the trunk and the leaves move together).
+
+**Wind in a shader or in an animation?** The shader. Ambient sway of trees that are drawn thousands at a time as instances cannot have an animation player each, and a bend that grows with the height is exactly what a vertex shader does for free. Use an **animation** for what happens once or to one tree: a tree that falls, is cut down, or is hit.
+
+### The trees and bushes of the demo
+
+The tree and bush scenes of the asset pack (birch, common, maple, palm, pine, twisted, dead and burnt trees, the common bushes) already use the **tree shader**: each scene has its materials in `assets/foliage/pack_materials/<folder>/` (a bark and a leaves material, and a flowers one for the bushes with flowers), set as the **material overrides** of the scene's mesh nodes. Each material has the height, the origin and the crown of **its own scene** (measured, not typed), the picture and the colour of the pack material it replaces, the bark's normal map where the pack had one, a stiff trunk with no flutter, and leaves that are lit as a ball and flutter. The look of a kind of tree (how much it sways, how much its leaves flutter) is in the table `LOOKS` of `tests/tools/make_pack_materials.gd`: change it and run the tool again to make every material of that kind again:
+
+```bash
+Godot --headless --script res://tests/tools/make_pack_materials.gd
+```
+
+It works on a pack of your own too (give it the folder of the scenes after `--`): it measures each scene, makes the materials and writes them into the scene text, and a second run replaces what the first wrote. Leaves with soft edges in the original (alpha blend) are cut out by the shader, so a crown looks denser and a little more solid than before: raise **Alpha cutoff** of a leaves material to thin it.
 
 ### The wind and the push
 
