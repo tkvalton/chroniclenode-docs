@@ -60,7 +60,7 @@ The direction the wind blows towards on the ground (x and z of the vector; up an
 
 ### float wind_intensity = 0.35 {#prop-wind-intensity}
 
-How strong the wind is: 0 still, 1 a breeze, 2 a storm (plants sway with it; your own shaders read the globals WindDirection and WindIntensity)
+How strong the wind is: 0 still, 1 a breeze, 2 a storm (plants sway with it; your own shaders read the global world_wind)
 
 *Fog Settings*
 

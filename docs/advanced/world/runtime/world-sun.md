@@ -86,7 +86,7 @@ The color of the light at night.
 
 ### void update_sun_position( current_time: float ) {#method-update-sun-position}
 
-Update the sun's position based on the current game time
+Update the sun's position (and brightness and colour) based on the current game time
 
 ### void update_light_energy( current_time: float ) {#method-update-light-energy}
 

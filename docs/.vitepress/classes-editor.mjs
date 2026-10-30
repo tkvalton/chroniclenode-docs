@@ -1031,6 +1031,18 @@ export const groups = [
         "file": "editor_components/inspector_plugins/entity_data_property_editor.gd"
       },
       {
+        "name": "EnvironmentBar",
+        "base": "PanelContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\environment_bar.gd",
+        "file": "editor_components/3d_scene_tools/environment_bar.gd"
+      },
+      {
+        "name": "EnvironmentTool",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\environment_tool.gd",
+        "file": "editor_components/3d_scene_tools/environment_tool.gd"
+      },
+      {
         "name": "IdCatalogPropertyEditor",
         "base": "EditorProperty",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\inspector_plugins\\id_catalog_property_editor.gd",

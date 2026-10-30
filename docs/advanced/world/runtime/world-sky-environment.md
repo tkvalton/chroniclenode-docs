@@ -31,7 +31,7 @@ Preloaded stylized sky shader
 
 ## Constants
 
-- `const` **SKY** = `preload("uid://dq3m1udsejtb0")` - Preloaded stylized sky shader
+- `const` **SKY** = `SkyLook.SKY_SHADER` - Preloaded stylized sky shader
 
 ## Variable descriptions
 

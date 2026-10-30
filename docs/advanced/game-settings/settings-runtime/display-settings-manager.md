@@ -17,6 +17,7 @@ DisplaySettingsManager handles video and graphics settings in the game. It contr
 
 | | |
 |---|---|
+| `void` | [bind](#method-bind)( `target: WorldEnvironment` ) |
 | `void` | [apply_settings](#method-apply-settings)( `settings: SettingsConfig` ) |
 | `void` | [restore_defaults](#method-restore-defaults)( `settings: SettingsConfig` ) |
 | `void` | [apply_world_environment_settings](#method-apply-world-environment-settings)( `settings: SettingsConfig` ) |
@@ -66,6 +67,10 @@ WorldEnviroment ref
 The viewport the display settings apply to.
 
 ## Method descriptions
+
+### void bind( target: WorldEnvironment ) {#method-bind}
+
+Points the manager at an Environment node (the one of the game, or the preview of the editor): the settings are written to its Environment and its viewport. It must be in the tree
 
 ### void apply_settings( settings: SettingsConfig ) {#method-apply-settings}
 

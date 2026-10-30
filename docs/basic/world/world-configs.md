@@ -13,6 +13,27 @@ A **world config** sets how a world *looks* and how its *clock* runs. There are 
 
 The project starts with one of each, called *Default*. Every world uses them unless the world says otherwise (see [Worlds](/basic/world/worlds#config-overrides)). A good project has the defaults set up for the normal world, and a few extra configs for the places that are different: a cave without sun, a swamp with thick fog, a dream where time runs ten times faster.
 
+## See it in the editor
+
+A world scene has no sun, sky or environment of its own: they belong to the game, so the 3D viewport shows Godot's own light, not what the game shows. The **Environment** button in the 3D toolbar (next to *Test World*, shown while a world scene is open) puts the sun, the sky and the environment of the world into the viewport, **made by the same code as the game**. They are temporary: nothing is added to your scene and nothing is saved with it. Press the button again, or **Close**, and Godot's own light is back.
+
+A bar opens at the top of the viewport:
+
+| Control | What it does |
+|---|---|
+| **Sun**, **Sky**, **Env** | Which config to look at. The first one shown is the world's own (its override, else the default), marked *(world)* in the list. Choose another to try it |
+| **Time** | The hour of the day: the sun, the sky colours, the stars and the light follow it. **Play** lets the day go by (the speed is in hours of the game per second) |
+| **Default video settings** | Shows it with the video settings of the project (the defaults you set in Game Settings): reflections, ambient occlusion, indirect light, glow, volumetric fog quality, brightness, contrast and saturation. Off: none of those |
+| **Use for this world** | Makes the shown Sun, Sky and Environment the configs of this world (a config that is the default is stored as *no override*) and saves the world |
+| **World's own** | Goes back to the configs the world has now |
+| **World Configs** | Opens the editor of the configs. After a change press **Refresh** and the preview shows it |
+
+The shadow size setting is not part of the preview: the shadow atlas belongs to the editor's own viewports.
+
+::: tip A sky you cannot see
+The **Fog** of a new Environment config has **Sky affect** at `1`: fog can fully hide the sky, and the sky shows as one flat colour, whatever the hour. Lower it (try `0` to `0.3`) to see the sky. The preview makes this easy to find.
+:::
+
 ## Time
 
 | Field | What it does | Default |
@@ -69,8 +90,8 @@ These are the *artistic* settings of the scene's environment. The costly renderi
 |---|---|
 | **Tonemap** | The algorithm (Filmic by default) and the exposure |
 | **Wind** | The wind of the world: the direction it blows towards on the ground and how strong it is (0 still, 1 a breeze, 2 a storm; a new config has 0.35). Plants sway with it and your own shaders read it: see [Shader globals](/basic/world/shader-globals#the-wind). A weather with its own wind takes its place while it lasts |
-| **Fog Settings** | On/off, the mode, colour, density, how much it blends with the sky, how much it hides the sky, and sun scatter ("god rays") |
-| **Volumetric Fog Settings** | A costlier, more realistic fog: density, colour, emission, light scattering direction, its length, and how much global light and ambient light go into it. Off by default |
+| **Fog Settings** | On/off, the mode, colour, density, how much it blends with the sky, how much it hides the sky (**Sky affect**: `1` hides the sky completely), and sun scatter ("god rays") |
+| **Volumetric Fog Settings** | A costlier, more realistic fog: density, colour, emission, light scattering direction, its length, and how much global light and ambient light go into it. Off by default. The **config decides whether the world has volumetric fog**; the player's *Volumetric fog* video setting only turns it off or chooses how smooth it is (it never turns it on in a world that has none) |
 | **Ambient Light** | Where ambient light comes from (the sky, a colour, or none), its colour and brightness, and how much the sky contributes |
 
 ## See also
