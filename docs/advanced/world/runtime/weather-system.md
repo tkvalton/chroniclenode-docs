@@ -19,6 +19,7 @@ Deals with weather application logic: which weather is wanted (an event's choice
 | `float` | [shelter_amount](#var-shelter-amount) | `0.0` |
 | `ShelterVolume` | [current_shelter](#var-current-shelter) | `null` |
 | `WeatherExposure` | [exposure](#var-exposure) | `null` |
+| `WeatherGround` | [ground_map](#var-ground-map) | `null` |
 | `GameHost.SystemHub` | [system_hub](#var-system-hub) |  |
 | `VFXManager:` | [vfx_manager](#var-vfx-manager) |  |
 
@@ -96,6 +97,10 @@ The shelter the camera is in now (null in the open)
 ### WeatherExposure exposure = null {#var-exposure}
 
 Gives the exposed effects of the weather to those who stand in it
+
+### WeatherGround ground_map = null {#var-ground-map}
+
+The height of the terrain around the camera as a picture, so rain lands on a terrain whatever draws it (see WeatherGround)
 
 ### GameHost.SystemHub system_hub {#var-system-hub}
 

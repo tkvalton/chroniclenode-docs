@@ -61,6 +61,7 @@ Change the weather and the time, sun, sky and environment configs, and spawn vis
 | [**Set Sun Config**](/advanced/events-and-quests/actions-environment/set-sun-config-action) (`SetSunConfigAction`) | Change the path of the sun at runtime (where it stands and when it rises and sets; how it looks is the Environment config) |
 | [**Set Time Config**](/advanced/events-and-quests/actions-environment/set-time-config-action) (`SetTimeConfigAction`) | Change the time configuration at runtime |
 | [**Set Weather**](/advanced/events-and-quests/actions-environment/set-weather-action) (`SetWeatherAction`) | Change the current map's weather at runtime |
+| [**Set Weather Intensity**](/advanced/events-and-quests/actions-environment/set-weather-intensity-action) (`SetWeatherIntensityAction`) | Make the weather that is on lighter or heavier over some seconds, without bringing another one |
 | [**Spawn World Effect**](/advanced/events-and-quests/actions-environment/spawn-world-effect-action) (`SpawnWorldEffectAction`) | Spawn a world effect at a specific position World effects are environment-based and don't have a specific caster |
 
 ## General

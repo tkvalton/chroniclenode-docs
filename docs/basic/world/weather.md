@@ -123,8 +123,8 @@ A weather does not bring a sky of its own: it is **laid on top of the look that 
 
 The weather **fades in** over its *Fade seconds*, starting from what is shown (even in the middle of another change) and it **fades out** the same way when another weather or a clear one takes over. A [Set Weather](/basic/events-and-quests/event-actions) event with a *transition time* uses that time instead. The clouds and the hour of the day still work under the weather: the sky goes on turning to dusk and night with the weather on it.
 
-::: tip A sky of your own
-The sky modifiers act on the parameters of the stylized sky of the toolkit. A panorama or procedural sky, or a [sky of your own](/basic/world/world-configs), keeps its colours; fog, ambient light and the sun still follow the weather there.
+::: tip Every sky takes the weather
+How a sky takes the weather is up to its **sky driver**, because only the driver knows what the parameters of its sky are called. The **stylized sky** takes all of it (colours, clouds, stars, the glow of the sun). The **procedural sky** and the **panorama sky** take the **tint and the darkening** (the clouds, stars and glow are the stylized sky's). A [sky of your own](/basic/world/your-own-sky) has three ways: write `apply_weather` in your driver to say which of its parameters the weather changes (`WeatherLook.apply_sky_colours` does the colours for you), read the globals `weather_sky` and `weather_sky_tint` in your sky shader (see [shader globals](/basic/world/shader-globals)), or do nothing and keep your sky as it is. The fog, the ambient light and the sun follow the weather with every sky.
 :::
 
 ### Snow, sand and ash are the same thing
@@ -151,7 +151,7 @@ A weather has an **Intensity** (0 to 1) and it scales **everything** the weather
 - the **sky, fog and sun**: every change is that far from the look towards the weather (at 0.5 a storm darkens the sky half as much);
 - the **wind**: its strength.
 
-So **Light rain** is the Rain weather at 0.3, with no second weather to keep in step. The Set Weather event has its own **Intensity** (times the weather's), and a developer can change it while the weather lasts (`WeatherSystem.set_intensity(scale, seconds)`: the particles, the ground, the sky and the wind all ease to the new level).
+So **Light rain** is the Rain weather at 0.3, with no second weather to keep in step. The **Set Weather** event has its own **Intensity** (times the weather's), and the **Set Weather Intensity** event changes it **while the weather lasts**: the rain thins or comes down harder over the seconds you give, and the ground, the sky, the fog, the sun, the wind, the screen and the ambient sound all ease to the new level. A storm that builds up over a quest is that action again and again with a higher number. From a script: `WeatherSystem.set_intensity(scale, seconds)`.
 
 ## The weathers that come with the toolkit
 

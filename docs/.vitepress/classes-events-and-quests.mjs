@@ -917,6 +917,12 @@ export const groups = [
         "file": "data_classes/events/event_actions/enviromental/set_weather_action.gd"
       },
       {
+        "name": "SetWeatherIntensityAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\enviromental\\set_weather_intensity_action.gd",
+        "file": "data_classes/events/event_actions/enviromental/set_weather_intensity_action.gd"
+      },
+      {
         "name": "SpawnWorldEffectAction",
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\enviromental\\spawn_enviromental_effect_action.gd",

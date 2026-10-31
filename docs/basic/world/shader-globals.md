@@ -19,6 +19,10 @@ The plugin **adds all of them to your project** every time the editor starts (ne
 | `world_day_factor` | float | How much of the day it is: 0 at night, 1 in daylight, between at sunrise and sunset (the hours of the Sun config) | The sky of the world |
 | `world_cloud_cover` | float | How cloudy the sky is: 0 clear, 1 overcast (the cloud density of the sky shown) | The sky of the world |
 | `foliage_pushers` | sampler2D | 8 x 1 float texture: each texel (x, y, z, radius) of a body that pushes plants aside (radius 0 = nobody) | The bodies near the camera |
+| `weather_ground` | sampler2D | The height of the terrain around the rain: one float for each cell (very low where there is no ground), so the particles of the weather land on a terrain whatever draws it | [Weather](/basic/assets/vfx#the-terrain-has-its-own-picture) |
+| `weather_ground_rect` | vec4 | x, z = the corner of the ground picture in the world, z = its width in metres (0 = no terrain), w = how many cells a side | The same |
+| `weather_sky` | vec4 | What the weather does to the sky, for a sky shader of your own: x = how much darker (0 to 1), y = how much of the tint (0 to 1), z = how many more clouds (0 to 1) | [Weather](/basic/world/weather#the-sky-and-the-light) |
+| `weather_sky_tint` | vec4 | rgb = the colour the weather tints the sky with (shown by y of `weather_sky`) | The same |
 | `water_map` | sampler2D | The picture of the water for the wet shore and the caustics of the terrain | [Movement volumes](/basic/world/movement-volumes#the-shore-and-the-bed-wet-ground-and-caustics) with shore effects |
 | `water_map_rect` | vec4 | x, z = the corner of the water picture in the world, z = the size of a texel in metres, w = how far the shore reaches | The same |
 
@@ -57,4 +61,4 @@ Add them in Project Settings as usual. The toolkit never removes a global it doe
 - **Names.** Every global is lower case words joined by underscores, the thing first: `terrain_wetness`, `world_wind`, `water_map`, `water_map_rect`.
 - **Older projects.** Earlier versions of the toolkit added `WindDirection`, `WindIntensity` and `GaleStrength`, and the wind picture was called `foliage_wind` and the water picture `water_height_map`. The wind is one vector now (`world_wind`, the direction is its x and y, the strength its z). The plugin takes the three old numbers out of your project when the editor starts; if a shader of yours read them, read `world_wind` instead. `foliage_wind` and `water_height_map` are called `world_wind` and `water_map` now: change the name in a shader of yours that used them.
 - If you **delete** one of the toolkit's globals in Project Settings, the plugin puts it back the next time the editor starts.
-- A picture global (`foliage_pushers`, `water_map`) is only an empty picture in the project; the game fills it in when the terrain or the weather starts. In the editor the plugin fills them in when it starts.
+- A picture global (`foliage_pushers`, `water_map`, `weather_ground`) is only an empty picture in the project; the game fills it in when the terrain or the weather starts. In the editor the plugin fills them in when it starts.

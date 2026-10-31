@@ -365,6 +365,12 @@ export const groups = [
         "file": "runtime_classes/world/weather_exposure.gd"
       },
       {
+        "name": "WeatherGround",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\weather_ground.gd",
+        "file": "runtime_classes/world/weather_ground.gd"
+      },
+      {
         "name": "WeatherScreen",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\weather_screen.gd",

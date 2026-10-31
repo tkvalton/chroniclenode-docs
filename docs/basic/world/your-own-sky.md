@@ -87,6 +87,18 @@ func hour_params(config: SkyConfig, hour: float, path: SunConfig) -> Dictionary:
 
 The game and the Environment Debugger both go through the driver, so your sky shows in the editor with the hour.
 
+## The weather on your sky
+
+A weather darkens and tints the sky (and can add clouds). Only your driver knows what the parameters of your sky shader are called, so you say how the weather reaches it. A driver has `apply_weather(params, look)`: it gets the values the sky is going to have (what `hour_params` made) and the modifiers of the weather (`look.sky_darken`, `look.sky_tint`, `look.sky_tint_amount`, `look.more_clouds`), and gives back the values to use.
+
+```gdscript
+func apply_weather(params: Dictionary, look: WeatherLook) -> Dictionary:
+    # the two colours of my sky are darkened and tinted by the weather; everything else is left alone
+    return WeatherLook.apply_sky_colours(params, look, ["zenith_color", "horizon_color"])
+```
+
+Without it your sky is the stylized one's default (it looks for the stylized names and finds none, so your sky is not changed). The procedural and panorama drivers of the toolkit are written this way. A sky shader can also read the weather itself, with no driver code: the globals `weather_sky` (x = how much darker, y = how much of the tint, z = how many more clouds) and `weather_sky_tint` (the colour) are written every time the weather changes. Fog, ambient light and the sun follow the weather with every sky.
+
 ## Good to know
 
 - A change between two Sky configs with **different drivers** switches at the halfway point of the [blend](/basic/world/world-configs#changing-a-look-over-time): give both a sky with colours that suit if you want it smooth.

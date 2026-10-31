@@ -75,9 +75,9 @@ The particles **lean with the wind**: the shader reads the global `world_wind` (
 
 ### The rain lands on the world
 
-The rain and the thunderstorm carry a **height field** (a *GPUParticlesCollisionHeightField3D* called *RainFloor*): Godot draws everything solid in a box of 36 by 36 metres around the weather, seen from above, into a height picture, and a particle that is below the highest surface of its column has landed. So with **nothing set up**:
+All five weather effects carry a **height field** (a *GPUParticlesCollisionHeightField3D* called *RainFloor*): Godot draws everything solid in a box of 36 by 36 metres around the weather, seen from above, into a height picture, and a particle that is below the highest surface of its column has landed. So with **nothing set up**:
 
-- the rain lands on the **terrain**, slopes and all, and on **floors, roofs and any mesh** of your world, and throws splashes there;
+- the rain lands on **floors, roofs and any mesh** of your world, and throws splashes there (the terrain has its own way, below);
 - **indoors it does not rain**: the roof is the highest surface over the room, so the drops land on the roof, none fall inside, and through an open door or window the rain outside still falls (tested with a hut: no rain inside, rain at the doorway and beyond);
 - the same goes for a porch, a bridge deck and the ceiling of a cave.
 
@@ -85,7 +85,15 @@ What it cannot do: it sees one surface for each spot seen from above, so a room 
 
 The height field moves with the weather (which follows the camera) and is drawn again when it moves. On the test machine the cost was not measurable; on a weak graphics card lower its **Resolution** (256 is enough for the splashes) or take the node out (the rain then falls to *Floor below* and stops there, with no splashes). Particle collision needs the Forward+ or Mobile renderer; with the Compatibility renderer the rain falls without landing.
 
-Your own weather effect gets all of this by giving the particle node the shader, a *RainFloor* node under the effect, and a splash particle node as its **Sub Emitter**. Other collision nodes of Godot (a box, a sphere) work as well, for a place the height field does not cover.
+Your own weather effect gets all of this by giving the particle node the shader, a *RainFloor* node under the effect, and a splash particle node as its **Sub Emitter**.
+
+#### The terrain has its own picture
+
+A terrain is not always something the height field can see (the terrain of the toolkit draws itself through the rendering server, and a terrain addon draws in its own way), so the weather does not rely on it. The weather system asks the [terrain service](/basic/world/terrain) for the **height of the ground** on a grid round the rain (64 by 64 metres, 96 by 96 cells) and keeps it as a small picture in two [shader globals](/basic/world/shader-globals) (`weather_ground`, `weather_ground_rect`). The weather shader reads it: a particle that falls below the ground **lands there**: a splash for the rain, gone for snow and leaves. It works for **every terrain the service knows**: the terrain of the toolkit, Terrain3D, HTerrain, Terra Brush. A hole in the terrain has no ground (the rain falls through).
+
+- The picture is made a few rows a frame and made again when the camera has moved eight metres, so nothing hitches and there is no cost while you stand still. A world with no terrain provider makes none (the height field of the effect handles the meshes).
+- It only exists while something falls. The first second of a storm that starts in a world may fall through the terrain until the picture is ready.
+- Your own weather shader gets it by declaring `global uniform sampler2D weather_ground;` and `global uniform vec4 weather_ground_rect;` and reading the height with `texelFetch` (the shipped shader's `ground_height()` is a copy to start from). Other collision nodes of Godot (a box, a sphere) work as well, for a place the height field does not cover.
 
 ### Intensity
 
