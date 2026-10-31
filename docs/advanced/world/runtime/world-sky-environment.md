@@ -31,7 +31,7 @@ Preloaded stylized sky shader
 | `Dictionary` | [calculate_sky_parameters](#method-calculate-sky-parameters)( `current_time: float` ) |
 | `void` | [apply_params](#method-apply-params)( `params: Dictionary` ) |
 | `void` | [apply_environment_config](#method-apply-environment-config)( `config: EnvironmentConfig, blend_seconds: float = 0.0` ) |
-| `void` | [set_weather_look](#method-set-weather-look)( `config: WeatherConfig, seconds: float` ) |
+| `void` | [set_weather_look](#method-set-weather-look)( `config: WeatherConfig, seconds: float, intensity: float = 1.0` ) |
 | `bool` | [is_weather_blending](#method-is-weather-blending)() |
 | `bool` | [is_blending](#method-is-blending)() |
 
@@ -117,7 +117,7 @@ Sets the parameters of the sky from a dictionary: parameter name -&gt; value, as
 
 Apply an EnvironmentConfig to reconfigure environment settings. With `blend_seconds` above 0 the environment changes into it over that time (fog, light, sun, colour grade, camera, wind), starting from the look shown now, even if it is in the middle of another change
 
-### void set_weather_look( config: WeatherConfig, seconds: float ) {#method-set-weather-look}
+### void set_weather_look( config: WeatherConfig, seconds: float, intensity: float = 1.0 ) {#method-set-weather-look}
 
 The weather changes (null = clear): the sky, the fog, the sun and the ambient light move to its modifiers over `seconds`, starting from what is shown now, even in the middle of another change. 0 = at once
 

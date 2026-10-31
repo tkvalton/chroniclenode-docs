@@ -15,6 +15,7 @@ Deals with weather application logic: which weather is wanted (an event's choice
 | `TerrainWeatherDriver` | [ground](#var-ground) | `null` |
 | `FoliageWindDriver` | [wind](#var-wind) | `null` |
 | `GroundMarkManager` | [marks](#var-marks) | `null` |
+| `float` | [intensity_scale](#var-intensity-scale) | `1.0` |
 | `GameHost.SystemHub` | [system_hub](#var-system-hub) |  |
 | `VFXManager:` | [vfx_manager](#var-vfx-manager) |  |
 
@@ -23,12 +24,14 @@ Deals with weather application logic: which weather is wanted (an event's choice
 | | |
 |---|---|
 | `Dictionary` | [get_wind_state](#method-get-wind-state)() |
-| `void` | [start_world_weather](#method-start-world-weather)( `camera_controller: CameraController` ) |
+| `void` | [start_world_weather](#method-start-world-weather)( `camera_controller: CameraController, fade_seconds: float = 0.0` ) |
+| `float` | [get_intensity](#method-get-intensity)() |
+| `void` | [set_intensity](#method-set-intensity)( `scale: float, seconds: float = 3.0` ) |
 | `WeatherConfig` | [get_current_config](#method-get-current-config)() |
 | `VFXSelectionWeather` | [get_current_selection](#method-get-current-selection)() |
-| `void` | [set_weather](#method-set-weather)( `weather: Resource, camera_controller: CameraController` ) |
+| `void` | [set_weather](#method-set-weather)( `weather: Resource, camera_controller: CameraController, scale: float = 1.0` ) |
 | `void` | [stop_world_weather](#method-stop-world-weather)() |
-| `void` | [transition_to_weather](#method-transition-to-weather)( `new_weather: Resource, camera_controller: CameraController, transition_duration: float = 5.0` ) |
+| `void` | [transition_to_weather](#method-transition-to-weather)( `new_weather: Resource, camera_controller: CameraController, transition_duration: float = 5.0, scale: float = 1.0` ) |
 | `void` | [set_wind_direction](#method-set-wind-direction)( `direction: Vector3, smooth_transition: bool = true, duration: float = 2.0` ) |
 | `void` | [set_wind_intensity](#method-set-wind-intensity)( `intensity: float, smooth_transition: bool = true, duration: float = 2.0` ) |
 | `bool` | [has_active_weather](#method-has-active-weather)() |
@@ -63,6 +66,10 @@ What moves in the world, for the plants: the wind and the bodies that push throu
 
 The marks on the ground of the world: footprints, tracks, scorches (decals that fade out)
 
+### float intensity_scale = 1.0 {#var-intensity-scale}
+
+A runtime multiplier on the intensity of the weather (0 to 1, 1 = as the weather says): an event or the game makes a storm lighter or heavier without bringing another weather. A new weather resets it
+
 ### GameHost.SystemHub system_hub {#var-system-hub}
 
 The systems of the game (the VFX manager is made after this system, so it is asked for when needed)
@@ -77,9 +84,17 @@ The manager of visual effects (from the hub).
 
 The wind that blows from the weather now: direction, strength (0 to 1) and how far it has taken over from the wind of the world (0 to 1)
 
-### void start_world_weather( camera_controller: CameraController ) {#method-start-world-weather}
+### void start_world_weather( camera_controller: CameraController, fade_seconds: float = 0.0 ) {#method-start-world-weather}
 
-Start weather for this map (typically called when map loads)
+Start weather for this map (typically called when map loads) `fade_seconds` is how long the particles take to come up to the intensity of the weather (0 = at once: a world that is entered has been raining for a while)
+
+### float get_intensity() {#method-get-intensity}
+
+How strong the weather is now (0 to 1): the intensity of the weather times the runtime scale; 0 when it is clear
+
+### void set_intensity( scale: float, seconds: float = 3.0 ) {#method-set-intensity}
+
+Makes the weather lighter or heavier while it lasts (`scale` 0 to 1 times the intensity of the weather), over `seconds`: the particles, the ground it goes to, the sky, the fog, the sun and the wind all follow
 
 ### WeatherConfig get_current_config() {#method-get-current-config}
 
@@ -89,15 +104,15 @@ The weather that is wanted now: the one an event chose, else the default one of 
 
 The particles and the wind of the weather wanted now, as the spawner of the weather VFX takes them (null = clear)
 
-### void set_weather( weather: Resource, camera_controller: CameraController ) {#method-set-weather}
+### void set_weather( weather: Resource, camera_controller: CameraController, scale: float = 1.0 ) {#method-set-weather}
 
-Change the weather at once. The weather is a Weather config (or an old weather selection)
+Change the weather at once. The weather is a Weather config (or an old weather selection) `scale` is the runtime intensity (see intensity_scale)
 
 ### void stop_world_weather() {#method-stop-world-weather}
 
 Stop current weather
 
-### void transition_to_weather( new_weather: Resource, camera_controller: CameraController, transition_duration: float = 5.0 ) {#method-transition-to-weather}
+### void transition_to_weather( new_weather: Resource, camera_controller: CameraController, transition_duration: float = 5.0, scale: float = 1.0 ) {#method-transition-to-weather}
 
 Change weather with smooth transition
 

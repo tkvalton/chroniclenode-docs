@@ -15,6 +15,7 @@ A world has a default weather (World editor &gt; Weather) and an event changes i
 | | | |
 |---|---|---|
 | `String` | [weather_vfx_name](#prop-weather-vfx-name) | `""` |
+| `float` | [intensity](#prop-intensity) | `1.0` |
 | `float` | [fade_seconds](#prop-fade-seconds) | `10.0` |
 | `bool` | [uses_own_wind](#prop-uses-own-wind) | `false` |
 | `Vector3` | [wind_direction](#prop-wind-direction) | `Vector3(1.0, 0.0, 0.0):` |
@@ -63,6 +64,10 @@ Where the cover of the weather sticks.
 ### String weather_vfx_name = "" {#prop-weather-vfx-name}
 
 The weather particles that fall around the camera: the name of a Weather VFX of the project (Rain, Snow ...). Empty = nothing falls (a weather that only changes the ground, or the wind)
+
+### float intensity = 1.0 {#prop-intensity}
+
+How strong the weather is (0 to 1): a drizzle is a Rain at 0.3, a downpour at 1. It scales everything the weather does: how many particles fall (each layer of the effect comes in over its own part of the range, so the murk of a storm only shows when it is heavy), how wet and covered the ground gets, the changes to the sky, fog and sun, and the wind. An event can also change it while the weather lasts
 
 ### float fade_seconds = 10.0 {#prop-fade-seconds}
 

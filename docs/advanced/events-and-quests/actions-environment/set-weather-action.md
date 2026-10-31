@@ -12,6 +12,7 @@ Action to change the current map's weather at runtime
 |---|---|---|
 | `WeatherConfig` | [weather_config](#prop-weather-config) |  |
 | `VFXSelectionWeather` | [weather_selection](#prop-weather-selection) |  |
+| `float` | [intensity](#prop-intensity) | `1.0` |
 | `float` | [transition_duration](#prop-transition-duration) | `5.0` |
 
 ## Methods
@@ -31,6 +32,10 @@ The weather to bring (a Weather config of the project). Empty = clear weather
 ### VFXSelectionWeather weather_selection {#prop-weather-selection}
 
 The old weather selection (used only when no Weather config is set)
+
+### float intensity = 1.0 {#prop-intensity}
+
+How strong the weather is (0 to 1, times the intensity of the weather itself): 1 = as the weather says, 0.3 = a light version of it
 
 ### float transition_duration = 5.0 {#prop-transition-duration}
 

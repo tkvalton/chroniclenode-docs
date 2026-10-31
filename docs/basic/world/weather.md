@@ -13,6 +13,7 @@ Open **World > World Configs** and find **Weather Configuration**. Pick one in t
 | Group | Field | What it does | Default |
 |---|---|---|---|
 | **Look** | **Weather vfx name** | The particles that fall around the camera: the name of a *Weather* effect of the [VFX library](/basic/assets/vfx) (Rain, Snow ...). Empty = nothing falls, a weather that only changes the ground, the sky or the fog | empty |
+| | **Intensity** | How strong the weather is, 0 to 1: see [Intensity](#intensity) | 1 |
 | | **Fade seconds** | How long the sky, the fog, the light and the wind take to change into this weather, and back to the look of the world when it ends | 10 |
 | **Wind** | **Uses own wind** | Does this weather blow a wind of its own? Off = the wind of the [environment](/basic/world/world-configs#environment) goes on. The next two fields show only when it is on | off |
 | | **Wind direction**, **Wind intensity** | Where the wind blows (on the ground) and how strongly: the plants bend by it, and it takes the place of the wind of the environment while the weather lasts. It blows whether or not particles fall | east, 0.5 |
@@ -60,6 +61,17 @@ There is no snow built into the ground any more: the ground has a **cover**, and
 Each [terrain texture](/basic/assets/terrain-textures#weather) still says **how much of the cover sticks to it** (the **Cover** field of the texture, once called *Snow cover*): a swept road or a roof takes none, whatever the weather covers the world with.
 
 The ground goes to the amount the weather asks **over time**, at the speeds of the world (see [Ground weather](/basic/world/ground-weather)). When the weather changes and the new one covers the ground too, the cover takes the **new look** at once; when it covers nothing, what is left keeps its colour while it melts or dries.
+
+## Intensity
+
+A weather has an **Intensity** (0 to 1) and it scales **everything** the weather does:
+
+- the **particles**: how many fall. Each layer of the [effect](/basic/assets/vfx#intensity) comes in over its own part of the range, so a Thunderstorm at 0.3 is thin rain and at 1 it has spray, murk and wind streaks too;
+- the **ground**: how wet and how covered it ends up (a Rain of wetness 0.8 at intensity 0.5 wets the ground to 0.4);
+- the **sky, fog and sun**: every change is that far from the look towards the weather (at 0.5 a storm darkens the sky half as much);
+- the **wind**: its strength.
+
+So **Light rain** is the Rain weather at 0.3, with no second weather to keep in step. The Set Weather event has its own **Intensity** (times the weather's), and a developer can change it while the weather lasts (`WeatherSystem.set_intensity(scale, seconds)`: the particles, the ground, the sky and the wind all ease to the new level).
 
 ## The weathers that come with the toolkit
 

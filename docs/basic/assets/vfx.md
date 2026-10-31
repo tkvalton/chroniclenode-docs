@@ -50,9 +50,9 @@ The **weather** folder of the project has five effects, each a scene of GPU part
 
 | Effect | What it is |
 |---|---|
-| **rain** | Thin streaks that fall through a box of about 28 by 28 metres around the camera and slant with the wind |
-| **thunderstorm** | Heavy rain, a second layer of wind-driven spray and a low murk. It blows hard even when the wind of the world is weak |
-| **wind_and_leaves** | Leaves that tumble and flutter across the view (green, autumn orange and brown), with a little dust. They always blow at least a breeze |
+| **rain** | Thin streaks that fall through a box of about 28 by 28 metres around the camera and slant with the wind. Where a drop lands it throws a few **splash droplets** |
+| **thunderstorm** | Heavy rain with splashes, a second layer of wind-driven spray, a low murk and a few faint **wind streaks**. It blows hard even when the wind of the world is weak |
+| **wind_and_leaves** | Leaves that tumble and flutter across the view (green, autumn orange and brown), a little dust and faint **wind streaks** that sweep along the wind. They always blow at least a breeze |
 | **snow** | Soft flakes that drift down and wobble |
 | **blizzard** | Many small flakes driven sideways by a hard wind, and big soft whiteout puffs. It blows hard even in a calm world |
 
@@ -63,22 +63,40 @@ The particles **lean with the wind**: the shader reads the global `world_wind` (
 | Number | What it does |
 |---|---|
 | **Shape** | *Streak* (a thin box that turns along the way it moves, for rain), *Flake* (a quad that faces the camera) or *Leaf* (a quad that tumbles) |
-| **Area** | Half the width, the height above the camera the particles start at, half the depth |
-| **Floor below** | How far below the camera a particle goes before it is gone: about the height of the camera above the ground |
+| **Area**, **Spread y** | Half the width, the height above the camera the particles start at, half the depth. *Spread y* is how far below the top they start (0 = rain that falls from the top; a number fills the box, for streaks that stay at one height) |
+| **Floor below** | How far below the camera a particle goes before it is gone when nothing stops it earlier. The rain has a collision under it and stops on the ground, so this only matters where there is none |
 | **Fall speed** | Metres a second (a random one between the two numbers) |
 | **Wind pull**, **Min wind**, **Wind response** | How fast the wind carries a particle for each unit of wind strength; the least wind it feels (so a storm blows whatever the world wind is); how quickly it takes the speed of the wind |
 | **Flutter**, **Flutter speed** | A sideways wobble: flakes drifting, leaves fluttering |
 | **Size**, **Streak**, **Stretch**, **Spin speed** | The size, the thickness and length of a streak (a streak in the wind is longer) and how fast a leaf turns |
 | **Color a, b, c** | Every particle is one of the first two; one in three is the third when it is set |
 | **Fade far**, **Fade near** | Where the particles fade out at the edge of the box and close to the lens |
+| **Splash chance**, **Splash count**, **Splash speed** | When a particle lands on something: the chance it leaves a splash, how many droplets, how fast they jump. The droplets are the **sub emitter** of the particle node (a second particle node with the shader `weather_splash`) |
 
-::: tip Roofs keep the rain off
-Particles that touch a `GPUParticlesCollision3D` node (a box, a sphere, a height field) are gone, so a collision box over a doorway or a cabin keeps the rain out. The toolkit will add a ready placeable for it (*WeatherBlocker*); the nodes of Godot work already. This needs the Forward+ or Mobile renderer.
-:::
+### The rain lands on the world
 
-::: warning Falling to the ground
-The particles do not know where the ground is: they fall about as far below the camera as *Floor below* says (3 metres) and stop. On a steep slope the rain can stop in the air uphill or pass into the hill downhill. A ground that follows the terrain is planned.
-:::
+The rain and the thunderstorm carry a **height field** (a *GPUParticlesCollisionHeightField3D* called *RainFloor*): Godot draws everything solid in a box of 36 by 36 metres around the weather, seen from above, into a height picture, and a particle that is below the highest surface of its column has landed. So with **nothing set up**:
+
+- the rain lands on the **terrain**, slopes and all, and on **floors, roofs and any mesh** of your world, and throws splashes there;
+- **indoors it does not rain**: the roof is the highest surface over the room, so the drops land on the roof, none fall inside, and through an open door or window the rain outside still falls (tested with a hut: no rain inside, rain at the doorway and beyond);
+- the same goes for a porch, a bridge deck and the ceiling of a cave.
+
+What it cannot do: it sees one surface for each spot seen from above, so a room that is **under a roof but open at the side** keeps the rain off the whole spot under the roof (which is what you want), and it cannot tell a window from a wall (rain outside the window is outside the footprint, so it falls). Only meshes that are drawn into it count: a transparent surface (water, glass) does not stop the rain, a mesh on a visual layer you turned off in the height field does not (the property *Heightfield mask*), and a surface more than 20 metres above or below the weather is outside the box. The player's own body is a mesh like any other and catches rain too.
+
+The height field moves with the weather (which follows the camera) and is drawn again when it moves. On the test machine the cost was not measurable; on a weak graphics card lower its **Resolution** (256 is enough for the splashes) or take the node out (the rain then falls to *Floor below* and stops there, with no splashes). Particle collision needs the Forward+ or Mobile renderer; with the Compatibility renderer the rain falls without landing.
+
+Your own weather effect gets all of this by giving the particle node the shader, a *RainFloor* node under the effect, and a splash particle node as its **Sub Emitter**. Other collision nodes of Godot (a box, a sphere) work as well, for a place the height field does not cover.
+
+### Intensity
+
+`VFXWeather` has an **intensity** from 0 to 1 that a [weather](/basic/world/weather#intensity) sets (and an event can change): the effect gets thinner as it drops. Each particle node of the effect decides **how** with two numbers in its **Metadata** (the inspector, under the node):
+
+| Metadata | What it does | Default |
+|---|---|---|
+| `intensity_start` | Below this intensity the layer emits nothing | 0 |
+| `intensity_full` | From this intensity the layer is at full strength | 1 |
+
+In between the layer emits a part of its particles (its *Amount ratio*): the part of the way from start to full raised to 1.5, so a light weather looks light. The thunderstorm has its rain from 0 to 0.8, the spray from 0.35, the murk from 0.5 and the wind streaks from 0.1: a light storm is thin rain, a heavy one is everything. A node with no metadata follows the intensity from 0 to 1. The splash droplets (metadata `weather_sub_emitter`) are left alone: they follow the drops that make them.
 
 ## Where VFX are used
 

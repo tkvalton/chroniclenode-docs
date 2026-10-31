@@ -13,6 +13,7 @@ Weather VFX - Continuous environmental effects like rain, snow, fog Supports sha
 | `Vector3` | [wind_direction](#var-wind-direction) | `Vector3.ZERO : set = set_wind_direction` |
 | `float` | [wind_intensity](#var-wind-intensity) | `0.0 : set = set_wind_intensity` |
 | `bool` | [has_set_shader_globals](#var-has-set-shader-globals) | `false` |
+| `float` | [intensity](#var-intensity) | `1.0` |
 
 ## Methods
 
@@ -20,6 +21,8 @@ Weather VFX - Continuous environmental effects like rain, snow, fog Supports sha
 |---|---|
 | `void` | [activate_vfx](#method-activate-vfx)( `selection: VFXSelection = null` ) |
 | `void` | [deactivate_vfx](#method-deactivate-vfx)() |
+| `void` | [set_intensity](#method-set-intensity)( `value: float, seconds: float = 0.0` ) |
+| `float` | [layer_ratio](#method-layer-ratio)( `intensity_value: float, start: float, full: float` ) *static* |
 | `void` | [set_wind_direction](#method-set-wind-direction)( `new_direction: Vector3` ) |
 | `void` | [set_wind_intensity](#method-set-wind-intensity)( `new_intensity: float` ) |
 | `void` | [transition_wind_direction](#method-transition-wind-direction)( `new_direction: Vector3, duration: float = 2.0` ) |
@@ -45,6 +48,10 @@ Wind intensity (float 0.0 to 1.0)
 
 Track if we've set the shader globals (for cleanup)
 
+### float intensity = 1.0 {#var-intensity}
+
+How strong the weather is (0 to 1). Every particle node of the effect has a range of intensity it comes in over, set as node metadata: `intensity_start` (below it nothing falls, default 0) and `intensity_full` (at and above it the layer is at full strength, default 1). In between the layer emits that part of its particles (its amount ratio). So a Rain scene gets lighter as the intensity drops, and the murk layer of a storm only shows from 0.5 up. A layer with no metadata follows the intensity from 0 to 1. A sub emitter (a splash, metadata `weather_sub_emitter`) is left alone: it follows the particles that make it
+
 ## Method descriptions
 
 ### void activate_vfx( selection: VFXSelection = null ) {#method-activate-vfx}
@@ -54,6 +61,14 @@ Weather VFX should NOT auto-cleanup (manual control for persistent weather)
 ### void deactivate_vfx() {#method-deactivate-vfx}
 
 Override deactivation to clean up shader globals
+
+### void set_intensity( value: float, seconds: float = 0.0 ) {#method-set-intensity}
+
+Sets how strong the weather is, at once or easing over `seconds`
+
+### float layer_ratio( intensity_value: float, start: float, full: float ) {#method-layer-ratio}
+
+How much of its particles a layer emits at an intensity: 0 below its start, 1 from its full, and in between the part of the way to full raised to 1.5 (a light weather looks light: half way is a third of the particles, not half)
 
 ### void set_wind_direction( new_direction: Vector3 ) {#method-set-wind-direction}
 
