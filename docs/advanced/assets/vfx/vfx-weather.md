@@ -6,6 +6,12 @@
 
 Weather VFX - Continuous environmental effects like rain, snow, fog Supports shader global control for wind direction and intensity Designed to be attached to the camera for consistent visibility
 
+## Properties
+
+| | | |
+|---|---|---|
+| `float` | [intensity](#prop-intensity) | `1.0:` |
+
 ## Variables
 
 | | | |
@@ -13,7 +19,6 @@ Weather VFX - Continuous environmental effects like rain, snow, fog Supports sha
 | `Vector3` | [wind_direction](#var-wind-direction) | `Vector3.ZERO : set = set_wind_direction` |
 | `float` | [wind_intensity](#var-wind-intensity) | `0.0 : set = set_wind_intensity` |
 | `bool` | [has_set_shader_globals](#var-has-set-shader-globals) | `false` |
-| `float` | [intensity](#var-intensity) | `1.0` |
 
 ## Methods
 
@@ -34,6 +39,14 @@ Weather VFX - Continuous environmental effects like rain, snow, fog Supports sha
 | `Dictionary` | [get_wind_data](#method-get-wind-data)() |
 | `void` | [set_wind_data](#method-set-wind-data)( `data: Dictionary` ) |
 
+## Property descriptions
+
+*Weather*
+
+### float intensity = 1.0: {#prop-intensity}
+
+How strong the weather is (0 to 1): design the effect at 1 (its heaviest) and lower this to thin it out. Move the slider in the editor to see the effect at that intensity. Every particle node of the effect has a range of intensity it comes in over, set as node metadata (Inspector &gt; Metadata): `intensity_start` (below it the layer emits nothing, default 0) and `intensity_full` (from it the layer is at full strength, default 1). In between the layer emits that part of its particles (its amount ratio, raised to 1.5). A layer with no metadata follows the intensity from 0 to 1. A sub emitter (a splash, metadata `weather_sub_emitter`) is left alone: it follows the particles that make it. The weather system sets this at run time from the Weather config
+
 ## Variable descriptions
 
 ### Vector3 wind_direction = Vector3.ZERO : set = set_wind_direction {#var-wind-direction}
@@ -47,10 +60,6 @@ Wind intensity (float 0.0 to 1.0)
 ### bool has_set_shader_globals = false {#var-has-set-shader-globals}
 
 Track if we've set the shader globals (for cleanup)
-
-### float intensity = 1.0 {#var-intensity}
-
-How strong the weather is (0 to 1). Every particle node of the effect has a range of intensity it comes in over, set as node metadata: `intensity_start` (below it nothing falls, default 0) and `intensity_full` (at and above it the layer is at full strength, default 1). In between the layer emits that part of its particles (its amount ratio). So a Rain scene gets lighter as the intensity drops, and the murk layer of a storm only shows from 0.5 up. A layer with no metadata follows the intensity from 0 to 1. A sub emitter (a splash, metadata `weather_sub_emitter`) is left alone: it follows the particles that make it
 
 ## Method descriptions
 

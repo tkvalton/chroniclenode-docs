@@ -89,7 +89,11 @@ Your own weather effect gets all of this by giving the particle node the shader,
 
 ### Intensity
 
-`VFXWeather` has an **intensity** from 0 to 1 that a [weather](/basic/world/weather#intensity) sets (and an event can change): the effect gets thinner as it drops. Each particle node of the effect decides **how** with two numbers in its **Metadata** (the inspector, under the node):
+`VFXWeather` has an **Intensity** from 0 to 1 (a slider in the inspector, under *Weather*) that a [weather](/basic/world/weather#intensity) sets while the game runs and an event can change: the effect gets thinner as it drops.
+
+**Design the effect at 1**: that is its full strength, the heaviest it will ever be. Lowering the intensity only takes particles away, layer by layer; it never makes anything stronger. The script runs in the editor, so open the scene, move the slider and see the effect at 0.3 or 0.7 right there in the viewport (the rain, the splashes, the wind streaks, all of it). The value the scene is saved with is what shows when it is used on its own; the weather system sets it from the weather when the game starts.
+
+Each particle node of the effect decides **how** it thins with two numbers in its **Metadata** (the inspector, under the node):
 
 | Metadata | What it does | Default |
 |---|---|---|
