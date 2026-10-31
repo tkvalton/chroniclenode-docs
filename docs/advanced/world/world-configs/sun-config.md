@@ -22,6 +22,8 @@ How the sun LOOKS (its brightness and colour by the hour, shadows, how it lights
 
 ## Property descriptions
 
+*Day Night Cycle*
+
 ### bool day_night_cycle = true {#prop-day-night-cycle}
 
 Enable day/night cycle (false = a sun that stays where it is: the static height below)

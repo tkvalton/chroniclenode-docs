@@ -46,7 +46,7 @@ A plant that sways with the wind of the world can use the ready-made shaders ins
 
 ## The wind
 
-There is **one wind**. The **Wind** group of the [Environment config](/basic/world/world-configs#environment) is the wind of the world: a direction on the ground and how strong it is (0 still, 1 a breeze, 2 a storm; a new config blows a breeze of 0.35). A **weather** that has its own wind (a storm) takes its place while the weather lasts, and the wind of the world comes back when the weather has gone. All of it ends up in the one global `world_wind`. From a script: `FoliageWind.set_wind(direction_degrees, strength)`, `FoliageWind.set_base_wind(direction, strength)` and `FoliageWind.set_weather_wind(direction, intensity)`.
+There is **one wind**. The **Wind** group of the [Environment config](/basic/world/environment-config) is the wind of the world: a direction on the ground and how strong it is (0 still, 1 a breeze, 2 a storm; a new config blows a breeze of 0.35). A **weather** that has its own wind (a storm) takes its place while the weather lasts, and the wind of the world comes back when the weather has gone. All of it ends up in the one global `world_wind`. From a script: `FoliageWind.set_wind(direction_degrees, strength)`, `FoliageWind.set_base_wind(direction, strength)` and `FoliageWind.set_weather_wind(direction, intensity)`.
 
 ## Your own globals
 

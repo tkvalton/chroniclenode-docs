@@ -37,6 +37,7 @@ A world has a default weather (World editor &gt; Weather) and an event changes i
 | `float` | [fog_added](#prop-fog-added) | `0.0` |
 | `float` | [fog_color_amount](#prop-fog-color-amount) | `0.0` |
 | `Color` | [fog_color](#prop-fog-color) | `Color(0.6, 0.62, 0.66)` |
+| `Array[WeatherEffectEntry]` | [exposed_effects](#prop-exposed-effects) | `[]` |
 
 ## Methods
 
@@ -162,6 +163,12 @@ How much of the colour of the fog is replaced by the colour below
 ### Color fog_color = Color(0.6, 0.62, 0.66) {#prop-fog-color}
 
 The colour the fog moves towards (when the amount above is more than 0)
+
+*Exposed Effects*
+
+### Array[WeatherEffectEntry] exposed_effects = [] {#prop-exposed-effects}
+
+The effects the weather gives to those who stand in it (a burn in a rain of embers, a Wet debuff in the rain). Edited as a list in the Weather tab. They are saved with the weather; the weather system does not apply them yet (the exposed effects step of the weather work)
 
 ## Method descriptions
 

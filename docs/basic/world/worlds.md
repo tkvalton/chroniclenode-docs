@@ -56,7 +56,7 @@ A world uses the project's default **Time**, **Sun**, **Sky** and **Environment*
 
 ### Default weather
 
-A list of the [weathers](/basic/world/weather) of the project (made in World Configs > Weather). The weather starts when the party enters the world; its particles follow the camera. **Clear** is no weather. A [Set Weather event](/basic/events-and-quests/events) changes it later; the world's setting is not changed by that, so the next visit starts with the default again. A world that had a weather effect chosen the old way gets a weather made from it the first time you open it here.
+A list of the [weathers](/basic/world/weather) of the project (made in World > Weather). The weather starts when the party enters the world; its particles follow the camera. **Clear** is no weather. A [Set Weather event](/basic/events-and-quests/events) changes it later; the world's setting is not changed by that, so the next visit starts with the default again. A world that had a weather effect chosen the old way gets a weather made from it the first time you open it here.
 
 ### Persistence
 

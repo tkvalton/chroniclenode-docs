@@ -20,6 +20,8 @@ Controls how time progresses in the game. Rarely overridden per-map, but useful 
 
 ## Property descriptions
 
+*Day Length*
+
 ### float day_length_seconds = 86400.0 {#prop-day-length-seconds}
 
 Real-world seconds for a full 24-hour game day (default: 86400 = realtime 1:1) Common values: 86400 (realtime), 1440 (1 real minute = 1 game hour), 3600 (1 real hour = 1 game day)
@@ -27,6 +29,8 @@ Real-world seconds for a full 24-hour game day (default: 86400 = realtime 1:1) C
 ### float time_multiplier = 1.0 {#prop-time-multiplier}
 
 Time speed multiplier (1.0 = normal, 2.0 = twice as fast, 0.5 = half speed, 0.0 = frozen time)
+
+*Starting Time*
 
 ### float starting_time = 8.0 {#prop-starting-time}
 

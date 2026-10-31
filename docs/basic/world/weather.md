@@ -6,16 +6,62 @@ A **weather** is a resource of the project, like a sky or an environment: it say
 This page is what exists now: the weather as a resource, its wind, the **ground** (wet, tinted, covered with snow, sand, ash or anything else) and the **sky, fog and light**. What is still to come, in the order we build it: a screen look for the camera, buildings that keep the rain out, sounds and music for weather, and effects the weather gives to those who stand in it.
 :::
 
+## The Weather tab
+
+**World > Weather** is the editor of the weathers. It has three parts side by side:
+
+| Part | What it is |
+|---|---|
+| **Weathers** (left) | The list of the weathers of the project. **New** makes one (name it), **Duplicate** copies the one you have open (a quick way to make *Light rain* from *Rain*), **Delete** removes it (the built-in **Clear** cannot be deleted or renamed) |
+| **Weather Configuration** (middle) | One container for the weather, with a container for each group of its settings: **Details** (name and a note), **Look**, **Wind**, **Ground Wetness**, **Ground Cover**, **Sky and Light**, **Fog**, and **Exposed Effects** (a list). Changes are saved as you make them. A group can be folded; the tab remembers which are. Settings that do not apply are hidden (no wet tint on a dry weather, no wind fields without a wind of its own) |
+| **Preview** and **Warnings** (right) | See below |
+
+### Preview
+
+The preview shows the weather in a small world of its own (a ground, a hut with a roof, trees, rocks and a pole) with the **default sky, sun and environment** of the project, **made by the same code as the game**. You see its particles, the sky it darkens or tints, the fog it thickens, the sun it dims, the wind it blows (the pole and the particles lean) and a ground that gets wet and covered. Two sliders:
+
+| Control | What it does |
+|---|---|
+| **Intensity** | Shows the weather at that intensity (0 to 1): a light rain, a downpour. This is a *preview*; the intensity saved with the weather is the **Intensity** field of its **Look** container |
+| **Time of day** | The hour: see the storm at noon and at dusk |
+| **Fade in** | Starts from a clear sky and brings the weather in over its **Fade seconds**, to see how it arrives |
+
+Nothing in the preview is saved. When you leave the tab the wind goes back to the world's.
+
+### Warnings
+
+The **Warnings** container lists what is probably a mistake, as you edit:
+
+- the weather effect is not in the VFX library (a typo, or a deleted scene): nothing would fall;
+- the intensity is 0 (the weather does nothing);
+- a wet tint on a weather that leaves the ground dry; black ground cover or a black sky tint;
+- a wind of its own with no strength; fog added with a fog multiplier of 0;
+- an exposed effect with no effect chosen, or an effect that is not in the project.
+
+It says *No warnings.* when all is well.
+
+### The effect (particles)
+
+The **Weather vfx name** of the **Look** container is a **drop-down of the Weather effects of the [VFX library](/basic/assets/vfx#the-weather-effects-that-come-with-the-toolkit)** (the scenes in `src/data/vfx/weather/`), with *(no particles)* for a weather that only changes the ground or the sky. The library is read again each time you open the tab, so a scene you just made shows up. A name that is no longer in the library stays chosen and reads *Missing: name*, so nothing is lost by opening the weather.
+
+### Exposed effects
+
+The **Exposed Effects** container is a **list**: each entry is an effect of the project, **how** the weather gives it (**Held**: given while the entity is in the weather and taken away when it is not; **Refreshed**: applied again every *interval* seconds, so its duration keeps renewing and it runs out by itself after the weather) and **who** gets it (the **party**, or **every entity**). **Add an exposed effect** adds an entry; each has **Move up**, **Move down** and **Remove**.
+
+::: warning Saved, not applied yet
+The list is saved with the weather, but the game does **not apply these effects yet**: that is one of the next steps of the weather work. The editor is ready so the lists you make now will work then.
+:::
+
 ## Making a weather
 
-Open **World > World Configs** and find **Weather Configuration**. Pick one in the **Config** list or **Create New** (name it). The project starts with one called **Clear**: nothing falls and the ground stays as it is.
+Open **World > Weather**, pick a weather in the list or press **New** (name it). The project starts with one called **Clear**: nothing falls and the ground stays as it is.
 
 | Group | Field | What it does | Default |
 |---|---|---|---|
 | **Look** | **Weather vfx name** | The particles that fall around the camera: the name of a *Weather* effect of the [VFX library](/basic/assets/vfx) (Rain, Snow ...). Empty = nothing falls, a weather that only changes the ground, the sky or the fog | empty |
 | | **Intensity** | How strong the weather is, 0 to 1: see [Intensity](#intensity) | 1 |
 | | **Fade seconds** | How long the sky, the fog, the light and the wind take to change into this weather, and back to the look of the world when it ends | 10 |
-| **Wind** | **Uses own wind** | Does this weather blow a wind of its own? Off = the wind of the [environment](/basic/world/world-configs#environment) goes on. The next two fields show only when it is on | off |
+| **Wind** | **Uses own wind** | Does this weather blow a wind of its own? Off = the wind of the [environment](/basic/world/environment-config) goes on. The next two fields show only when it is on | off |
 | | **Wind direction**, **Wind intensity** | Where the wind blows (on the ground) and how strongly: the plants bend by it, and it takes the place of the wind of the environment while the weather lasts. It blows whether or not particles fall | east, 0.5 |
 | **Ground Wetness** | **Ground wetness** | How wet the weather makes the ground in the end: 0 dry, 1 soaked | 0 |
 | | **Wet tint**, **Wet tint amount** | A colour wet ground is multiplied with, and how much of it shows when it is soaked: a blue-grey for rain, dark red for a rain of blood, green for acid. 0 = the ground only gets darker and shinier as its textures say | none |

@@ -259,9 +259,10 @@ Many editors build their controls **in code** by reflecting over the resource's 
 <!-- classes:editor/world -->
 | Class | What it is |
 |---|---|
-| [BaseConfigEditor](/advanced/editor/world/base-config-editor) | Base class for config editors that dynamically generate UI from exports |
+| [BaseConfigEditor](/advanced/editor/world/base-config-editor) | Base class for config editors that dynamically generate UI from exports. |
 | [DetileSlider](/advanced/editor/world/detile-slider) | A slider with its number written next to it: the control of the detiling numbers (the Terrain Textures editor and the Detiling panel of the terrain tool). |
 | [EnvironmentConfigEditor](/advanced/editor/world/environment-config-editor) | Editor panel for EnvironmentConfig |
+| [ResourceListEditor](/advanced/editor/world/resource-list-editor) | A list of resources edited in place: a container for each item (titled with a line that says what it is) with buttons to move and remove it and a form for its fields, and an Add button below. |
 | [SkyConfigEditor](/advanced/editor/world/sky-config-editor) | Editor panel for SkyConfig |
 | [SpawnTablesEditor](/advanced/editor/world/spawn-tables-editor) | The Spawn Tables editor (the SpawnTableDefinition database, World &gt; Spawn Tables): a name, a description and the lines of the table. |
 | [SunConfigEditor](/advanced/editor/world/sun-config-editor) | Editor panel for SunConfig |
@@ -269,8 +270,11 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [TerrainTextureEditor](/advanced/editor/world/terrain-texture-editor) | The Terrain Textures editor (the TerrainTextureDefinition database): the library a terrain is painted from. |
 | [TimeConfigEditor](/advanced/editor/world/time-config-editor) | Editor panel for TimeConfig |
 | [UniquesDatabaseEditor](/advanced/editor/world/uniques-database-editor) | The editor of the Uniques tab (World &gt; Uniques): lists the placed NPCs and objects of every world, filtered by kind, world and a search bar, and shows the unique that is selected. |
-| [WeatherConfigEditor](/advanced/editor/world/weather-config-editor) | Editor panel for WeatherConfig |
-| [WorldConfigEditor](/advanced/editor/world/world-config-editor) | Main editor for all world configuration types (Sky, Environment, Sun, Time, Weather) Designed to work with a pre-built scene containing the five config editors |
+| [WeatherConfigEditor](/advanced/editor/world/weather-config-editor) | The form of a WeatherConfig (the groups of the weather as containers). |
+| [WeatherEditor](/advanced/editor/world/weather-editor) | The Weather tab of the World group: the weathers of the project (WeatherConfig). |
+| [WeatherEffectEntryForm](/advanced/editor/world/weather-effect-entry-form) | The form of one exposed effect of a weather (a WeatherEffectEntry): a dropdown of the effects of the project, how the weather gives it, how often (when it is refreshed) and who gets it. |
+| [WeatherPreview](/advanced/editor/world/weather-preview) | The preview of the Weather tab: a small world in its own viewport (a ground with a hut with a roof, trees, rocks and a pole to see the weather against) with the default sky, sun and environment of the project, and the weather laid on it: its particles at the intensity of the slider, the sky, fog and light it changes (WeatherLook), the wind it blows, and a ground that gets wet and covered. |
+| [WorldConfigTab](/advanced/editor/world/world-config-tab) | One tab of the World group for one kind of config: Time, Sun, Sky or Environment (the Weather tab is the WeatherEditor). |
 | [WorldDatabaseEditor](/advanced/editor/world/world-database-editor) | The editor of the Worlds tab (World &gt; Worlds): lists the world scenes with a search bar and a category filter, and edits the properties of the selected world (loading screen, persistence, level, audio, time, sun, sky and weather). |
 | [WorldGroundSection](/advanced/editor/world/world-ground-section) | The **Ground weather** section of the Worlds editor: how fast the ground of this world gets wet and dries, how fast the snow builds and melts, and the tint of the ground (a season). |
 | [WorldZonesSection](/advanced/editor/world/world-zones-section) | The **Zones** section of the Worlds editor: the named places of ONE world (Elderwood, its sub-zone The Old Mill, the Sunken Caves ...) and the default zone of the world. |

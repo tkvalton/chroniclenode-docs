@@ -146,7 +146,7 @@ It works on a pack of your own too (give it the folder of the scenes after `--`)
 
 ### The wind and the push
 
-- **Wind.** The gusts travel over the ground, so a field moves together. The wind is the **Wind** of the [Environment config](/basic/world/world-configs#environment) of the world (a breeze at first); a weather with its own wind takes its place while it lasts. A script can set it with `FoliageWind.set_wind`. More in [Shader globals](/basic/world/shader-globals#the-wind).
+- **Wind.** The gusts travel over the ground, so a field moves together. The wind is the **Wind** of the [Environment config](/basic/world/environment-config) of the world (a breeze at first); a weather with its own wind takes its place while it lasts. A script can set it with `FoliageWind.set_wind`. More in [Shader globals](/basic/world/shader-globals#the-wind).
 - **Walking through.** The players and the entities near the camera (at most 8 at once, within 40 m) press the plants near them down and aside. A mounted or flying entity is above the plants and pushes nothing. The plants spring back when the body has gone.
 - A shader of your own can read the same global parameters, `world_wind` and `foliage_pushers`, with `foliage_wind.gdshaderinc` (the [list of shader globals](/basic/world/shader-globals) the plugin adds to your project).
 

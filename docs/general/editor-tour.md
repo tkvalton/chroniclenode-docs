@@ -22,7 +22,7 @@ Each category holds the editors for one part of the game.
 
 | Category | Its tabs | What it is for |
 |---|---|---|
-| **World** | [Worlds](/basic/world/worlds), [World Configs](/basic/world/world-configs), [Uniques](/basic/world/uniques) | The places of the game, their time, sky and weather, and the one-of-a-kind characters and objects placed in them |
+| **World** | [Worlds](/basic/world/worlds), [Time](/basic/world/time-config), [Sun](/basic/world/sun-config), [Sky](/basic/world/sky-config), [Environment](/basic/world/environment-config), [Weather](/basic/world/weather), [Uniques](/basic/world/uniques) | The places of the game, their time, sky and weather, and the one-of-a-kind characters and objects placed in them |
 | **Events & Quests** | [Events](/basic/events-and-quests/events), [Quests](/basic/events-and-quests/quests), [Quest Lines](/basic/events-and-quests/quest-lines), [Global Variables](/basic/events-and-quests/global-variables), [Popups](/basic/events-and-quests/popups) | What happens in the game: triggers and actions, quests and the chains they form, variables the game remembers, and message popups |
 | **Entities** | [Playable Character](/basic/entities/playable-character), [Player Classes](/basic/entities/player-classes), [NPCs](/basic/entities/npcs), [Interactables](/basic/entities/interactables) | The characters, creatures and objects of the game |
 | **Abilities & Effects** | [Abilities](/basic/abilities-and-effects/abilities), [Effects](/basic/abilities-and-effects/effects), [Status Effects](/basic/abilities-and-effects/status-effects), [Immunities](/basic/abilities-and-effects/immunities), [Skill Trees](/basic/abilities-and-effects/skill-trees) | What entities can do, what that does to the world, and how players unlock it |

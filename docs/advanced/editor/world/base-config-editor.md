@@ -4,9 +4,15 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
-**Inherited by:** [EnvironmentConfigEditor](/advanced/editor/world/environment-config-editor), [SkyConfigEditor](/advanced/editor/world/sky-config-editor), [SunConfigEditor](/advanced/editor/world/sun-config-editor), [TimeConfigEditor](/advanced/editor/world/time-config-editor), [WeatherConfigEditor](/advanced/editor/world/weather-config-editor)
+**Inherited by:** [EnvironmentConfigEditor](/advanced/editor/world/environment-config-editor), [SkyConfigEditor](/advanced/editor/world/sky-config-editor), [SunConfigEditor](/advanced/editor/world/sun-config-editor), [TimeConfigEditor](/advanced/editor/world/time-config-editor), [WeatherConfigEditor](/advanced/editor/world/weather-config-editor), [WeatherEffectEntryForm](/advanced/editor/world/weather-effect-entry-form)
 
-Base class for config editors that dynamically generate UI from exports
+Base class for config editors that dynamically generate UI from exports. The editor is one container titled with the kind of config ("Sun Configuration"); in it the selector of the config and a container for each export group of the config, titled with the name of the group ("Day Night Timing", "Sun Direction"). A group can be folded; the editor remembers which are.
+
+## Variables
+
+| | | |
+|---|---|---|
+| `bool` | [embedded](#var-embedded) | `false` |
 
 ## Methods
 
@@ -22,6 +28,12 @@ Base class for config editors that dynamically generate UI from exports
 ### config_changed( config: Resource ) {#signal-config-changed}
 
 ### config_selected( config: Resource ) {#signal-config-selected}
+
+## Variable descriptions
+
+### bool embedded = false {#var-embedded}
+
+A form for a config that is given (a list of items, a part of another editor): no container of its own and no selector of configs
 
 ## Method descriptions
 

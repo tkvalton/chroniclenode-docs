@@ -953,6 +953,12 @@ export const groups = [
         "file": "editor_components/editors/world/config_editors/environment_config_editor.gd"
       },
       {
+        "name": "ResourceListEditor",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\resource_list_editor.gd",
+        "file": "editor_components/editors/world/config_editors/resource_list_editor.gd"
+      },
+      {
         "name": "SkyConfigEditor",
         "base": "BaseConfigEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\sky_config_editor.gd",
@@ -1001,10 +1007,28 @@ export const groups = [
         "file": "editor_components/editors/world/config_editors/weather_config_editor.gd"
       },
       {
-        "name": "WorldConfigEditor",
-        "base": "Control",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\world_config_editor.gd",
-        "file": "editor_components/editors/world/world_config_editor.gd"
+        "name": "WeatherEditor",
+        "base": "MarginContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\weather_editor.gd",
+        "file": "editor_components/editors/world/weather_editor.gd"
+      },
+      {
+        "name": "WeatherEffectEntryForm",
+        "base": "BaseConfigEditor",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\weather_effect_entry_form.gd",
+        "file": "editor_components/editors/world/config_editors/weather_effect_entry_form.gd"
+      },
+      {
+        "name": "WeatherPreview",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\weather_preview.gd",
+        "file": "editor_components/editors/world/weather_preview.gd"
+      },
+      {
+        "name": "WorldConfigTab",
+        "base": "MarginContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\world_config_tab.gd",
+        "file": "editor_components/editors/world/world_config_tab.gd"
       },
       {
         "name": "WorldDatabaseEditor",

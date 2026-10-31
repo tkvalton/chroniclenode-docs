@@ -38,4 +38,4 @@ The interface (nameplates, health bars) has its own colours in the **Accessibili
 | You want | Do this |
 |---|---|
 | **A second signal on the interface** | Planned for the interface audit: shapes and symbols next to the colours |
-| **To read more** | [Camera effects](/basic/world/camera-effects) and [World Configs](/basic/world/world-configs#colour-blindness) |
+| **To read more** | [Camera effects](/basic/world/camera-effects) and [World Configs](/basic/world/environment-config#colour-blindness) |

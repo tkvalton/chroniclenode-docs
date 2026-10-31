@@ -11,10 +11,10 @@ The rows are in the order of the REGISTRY, grouped like the editor's categories.
 |---|---|---|---|
 | **World** | | | |
 | `world` | `WorldData` | `src/data/worlds/` | [Worlds](/basic/world/worlds) |
-| `enviroment` | `EnvironmentConfig` | `src/data/worlds/enviroment/` | [World Configs](/basic/world/world-configs) |
-| `sky` | `SkyConfig` | `src/data/worlds/sky/` | [World Configs](/basic/world/world-configs) |
-| `sun` | `SunConfig` | `src/data/worlds/sun/` | [World Configs](/basic/world/world-configs) |
-| `time` | `TimeConfig` | `src/data/worlds/time/` | [World Configs](/basic/world/world-configs) |
+| `enviroment` | `EnvironmentConfig` | `src/data/worlds/enviroment/` | [Environment config](/basic/world/environment-config) |
+| `sky` | `SkyConfig` | `src/data/worlds/sky/` | [Sky config](/basic/world/sky-config) |
+| `sun` | `SunConfig` | `src/data/worlds/sun/` | [Sun config](/basic/world/sun-config) |
+| `time` | `TimeConfig` | `src/data/worlds/time/` | [Time config](/basic/world/time-config) |
 | **Events & Quests** | | | |
 | `event` | `Event` | `src/data/events/` | [Events](/basic/events-and-quests/events) |
 | `quest` | `Quest` | `src/data/quests/` | [Quests](/basic/events-and-quests/quests) |

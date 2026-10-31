@@ -4,7 +4,7 @@
 
 **Inherits:** [BaseConfigEditor](/advanced/editor/world/base-config-editor) < [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
-Editor panel for WeatherConfig
+The form of a WeatherConfig (the groups of the weather as containers). The weather effect is picked from the VFX library in a dropdown. The Weather tab (WeatherEditor) uses it embedded and adds the list of exposed effects, the preview and the warnings.
 
 ## Methods
 

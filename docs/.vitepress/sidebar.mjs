@@ -88,10 +88,15 @@ const abilitiesAndEffects = {
 const basicSystems = [
   system('World', 'world', [
     ['Worlds', 'worlds', 'maps'],
-    ['World Configs', 'world-configs', 'world_configs'],
+    ['Time', 'time-config', 'time_config'],
+    ['Sun', 'sun-config', 'sun_config'],
+    ['Sky', 'sky-config', 'sky_config'],
+    ['Environment', 'environment-config', 'environment_config'],
+    ['Weather', 'weather', 'weather'],
     ['Uniques', 'uniques', 'uniques'],
   ], {
     after: [
+      page('World Configs', '/basic/world/world-configs'),
       {
         text: 'In the 3D viewport',
         collapsed: true,
@@ -101,7 +106,6 @@ const basicSystems = [
           page('Sculpting', '/basic/world/terrain-sculpting'),
           page('Painting', '/basic/world/terrain-painting'),
           page('Navigation', '/basic/world/terrain-navigation'),
-          page('Weather', '/basic/world/weather'),
           page('Ground weather', '/basic/world/ground-weather'),
           page('Terrain streaming', '/basic/world/terrain-streaming'),
           page('Other terrain plugins', '/basic/world/terrain-plugins'),

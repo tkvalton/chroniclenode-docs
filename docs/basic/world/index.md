@@ -10,7 +10,7 @@ Everything the party meets in a world is placed in the scene and stored as a **u
 | Page | What it covers |
 |---|---|
 | [Worlds](/basic/world/worlds) | The Worlds editor: make a world, name it, give it music, weather, a loading screen and persistence |
-| [World Configs](/basic/world/world-configs) | Time, Sun, Sky and Environment: how the clock runs, the light, the sky and the fog |
+| [World Configs](/basic/world/world-configs) | The five configs and what each tab is: [Time](/basic/world/time-config), [Sun](/basic/world/sun-config), [Sky](/basic/world/sky-config), [Environment](/basic/world/environment-config) and [Weather](/basic/world/weather): how the clock runs, the light, the sky, the fog and what falls |
 | [Your own sky](/basic/world/your-own-sky) | Sky drivers: a panorama sky, Godot's procedural sky, or your own sky shader that follows the hour; what a sky shader gets from the toolkit |
 | [Uniques](/basic/world/uniques) | The list of everything placed in every world |
 | [Placing objects](/basic/world/add-object) | The buttons in the 3D viewport that place NPCs, interactables, dropped items, volumes and assets: the model on your mouse, standing on the ground or any floor |
