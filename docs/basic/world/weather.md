@@ -61,6 +61,10 @@ Each [terrain texture](/basic/assets/terrain-textures#weather) still says **how 
 
 The ground goes to the amount the weather asks **over time**, at the speeds of the world (see [Ground weather](/basic/world/ground-weather)). When the weather changes and the new one covers the ground too, the cover takes the **new look** at once; when it covers nothing, what is left keeps its colour while it melts or dries.
 
+## The weathers that come with the toolkit
+
+Five weathers are made for the five [weather effects](/basic/assets/vfx#the-weather-effects-that-come-with-the-toolkit): **Rain**, **Thunderstorm**, **Wind and leaves**, **Snow** and **Blizzard**. Each has its particles, wind, ground (wet, or covered with snow), a darker sky, a dimmer sun and thicker fog already set. Change them or make your own from one.
+
 ## Using a weather
 
 - **The weather of a world**: **Worlds > Weather**, the list *Default weather*. It starts when the party enters the world. **Clear** is no weather.

@@ -42,7 +42,43 @@ An effect is a **scene** (or, for two types, a material or a texture) in `res://
 | **Beam** | **Beam width**, **Beam segments**, **Curve intensity** (0 = straight), **Follow target movement**, **Update continuously** |
 | **Path** | **VFX source node** (the node whose children are repeated), **Section size**, **Section overlap**, **Path curve strength**; **Follow terrain** with its layer mask, offset and maximum slope; **Spawn progressively** with a delay and direction; **Max sections** and **Despawn distant sections** |
 | **Telegraph** | **Size**, **Shape** (circle or square), **Color**, **Attachment** (at a point, or attached to a character with an orientation), **Orientation offset** |
-| **Weather** | The wind direction and strength are set by the game; the effect should be attached to the camera |
+| **Weather** | The effect follows the camera. The wind comes from the [weather](/basic/world/weather) that uses it, not from the scene. The toolkit's own particle shader (below) leans with that wind |
+
+### The weather effects that come with the toolkit
+
+The **weather** folder of the project has five effects, each a scene of GPU particles that uses the shader `weather_particles` (`assets/vfx/vfx_shaders`). Use them as they are, or copy one and change its numbers.
+
+| Effect | What it is |
+|---|---|
+| **rain** | Thin streaks that fall through a box of about 28 by 28 metres around the camera and slant with the wind |
+| **thunderstorm** | Heavy rain, a second layer of wind-driven spray and a low murk. It blows hard even when the wind of the world is weak |
+| **wind_and_leaves** | Leaves that tumble and flutter across the view (green, autumn orange and brown), with a little dust. They always blow at least a breeze |
+| **snow** | Soft flakes that drift down and wobble |
+| **blizzard** | Many small flakes driven sideways by a hard wind, and big soft whiteout puffs. It blows hard even in a calm world |
+
+They have a matching [weather](/basic/world/weather) each (Rain, Thunderstorm, Wind and leaves, Snow, Blizzard) with the ground, sky, fog and wind numbers filled in, in **World Configs > Weather**.
+
+The particles **lean with the wind**: the shader reads the global `world_wind` ([shader globals](/basic/world/shader-globals#the-wind)), so the same rain slants more when the weather blows harder. The numbers are on the process material of each particle node:
+
+| Number | What it does |
+|---|---|
+| **Shape** | *Streak* (a thin box that turns along the way it moves, for rain), *Flake* (a quad that faces the camera) or *Leaf* (a quad that tumbles) |
+| **Area** | Half the width, the height above the camera the particles start at, half the depth |
+| **Floor below** | How far below the camera a particle goes before it is gone: about the height of the camera above the ground |
+| **Fall speed** | Metres a second (a random one between the two numbers) |
+| **Wind pull**, **Min wind**, **Wind response** | How fast the wind carries a particle for each unit of wind strength; the least wind it feels (so a storm blows whatever the world wind is); how quickly it takes the speed of the wind |
+| **Flutter**, **Flutter speed** | A sideways wobble: flakes drifting, leaves fluttering |
+| **Size**, **Streak**, **Stretch**, **Spin speed** | The size, the thickness and length of a streak (a streak in the wind is longer) and how fast a leaf turns |
+| **Color a, b, c** | Every particle is one of the first two; one in three is the third when it is set |
+| **Fade far**, **Fade near** | Where the particles fade out at the edge of the box and close to the lens |
+
+::: tip Roofs keep the rain off
+Particles that touch a `GPUParticlesCollision3D` node (a box, a sphere, a height field) are gone, so a collision box over a doorway or a cabin keeps the rain out. The toolkit will add a ready placeable for it (*WeatherBlocker*); the nodes of Godot work already. This needs the Forward+ or Mobile renderer.
+:::
+
+::: warning Falling to the ground
+The particles do not know where the ground is: they fall about as far below the camera as *Floor below* says (3 metres) and stop. On a steep slope the rain can stop in the air uphill or pass into the hill downhill. A ground that follows the terrain is planned.
+:::
 
 ## Where VFX are used
 
