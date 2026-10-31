@@ -2,8 +2,8 @@
 
 A **weather** is a resource of the project, like a sky or an environment: it says what falls from the sky, how the wind blows and what the weather does to the **ground**. Rain, snow, a sandstorm, a rain of embers, a magic frost and a fog that turns the ground green are all the same thing with other numbers. You make as many as you like in **World > World Configs > Weather**.
 
-::: tip Weather comes in steps
-This page is what exists now: the weather as a resource, its wind, the **ground** (wet, tinted, covered with snow, sand, ash or anything else) and the **sky, fog and light**. What is still to come, in the order we build it: a screen look for the camera, buildings that keep the rain out, sounds and music for weather, and effects the weather gives to those who stand in it.
+::: tip Everything the weather does
+A weather changes **what falls**, the **wind**, the **ground**, the **sky, fog and light**, the **screen** (a tint, dark corners, blur), the **sound** (music and an ambient sound of its own, and the kinds of sound a [shelter](/basic/world/shelter) answers to) and gives **effects** to those who stand in it. A [shelter](/basic/world/shelter) keeps part of it off.
 :::
 
 ## The Weather tab
@@ -13,7 +13,7 @@ This page is what exists now: the weather as a resource, its wind, the **ground*
 | Part | What it is |
 |---|---|
 | **Weathers** (left) | The list of the weathers of the project, with a filter box. **New** makes one (name it); right-click an entry for **Duplicate** (a quick way to make *Light rain* from *Rain*), **Delete** and **Copy Path**. The built-in **Clear** is always there and cannot be deleted |
-| **Settings** (middle) | A container for each group of the settings of the weather: **Details** (name, id and a note), **Look**, **Wind**, **Ground Wetness**, **Ground Cover**, **Sky and Light**, **Fog**, and **Exposed Effects** (a list). Changes are saved as you make them. A group can be folded. Settings that do not apply are hidden (no wet tint on a dry weather, no wind fields without a wind of its own) |
+| **Settings** (middle) | A container for each group of the settings of the weather: **Details** (name, id and a note), **Look**, **Wind**, **Ground Wetness**, **Ground Cover**, **Sky and Light**, **Fog**, **Screen**, **Sound**, and **Exposed Effects** (a list). Changes are saved as you make them. A group can be folded. Settings that do not apply are hidden (no wet tint on a dry weather, no wind fields without a wind of its own) |
 | **Preview** and **Warnings** (right) | See below |
 
 ### Preview
@@ -36,7 +36,8 @@ The **Warnings** container lists what is probably a mistake, as you edit:
 - the intensity is 0 (the weather does nothing);
 - a wet tint on a weather that leaves the ground dry; black ground cover or a black sky tint;
 - a wind of its own with no strength; fog added with a fog multiplier of 0;
-- an exposed effect with no effect chosen, or an effect that is not in the project.
+- an exposed effect with no effect chosen, or an effect that is not in the project; a **Held** effect that has a duration (it runs out by itself) or a **Refreshed** one that has none (it never runs out);
+- a music or ambient track that is not in the project.
 
 It says *No warnings.* when all is well.
 
@@ -48,9 +49,16 @@ The **Weather effect** of the **Look** container is a **drop-down of the Weather
 
 The **Exposed Effects** container is a **list**: each entry is an effect of the project, **how** the weather gives it (**Held**: given while the entity is in the weather and taken away when it is not; **Refreshed**: applied again every *interval* seconds, so its duration keeps renewing and it runs out by itself after the weather) and **who** gets it (the **party**, or **every entity**). **Add an exposed effect** adds an entry; each has **Move up**, **Move down** and **Remove**.
 
-::: warning Saved, not applied yet
-The list is saved with the weather, but the game does **not apply these effects yet**: that is one of the next steps of the weather work. The editor is ready so the lists you make now will work then.
-:::
+The game looks at who is out in the weather **twice a second**. An entity is **exposed** when it is alive and **not under a [shelter](/basic/world/shelter) that stops effects**. The weather must be on (an intensity above 0).
+
+| Mode | While exposed | When sheltered, or the weather ends or changes into one without the effect |
+|---|---|---|
+| **Held** | Given **once** and kept (a burn while the embers fall). It is never given twice, and one the entity already has from somewhere else is left alone | Taken away at once |
+| **Refreshed** | Given again every *interval* seconds: an effect the entity has **gets its duration renewed** (no second stack); one it does not have is given | Nothing renews it: it **runs out by itself** after its duration |
+
+Give a **Refreshed** effect a duration (a Wet debuff of a minute) and a **Held** effect none (a burn lasts as long as you stand in the embers): the warnings tell you when it is the other way. An effect that ended by itself while held is not given again until the entity has left the weather and come back. It works for the effects of the project like any other (stat changes, damage over time ...).
+
+The effects come from the environment, not from a character, so a kill by a burn has no killer. Each effect instance remembers the weather it came from.
 
 ## Making a weather
 
@@ -72,6 +80,32 @@ Open **World > Weather**, pick a weather in the list or press **New** (name it).
 
 The tint and the cover fields show only when the weather wets the ground or covers it.
 
+### The screen
+
+The **Screen** container gives the weather a **look for the camera**, laid over the picture like the screen look of a [zone](/basic/world/zones) or an event: a grey-blue wash and dark corners for a storm, blur for a blizzard. It is a layer of the [camera look](/basic/world/camera-effects) between a zone's (under) and an effect's or an event's (over), so a zone's mood and the weather add up and a poison effect still wins. It comes in over the **Fade seconds** of the weather, scaled by the **intensity**.
+
+| Field | What it does | Default |
+|---|---|---|
+| **Screen tint** | The colour laid over the picture; its alpha is how strong (0 = none) | none |
+| **Screen vignette**, **Screen vignette color** | How dark the corners are (0 to 1), and their colour | 0, black |
+| **Screen blur** | How blurred the whole picture is (0 to 1) | 0 |
+| **Screen desaturate** | How much colour goes (1 = black and white) | 0 |
+| **Screen aberration** | Colour fringes towards the edges (0 to 1) | 0 |
+| **Screen grain** | Film grain (0 to 1) | 0 |
+
+A [shelter](/basic/world/shelter) weakens the whole look for the camera by its amount: inside a full shelter the weather shows nothing on the screen. The preview of the tab shows the screen look too. The player's own screen effects setting (Reduced, Off) still applies to it.
+
+### Sound
+
+The **Sound** container is about what the weather *sounds* like. It has four settings:
+
+| Field | What it does | Default |
+|---|---|---|
+| **Kinds of sound** | The kinds of sound this weather makes, in order, separated by commas: `rain`; for sleet `rain, snow`. A [shelter](/basic/world/shelter#the-sound-for-each-kind-of-weather) has a track for a kind of weather (the rain on its roof) and plays the track of the **first** kind it has a line for | empty |
+| **Music**, **Music volume** | The music of the weather: audio files, separated by semicolons (the **+** button adds one, the **x** empties the list). Empty = the music of the zone and the world goes on | empty, 0 dB |
+| **Ambient sound**, **Ambient volume** | The ambient sound of the weather (the rain itself, the wind). It is **quieter in a light weather**: half the intensity is 6 dB quieter | empty, 0 dB |
+
+The tracks are the *weather layer* of the [sound layers](/basic/world/sound-layers): over the zone's sound, under a shelter's and an event's. They crossfade in over the fade seconds of the weather.
 ### The sky and the light
 
 A weather does not bring a sky of its own: it is **laid on top of the look that is shown** (the sky and environment of the world, the zone or an event), so a storm over the swamp is the swamp made darker, and when the party walks into a cave zone the cave look comes with the storm still on it. Every field starts at the value that changes nothing.
@@ -121,11 +155,12 @@ So **Light rain** is the Rain weather at 0.3, with no second weather to keep in 
 
 ## The weathers that come with the toolkit
 
-Five weathers are made for the five [weather effects](/basic/assets/vfx#the-weather-effects-that-come-with-the-toolkit): **Rain**, **Thunderstorm**, **Wind and leaves**, **Snow** and **Blizzard**. Each has its particles, wind, ground (wet, or covered with snow), a darker sky, a dimmer sun and thicker fog already set. Change them or make your own from one.
+Five weathers are made for the five [weather effects](/basic/assets/vfx#the-weather-effects-that-come-with-the-toolkit): **Rain**, **Thunderstorm**, **Wind and leaves**, **Snow** and **Blizzard**. Each has its particles, wind, ground (wet, or covered with snow), a darker sky, a dimmer sun, thicker fog, a look for the screen and its kinds of sound (`rain`, `rain, wind`, `wind`, `snow`, `snow, wind`) already set. They come with no tracks of their own: add your rain recording in the **Sound** container. Change them or make your own from one.
 
 ## Using a weather
 
 - **The weather of a world**: **Worlds > Weather**, the list *Default weather*. It starts when the party enters the world. **Clear** is no weather.
+- **A shelter keeps it off**: a [shelter volume](/basic/world/shelter) weakens it on the screen, plays the sound of the inside and stops its exposed effects.
 - **An event changes it**: the [Set Weather](/basic/events-and-quests/event-actions) action takes a weather and a transition time. The default weather of the world is not changed by it: the next visit starts with the default again.
 - **Old worlds**: a world that had a weather chosen in the old way (a weather effect picked by hand) gets a weather made from it the first time you open it in the Worlds editor. The numbers the old rules gave from the name (rain wets 0.85, a blizzard covers 1) become the values, and you can change them.
 

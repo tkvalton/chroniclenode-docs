@@ -16,6 +16,9 @@ Deals with weather application logic: which weather is wanted (an event's choice
 | `FoliageWindDriver` | [wind](#var-wind) | `null` |
 | `GroundMarkManager` | [marks](#var-marks) | `null` |
 | `float` | [intensity_scale](#var-intensity-scale) | `1.0` |
+| `float` | [shelter_amount](#var-shelter-amount) | `0.0` |
+| `ShelterVolume` | [current_shelter](#var-current-shelter) | `null` |
+| `WeatherExposure` | [exposure](#var-exposure) | `null` |
 | `GameHost.SystemHub` | [system_hub](#var-system-hub) |  |
 | `VFXManager:` | [vfx_manager](#var-vfx-manager) |  |
 
@@ -23,6 +26,9 @@ Deals with weather application logic: which weather is wanted (an event's choice
 
 | | |
 |---|---|
+| `void` | [tick](#method-tick)() |
+| `void` | [track_shelter](#method-track-shelter)() |
+| `void` | [set_shelter_amount](#method-set-shelter-amount)( `amount: float, seconds: float = 0.6` ) |
 | `Dictionary` | [get_wind_state](#method-get-wind-state)() |
 | `void` | [start_world_weather](#method-start-world-weather)( `camera_controller: CameraController, fade_seconds: float = 0.0` ) |
 | `float` | [get_intensity](#method-get-intensity)() |
@@ -40,9 +46,18 @@ Deals with weather application logic: which weather is wanted (an event's choice
 | `Dictionary` | [to_save_data](#method-to-save-data)() |
 | `void` | [from_save_data](#method-from-save-data)( `save_data: Dictionary` ) |
 
+## Signals
+
+### shelter_changed( volume: ShelterVolume ) {#signal-shelter-changed}
+
+The camera went into a shelter, or out of one (null = the open)
+
 ## Constants
 
 - `float` **DEFAULT_FADE_SECONDS** = `10.0` - How many seconds a look takes to change when a weather does not say
+- `String` **SCREEN_KEY** = `"weather"` - The key of the layer the weather has in the camera look
+- `float` **TICK_INTERVAL** = `0.25` - How often (seconds) the world is checked for the shelter of the camera
+- `float` **SHELTER_SOUND_SECONDS** = `1.5` - Seconds the sound takes to change when the camera goes into a shelter or comes out
 
 ## Variable descriptions
 
@@ -70,6 +85,18 @@ The marks on the ground of the world: footprints, tracks, scorches (decals that 
 
 A runtime multiplier on the intensity of the weather (0 to 1, 1 = as the weather says): an event or the game makes a storm lighter or heavier without bringing another weather. A new weather resets it
 
+### float shelter_amount = 0.0 {#var-shelter-amount}
+
+How much of the screen look of the weather a shelter keeps off (0 in the open, 1 inside a shelter that hides it all): set by the shelter tracker
+
+### ShelterVolume current_shelter = null {#var-current-shelter}
+
+The shelter the camera is in now (null in the open)
+
+### WeatherExposure exposure = null {#var-exposure}
+
+Gives the exposed effects of the weather to those who stand in it
+
 ### GameHost.SystemHub system_hub {#var-system-hub}
 
 The systems of the game (the VFX manager is made after this system, so it is asked for when needed)
@@ -79,6 +106,18 @@ The systems of the game (the VFX manager is made after this system, so it is ask
 The manager of visual effects (from the hub).
 
 ## Method descriptions
+
+### void tick() {#method-tick}
+
+One look at the world, every TICK_INTERVAL seconds: which shelter the camera is in, and who is exposed to the effects of the weather
+
+### void track_shelter() {#method-track-shelter}
+
+Finds the shelter the camera is in and lets the weather follow it: the screen look weakens by its amount
+
+### void set_shelter_amount( amount: float, seconds: float = 0.6 ) {#method-set-shelter-amount}
+
+A shelter keeps part of the weather off the screen (0 = none, 1 = all): the screen look moves to it
 
 ### Dictionary get_wind_state() {#method-get-wind-state}
 

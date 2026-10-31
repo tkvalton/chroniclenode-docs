@@ -27,6 +27,10 @@ Where a zone is, is not stored here: it is painted on the terrain (the zone laye
 | `Color` | [screen_vignette_color](#prop-screen-vignette-color) | `Color.BLACK` |
 | `float` | [screen_desaturate](#prop-screen-desaturate) | `0.0` |
 | `float` | [screen_grain](#prop-screen-grain) | `0.0` |
+| `Array[String]` | [music_tracks](#prop-music-tracks) | `[]` |
+| `float` | [music_volume_db](#prop-music-volume-db) | `0.0` |
+| `Array[String]` | [ambience_tracks](#prop-ambience-tracks) | `[]` |
+| `float` | [ambience_volume_db](#prop-ambience-volume-db) | `0.0` |
 | `bool` | [show_banner](#prop-show-banner) | `true` |
 | `String` | [banner_subtitle](#prop-banner-subtitle) | `"":` |
 
@@ -90,6 +94,22 @@ How grey the picture is in this zone (0 = the colours as they are, 1 = black and
 ### float screen_grain = 0.0 {#prop-screen-grain}
 
 How much film grain the picture has in this zone
+
+### Array[String] music_tracks = [] {#prop-music-tracks}
+
+The music this zone plays (audio files; one is picked, and another after it ends). Empty = the zone has none of its own: the music of the zone above it, then the music of the world. Weather, a shelter and events can play over it
+
+### float music_volume_db = 0.0 {#prop-music-volume-db}
+
+How loud the music of the zone is (dB)
+
+### Array[String] ambience_tracks = [] {#prop-ambience-tracks}
+
+The ambient sound this zone plays (wind in a pass, water in a cave, crickets in a swamp). Empty = none of its own: the zone above it, then the world
+
+### float ambience_volume_db = 0.0 {#prop-ambience-volume-db}
+
+How loud the ambient sound of the zone is (dB)
 
 ### bool show_banner = true {#prop-show-banner}
 

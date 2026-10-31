@@ -4,7 +4,7 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
-**Inherited by:** [WeatherEffectEntryForm](/advanced/editor/world/weather-effect-entry-form)
+**Inherited by:** [ShelterWeatherSoundForm](/advanced/editor/world/shelter-weather-sound-form), [WeatherEffectEntryForm](/advanced/editor/world/weather-effect-entry-form)
 
 A small form made of field components (ConfigField) for a resource that is part of another one: an item of a list (an exposed effect of a weather). The scene is built by hand with the fields in it, each with the property it shows. `load_config(resource)` opens the resource in all of them; every change is written to it and sent as `config_changed`, so the owner saves what it belongs to.
 

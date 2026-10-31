@@ -32,6 +32,7 @@ The **Zones** section of the Worlds editor: the named places of ONE world (Elder
 | `SpinBox` | [vignette_spin](#var-vignette-spin) |  |
 | `SpinBox` | [desaturate_spin](#var-desaturate-spin) |  |
 | `SpinBox` | [grain_spin](#var-grain-spin) |  |
+| `Array[ConfigField]` | [sound_fields](#var-sound-fields) | `[]` |
 | `VBoxContainer` | [fields_box](#var-fields-box) |  |
 | `Label` | [hint_label](#var-hint-label) |  |
 
@@ -142,6 +143,10 @@ Something of the world changed (the zone list, the default zone): the editor sav
 ### SpinBox grain_spin {#var-grain-spin}
 
 *No description yet.*
+
+### Array[ConfigField] sound_fields = [] {#var-sound-fields}
+
+The fields of the sound of the zone (field components, bound to the zone that is open)
 
 ### VBoxContainer fields_box {#var-fields-box}
 

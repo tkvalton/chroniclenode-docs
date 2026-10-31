@@ -264,6 +264,8 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [DetileSlider](/advanced/editor/world/detile-slider) | A slider with its number written next to it: the control of the detiling numbers (the Terrain Textures editor and the Detiling panel of the terrain tool). |
 | [EnvironmentConfigEditor](/advanced/editor/world/environment-config-editor) | The Environment tab (World &gt; Environment): the list of the environment configs on the left, the settings on the right in a container for each group (Tonemap, Fog, Sun Light, Camera, Colour Grade ...). |
 | [ResourceListEditor](/advanced/editor/world/resource-list-editor) | A list of resources edited in place: a container for each item (titled with a line that says what it is) with buttons to move and remove it and a form for its fields, and an Add button below. |
+| [ShelterEditor](/advanced/editor/world/shelter-editor) | The Shelters tab (World &gt; Shelters): the list of the shelter profiles on the left, the settings on the right in a container for each group (Shelter, Sound) and the warnings. |
+| [ShelterWeatherSoundForm](/advanced/editor/world/shelter-weather-sound-form) | The form of one weather sound of a shelter profile (a ShelterWeatherSound): the kind of weather, the track that plays inside and its volume. |
 | [SkyConfigEditor](/advanced/editor/world/sky-config-editor) | The Sky tab (World &gt; Sky): the list of the sky configs on the left, the settings on the right in a container for each group. |
 | [SpawnTablesEditor](/advanced/editor/world/spawn-tables-editor) | The Spawn Tables editor (the SpawnTableDefinition database, World &gt; Spawn Tables): a name, a description and the lines of the table. |
 | [SunConfigEditor](/advanced/editor/world/sun-config-editor) | The Sun tab (World &gt; Sun): the list of the sun configs on the left, the settings on the right in a container for each group (Day Night Cycle, Static Sun, Day Night Timing, Sun Direction). |
@@ -384,12 +386,15 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [DatabaseResourceButton](/advanced/editor/factory/database-resource-button) | Button that opens ListCatalog to select a database resource Shows resource name, has optional clear button |
 | [DynamicDictionaryEditor](/advanced/editor/factory/dynamic-dictionary-editor) | Reusable component for editing dictionaries with add/edit/remove functionality Supports items (id -&gt; quantity) and currency (id -&gt; amount) entries |
 | [ExperiencePerLevelEditor](/advanced/editor/factory/experience-per-level-editor) | Editor for experience_per_level Dictionary in GameplayConfig Displays a list of levels with their XP requirements and allows editing |
+| [FilePathField](/advanced/editor/factory/file-path-field) | The path of a file (a String property), typed or chosen with the browse button: an audio track, a texture. |
 | [IdMultiSelect](/advanced/editor/factory/id-multi-select) | A list of ids picked from a database type: the picked entries as small tags with an x, and an Add button that opens a searchable list of everything that exists. |
 | [NumberField](/advanced/editor/factory/number-field) | A number (a float or an int property) in a SpinBox. |
 | [OptionField](/advanced/editor/factory/option-field) | An enum (or int) property in a drop-down. |
+| [PathListField](/advanced/editor/factory/path-list-field) | A list of file paths (an Array[String] property): the tracks of a zone or a weather. |
 | [PropertyFactory](/advanced/editor/factory/property-factory) | Makes the rows of the inspector editors of the toolkit: a label with a check box, a text field, a number, a drop-down, a database drop-down, a slider or a color picker, each as an `EditorProperty` that calls a function when its value changes. |
 | [PropertyUIFactory](/advanced/editor/factory/property-ui-factory) | Factory for creating UI controls with consistent styling and behavior Uses class-based controls for complex components |
 | [ResourceField](/advanced/editor/factory/resource-field) | A property that holds a resource (a gradient, a curve, a texture, a sky driver) in a resource picker: pick one from the project, make a new one or clear it. |
+| [TextField](/advanced/editor/factory/text-field) | A text (a String property) in a line. |
 | [ToggleField](/advanced/editor/factory/toggle-field) | A bool property in a check box. |
 | [Vector2Control](/advanced/editor/factory/vector2-control) | Two spinboxes for Vector2 input with clipboard paste support |
 | [Vector3Control](/advanced/editor/factory/vector3-control) | Three spinboxes for Vector3 input with clipboard paste support |

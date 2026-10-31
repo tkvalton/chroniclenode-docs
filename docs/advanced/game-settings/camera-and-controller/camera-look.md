@@ -36,6 +36,7 @@ What the player's camera does besides following: the LOOK of the screen (tint, v
 - `Shader` **SHADER** = `preload("res://addons/chroniclenode/assets/shaders/screen_look.gdshader")`
 - `int` **SCREEN_LAYER** = `-1` - Under the interface (layer 0 and up), over the 3D picture
 - `int` **PRIORITY_ZONE** = `10` - Which look is laid over which (a higher priority is laid over a lower one)
+- `int` **PRIORITY_WEATHER** = `15` - The weather lies over a zone and under an effect
 - `int` **PRIORITY_EFFECT** = `20`
 - `int` **PRIORITY_EVENT** = `50`
 - `int` **PRIORITY_WATER** = `100`

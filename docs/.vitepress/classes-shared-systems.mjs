@@ -659,6 +659,12 @@ export const groups = [
         "file": "data_classes/conditions/general/random_chance_condition.gd"
       },
       {
+        "name": "ShelteredCondition",
+        "base": "Condition",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\general\\sheltered_condition.gd",
+        "file": "data_classes/conditions/general/sheltered_condition.gd"
+      },
+      {
         "name": "SwitchStateCondition",
         "base": "EntityCondition",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\general\\switch_state_condition.gd",

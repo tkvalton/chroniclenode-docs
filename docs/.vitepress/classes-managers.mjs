@@ -69,6 +69,12 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\system_managers\\faction_manager.gd",
         "file": "runtime_classes/system_managers/faction_manager.gd"
+      },
+      {
+        "name": "SoundLayers",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\system_managers\\sound_layers.gd",
+        "file": "runtime_classes/system_managers/sound_layers.gd"
       }
     ]
   },

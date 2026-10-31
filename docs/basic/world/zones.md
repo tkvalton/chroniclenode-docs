@@ -24,9 +24,14 @@ Zones belong to a **world**. Open the **Worlds** editor (Database > World > Worl
 | **Sky**, **Environment** | The [sky and environment](/basic/world/world-configs) the party sees in the zone. The first choice, **Same as the zone above, or the world**, gives it none of its own | the first choice |
 | **Look blends** | Seconds the look takes to come when the party walks in (and to go when it walks out into a place with no look of its own) | `3` |
 | **Screen tint**, **Dark corners**, **Grey**, **Film grain** | The screen of the zone: a tint over the picture (its alpha is how strong), dark corners, grey and grain, as a layer of the [camera look](/basic/world/camera-effects) that blends in and out with the look. A zone with none takes the screen of the zone above | none |
+| **Music**, **Music volume**, **Ambient sound**, **Ambient volume** | The music and the ambient sound of the zone: audio files, separated by semicolons (the **+** button adds one). Empty = the zone above, then the world. See [Music and ambient sound](#music-and-ambient-sound) | none, 0 dB |
 | **Replaces an event's look** | See [A look for each zone](#a-look-for-each-zone) | off |
 
 Above the list, **Default zone** is the zone of the whole map (see below). The name and the banner line are translated when you [localize](/basic/game-settings/localization) your game.
+
+## Music and ambient sound
+
+A zone can play **music** and an **ambient sound** of its own while the party is in it (wind in a pass, water in a cave, crickets in a swamp). It is the *zone layer* of the [sound layers](/basic/world/sound-layers): over the album of the world, under the weather, a shelter and events. A sub-zone with no sound takes the sound of the zone above it; each of the two is chosen on its own. The sound crossfades over the **Look blends** seconds of the zone.
 
 ## Where a zone is
 

@@ -14,6 +14,8 @@ What is known about the zones from the database alone: who is whose parent, the 
 | `Array[int]` | [get_chain](#method-get-chain)( `zone_id: int` ) *static* |
 | `ZoneDefinition` | [get_look_owner](#method-get-look-owner)( `zone_id: int, kind: String` ) *static* |
 | `ZoneDefinition` | [get_screen_owner](#method-get-screen-owner)( `zone_id: int` ) *static* |
+| `ZoneDefinition` | [get_music_owner](#method-get-music-owner)( `zone_id: int` ) *static* |
+| `ZoneDefinition` | [get_ambience_owner](#method-get-ambience-owner)( `zone_id: int` ) *static* |
 | `int` | [get_look_id](#method-get-look-id)( `zone_id: int, kind: String` ) *static* |
 | `bool` | [is_inside](#method-is-inside)( `zone_id: int, ancestor_id: int` ) *static* |
 | `int` | [get_top](#method-get-top)( `zone_id: int` ) *static* |
@@ -44,6 +46,14 @@ The zone that gives the look of a place: the zone itself if it has a config of t
 ### ZoneDefinition get_screen_owner( zone_id: int ) {#method-get-screen-owner}
 
 The zone that gives the screen of a place: the zone itself if it changes the screen, else its parent, up to the top. Null when none does.
+
+### ZoneDefinition get_music_owner( zone_id: int ) {#method-get-music-owner}
+
+The zone that gives the music of a place: the zone itself if it has music tracks, else its parent, up to the top. Null when none has (the music of the world plays)
+
+### ZoneDefinition get_ambience_owner( zone_id: int ) {#method-get-ambience-owner}
+
+The zone that gives the ambient sound of a place (the same way)
 
 ### int get_look_id( zone_id: int, kind: String ) {#method-get-look-id}
 

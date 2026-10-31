@@ -5,6 +5,18 @@ export const groups = [
     "slug": "world-data",
     "classes": [
       {
+        "name": "ShelterProfile",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\shelter_profile.gd",
+        "file": "data_classes/world/shelter_profile.gd"
+      },
+      {
+        "name": "ShelterWeatherSound",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\shelter_weather_sound.gd",
+        "file": "data_classes/world/shelter_weather_sound.gd"
+      },
+      {
         "name": "TriggerAreaData",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\trigger_area_data.gd",
@@ -287,6 +299,18 @@ export const groups = [
         "file": "runtime_classes/world/object_registery.gd"
       },
       {
+        "name": "Shelter",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\shelter.gd",
+        "file": "runtime_classes/world/shelter.gd"
+      },
+      {
+        "name": "ShelterVolume",
+        "base": "SpaceVolume",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\shelter_volume.gd",
+        "file": "runtime_classes/world/shelter_volume.gd"
+      },
+      {
         "name": "SpaceVolume",
         "base": "Area3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\space_volume.gd",
@@ -333,6 +357,18 @@ export const groups = [
         "base": "TerrainProvider",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\terrain_provider\\voxel_tools_provider.gd",
         "file": "runtime_classes/world/terrain_provider/voxel_tools_provider.gd"
+      },
+      {
+        "name": "WeatherExposure",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\weather_exposure.gd",
+        "file": "runtime_classes/world/weather_exposure.gd"
+      },
+      {
+        "name": "WeatherScreen",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\weather_screen.gd",
+        "file": "runtime_classes/world/weather_screen.gd"
       },
       {
         "name": "WeatherSystem",

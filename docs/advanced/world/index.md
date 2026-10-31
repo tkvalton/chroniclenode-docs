@@ -75,6 +75,8 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 <!-- classes:world/world-data -->
 | Class | What it is |
 |---|---|
+| [ShelterProfile](/advanced/world/world-data/shelter-profile) | What a kind of shelter does (a wooden cabin, a cave, a tent, a stone hall): how much of the weather it keeps off, what it does to the sound and which sound plays inside for each kind of weather. |
+| [ShelterWeatherSound](/advanced/world/world-data/shelter-weather-sound) | One line of the weather sounds of a shelter: for a kind of weather (rain, snow, wind ...) the track that plays while the camera is inside and that weather is on. |
 | [TriggerAreaData](/advanced/world/world-data/trigger-area-data) | Map this trigger area belongs to |
 | [UniqueEncounterData](/advanced/world/world-data/unique-encounter-data) | UniqueEncounterData defines both the behavior AND unique instance data for an encounter. |
 | [UniqueEntityData](/advanced/world/world-data/unique-entity-data) | A placed NPC: what the world keeps about one NPC in one world. |
@@ -133,6 +135,8 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [MovementVolume](/advanced/world/runtime/movement-volume) | A space that changes how whoever is in it moves: water to swim in, a room with no gravity, a cloud to fly through, a pool of lava that hurts. |
 | [MovementVolumeCamera](/advanced/world/runtime/movement-volume-camera) | The look the screen gets while the camera is inside a movement volume (underwater: a tint over the screen and fog; the sound is the business of AudioProfileStack). |
 | [ObjectRegistry](/advanced/world/runtime/object-registry) | ObjectRegistry - manages all NPCs, Interactables, Trigger areas, and special Encounters with advanced LOD system Integrated with CombatSystem's encounter management for coordinated combat behavior Features configurable LOD system via GameplayConfig, behavior optimization, and comprehensive performance management Handles registration, spawning, interaction tracking, and state management Provides centralized access for quest systems, events, and ability effects |
+| [Shelter](/advanced/world/runtime/shelter) | Questions about the shelter volumes of the world: how sheltered is a point, by which volume. |
+| [ShelterVolume](/advanced/world/runtime/shelter-volume) | A place that keeps the weather off: a cabin, a cave, a tent, a porch. |
 | [SpaceVolume](/advanced/world/runtime/space-volume) | A space in a world, given by the shape of its CollisionShape3D child (a box, sphere, cylinder or capsule). |
 | [Spawner](/advanced/world/runtime/spawner) | A **spawner**: a place in a world that makes things appear and keeps the place alive. |
 | [TerraBrushProvider](/advanced/world/runtime/terra-brush-provider) | Tells which surface type the ground is at a position on a TerraBrush terrain: the texture under the position is looked up in `texture_surface_map`, and `default_surface` is used when it has no entry. |
@@ -141,6 +145,8 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [TriggerArea](/advanced/world/runtime/trigger-area) | Trigger area node that creates and manages its own TriggerAreaData in the database. |
 | [VolumeLook](/advanced/world/runtime/volume-look) | The look of a movement volume: a mesh made from its box shape (the top, the bottom or all six faces), with the material you give it (a shader, or a texture). |
 | [VoxelTerrainProvider](/advanced/world/runtime/voxel-terrain-provider) | Tells which surface type the ground is at a position on a voxel terrain (Voxel Tools): the voxel type under the position is looked up in `voxel_type_map`, and `default_surface` is used when it has no entry. |
+| [WeatherExposure](/advanced/world/runtime/weather-exposure) | Gives the exposed effects of the weather (WeatherConfig.exposed_effects) to those who stand in it, and takes them away again. |
+| [WeatherScreen](/advanced/world/runtime/weather-screen) | The screen look of a weather while it changes: a blend of two ScreenLooks (the weather coming in, going out, a shelter weakening it). |
 | [WeatherSystem](/advanced/world/runtime/weather-system) | Deals with weather application logic: which weather is wanted (an event's choice, else the world's), the particles that fall, the wind, the ground (TerrainWeatherDriver) and the sky, fog and light the weather is laid on (WorldSkyEnvironment.set_weather_look, see WeatherLook) |
 | [WorldContainer](/advanced/world/runtime/world-container) | Lightweight coordinator for world management Handles world transitions and delegates object queries to the current WorldScene |
 | [WorldScene](/advanced/world/runtime/world-scene) | WorldScene manages all objects within a specific map/scene Handles object discovery, tracking, and provides query methods |

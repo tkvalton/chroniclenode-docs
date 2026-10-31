@@ -19,6 +19,8 @@ Everything the party meets in a world is placed in the scene and stored as a **u
 | [Spawn tables](/basic/world/spawn-tables) | What can appear and how likely each thing is (NPCs in groups, interactables, dropped items and money, nothing): the lists the [spawners](/basic/world/spawners) roll |
 | [Spawners](/basic/world/spawners) | Nodes that make NPCs, objects and items appear from a spawn table and keep the place alive (Point spawner built; Volume and Painted planned) |
 | [Zones](/basic/world/zones) | Named places of the map with sub-zones: a banner when the party enters, events, quest objectives and [text tokens](/basic/shared-systems/text-tokens); painted on the terrain, or placed as volumes |
+| [Shelters](/basic/world/shelter) | A cabin, a cave or a tent keeps the weather off the screen and its effects off the party, and sounds like a roof in the rain |
+| [Sound layers](/basic/world/sound-layers) | The zone, the weather, a shelter and an event each play music and ambient sound over the album of the world |
 | [Ground weather](/basic/world/ground-weather) | The ground gets wet and snowy with the weather, takes time to dry, can be sheltered by a zone, and can be tinted as a season |
 | [Terrain streaming](/basic/world/terrain-streaming) | A world of many kilometres: only the tiles round the party are in memory |
 | [Other terrain plugins](/basic/world/terrain-plugins) | Terrain3D, HTerrain, TerraBrush or a voxel terrain: what the toolkit reads from each, and what needs the terrain of the toolkit |

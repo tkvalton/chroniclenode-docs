@@ -8,7 +8,7 @@ An effect a weather gives to those who stand in it (a burn in a rain of embers, 
 
 ## Description
 
-The entries are saved with the weather and edited in the Weather tab. The weather system does not apply them yet: that is the exposed effects step of the weather work (see docs/systems/weather-plan.md, W8).
+The entries are saved with the weather and edited in the Weather tab. The weather system (WeatherExposure) gives them every half second to whoever is out in the weather: not under a shelter that stops effects, not dead.
 
 ## Properties
 

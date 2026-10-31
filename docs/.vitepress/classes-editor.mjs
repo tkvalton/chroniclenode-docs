@@ -965,6 +965,18 @@ export const groups = [
         "file": "editor_components/editors/world/config_editors/resource_list_editor.gd"
       },
       {
+        "name": "ShelterEditor",
+        "base": "ConfigEditorBase",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\shelter_editor.gd",
+        "file": "editor_components/editors/world/shelter_editor.gd"
+      },
+      {
+        "name": "ShelterWeatherSoundForm",
+        "base": "ConfigForm",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\shelter_weather_sound_form.gd",
+        "file": "editor_components/editors/world/shelter_weather_sound_form.gd"
+      },
+      {
         "name": "SkyConfigEditor",
         "base": "ConfigEditorBase",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\sky_config_editor.gd",
@@ -1541,6 +1553,12 @@ export const groups = [
         "file": "editor_components/factory/experiance_per_level_editor.gd"
       },
       {
+        "name": "FilePathField",
+        "base": "ConfigField",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\file_path_field.gd",
+        "file": "editor_components/controls/config_fields/file_path_field.gd"
+      },
+      {
         "name": "IdMultiSelect",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\id_multi_select.gd",
@@ -1559,6 +1577,12 @@ export const groups = [
         "file": "editor_components/controls/config_fields/option_field.gd"
       },
       {
+        "name": "PathListField",
+        "base": "ConfigField",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\path_list_field.gd",
+        "file": "editor_components/controls/config_fields/path_list_field.gd"
+      },
+      {
         "name": "PropertyFactory",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\factory\\property_factory.gd",
@@ -1575,6 +1599,12 @@ export const groups = [
         "base": "ConfigField",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\resource_field.gd",
         "file": "editor_components/controls/config_fields/resource_field.gd"
+      },
+      {
+        "name": "TextField",
+        "base": "ConfigField",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\text_field.gd",
+        "file": "editor_components/controls/config_fields/text_field.gd"
       },
       {
         "name": "ToggleField",

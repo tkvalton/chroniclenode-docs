@@ -93,6 +93,7 @@ const basicSystems = [
     ['Sky', 'sky-config', 'sky_config'],
     ['Environment', 'environment-config', 'environment_config'],
     ['Weather', 'weather', 'weather'],
+    ['Shelters', 'shelter', 'shelter'],
     ['Uniques', 'uniques', 'uniques'],
   ], {
     after: [
@@ -121,6 +122,7 @@ const basicSystems = [
           page('Your own sky', '/basic/world/your-own-sky'),
           page('Shader globals', '/basic/world/shader-globals'),
           page('Audio zones', '/basic/world/audio-zones'),
+          page('Sound layers', '/basic/world/sound-layers'),
           page('Encounters', '/basic/world/encounters'),
         ],
       },
@@ -134,6 +136,7 @@ const basicSystems = [
           page('3. A scary dungeon', '/basic/world/tutorials/a-scary-dungeon'),
           page('4. Can everyone see your world?', '/basic/world/tutorials/can-everyone-see-your-world'),
           page('5. A mood for each zone', '/basic/world/tutorials/a-mood-for-each-zone'),
+          page('6. A storm rolls in', '/basic/world/tutorials/a-storm-rolls-in'),
         ],
       },
     ],
@@ -376,6 +379,7 @@ const worldAdvanced = {
     page('Encounters', '/advanced/world/encounters', { title: 'Encounters: how they are built' }),
     page('Terrain', '/advanced/world/terrain', { title: 'Terrain: how it is built' }),
     page('Ground weather', '/advanced/world/ground-weather', { title: 'Ground weather: how it is built' }),
+    page('Weather, shelters and sound', '/advanced/world/weather-shelter-sound', { title: 'Weather, shelters and sound: how they are built' }),
     page('Terrain streaming', '/advanced/world/terrain-streaming', { title: 'Terrain streaming: how it is built' }),
     page('Terrain providers', '/advanced/world/terrain-providers', { title: 'Terrain providers: how they are built' }),
   ],

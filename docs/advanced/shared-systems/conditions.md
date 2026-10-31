@@ -193,6 +193,7 @@ func get_entity_description() -> String:
 | [QuestActiveEntityCondition](/advanced/shared-systems/general-conditions/quest-active-entity-condition) | Checks if a specific quest is currently active |
 | [QuestCompletedEntityCondition](/advanced/shared-systems/general-conditions/quest-completed-entity-condition) | Checks if a specific quest has been completed |
 | [RandomChanceCondition](/advanced/shared-systems/general-conditions/random-chance-condition) | Checks if a random roll succeeds based on percentage chance. |
+| [ShelteredCondition](/advanced/shared-systems/general-conditions/sheltered-condition) | Checks whether the party's view is inside a shelter (a ShelterVolume): "the party is under a roof" lets a camp be made, "the party is in the open" starts a storm quest. |
 | [SwitchStateCondition](/advanced/shared-systems/general-conditions/switch-state-condition) | Check if a switch is in the desired state Evaluates switch-specific conditions like ON/OFF state |
 | [TriggerAreaPresenceCondition](/advanced/shared-systems/general-conditions/trigger-area-presence-condition) | Checks if entities are present in a specific trigger area |
 <!-- /classes -->

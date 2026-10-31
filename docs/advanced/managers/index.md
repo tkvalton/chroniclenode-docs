@@ -50,6 +50,7 @@ Not managers, but used the same way from anywhere: the [`Database`](/advanced/da
 | [ChatManager](/advanced/managers/managers/chat-manager) | The **message manager**: everything the game wants to tell the player goes through here. |
 | [ChronoManager](/advanced/managers/managers/chrono-manager) | Centralized timer pool and game time management system. |
 | [FactionManager](/advanced/managers/managers/faction-manager) | FactionManager - Global singleton that orchestrates faction relationships Delegates logic to FactionDefinition instances and handles synchronization between factions Each faction manages its own runtime reputation; manager ensures both sides stay in sync |
+| [SoundLayers](/advanced/managers/managers/sound-layers) | Who decides what music and ambience play: the album of the world is the base, and four layers lie over it. |
 <!-- /classes -->
 
 ### Save and load

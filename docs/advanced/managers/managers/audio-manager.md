@@ -56,6 +56,7 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_
 | `Tween` | [ambiance_crossfade_tween](#var-ambiance-crossfade-tween) |  |
 | `UIAlbum                            # Currently loaded UI album` | [current_ui_album](#var-current-ui-album) |  |
 | `AudioAlbum` | [current_world_album](#var-current-world-album) |  |
+| `SoundLayers` | [sound_layers](#var-sound-layers) | `SoundLayers.new()` |
 | `Array[AudioStream]` | [loaded_ui_music_tracks](#var-loaded-ui-music-tracks) | `[]` |
 | `Array[AudioStream]` | [loaded_ui_ambient_tracks](#var-loaded-ui-ambient-tracks) | `[]` |
 | `Array[AudioStream]` | [loaded_ui_transition_tracks](#var-loaded-ui-transition-tracks) | `[]` |
@@ -96,6 +97,12 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_
 | `void` | [fade_stop_ambiance](#method-fade-stop-ambiance)( `fade_duration: float = FADE_DURATION` ) |
 | `void` | [stop_music](#method-stop-music)() |
 | `void` | [stop_ambiance](#method-stop-ambiance)() |
+| `void` | [set_sound_layer](#method-set-sound-layer)( `layer: SoundLayers.Layer, music_tracks: PackedStringArray, ambience_tracks: PackedStringArray, music_db: float = 0.0, ambience_db: float = 0.0, fade_duration: float = FADE_DURATION, loop: bool = true` ) |
+| `void` | [clear_sound_layers](#method-clear-sound-layers)() |
+| `void` | [set_sound_channel](#method-set-sound-channel)( `layer: SoundLayers.Layer, channel: StringName, tracks: PackedStringArray, volume_db: float = 0.0, fade_duration: float = FADE_DURATION, loop: bool = true` ) |
+| `void` | [clear_sound_channel](#method-clear-sound-channel)( `layer: SoundLayers.Layer, channel: StringName, fade_duration: float = FADE_DURATION` ) |
+| `void` | [clear_sound_layer](#method-clear-sound-layer)( `layer: SoundLayers.Layer, fade_duration: float = FADE_DURATION` ) |
+| `void` | [drop_event_track](#method-drop-event-track)( `channel: StringName` ) |
 | `void` | [combat_music_start](#method-combat-music-start)() |
 | `void` | [combat_music_end](#method-combat-music-end)() |
 | `void` | [setup_audio_for_state](#method-setup-audio-for-state)( `game_state: String, world_id: String = ""` ) |
@@ -223,6 +230,10 @@ The tween of the ambiance crossfade.
 ### AudioAlbum current_world_album {#var-current-world-album}
 
 Currently loaded world album
+
+### SoundLayers sound_layers = SoundLayers.new() {#var-sound-layers}
+
+The layers over the album: the zone, the weather, a shelter and an event can each play music and ambience of their own (see SoundLayers)
 
 ### Array[AudioStream] loaded_ui_music_tracks = [] {#var-loaded-ui-music-tracks}
 
@@ -365,6 +376,30 @@ Stop current music track immediately
 ### void stop_ambiance() {#method-stop-ambiance}
 
 Stop ambient sound track immediately
+
+### void set_sound_layer( layer: SoundLayers.Layer, music_tracks: PackedStringArray, ambience_tracks: PackedStringArray, music_db: float = 0.0, ambience_db: float = 0.0, fade_duration: float = FADE_DURATION, loop: bool = true ) {#method-set-sound-layer}
+
+Sets a layer: the music and ambience tracks it plays (file paths; an empty list leaves that channel to the layers below), how loud, and the seconds the sound takes to change. `loop` false: the track plays once
+
+### void clear_sound_layers() {#method-clear-sound-layers}
+
+Takes every layer off without changing what plays (the world is left: its zone, weather, shelter and event tracks go with it; the next world sets its own)
+
+### void set_sound_channel( layer: SoundLayers.Layer, channel: StringName, tracks: PackedStringArray, volume_db: float = 0.0, fade_duration: float = FADE_DURATION, loop: bool = true ) {#method-set-sound-channel}
+
+Sets one channel of a layer (an event plays a music track and an ambience track on their own): the tracks, how loud, whether they loop, and the seconds the sound takes to change
+
+### void clear_sound_channel( layer: SoundLayers.Layer, channel: StringName, fade_duration: float = FADE_DURATION ) {#method-clear-sound-channel}
+
+Takes one channel of a layer off: what is under it comes back over the seconds
+
+### void clear_sound_layer( layer: SoundLayers.Layer, fade_duration: float = FADE_DURATION ) {#method-clear-sound-layer}
+
+Takes a layer off: what is under it (another layer, or the album) comes back over the seconds
+
+### void drop_event_track( channel: StringName ) {#method-drop-event-track}
+
+An event stopped the music or the ambience: its track is dropped without bringing anything else back (what is under it plays again only when a layer next changes)
 
 ### void combat_music_start() {#method-combat-music-start}
 

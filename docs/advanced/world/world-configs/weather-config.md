@@ -37,12 +37,28 @@ A world has a default weather (World editor &gt; Weather) and an event changes i
 | `float` | [fog_added](#prop-fog-added) | `0.0` |
 | `float` | [fog_color_amount](#prop-fog-color-amount) | `0.0` |
 | `Color` | [fog_color](#prop-fog-color) | `Color(0.6, 0.62, 0.66)` |
+| `Color` | [screen_tint](#prop-screen-tint) | `Color(0.55, 0.6, 0.7, 0.0)` |
+| `float` | [screen_vignette](#prop-screen-vignette) | `0.0` |
+| `Color` | [screen_vignette_color](#prop-screen-vignette-color) | `Color(0.0, 0.0, 0.0, 1.0)` |
+| `float` | [screen_blur](#prop-screen-blur) | `0.0` |
+| `float` | [screen_desaturate](#prop-screen-desaturate) | `0.0` |
+| `float` | [screen_aberration](#prop-screen-aberration) | `0.0` |
+| `float` | [screen_grain](#prop-screen-grain) | `0.0` |
+| `String` | [sound_kinds](#prop-sound-kinds) | `""` |
+| `Array[String]` | [music_tracks](#prop-music-tracks) | `[]` |
+| `float` | [music_volume_db](#prop-music-volume-db) | `0.0` |
+| `Array[String]` | [ambience_tracks](#prop-ambience-tracks) | `[]` |
+| `float` | [ambience_volume_db](#prop-ambience-volume-db) | `0.0` |
 | `Array[WeatherEffectEntry]` | [exposed_effects](#prop-exposed-effects) | `[]` |
 
 ## Methods
 
 | | |
 |---|---|
+| `PackedStringArray` | [get_sound_kinds](#method-get-sound-kinds)() |
+| `bool` | [has_sound_layer](#method-has-sound-layer)() |
+| `bool` | [has_screen_look](#method-has-screen-look)() |
+| `ScreenLook` | [make_screen_look](#method-make-screen-look)( `intensity: float = 1.0, shelter: float = 0.0` ) |
 | `float` | [get_cover_stick](#method-get-cover-stick)() |
 | `VFXSelectionWeather` | [to_selection](#method-to-selection)() |
 | `PackedStringArray` | [validate](#method-validate)() |
@@ -164,13 +180,81 @@ How much of the colour of the fog is replaced by the colour below
 
 The colour the fog moves towards (when the amount above is more than 0)
 
+*Screen*
+
+### Color screen_tint = Color(0.55, 0.6, 0.7, 0.0) {#prop-screen-tint}
+
+The colour laid over the picture; its alpha is how strong (0 = no tint): a grey-blue for a storm, a yellow for a sandstorm
+
+### float screen_vignette = 0.0 {#prop-screen-vignette}
+
+How dark the corners of the screen are (0 to 1)
+
+### Color screen_vignette_color = Color(0.0, 0.0, 0.0, 1.0) {#prop-screen-vignette-color}
+
+The colour of the dark corners
+
+### float screen_blur = 0.0 {#prop-screen-blur}
+
+How blurred the whole picture is (0 to 1): a blizzard, a thick fog
+
+### float screen_desaturate = 0.0 {#prop-screen-desaturate}
+
+How much of the colour goes (0 = as it is, 1 = black and white): a grey day
+
+### float screen_aberration = 0.0 {#prop-screen-aberration}
+
+Colour fringes towards the edges (0 to 1): a magical storm
+
+### float screen_grain = 0.0 {#prop-screen-grain}
+
+Film grain (0 to 1)
+
+*Sound*
+
+### String sound_kinds = "" {#prop-sound-kinds}
+
+The kinds of sound this weather makes, in order, separated by commas (rain; or sleet: rain, snow; or wind, sand). A shelter has a track for a kind of weather (the rain on its roof): it plays the track of the first kind it has one for. A kind the shelter has no track for does nothing
+
+### Array[String] music_tracks = [] {#prop-music-tracks}
+
+The music this weather plays while it is on (audio files; one is picked, and another after it ends). Empty = it leaves the music to the zone and the world. A shelter and events can play over it
+
+### float music_volume_db = 0.0 {#prop-music-volume-db}
+
+How loud the music of the weather is (dB)
+
+### Array[String] ambience_tracks = [] {#prop-ambience-tracks}
+
+The ambient sound of this weather (rain, wind): audio files, one is picked. Empty = it leaves the ambient sound to the zone and the world. It is quieter in a light weather (the volume follows the intensity)
+
+### float ambience_volume_db = 0.0 {#prop-ambience-volume-db}
+
+How loud the ambient sound of the weather is at full intensity (dB)
+
 *Exposed Effects*
 
 ### Array[WeatherEffectEntry] exposed_effects = [] {#prop-exposed-effects}
 
-The effects the weather gives to those who stand in it (a burn in a rain of embers, a Wet debuff in the rain). Edited as a list in the Weather tab. They are saved with the weather; the weather system does not apply them yet (the exposed effects step of the weather work)
+The effects the weather gives to those who stand in it (a burn in a rain of embers, a Wet debuff in the rain). Edited as a list in the Weather tab. The weather system gives them every half second to whoever is out in the weather (see WeatherExposure)
 
 ## Method descriptions
+
+### PackedStringArray get_sound_kinds() {#method-get-sound-kinds}
+
+The kinds of sound of this weather, in order (empty names left out)
+
+### bool has_sound_layer() {#method-has-sound-layer}
+
+Does this weather play music or an ambient sound of its own?
+
+### bool has_screen_look() {#method-has-screen-look}
+
+Does this weather change the look of the screen?
+
+### ScreenLook make_screen_look( intensity: float = 1.0, shelter: float = 0.0 ) {#method-make-screen-look}
+
+The look of the screen of this weather as the camera look takes it. `intensity` (0 to 1) takes every number that far from nothing; `shelter` (0 to 1) is how much a shelter keeps the weather off the screen (0 = in the open, 1 = nothing of it shows)
 
 ### float get_cover_stick() {#method-get-cover-stick}
 
