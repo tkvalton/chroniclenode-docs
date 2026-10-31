@@ -8,7 +8,7 @@ A **world config** sets how a world *looks* and how its *clock* runs. There are 
 | **Sun** | The **path** of the sun: where it stands and when it rises and sets, one per world |
 | **Sky** | The sky shader: colours of day, dusk and night, clouds, stars, the sun and moon discs |
 | **Environment** | The **mood** of a place: how bright and what colour the sun is, tonemap, fog, ambient light, wind, glow, the camera and the colour grade |
-| **Weather** | What falls, the wind of the weather and what it does to the ground (wet, tinted, covered with snow, sand or ash): see [Weather](/basic/world/weather) |
+| **Weather** | What falls, the wind of the weather, what it does to the ground (wet, tinted, covered with snow, sand or ash) and how it darkens the sky, thickens the fog and dims the sun: see [Weather](/basic/world/weather) |
 
 **World > World Configs** shows the five side by side. Each has a **Config** drop-down (pick which one to edit), **Create New** (name it, and a new one starts with the default values), and the fields of the selected config. Changes are saved as you make them.
 

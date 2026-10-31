@@ -4,7 +4,7 @@
 
 **Inherits:** [Node](https://docs.godotengine.org/en/stable/classes/class_node.html)
 
-Deals with weather application logic
+Deals with weather application logic: which weather is wanted (an event's choice, else the world's), the particles that fall, the wind, the ground (TerrainWeatherDriver) and the sky, fog and light the weather is laid on (WorldSkyEnvironment.set_weather_look, see WeatherLook)
 
 ## Variables
 
@@ -22,6 +22,7 @@ Deals with weather application logic
 
 | | |
 |---|---|
+| `Dictionary` | [get_wind_state](#method-get-wind-state)() |
 | `void` | [start_world_weather](#method-start-world-weather)( `camera_controller: CameraController` ) |
 | `WeatherConfig` | [get_current_config](#method-get-current-config)() |
 | `VFXSelectionWeather` | [get_current_selection](#method-get-current-selection)() |
@@ -35,6 +36,10 @@ Deals with weather application logic
 | `void` | [restore_weather_data](#method-restore-weather-data)( `data: Dictionary, camera_controller: CameraController` ) |
 | `Dictionary` | [to_save_data](#method-to-save-data)() |
 | `void` | [from_save_data](#method-from-save-data)( `save_data: Dictionary` ) |
+
+## Constants
+
+- `float` **DEFAULT_FADE_SECONDS** = `10.0` - How many seconds a look takes to change when a weather does not say
 
 ## Variable descriptions
 
@@ -67,6 +72,10 @@ The systems of the game (the VFX manager is made after this system, so it is ask
 The manager of visual effects (from the hub).
 
 ## Method descriptions
+
+### Dictionary get_wind_state() {#method-get-wind-state}
+
+The wind that blows from the weather now: direction, strength (0 to 1) and how far it has taken over from the wind of the world (0 to 1)
 
 ### void start_world_weather( camera_controller: CameraController ) {#method-start-world-weather}
 

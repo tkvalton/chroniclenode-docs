@@ -27,3 +27,19 @@ The state is not saved: weather resets on entry, so the ground does too.
 ## Tests
 
 `tests/weather_config_check.gd` (the config, the Database type, the world, the weather system, the cover look and wet tint reaching `TerrainWeather`, the shader reading the globals) and `tests/world_audit.gd` `t_ground_weather`: names to levels, the rates, the dry slower than the wet, snow, the zone scales, hold and release by the action, the fade, the tint of the world and of an action, and the condition.
+
+## The weather on the sky, the fog, the sun and the wind
+
+The same `WeatherConfig` also carries modifiers for the look that is shown. They are a layer **on top of** `LookLayers` (world, zone, event), never part of it:
+
+| Class | What it does |
+|---|---|
+| `WeatherLook` | One set of modifiers (`of(config)`, `blend(a, b, t)`, `is_neutral()`) and the static functions that lay them on: `apply_environment(env, config, hour, look)` (fog density times `fog_thicker` plus `fog_added`, fog colour, ambient light), `apply_sky_params(params, look)` (darken, tint, more clouds, stars hidden; only the parameters of the stylized sky: a driver that names others is left alone) and `apply_cloud_cover(cover, look)` (the global `world_cloud_cover`). All of them work from the config again, so laying them on twice does not pile up |
+| `WorldSkyEnvironment` | Keeps the shown `weather_look`. `set_weather_look(config, seconds)` blends it (eased, from what is shown) and calls `_show_weather()` each step; it is laid on again after every `_show_environment` (a look blend step), every game minute (`apply_hour`) and every sky update. Emits `sun_dimmed(brightness)` |
+| `WorldSun` | `set_weather_dim(brightness)` multiplies the light energy the clock and the environment give; `GameHost` connects `sun_dimmed` to it |
+| `WeatherSystem` | `_apply_weather(config, seconds)` sends the look to `WorldSkyEnvironment` and the wind to its own blend; called when `world_data` is set (0 s: a world starts with its weather), from `set_weather` (the weather's `fade_seconds`) and from `transition_to_weather` (its seconds, at the start of the transition) |
+| `FoliageWind` | `set_weather_wind(direction, intensity, amount = 1)`: `amount` is how far the weather's wind has taken over from the wind of the world while it fades (direction turns the short way round) |
+
+The wind used to be set by `VFXWeather` while its particles lived; `WeatherSystem` owns it now (`get_wind_state()`), so a weather with `uses_own_wind` blows with or without particles, and a weather without it leaves the wind of the world alone. `VFXWeather` keeps its wind numbers for the particles.
+
+Tests: `tests/weather_look_check.gd` (48 checks: the modifiers, the blend, the fog and ambient light with and without an hourly curve, the sky parameters, a fade in the middle of another, the sun, the wind blend and the weather system).

@@ -140,7 +140,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [TriggerArea](/advanced/world/runtime/trigger-area) | Trigger area node that creates and manages its own TriggerAreaData in the database. |
 | [VolumeLook](/advanced/world/runtime/volume-look) | The look of a movement volume: a mesh made from its box shape (the top, the bottom or all six faces), with the material you give it (a shader, or a texture). |
 | [VoxelTerrainProvider](/advanced/world/runtime/voxel-terrain-provider) | Tells which surface type the ground is at a position on a voxel terrain (Voxel Tools): the voxel type under the position is looked up in `voxel_type_map`, and `default_surface` is used when it has no entry. |
-| [WeatherSystem](/advanced/world/runtime/weather-system) | Deals with weather application logic |
+| [WeatherSystem](/advanced/world/runtime/weather-system) | Deals with weather application logic: which weather is wanted (an event's choice, else the world's), the particles that fall, the wind, the ground (TerrainWeatherDriver) and the sky, fog and light the weather is laid on (WorldSkyEnvironment.set_weather_look, see WeatherLook) |
 | [WorldContainer](/advanced/world/runtime/world-container) | Lightweight coordinator for world management Handles world transitions and delegates object queries to the current WorldScene |
 | [WorldScene](/advanced/world/runtime/world-scene) | WorldScene manages all objects within a specific map/scene Handles object discovery, tracking, and provides query methods |
 | [WorldSkyEnvironment](/advanced/world/runtime/world-sky-environment) | Preloaded stylized sky shader |

@@ -15,6 +15,8 @@ A world has a default weather (World editor &gt; Weather) and an event changes i
 | | | |
 |---|---|---|
 | `String` | [weather_vfx_name](#prop-weather-vfx-name) | `""` |
+| `float` | [fade_seconds](#prop-fade-seconds) | `10.0` |
+| `bool` | [uses_own_wind](#prop-uses-own-wind) | `false` |
 | `Vector3` | [wind_direction](#prop-wind-direction) | `Vector3(1.0, 0.0, 0.0):` |
 | `float` | [wind_intensity](#prop-wind-intensity) | `0.5` |
 | `float` | [ground_wetness](#prop-ground-wetness) | `0.0` |
@@ -24,6 +26,16 @@ A world has a default weather (World editor &gt; Weather) and an event changes i
 | `Color` | [cover_color](#prop-cover-color) | `Color(0.92, 0.94, 0.97)` |
 | `CoverSticksOn` | [cover_sticks_on](#prop-cover-sticks-on) | `CoverSticksOn.FLAT_GROUND` |
 | `float` | [cover_roughness](#prop-cover-roughness) | `0.6` |
+| `float` | [more_clouds](#prop-more-clouds) | `0.0` |
+| `float` | [sky_darken](#prop-sky-darken) | `0.0` |
+| `float` | [sky_tint_amount](#prop-sky-tint-amount) | `0.0` |
+| `Color` | [sky_tint](#prop-sky-tint) | `Color(0.45, 0.47, 0.5)` |
+| `float` | [sun_brightness](#prop-sun-brightness) | `1.0` |
+| `float` | [ambient_brightness](#prop-ambient-brightness) | `1.0` |
+| `float` | [fog_thicker](#prop-fog-thicker) | `1.0` |
+| `float` | [fog_added](#prop-fog-added) | `0.0` |
+| `float` | [fog_color_amount](#prop-fog-color-amount) | `0.0` |
+| `Color` | [fog_color](#prop-fog-color) | `Color(0.6, 0.62, 0.66)` |
 
 ## Methods
 
@@ -52,7 +64,15 @@ Where the cover of the weather sticks.
 
 The weather particles that fall around the camera: the name of a Weather VFX of the project (Rain, Snow ...). Empty = nothing falls (a weather that only changes the ground, or the wind)
 
+### float fade_seconds = 10.0 {#prop-fade-seconds}
+
+How many seconds the sky, the fog, the light and the wind take to change into this weather (and back to the look of the world when it ends)
+
 *Wind*
+
+### bool uses_own_wind = false {#prop-uses-own-wind}
+
+Does this weather blow a wind of its own? Off = the wind of the world goes on (a clear weather, a fog)
 
 ### Vector3 wind_direction = Vector3(1.0, 0.0, 0.0): {#prop-wind-direction}
 
@@ -93,6 +113,50 @@ Where the cover sticks: snow only on flat ground, sand on most, a thick dust eve
 ### float cover_roughness = 0.6 {#prop-cover-roughness}
 
 How shiny the cover is (0 a mirror, 1 matte): wet snow and ice are shinier than dust
+
+*Sky and Light*
+
+### float more_clouds = 0.0 {#prop-more-clouds}
+
+More clouds: the clouds of the sky come this far towards a full overcast (0 = the sky as it is, 1 = overcast). The stars and the glow of the sun are hidden by it too. Only for a sky that has clouds of its own (the stylized sky)
+
+### float sky_darken = 0.0 {#prop-sky-darken}
+
+How much darker the sky is (0 = as it is, 1 = black): a storm sky
+
+### float sky_tint_amount = 0.0 {#prop-sky-tint-amount}
+
+How much of the sky colour is replaced by the colour below (a green sky of acid rain, a yellow sky of a sandstorm)
+
+### Color sky_tint = Color(0.45, 0.47, 0.5) {#prop-sky-tint}
+
+The colour the sky moves towards (when the amount above is more than 0)
+
+### float sun_brightness = 1.0 {#prop-sun-brightness}
+
+How bright the sun is while this weather lasts (1 = as it is, 0 = no sunlight: the shadows go with it)
+
+### float ambient_brightness = 1.0 {#prop-ambient-brightness}
+
+How bright the ambient light is (1 = as it is): a dark day, or a magic glow above 1
+
+*Fog*
+
+### float fog_thicker = 1.0 {#prop-fog-thicker}
+
+The fog of the look is this many times as thick (1 = as it is, 4 = a thick fog)
+
+### float fog_added = 0.0 {#prop-fog-added}
+
+Fog that this weather adds, even where the look has none (a mist over a clear valley): 0.01 is a light mist, 0.05 a thick one
+
+### float fog_color_amount = 0.0 {#prop-fog-color-amount}
+
+How much of the colour of the fog is replaced by the colour below
+
+### Color fog_color = Color(0.6, 0.62, 0.66) {#prop-fog-color}
+
+The colour the fog moves towards (when the amount above is more than 0)
 
 ## Method descriptions
 

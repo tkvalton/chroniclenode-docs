@@ -12,6 +12,7 @@ Preloaded stylized sky shader
 |---|---|---|
 | `SkyConfig` | [current_sky_config](#var-current-sky-config) |  |
 | `EnvironmentConfig` | [current_environment_config](#var-current-environment-config) |  |
+| `WeatherLook` | [weather_look](#var-weather-look) | `WeatherLook.new()` |
 | `SunConfig` | [sun_path](#var-sun-path) |  |
 | `ShaderMaterial` | [sky_material](#var-sky-material) |  |
 | `bool` | [day_night_cycle](#var-day-night-cycle) | `true` |
@@ -30,6 +31,8 @@ Preloaded stylized sky shader
 | `Dictionary` | [calculate_sky_parameters](#method-calculate-sky-parameters)( `current_time: float` ) |
 | `void` | [apply_params](#method-apply-params)( `params: Dictionary` ) |
 | `void` | [apply_environment_config](#method-apply-environment-config)( `config: EnvironmentConfig, blend_seconds: float = 0.0` ) |
+| `void` | [set_weather_look](#method-set-weather-look)( `config: WeatherConfig, seconds: float` ) |
+| `bool` | [is_weather_blending](#method-is-weather-blending)() |
 | `bool` | [is_blending](#method-is-blending)() |
 
 ## Signals
@@ -37,6 +40,10 @@ Preloaded stylized sky shader
 ### environment_applied( config: EnvironmentConfig ) {#signal-environment-applied}
 
 Sent every time the environment is shown, and at every step of a blend: the sun shines by the Sun Light of the environment that is shown
+
+### sun_dimmed( brightness: float ) {#signal-sun-dimmed}
+
+Sent when the weather changes how bright the sun is (1 = as the look says): the sun of the game follows
 
 ## Constants
 
@@ -51,6 +58,10 @@ The sky that is shown now (while one sky blends into another: the blend)
 ### EnvironmentConfig current_environment_config {#var-current-environment-config}
 
 The environment (sky, light, fog) that is shown now (while one environment blends into another: the blend).
+
+### WeatherLook weather_look = WeatherLook.new() {#var-weather-look}
+
+The weather laid on the look (see WeatherLook): what is shown now, and the blend it is in. Neutral = the look as it is
 
 ### SunConfig sun_path {#var-sun-path}
 
@@ -105,6 +116,14 @@ Sets the parameters of the sky from a dictionary: parameter name -&gt; value, as
 ### void apply_environment_config( config: EnvironmentConfig, blend_seconds: float = 0.0 ) {#method-apply-environment-config}
 
 Apply an EnvironmentConfig to reconfigure environment settings. With `blend_seconds` above 0 the environment changes into it over that time (fog, light, sun, colour grade, camera, wind), starting from the look shown now, even if it is in the middle of another change
+
+### void set_weather_look( config: WeatherConfig, seconds: float ) {#method-set-weather-look}
+
+The weather changes (null = clear): the sky, the fog, the sun and the ambient light move to its modifiers over `seconds`, starting from what is shown now, even in the middle of another change. 0 = at once
+
+### bool is_weather_blending() {#method-is-weather-blending}
+
+Is a weather fading in or out?
 
 ### bool is_blending() {#method-is-blending}
 
