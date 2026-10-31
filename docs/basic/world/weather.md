@@ -12,8 +12,8 @@ This page is what exists now: the weather as a resource, its wind, the **ground*
 
 | Part | What it is |
 |---|---|
-| **Weathers** (left) | The list of the weathers of the project. **New** makes one (name it), **Duplicate** copies the one you have open (a quick way to make *Light rain* from *Rain*), **Delete** removes it (the built-in **Clear** cannot be deleted or renamed) |
-| **Weather Configuration** (middle) | One container for the weather, with a container for each group of its settings: **Details** (name and a note), **Look**, **Wind**, **Ground Wetness**, **Ground Cover**, **Sky and Light**, **Fog**, and **Exposed Effects** (a list). Changes are saved as you make them. A group can be folded; the tab remembers which are. Settings that do not apply are hidden (no wet tint on a dry weather, no wind fields without a wind of its own) |
+| **Weathers** (left) | The list of the weathers of the project, with a filter box. **New** makes one (name it); right-click an entry for **Duplicate** (a quick way to make *Light rain* from *Rain*), **Delete** and **Copy Path**. The built-in **Clear** is always there and cannot be deleted |
+| **Settings** (middle) | A container for each group of the settings of the weather: **Details** (name, id and a note), **Look**, **Wind**, **Ground Wetness**, **Ground Cover**, **Sky and Light**, **Fog**, and **Exposed Effects** (a list). Changes are saved as you make them. A group can be folded. Settings that do not apply are hidden (no wet tint on a dry weather, no wind fields without a wind of its own) |
 | **Preview** and **Warnings** (right) | See below |
 
 ### Preview
@@ -42,7 +42,7 @@ It says *No warnings.* when all is well.
 
 ### The effect (particles)
 
-The **Weather vfx name** of the **Look** container is a **drop-down of the Weather effects of the [VFX library](/basic/assets/vfx#the-weather-effects-that-come-with-the-toolkit)** (the scenes in `src/data/vfx/weather/`), with *(no particles)* for a weather that only changes the ground or the sky. The library is read again each time you open the tab, so a scene you just made shows up. A name that is no longer in the library stays chosen and reads *Missing: name*, so nothing is lost by opening the weather.
+The **Weather effect** of the **Look** container is a **drop-down of the Weather effects of the [VFX library](/basic/assets/vfx#the-weather-effects-that-come-with-the-toolkit)** (the scenes in `src/data/vfx/weather/`), with *(no particles)* for a weather that only changes the ground or the sky. The library is read again each time you open the tab, so a scene you just made shows up. A name that is no longer in the library stays chosen and reads *Missing: name*, so nothing is lost by opening the weather.
 
 ### Exposed effects
 
@@ -58,7 +58,7 @@ Open **World > Weather**, pick a weather in the list or press **New** (name it).
 
 | Group | Field | What it does | Default |
 |---|---|---|---|
-| **Look** | **Weather vfx name** | The particles that fall around the camera: the name of a *Weather* effect of the [VFX library](/basic/assets/vfx) (Rain, Snow ...). Empty = nothing falls, a weather that only changes the ground, the sky or the fog | empty |
+| **Look** | **Weather effect** | The particles that fall around the camera: the name of a *Weather* effect of the [VFX library](/basic/assets/vfx) (Rain, Snow ...). Empty = nothing falls, a weather that only changes the ground, the sky or the fog | empty |
 | | **Intensity** | How strong the weather is, 0 to 1: see [Intensity](#intensity) | 1 |
 | | **Fade seconds** | How long the sky, the fog, the light and the wind take to change into this weather, and back to the look of the world when it ends | 10 |
 | **Wind** | **Uses own wind** | Does this weather blow a wind of its own? Off = the wind of the [environment](/basic/world/environment-config) goes on. The next two fields show only when it is on | off |

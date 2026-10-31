@@ -4,7 +4,7 @@ The **Time** tab (**World > Time**) sets how a world's **clock** runs: how long 
 
 ## The tab
 
-The tab is one container, **Time Configuration**. In it a **Config** drop-down (pick which time config to edit), **Create New** (name it; a new one starts with the default values), and a container for each group of settings. Changes are saved as you make them. A group can be folded; the tab remembers which are.
+The tab is built like the other editors of the toolkit. On the left is **the list of the time configs**: a filter box and **New** (name it, and a new one starts with the default values). The default is always there and cannot be deleted; right-click an entry for **Duplicate**, **Delete** and **Copy Path**. On the right is a container for **Details** (name, id and a note) and **a container for each group of settings**, titled with the name of the group. A group can be folded. Changes are saved as you make them.
 
 | Container | Field | What it does | Default |
 |---|---|---|---|

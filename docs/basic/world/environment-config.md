@@ -4,7 +4,7 @@ The **Environment** tab (**World > Environment**) sets the **mood** of a place: 
 
 ## The tab
 
-The tab is one container, **Environment Configuration**, with the **Config** drop-down and **Create New**, and a container for each group. Settings that do not apply are hidden: the fog fields when fog is off, the sun fields when there is no sun, the camera fields of what is switched off.
+The tab is built like the other editors of the toolkit. On the left is **the list of the environment configs**: a filter box and **New** (name it, and a new one starts with the default values). The default is always there and cannot be deleted; right-click an entry for **Duplicate**, **Delete** and **Copy Path**. On the right is a container for **Details** (name, id and a note) and **a container for each group of settings**, titled with the name of the group. A group can be folded. Changes are saved as you make them. Settings that do not apply are hidden: the fog fields when fog is off, the sun fields when there is no sun, the camera fields of what is switched off.
 
 | Container | What it sets |
 |---|---|

@@ -12,9 +12,9 @@ A **world config** sets how a world *looks* and how its *clock* runs. There are 
 
 ## The tabs
 
-The Time, Sun, Sky and Environment tabs look the same. Each is one container titled with the kind of config (**Sun Configuration**); in it a **Config** drop-down (pick which one to edit), **Create New** (name it, and a new one starts with the default values), and **a container for each group of settings**, titled with the name of the group (the Sun has **Day Night Cycle**, **Static Sun**, **Day Night Timing** and **Sun Direction**). A group can be folded; the tab remembers which are. Settings that do not apply are hidden: a sun with a day night cycle has no **Static Sun** container. Changes are saved as you make them.
+All five tabs are built the same way, like the other editors of the toolkit (the Worlds, Abilities and Factions editors): **the list of the configs on the left** (a filter box and **New**; the default config is always there and cannot be deleted; right-click an entry for **Duplicate**, **Delete** and **Copy Path**), and on the right a container for **Details** (name, id and a note) and **a container for each group of settings**, titled with the name of the group (the Sun has **Day Night Cycle**, **Static Sun**, **Day Night Timing** and **Sun Direction**). A group can be folded. Settings that do not apply are hidden: a sun with a day night cycle has no **Static Sun** container. Changes are saved as you make them.
 
-The [Weather tab](/basic/world/weather#the-weather-tab) is larger: a list of weathers, a live preview and warnings.
+The [Weather tab](/basic/world/weather#the-weather-tab) adds a live preview and the warnings of the weather on the right.
 
 The project starts with one of each, called *Default* (the weather is called *Clear*). Every world uses them unless the world says otherwise (see [Worlds](/basic/world/worlds#config-overrides)). A good project has the defaults set up for the normal world, and a few extra configs for the places that are different: a cave without sun, a swamp with thick fog, a dream where time runs ten times faster, a storm.
 

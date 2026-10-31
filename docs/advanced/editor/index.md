@@ -259,22 +259,21 @@ Many editors build their controls **in code** by reflecting over the resource's 
 <!-- classes:editor/world -->
 | Class | What it is |
 |---|---|
-| [BaseConfigEditor](/advanced/editor/world/base-config-editor) | Base class for config editors that dynamically generate UI from exports. |
+| [ConfigEditorBase](/advanced/editor/world/config-editor-base) | The base of the editors of the world configs (Time, Sun, Sky, Environment, Weather), built like the other editors of the toolkit: a scene with the list of the configs on the left (the shared EditorFileList with its New button) and the settings on the right in a container for each group. |
+| [ConfigForm](/advanced/editor/world/config-form) | A small form made of field components (ConfigField) for a resource that is part of another one: an item of a list (an exposed effect of a weather). |
 | [DetileSlider](/advanced/editor/world/detile-slider) | A slider with its number written next to it: the control of the detiling numbers (the Terrain Textures editor and the Detiling panel of the terrain tool). |
-| [EnvironmentConfigEditor](/advanced/editor/world/environment-config-editor) | Editor panel for EnvironmentConfig |
+| [EnvironmentConfigEditor](/advanced/editor/world/environment-config-editor) | The Environment tab (World &gt; Environment): the list of the environment configs on the left, the settings on the right in a container for each group (Tonemap, Fog, Sun Light, Camera, Colour Grade ...). |
 | [ResourceListEditor](/advanced/editor/world/resource-list-editor) | A list of resources edited in place: a container for each item (titled with a line that says what it is) with buttons to move and remove it and a form for its fields, and an Add button below. |
-| [SkyConfigEditor](/advanced/editor/world/sky-config-editor) | Editor panel for SkyConfig |
+| [SkyConfigEditor](/advanced/editor/world/sky-config-editor) | The Sky tab (World &gt; Sky): the list of the sky configs on the left, the settings on the right in a container for each group. |
 | [SpawnTablesEditor](/advanced/editor/world/spawn-tables-editor) | The Spawn Tables editor (the SpawnTableDefinition database, World &gt; Spawn Tables): a name, a description and the lines of the table. |
-| [SunConfigEditor](/advanced/editor/world/sun-config-editor) | Editor panel for SunConfig |
+| [SunConfigEditor](/advanced/editor/world/sun-config-editor) | The Sun tab (World &gt; Sun): the list of the sun configs on the left, the settings on the right in a container for each group (Day Night Cycle, Static Sun, Day Night Timing, Sun Direction). |
 | [TerrainDetilePreview](/advanced/editor/world/terrain-detile-preview) | The preview of the Detiling section of the Terrain Textures editor: the albedo of the texture repeated over three squares, as it is (the repeats line up), with hex tiling (what the ground shows near the camera) and with the second look (what it shows far away), drawn by the same code as the ground (terrain_hex.gdshaderinc). |
 | [TerrainTextureEditor](/advanced/editor/world/terrain-texture-editor) | The Terrain Textures editor (the TerrainTextureDefinition database): the library a terrain is painted from. |
-| [TimeConfigEditor](/advanced/editor/world/time-config-editor) | Editor panel for TimeConfig |
+| [TimeConfigEditor](/advanced/editor/world/time-config-editor) | The Time tab (World &gt; Time): the list of the time configs on the left, the settings on the right in a container for each group (Day Length, Starting Time). |
 | [UniquesDatabaseEditor](/advanced/editor/world/uniques-database-editor) | The editor of the Uniques tab (World &gt; Uniques): lists the placed NPCs and objects of every world, filtered by kind, world and a search bar, and shows the unique that is selected. |
-| [WeatherConfigEditor](/advanced/editor/world/weather-config-editor) | The form of a WeatherConfig (the groups of the weather as containers). |
-| [WeatherEditor](/advanced/editor/world/weather-editor) | The Weather tab of the World group: the weathers of the project (WeatherConfig). |
-| [WeatherEffectEntryForm](/advanced/editor/world/weather-effect-entry-form) | The form of one exposed effect of a weather (a WeatherEffectEntry): a dropdown of the effects of the project, how the weather gives it, how often (when it is refreshed) and who gets it. |
+| [WeatherEditor](/advanced/editor/world/weather-editor) | The Weather tab of the World group: the list of the weathers on the left, the settings in the middle in a container for each group (Look, Wind, Ground Wetness, Ground Cover, Sky and Light, Fog) and the list of Exposed Effects, and on the right a live preview (the weather in a small world, with a slider for the intensity and one for the time of day) and the warnings of the weather. |
+| [WeatherEffectEntryForm](/advanced/editor/world/weather-effect-entry-form) | The form of one exposed effect of a weather (a WeatherEffectEntry): the effect (a drop-down of the effects of the project), how the weather gives it, how often (when it is refreshed) and who gets it. |
 | [WeatherPreview](/advanced/editor/world/weather-preview) | The preview of the Weather tab: a small world in its own viewport (a ground with a hut with a roof, trees, rocks and a pole to see the weather against) with the default sky, sun and environment of the project, and the weather laid on it: its particles at the intensity of the slider, the sky, fog and light it changes (WeatherLook), the wind it blows, and a ground that gets wet and covered. |
-| [WorldConfigTab](/advanced/editor/world/world-config-tab) | One tab of the World group for one kind of config: Time, Sun, Sky or Environment (the Weather tab is the WeatherEditor). |
 | [WorldDatabaseEditor](/advanced/editor/world/world-database-editor) | The editor of the Worlds tab (World &gt; Worlds): lists the world scenes with a search bar and a category filter, and edits the properties of the selected world (loading screen, persistence, level, audio, time, sun, sky and weather). |
 | [WorldGroundSection](/advanced/editor/world/world-ground-section) | The **Ground weather** section of the Worlds editor: how fast the ground of this world gets wet and dries, how fast the snow builds and melts, and the tint of the ground (a season). |
 | [WorldZonesSection](/advanced/editor/world/world-zones-section) | The **Zones** section of the Worlds editor: the named places of ONE world (Elderwood, its sub-zone The Old Mill, the Sunken Caves ...) and the default zone of the world. |
@@ -376,17 +375,26 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | Class | What it is |
 |---|---|
 | [BBCodeTextControl](/advanced/editor/factory/bb-code-text-control) | Read-only TextEdit that opens BBCodeTextEditor on click |
+| [ColorField](/advanced/editor/factory/color-field) | A Color property in a colour button. |
+| [ConfigField](/advanced/editor/factory/config-field) | The base of the field components of the config editors: a label and a control for ONE property of the resource that is open. |
 | [CurveEditorControl](/advanced/editor/factory/curve-editor-control) | A control that edits a curve (a growth curve, a falloff) with a drawn preview and a maximum value that can be changed. |
 | [DatabaseArrayControl](/advanced/editor/factory/database-array-control) | Simple array control for database resources Two modes: OptionButton per entry OR Button that opens ListCatalog per entry |
+| [DatabaseIdField](/advanced/editor/factory/database-id-field) | An int property that is the id of a resource of the project (an effect, an ability ...), picked by name from a drop-down of everything of that kind, with an entry for none (0). |
 | [DatabaseOptionButton](/advanced/editor/factory/database-option-button) | OptionButton that auto-populates from database and uses IDs in metadata |
 | [DatabaseResourceButton](/advanced/editor/factory/database-resource-button) | Button that opens ListCatalog to select a database resource Shows resource name, has optional clear button |
 | [DynamicDictionaryEditor](/advanced/editor/factory/dynamic-dictionary-editor) | Reusable component for editing dictionaries with add/edit/remove functionality Supports items (id -&gt; quantity) and currency (id -&gt; amount) entries |
 | [ExperiencePerLevelEditor](/advanced/editor/factory/experience-per-level-editor) | Editor for experience_per_level Dictionary in GameplayConfig Displays a list of levels with their XP requirements and allows editing |
 | [IdMultiSelect](/advanced/editor/factory/id-multi-select) | A list of ids picked from a database type: the picked entries as small tags with an x, and an Add button that opens a searchable list of everything that exists. |
+| [NumberField](/advanced/editor/factory/number-field) | A number (a float or an int property) in a SpinBox. |
+| [OptionField](/advanced/editor/factory/option-field) | An enum (or int) property in a drop-down. |
 | [PropertyFactory](/advanced/editor/factory/property-factory) | Makes the rows of the inspector editors of the toolkit: a label with a check box, a text field, a number, a drop-down, a database drop-down, a slider or a color picker, each as an `EditorProperty` that calls a function when its value changes. |
 | [PropertyUIFactory](/advanced/editor/factory/property-ui-factory) | Factory for creating UI controls with consistent styling and behavior Uses class-based controls for complex components |
+| [ResourceField](/advanced/editor/factory/resource-field) | A property that holds a resource (a gradient, a curve, a texture, a sky driver) in a resource picker: pick one from the project, make a new one or clear it. |
+| [ToggleField](/advanced/editor/factory/toggle-field) | A bool property in a check box. |
 | [Vector2Control](/advanced/editor/factory/vector2-control) | Two spinboxes for Vector2 input with clipboard paste support |
 | [Vector3Control](/advanced/editor/factory/vector3-control) | Three spinboxes for Vector3 input with clipboard paste support |
+| [Vector3Field](/advanced/editor/factory/vector3-field) | A Vector3 property in three number boxes (X, Y, Z). |
+| [VfxNameField](/advanced/editor/factory/vfx-name-field) | A string property that is the name of an effect of the VFX library, picked from a drop-down of the effects of one kind (the Weather effects: the scenes in src/data/vfx/weather/) with an entry for none. |
 <!-- /classes -->
 
 ### Managers and utilities

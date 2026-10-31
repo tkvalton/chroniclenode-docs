@@ -6,7 +6,9 @@ The **Sun** tab (**World > Sun**) sets the **path** of the sun: where it is in t
 
 ## The tab
 
-The tab is one container, **Sun Configuration**, with the **Config** drop-down and **Create New**, and a container for each group:
+The tab is built like the other editors of the toolkit. On the left is **the list of the sun configs**: a filter box and **New** (name it, and a new one starts with the default values). The default is always there and cannot be deleted; right-click an entry for **Duplicate**, **Delete** and **Copy Path**. On the right is a container for **Details** (name, id and a note) and **a container for each group of settings**, titled with the name of the group. A group can be folded. Changes are saved as you make them.
+
+The containers:
 
 | Container | Field | What it does | Default |
 |---|---|---|---|

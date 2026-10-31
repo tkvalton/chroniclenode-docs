@@ -10,8 +10,6 @@ Main container for the unified game editor system
 
 | | | |
 |---|---|---|
-| `Dictionary` | [world_config_tabs](#var-world-config-tabs) | `{}` |
-| `WeatherEditor` | [weather_editor](#var-weather-editor) |  |
 | `BuildSizeEditor` | [build_size_editor](#var-build-size-editor) |  |
 | `ResourceManager  # For ResourceManager-based editors` | [resource_manager](#var-resource-manager) |  |
 | `EditorPlugin` | [plugin](#var-plugin) |  |
@@ -70,14 +68,6 @@ Main container for the unified game editor system
 - **GAME_SETTINGS** = `10`
 
 ## Variable descriptions
-
-### Dictionary world_config_tabs =  {#var-world-config-tabs}
-
-The tabs of the configs, made in code (they have no scene): Time, Sun, Sky and Environment (a WorldConfigTab each, by kind) and the Weather editor
-
-### WeatherEditor weather_editor {#var-weather-editor}
-
-*No description yet.*
 
 ### BuildSizeEditor build_size_editor {#var-build-size-editor}
 

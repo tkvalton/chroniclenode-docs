@@ -2,19 +2,7 @@
 
 # TimeConfigEditor
 
-**Inherits:** [BaseConfigEditor](/advanced/editor/world/base-config-editor) < [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
+**Inherits:** [ConfigEditorBase](/advanced/editor/world/config-editor-base) < [ResourceEditor](/advanced/editor/base/resource-editor) < [Control](https://docs.godotengine.org/en/stable/classes/class_control.html)
 
-Editor panel for TimeConfig
-
-## Methods
-
-| | |
-|---|---|
-| `Resource` | [create_new_config](#method-create-new-config)() |
-
-## Method descriptions
-
-### Resource create_new_config() {#method-create-new-config}
-
-Create a new config of the appropriate type (override in subclasses) *(from [BaseConfigEditor](/advanced/editor/world/base-config-editor))*
+The Time tab (World &gt; Time): the list of the time configs on the left, the settings on the right in a container for each group (Day Length, Starting Time). See docs: World &gt; Time config.
 

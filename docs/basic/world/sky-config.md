@@ -4,7 +4,7 @@ The **Sky** tab (**World > Sky**) sets the sky: a stylised shader that blends be
 
 ## The tab
 
-The tab is one container, **Sky Configuration**, with the **Config** drop-down and **Create New**, and a container for each group. The tab shows the containers that apply: with the background set to a flat colour only the colour is shown; a driver that does not use the clouds, the astro and the stars hides those containers.
+The tab is built like the other editors of the toolkit. On the left is **the list of the sky configs**: a filter box and **New** (name it, and a new one starts with the default values). The default is always there and cannot be deleted; right-click an entry for **Duplicate**, **Delete** and **Copy Path**. On the right is a container for **Details** (name, id and a note) and **a container for each group of settings**, titled with the name of the group. A group can be folded. Changes are saved as you make them. The tab shows the containers that apply: with the background set to a flat colour only the colour is shown; a driver that does not use the clouds, the astro and the stars hides those containers.
 
 | Container | What it sets |
 |---|---|

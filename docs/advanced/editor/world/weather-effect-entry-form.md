@@ -2,19 +2,7 @@
 
 # WeatherEffectEntryForm
 
-**Inherits:** [BaseConfigEditor](/advanced/editor/world/base-config-editor) < [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
+**Inherits:** [ConfigForm](/advanced/editor/world/config-form) < [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
-The form of one exposed effect of a weather (a WeatherEffectEntry): a dropdown of the effects of the project, how the weather gives it, how often (when it is refreshed) and who gets it. Used inside the list of the Weather editor (see ResourceListEditor).
-
-## Methods
-
-| | |
-|---|---|
-| `Resource` | [create_new_config](#method-create-new-config)() |
-
-## Method descriptions
-
-### Resource create_new_config() {#method-create-new-config}
-
-Create a new config of the appropriate type (override in subclasses) *(from [BaseConfigEditor](/advanced/editor/world/base-config-editor))*
+The form of one exposed effect of a weather (a WeatherEffectEntry): the effect (a drop-down of the effects of the project), how the weather gives it, how often (when it is refreshed) and who gets it. A built scene (weather_effect_entry_form.tscn) of field components; it is the form of the items of the list of Exposed Effects of the Weather tab.
 

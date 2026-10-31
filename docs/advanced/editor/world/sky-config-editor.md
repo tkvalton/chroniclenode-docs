@@ -2,19 +2,12 @@
 
 # SkyConfigEditor
 
-**Inherits:** [BaseConfigEditor](/advanced/editor/world/base-config-editor) < [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
+**Inherits:** [ConfigEditorBase](/advanced/editor/world/config-editor-base) < [ResourceEditor](/advanced/editor/base/resource-editor) < [Control](https://docs.godotengine.org/en/stable/classes/class_control.html)
 
-Editor panel for SkyConfig
+The Sky tab (World &gt; Sky): the list of the sky configs on the left, the settings on the right in a container for each group. With a flat background colour only the colour shows; a sky driver that does not use the clouds, the astro and the stars hides those containers. See docs: World &gt; Sky config.
 
-## Methods
+## Constants
 
-| | |
-|---|---|
-| `Resource` | [create_new_config](#method-create-new-config)() |
-
-## Method descriptions
-
-### Resource create_new_config() {#method-create-new-config}
-
-Create a new config of the appropriate type (override in subclasses) *(from [BaseConfigEditor](/advanced/editor/world/base-config-editor))*
+- `Array[String]` **SKY_GROUPS** = `["TimeOfDayGroup", "SkyColorsDayGroup", "SkyColorsNightGroup", "SkyColorsDusk...` - The containers that only make sense when the background is the sky
+- `Array[String]` **STYLIZED_GROUPS** = `["CloudSettingsGroup", "HighCloudsGroup", "AstroGroup", "StarSettingsGroup", ...` - The containers of the stylized sky (the toolkit's own driver, or one that says it uses them)
 

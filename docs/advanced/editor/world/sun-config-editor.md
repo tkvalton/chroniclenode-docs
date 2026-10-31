@@ -2,19 +2,7 @@
 
 # SunConfigEditor
 
-**Inherits:** [BaseConfigEditor](/advanced/editor/world/base-config-editor) < [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
+**Inherits:** [ConfigEditorBase](/advanced/editor/world/config-editor-base) < [ResourceEditor](/advanced/editor/base/resource-editor) < [Control](https://docs.godotengine.org/en/stable/classes/class_control.html)
 
-Editor panel for SunConfig
-
-## Methods
-
-| | |
-|---|---|
-| `Resource` | [create_new_config](#method-create-new-config)() |
-
-## Method descriptions
-
-### Resource create_new_config() {#method-create-new-config}
-
-Create a new config of the appropriate type (override in subclasses) *(from [BaseConfigEditor](/advanced/editor/world/base-config-editor))*
+The Sun tab (World &gt; Sun): the list of the sun configs on the left, the settings on the right in a container for each group (Day Night Cycle, Static Sun, Day Night Timing, Sun Direction). A sun with a day night cycle has no Static Sun container; a static sun has no Day Night Timing. See docs: World &gt; Sun config.
 

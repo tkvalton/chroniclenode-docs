@@ -935,10 +935,16 @@ export const groups = [
     "slug": "world",
     "classes": [
       {
-        "name": "BaseConfigEditor",
+        "name": "ConfigEditorBase",
+        "base": "ResourceEditor",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editor_base.gd",
+        "file": "editor_components/editors/world/config_editor_base.gd"
+      },
+      {
+        "name": "ConfigForm",
         "base": "VBoxContainer",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\base_config_editor.gd",
-        "file": "editor_components/editors/world/config_editors/base_config_editor.gd"
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_form.gd",
+        "file": "editor_components/editors/world/config_form.gd"
       },
       {
         "name": "DetileSlider",
@@ -948,9 +954,9 @@ export const groups = [
       },
       {
         "name": "EnvironmentConfigEditor",
-        "base": "BaseConfigEditor",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\environment_config_editor.gd",
-        "file": "editor_components/editors/world/config_editors/environment_config_editor.gd"
+        "base": "ConfigEditorBase",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\environment_config_editor.gd",
+        "file": "editor_components/editors/world/environment_config_editor.gd"
       },
       {
         "name": "ResourceListEditor",
@@ -960,9 +966,9 @@ export const groups = [
       },
       {
         "name": "SkyConfigEditor",
-        "base": "BaseConfigEditor",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\sky_config_editor.gd",
-        "file": "editor_components/editors/world/config_editors/sky_config_editor.gd"
+        "base": "ConfigEditorBase",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\sky_config_editor.gd",
+        "file": "editor_components/editors/world/sky_config_editor.gd"
       },
       {
         "name": "SpawnTablesEditor",
@@ -972,9 +978,9 @@ export const groups = [
       },
       {
         "name": "SunConfigEditor",
-        "base": "BaseConfigEditor",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\sun_config_editor.gd",
-        "file": "editor_components/editors/world/config_editors/sun_config_editor.gd"
+        "base": "ConfigEditorBase",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\sun_config_editor.gd",
+        "file": "editor_components/editors/world/sun_config_editor.gd"
       },
       {
         "name": "TerrainDetilePreview",
@@ -990,9 +996,9 @@ export const groups = [
       },
       {
         "name": "TimeConfigEditor",
-        "base": "BaseConfigEditor",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\time_config_editor.gd",
-        "file": "editor_components/editors/world/config_editors/time_config_editor.gd"
+        "base": "ConfigEditorBase",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\time_config_editor.gd",
+        "file": "editor_components/editors/world/time_config_editor.gd"
       },
       {
         "name": "UniquesDatabaseEditor",
@@ -1001,34 +1007,22 @@ export const groups = [
         "file": "editor_components/editors/world/uniques_database_editor.gd"
       },
       {
-        "name": "WeatherConfigEditor",
-        "base": "BaseConfigEditor",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\weather_config_editor.gd",
-        "file": "editor_components/editors/world/config_editors/weather_config_editor.gd"
-      },
-      {
         "name": "WeatherEditor",
-        "base": "MarginContainer",
+        "base": "ConfigEditorBase",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\weather_editor.gd",
         "file": "editor_components/editors/world/weather_editor.gd"
       },
       {
         "name": "WeatherEffectEntryForm",
-        "base": "BaseConfigEditor",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\weather_effect_entry_form.gd",
-        "file": "editor_components/editors/world/config_editors/weather_effect_entry_form.gd"
+        "base": "ConfigForm",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\weather_effect_entry_form.gd",
+        "file": "editor_components/editors/world/weather_effect_entry_form.gd"
       },
       {
         "name": "WeatherPreview",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\weather_preview.gd",
         "file": "editor_components/editors/world/weather_preview.gd"
-      },
-      {
-        "name": "WorldConfigTab",
-        "base": "MarginContainer",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\world_config_tab.gd",
-        "file": "editor_components/editors/world/world_config_tab.gd"
       },
       {
         "name": "WorldDatabaseEditor",
@@ -1493,6 +1487,18 @@ export const groups = [
         "file": "editor_components/factory/bbcode_text_control.gd"
       },
       {
+        "name": "ColorField",
+        "base": "ConfigField",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\color_field.gd",
+        "file": "editor_components/controls/config_fields/color_field.gd"
+      },
+      {
+        "name": "ConfigField",
+        "base": "HBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\config_field.gd",
+        "file": "editor_components/controls/config_fields/config_field.gd"
+      },
+      {
         "name": "CurveEditorControl",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\curve_editor\\curve_editor_control.gd",
@@ -1503,6 +1509,12 @@ export const groups = [
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\factory\\database_array_control.gd",
         "file": "editor_components/factory/database_array_control.gd"
+      },
+      {
+        "name": "DatabaseIdField",
+        "base": "ConfigField",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\database_id_field.gd",
+        "file": "editor_components/controls/config_fields/database_id_field.gd"
       },
       {
         "name": "DatabaseOptionButton",
@@ -1535,6 +1547,18 @@ export const groups = [
         "file": "editor_components/controls/id_multi_select.gd"
       },
       {
+        "name": "NumberField",
+        "base": "ConfigField",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\number_field.gd",
+        "file": "editor_components/controls/config_fields/number_field.gd"
+      },
+      {
+        "name": "OptionField",
+        "base": "ConfigField",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\option_field.gd",
+        "file": "editor_components/controls/config_fields/option_field.gd"
+      },
+      {
         "name": "PropertyFactory",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\factory\\property_factory.gd",
@@ -1547,6 +1571,18 @@ export const groups = [
         "file": "editor_components/factory/property_control_node_factory.gd"
       },
       {
+        "name": "ResourceField",
+        "base": "ConfigField",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\resource_field.gd",
+        "file": "editor_components/controls/config_fields/resource_field.gd"
+      },
+      {
+        "name": "ToggleField",
+        "base": "ConfigField",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\toggle_field.gd",
+        "file": "editor_components/controls/config_fields/toggle_field.gd"
+      },
+      {
         "name": "Vector2Control",
         "base": "HBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\factory\\vector_2_control.gd",
@@ -1557,6 +1593,18 @@ export const groups = [
         "base": "HBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\factory\\vector_3_control.gd",
         "file": "editor_components/factory/vector_3_control.gd"
+      },
+      {
+        "name": "Vector3Field",
+        "base": "ConfigField",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\vector3_field.gd",
+        "file": "editor_components/controls/config_fields/vector3_field.gd"
+      },
+      {
+        "name": "VfxNameField",
+        "base": "ConfigField",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\vfx_name_field.gd",
+        "file": "editor_components/controls/config_fields/vfx_name_field.gd"
       }
     ]
   },
