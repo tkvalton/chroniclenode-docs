@@ -83,14 +83,15 @@ The catalog that picks one thing out of a list of database resources of any kind
 - **SKY_CONFIGS** = `47`
 - **SUN_CONFIGS** = `48`
 - **TIME_CONFIGS** = `49`
-- **GLOBAL_VARIABLES** = `50`
-- **SKILL_POOLS** = `51`
-- **INTERACTABLES** = `52`
-- **UNIQUE_ENTITIES** = `53`
-- **UNIQUE_INTERACTABLES** = `54`
-- **UNIQUE_TRIGGER_AREAS** = `55`
-- **UNIQUE_ENCOUNTERS** = `56`
-- **UNIQUE_SPAWNERS** = `57`
+- **WEATHER_CONFIGS** = `50`
+- **GLOBAL_VARIABLES** = `51`
+- **SKILL_POOLS** = `52`
+- **INTERACTABLES** = `53`
+- **UNIQUE_ENTITIES** = `54`
+- **UNIQUE_INTERACTABLES** = `55`
+- **UNIQUE_TRIGGER_AREAS** = `56`
+- **UNIQUE_ENCOUNTERS** = `57`
+- **UNIQUE_SPAWNERS** = `58`
 
 ## Variable descriptions
 

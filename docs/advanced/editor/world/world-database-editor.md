@@ -19,6 +19,7 @@ The editor of the Worlds tab (World &gt; Worlds): lists the world scenes with a 
 | `String` | [current_category_filter](#var-current-category-filter) | `""` |
 | `ResourceManager` | [resource_manager](#var-resource-manager) |  |
 | `DialogManager` | [dialog_manager](#var-dialog-manager) |  |
+| `OptionButton` | [weather_config_option](#var-weather-config-option) | `null` |
 
 ## Methods
 
@@ -64,6 +65,10 @@ The Zones section (made in code)
 ### DialogManager dialog_manager {#var-dialog-manager}
 
 *No description yet.*
+
+### OptionButton weather_config_option = null {#var-weather-config-option}
+
+The list of the default weather of the world: a weather of the project (World Configs &gt; Weather), or clear
 
 ## Method descriptions
 

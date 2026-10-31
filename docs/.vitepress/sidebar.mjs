@@ -101,6 +101,7 @@ const basicSystems = [
           page('Sculpting', '/basic/world/terrain-sculpting'),
           page('Painting', '/basic/world/terrain-painting'),
           page('Navigation', '/basic/world/terrain-navigation'),
+          page('Weather', '/basic/world/weather'),
           page('Ground weather', '/basic/world/ground-weather'),
           page('Terrain streaming', '/basic/world/terrain-streaming'),
           page('Other terrain plugins', '/basic/world/terrain-plugins'),

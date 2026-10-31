@@ -94,6 +94,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [SkyConfig](/advanced/world/world-configs/sky-config) | Configuration for the sky shader appearance |
 | [SunConfig](/advanced/world/world-configs/sun-config) | The PATH of the sun: where it is in the sky and when. |
 | [TimeConfig](/advanced/world/world-configs/time-config) | Configuration for time flow and day/night cycle timing |
+| [WeatherConfig](/advanced/world/world-configs/weather-config) | A weather of the world: what falls (a particle scene), how the wind blows and what the weather does to the ground (wet and darker, tinted, covered by snow, sand, ash or anything else). |
 <!-- /classes -->
 
 ### Encounters

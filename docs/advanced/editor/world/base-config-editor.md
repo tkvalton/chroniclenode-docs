@@ -4,7 +4,7 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
-**Inherited by:** [EnvironmentConfigEditor](/advanced/editor/world/environment-config-editor), [SkyConfigEditor](/advanced/editor/world/sky-config-editor), [SunConfigEditor](/advanced/editor/world/sun-config-editor), [TimeConfigEditor](/advanced/editor/world/time-config-editor)
+**Inherited by:** [EnvironmentConfigEditor](/advanced/editor/world/environment-config-editor), [SkyConfigEditor](/advanced/editor/world/sky-config-editor), [SunConfigEditor](/advanced/editor/world/sun-config-editor), [TimeConfigEditor](/advanced/editor/world/time-config-editor), [WeatherConfigEditor](/advanced/editor/world/weather-config-editor)
 
 Base class for config editors that dynamically generate UI from exports
 

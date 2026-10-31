@@ -56,7 +56,7 @@ A world uses the project's default **Time**, **Sun**, **Sky** and **Environment*
 
 ### Default weather
 
-**Select Weather** opens the weather effects (the VFX library's *weather* effects: rain, snow, fog drifts). The weather starts when the party enters the world and follows the camera. A [Set Weather event](/basic/events-and-quests/events) changes it later; the world's setting is not changed by that, so the next visit starts with the default again. **Clear Weather** removes it.
+A list of the [weathers](/basic/world/weather) of the project (made in World Configs > Weather). The weather starts when the party enters the world; its particles follow the camera. **Clear** is no weather. A [Set Weather event](/basic/events-and-quests/events) changes it later; the world's setting is not changed by that, so the next visit starts with the default again. A world that had a weather effect chosen the old way gets a weather made from it the first time you open it here.
 
 ### Persistence
 
@@ -84,7 +84,7 @@ Two things are true whatever you choose:
 
 ## Validation
 
-**Validate** (and *Validate All Maps*) warns about: a missing name or category, a missing or non-existing scene file, a unique that the world lists but the database does not have, a default music or ambient track that is not in the album, an album with no tracks, and a default weather with no effect chosen. A world with warnings is counted at the bottom of the list.
+**Validate** (and *Validate All Maps*) warns about: a missing name or category, a missing or non-existing scene file, a unique that the world lists but the database does not have, a default music or ambient track that is not in the album, an album with no tracks, and a default weather that covers the ground in black. A world with warnings is counted at the bottom of the list.
 
 ## See also
 

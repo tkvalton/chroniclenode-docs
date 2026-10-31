@@ -995,6 +995,12 @@ export const groups = [
         "file": "editor_components/editors/world/uniques_database_editor.gd"
       },
       {
+        "name": "WeatherConfigEditor",
+        "base": "BaseConfigEditor",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editors\\weather_config_editor.gd",
+        "file": "editor_components/editors/world/config_editors/weather_config_editor.gd"
+      },
+      {
         "name": "WorldConfigEditor",
         "base": "Control",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\world_config_editor.gd",

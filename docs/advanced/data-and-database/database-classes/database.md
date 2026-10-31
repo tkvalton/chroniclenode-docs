@@ -30,6 +30,7 @@ All the resources extend DatabaseResource. The database also makes the few resou
 | `TimeConfig` | [get_default_time_config](#method-get-default-time-config)() *static* |
 | `SunConfig` | [get_default_sun_config](#method-get-default-sun-config)() *static* |
 | `SkyConfig` | [get_default_sky_config](#method-get-default-sky-config)() *static* |
+| `WeatherConfig` | [get_default_weather_config](#method-get-default-weather-config)() *static* |
 | `EnvironmentConfig` | [get_default_environment_config](#method-get-default-environment-config)() *static* |
 | `Array` | [get_all_stat_definitions](#method-get-all-stat-definitions)() *static* |
 | `void` | [reload_cache](#method-reload-cache)( `type: String` ) *static* |
@@ -78,6 +79,7 @@ All the resources extend DatabaseResource. The database also makes the few resou
 - `int` **ID_DEFAULT_SUN_CONFIG** = `1000001` - The id of the built-in sun setup.
 - `int` **ID_DEFAULT_SKY_CONFIG** = `1000001` - The id of the built-in sky setup.
 - `int` **ID_DEFAULT_ENVIRONMENT_CONFIG** = `1000001` - The id of the built-in environment setup.
+- `int` **ID_DEFAULT_WEATHER_CONFIG** = `1000001` - The id of the built-in clear weather (no particles, dry ground).
 - `int` **ID_DEFAULT_POPUP** = `1000001` - The popup that comes with the toolkit (title, text, icon, button)
 - `String` **DEFAULT_POPUP_SCENE** = `"res://addons/chroniclenode/ui_scenes/in_game/popups/default_popup_ui.tscn"` - The scene a popup uses when it has none of its own.
 
@@ -120,6 +122,10 @@ Get default sun config
 ### SkyConfig get_default_sky_config() {#method-get-default-sky-config}
 
 Get default sky config
+
+### WeatherConfig get_default_weather_config() {#method-get-default-weather-config}
+
+Get the built-in clear weather
 
 ### EnvironmentConfig get_default_environment_config() {#method-get-default-environment-config}
 

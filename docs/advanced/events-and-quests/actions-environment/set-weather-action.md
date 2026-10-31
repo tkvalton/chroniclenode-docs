@@ -10,6 +10,7 @@ Action to change the current map's weather at runtime
 
 | | | |
 |---|---|---|
+| `WeatherConfig` | [weather_config](#prop-weather-config) |  |
 | `VFXSelectionWeather` | [weather_selection](#prop-weather-selection) |  |
 | `float` | [transition_duration](#prop-transition-duration) | `5.0` |
 
@@ -23,9 +24,13 @@ Action to change the current map's weather at runtime
 
 ## Property descriptions
 
+### WeatherConfig weather_config {#prop-weather-config}
+
+The weather to bring (a Weather config of the project). Empty = clear weather
+
 ### VFXSelectionWeather weather_selection {#prop-weather-selection}
 
-Weather selection to apply (VFXSelectionWeather resource)
+The old weather selection (used only when no Weather config is set)
 
 ### float transition_duration = 5.0 {#prop-transition-duration}
 

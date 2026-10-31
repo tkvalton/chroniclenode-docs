@@ -1,6 +1,6 @@
 # World Configs
 
-A **world config** sets how a world *looks* and how its *clock* runs. There are four kinds, and each is a resource you can make as many of as you like:
+A **world config** sets how a world *looks* and how its *clock* runs. There are five kinds, and each is a resource you can make as many of as you like:
 
 | Config | What it controls |
 |---|---|
@@ -8,8 +8,9 @@ A **world config** sets how a world *looks* and how its *clock* runs. There are 
 | **Sun** | The **path** of the sun: where it stands and when it rises and sets, one per world |
 | **Sky** | The sky shader: colours of day, dusk and night, clouds, stars, the sun and moon discs |
 | **Environment** | The **mood** of a place: how bright and what colour the sun is, tonemap, fog, ambient light, wind, glow, the camera and the colour grade |
+| **Weather** | What falls, the wind of the weather and what it does to the ground (wet, tinted, covered with snow, sand or ash): see [Weather](/basic/world/weather) |
 
-**World > World Configs** shows the four side by side. Each has a **Config** drop-down (pick which one to edit), **Create New** (name it, and a new one starts with the default values), and the fields of the selected config. Changes are saved as you make them.
+**World > World Configs** shows the five side by side. Each has a **Config** drop-down (pick which one to edit), **Create New** (name it, and a new one starts with the default values), and the fields of the selected config. Changes are saved as you make them.
 
 The project starts with one of each, called *Default*. Every world uses them unless the world says otherwise (see [Worlds](/basic/world/worlds#config-overrides)). A good project has the defaults set up for the normal world, and a few extra configs for the places that are different: a cave without sun, a swamp with thick fog, a dream where time runs ten times faster.
 

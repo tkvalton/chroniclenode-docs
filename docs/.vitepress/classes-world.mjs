@@ -105,6 +105,12 @@ export const groups = [
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\configs\\time_config.gd",
         "file": "data_classes/world/configs/time_config.gd"
+      },
+      {
+        "name": "WeatherConfig",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\configs\\weather_config.gd",
+        "file": "data_classes/world/configs/weather_config.gd"
       }
     ]
   },

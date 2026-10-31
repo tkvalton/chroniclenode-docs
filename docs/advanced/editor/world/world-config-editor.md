@@ -4,7 +4,7 @@
 
 **Inherits:** [Control](https://docs.godotengine.org/en/stable/classes/class_control.html)
 
-Main editor for all world configuration types (Sky, Environment, Sun, Time) Designed to work with a pre-built scene containing the four config editors
+Main editor for all world configuration types (Sky, Environment, Sun, Time, Weather) Designed to work with a pre-built scene containing the five config editors
 
 ## Methods
 

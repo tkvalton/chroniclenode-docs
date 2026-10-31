@@ -28,6 +28,7 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `AudioAlbum` | [audio_album](#prop-audio-album) |  |
 | `String` | [default_music_track](#prop-default-music-track) | `""` |
 | `String` | [default_ambient_track](#prop-default-ambient-track) | `""` |
+| `WeatherConfig` | [default_weather_config](#prop-default-weather-config) |  |
 | `VFXSelectionWeather` | [default_weather](#prop-default-weather) |  |
 | `float` | [ground_wet_seconds](#prop-ground-wet-seconds) | `20.0` |
 | `float` | [ground_dry_seconds](#prop-ground-dry-seconds) | `240.0` |
@@ -52,6 +53,7 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `void` | [clear_audio_album](#method-clear-audio-album)() |
 | `void` | [set_default_weather](#method-set-default-weather)( `weather: VFXSelectionWeather` ) |
 | `VFXSelectionWeather` | [get_default_weather](#method-get-default-weather)() |
+| `WeatherConfig` | [get_weather_config](#method-get-weather-config)() |
 | `bool` | [has_default_weather](#method-has-default-weather)() |
 | `void` | [clear_default_weather](#method-clear-default-weather)() |
 | `void` | [add_unique_entity](#method-add-unique-entity)( `entity_id: int` ) |
@@ -166,9 +168,13 @@ Default ambient track if spawn point doesn't specify one
 
 *Weather*
 
+### WeatherConfig default_weather_config {#prop-default-weather-config}
+
+The weather this world starts with (a Weather config of the project). Empty = clear weather
+
 ### VFXSelectionWeather default_weather {#prop-default-weather}
 
-Default weather for this world
+The old weather selection of a world. The World editor turns it into a Weather config the first time the world is opened; until then it is used as it is
 
 *Ground Weather*
 
@@ -249,6 +255,10 @@ Set the default weather for this world
 ### VFXSelectionWeather get_default_weather() {#method-get-default-weather}
 
 Get the default weather for this world
+
+### WeatherConfig get_weather_config() {#method-get-weather-config}
+
+The weather this world starts with: its Weather config, else the old selection made into one, else null (clear)
 
 ### bool has_default_weather() {#method-has-default-weather}
 

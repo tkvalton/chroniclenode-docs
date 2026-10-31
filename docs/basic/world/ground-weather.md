@@ -7,17 +7,23 @@ The ground of a [terrain](/basic/world/terrain) **follows the weather**: rain ma
 1. The **weather** of the world (the one chosen in the Worlds editor, or the one an event started) says where the ground is going: soaked, covered with snow, or dry.
 2. The ground goes there **over time**, at the speeds of the world: it gets wet in seconds and dries in minutes, the snow builds and melts more slowly.
 3. The **zone** the party is in can change what reaches the ground: a cave is dry, a mountain top gets more snow.
-4. The shader of the terrain draws the wetness and the snow on every texture that reacts to them.
+4. The shader of the terrain draws the wetness and the cover on every texture that reacts to them.
 
 ### What a weather asks of the ground
 
-A weather (the VFX of the Weather section of the Worlds editor) has a **Ground** group:
+The ground follows the **[weather](/basic/world/weather)** of the world. A weather has *Ground wetness* and *Cover amount* (the cover is snow, sand, ash or anything: its colour and where it sticks are in the weather too), plus a wet tint. Weathers of old worlds were understood by their **name**; the Worlds editor turns them into weathers with these starting numbers:
 
 | Field | What it does | Default |
 |---|---|---|
-| **Ground auto** | The weather is understood by its **name**: *rain* wets the ground (0.85), *storm* soaks it (1), *drizzle* and *mist* half (0.5), *snow* and *blizzard* cover it with snow (0.9 and 1) and wet it a little, *sleet* does both. Any other name does nothing | on |
-| **Ground wetness** | How wet this weather makes the ground in the end (0 dry, 1 soaked), when *Ground auto* is off | 0 |
-| **Ground snow** | How much snow it leaves (0 none, 1 covered), when *Ground auto* is off | 0 |
+| Name of the old weather | Ground wetness | Cover amount |
+|---|---|---|
+| *rain* | 0.85 | 0 |
+| *storm*, *thunder* | 1 | 0 |
+| *drizzle*, *mist* | 0.5 | 0 |
+| *snow* | 0.25 | 0.9 |
+| *blizzard* | 0.25 | 1 |
+| *sleet* | 0.25 | 0.4 |
+| any other | 0 | 0 |
 
 ### How fast: the Ground weather section of a world
 

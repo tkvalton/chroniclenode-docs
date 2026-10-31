@@ -154,7 +154,7 @@ How the weather changes this ground (when it is wet and snowy is on the [Ground 
 |---|---|
 | **Wet darkening** | How much darker it gets when it is wet: 0 not at all (grass), 0.5 a lot (sand, rock) |
 | **Wet roughness** | How rough it is when fully wet (lower is shinier) |
-| **Snow cover** | How much of the snow layer sticks to it when it snows: 1 all of it, 0 none (a swept road, a roof, lava) |
+| **Cover** | How much of the weather cover (snow, sand, ash ...) sticks to it: 1 all of it, 0 none (a swept road, a roof, lava). Called *Snow cover* before the weather could cover the ground with anything |
 
 ## Footprints
 

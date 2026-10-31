@@ -23,10 +23,11 @@ Deals with weather application logic
 | | |
 |---|---|
 | `void` | [start_world_weather](#method-start-world-weather)( `camera_controller: CameraController` ) |
+| `WeatherConfig` | [get_current_config](#method-get-current-config)() |
 | `VFXSelectionWeather` | [get_current_selection](#method-get-current-selection)() |
-| `void` | [set_weather](#method-set-weather)( `selection: VFXSelectionWeather, camera_controller: CameraController` ) |
+| `void` | [set_weather](#method-set-weather)( `weather: Resource, camera_controller: CameraController` ) |
 | `void` | [stop_world_weather](#method-stop-world-weather)() |
-| `void` | [transition_to_weather](#method-transition-to-weather)( `new_weather_selection: VFXSelectionWeather, camera_controller: CameraController, transition_duration: float = 5.0` ) |
+| `void` | [transition_to_weather](#method-transition-to-weather)( `new_weather: Resource, camera_controller: CameraController, transition_duration: float = 5.0` ) |
 | `void` | [set_wind_direction](#method-set-wind-direction)( `direction: Vector3, smooth_transition: bool = true, duration: float = 2.0` ) |
 | `void` | [set_wind_intensity](#method-set-wind-intensity)( `intensity: float, smooth_transition: bool = true, duration: float = 2.0` ) |
 | `bool` | [has_active_weather](#method-has-active-weather)() |
@@ -71,19 +72,23 @@ The manager of visual effects (from the hub).
 
 Start weather for this map (typically called when map loads)
 
+### WeatherConfig get_current_config() {#method-get-current-config}
+
+The weather that is wanted now: the one an event chose, else the default one of the world (null = clear)
+
 ### VFXSelectionWeather get_current_selection() {#method-get-current-selection}
 
-The weather that is wanted now: the one an event chose, else the default one of the world
+The particles and the wind of the weather wanted now, as the spawner of the weather VFX takes them (null = clear)
 
-### void set_weather( selection: VFXSelectionWeather, camera_controller: CameraController ) {#method-set-weather}
+### void set_weather( weather: Resource, camera_controller: CameraController ) {#method-set-weather}
 
-Change the weather at once
+Change the weather at once. The weather is a Weather config (or an old weather selection)
 
 ### void stop_world_weather() {#method-stop-world-weather}
 
 Stop current weather
 
-### void transition_to_weather( new_weather_selection: VFXSelectionWeather, camera_controller: CameraController, transition_duration: float = 5.0 ) {#method-transition-to-weather}
+### void transition_to_weather( new_weather: Resource, camera_controller: CameraController, transition_duration: float = 5.0 ) {#method-transition-to-weather}
 
 Change weather with smooth transition
 
