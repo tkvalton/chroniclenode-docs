@@ -100,7 +100,52 @@ Each particle node of the effect decides **how** it thins with two numbers in it
 | `intensity_start` | Below this intensity the layer emits nothing | 0 |
 | `intensity_full` | From this intensity the layer is at full strength | 1 |
 
-In between the layer emits a part of its particles (its *Amount ratio*): the part of the way from start to full raised to 1.5, so a light weather looks light. The thunderstorm has its rain from 0 to 0.8, the spray from 0.35, the murk from 0.5 and the wind streaks from 0.1: a light storm is thin rain, a heavy one is everything. A node with no metadata follows the intensity from 0 to 1. The splash droplets (metadata `weather_sub_emitter`) are left alone: they follow the drops that make them.
+In between the layer keeps a **share** of its particles: the part of the way from start to full raised to 1.5, so a light weather looks light (half way is about a third of the particles). The thunderstorm has its rain from 0 to 0.8, the spray from 0.35, the murk from 0.5 and the wind streaks from 0.1: a light storm is thin rain, a heavy one is everything. A node with no metadata follows the intensity from 0 to 1. The splash droplets (metadata `weather_sub_emitter`) are left alone: they follow the drops that make them.
+
+### Making your own weather effect: the hooks
+
+An effect is a scene that any developer can make. This is everything the toolkit looks for, so your own scene and your own shaders get the same behaviour as the ones that come with it.
+
+| What | Where | What the toolkit does with it |
+|---|---|---|
+| The scene | A `.tscn` in `src/data/vfx/weather/` (the file name is the effect name a [weather](/basic/world/weather) picks). The root is a `Node3D` with the `VFXWeather` script, the particles are `GPUParticles3D` nodes below it | Spawns it at the camera when the weather starts, stops it when it ends |
+| **Intensity** | An exported value of `VFXWeather` (*Weather > Intensity*, 0 to 1) | The weather system sets it; you move it in the editor to test |
+| **Layer range** | Node metadata `intensity_start` and `intensity_full` on each particle node | Decides what share of that layer is alive at an intensity |
+| **Sub emitter** | Node metadata `weather_sub_emitter` on a node that is the sub emitter of another | Left alone by the intensity |
+| **Wind** | The global shader parameter `world_wind` (a `vec4`: x and z of the direction, the strength, the speed of the gusts) | Your shader reads it to lean with the wind of the weather |
+
+How a layer is **thinned**, in this order:
+
+1. If its **process material is a shader** that has a uniform called `density`, the toolkit sets `density` (a float, 0 to 1) to the share of the layer. If the shader also has a uniform called `intensity`, it gets the intensity of the weather itself (0 to 1), for a shader that wants to change more than the count: the colour, the size, the lean.
+2. Otherwise (a normal particle material, or a shader without those uniforms) the toolkit sets the **Amount ratio** of the node. Godot applies it only to particles that restart and with weak effect on a system that is already full, so for a good result give your shader a `density`.
+
+In your shader, the `density` hook is two lines. A particle gets a fixed random number for its life and is alive only while `density` has reached it:
+
+```glsl
+shader_type particles;
+uniform float density = 1.0;   // set by VFXWeather
+uniform float intensity = 1.0; // set by VFXWeather (optional)
+// ... a random number from 0 to 1 for this particle, kept for its life (see weather_particles.gdshader)
+void start() {
+    // ... place the particle ...
+    ACTIVE = my_random <= density;
+}
+void process() {
+    if (my_random > density) { ACTIVE = false; } // the weather got lighter
+    // ... move it ...
+}
+```
+
+Nothing restarts when the intensity changes, so it can fade smoothly. A scene shares its materials between copies, so while the game runs each particle node gets its own copy of the process material; in the editor the intensity is put back to 1 when you save, so the file keeps the full-strength numbers.
+
+#### The shaders that come with the toolkit
+
+| Shader (`assets/vfx/vfx_shaders`) | What it is for | Intensity hooks |
+|---|---|---|
+| `weather_particles` | Falling and blowing particles: rain streaks, snow, leaves, dust, wind streaks. Leans with `world_wind`, fades at the edge of the box and near the lens, makes splashes where a particle lands | `density`, `intensity` |
+| `weather_splash` | The droplets of a splash: the sub emitter of a `weather_particles` node | none (they follow the particles that make them) |
+
+The settings of `weather_particles` are the table above (*Shape*, *Area*, *Spread y*, *Floor below*, *Fall speed*, the wind numbers, *Flutter*, *Size*, *Streak*, *Stretch*, *Spin speed*, the colours, the fades, the splash numbers). The shaders of the **world** that react to the weather are set by the weather too, through [shader globals](/basic/world/shader-globals): the terrain shader (wet ground, cover, tint), the plant shaders (`world_wind`) and the sky (clouds, darkening): they follow the weather's own numbers scaled by its intensity, so they need nothing from you.
 
 ## Where VFX are used
 

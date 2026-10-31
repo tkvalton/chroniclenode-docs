@@ -28,6 +28,7 @@ Weather VFX - Continuous environmental effects like rain, snow, fog Supports sha
 | `void` | [deactivate_vfx](#method-deactivate-vfx)() |
 | `void` | [set_intensity](#method-set-intensity)( `value: float, seconds: float = 0.0` ) |
 | `float` | [layer_ratio](#method-layer-ratio)( `intensity_value: float, start: float, full: float` ) *static* |
+| `bool` | [has_uniform](#method-has-uniform)( `material: ShaderMaterial, uniform_name: String` ) *static* |
 | `void` | [set_wind_direction](#method-set-wind-direction)( `new_direction: Vector3` ) |
 | `void` | [set_wind_intensity](#method-set-wind-intensity)( `new_intensity: float` ) |
 | `void` | [transition_wind_direction](#method-transition-wind-direction)( `new_direction: Vector3, duration: float = 2.0` ) |
@@ -78,6 +79,10 @@ Sets how strong the weather is, at once or easing over `seconds`
 ### float layer_ratio( intensity_value: float, start: float, full: float ) {#method-layer-ratio}
 
 How much of its particles a layer emits at an intensity: 0 below its start, 1 from its full, and in between the part of the way to full raised to 1.5 (a light weather looks light: half way is a third of the particles, not half)
+
+### bool has_uniform( material: ShaderMaterial, uniform_name: String ) {#method-has-uniform}
+
+Does a shader material have a uniform of this name?
 
 ### void set_wind_direction( new_direction: Vector3 ) {#method-set-wind-direction}
 
