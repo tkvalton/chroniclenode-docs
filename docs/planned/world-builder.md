@@ -19,7 +19,6 @@ Today, making a switch open a door takes an [event](/basic/events-and-quests/eve
 | **Marks**: footprints in snow, tyre tracks, scorch marks | Not built. The ground shows wetness, snow and a tint ([Ground weather](/basic/world/ground-weather)), nothing that a character leaves |
 | **Permanent change of a place**: a burned forest, winter replacing summer after a quest | Not built. The tint of a world and *Hold* of the [Set Ground Weather](/basic/world/ground-weather#events-and-conditions) action change the look of all the ground |
 | **Local weather**: snow on the mountain, rain in the valley | One weather for the world; a [zone](/basic/world/zones) can shelter the ground from it |
-| **A calendar and seasons** | There is no calendar, only the hour of the day |
 | **Wind in the grass and brushing through it** | Not built |
 | **Navigation over water and lava**, and links for caves and ladders | Not built: the navigation bake ignores them |
 
