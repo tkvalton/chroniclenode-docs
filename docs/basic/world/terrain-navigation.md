@@ -53,6 +53,23 @@ Two buttons of the top bar show navigation in the editor only:
 
 Both have keys you can set in **Hotkeys**.
 
+## Water, lava and where NPCs can go
+
+The [movement volumes](/basic/world/movement-volumes#where-npcs-will-walk-navigation) of the scene are part of the bake, and so is the **navigation domain** of each NPC ([NPCs](/basic/entities/npcs#visual-properties)):
+
+| Domain | Where the NPC goes |
+|---|---|
+| **Amphibious** (the default) | Walks, and **swims** across deep water. It never enters **lava** |
+| **Land** | Walks only: it goes **round** deep water and lava |
+| **Water** | Lives in the water (a fish, a sea monster): it moves over the **surface of the deep water** and cannot walk |
+
+The player and the party members are always amphibious. A volume says what it is to each: *Walk Through*, *Avoid When Deep* (deeper than its wade depth) or *Never* (lava). Shallow water, up to the wade depth, is ground like any other.
+
+- The bake makes **a mesh of its own for each domain** your NPCs use. A project with no Land NPC and no Water NPC bakes the same meshes as before; the first NPC you set to Land or Water adds that mesh (for the entity sizes your NPCs of that domain have), and the Navigation panel says the tiles are out of date.
+- A **Water** creature is **left stuck** when it ends up on dry land (a lake that dried up, a knockback onto the shore): it does not walk, and it is not killed or moved. Its move is given up after a few seconds (the controller's *path_failed*), so a behavior can choose something else.
+- A volume that **moves** later (a tide, a lift of water) does not change the baked navigation until you bake again.
+- A tile with no volume on it costs nothing extra: the volumes are looked at while you bake and only a fingerprint is saved, so volumes you change make exactly the tiles they cover out of date.
+
 ## Entity sizes
 
 A big creature cannot squeeze through a gap a rat fits through, so the navigation is baked for the **collision shape** sizes of your entities:

@@ -269,6 +269,20 @@ An NPC in the water **swims**: the swim animations play, it floats and moves wit
 
 **Getting stuck.** An NPC that is sent somewhere and gets nowhere for a second (it moved less than a fifth of what its speed gives, away from its goal) is helped: it **backs off to the navigation mesh** if it is pressed against something off it, **tries the other way of swimming** (along the path, or straight) and works its path out again. If that happens **three times in 15 seconds** the move is **given up**: the NPC stops and the navigation controller sends its signal **path_failed**, as it does when a path takes too long, so a behavior can choose something else. The signal **stalled** says each time. Before this an NPC that could not dive to its goal (the buoyancy of the water cancelled its dive, so it dived a fraction of a metre a second) stood over it for ever.
 
+### Where NPCs will walk: Navigation
+
+The **Navigation** group of a volume says what the [terrain navigation](/basic/world/terrain-navigation#water-lava-and-where-npcs-can-go) does with it when you bake:
+
+| Navigation | What it does |
+|---|---|
+| **Walk Through** | Nothing. The NPCs walk and swim through it as the movement rules say (shallow water, a flow, the weightless room) |
+| **Avoid When Deep** | The part of the volume where the water is **deeper than the wade depth** is taken out of the ground of walkers, so an NPC that cannot swim goes **round** a lake instead of into it. Water that is not deeper than the wade depth stays walkable: NPCs wade through a ford. The water creatures swim in it |
+| **Never** | Nobody walks in it: the whole volume is taken out of the ground. For lava |
+
+The presets set it: **Water** is *Avoid When Deep*, **Lava** is *Never* and **Weightless** is *Walk Through*. A volume that works on **Players only** is not looked at by the NPCs, so it changes nothing. The navigation is **baked**, so after you add, move or change a volume bake the navigation again: the Navigation panel tells you the tiles are out of date (a volume that moved, was taken away or whose depth changed makes the tiles it covers out of date, as a building does). The cells are 2 m wide, the same as the holes of the terrain, so the edge of a lake is as rough as that.
+
+Which NPCs avoid what is up to each NPC: see its **Navigation domain** in [NPCs](/basic/entities/npcs#visual-properties).
+
 ## Good to know
 
 - The volume sees the **player characters, NPCs and pets**. It does not need the collision layers of the entities to be changed.

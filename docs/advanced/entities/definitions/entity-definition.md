@@ -89,6 +89,10 @@ Scale multiplier applied to the entity model
 
 Collision shape size category for physics interactions
 
+### NavigationDomain navigation_domain = NavigationDomain.AMPHIBIOUS {#prop-navigation-domain}
+
+Where this kind of entity can go (read by the NavigationController): `AMPHIBIOUS` walks and swims (never enters lava), `LAND` walks only (goes round deep water and lava), `WATER` lives in the water and cannot walk. The party members are always amphibious: ask `Entity.get_navigation_domain()`. See [Terrain navigation](/basic/world/terrain-navigation#water-lava-and-where-npcs-can-go)
+
 ### Texture2D footprint_texture {#prop-footprint-texture}
 
 The picture of one footprint of this kind of entity (a boot sole, a paw, a hoof): a white shape on a transparent background, the toes pointing up. The ground tints it and says how long it stays. Empty = this entity leaves no footprints

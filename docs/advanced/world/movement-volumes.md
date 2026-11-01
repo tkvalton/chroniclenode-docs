@@ -108,12 +108,25 @@ A claim with no surface (`surface_y = INF`, the default) has no ceiling and no f
 
 The built-in way is the **Flight effect** (`FlightEffect`): it makes one claim per effect instance with its settings, and the **Land effect** (`LandEffect`) ends flights. A claim can also carry a **`logic`** (a `FlightLogic`): once per physics frame, just before the entity is moved, `logic.shape_velocity(delta)` may change `entity.velocity` (momentum, a glide). Extend `FlightLogic` and choose the script in the Flight effect; each entity gets its own copy. The claim has `use_air_animations` (play the fly animations) and `animation_override` (one pose animation). See [Flying](/basic/world/flying#your-own-flight).
 
+## Navigation
+
+`MovementVolume.navigation` (`NavigationRule`: `WALK_THROUGH`, `AVOID_WHEN_DEEP`, `NEVER`) is read by the navigation bake, not at run time. `NavigationVolumes` (`runtime_classes/world/terrain/navigation_volumes.gd`) does the work, on the main thread, tile by tile, in cells of 2 m (the layout of the hole mask of a tile):
+
+- `collect(root)` finds the volumes under a node whose rule is not Walk Through and that do not work on players only.
+- `compute_tile(volumes, coord, height_at)` returns `{"never", "deep", "water"}`: the mask of the cells of a Never volume, the mask of the cells where the surface is higher than the ground by more than the volume's wade depth, and the triangles of the surface over those cells.
+- `blocked_for(data, domain)` is the mask a domain loses: Never for everybody, Never and deep for `DOMAIN_LAND`.
+- `fingerprint(data)` is the number the bake keeps with the tile (combined with the number of the objects, `TerrainNavigation.combine_fingerprints`; a tile counts its eight neighbours too, because a bake takes their cells in) and compares to see that a volume moved, changed or went.
+
+`TerrainNavigation.bake_tile(tiles, coord, agent, objects, volumes)` takes the masks into `build_source` (they are added to the painted not-walkable cells) for the amphibious and land classes, and for a `DOMAIN_WATER` class it bakes only the surface triangles (no ground, no objects). The agent classes have a `domain` and a key suffix (`""`, `_land`, `_water`); `TerrainConfig.get_navigation_classes()` adds the land and water classes for the shapes some NPC of that domain has. `TerrainData.get_navigation_class_for_shape(shape, domain)`, `ChronicleTerrain.get_navigation_map(shape, domain)` and the navigation controller (`navigation_domain`) pick the class, falling back to the amphibious one when a domain was not baked. A water-only entity that is not swimming is "stranded": the controller keeps it still and the stall check ends its move with `path_failed`.
+
 ## What is not done
 
-- **NPC navigation in 3D.** NPCs get the claims, the animations and the speed, but their pathfinding is the flat navigation mesh of the world.
+- **NPC navigation in 3D.** NPCs get the claims, the animations and the speed, but their pathfinding is the flat navigation mesh of the world (and, for the water creatures, a flat mesh over the surface of the deep water).
 - **Obstacle avoidance and a ceiling** for flyers: see [Flying: what is planned](/planned/flying).
 - **Water currents** and **buoyancy that depends on the weight** are not part of it.
 
 ## Tests
+
+`tests/terrain_navigation_volumes_audit.gd` (44 checks) covers the masks, the domains, the meshes and the stale detection of the bake tool; `tests/npc_navigation_domain_audit.gd` runs the real game (a water creature on land stays, in the pond it swims to its goal); `tests/npc_swim_path_audit.gd` the swimmers following the path.
 
 `tests/movement_volume_audit.gd` runs the real game: the claims, the volume shapes and presets, swimming, wading and its hysteresis, up and down, the leap, the weightless room, who the volume works on, effects, the breath and the drowning (with the HUD bar), the camera look and its stack, and the saving of the breath. `tests/movement_volume_editor_check.gd` covers the editor side: the Breath group, the inspector fields, the presets, the warnings and a volume saved into a scene.
