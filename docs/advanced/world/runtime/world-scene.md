@@ -15,7 +15,9 @@ WorldScene manages all objects within a specific map/scene Handles object discov
 | `Marker3D` | [party_spawn](#prop-party-spawn) |  |
 | `Array[Marker3D]` | [respawn_points](#prop-respawn-points) | `[]` |
 | `Callable` | [generate_minimap](#prop-generate-minimap) | `_generate_minimap` |
+| `Callable` | [fit_minimap_button](#prop-fit-minimap-button) | `fit_minimap_to_terrain` |
 | `float` | [minimap_size](#prop-minimap-size) | `512.0` |
+| `Vector2` | [minimap_center](#prop-minimap-center) | `Vector2.ZERO` |
 | `int` | [minimap_grid_divisions](#prop-minimap-grid-divisions) | `4` |
 | `Vector2i` | [minimap_image_size](#prop-minimap-image-size) | `Vector2i(512, 512)` |
 | `MapQuality` | [map_preview_quality](#prop-map-preview-quality) | `MapQuality.MEDIUM` |
@@ -35,6 +37,7 @@ WorldScene manages all objects within a specific map/scene Handles object discov
 | | |
 |---|---|
 | `Dictionary` | [get_world_objects](#method-get-world-objects)() |
+| `bool` | [fit_minimap_to_terrain](#method-fit-minimap-to-terrain)() |
 | `Array[Dictionary]` | [get_zone_map_plan](#method-get-zone-map-plan)() |
 | `float` | [get_map_top](#method-get-map-top)() |
 | `AABB` | [get_scene_bounds](#method-get-scene-bounds)() |
@@ -97,9 +100,17 @@ Respawn/checkpoint points for player death respawning
 
 A button of the editor: makes the picture of the mini map.
 
+### Callable fit_minimap_button = fit_minimap_to_terrain {#prop-fit-minimap-button}
+
+A button of the editor: sets the size and the middle of the minimap to the area of the terrain of this scene (a world with no terrain keeps the numbers you typed).
+
 ### float minimap_size = 512.0 {#prop-minimap-size}
 
 Total world area to cover (will be divided into grid tiles)
+
+### Vector2 minimap_center = Vector2.ZERO {#prop-minimap-center}
+
+The middle of the area the minimap covers (x, z in metres). 0, 0 for a world built round the origin; Fit Size to Terrain sets it for a terrain that is not
 
 ### int minimap_grid_divisions = 4 {#prop-minimap-grid-divisions}
 
@@ -142,6 +153,10 @@ Whether object discovery has been completed
 ### Dictionary get_world_objects() {#method-get-world-objects}
 
 Get world objects from live scene tree at runtime Always collects current instances to ensure we work with actual scene nodes
+
+### bool fit_minimap_to_terrain() {#method-fit-minimap-to-terrain}
+
+Sets the size and the middle of the minimap to the area of the terrain of this scene, so the minimap covers all of it. The size is the longer side of the terrain, rounded up to 4 m. A world with no terrain is not changed: type its size and middle by hand. Says how sharp the tiles will be, so the divisions and the image size can be raised for a big terrain. Returns false when there is nothing to fit to
 
 ### Array[Dictionary] get_zone_map_plan() {#method-get-zone-map-plan}
 

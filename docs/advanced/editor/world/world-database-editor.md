@@ -27,6 +27,7 @@ The editor of the Worlds tab (World &gt; Worlds): lists the world scenes with a 
 |---|---|
 | `void` | [setup_managers](#method-setup-managers)( `p_resource_manager: ResourceManager, p_dialog_manager: DialogManager` ) |
 | `void` | [refresh_audio_album_menu](#method-refresh-audio-album-menu)() |
+| `String` | [describe_zone_maps](#method-describe-zone-maps)( `world: WorldData` ) *static* |
 
 ## Variable descriptions
 
@@ -79,4 +80,8 @@ The list of the default weather of the world: a weather of the project (World Co
 ### void refresh_audio_album_menu() {#method-refresh-audio-album-menu}
 
 *No description yet.*
+
+### String describe_zone_maps( world: WorldData ) {#method-describe-zone-maps}
+
+The line about the pictures of the zones (how many, which are the world's own)
 

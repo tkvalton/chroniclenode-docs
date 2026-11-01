@@ -76,6 +76,10 @@ The path-finding and movement of an NPC: a navigation agent that moves the entit
 
 Emitted when there is no path to the target, or the entity could not get there in time.
 
+### stalled( seconds_in_a_row: int ) {#signal-stalled}
+
+The entity was stuck for a second (it moved less than a fifth of what its speed gives, away from its goal): the number of seconds in a row. Two helps are tried, then path_failed
+
 ### following_started( target: Node3D ) {#signal-following-started}
 
 Emitted when the entity starts following a node.
@@ -107,6 +111,14 @@ What the controller is doing: stopped, moving to a position, following a target 
 - **MOVING_TO_POSITION** = `1`
 - **FOLLOWING_TARGET** = `2`
 - **PATHFINDING** = `3`
+
+## Constants
+
+- `float` **SWIM_WAYPOINT_DISTANCE** = `1.5` - How near (metres across) a swimmer has to be to a point of its path before it heads for the next one. The agent counts the distance in 3D, and a swimmer is up at the surface while the path runs over the bed, so it would never get near enough: the swimmer keeps its own count
+- `float` **STALL_WINDOW** = `1.0` - The seconds between two looks at whether a moving entity has got anywhere, and how much of the distance its speed should have given it counts as having got nowhere
+- `float` **STALL_FRACTION** = `0.2`
+- `int` **STALL_TRIES** = `3` - How many times of getting nowhere in the last STALL_MEMORY seconds are given a try at getting free (a new path, then the other way of swimming) before the move is given up (path_failed). Counted over a while and not in a row: the help makes the entity move, so a goal it can never reach would look free after every help
+- `float` **STALL_MEMORY** = `15.0`
 
 ## Variable descriptions
 
