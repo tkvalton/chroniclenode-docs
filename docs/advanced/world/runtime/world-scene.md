@@ -19,7 +19,10 @@ WorldScene manages all objects within a specific map/scene Handles object discov
 | `int` | [minimap_grid_divisions](#prop-minimap-grid-divisions) | `4` |
 | `Vector2i` | [minimap_image_size](#prop-minimap-image-size) | `Vector2i(512, 512)` |
 | `MapQuality` | [map_preview_quality](#prop-map-preview-quality) | `MapQuality.MEDIUM` |
+| `MapQuality` | [zone_map_quality](#prop-zone-map-quality) | `MapQuality.HIGH` |
 | `Callable` | [generate_map_preview_button](#prop-generate-map-preview-button) | `_generate_map_preview` |
+| `Callable` | [generate_zone_maps_button](#prop-generate-zone-maps-button) | `_generate_zone_maps` |
+| `Callable` | [generate_reference_sheet_button](#prop-generate-reference-sheet-button) | `_generate_reference_sheet` |
 
 ## Variables
 
@@ -32,6 +35,8 @@ WorldScene manages all objects within a specific map/scene Handles object discov
 | | |
 |---|---|
 | `Dictionary` | [get_world_objects](#method-get-world-objects)() |
+| `Array[Dictionary]` | [get_zone_map_plan](#method-get-zone-map-plan)() |
+| `float` | [get_map_top](#method-get-map-top)() |
 | `AABB` | [get_scene_bounds](#method-get-scene-bounds)() |
 | `Rect2` | [get_map_rect](#method-get-map-rect)() |
 | `String` | [get_terrain_surface_type](#method-get-terrain-surface-type)( `target_position: Vector3` ) |
@@ -110,9 +115,21 @@ Size of the image to capture per grid tile (pixels)
 
 The size of the picture of the map preview.
 
+### MapQuality zone_map_quality = MapQuality.HIGH {#prop-zone-map-quality}
+
+The size of the picture of each zone (the pictures of the zones for the world map).
+
 ### Callable generate_map_preview_button = _generate_map_preview {#prop-generate-map-preview-button}
 
 A button of the editor: makes the map preview.
+
+### Callable generate_zone_maps_button = _generate_zone_maps {#prop-generate-zone-maps-button}
+
+A button of the editor: makes a picture of every zone of the world for the world map (files in the maps folder of the world).
+
+### Callable generate_reference_sheet_button = _generate_reference_sheet {#prop-generate-reference-sheet-button}
+
+A button of the editor: makes the reference sheet for drawing a stylized map (a grid, the borders of the zones, a text file of the numbers).
 
 ## Variable descriptions
 
@@ -125,6 +142,14 @@ Whether object discovery has been completed
 ### Dictionary get_world_objects() {#method-get-world-objects}
 
 Get world objects from live scene tree at runtime Always collects current instances to ensure we work with actual scene nodes
+
+### Array[Dictionary] get_zone_map_plan() {#method-get-zone-map-plan}
+
+What Generate Zone Maps takes a picture of (see WorldMapMaker.plan_zone_maps)
+
+### float get_map_top() {#method-get-map-top}
+
+Where the camera goes to see all of the world from above: over the highest ground (or the top of the scene bounds)
 
 ### AABB get_scene_bounds() {#method-get-scene-bounds}
 

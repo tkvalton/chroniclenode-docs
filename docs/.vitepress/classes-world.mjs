@@ -63,6 +63,12 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\zones\\zone_lookup.gd",
         "file": "data_classes/zones/zone_lookup.gd"
+      },
+      {
+        "name": "ZoneMapEntry",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\zone_map_entry.gd",
+        "file": "data_classes/world/zone_map_entry.gd"
       }
     ]
   },
@@ -387,6 +393,12 @@ export const groups = [
         "base": "Node3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\world_container.gd",
         "file": "runtime_classes/world/world_container.gd"
+      },
+      {
+        "name": "WorldMapMaker",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\world_map_maker.gd",
+        "file": "runtime_classes/world/world_map_maker.gd"
       },
       {
         "name": "WorldScene",

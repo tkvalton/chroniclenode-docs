@@ -25,6 +25,8 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `int` | [default_zone_id](#prop-default-zone-id) | `0` |
 | `Texture` | [map_image](#prop-map-image) |  |
 | `Rect2` | [map_rect](#prop-map-rect) | `Rect2()` |
+| `bool` | [map_is_custom](#prop-map-is-custom) | `false` |
+| `Array[ZoneMapEntry]` | [zone_maps](#prop-zone-maps) | `[]` |
 | `Texture` | [loading_screen_texture_override](#prop-loading-screen-texture-override) |  |
 | `AudioAlbum` | [audio_album](#prop-audio-album) |  |
 | `String` | [default_music_track](#prop-default-music-track) | `""` |
@@ -79,6 +81,9 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `String` | [get_summary](#method-get-summary)() |
 | `Dictionary` | [get_display_info](#method-get-display-info)() |
 | `bool` | [is_properly_configured](#method-is-properly-configured)() |
+| `ZoneMapEntry` | [get_zone_map](#method-get-zone-map)( `zone_id: int` ) |
+| `void` | [set_zone_map](#method-set-zone-map)( `entry: ZoneMapEntry` ) |
+| `void` | [remove_zone_map](#method-remove-zone-map)( `zone_id: int` ) |
 
 ## Enumerations
 
@@ -152,6 +157,14 @@ Low Quality map image (read-only in editor, for preview)
 ### Rect2 map_rect = Rect2() {#prop-map-rect}
 
 The area of the world (x, z in metres) that map_image shows: the corner and the size, a square. Set when the map preview is made (it covers the terrain). An empty rectangle = the square of the scene's minimap size round the origin, as before. The world map window places the zones and the party on the picture with it
+
+### bool map_is_custom = false {#prop-map-is-custom}
+
+The map picture is one you made yourself (a stylized map drawn over the reference sheet): Generate Map Preview leaves it alone. Set map_rect to the area it is drawn over
+
+### Array[ZoneMapEntry] zone_maps = [] {#prop-zone-maps}
+
+The pictures of the zones for the world map (made by Generate Zone Maps on the world scene, files in src/data/worlds/maps/&lt;world id&gt;/): the picture of each zone and the area it covers
 
 ### Texture loading_screen_texture_override {#prop-loading-screen-texture-override}
 
@@ -360,4 +373,16 @@ Get display information as dictionary
 ### bool is_properly_configured() {#method-is-properly-configured}
 
 Check if this world data appears to be properly configured
+
+### ZoneMapEntry get_zone_map( zone_id: int ) {#method-get-zone-map}
+
+The picture of a zone for the world map (null when it has none: the map then shows the zone as a part of the world picture)
+
+### void set_zone_map( entry: ZoneMapEntry ) {#method-set-zone-map}
+
+Puts the picture of a zone in the list (it replaces the one the zone had)
+
+### void remove_zone_map( zone_id: int ) {#method-remove-zone-map}
+
+Takes the picture of a zone out of the list
 

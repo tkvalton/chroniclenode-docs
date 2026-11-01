@@ -20,6 +20,7 @@ The zones of a world as a picture from above, the same area the map image of the
 | | |
 |---|---|
 | `ZoneMap` | [build](#method-build)( `zone_ids: Array[int], default_zone: int, map_rect: Rect2, terrain: Object, volumes: Array` ) *static* |
+| `AABB` | [world_box_of](#method-world-box-of)( `volume: Node3D` ) *static* |
 | `ImageTexture` | [texture](#method-texture)() |
 | `Image` | [get_image](#method-get-image)() |
 | `int` | [zone_at_world](#method-zone-at-world)( `x: float, z: float` ) |
@@ -62,6 +63,10 @@ The default zone of the world (0 = none): it is everywhere nothing else is, so t
 ### ZoneMap build( zone_ids: Array[int], default_zone: int, map_rect: Rect2, terrain: Object, volumes: Array ) {#method-build}
 
 Makes the picture. `zone_ids` are the zones of the world (the picture holds them, and any other zone it finds painted), `default_zone` the default zone of the world (0 = none), `map_rect` the area of the world it covers, `terrain` a ChronicleTerrain (or null), `volumes` the ZoneVolumes of the world.
+
+### AABB world_box_of( volume: Node3D ) {#method-world-box-of}
+
+The box round the shape of a volume, in the world (an empty box when it has no shape)
 
 ### ImageTexture texture() {#method-texture}
 

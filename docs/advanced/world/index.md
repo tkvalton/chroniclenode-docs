@@ -85,6 +85,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [WorldData](/advanced/world/world-data/world-data) | Pure data storage for world information Contains only world metadata, spawn points, and references to unique objects |
 | [ZoneDefinition](/advanced/world/world-data/zone-definition) | A **zone**: a named place of the map ("Elderwood", "The Sunken Caves", "Port Haven"). |
 | [ZoneLookup](/advanced/world/world-data/zone-lookup) | What is known about the zones from the database alone: who is whose parent, the chain of a zone, its full name. |
+| [ZoneMapEntry](/advanced/world/world-data/zone-map-entry) | The picture of one zone, made for the world map: a top-down picture (a file in the maps folder of the world) and the area of the world it covers (a square), so any place of the world is a place of the picture and a marker can be put on it where its thing really is. |
 <!-- /classes -->
 
 ### World configs
@@ -150,6 +151,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 | [WeatherScreen](/advanced/world/runtime/weather-screen) | The screen look of a weather while it changes: a blend of two ScreenLooks (the weather coming in, going out, a shelter weakening it). |
 | [WeatherSystem](/advanced/world/runtime/weather-system) | Deals with weather application logic: which weather is wanted (an event's choice, else the world's), the particles that fall, the wind, the ground (TerrainWeatherDriver) and the sky, fog and light the weather is laid on (WorldSkyEnvironment.set_weather_look, see WeatherLook) |
 | [WorldContainer](/advanced/world/runtime/world-container) | Lightweight coordinator for world management Handles world transitions and delegates object queries to the current WorldScene |
+| [WorldMapMaker](/advanced/world/runtime/world-map-maker) | What is worked out and written when the pictures of a world's map are made (the buttons Generate Map Preview, Generate Zone Maps and Generate Reference Sheet of the WorldScene): which area each zone's picture covers and how high the camera goes, where the files go and what they are called, and the reference sheet a person who draws a stylized map traces. |
 | [WorldScene](/advanced/world/runtime/world-scene) | WorldScene manages all objects within a specific map/scene Handles object discovery, tracking, and provides query methods |
 | [WorldSkyEnvironment](/advanced/world/runtime/world-sky-environment) | Preloaded stylized sky shader |
 | [WorldSun](/advanced/world/runtime/world-sun) | The sun of the game: a DirectionalLight3D that follows the game clock. |
