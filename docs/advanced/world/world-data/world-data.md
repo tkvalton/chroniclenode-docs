@@ -24,6 +24,7 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `Array[int]` | [zones](#prop-zones) | `[]` |
 | `int` | [default_zone_id](#prop-default-zone-id) | `0` |
 | `Texture` | [map_image](#prop-map-image) |  |
+| `Rect2` | [map_rect](#prop-map-rect) | `Rect2()` |
 | `Texture` | [loading_screen_texture_override](#prop-loading-screen-texture-override) |  |
 | `AudioAlbum` | [audio_album](#prop-audio-album) |  |
 | `String` | [default_music_track](#prop-default-music-track) | `""` |
@@ -147,6 +148,10 @@ The zone of the whole map, wherever no zone is painted and no zone volume holds 
 ### Texture map_image {#prop-map-image}
 
 Low Quality map image (read-only in editor, for preview)
+
+### Rect2 map_rect = Rect2() {#prop-map-rect}
+
+The area of the world (x, z in metres) that map_image shows: the corner and the size, a square. Set when the map preview is made (it covers the terrain). An empty rectangle = the square of the scene's minimap size round the origin, as before. The world map window places the zones and the party on the picture with it
 
 ### Texture loading_screen_texture_override {#prop-loading-screen-texture-override}
 

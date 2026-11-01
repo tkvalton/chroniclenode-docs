@@ -114,6 +114,7 @@ const basicSystems = [
           page('The Unique Object tool', '/basic/world/unique-object-tool'),
           page('Trigger areas', '/basic/world/trigger-areas'),
           page('Zones', '/basic/world/zones'),
+          page('World map', '/basic/world/world-map'),
           page('Spawn tables', '/basic/world/spawn-tables'),
           page('Spawners', '/basic/world/spawners'),
           page('Movement volumes', '/basic/world/movement-volumes'),
@@ -168,11 +169,11 @@ const basicSystems = [
   system('Entity Stats', 'entity-stats', [
     ['Stats', 'stats', 'stats'],
     ['Pool', 'pool', 'pool_stats'],
-    ['Calculations', 'calculations', 'calculations'],
     ['Proficiencies', 'proficiencies', 'proficiencies'],
     ['Growth Profiles', 'growth-profiles', 'growth_profiles'],
     ['Trigger Tags', 'trigger-tags', 'trigger_tags'],
     ['Stat Groups', 'stat-groups', 'stat_groups'],
+    ['Calculations', 'calculations', 'calculations'],
   ], {
     after: [page('Stat recipes', '/basic/entity-stats/stat-recipes')],
   }),

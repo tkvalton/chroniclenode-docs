@@ -48,7 +48,7 @@ The demo has three: *Test Dungeon*, *Test World* and *Tutorial*.
 
 ### Map preview
 
-A small picture of the world, shown for you. It is made by the **Generate Map Preview** button of the scene (a top-down capture), not by this editor.
+A picture of the world from above, shown for you and used by the in-game [world map](/basic/world/world-map). It is made by the **Generate Map Preview** button of the scene (a capture straight down over the terrain), not by this editor; the area it covers is stored with it.
 
 ### Config overrides
 

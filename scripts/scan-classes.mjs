@@ -180,6 +180,7 @@ const SYSTEMS = {
           ['runtime_classes/world/weather_system.gd', false],
           ['runtime_classes/world/weather_exposure.gd', false],
           ['runtime_classes/world/weather_ground.gd', false],
+          ['runtime_classes/world/zone_map.gd', false],
           ['runtime_classes/world/weather_screen.gd', false],
           ['runtime_classes/world/shelter_volume.gd', false],
           ['runtime_classes/world/shelter.gd', false],

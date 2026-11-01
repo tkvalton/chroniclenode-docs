@@ -453,6 +453,18 @@ export const groups = [
         "base": "MarginContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\panels\\shared_panel_components\\title_ui.gd",
         "file": "ui_scenes/in_game/panels/shared_panel_components/title_ui.gd"
+      },
+      {
+        "name": "WorldMapPanelUI",
+        "base": "PanelUI",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\panels\\world_map\\world_map_panel_ui.gd",
+        "file": "ui_scenes/in_game/panels/world_map/world_map_panel_ui.gd"
+      },
+      {
+        "name": "WorldMapView",
+        "base": "Control",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\ui_scenes\\in_game\\panels\\world_map\\world_map_view.gd",
+        "file": "ui_scenes/in_game/panels/world_map/world_map_view.gd"
       }
     ]
   },

@@ -11,9 +11,10 @@ A panel is opened by a **panel key**, by its button on the [mini menu](/basic/us
 | **Character** | [`CharacterPanelUI`](/advanced/user-interface/panels/character-panel-ui) | 1 | **K** | The equipment slots around a 3D preview of the character, a switch between **stats** and **active effects**, and the **inventory** (the bag) |
 | **Spellbook** | [`SpellBookPanelUI`](/advanced/user-interface/panels/spell-book-panel-ui) | 2 | **P** | The abilities the character knows (drag them to the action bar) and the [skill trees](/basic/abilities-and-effects/skill-trees) |
 | **Quest log** | [`QuestLogPanelUI`](/advanced/user-interface/panels/quest-log-panel-ui) | 3 | **L** | The quests in progress and their objectives |
+| **World map** | [`WorldMapPanelUI`](/advanced/user-interface/panels/world-map-panel-ui) | 4 | **M** | The world from above with its zones: hover a zone, click it to zoom into it, a marker for the party. See [World map](/basic/world/world-map) |
 | **Combat report** | [`CombatReportPanelUI`](/advanced/user-interface/panels/combat-report-panel-ui) | none | `/report` | The fights the game kept, their events, and the export to a file. See [Chat](/basic/game-settings/chat#the-combat-report) |
 
-The key is not stored on the panel: a panel stores a **number** (1 to 20), and the key is the input action `panel_keybind_N` in the Input Map. That is how a player can rebind a key without touching the interface. Number 4 (**M**) is left for a map panel.
+The key is not stored on the panel: a panel stores a **number** (1 to 20), and the key is the input action `panel_keybind_N` in the Input Map. That is how a player can rebind a key without touching the interface. Number 4 (**M**) is the world map.
 
 ## Options of a panel
 

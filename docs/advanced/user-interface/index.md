@@ -174,6 +174,8 @@ The editor needs to know what an interface scene holds (to check the root class 
 | [SpellBookAbilityUI](/advanced/user-interface/panels/spell-book-ability-ui) | One ability in the spellbook: its icon and name. |
 | [SpellBookPanelUI](/advanced/user-interface/panels/spell-book-panel-ui) | Spell Book Panel UI - Container for abilities and skill tree Follows the new architecture pattern: setup once, signals handle updates Contains AbilityPanelUI for spells and future SkillTree panel |
 | [TitleUI](/advanced/user-interface/panels/title-ui) | The title bar of a window: the name of the panel and, when `has_exit_button` is on, a button that closes it (`exit_button_pressed`). |
+| [WorldMapPanelUI](/advanced/user-interface/panels/world-map-panel-ui) | The world map window: the picture of the world with its zones laid over it. |
+| [WorldMapView](/advanced/user-interface/panels/world-map-view) | The map itself, for the world map window: the picture of the world with the zones laid over it (the shader world_map.gdshader reads the ZoneMap), the names of the zones, the marker of the party, and the mouse: the zone under the mouse lights up (`zone_hovered`), a click on it (`zone_clicked`) is for the window to open its map. |
 <!-- /classes -->
 
 ### Tooltips

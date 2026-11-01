@@ -33,6 +33,7 @@ WorldScene manages all objects within a specific map/scene Handles object discov
 |---|---|
 | `Dictionary` | [get_world_objects](#method-get-world-objects)() |
 | `AABB` | [get_scene_bounds](#method-get-scene-bounds)() |
+| `Rect2` | [get_map_rect](#method-get-map-rect)() |
 | `String` | [get_terrain_surface_type](#method-get-terrain-surface-type)( `target_position: Vector3` ) |
 | `Dictionary` | [get_ground_hit](#method-get-ground-hit)( `position: Vector3` ) |
 | `int` | [get_world_id](#method-get-world-id)() |
@@ -128,6 +129,10 @@ Get world objects from live scene tree at runtime Always collects current instan
 ### AABB get_scene_bounds() {#method-get-scene-bounds}
 
 Get the bounds of the entire scene (uses same area as minimap)
+
+### Rect2 get_map_rect() {#method-get-map-rect}
+
+The area of the world (x, z) the map picture shows: a square round the terrain when the scene has one, else the square of the minimap size. Its corner is on the grid of 4 m, the cell of the zones
 
 ### String get_terrain_surface_type( target_position: Vector3 ) {#method-get-terrain-surface-type}
 

@@ -407,6 +407,12 @@ export const groups = [
         "file": "runtime_classes/world/world_sun.gd"
       },
       {
+        "name": "ZoneMap",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\zone_map.gd",
+        "file": "runtime_classes/world/zone_map.gd"
+      },
+      {
         "name": "ZoneTracker",
         "base": "Node",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\world\\zone_tracker.gd",
