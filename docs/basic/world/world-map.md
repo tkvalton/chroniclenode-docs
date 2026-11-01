@@ -26,7 +26,7 @@ All of it is done by buttons in the Inspector of the world scene (the **WorldSce
 
 It takes the picture with an **orthogonal camera straight down** over the area of your **terrain** (a square round it; a world with no terrain uses the square of the *Minimap size*), at the **Map preview quality** you chose, and saves it as **`world.png`**. The terrain is drawn **whole** for the picture, not only the part the editor camera sees. An orthogonal camera is what makes the picture line up with the zones: every place of the picture is the same place of the world whatever its height (a perspective camera slides the hills sideways). Older pictures were taken that way; make them again. The area is stored with the picture (**Map rect**, in the world's data).
 
-The mini map of the game is a separate thing (the **Generate Minimap** button makes tiles of pictures for a camera that follows the player), made with the same kind of capture.
+The mini map of the game is a separate thing, made with the same kind of capture: see [The mini map](#the-mini-map) below.
 
 Until a picture is made the map shows the zones over a flat colour, so you can try it at once.
 
@@ -41,6 +41,21 @@ Press **Generate Zone Maps** and every zone of the world that has ground gets a 
 - Each picture and its area is an entry of `WorldData.zone_maps` (a **Zone Map Entry**: the zone, the picture, the rect and **Is custom**). A zone that was deleted or has no ground any more loses its entry; an entry marked **Is custom** is never touched.
 
 Make sure the whole terrain is there (in the editor it is) and that the zones are painted and the zone volumes placed before you press it. It takes a few seconds for each zone.
+
+## The mini map
+
+The mini map in the corner of the screen is made from tiles. **Generate Minimap** (group **Minimap Settings** of the world scene) takes a grid of pictures of the world and lays them as flat tiles on their own layer; the mini map camera follows the party over them. The settings:
+
+| Setting | What it does | Default |
+|---|---|---|
+| **Fit Size to Terrain** | A button: sets the size and the middle of the minimap to the area of the terrain of the scene. A world with no terrain keeps the numbers you typed | |
+| **Minimap Size** | The side of the square the minimap covers, in metres (type it by hand for a world with no terrain) | 512 |
+| **Minimap Center** | The middle of that square (x, z). It is set by Fit Size to Terrain for a terrain that is not built round the origin | 0, 0 |
+| **Minimap Grid Divisions** | How many tiles a side | 4 |
+| **Minimap Image Size** | The pixels of each tile | 512 x 512 |
+| **Minimap Capture Layers** | The layers that are photographed | layer 1 |
+
+**Fit Size to Terrain** also tells you how sharp the tiles will be (metres to a pixel) and warns when they are blurry: for a big terrain raise the grid divisions or the image size, then press **Generate Minimap** again. The size and middle are also what the fog of war covers.
 
 ## Aligned and to scale
 
