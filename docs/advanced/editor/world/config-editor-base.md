@@ -4,7 +4,7 @@
 
 **Inherits:** [ResourceEditor](/advanced/editor/base/resource-editor) < [Control](https://docs.godotengine.org/en/stable/classes/class_control.html)
 
-**Inherited by:** [EnvironmentConfigEditor](/advanced/editor/world/environment-config-editor), [ShelterEditor](/advanced/editor/world/shelter-editor), [SkyConfigEditor](/advanced/editor/world/sky-config-editor), [SunConfigEditor](/advanced/editor/world/sun-config-editor), [TimeConfigEditor](/advanced/editor/world/time-config-editor), [WeatherEditor](/advanced/editor/world/weather-editor)
+**Inherited by:** [EnvironmentConfigEditor](/advanced/editor/world/environment-config-editor), [ShelterEditor](/advanced/editor/world/shelter-editor), [SkyConfigEditor](/advanced/editor/world/sky-config-editor), [SunConfigEditor](/advanced/editor/world/sun-config-editor), [TimeConfigEditor](/advanced/editor/world/time-config-editor), [WeatherEditor](/advanced/editor/world/weather-editor), [WeatherTableEditor](/advanced/editor/world/weather-table-editor)
 
 The base of the editors of the world configs (Time, Sun, Sky, Environment, Weather), built like the other editors of the toolkit: a scene with the list of the configs on the left (the shared EditorFileList with its New button) and the settings on the right in a container for each group. The scene is hand built; the fields in it are the field components (ConfigField: number, toggle, option, colour, vector) placed in the containers, each with the name of the property it shows. This script opens a config in all of them, saves every change, and does what the lists of all the editors do (new, duplicate, delete).
 

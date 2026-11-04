@@ -26,6 +26,11 @@ The **Zones** section of the Worlds editor: the named places of ONE world (Elder
 | `SpinBox` | [snow_scale_spin](#var-snow-scale-spin) |  |
 | `OptionButton` | [sky_option](#var-sky-option) |  |
 | `OptionButton` | [environment_option](#var-environment-option) |  |
+| `OptionButton` | [weather_rule_option](#var-weather-rule-option) |  |
+| `OptionButton` | [weather_option](#var-weather-option) |  |
+| `OptionButton` | [weather_table_option](#var-weather-table-option) |  |
+| `HBoxContainer` | [weather_option_row](#var-weather-option-row) |  |
+| `HBoxContainer` | [weather_table_row](#var-weather-table-row) |  |
 | `SpinBox` | [blend_spin](#var-blend-spin) |  |
 | `CheckBox` | [replace_check](#var-replace-check) |  |
 | `ColorPickerButton` | [tint_button](#var-tint-button) |  |
@@ -117,6 +122,26 @@ Something of the world changed (the zone list, the default zone): the editor sav
 *No description yet.*
 
 ### OptionButton environment_option {#var-environment-option}
+
+*No description yet.*
+
+### OptionButton weather_rule_option {#var-weather-rule-option}
+
+*No description yet.*
+
+### OptionButton weather_option {#var-weather-option}
+
+*No description yet.*
+
+### OptionButton weather_table_option {#var-weather-table-option}
+
+*No description yet.*
+
+### HBoxContainer weather_option_row {#var-weather-option-row}
+
+*No description yet.*
+
+### HBoxContainer weather_table_row {#var-weather-table-row}
 
 *No description yet.*
 

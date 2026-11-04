@@ -4,12 +4,13 @@
 
 **Inherits:** [EventAction](/advanced/events-and-quests/bases/event-action) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Action to change the current map's weather at runtime
+Action to change the current map's weather at runtime: for the whole world, or only for the zone the party is in. It wins over the weather and the tables of the zones and of the world, and stays until a Release Weather action takes it away. See docs: World &gt; Weather &gt; Events.
 
 ## Properties
 
 | | | |
 |---|---|---|
+| `Scope` | [scope](#prop-scope) | `Scope.WORLD` |
 | `WeatherConfig` | [weather_config](#prop-weather-config) |  |
 | `VFXSelectionWeather` | [weather_selection](#prop-weather-selection) |  |
 | `float` | [intensity](#prop-intensity) | `1.0` |
@@ -23,7 +24,20 @@ Action to change the current map's weather at runtime
 | `Dictionary` | [save](#method-save)() |
 | `void` | [load_data](#method-load-data)( `data: Dictionary` ) |
 
+## Enumerations
+
+### enum Scope {#enum-scope}
+
+Where the weather is set: the whole world, or the zone the party is in now (and the zones in it; the weather of the other zones does not change)
+
+- **WORLD** = `0`
+- **CURRENT_ZONE** = `1`
+
 ## Property descriptions
+
+### Scope scope = Scope.WORLD {#prop-scope}
+
+Where the weather is set. Current Zone needs the party to be in a zone; outside the zones it is set for the whole world
 
 ### WeatherConfig weather_config {#prop-weather-config}
 

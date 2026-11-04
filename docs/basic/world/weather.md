@@ -157,6 +157,10 @@ So **Light rain** is the Rain weather at 0.3, with no second weather to keep in 
 
 Five weathers are made for the five [weather effects](/basic/assets/vfx#the-weather-effects-that-come-with-the-toolkit): **Rain**, **Thunderstorm**, **Wind and leaves**, **Snow** and **Blizzard**. Each has its particles, wind, ground (wet, or covered with snow), a darker sky, a dimmer sun, thicker fog, a look for the screen and its kinds of sound (`rain`, `rain, wind`, `wind`, `snow`, `snow, wind`) already set. They come with no tracks of their own: add your rain recording in the **Sound** container. Change them or make your own from one.
 
+## Weather in places
+
+The weather of a world is not always one weather. A [zone](/basic/world/zones#weather-for-each-zone) can have a weather of its own (snow on the mountain, a clear sky in the desert), and a world or a zone can have a [weather table](/basic/world/weather-tables) that picks a weather by weight and changes it when its time is up. The [Set Weather](/basic/events-and-quests/event-actions) action can set the weather for the whole world or only for the zone the party is in, and **Release Weather** gives it back to the zones and the world.
+
 ## Using a weather
 
 - **The weather of a world**: **Worlds > Weather**, the list *Default weather*. It starts when the party enters the world. **Clear** is no weather.

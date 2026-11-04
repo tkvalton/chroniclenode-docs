@@ -151,6 +151,8 @@ const SYSTEMS = {
           ['data_classes/world/unique_spawner_data.gd', false],
           ['data_classes/world/shelter_profile.gd', false],
           ['data_classes/world/shelter_weather_sound.gd', false],
+          ['data_classes/world/weather_table.gd', false],
+          ['data_classes/world/weather_table_entry.gd', false],
           ['data_classes/world/zone_map_entry.gd', false],
           ['data_classes/zones', true],
         ],

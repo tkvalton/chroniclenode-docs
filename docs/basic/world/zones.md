@@ -88,6 +88,19 @@ A zone can have a **sky** and an **environment** of its own: a swamp with a gree
 - **A world that has just been loaded** shows the zone the party stands in at once (no blend from the world's look).
 - **Look at it in the editor:** the [Environment Debugger](/basic/world/world-configs#see-it-in-the-editor) has **Look at**: the world, or any of its zones, with the sky and environment that zone has. **Use for this zone** gives the zone the look you are looking at. To see the blend, walk it in the game.
 
+## Weather for each zone
+
+A zone can have a **weather** of its own, so the mountains are snowing while the valley is dry. In **Zones** the zone has a **Weather** choice:
+
+| Choice | What the zone has |
+|---|---|
+| **Same as the zone above, or the world** (the default) | The weather of the zone it is a part of, then the weather or table of the world |
+| **A clear sky** | No weather, whatever the world has (a cave, a desert) |
+| **A weather** | Always that [weather](/basic/world/weather) |
+| **A table of weathers** | One weather picked from a [weather table](/basic/world/weather-tables), and another when its time is up. The zone's table is used instead of the world's |
+
+The weather changes when the party walks into the zone, as a fade over the fade seconds of the weather. The rain that falls is the weather of the zone the party is in, and the ground, the sky, the fog, the wind and the sound follow it. An **event** that sets the weather wins over the zones: see [Weather tables](/basic/world/weather-tables#events) for the Set Weather scopes (the whole world, or the current zone) and Release Weather. Use the condition **Party is in zone** to make an event act in a zone.
+
 ## What the party sees and what the game can ask
 
 The game looks at the player in control a few times a second. When the zone changes:

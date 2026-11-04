@@ -875,6 +875,12 @@ export const groups = [
         "file": "data_classes/events/event_actions/enviromental/create_vfx_action.gd"
       },
       {
+        "name": "ReleaseWeatherAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\enviromental\\release_weather_action.gd",
+        "file": "data_classes/events/event_actions/enviromental/release_weather_action.gd"
+      },
+      {
         "name": "ScreenLookAction",
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\enviromental\\screen_look_action.gd",

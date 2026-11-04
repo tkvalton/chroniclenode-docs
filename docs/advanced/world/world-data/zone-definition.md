@@ -31,6 +31,9 @@ Where a zone is, is not stored here: it is painted on the terrain (the zone laye
 | `float` | [music_volume_db](#prop-music-volume-db) | `0.0` |
 | `Array[String]` | [ambience_tracks](#prop-ambience-tracks) | `[]` |
 | `float` | [ambience_volume_db](#prop-ambience-volume-db) | `0.0` |
+| `WeatherRule` | [weather_rule](#prop-weather-rule) | `WeatherRule.INHERIT` |
+| `int` | [weather_config_id](#prop-weather-config-id) | `0` |
+| `int` | [weather_table_id](#prop-weather-table-id) | `0` |
 | `bool` | [show_banner](#prop-show-banner) | `true` |
 | `String` | [banner_subtitle](#prop-banner-subtitle) | `"":` |
 
@@ -40,6 +43,17 @@ Where a zone is, is not stored here: it is painted on the terrain (the zone laye
 |---|---|
 | `bool` | [has_screen_look](#method-has-screen-look)() |
 | `ScreenLook` | [make_screen_look](#method-make-screen-look)() |
+
+## Enumerations
+
+### enum WeatherRule {#enum-weatherrule}
+
+What the weather of this zone is: **Inherit** (the weather of the zone above it, then the world's), **Clear** (no weather here, whatever the world has), **Fixed** (the weather below) or **Table** (a weather picked from the table below, changing when its time is up). An event that sets the weather wins over the zones. See docs: World &gt; Zones &gt; Weather
+
+- **INHERIT** = `0`
+- **CLEAR** = `1`
+- **FIXED** = `2`
+- **TABLE** = `3`
 
 ## Property descriptions
 
@@ -110,6 +124,18 @@ The ambient sound this zone plays (wind in a pass, water in a cave, crickets in 
 ### float ambience_volume_db = 0.0 {#prop-ambience-volume-db}
 
 How loud the ambient sound of the zone is (dB)
+
+### WeatherRule weather_rule = WeatherRule.INHERIT {#prop-weather-rule}
+
+What the weather of this zone is (see WeatherRule above)
+
+### int weather_config_id = 0 {#prop-weather-config-id}
+
+The weather of this zone when the rule is Fixed: the id of a Weather config (World Configs &gt; Weather)
+
+### int weather_table_id = 0 {#prop-weather-table-id}
+
+The table of weathers of this zone when the rule is Table: the id of a Weather table (World Configs &gt; Weather Tables)
 
 ### bool show_banner = true {#prop-show-banner}
 

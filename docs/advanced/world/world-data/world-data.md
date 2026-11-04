@@ -33,6 +33,7 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `String` | [default_ambient_track](#prop-default-ambient-track) | `""` |
 | `WeatherConfig` | [default_weather_config](#prop-default-weather-config) |  |
 | `VFXSelectionWeather` | [default_weather](#prop-default-weather) |  |
+| `WeatherTable` | [default_weather_table](#prop-default-weather-table) |  |
 | `float` | [ground_wet_seconds](#prop-ground-wet-seconds) | `20.0` |
 | `float` | [ground_dry_seconds](#prop-ground-dry-seconds) | `240.0` |
 | `float` | [ground_snow_seconds](#prop-ground-snow-seconds) | `120.0` |
@@ -193,6 +194,10 @@ The weather this world starts with (a Weather config of the project). Empty = cl
 ### VFXSelectionWeather default_weather {#prop-default-weather}
 
 The old weather selection of a world. The World editor turns it into a Weather config the first time the world is opened; until then it is used as it is
+
+### WeatherTable default_weather_table {#prop-default-weather-table}
+
+A table of weathers instead of one: the weather of the world is picked from it by weight and changes when its time is up (World Configs &gt; Weather Tables). It wins over the default weather above. A zone can have a weather or a table of its own. Empty = the default weather above
 
 *Ground Weather*
 

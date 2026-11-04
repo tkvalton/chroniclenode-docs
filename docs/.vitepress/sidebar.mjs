@@ -94,6 +94,7 @@ const basicSystems = [
     ['Environment', 'environment-config', 'environment_config'],
     ['Weather', 'weather', 'weather'],
     ['Shelters', 'shelter', 'shelter'],
+    ['Weather Tables', 'weather-tables', 'weather_table'],
     ['Uniques', 'uniques', 'uniques'],
   ], {
     after: [

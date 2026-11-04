@@ -47,6 +47,18 @@ export const groups = [
         "file": "data_classes/world/unique_spawner_data.gd"
       },
       {
+        "name": "WeatherTable",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\weather_table.gd",
+        "file": "data_classes/world/weather_table.gd"
+      },
+      {
+        "name": "WeatherTableEntry",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\weather_table_entry.gd",
+        "file": "data_classes/world/weather_table_entry.gd"
+      },
+      {
         "name": "WorldData",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\world_data.gd",

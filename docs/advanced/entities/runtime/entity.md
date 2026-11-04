@@ -210,6 +210,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `bool` | [is_drowning](#method-is-drowning)() |
 | `void` | [set_submerged](#method-set-submerged)( `value: bool` ) |
 | `void` | [restore_breath](#method-restore-breath)() |
+| `int` | [get_navigation_domain](#method-get-navigation-domain)() |
 | `GameHost.SystemHub` | [get_system_hub](#method-get-system-hub)() |
 | `void` | [entity_face_direction](#method-entity-face-direction)( `look_at_direction: Vector3, speed: int = FaceTargetSpeed.INSTANT` ) |
 | `void` | [entity_look_at_object](#method-entity-look-at-object)( `object: Node3D, speed: int = FaceTargetSpeed.INSTANT` ) |
@@ -1348,6 +1349,10 @@ Tells the entity it is under water (or needs air) this frame: a movement volume 
 ### void restore_breath() {#method-restore-breath}
 
 Gives the breath back at once (a potion, a breath of air): nothing is left of the drowning
+
+### int get_navigation_domain() {#method-get-navigation-domain}
+
+Where this entity can go (EntityDefinition.NavigationDomain): the party members are always amphibious, an NPC goes by its definition
 
 ### GameHost.SystemHub get_system_hub() {#method-get-system-hub}
 

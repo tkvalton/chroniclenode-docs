@@ -36,6 +36,7 @@ The path-finding and movement of an NPC: a navigation agent that moves the entit
 | `Vector3` | [previous_position](#var-previous-position) | `Vector3.ZERO` |
 | `bool` | [was_on_floor](#var-was-on-floor) | `true` |
 | `bool` | [direction_needs_update](#var-direction-needs-update) | `false` |
+| `int` | [navigation_domain](#var-navigation-domain) | `EntityDefinition.NavigationDomain.AMPHIBIOUS` |
 | `Vector3` | [original_target_position](#var-original-target-position) | `Vector3.ZERO` |
 | `float` | [current_speed](#var-current-speed) | `5.0` |
 | `Vector3` | [movement_target](#var-movement-target) | `Vector3.ZERO` |
@@ -225,6 +226,10 @@ True when the entity was on the floor on the last step.
 ### bool direction_needs_update = false {#var-direction-needs-update}
 
 True when the direction of the path must be worked out again.
+
+### int navigation_domain = EntityDefinition.NavigationDomain.AMPHIBIOUS {#var-navigation-domain}
+
+Where this entity can go (EntityDefinition.NavigationDomain): it picks the navigation map, and a water-only creature does not walk
 
 ### Vector3 original_target_position = Vector3.ZERO {#var-original-target-position}
 

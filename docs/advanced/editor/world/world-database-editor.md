@@ -20,6 +20,7 @@ The editor of the Worlds tab (World &gt; Worlds): lists the world scenes with a 
 | `ResourceManager` | [resource_manager](#var-resource-manager) |  |
 | `DialogManager` | [dialog_manager](#var-dialog-manager) |  |
 | `OptionButton` | [weather_config_option](#var-weather-config-option) | `null` |
+| `OptionButton` | [weather_table_option](#var-weather-table-option) | `null` |
 
 ## Methods
 
@@ -70,6 +71,10 @@ The Zones section (made in code)
 ### OptionButton weather_config_option = null {#var-weather-config-option}
 
 The list of the default weather of the world: a weather of the project (World Configs &gt; Weather), or clear
+
+### OptionButton weather_table_option = null {#var-weather-table-option}
+
+The list of weather tables of the world: a table instead of one weather (World Configs &gt; Weather Tables)
 
 ## Method descriptions
 

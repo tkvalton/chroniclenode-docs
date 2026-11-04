@@ -15,6 +15,7 @@ EntityDefinition contains all visual, audio, and display configuration for entit
 | `PackedScene` | [entity_model](#prop-entity-model) |  |
 | `Vector3` | [model_scale](#prop-model-scale) | `Vector3(1.0, 1.0, 1.0)` |
 | `EntityCollisionShape` | [entity_collision_shape](#prop-entity-collision-shape) | `EntityCollisionShape.NORMAL` |
+| `NavigationDomain` | [navigation_domain](#prop-navigation-domain) | `NavigationDomain.AMPHIBIOUS` |
 | `Texture2D` | [footprint_texture](#prop-footprint-texture) |  |
 | `String` | [animation_type](#prop-animation-type) | `""` |
 | `Array[String]` | [animation_packages](#prop-animation-packages) | `["core", "ability_animations", "transitions"]` |
@@ -69,6 +70,14 @@ EntityDefinition contains all visual, audio, and display configuration for entit
 - **NORMAL** = `2`
 - **LARGE** = `3`
 
+### enum NavigationDomain {#enum-navigationdomain}
+
+Where the navigation of an entity goes (NavigationController): **Amphibious** walks and swims (the default: it never enters lava, it crosses deep water by swimming), **Land** walks only (it goes round deep water and lava), **Water** lives in the water and cannot walk (a fish, a sea monster: it moves over the surface of the water and is stuck on land). The party is always amphibious. See docs: World &gt; Movement volumes &gt; Navigation.
+
+- **AMPHIBIOUS** = `0`
+- **LAND** = `1`
+- **WATER** = `2`
+
 ## Constants
 
 - `Dictionary` **COLLISION_SIZES** = `{` - The capsule of every collision shape: x = radius, y = height, z = how high the capsule's centre is above the entity's feet. The one table the collision, the navigation bake and the navigation agents read.
@@ -91,7 +100,7 @@ Collision shape size category for physics interactions
 
 ### NavigationDomain navigation_domain = NavigationDomain.AMPHIBIOUS {#prop-navigation-domain}
 
-Where this kind of entity can go (read by the NavigationController): `AMPHIBIOUS` walks and swims (never enters lava), `LAND` walks only (goes round deep water and lava), `WATER` lives in the water and cannot walk. The party members are always amphibious: ask `Entity.get_navigation_domain()`. See [Terrain navigation](/basic/world/terrain-navigation#water-lava-and-where-npcs-can-go)
+Where this kind of entity can go: walk and swim (Amphibious), walk only (Land) or swim only (Water). The party members are always Amphibious
 
 ### Texture2D footprint_texture {#prop-footprint-texture}
 

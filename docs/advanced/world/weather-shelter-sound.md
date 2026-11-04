@@ -2,6 +2,14 @@
 
 This page is for developers who want to read or extend the parts of the weather that reach the screen, the people and the ears. The pages for designers are [Weather](/basic/world/weather), [Shelters](/basic/world/shelter) and [Sound layers](/basic/world/sound-layers).
 
+## Local weather: which weather is wanted
+
+`WeatherSystem._wanted()` answers which weather the camera has now. In this order, the first that applies: an event for the zone (`_zone_events`: zone id to weather, for the zone the party is in or a zone above it, innermost first), an event for the world (`_current_config` / `_current_selection`), the weather of the zone (`ZoneLookup.get_weather_owner`: the zone or the nearest zone above it whose `weather_rule` is not Inherit; Clear = null, Fixed = `weather_config_id`, Table = a pick of the table `weather_table_id`), the table of the world (`WorldData.default_weather_table`), the default weather of the world. `get_current_config()` and `get_current_selection()` both read it, so the ground, the sky, the wind, the sound and the exposed effects follow.
+
+- **Tables.** `WeatherTable` is a database kind (`weather_table`, `src/data/worlds/weather_tables/`) of `WeatherTableEntry` lines (`weather_config_id`, `weight`, `min_minutes`, `max_minutes`). `_rolled` keeps the pick for each place (a zone id, 0 = the world): the weather and the seconds left. `tick()` (every 0.25 s) counts them down; one whose time is up is dropped and the weather is looked at again, which picks anew. The picks are not saved. `_rng` is a `RandomNumberGenerator` (a test sets its seed).
+- **A change.** `refresh()` compares `_wanted()` with `_shown` (set by `_apply_weather`) and, when it is another, calls `_begin_transition(seconds)`: the same fade as `transition_to_weather` (the look, the wind, the ground and the sound over the seconds, the particles of the old weather stop in the first half, the new start in the second; a newer change stops an older one). The zone tracker's `zone_changed` calls `on_zone_changed`; within four seconds of the world being entered it snaps (0 s) instead of fading from the weather of the world.
+- **Events.** `set_weather` / `transition_to_weather` set the event for the world; `set_zone_weather(weather, camera, seconds, scale)` the event for the innermost zone of the party (false when it is in none); `release_weather(scope, seconds)` (`WeatherSystem.Scope`: WORLD, CURRENT_ZONE, ALL) takes them away and resets the intensity scale. `SetWeatherAction` has a `scope`; `ReleaseWeatherAction` is the other action.
+
 ## The pieces
 
 | Class | Kind | What it does |

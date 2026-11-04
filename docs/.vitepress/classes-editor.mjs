@@ -1037,6 +1037,18 @@ export const groups = [
         "file": "editor_components/editors/world/weather_preview.gd"
       },
       {
+        "name": "WeatherTableEditor",
+        "base": "ConfigEditorBase",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\weather_table_editor.gd",
+        "file": "editor_components/editors/world/weather_table_editor.gd"
+      },
+      {
+        "name": "WeatherTableEntryForm",
+        "base": "ConfigForm",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\weather_table_entry_form.gd",
+        "file": "editor_components/editors/world/weather_table_entry_form.gd"
+      },
+      {
         "name": "WorldDatabaseEditor",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\world_database_editor.gd",

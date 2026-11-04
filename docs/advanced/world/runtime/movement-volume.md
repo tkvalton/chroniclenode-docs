@@ -41,6 +41,7 @@ a cloud. The Water and Lava presets come with a shader of the toolkit.
 | `Submerged` | [holds_breath_when](#prop-holds-breath-when) | `Submerged.HEAD_UNDER_SURFACE` |
 | `float` | [head_height](#prop-head-height) | `1.6` |
 | `Array[int]` | [effects_inside](#prop-effects-inside) | `[]` |
+| `NavigationRule` | [navigation](#prop-navigation) | `NavigationRule.WALK_THROUGH` |
 | `float` | [flow_strength](#prop-flow-strength) | `0.0:` |
 | `Vector3` | [flow_direction](#prop-flow-direction) | `Vector3(0.0, 0.0, -1.0):` |
 | `bool` | [flow_pushes_walkers](#prop-flow-pushes-walkers) | `false` |
@@ -97,6 +98,14 @@ Who the volume works on
 - **EVERYONE** = `0`
 - **PLAYERS** = `1`
 - **NPCS** = `2`
+
+### enum NavigationRule {#enum-navigationrule}
+
+What the navigation of NPCs does with the volume: **Walk Through** (nothing: shallow water, a flow), **Avoid When Deep** (land creatures go round the part of the volume that is deeper than the wade depth; water creatures swim in it), **Never** (nobody walks in it: lava)
+
+- **WALK_THROUGH** = `0`
+- **AVOID_WHEN_DEEP** = `1`
+- **NEVER** = `2`
 
 ### enum Submerged {#enum-submerged}
 
@@ -185,6 +194,12 @@ How high above its feet the head of an entity is (to know when it is under the s
 ### Array[int] effects_inside = [] {#prop-effects-inside}
 
 Effects that are on every entity inside while it is inside (a damage over time for lava, a slow). They are put back when they end, and taken off when the entity leaves
+
+*Navigation*
+
+### NavigationRule navigation = NavigationRule.WALK_THROUGH {#prop-navigation}
+
+What the navigation of NPCs does with this volume (see the bake of the terrain): Walk Through, Avoid When Deep (water: land creatures go round where it is deeper than the wade depth, water creatures swim in it) or Never (lava: no NPC walks in it). The Water preset is Avoid When Deep and the Lava preset Never. The terrain navigation has to be baked again to show it
 
 *Flow*
 

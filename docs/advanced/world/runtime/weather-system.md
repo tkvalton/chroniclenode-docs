@@ -4,7 +4,7 @@
 
 **Inherits:** [Node](https://docs.godotengine.org/en/stable/classes/class_node.html)
 
-Deals with weather application logic: which weather is wanted (an event's choice, else the world's), the particles that fall, the wind, the ground (TerrainWeatherDriver) and the sky, fog and light the weather is laid on (WorldSkyEnvironment.set_weather_look, see WeatherLook)
+Deals with weather application logic: which weather is wanted (an event's choice for the zone, an event's choice for the world, the weather or table of the zone the party is in, the weather or table of the world), the particles that fall, the wind, the ground (TerrainWeatherDriver) and the sky, fog and light the weather is laid on (WorldSkyEnvironment.set_weather_look, see WeatherLook)
 
 ## Variables
 
@@ -36,6 +36,10 @@ Deals with weather application logic: which weather is wanted (an event's choice
 | `void` | [set_intensity](#method-set-intensity)( `scale: float, seconds: float = 3.0` ) |
 | `WeatherConfig` | [get_current_config](#method-get-current-config)() |
 | `VFXSelectionWeather` | [get_current_selection](#method-get-current-selection)() |
+| `void` | [on_zone_changed](#method-on-zone-changed)( `_old_zone_id: int, _new_zone_id: int` ) |
+| `void` | [refresh](#method-refresh)( `seconds: float = -1.0` ) |
+| `bool` | [set_zone_weather](#method-set-zone-weather)( `weather: Resource, camera_controller: CameraController, seconds: float, scale: float = 1.0` ) |
+| `void` | [release_weather](#method-release-weather)( `scope: int, seconds: float = 5.0` ) |
 | `void` | [set_weather](#method-set-weather)( `weather: Resource, camera_controller: CameraController, scale: float = 1.0` ) |
 | `void` | [stop_world_weather](#method-stop-world-weather)() |
 | `void` | [transition_to_weather](#method-transition-to-weather)( `new_weather: Resource, camera_controller: CameraController, transition_duration: float = 5.0, scale: float = 1.0` ) |
@@ -53,9 +57,20 @@ Deals with weather application logic: which weather is wanted (an event's choice
 
 The camera went into a shelter, or out of one (null = the open)
 
+## Enumerations
+
+### enum Scope {#enum-scope}
+
+Which weather a release takes away: the weather an event set for the whole world, the weather it set for the current zone, or both (and every zone's)
+
+- **WORLD** = `0`
+- **CURRENT_ZONE** = `1`
+- **ALL** = `2`
+
 ## Constants
 
 - `float` **DEFAULT_FADE_SECONDS** = `10.0` - How many seconds a look takes to change when a weather does not say
+- `int` **ENTRY_SNAP_MSEC** = `4000`
 - `String` **SCREEN_KEY** = `"weather"` - The key of the layer the weather has in the camera look
 - `float` **TICK_INTERVAL** = `0.25` - How often (seconds) the world is checked for the shelter of the camera
 - `float` **SHELTER_SOUND_SECONDS** = `1.5` - Seconds the sound takes to change when the camera goes into a shelter or comes out
@@ -142,11 +157,27 @@ Makes the weather lighter or heavier while it lasts (`scale` 0 to 1 times the in
 
 ### WeatherConfig get_current_config() {#method-get-current-config}
 
-The weather that is wanted now: the one an event chose, else the default one of the world (null = clear)
+The weather that is wanted now (null = clear): see _wanted
 
 ### VFXSelectionWeather get_current_selection() {#method-get-current-selection}
 
 The particles and the wind of the weather wanted now, as the spawner of the weather VFX takes them (null = clear)
+
+### void on_zone_changed( _old_zone_id: int, _new_zone_id: int ) {#method-on-zone-changed}
+
+The party walked into another zone (the zone tracker says so): the weather of the zone is looked at
+
+### void refresh( seconds: float = -1.0 ) {#method-refresh}
+
+Looks at which weather is wanted and changes into it if it is another one than is shown. `seconds` &lt; 0 = the fade seconds of the weather that comes (of the one that goes when it is a clear sky)
+
+### bool set_zone_weather( weather: Resource, camera_controller: CameraController, seconds: float, scale: float = 1.0 ) {#method-set-zone-weather}
+
+An event sets the weather for the zone the party is in (and the zones in it): it stays until it is released. Returns false when the party is in no zone (nothing was set)
+
+### void release_weather( scope: int, seconds: float = 5.0 ) {#method-release-weather}
+
+Takes away what events set: `scope` is Scope.WORLD (the weather set for the whole world), CURRENT_ZONE (the one set for the zone the party is in, or the nearest zone above it that has one) or ALL (both, and every zone's). The weather then goes back to the zones and the world
 
 ### void set_weather( weather: Resource, camera_controller: CameraController, scale: float = 1.0 ) {#method-set-weather}
 
