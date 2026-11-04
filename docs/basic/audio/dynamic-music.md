@@ -42,7 +42,7 @@ The list is on the left (**New**; right-click for **Duplicate**, **Delete** and 
 | | **Then** | When the part does not loop: the part that follows. None = the music ends and the music below takes over | none |
 | | **Volume** | How loud the part is | 0 dB |
 | | **Layers** | A list of stems: **Name**, **File**, **Volume**, **Plays from intensity** (0 = always) | none |
-| **States** | **Name** | The name the game asks for. A state called **Combat** is chosen by itself while the party fights | |
+| **States** | **Name** | The name the game asks for. A state called **Combat** is chosen by itself while the party fights, and states called **Day** and **Night** by the sun (see [Day and night](#day-and-night)) | |
 | | **Plays** | The part that plays in the state | the first part |
 | | **Intensity** | The intensity the music goes to when the state starts. -1 = leave it as it is | -1 |
 | **Transitions** | **Default transition** | The rule for a change that no rule below fits | at the next bar, cross fade 2 beats |
@@ -86,6 +86,15 @@ The [sound layers](/basic/world/sound-layers) decide which one plays, as always.
 ### A boss phase
 
 The phases of a boss ([Combat scripts](/basic/behaviors/combat-scripts#phases-boss-fights)) run their **on enter actions** when they start. Put **Set Music State** in them: phase one enters *Phase 1*, phase two (health below 50 %) enters *Phase 2*, and the music follows the fight. The Dynamic Music is the **Combat music** of the encounter, so it ends with the fight and the music of the place comes back.
+
+## Day and night
+
+A Dynamic Music that has states called **Day** and **Night** follows the sun (the Sun config of the world: night is from the sunset to the sunrise):
+
+- It **starts** in the state of the time when its source names no start state.
+- When the sun **sets or rises** it goes to the other one, if it is in its Day or Night state.
+- A **fight** still takes it to Combat, and when the fight is over it goes back to the state of the time.
+- A source that names a **start state**, and an event that asks for a state (**Set Music State**), are not changed by the sun: the music stays in the state that was asked for.
 
 ## Hearing it without the game
 

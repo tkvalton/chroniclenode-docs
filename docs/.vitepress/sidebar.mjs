@@ -236,6 +236,7 @@ const basicSystems = [
           page('5. A boss fight with dynamic music', '/basic/audio/guides/a-boss-fight-with-dynamic-music'),
           page('6. Music that follows the story', '/basic/audio/guides/music-that-follows-the-story'),
           page('7. A voice for your creatures', '/basic/audio/guides/a-voice-for-your-creatures'),
+          page('8. Day and night', '/basic/audio/guides/day-and-night'),
         ],
       },
     ],

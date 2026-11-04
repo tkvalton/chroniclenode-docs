@@ -20,6 +20,7 @@ The sun of the game: a DirectionalLight3D that follows the game clock. Its PATH 
 
 | | |
 |---|---|
+| `SunConfig` | [get_sun_path](#method-get-sun-path)() |
 | `void` | [update_sun_position](#method-update-sun-position)( `current_time: float` ) |
 | `void` | [update_light_energy](#method-update-light-energy)( `current_time: float` ) |
 | `void` | [update_light_color](#method-update-light-color)( `current_time: float` ) |
@@ -50,6 +51,10 @@ Does the sun follow the clock? (false = a sun that stays where it is)
 How much of its light the sun gives while a weather dims it (1 = all of it, 0 = none: an overcast storm)
 
 ## Method descriptions
+
+### SunConfig get_sun_path() {#method-get-sun-path}
+
+The path the sun follows now (what the sound reads to know when it is night)
 
 ### void update_sun_position( current_time: float ) {#method-update-sun-position}
 

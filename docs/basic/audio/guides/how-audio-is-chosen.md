@@ -35,7 +35,7 @@ Wherever the editor asks for music, it is a **sound source**:
 | **Album** | A [Music Album](/basic/audio/music-albums): many tracks in an order |
 | **Dynamic** | A [Dynamic Music](/basic/audio/dynamic-music): music that changes with the game |
 
-Ambient sound is a track only.
+Ambient sound is a track only. Any source (except a menu's) can be **different at night**: see [Day and night](/basic/audio/guides/day-and-night).
 
 ### The track window
 

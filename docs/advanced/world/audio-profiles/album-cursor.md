@@ -6,6 +6,12 @@
 
 Picks the tracks of a SoundAlbum one at a time, in the order the album says. It remembers what played, so a shuffle plays every track before one comes again, and says when the album is over (a looping album is never over).
 
+## Variables
+
+| | | |
+|---|---|---|
+| `bool` | [night](#var-night) | `false` |
+
 ## Methods
 
 | | |
@@ -13,6 +19,12 @@ Picks the tracks of a SoundAlbum one at a time, in the order the album says. It 
 | `AlbumTrack` | [next](#method-next)() |
 | `bool` | [is_finished](#method-is-finished)() |
 | `void` | [reset](#method-reset)() |
+
+## Variable descriptions
+
+### bool night = false {#var-night}
+
+Is it night? The tracks that play by day or by night only are left out of the round when they do not fit (the AudioManager changes it when the sun goes down; the track that plays goes on to its end)
 
 ## Method descriptions
 

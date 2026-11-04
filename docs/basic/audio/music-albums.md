@@ -24,7 +24,7 @@ The list is on the left (with **New**; right-click for **Duplicate**, **Delete**
 | | **Volume** | How loud the album is, on top of the volume of each track | 0 dB |
 | | **Fade** | Seconds one track fades into the next and the album takes to come in. -1 = the project default ([Gameplay Config > Audio](/basic/game-settings/gameplay-config#audio)) | -1 |
 | | **Restart each fight** | Combat music only: each fight begins with the first track again (on) or goes on where it was (off) | on |
-| **Tracks** | the list | Each track is a file of the [audio library](/basic/audio/sound-library): **...** opens the track window with a preview. Each has a **Weight** (how likely it is in the weighted order: a track of 3 comes up three times as often as a track of 1; 0 = never) and a **Volume** | |
+| **Tracks** | the list | Each track is a file of the [audio library](/basic/audio/sound-library): **...** opens the track window with a preview. Each has a **Weight** (how likely it is in the weighted order: a track of 3 comes up three times as often as a track of 1; 0 = never), **Plays** (any time, **day only** or **night only**: the sun decides, see [Day and night](#day-and-night)) and a **Volume** | |
 | **Warnings** | | What is probably a mistake: an album with no track, a track with no file or a file that is not in the project, a weighted album where no track has a weight | |
 
 ## A sound source
@@ -37,6 +37,18 @@ Wherever the game asks for music, combat music or an ambient sound, you fill in 
 | **Track** | One track of the audio library, with **Loop** (on: it plays again when it ends; off: it plays once and then the place below takes over), **Pause** (the silence before a looping track plays again, a random time between two numbers; 0 = it loops with no break), **Volume** and **Fade** |
 | **Album** | A music album (or a combat album) of the project. The album has its own loop, pauses and fades; the source adds a **Volume** and a **Fade** |
 | **Dynamic** | A [Dynamic Music](/basic/audio/dynamic-music): music that changes with the game, and the state it starts in. Music and combat music only |
+
+Under the choices, **Different at night** gives the source a second source of its own for the night (see [Day and night](#day-and-night)).
+
+## Day and night
+
+A sound source can have a **night version**, and the tracks of an album can belong to the day or the night. The sound follows **the sun**: it is night between the sunset and the sunrise of the [Sun config](/basic/world/world-configs) of the world (6:00 and 20:30 to begin with), and a sun with no day night cycle never sets.
+
+- **Different at night** (on any source except a menu's) shows a second source called **At night**: a track, an album or a Dynamic Music with its own options. It plays from sunset to sunrise instead of the source above, and the sound crossfades when the sun goes down and comes up. A night source that says nothing is ignored.
+- **Plays** on a track of an album: *Any time*, *Day only* or *Night only*. The album picks from the tracks that fit the time; when the sun sets, the track that plays goes on to its end and the next one is picked from the night ones. An album with no track for the time plays all of them.
+- A [Dynamic Music](/basic/audio/dynamic-music#day-and-night) with states called **Day** and **Night** goes to them by itself.
+
+See the guide [8. Day and night](/basic/audio/guides/day-and-night).
 
 ## Combat music
 

@@ -29,7 +29,7 @@ The World Assets tab (Assets &gt; World Assets): the scenes of `res://src/data/w
 
 ## Constants
 
-- `String` **FOLIAGE_FOLDER** = `"res://src/data/worlds/foliage/foliage/"` - The folders of the foliage library: what the terrain tool scatters (shown here, not changed here)
+- `String` **FOLIAGE_FOLDER** = `PlacementKinds.FOLIAGE_FOLDER` - The folders of the foliage library: what the terrain tool scatters (shown here, not changed here)
 - `String` **SCATTER_FOLDER** = `"res://src/data/worlds/foliage/ground_scatter/"`
 - `String` **FOLIAGE_CATEGORY** = `"Foliage (Foliage tab)"` - The names of the categories that show the foliage library
 - `String` **SCATTER_CATEGORY** = `"Ground scatter (Foliage tab)"`

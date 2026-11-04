@@ -20,6 +20,7 @@ Where a sound comes from: one track with its own options, an album, or a Dynamic
 | `float` | [delay_max](#prop-delay-max) | `0.0` |
 | `float` | [volume_db](#prop-volume-db) | `0.0` |
 | `float` | [fade_seconds](#prop-fade-seconds) | `-1.0` |
+| `SoundSource` | [night_source](#prop-night-source) | `null` |
 
 ## Methods
 
@@ -28,6 +29,8 @@ Where a sound comes from: one track with its own options, an album, or a Dynamic
 | `SoundSource` | [of_track](#method-of-track)( `path: String, p_loop: bool = true, p_volume_db: float = 0.0` ) *static* |
 | `SoundSource` | [of_album](#method-of-album)( `p_album_id: int` ) *static* |
 | `SoundSource` | [of_dynamic](#method-of-dynamic)( `p_dynamic_id: int, p_start_state: String = ""` ) *static* |
+| `SoundSource` | [for_time](#method-for-time)( `night: bool` ) |
+| `bool` | [has_content](#method-has-content)() |
 | `bool` | [is_set](#method-is-set)() |
 | `SoundAlbum` | [get_album](#method-get-album)() |
 | `DynamicMusic` | [get_dynamic](#method-get-dynamic)() |
@@ -91,6 +94,10 @@ How loud it is (dB)
 
 The seconds the sound takes to come in when this source starts (-1 = the project's default)
 
+### SoundSource night_source = null {#prop-night-source}
+
+What plays at night instead of this (the day) source: a source of its own (a track, an album or a Dynamic Music with its options). Null = the same all day and all night. The sun decides when it is night (TimeOfDay: between the sunset and the sunrise of the Sun config), and the sound changes over the fade of the source that starts
+
 ## Method descriptions
 
 ### SoundSource of_track( path: String, p_loop: bool = true, p_volume_db: float = 0.0 ) {#method-of-track}
@@ -104,6 +111,14 @@ A source that is an album
 ### SoundSource of_dynamic( p_dynamic_id: int, p_start_state: String = "" ) {#method-of-dynamic}
 
 A source that is a Dynamic Music, starting in a state (empty = its start state)
+
+### SoundSource for_time( night: bool ) {#method-for-time}
+
+The source that plays at this time: the night source at night when it says something, else this one
+
+### bool has_content() {#method-has-content}
+
+Does this source, or its night source, say anything? (a layer keeps a source that only has a night version)
 
 ### bool is_set() {#method-is-set}
 

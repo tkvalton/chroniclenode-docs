@@ -12,6 +12,7 @@ One track of a Music Album: the file, how likely it is to be picked (for the wei
 |---|---|---|
 | `String` | [path](#prop-path) | `""` |
 | `float` | [weight](#prop-weight) | `1.0` |
+| `TimeOfDay.PlaysAt` | [plays_at](#prop-plays-at) | `TimeOfDay.PlaysAt.ANY` |
 | `float` | [volume_db](#prop-volume-db) | `0.0` |
 
 ## Methods
@@ -30,6 +31,10 @@ The track (a file of the audio library)
 ### float weight = 1.0 {#prop-weight}
 
 How likely the track is compared with the others when the album picks by weight (a track of 3 comes up three times as often as a track of 1; 0 = never)
+
+### TimeOfDay.PlaysAt plays_at = TimeOfDay.PlaysAt.ANY {#prop-plays-at}
+
+When the track plays: any time, by day only or by night only (the sun decides, see TimeOfDay). An album with no track for the time plays all of them
 
 ### float volume_db = 0.0 {#prop-volume-db}
 

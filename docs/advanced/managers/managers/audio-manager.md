@@ -57,6 +57,7 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambience_
 | `SoundLayers` | [sound_layers](#var-sound-layers) | `SoundLayers.new()` |
 | `SoundLayers` | [combat_layers](#var-combat-layers) | `SoundLayers.new()` |
 | `bool` | [party_in_combat](#var-party-in-combat) | `false` |
+| `bool` | [is_night](#var-is-night) | `false` |
 | `bool` | [ui_sfx_initialized](#var-ui-sfx-initialized) | `false` |
 | `bool` | [gameplay_sfx_initialized](#var-gameplay-sfx-initialized) | `false` |
 | `bool` | [world_audio_initialized](#var-world-audio-initialized) | `false` |
@@ -98,6 +99,9 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambience_
 | `void` | [start_world_sound](#method-start-world-sound)( `world_data: WorldData` ) |
 | `void` | [preload_tracks](#method-preload-tracks)( `paths: PackedStringArray` ) |
 | `void` | [set_party_in_combat](#method-set-party-in-combat)( `value: bool` ) |
+| `void` | [connect_time](#method-connect-time)( `chrono: ChronoManager, sun: WorldSun` ) |
+| `void` | [refresh_time_of_day](#method-refresh-time-of-day)( `instant: bool = false` ) |
+| `void` | [set_night](#method-set-night)( `night: bool, instant: bool = false` ) |
 | `void` | [connect_party](#method-connect-party)( `party: PartyManager` ) |
 | `void` | [set_sound_sources](#method-set-sound-sources)( `layer: SoundLayers.Layer, music: SoundSource, ambience: SoundSource, fade_duration: float = -1.0, ambience_gain_db: float = 0.0` ) |
 | `void` | [set_combat_source](#method-set-combat-source)( `layer: SoundLayers.Layer, source: SoundSource, fade_duration: float = -1.0` ) |
@@ -137,6 +141,12 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambience_
 | `void` | [stop_all_audio](#method-stop-all-audio)() |
 | `void` | [pause_all_audio](#method-pause-all-audio)() |
 | `void` | [resume_all_audio](#method-resume-all-audio)() |
+
+## Signals
+
+### time_of_day_changed( night: bool ) {#signal-time-of-day-changed}
+
+The sun went down or came up (the sources with a night version have crossfaded)
 
 ## Enumerations
 
@@ -250,6 +260,10 @@ The layers of the combat music: the world, the zone and the encounter (the encou
 ### bool party_in_combat = false {#var-party-in-combat}
 
 True while a member of the party is in combat (PartyManager.party_combat_changed), and for a few seconds after
+
+### bool is_night = false {#var-is-night}
+
+Is it night (the sun has set)? The sources that have a night version play it, the albums leave out the tracks that play by day only, and a Dynamic Music with a state called Night goes to it (see TimeOfDay)
 
 ### bool ui_sfx_initialized = false {#var-ui-sfx-initialized}
 
@@ -396,6 +410,18 @@ Asks for files to be loaded in the background, so a source that starts later fin
 ### void set_party_in_combat( value: bool ) {#method-set-party-in-combat}
 
 The party enters or leaves a fight (PartyManager). The combat music starts at once and ends after a few seconds without a fight (Gameplay Config &gt; Audio)
+
+### void connect_time( chrono: ChronoManager, sun: WorldSun ) {#method-connect-time}
+
+Listens to the clock and the sun: each game minute it looks whether the sun has set or risen (called once by the game host)
+
+### void refresh_time_of_day( instant: bool = false ) {#method-refresh-time-of-day}
+
+Looks at the sun and the clock now: night between the sunset and the sunrise of the sun in use, and a static sun is always day. `instant` changes the sound at once, with no fade
+
+### void set_night( night: bool, instant: bool = false ) {#method-set-night}
+
+The sound goes to the night (or the day): the sources with a night version crossfade to it, the cursors of the albums that play pick tracks that fit the time from now on (the track that plays goes on to its end), and a Dynamic Music that is in its Day or Night state goes to the other
 
 ### void connect_party( party: PartyManager ) {#method-connect-party}
 

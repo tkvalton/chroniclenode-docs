@@ -22,7 +22,7 @@ The **right side** shows the selected scene in 3D, turned the way you drag it (d
 The scenes and meshes of the [Foliage](/basic/assets/foliage) tab (the trees, bushes and rocks the terrain paints, and the grass and pebbles it scatters) are in the list as two categories of their own, **Foliage (Foliage tab)** and **Ground scatter (Foliage tab)**. You can look at them here with the same preview. They are **made and changed in the Foliage tab** (their numbers, their groups, their materials), so an import never puts a file in them: it goes to the asset folder.
 
 ::: tip One scene, two ways to place it
-A scene in `world_assets/` is placed by hand with the Assets button. A scene in the foliage folder is painted by the terrain tool. They are different things (a painted tree is drawn in bulk with thousands of others; a placed one is a scene of its own with all its nodes), so keep each scene in the folder of the way you want to use it.
+The **Assets** button of the placement tool lists the scenes of `world_assets/` **and the foliage scenes** (category *Foliage*), so either kind can be placed by hand. A foliage scene placed by hand is a normal instance of the scene with all its nodes; the foliage tools of the terrain editor paint the same scene **drawn in bulk** with thousands of others. Choose by what you need: placed by hand to put one tree exactly where you want it, painted to fill a forest.
 :::
 
 ## Good to know
