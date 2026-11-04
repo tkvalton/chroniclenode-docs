@@ -299,6 +299,12 @@ export const groups = [
         "file": "data_classes/audio/sound_source_holder.gd"
       },
       {
+        "name": "VoiceCalls",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\voice_calls.gd",
+        "file": "data_classes/audio/voice_calls.gd"
+      },
+      {
         "name": "VoicelineSubtitles",
         "base": "Resource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\voiceline_subtitles.gd",

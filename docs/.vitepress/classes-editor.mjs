@@ -1085,6 +1085,12 @@ export const groups = [
         "file": "editor_components/editors/audio/dynamic_music_preview.gd"
       },
       {
+        "name": "EntityVoiceEditor",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\audio\\entity_voice_editor.gd",
+        "file": "editor_components/editors/audio/entity_voice_editor.gd"
+      },
+      {
         "name": "MusicChoiceForm",
         "base": "ConfigForm",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\audio\\music_choice_form.gd",

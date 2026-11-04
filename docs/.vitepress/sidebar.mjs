@@ -217,6 +217,7 @@ const basicSystems = [
     ['Sound Library', 'sound-library', 'audio'],
     ['Music Albums', 'music-albums', 'sound_album'],
     ['Dynamic Music', 'dynamic-music', 'dynamic_music'],
+    ['Entity Voices', 'entity-voices', 'entity_voices'],
   ], {
     before: [
       {
@@ -230,6 +231,7 @@ const basicSystems = [
           page('4. Your first music album', '/basic/audio/guides/your-first-music-album'),
           page('5. A boss fight with dynamic music', '/basic/audio/guides/a-boss-fight-with-dynamic-music'),
           page('6. Music that follows the story', '/basic/audio/guides/music-that-follows-the-story'),
+          page('7. A voice for your creatures', '/basic/audio/guides/a-voice-for-your-creatures'),
         ],
       },
     ],

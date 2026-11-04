@@ -585,6 +585,7 @@ What is turning the entity: its own navigation (it faces where it walks) or dire
 
 ## Constants
 
+- `float` **HEAVY_HIT_SHARE** = `0.25` - A hit that takes this share of the entity's health at once is a heavy hit (the voice call Hit, heavy)
 - `float` **GROUND_CHECK_INTERVAL** = `0.25` - How often the ground under the entity is looked at (seconds).
 - `float` **MOVING_SPEED_THRESHOLD** = `0.1` - Horizontal speed (units per second) above which the entity counts as moving
 - `int` **ANIMATION_FOOTSTEP_GRACE_MSEC** = `2000` - Seconds an animation call keeps the footsteps made from movement quiet (the animations make their own)

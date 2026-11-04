@@ -35,6 +35,14 @@ SFX_CATEGORIES lists the categories (music, ambience, UI, voices, voicelines, fo
 | `Array[String]` | [get_available_movements](#method-get-available-movements)( `entity_type: String, surface: String` ) *static* |
 | `Array[String]` | [get_available_voice_entities](#method-get-available-voice-entities)() *static* |
 | `Array[String]` | [get_available_voice_variants](#method-get-available-voice-variants)( `entity_type: String` ) *static* |
+| `bool` | [is_valid_voice_name](#method-is-valid-voice-name)( `folder_name: String` ) *static* |
+| `Array[String]` | [get_voice_files](#method-get-voice-files)( `entity_type: String, voice_variant: String, call_name: String` ) *static* |
+| `Dictionary` | [get_voice_report](#method-get-voice-report)( `entity_type: String, voice_variant: String` ) *static* |
+| `String` | [create_voice_type](#method-create-voice-type)( `entity_type: String` ) *static* |
+| `String` | [create_voice_variant](#method-create-voice-variant)( `entity_type: String, voice_variant: String` ) *static* |
+| `String` | [create_voice_call_folder](#method-create-voice-call-folder)( `entity_type: String, voice_variant: String, call_name: String` ) *static* |
+| `Dictionary` | [import_voice_files](#method-import-voice-files)( `entity_type: String, voice_variant: String, call_name: String, file_paths: PackedStringArray` ) *static* |
+| `Array[String]` | [get_voice_usage](#method-get-voice-usage)( `entity_type: String, voice_variant: String` ) *static* |
 | `Array[String]` | [get_available_voice_actions](#method-get-available-voice-actions)( `entity_type: String, voice_variant: String` ) *static* |
 | `AudioStream` | [get_random_voiceline_audio](#method-get-random-voiceline-audio)( `character_name: String, language: String = ""` ) *static* |
 | `AudioStream` | [get_voiceline_audio](#method-get-voiceline-audio)( `character_name: String, file_name: String, language: String = ""` ) *static* |
@@ -56,6 +64,7 @@ SFX_CATEGORIES lists the categories (music, ambience, UI, voices, voicelines, fo
 - `Dictionary` **SFX_CATEGORIES** = `{` - ========== Audio CATEGORY DEFINITIONS ========== Organized by source/origin: Tracks, UI, Character Audio, Ability Audio, World Audio
 - `Dictionary` **FOLDER_HELP** = `{` - What the folder name of each category is for, in plain words (the Audio tab shows it when you add a folder)
 - `Dictionary` **SECTIONS** = `{` - The words of the sections of the Audio tab, and which categories belong to each
+- `String` **VOICES_PATH** = `"res://src/data/audio/entity_voices/"` - The folder of the voices
 
 ## Method descriptions
 
@@ -142,6 +151,38 @@ Get all discovered entity types for voices
 ### Array[String] get_available_voice_variants( entity_type: String ) {#method-get-available-voice-variants}
 
 Get all available voice variants for a specific entity
+
+### bool is_valid_voice_name( folder_name: String ) {#method-is-valid-voice-name}
+
+Is this a name a voice folder can have (letters, numbers, underscores, hyphens; not empty)?
+
+### Array[String] get_voice_files( entity_type: String, voice_variant: String, call_name: String ) {#method-get-voice-files}
+
+The files of a call of a voice (the folder called exactly that), empty when there are none
+
+### Dictionary get_voice_report( entity_type: String, voice_variant: String ) {#method-get-voice-report}
+
+What a voice has, against the voice calls: &#123;calls: &#123;name: &#123;files, folder, via&#125;&#125;, custom: [folder names that are no call], missing_required: [names], missing: [names]&#125;. `folder` is the folder that has the files of the call (the call or an older name), `via` the call that stands in for it when it has none ("" when it has its own or nothing stands in)
+
+### String create_voice_type( entity_type: String ) {#method-create-voice-type}
+
+Makes the folder of a new kind of creature (an entity type with voices). The error in words, "" when it was made
+
+### String create_voice_variant( entity_type: String, voice_variant: String ) {#method-create-voice-variant}
+
+Makes the folder of a new voice of an entity type
+
+### String create_voice_call_folder( entity_type: String, voice_variant: String, call_name: String ) {#method-create-voice-call-folder}
+
+Makes the folder of a call of a voice (an empty folder to put the files in)
+
+### Dictionary import_voice_files( entity_type: String, voice_variant: String, call_name: String, file_paths: PackedStringArray ) {#method-import-voice-files}
+
+Copies sound files from anywhere into the folder of a call of a voice (the folder is made when it is not there). Returns &#123;imported, skipped, error&#125; as import_files does
+
+### Array[String] get_voice_usage( entity_type: String, voice_variant: String ) {#method-get-voice-usage}
+
+Who uses a voice: the NPCs, characters and player classes whose voice is `entity_type/voice_variant`, as "NPC: Goblin"
 
 ### Array[String] get_available_voice_actions( entity_type: String, voice_variant: String ) {#method-get-available-voice-actions}
 

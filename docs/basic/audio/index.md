@@ -6,6 +6,7 @@ The **Audio** category of the editor is everything you hear: the files of the ga
 |---|---|---|
 | [Sound Library](/basic/audio/sound-library) | Music, ambience, voices, footsteps, ability and world sounds, as files; the Import button, the folders, the interface sounds | `src/data/audio/` |
 | [Music Albums](/basic/audio/music-albums) | Collections of tracks with an order, pauses and fades; the **sound sources** (a track, an album or a Dynamic Music) that worlds, zones, weather, encounters, events and menus play; the music of the menus | `src/data/audio/albums/sound_albums/` |
+| [Entity Voices](/basic/audio/entity-voices) | The voices of creatures lined up with the calls the game makes (hit, death, dodge ...): which files each voice has, what is missing, import and play | `src/data/audio/entity_voices/` |
 | [Dynamic Music](/basic/audio/dynamic-music) | Music that changes with the game: parts with a tempo, layers, states, transitions and stingers; boss phases and events change its state | `src/data/audio/dynamic_music/` |
 
 Three more pages belong here, although they are about sound in the world:
@@ -16,7 +17,7 @@ Three more pages belong here, although they are about sound in the world:
 
 ## The guides
 
-Six short [guides](/basic/audio/guides/) take you from a file on your disk to a boss fight with music that changes: importing audio, choosing file types, how audio is chosen, your first album, a dynamic boss fight, and music that follows the story.
+Seven short [guides](/basic/audio/guides/) take you from a file on your disk to a boss fight with music that changes: importing audio, choosing file types, how audio is chosen, your first album, a dynamic boss fight, music that follows the story, and a voice for your creatures.
 
 ## Where to start
 

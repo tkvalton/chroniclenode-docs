@@ -16,6 +16,7 @@ In this guide you follow a sound from the library to the speaker: the four ways 
 | **Music or ambience of a place** (world, zone, weather, encounter, event, menu) | A **sound source** | A field with **None / Track / Album / Dynamic** |
 | **The tracks of an album** | Files of the library | The **track window**: category, type, a list, **Preview**, **Import files...** |
 | **A 3D sound in the world** | A file | The **Sound path** of the node, with the same track window |
+| **The voice of an ability** (a shout) | An *action* name | The **Voice Cast SFX**: the creature plays that name from its own [voice](/basic/audio/entity-voices) |
 
 ### Sound selections: by name, picked at random
 

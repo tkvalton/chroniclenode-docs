@@ -123,6 +123,7 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambience_
 | `void` | [stop_audio_from_requester](#method-stop-audio-from-requester)( `requester_id: String` ) |
 | `void` | [return_3d_audio_player](#method-return-3d-audio-player)( `player: AudioStreamPlayer3D` ) |
 | `AudioStream` | [get_sfx](#method-get-sfx)( `category: String, type: String` ) |
+| `bool` | [has_voice](#method-has-voice)( `voice: String, action: String` ) |
 | `AudioStream` | [get_footstep](#method-get-footstep)( `entity_type: String, surface: String, movement: String` ) |
 | `AudioStream` | [get_voice](#method-get-voice)( `voice: String, action: String` ) |
 | `bool` | [play_sfx_at_position](#method-play-sfx-at-position)( `audio: AudioStream, position: Vector3, volume_db: float = 0.0, pitch_scale: float = 1.0` ) |
@@ -495,6 +496,10 @@ Manual cleanup for a specific player (when stopping mid-playback)
 ### AudioStream get_sfx( category: String, type: String ) {#method-get-sfx}
 
 Get random SFX audio from cache
+
+### bool has_voice( voice: String, action: String ) {#method-has-voice}
+
+Does the voice ("entity type/variant") have files for this action?
 
 ### AudioStream get_footstep( entity_type: String, surface: String, movement: String ) {#method-get-footstep}
 

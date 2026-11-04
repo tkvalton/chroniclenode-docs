@@ -23,7 +23,7 @@ An imported file is a normal Godot file: it needs a moment to be imported by God
 | **Music** | `music/` | `loop/` and `non_loop/` | [Music Albums](/basic/audio/music-albums), and the music of worlds, zones, weather, encounters, events and the menus |
 | **Atmospheric ambience** | `atmospheric_ambience/` | `loop/` and `non_loop/` | The ambient sound of worlds, zones, weather and shelters. 2D background sounds: rain, wind, birds |
 | **UI SFX** | `ui_sfx/` | One folder for each interface sound | Buttons, windows, item moves |
-| **Entity voices** | `entity_voices/` | `<entity type>/<voice variant>/<action>/` | Grunts, yells and reactions in combat; the **voice** of an [NPC](/basic/entities/npcs) or character |
+| **Entity voices** | `entity_voices/` | `<entity type>/<voice variant>/<call>/` | Grunts, yells and reactions in combat; the **voice** of an [NPC](/basic/entities/npcs) or character. Lined up with the calls of the game in [Entity Voices](/basic/audio/entity-voices) |
 | **Voicelines** | `voicelines/` | One folder for each character; a folder of a language inside it for the recordings in that language | Spoken lines in [conversations](/basic/behaviors/conversations), speak interactions, quests and events. See [voice lines in other languages](/basic/game-settings/localization#voice-lines-in-other-languages) |
 | **Motion** | `motion/` | `<entity type>/<surface>/<movement>/` | Footsteps and movement sounds, by the ground the entity walks on and how it moves |
 | **Casting** | `casting/` | A folder for each sound | The wind-up of a cast |

@@ -18,7 +18,7 @@ These settings are shared by all four, under the heading of the base use strateg
 | Field | What it does |
 |---|---|
 | **On Cast Animation** | The animation played when the ability completes |
-| **Voice Cast SFX** | The voice line played when it completes |
+| **Voice Cast SFX** | The voice sound played when it completes: an *action* name (`shout`), played from the voice of whoever uses the ability. See [Entity Voices](/basic/audio/entity-voices#your-own-calls) |
 | **On Cast SFX** | The sound played when it completes |
 | **Cast VFX** | The visual effect shown when it completes |
 | **Ability Telegraph** | A visual that shows the ability's area or target *before* it happens, so the player can see where it lands |

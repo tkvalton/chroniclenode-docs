@@ -1,6 +1,6 @@
 # Guides: audio
 
-Six short guides on getting sound into the game and making it work. Each one is about ten to twenty minutes, adds one idea, and ends with something you can hear. They go in order, but each stands on its own.
+Seven short guides on getting sound into the game and making it work. Each one is about ten to twenty minutes, adds one idea, and ends with something you can hear. They go in order, but each stands on its own.
 
 | Guide | You do | New idea |
 |---|---|---|
@@ -10,6 +10,7 @@ Six short guides on getting sound into the game and making it work. Each one is 
 | [4. Your first music album](/basic/audio/guides/your-first-music-album) | A world with an album of music, a zone with its own track and a fight with combat music | Albums, orders and pauses, combat albums, menu music |
 | [5. A boss fight with dynamic music](/basic/audio/guides/a-boss-fight-with-dynamic-music) | A boss whose music changes with its phases, with drums that come in | Parts, states, layers, intensity, transitions, a boss phase action |
 | [6. Music that follows the story](/basic/audio/guides/music-that-follows-the-story) | A scene whose music turns tense, a stinger on a discovery | Events that change the state, stingers, intensity |
+| [7. A voice for your creatures](/basic/audio/guides/a-voice-for-your-creatures) | An orc that grunts, dies and shouts in its own voice | Voices, the calls of the game, your own calls, checking a voice |
 
 Everything is in the editor and nothing needs code. You can follow them in the [template project](/general/template).
 
