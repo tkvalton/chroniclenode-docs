@@ -11,6 +11,7 @@ The Music Albums tab (Audio &gt; Music Albums): the list of the albums on the le
 | | |
 |---|---|
 | `void` | [setup_managers](#method-setup-managers)( `p_resource_manager: ResourceManager, p_dialog_manager: DialogManager` ) |
+| `PackedStringArray` | [get_used_by_texts](#method-get-used-by-texts)() |
 | `PackedStringArray` | [get_warning_texts](#method-get-warning-texts)() |
 
 ## Constants
@@ -22,6 +23,10 @@ The Music Albums tab (Audio &gt; Music Albums): the list of the albums on the le
 ### void setup_managers( p_resource_manager: ResourceManager, p_dialog_manager: DialogManager ) {#method-setup-managers}
 
 *Overrides this function of [ConfigEditorBase](/advanced/editor/world/config-editor-base).*
+
+### PackedStringArray get_used_by_texts() {#method-get-used-by-texts}
+
+The places now: what is in the container (for the tests)
 
 ### PackedStringArray get_warning_texts() {#method-get-warning-texts}
 

@@ -26,6 +26,7 @@ The list is on the left (with **New**; right-click for **Duplicate**, **Delete**
 | | **Restart each fight** | Combat music only: each fight begins with the first track again (on) or goes on where it was (off) | on |
 | **Tracks** | the list | Each track is a file of the [audio library](/basic/audio/sound-library): **...** opens the track window with a preview. Each has a **Weight** (how likely it is in the weighted order: a track of 3 comes up three times as often as a track of 1; 0 = never), **Plays** (any time, **day only** or **night only**: the sun decides, see [Day and night](#day-and-night)) and a **Volume** | |
 | **Warnings** | | What is probably a mistake: an album with no track, a track with no file or a file that is not in the project, a weighted album where no track has a weight | |
+| **Used by** | | Where the album is chosen: the music of a world, a zone, a weather (also as a night source), an event that sets the music, the menu music of the Gameplay Config. A source placed in a world scene (an encounter) is not looked at | |
 
 ## A sound source
 

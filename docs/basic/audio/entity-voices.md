@@ -66,7 +66,7 @@ Folders of a voice that are not calls of the game appear in **Your own calls**.
 | Part | What it does |
 |---|---|
 | **Search**, **Refresh** | Filter the kinds of creature; read the folders again |
-| **Tools menu** | **Create a kind of creature...**, **Create a voice...**, **Check all the voices** (lists the voices that lack a required call) |
+| **Tools menu** | **Create a kind of creature...**, **Create a voice...**, **Rename the voice...** (renames the folder and gives the new name to every NPC, character and player class that has the voice, so none is left with a voice that is gone), **Check all the voices** (lists the voices that lack a required call) |
 | The list on the left | The kinds of creature with the number of voices; a mark when a voice lacks a required call |
 | **Voice** | The voices of the kind; **New voice...** makes one |
 | The tree | The calls by group, with how many **files** each has, its **status** (*has files*, *uses Hit*, *none (silent)*, *missing* for a required call, *your call*) and **when it plays**. Select a call to work on it |
