@@ -45,6 +45,10 @@ In this guide a boss fight has music that changes as the fight goes on: a tense 
 
 10. In **Stingers** press **Add a stinger**: name `Roar`, **Sound** `boss_hit.ogg`, **Lower the music by** `8` dB.
 
+## Hear it before you use it
+
+15. In the **Preview** container press **Play**, press **Rising** and **Enraged** to hear the changes, drag the **Intensity** to `0.6` to hear the drums come in, and press **Roar**. Fix the tempo or the rules until it sounds right, then press **Stop** and **Play** again after each change.
+
 ## Part 5: the encounter plays it
 
 11. Select the boss encounter in the [Unique Object panel](/basic/world/unique-object-tool). Set its **Combat music** to **Dynamic**, choose *Dragon fight*, and the start state *Opening*.

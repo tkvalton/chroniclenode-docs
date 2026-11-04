@@ -23,7 +23,7 @@ Why parts and layers: the two things composers do. **Layers** (vertical) make th
 
 ## The tab
 
-The list is on the left (**New**; right-click for **Duplicate**, **Delete** and **Copy Path**), the settings on the right in containers.
+The list is on the left (**New**; right-click for **Duplicate**, **Delete** and **Copy Path**), the settings on the right in containers. The template project has a small one to open and play with: **Demo: explore and fight**.
 
 | Container | Field | What it does | Default |
 |---|---|---|---|
@@ -31,6 +31,10 @@ The list is on the left (**New**; right-click for **Duplicate**, **Delete** and 
 | | **Volume** | How loud the music is, on top of the part's volume | 0 dB |
 | | **Layer fade** | The seconds the layers take to fade in and out when the intensity changes | 1.5 s |
 | | **Start intensity** | The intensity the music starts with, which decides what layers play | 0 |
+| **Preview** | **Play**, **Stop** | Listen to the music in the editor, through the Music bus, as the game plays it. **Play** starts it in its start state. The music is read when you press Play: after a change, press Stop and Play again | |
+| | **Intensity** | A slider: the layers whose "plays from intensity" is at most this fade in | 0 |
+| | **Go to a state** | A button for each state: it changes the state by the rule of the music for that change, so you hear the transitions | |
+| | **Play a stinger** | A button for each stinger | |
 | **Parts** | **Name** | The part's name. States, rules and *Then* refer to it | |
 | | **File** | An Ogg or MP3 file of the [audio library](/basic/audio/sound-library). **...** opens the track window (with **Import files...**) | |
 | | **Tempo**, **Beats per bar** | Beats per minute, and beats in a bar (4 for 4/4, 3 for waltz time). The transitions wait for the next beat or bar by these | 120, 4 |
@@ -82,6 +86,12 @@ The [sound layers](/basic/world/sound-layers) decide which one plays, as always.
 ### A boss phase
 
 The phases of a boss ([Combat scripts](/basic/behaviors/combat-scripts#phases-boss-fights)) run their **on enter actions** when they start. Put **Set Music State** in them: phase one enters *Phase 1*, phase two (health below 50 %) enters *Phase 2*, and the music follows the fight. The Dynamic Music is the **Combat music** of the encounter, so it ends with the fight and the music of the place comes back.
+
+## Hearing it without the game
+
+The **Preview** container of the tab plays the music that is open. Press **Play**, move the **Intensity** slider to bring the layers in and out, press the buttons of the states to hear the transitions (a change waits for the beat or bar of its rule, so it may take a moment), and press a stinger to hear it over the music. It stops when you leave the tab.
+
+The music of the template (**Demo: explore and fight**) is made from the ambient pieces of the template project, which have no real tempo, so its tempo of 60 is only an example. It shows how the pieces fit: an *Explore* part with a *Blizzard* layer that comes in at intensity 0.6, a *Fight* part, the states *Explore*, *Tense* (the same part with the layer) and *Combat*, a rule into *Combat* and a *Hit* stinger. Replace the files and the tempo with your own music.
 
 ## Good to know
 
