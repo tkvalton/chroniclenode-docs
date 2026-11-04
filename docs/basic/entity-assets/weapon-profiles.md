@@ -26,6 +26,7 @@ humanoid/
       attack_left/                attack clips of the left hand (only with Left hand attacks)
       stance/                     the combat idle held with the weapon (the first clip is used)
       block/                      block clips; one is picked at random
+      dodge/  hit/                dodge and being hit with this weapon (optional)
       sheathe/  unsheathe/        putting the weapon away and drawing it
       aim/  reload/               only for a ranged profile
     unarmed/
@@ -38,7 +39,8 @@ humanoid/
 | `attack_left` | The same for the left hand (a dagger in the off hand) | The same ability, when it is used with the weapon of the left hand. With no clips here the `attack` clips are used for both hands |
 | `stance` | The combat idle of the weapon: how the creature stands and moves while it fights with it | While the creature is in combat. The first clip (by name) is used; keep one |
 | `block` | The clips of a block | When a [trigger](/basic/entity-stats/trigger-tags) called *Block* fires. With no clip the old block of the animation map plays |
-| `sheathe`, `unsheathe` | The clips of putting the weapon away and drawing it | The game asks the creature to sheathe or draw (a profile with no clip uses the old fixed lists of the animation map) |
+| `dodge`, `hit` | The clips of a dodge and of being hit while holding this weapon | When a trigger called *Dodge* or *Hit* fires. With no clip the dodge and hit of the animation map play |
+| `sheathe`, `unsheathe` | The clips of putting the weapon away and drawing it | When the fight starts and ends, if **Draw weapons in combat** is on in [Gameplay Config > Combat](/basic/game-settings/gameplay-combat) (a profile with no clip uses the old fixed lists of the animation map) |
 | `aim`, `reload` | The aim and reload clips of a ranged weapon | An ability whose animation is **Aim** or **Reload** |
 
 The section is **outside** the ability animations: *Ability Animations* are for the casts and special attacks of abilities (casting, spell cast, special attack), *Weapon Animations* are for what a weapon does.

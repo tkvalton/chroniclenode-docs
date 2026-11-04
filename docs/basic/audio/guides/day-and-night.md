@@ -15,7 +15,7 @@ In this guide a village has birds by day and crickets at night, its music album 
 1. Open **World Configs > Sun** and look at **Day Night Timing**: **Sun rise hour** (6:00 to begin with) and **Sun set hour** (20:30). The sound uses these two numbers: it is **day** from the sunrise to the sunset and **night** the rest of the time.
 2. A sun with **Day night cycle** off (a static sun) never sets: the sound is always day.
 
-Change the hours in the Sun config and the sound follows. A zone that has its own sun uses its own hours while the party is in it.
+Change the hours in the Sun config and the sound follows. A world has one Sun config, so one sunrise and one sunset: a zone can change the lighting but not the hours.
 
 ## Part 2: an ambience for the night
 

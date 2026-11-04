@@ -374,11 +374,11 @@ Plays one of the clips (picked at random) of a role of a Weapon Profile as a com
 
 ### void play_dodge_animation( weapon_type: String = "" ) {#method-play-dodge-animation}
 
-Plays the dodge animation.
+Plays the dodge. `weapon_type` is the animation tag of the weapon in hand: a Weapon Profile with dodge clips plays one of them; with none (or no weapon given) the dodge of the animation map plays
 
 ### void play_hit_animation( weapon_type: String = "" ) {#method-play-hit-animation}
 
-Plays the animation of being hit.
+Plays the animation of being hit. `weapon_type` as for the dodge: the profile's hit clips first, else the hit of the animation map
 
 ### void play_equipment_animation( action: String, weapon_type: String ) {#method-play-equipment-animation}
 

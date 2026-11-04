@@ -5,6 +5,7 @@ The **Combat** category of the [Gameplay Config](/basic/game-settings/gameplay-c
 | Field | What it does | Default |
 |---|---|---|
 | **Combat style** | Real-time or turn-based (turn-based is not built yet) | Real-time |
+| **Draw weapons in combat** | Creatures play the unsheathe clip of their [weapon profile](/basic/entity-assets/weapon-profiles) when a fight starts and the sheathe clip when it ends. Off: the weapon is simply in hand | Off |
 
 ### Death & Revival
 

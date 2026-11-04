@@ -362,6 +362,7 @@ Enumeration of crouch control modes
 - `Dictionary` **HEALTH_DISPLAY** = `{` - Dictionary of nameplate aura display options for the game's settings
 - `Dictionary` **CROUCH_MODE** = `{` - Dictionary of crouch mode options for the game's settings
 - `Dictionary` **COLOUR_SET_OPTION** = `{` - Dictionary of colour set options for the game's settings
+- `Dictionary` **SCREEN_EFFECTS** = `{` - Dictionary of screen effect options for the game's settings
 - `Dictionary` **COLOUR_BLIND_OPTIONS** = `{` - Dictionary of colour blind options for the game's settings
 - `Dictionary` **SCREEN_EFFECT_OPTIONS** = `{` - Dictionary of screen effect options for the game's settings
 - `Dictionary` **COLOUR_BLIND_SAFE_PALETTE** = `{` - The colours of the colour-blind safe set: the Okabe-Ito colours (blue, vermillion, yellow, sky blue, orange, reddish purple)

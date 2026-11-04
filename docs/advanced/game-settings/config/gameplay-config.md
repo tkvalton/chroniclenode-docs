@@ -130,6 +130,7 @@ Configuration for gameplay rules and mechanics
 | `ControllerLogic` | [player_controller_logic](#prop-player-controller-logic) | `null` |
 | `CameraLogic` | [camera_logic](#prop-camera-logic) | `null` |
 | `CombatStyle` | [combat_style](#prop-combat-style) | `CombatStyle.REAL_TIME` |
+| `bool` | [draw_weapons_in_combat](#prop-draw-weapons-in-combat) | `false` |
 | `DeathBehavior` | [death_behavior](#prop-death-behavior) | `DeathBehavior.RESPAWN_CHECKPOINT` |
 | `Array[DeathCurrencyLoss]` | [death_currency_losses](#prop-death-currency-losses) | `[]` |
 | `float` | [death_experience_penalty](#prop-death-experience-penalty) | `0.0` |
@@ -961,6 +962,10 @@ How the camera follows and looks: the type (third person, top-down focused or fr
 ### CombatStyle combat_style = CombatStyle.REAL_TIME {#prop-combat-style}
 
 Combat system style (real-time or turn-based)
+
+### bool draw_weapons_in_combat = false {#prop-draw-weapons-in-combat}
+
+Creatures draw their weapon when a fight starts and put it away when it ends: the unsheathe and sheathe clips of the weapon's Weapon Profile play (a weapon with none is simply in hand). Off: nobody draws or puts away
 
 *Death &amp; Revival*
 

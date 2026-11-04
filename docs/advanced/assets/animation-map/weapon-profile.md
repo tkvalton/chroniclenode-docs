@@ -4,7 +4,7 @@
 
 **Inherits:** [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-A Weapon Animation Profile: one way of fighting that your game has animations for (One Hand, Two Hand, Bow, Rifle, Unarmed ...). You define it once (Entity Assets &gt; Weapon Profiles) and every animation pack gets its folder `weapon_animations/<folder name>/` with a subfolder for each animation role: `attack`, `stance` (the combat idle), `block`, `sheathe`, `unsheathe`, and for a ranged profile `aim` and `reload`; a profile with hand variants has `attack_left` too. The packs that already exist get the folders when you save the profile, and the packs you make afterwards get them with the rest of their folders. A weapon class (and an NPC) picks a profile; the animations of the equipped weapon are then the clips in its folders. Unarmed is built in and cannot be deleted. See docs: Entity Assets &gt; Weapon Profiles.
+A Weapon Animation Profile: one way of fighting that your game has animations for (One Hand, Two Hand, Bow, Rifle, Unarmed ...). You define it once (Entity Assets &gt; Weapon Profiles) and every animation pack gets its folder `weapon_animations/<folder name>/` with a subfolder for each animation role: `attack`, `stance` (the combat idle), `block`, `dodge`, `hit`, `sheathe`, `unsheathe`, and for a ranged profile `aim` and `reload`; a profile with hand variants has `attack_left` too. The packs that already exist get the folders when you save the profile, and the packs you make afterwards get them with the rest of their folders. A weapon class (and an NPC) picks a profile; the animations of the equipped weapon are then the clips in its folders. Unarmed is built in and cannot be deleted. See docs: Entity Assets &gt; Weapon Profiles.
 
 ## Properties
 
@@ -36,6 +36,8 @@ A Weapon Animation Profile: one way of fighting that your game has animations fo
 - `String` **ROLE_ATTACK_LEFT** = `"attack_left"`
 - `String` **ROLE_STANCE** = `"stance"`
 - `String` **ROLE_BLOCK** = `"block"`
+- `String` **ROLE_DODGE** = `"dodge"`
+- `String` **ROLE_HIT** = `"hit"`
 - `String` **ROLE_SHEATHE** = `"sheathe"`
 - `String` **ROLE_UNSHEATHE** = `"unsheathe"`
 - `String` **ROLE_AIM** = `"aim"`
