@@ -15,11 +15,11 @@ The **Zones** section of the Worlds editor: the named places of ONE world (Elder
 | `Button` | [add_button](#var-add-button) |  |
 | `Button` | [add_sub_button](#var-add-sub-button) |  |
 | `Button` | [delete_button](#var-delete-button) |  |
-| `OptionButton` | [default_option](#var-default-option) |  |
+| `ZonePickerButton` | [default_picker](#var-default-picker) |  |
 | `LineEdit` | [name_edit](#var-name-edit) |  |
 | `TextEdit` | [description_edit](#var-description-edit) |  |
 | `ColorPickerButton` | [color_button](#var-color-button) |  |
-| `OptionButton` | [parent_option](#var-parent-option) |  |
+| `ZonePickerButton` | [parent_picker](#var-parent-picker) |  |
 | `CheckBox` | [banner_check](#var-banner-check) |  |
 | `LineEdit` | [subtitle_edit](#var-subtitle-edit) |  |
 | `SpinBox` | [wetness_scale_spin](#var-wetness-scale-spin) |  |
@@ -81,7 +81,7 @@ Something of the world changed (the zone list, the default zone): the editor sav
 
 *No description yet.*
 
-### OptionButton default_option {#var-default-option}
+### ZonePickerButton default_picker {#var-default-picker}
 
 *No description yet.*
 
@@ -97,7 +97,7 @@ Something of the world changed (the zone list, the default zone): the editor sav
 
 *No description yet.*
 
-### OptionButton parent_option {#var-parent-option}
+### ZonePickerButton parent_picker {#var-parent-picker}
 
 *No description yet.*
 

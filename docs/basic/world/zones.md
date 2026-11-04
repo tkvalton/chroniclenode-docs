@@ -17,17 +17,17 @@ Zones belong to a **world**. Open the **Worlds** editor (Database > World > Worl
 | **Name** | The name on the banner and in texts (`<zone>`) | New zone |
 | **Description** | Free text for you (and your own map or journal) | empty |
 | **Color** | The colour of the zone on the terrain editor's overlay, in the zone bar and on the shape of a zone volume | green |
-| **Part of** | The parent zone. The menu lists the other zones in tree order. A zone cannot be part of its own part | none (a zone of its own) |
+| **Part of** | The parent zone. The button shows the zone; click it to open the **zone window** (see below) with the other zones. A zone cannot be part of its own part | none (a zone of its own) |
 | **Banner** | Show the name when the party enters | on |
 | **Banner line** | The small line under the name (*Home of the old mill*). Empty = only the name | empty |
 | **Rain reaches**, **Snow reaches** | How much of the rain and the snow reach the ground in the zone (a cave: `0`, a mountain top: more snow). See [Ground weather](/basic/world/ground-weather) | `1` |
 | **Sky**, **Environment** | The [sky and environment](/basic/world/world-configs) the party sees in the zone. The first choice, **Same as the zone above, or the world**, gives it none of its own | the first choice |
 | **Look blends** | Seconds the look takes to come when the party walks in (and to go when it walks out into a place with no look of its own) | `3` |
 | **Screen tint**, **Dark corners**, **Grey**, **Film grain** | The screen of the zone: a tint over the picture (its alpha is how strong), dark corners, grey and grain, as a layer of the [camera look](/basic/world/camera-effects) that blends in and out with the look. A zone with none takes the screen of the zone above | none |
-| **Music**, **Music volume**, **Ambient sound**, **Ambient volume** | The music and the ambient sound of the zone: audio files, separated by semicolons (the **+** button adds one). Empty = the zone above, then the world. See [Music and ambient sound](#music-and-ambient-sound) | none, 0 dB |
+| **Music**, **Music volume**, **Ambient sound**, **Ambient volume** | The music and the ambient sound of the zone: tracks of the [audio library](/basic/assets/audio): the **+** button opens the track window (the music or the ambient sounds, with a preview), and you can also type the path of a file outside the library, separated by semicolons. Empty = the zone above, then the world. See [Music and ambient sound](#music-and-ambient-sound) | none, 0 dB |
 | **Replaces an event's look** | See [A look for each zone](#a-look-for-each-zone) | off |
 
-Above the list, **Default zone** is the zone of the whole map (see below). The name and the banner line are translated when you [localize](/basic/game-settings/localization) your game.
+Above the list, **Default zone** is the zone of the whole map (see below). Like **Part of**, it is a button that opens the **zone window**: a search box and the zones of the world as a tree (a sub-zone under its zone, each with its colour); type to find a zone, double-click one (or select it and press **Choose**). **None** is the first choice. The name and the banner line are translated when you [localize](/basic/game-settings/localization) your game.
 
 ## Music and ambient sound
 

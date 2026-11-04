@@ -41,7 +41,7 @@ The *rain on the roof* is not the rain you hear outside, so a shelter has its ow
 | Field | What it does |
 |---|---|
 | **Kind of weather** | A word: `rain`, `snow`, `wind`, `sand` ... |
-| **Track** | The ambience track that plays inside (an audio file; **...** opens the file window) |
+| **Track** | The ambience track that plays inside (a track of the [audio library](/basic/assets/audio): **...** opens the track window with the ambient sounds, with a preview; a file outside the library can be typed) |
 | **Volume** | How loud the track is (dB) |
 
 A weather lists the **kinds of sound** it makes in the **Sound** container of the [Weather tab](/basic/world/weather#sound) (`rain`; or for sleet `rain, snow`). Inside the shelter the first kind the volume has a line for plays. A weather the shelter has no line for (a kind it does not know) plays nothing extra: the sound of the weather outside goes on, muffled by the audio profile.

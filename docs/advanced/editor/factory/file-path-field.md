@@ -4,17 +4,17 @@
 
 **Inherits:** [ConfigField](/advanced/editor/factory/config-field) < [HBoxContainer](https://docs.godotengine.org/en/stable/classes/class_hboxcontainer.html)
 
-The path of a file (a String property), typed or chosen with the browse button: an audio track, a texture. Set the **Filters** in the inspector (`*.ogg, *.wav, *.mp3 ; Audio`).
+The path of one audio track (a String property): chosen with the browse button in the track dialog of the audio library (the same as the albums and the events use), or typed (a file outside the library). Set **Track kind** in the inspector.
 
 ## Properties
 
 | | | |
 |---|---|---|
-| `PackedStringArray` | [filters](#prop-filters) | `PackedStringArray(["*.ogg, *.wav, *.mp3 ; Audio"])` |
+| `TrackSelectionDialog.Kind` | [track_kind](#prop-track-kind) | `TrackSelectionDialog.Kind.ANY` |
 
 ## Property descriptions
 
-### PackedStringArray filters = PackedStringArray(["*.ogg, *.wav, *.mp3 ; Audio"]) {#prop-filters}
+### TrackSelectionDialog.Kind track_kind = TrackSelectionDialog.Kind.ANY {#prop-track-kind}
 
-The file types the browse window offers, as the file dialog takes them
+Which tracks of the library the dialog shows: any, music only or ambient sound only
 

@@ -4,13 +4,13 @@
 
 **Inherits:** [ConfigField](/advanced/editor/factory/config-field) < [HBoxContainer](https://docs.godotengine.org/en/stable/classes/class_hboxcontainer.html)
 
-A list of file paths (an Array[String] property): the tracks of a zone or a weather. The paths are typed in one line, separated by semicolons, or added one by one with the plus button; the cross empties the list. Set the **Filters** in the inspector (`*.ogg, *.wav, *.mp3 ; Audio`).
+A list of tracks (an Array[String] property): the music or the ambient sound of a zone or a weather. The plus button opens the track dialog of the audio library (the same as the albums and the events use) and adds the tracks chosen; the paths can also be typed in the line, separated by semicolons (a file outside the library); the cross empties the list. Set **Track kind** in the inspector.
 
 ## Properties
 
 | | | |
 |---|---|---|
-| `PackedStringArray` | [filters](#prop-filters) | `PackedStringArray(["*.ogg, *.wav, *.mp3 ; Audio"])` |
+| `TrackSelectionDialog.Kind` | [track_kind](#prop-track-kind) | `TrackSelectionDialog.Kind.ANY` |
 
 ## Methods
 
@@ -24,9 +24,9 @@ A list of file paths (an Array[String] property): the tracks of a zone or a weat
 
 ## Property descriptions
 
-### PackedStringArray filters = PackedStringArray(["*.ogg, *.wav, *.mp3 ; Audio"]) {#prop-filters}
+### TrackSelectionDialog.Kind track_kind = TrackSelectionDialog.Kind.ANY {#prop-track-kind}
 
-The file types the browse window offers, as the file dialog takes them
+Which tracks of the library the dialog shows: any, music only or ambient sound only
 
 ## Method descriptions
 

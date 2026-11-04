@@ -1491,6 +1491,18 @@ export const groups = [
         "base": "VFXSelectionPropertyPanel",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\dialogs\\vfx_dialogs\\vfx_selection_transformation_property_panel.gd",
         "file": "editor_components/dialogs/vfx_dialogs/vfx_selection_transformation_property_panel.gd"
+      },
+      {
+        "name": "ZonePickerButton",
+        "base": "Button",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\dialogs\\zone_dialogs\\zone_picker_button.gd",
+        "file": "editor_components/dialogs/zone_dialogs/zone_picker_button.gd"
+      },
+      {
+        "name": "ZoneSelectionDialog",
+        "base": "ConfirmationDialog",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\dialogs\\zone_dialogs\\zone_selection_dialog.gd",
+        "file": "editor_components/dialogs/zone_dialogs/zone_selection_dialog.gd"
       }
     ]
   },

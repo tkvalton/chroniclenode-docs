@@ -355,7 +355,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [ShapeConfigDialog](/advanced/editor/dialogs/shape-config-dialog) | A dialog that configures a 3D shape: the player chooses the kind of shape and sets its dimensions, and `selection_made` gives the shape. |
 | [SocketSelectionDialog](/advanced/editor/dialogs/socket-selection-dialog) | Minimal socket selection dialog to test stretching issues |
 | [StringParameterPopup](/advanced/editor/dialogs/string-parameter-popup) | Popup for editing string parameters |
-| [TrackSelectionDialog](/advanced/editor/dialogs/track-selection-dialog) | Simplified track selection dialog for album management Works directly with DatabaseAudio categories (music, ambience, loop_sfx) |
+| [TrackSelectionDialog](/advanced/editor/dialogs/track-selection-dialog) | Track selection dialog of the audio library: the tracks of an album, of a zone, of a weather, of a shelter, of an event. |
 | [UnifiedResourceDialog](/advanced/editor/dialogs/unified-resource-dialog) | Unified dialog for creating and editing resources with dynamic UI generation Similar to EventTypeSelector but for creating/editing resources like Rewards and Requirements |
 | [VariablePopup](/advanced/editor/dialogs/variable-popup) | A window that makes or edits a variable: its name, its type and its value. |
 | [Vector2ParameterPopup](/advanced/editor/dialogs/vector2-parameter-popup) | Popup for editing Vector2 parameters |
@@ -370,6 +370,8 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [VFXSelectionPropertyPanel](/advanced/editor/dialogs/vfx-selection-property-panel) | Base class for VFX selection property panels Each VFX selection type gets its own specialized panel |
 | [VFXSelectionTelegraphProperties](/advanced/editor/dialogs/vfx-selection-telegraph-properties) | Property panel for Telegraph VFX selections |
 | [VFXSelectionTransformationProperties](/advanced/editor/dialogs/vfx-selection-transformation-properties) | Property panel for Transformation VFX selections |
+| [ZonePickerButton](/advanced/editor/dialogs/zone-picker-button) | A button that shows the zone chosen and opens the zone dialog (ZoneSelectionDialog) to choose another: the default zone of a world, the zone a zone is a part of. |
+| [ZoneSelectionDialog](/advanced/editor/dialogs/zone-selection-dialog) | The dialog that chooses a zone, like the dialogs that choose a track, an animation or a sound effect: a search box and the zones of the world as a tree (a sub-zone under its zone, each with the colour of the zone), a double click or OK chooses. |
 <!-- /classes -->
 
 ### Property controls
@@ -387,11 +389,11 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [DatabaseResourceButton](/advanced/editor/factory/database-resource-button) | Button that opens ListCatalog to select a database resource Shows resource name, has optional clear button |
 | [DynamicDictionaryEditor](/advanced/editor/factory/dynamic-dictionary-editor) | Reusable component for editing dictionaries with add/edit/remove functionality Supports items (id -&gt; quantity) and currency (id -&gt; amount) entries |
 | [ExperiencePerLevelEditor](/advanced/editor/factory/experience-per-level-editor) | Editor for experience_per_level Dictionary in GameplayConfig Displays a list of levels with their XP requirements and allows editing |
-| [FilePathField](/advanced/editor/factory/file-path-field) | The path of a file (a String property), typed or chosen with the browse button: an audio track, a texture. |
+| [FilePathField](/advanced/editor/factory/file-path-field) | The path of one audio track (a String property): chosen with the browse button in the track dialog of the audio library (the same as the albums and the events use), or typed (a file outside the library). |
 | [IdMultiSelect](/advanced/editor/factory/id-multi-select) | A list of ids picked from a database type: the picked entries as small tags with an x, and an Add button that opens a searchable list of everything that exists. |
 | [NumberField](/advanced/editor/factory/number-field) | A number (a float or an int property) in a SpinBox. |
 | [OptionField](/advanced/editor/factory/option-field) | An enum (or int) property in a drop-down. |
-| [PathListField](/advanced/editor/factory/path-list-field) | A list of file paths (an Array[String] property): the tracks of a zone or a weather. |
+| [PathListField](/advanced/editor/factory/path-list-field) | A list of tracks (an Array[String] property): the music or the ambient sound of a zone or a weather. |
 | [PropertyFactory](/advanced/editor/factory/property-factory) | Makes the rows of the inspector editors of the toolkit: a label with a check box, a text field, a number, a drop-down, a database drop-down, a slider or a color picker, each as an `EditorProperty` that calls a function when its value changes. |
 | [PropertyUIFactory](/advanced/editor/factory/property-ui-factory) | Factory for creating UI controls with consistent styling and behavior Uses class-based controls for complex components |
 | [ResourceField](/advanced/editor/factory/resource-field) | A property that holds a resource (a gradient, a curve, a texture, a sky driver) in a resource picker: pick one from the project, make a new one or clear it. |

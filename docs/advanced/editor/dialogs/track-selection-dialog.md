@@ -4,13 +4,13 @@
 
 **Inherits:** `ConfirmationDialog`
 
-Simplified track selection dialog for album management Works directly with DatabaseAudio categories (music, ambience, loop_sfx)
+Track selection dialog of the audio library: the tracks of an album, of a zone, of a weather, of a shelter, of an event. Works directly with the DatabaseAudio categories (music, atmospheric_ambience, loop). A field that chooses tracks makes it with `TrackSelectionDialog.create_for(parent, kind)` and listens to `selection_made`.
 
 ## Variables
 
 | | | |
 |---|---|---|
-| `Array[String]` | [supported_categories](#var-supported-categories) | `["music", "ambience", "loop_sfx"]  # Fixed spelling` |
+| `Array[String]` | [supported_categories](#var-supported-categories) | `["music", "atmospheric_ambience", "loop"]` |
 | `String` | [current_category](#var-current-category) | `""` |
 | `String` | [current_type](#var-current-type) | `""` |
 | `bool` | [is_loading](#var-is-loading) | `false` |
@@ -21,6 +21,7 @@ Simplified track selection dialog for album management Works directly with Datab
 
 | | |
 |---|---|
+| `TrackSelectionDialog` | [create_for](#method-create-for)( `parent: Node, kind: Kind = Kind.ANY` ) *static* |
 | `void` | [show_for_category](#method-show-for-category)( `category: String` ) |
 | `void` | [show_all_categories](#method-show-all-categories)() |
 | `Array[String]` | [get_selected_track_paths](#method-get-selected-track-paths)() |
@@ -36,9 +37,19 @@ Simplified track selection dialog for album management Works directly with Datab
 
 ### selection_made( selected_files: Array[String] ) {#signal-selection-made}
 
+## Enumerations
+
+### enum Kind {#enum-kind}
+
+What a field chooses: any of the tracks of the library, music only, or ambient sound only
+
+- **ANY** = `0`
+- **MUSIC** = `1`
+- **AMBIENCE** = `2`
+
 ## Variable descriptions
 
-### Array[String] supported_categories = ["music", "ambience", "loop_sfx"]  # Fixed spelling {#var-supported-categories}
+### Array[String] supported_categories = ["music", "atmospheric_ambience", "loop"] {#var-supported-categories}
 
 *No description yet.*
 
@@ -63,6 +74,10 @@ Simplified track selection dialog for album management Works directly with Datab
 *No description yet.*
 
 ## Method descriptions
+
+### TrackSelectionDialog create_for( parent: Node, kind: Kind = Kind.ANY ) {#method-create-for}
+
+A dialog for a field: made from its scene, added to `parent` (it needs to be in the tree) and set to show the tracks of a kind. The caller pops it up with `popup_centered()`
 
 ### void show_for_category( category: String ) {#method-show-for-category}
 

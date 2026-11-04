@@ -45,6 +45,10 @@ Choose **sounds** in the editors with a [sound selection](/basic/abilities-and-e
 - **Voice.** An NPC, character or class has a voice: an [entity type](/basic/types-and-groups/entity-types) and a variant. Choose it in the editor ([NPCs](/basic/entities/npcs), Audio). The game plays files from `entity_voices/<type>/<variant>/<action>/` when the entity attacks, is hurt, dies, and so on.
 - **Footsteps.** The same entity type is used for `motion/`: when it walks, the game looks for a file for the surface it stands on (`stone`, `grass`, `wood`) and the movement (`walk`, `run`). A world's terrain provider tells it the surface; on the toolkit's own terrain it is the **surface type** of the [terrain texture](/basic/assets/terrain-textures) the entity stands on, so name the folders like your surface types (`grass`, `rock`, `sand`, `snow`). The game times the steps by the distance walked (see [Footsteps](/basic/game-settings/gameplay-config#footsteps)); an animation can call for a step itself instead. A [movement volume](/basic/world/movement-volumes#footsteps-in-the-volume) can say what the ground sounds like inside it (shallow water, mud), and swimming makes `swim` sounds.
 
+## Choosing a track in the editor
+
+Wherever the editor asks for music or an ambient sound, the **+** (or **...**) button opens the same **track window** of the library: the *Albums* tab, the *Set Music Track* and *Set Ambient Track* event actions, the **Music** and **Ambient sound** of a [zone](/basic/world/zones#music-and-ambient-sound), a [weather](/basic/world/weather#sound) and the weather sounds of a [shelter](/basic/world/shelter#the-sound-for-each-kind-of-weather). It shows the music or the ambient sounds (loop and non-loop), you listen to a file with **Preview**, and the files you choose are added. A file outside the library can still be typed in the line next to the button.
+
 ## Playing sounds
 
 Sounds are played by pooled audio players (50 positional, 20 global, 5 for the interface): see [Pooling](/advanced/pooling#audio-players). When none is free the sound is skipped.
