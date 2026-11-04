@@ -27,6 +27,7 @@ The first folder level is an ENTITY TYPE (humanoid, monster ...). Inside it are 
 | `Array` | [get_package_categories](#method-get-package-categories)( `entity_type: String, package: String` ) *static* |
 | `Array` | [get_category_subcategories](#method-get-category-subcategories)( `entity_type: String, package: String, category: String, inherit_from_parent: bool = true` ) *static* |
 | `Array` | [get_animations](#method-get-animations)( `entity_type: String, package: String, category: String, subcategory: String` ) *static* |
+| `Array` | [get_animations_direct](#method-get-animations-direct)( `entity_type: String, package: String, category: String, subcategory: String` ) *static* |
 | `Array` | [get_flat_category_animations](#method-get-flat-category-animations)( `entity_type: String, package: String, category: String, inherit_from_parent: bool = true` ) *static* |
 | `bool` | [is_flat_category](#method-is-flat-category)( `package: String, category: String` ) *static* |
 | `Array` | [get_available_status_effects](#method-get-available-status-effects)() *static* |
@@ -39,6 +40,8 @@ The first folder level is an ENTITY TYPE (humanoid, monster ...). Inside it are 
 
 - `String` **ANIMATIONS_RESOURCES_PATH** = `"res://src/data/animations/"` - The folder the animations are read from.
 - `Dictionary` **ANIMATION_PACKAGES** = `{` - Animation package definitions - simplified structure Updated: weapon_melee and weapon_ranged merged into "weapon", added "aim" and "reload"
+- `Dictionary` **WEAPON_ROLES** = `{"weapon": "attack", "aim": "aim", "reload": "reload"}` - The category of the ability animations (weapon, aim, reload) and the role of the Weapon Profile that holds the same clips
+- `Array` **OLD_WEAPON_CATEGORIES** = `["weapon", "aim", "reload"]` - The folders of the ability animations that the weapon animations replaced (packs that still have them keep working)
 
 ## Method descriptions
 
@@ -93,6 +96,10 @@ Get available subcategories within a category for an entity package Includes par
 ### Array get_animations( entity_type: String, package: String, category: String, subcategory: String ) {#method-get-animations}
 
 Get animations for a specific path with parent fallback
+
+### Array get_animations_direct( entity_type: String, package: String, category: String, subcategory: String ) {#method-get-animations-direct}
+
+The animations of a path in one pack, without the parent packs (empty when the pack has none)
 
 ### Array get_flat_category_animations( entity_type: String, package: String, category: String, inherit_from_parent: bool = true ) {#method-get-flat-category-animations}
 

@@ -93,6 +93,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [MeshDatabaseEditor](/advanced/editor/assets/mesh-database-editor) | The editor of the Meshes tab (Assets &gt; Meshes): the equipment, facial and material meshes of the mesh library as a tree, with a search bar, an import button, the settings of the selected mesh (its per-surface materials) and the checks of the library. |
 | [ModelSceneDatabaseEditor](/advanced/editor/assets/model-scene-database-editor) | The editor of the Model Scenes tab (Assets &gt; Model Scenes): the skeleton scenes of entities and the scenes of interactable objects, each as a list with a search bar and a button to create a new one. |
 | [VFXDatabaseEditor](/advanced/editor/assets/vfx-database-editor) | The editor of the VFX tab (Assets &gt; VFX): the visual effects of the VFX library as a tree by type, with a search bar, an import button and the information of the selected effect. |
+| [WeaponProfileEditor](/advanced/editor/assets/weapon-profile-editor) | The Weapon Profiles tab (Entity Assets &gt; Weapon Profiles): the list of the profiles on the left, the settings on the right in a container for each group (Profile, Folders, Animation packs, Used by, Old tags, Warnings). |
 <!-- /classes -->
 
 #### Behaviors

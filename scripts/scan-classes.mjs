@@ -62,6 +62,8 @@ const SYSTEMS = {
           ['databases/mesh_database.gd', false],
           ['databases/model_scene_database.gd', false],
           ['databases/vfx_database.gd', false],
+          ['databases/weapon_profiles.gd', false],
+          ['databases/weapon_profile_migration.gd', false],
         ],
       },
     ],

@@ -115,7 +115,7 @@ An effect can end after a number of uses of abilities by the entity it is on. Th
 | **SFX** | The sound played when the effect is applied |
 | **VFX** | The visual effect shown when the effect is applied. It can be any kind, including a beam, a path or a telegraph |
 
-Click either button to choose from the libraries in the **Assets** category.
+Click either button to choose from the libraries in the **Entity Assets**, **Assets** and **Audio** categories.
 
 ## See also
 

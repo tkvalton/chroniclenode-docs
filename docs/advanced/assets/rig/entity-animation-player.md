@@ -48,6 +48,7 @@ EntityAnimationPlayer A specialized AnimationPlayer for game entities with robus
 | `bool` | [has_status_effect_animation](#method-has-status-effect-animation)( `status_name: String, phase: String` ) |
 | `float` | [get_status_effect_animation_duration](#method-get-status-effect-animation-duration)( `status_name: String, phase: String` ) |
 | `void` | [play_block_animation](#method-play-block-animation)( `weapon_type: String = ""` ) |
+| `bool` | [play_profile_clip](#method-play-profile-clip)( `weapon_tag: String, role: String` ) |
 | `void` | [play_dodge_animation](#method-play-dodge-animation)( `weapon_type: String = ""` ) |
 | `void` | [play_hit_animation](#method-play-hit-animation)( `weapon_type: String = ""` ) |
 | `void` | [play_equipment_animation](#method-play-equipment-animation)( `action: String, weapon_type: String` ) |
@@ -365,7 +366,11 @@ Get the duration of a status effect animation phase
 
 ### void play_block_animation( weapon_type: String = "" ) {#method-play-block-animation}
 
-Simple wrapper functions for backwards compatibility
+Simple wrapper functions for backwards compatibility Plays a block. `weapon_type` is the animation tag of the weapon in hand: when it is a Weapon Profile with block clips, one of them is played; otherwise the block of the animation map for the weapon type
+
+### bool play_profile_clip( weapon_tag: String, role: String ) {#method-play-profile-clip}
+
+Plays one of the clips (picked at random) of a role of a Weapon Profile as a combat one-shot. False when the tag is not a profile or the role has no clip this creature has
 
 ### void play_dodge_animation( weapon_type: String = "" ) {#method-play-dodge-animation}
 

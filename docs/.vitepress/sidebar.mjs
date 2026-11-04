@@ -203,10 +203,13 @@ const basicSystems = [
     ['Quality', 'quality', 'quality'],
     ['Set Bonus', 'set-bonus', 'set_bonus'],
   ]),
-  system('Assets', 'assets', [
+  system('Entity Assets', 'entity-assets', [
     ['Model Scenes', 'model-scenes', 'skeletons'],
-    ['Meshes', 'meshes', 'equipment'],
+    ['Equipment Meshes', 'equipment-meshes', 'equipment'],
     ['Animations', 'animations', 'animations'],
+    ['Weapon Profiles', 'weapon-profiles', 'weapon_profiles'],
+  ]),
+  system('Assets', 'assets', [
     ['VFX', 'vfx', 'vfx'],
     ['Icons', 'icons', 'icons'],
     ['Terrain Textures', 'terrain-textures', 'terrain_textures'],

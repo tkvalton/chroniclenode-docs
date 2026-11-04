@@ -13,15 +13,13 @@ A **weapon class** is the kind of a weapon: Sword, Dagger, Mace, Bow, Staff, Wan
 
 ### Animation tags
 
-The wielder plays animations by **tag**. Each tag is chosen from the animation library of the project; the game adds `_r` or `_l` for the hand.
+The wielder plays the animations of a **[Weapon Profile](/basic/entity-assets/weapon-profiles)**: one choice instead of four tags. Several weapon classes can use the same profile (an axe, a sword and a mace are all *One Hand*).
 
 | Field | What it does |
 |---|---|
-| **Is ranged** | The weapon is a ranged weapon (bow, crossbow, wand). It turns on the aim and reload tags |
-| **Attack tag** | The animation of an attack: `sword_slash`, `dagger_stab`, `bow_shoot` |
-| **Stance tag** | The idle and walk stance while the weapon is out: `sword_stance` |
-| **Aim tag** | The aiming animation of a ranged weapon: `bow_aim` |
-| **Reload tag** | The reload animation of a ranged weapon: `crossbow_reload` |
+| **Weapon Profile** | The profile whose attack, stance (combat idle), block, aim and reload clips the weapon plays. Make the profiles in **Entity Assets > [Weapon Profiles](/basic/entity-assets/weapon-profiles)**. The weapon is ranged when the profile is |
+| **Is ranged** | Set by the profile. Only used by a weapon class that has *no profile* |
+| **Old tags** (**Attack tag**, **Stance tag**, **Aim tag**, **Reload tag**) | Only shown when the weapon class has *no profile*: the free text folder and clip names that projects used before profiles. They still work. The **From the old tags** buttons of the Weapon Profiles tab make profiles from them for you |
 
 ### Basic attack
 

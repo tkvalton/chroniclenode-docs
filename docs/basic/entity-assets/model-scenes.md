@@ -1,6 +1,6 @@
 # Model Scenes
 
-A **model scene** is the body of something in the game: the scene that holds its meshes, its skeleton (for a creature or a character), its collision and its animations. **Assets > Model Scenes** lists them in two groups:
+A **model scene** is the body of something in the game: the scene that holds its meshes, its skeleton (for a creature or a character), its collision and its animations. **Entity Assets > Model Scenes** lists them in two groups:
 
 | Group | Folder | Used by |
 |---|---|---|
@@ -32,7 +32,7 @@ A skeleton scene has a `Skeleton3D` as its root, with a ChronicleNode script tha
 | Kind | What it is for |
 |---|---|
 | **General skeleton** | A creature or character made of **one mesh**: a wolf, a skeleton, a ready-made hero. Equipment appears on the attachment points and as weapons |
-| **Modular skeleton** | A character made of **swappable body parts** (head, torso, upper and lower arms, hands, hips, upper and lower legs, feet) and face features. Armor replaces the body parts it covers. It has an **equipment tag** (`humanoid`, `beast`, `undead`) that picks which folder of [meshes](/basic/assets/meshes) its equipment is taken from |
+| **Modular skeleton** | A character made of **swappable body parts** (head, torso, upper and lower arms, hands, hips, upper and lower legs, feet) and face features. Armor replaces the body parts it covers. It has an **equipment tag** (`humanoid`, `beast`, `undead`) that picks which folder of [meshes](/basic/entity-assets/equipment-meshes) its equipment is taken from |
 | **Custom skeleton** | A modular skeleton with **materials for skin, hair and eyes** and blend shapes, so the player can customize it in [character creation](/basic/game-settings/character-creation) |
 
 ### Attachment points
@@ -70,5 +70,5 @@ Put your meshes under the root, resize the collision, and add animations. Any `C
 
 ## See also
 
-- [Entities](/basic/entities/) and [Interactables](/basic/entities/interactables) for choosing a model; [Meshes](/basic/assets/meshes) for what goes on a skeleton.
+- [Entities](/basic/entities/) and [Interactables](/basic/entities/interactables) for choosing a model; [Meshes](/basic/entity-assets/equipment-meshes) for what goes on a skeleton.
 - [How model scenes are built](/advanced/assets/).

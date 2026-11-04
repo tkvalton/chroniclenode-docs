@@ -11,6 +11,7 @@ WeaponClassDefinition defines weapon classes and their properties. Handles both 
 | | | |
 |---|---|---|
 | `int` | [weapon_type](#prop-weapon-type) |  |
+| `int` | [animation_profile](#prop-animation-profile) | `0` |
 | `bool` | [is_ranged](#prop-is-ranged) | `false` |
 | `String` | [attack_tag](#prop-attack-tag) | `""` |
 | `String` | [stance_tag](#prop-stance-tag) | `""` |
@@ -26,6 +27,8 @@ WeaponClassDefinition defines weapon classes and their properties. Handles both 
 | `WeaponTypeDefinition` | [get_weapon_type_definition](#method-get-weapon-type-definition)() |
 | `Array[EquipmentSlotDefinition]` | [get_blocked_equipment_slots](#method-get-blocked-equipment-slots)() |
 | `bool` | [has_valid_weapon_type](#method-has-valid-weapon-type)() |
+| `WeaponProfile` | [get_animation_profile](#method-get-animation-profile)() |
+| `Dictionary` | [get_animation_tags](#method-get-animation-tags)( `left_hand: bool = false` ) |
 | `String` | [get_attack_tag](#method-get-attack-tag)() |
 | `String` | [get_stance_tag](#method-get-stance-tag)() |
 | `String` | [get_aim_tag](#method-get-aim-tag)() |
@@ -47,9 +50,13 @@ Weapon type definition resource (handles hand requirements, mesh slots, blocking
 
 *Animation Tags*
 
+### int animation_profile = 0 {#prop-animation-profile}
+
+The Weapon Profile whose animations this weapon plays (Entity Assets &gt; Weapon Profiles): its attack, stance, block, aim and reload clips. 0 = none: the old tags below are used
+
 ### bool is_ranged = false {#prop-is-ranged}
 
-Whether this weapon is ranged (enables aim/reload tags)
+Whether this weapon is ranged (enables aim/reload tags). With a weapon profile the profile decides
 
 ### String attack_tag = "" {#prop-attack-tag}
 
@@ -92,6 +99,14 @@ Get blocked equipment slots from weapon type
 ### bool has_valid_weapon_type() {#method-has-valid-weapon-type}
 
 Check if weapon type is valid
+
+### WeaponProfile get_animation_profile() {#method-get-animation-profile}
+
+The Weapon Profile of this weapon class (null when it has none and uses the old tags)
+
+### Dictionary get_animation_tags( left_hand: bool = false ) {#method-get-animation-tags}
+
+The animation tags of this weapon: the folder of its profile (and the left hand's attack when `left_hand`), else the old tags. A Dictionary with attack_tag, stance_tag, aim_tag, reload_tag and is_ranged.
 
 ### String get_attack_tag() {#method-get-attack-tag}
 

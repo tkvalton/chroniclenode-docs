@@ -29,6 +29,7 @@ NPCDefinition extends EntityDefinition with combat stats, AI behavior, and loot 
 | `CalculationFormula` | [ability_rank_formula](#prop-ability-rank-formula) |  |
 | `int` | [behavior_script](#prop-behavior-script) | `0` |
 | `int` | [combat_script](#prop-combat-script) | `0` |
+| `int` | [animation_profile](#prop-animation-profile) | `0` |
 | `String` | [attack_tag](#prop-attack-tag) | `""` |
 | `String` | [stance_tag](#prop-stance-tag) | `""` |
 | `bool` | [is_ranged](#prop-is-ranged) | `false` |
@@ -58,6 +59,8 @@ NPCDefinition extends EntityDefinition with combat stats, AI behavior, and loot 
 | `ModularCombatScript` | [get_combat_script](#method-get-combat-script)() |
 | `String` | [get_aim_tag](#method-get-aim-tag)() |
 | `String` | [get_reload_tag](#method-get-reload-tag)() |
+| `WeaponProfile` | [get_animation_profile](#method-get-animation-profile)() |
+| `Dictionary` | [get_animation_tags](#method-get-animation-tags)() |
 | `bool` | [has_animation_tags](#method-has-animation-tags)() |
 | `String` | [get_animation_tag_for_category](#method-get-animation-tag-for-category)( `category: String` ) |
 | `Dictionary` | [get_inventory](#method-get-inventory)() |
@@ -211,9 +214,13 @@ Combat Script - controls combat AI behavior
 
 *Animation Tags*
 
+### int animation_profile = 0 {#prop-animation-profile}
+
+Animation tags for NPC combat animations (used instead of equipment lookup) The Weapon Profile this NPC fights with (Entity Assets &gt; Weapon Profiles): its attack, stance, block, aim and reload clips. 0 = none: the old tags below are used
+
 ### String attack_tag = "" {#prop-attack-tag}
 
-Animation tags for NPC combat animations (used instead of equipment lookup) Attack animation folder tag (e.g., "1h_weapon_r", "bow", "2h_weapon") This is used by UseStrategy when playing weapon attack animations
+Attack animation folder tag (e.g., "1h_weapon_r", "bow", "2h_weapon") This is used by UseStrategy when playing weapon attack animations
 
 ### String stance_tag = "" {#prop-stance-tag}
 
@@ -308,6 +315,14 @@ Get the aim tag (only valid if is_ranged is true)
 ### String get_reload_tag() {#method-get-reload-tag}
 
 Get the reload tag (only valid if is_ranged is true)
+
+### WeaponProfile get_animation_profile() {#method-get-animation-profile}
+
+The Weapon Profile of this NPC (null when it has none and uses the old tags)
+
+### Dictionary get_animation_tags() {#method-get-animation-tags}
+
+The animation tags of this NPC: the folder of its profile, else the old tags. A Dictionary with attack_tag, stance_tag, aim_tag, reload_tag and is_ranged
 
 ### bool has_animation_tags() {#method-has-animation-tags}
 

@@ -47,7 +47,7 @@ These fields work for **every** kind of object, whatever its interaction does: a
 | **Cast bar text** | The text of the bar. Empty = "Using" and the name of the object | empty |
 | **Moving interrupts** | Walking away (more than three quarters of a metre) cancels the use | on |
 | **Taking damage interrupts** | Being hurt cancels the use | on |
-| **User animation** | The animation the user plays while the object is used: a [social animation](/basic/assets/animations) of the **actions** kind (kneel, mine, pick). It stops when the use ends | none |
+| **User animation** | The animation the user plays while the object is used: a [social animation](/basic/entity-assets/animations) of the **actions** kind (kneel, mine, pick). It stops when the use ends | none |
 | **Object animation** | The animation of the object's own model that plays when the use starts | none |
 
 What happens when a user tries:

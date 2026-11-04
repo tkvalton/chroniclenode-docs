@@ -57,6 +57,18 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\databases\\model_scene_database.gd",
         "file": "databases/model_scene_database.gd"
+      },
+      {
+        "name": "WeaponProfileMigration",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\databases\\weapon_profile_migration.gd",
+        "file": "databases/weapon_profile_migration.gd"
+      },
+      {
+        "name": "WeaponProfiles",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\databases\\weapon_profiles.gd",
+        "file": "databases/weapon_profiles.gd"
       }
     ]
   }

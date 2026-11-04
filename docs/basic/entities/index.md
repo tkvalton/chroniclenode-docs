@@ -31,7 +31,7 @@ Whatever it is, an entity is made of the same parts, and they come from its defi
 
 | Part | Where it comes from |
 |---|---|
-| **Model and animations** | The [model scene](/basic/assets/model-scenes) and animation type of the definition, and the weapon tags of its [weapon class](/basic/equipment-definitions/weapon-class) |
+| **Model and animations** | The [model scene](/basic/entity-assets/model-scenes) and animation type of the definition, and the weapon tags of its [weapon class](/basic/equipment-definitions/weapon-class) |
 | **Stats and pools** | The *stats data* of the class or NPC: which [pools](/basic/entity-stats/pool) it has, its [stats](/basic/entity-stats/stats), its [immunities](/basic/abilities-and-effects/immunities), the growth per level |
 | **Abilities** | The basic attack and the active and passive [abilities](/basic/abilities-and-effects/abilities) of the definition |
 | **Effects** | Applied by abilities, items and the world |

@@ -18,7 +18,7 @@ The thing with that id does not exist (any more): an icon whose file was renamed
 
 ### The mesh or the audio library looks wrong
 
-**Assets > Meshes > Settings > Validate Database** checks the whole mesh library and lists errors (red) and warnings (yellow). The other libraries have a **Refresh** that reads the folders again. See [Meshes](/basic/assets/meshes).
+**Entity Assets > Equipment Meshes > Settings > Validate Database** checks the whole mesh library and lists errors (red) and warnings (yellow). The other libraries have a **Refresh** that reads the folders again. See [Meshes](/basic/entity-assets/equipment-meshes).
 
 ### The interface scene is reported in red
 

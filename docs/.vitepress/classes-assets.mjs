@@ -189,6 +189,12 @@ export const groups = [
         "base": "Resource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\animations\\animation_core_map.gd",
         "file": "data_classes/entity/animations/animation_core_map.gd"
+      },
+      {
+        "name": "WeaponProfile",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\animations\\weapon_profile.gd",
+        "file": "data_classes/entity/animations/weapon_profile.gd"
       }
     ]
   },

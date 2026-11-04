@@ -1,6 +1,6 @@
-# Meshes
+# Equipment Meshes
 
-The **mesh library** holds everything that is worn, held or painted onto a character: weapons, the body parts and attachments of armor, facial features, and the materials that colour them. **Assets > Meshes** shows it as a tree with a search box and a filter, and edits the settings of the selected mesh.
+The **mesh library** holds everything that is worn, held or painted onto a character: weapons, the body parts and attachments of armor, facial features, and the materials that colour them. **Entity Assets > Equipment Meshes** shows it as a tree with a search box and a filter, and edits the settings of the selected mesh.
 
 Meshes are model files: `.glb`, `.gltf`, `.fbx` or `.blend` models, `.obj` files, or `.tres` and `.res` mesh resources. A model that Godot imports as a **scene** (`.glb`, `.gltf`, `.fbx`, `.blend`) must hold **one mesh node**: the library takes the mesh of that node. Which format to use, and how to prepare a piece, is on [Supported files and best practice](/basic/assets/file-types); a guided example is the [walkthrough](/basic/assets/walkthrough).
 
@@ -9,7 +9,7 @@ They live under `res://src/data/meshes/`, and **the folder a mesh is in is what 
 | Folder | What it holds |
 |---|---|
 | `equipment/weapons/<category>/` | Weapons, grouped by category (`swords`, `bows`, `staves`) |
-| `equipment/body_parts/<tag>/<part>/` | The body-part meshes of [modular](/basic/assets/model-scenes#skeletons) characters: a chest plate, boots, gloves. `<tag>` is the equipment tag of the skeleton (`humanoid`); `<part>` is head, torso, upper arm, lower arm, hand, hips, upper leg, lower leg, foot |
+| `equipment/body_parts/<tag>/<part>/` | The body-part meshes of [modular](/basic/entity-assets/model-scenes#skeletons) characters: a chest plate, boots, gloves. `<tag>` is the equipment tag of the skeleton (`humanoid`); `<part>` is head, torso, upper arm, lower arm, hand, hips, upper leg, lower leg, foot |
 | `equipment/attachments/<tag>/<slot>/` | Pieces that attach to a point: helmets, cloaks, shoulder guards, belts. `<slot>` is the attachment point |
 | `facial/<skeleton tag>/<feature>/` | Eyes, eyebrows, ears, nose, teeth, hair, facial hair |
 | `materials/<category>/` | Materials (`metals`, `woods`, `fabrics`) |
@@ -26,7 +26,7 @@ The skin of a piece comes from the first of these:
 
 When the piece is put on a character the skin is **remapped to the bones of that skeleton**: a skin that already uses the Godot humanoid bone names is used as it is; one that uses the bone names of the packs the toolkit knows (`upperarm_l`, `thigh_r`, `spine_02`) is renamed and its bind poses are recomputed from the skeleton; bones the skeleton does not have (the dynamic hair, cloth, cape, arm and leg bones of the packs) are attached to a main bone chosen from their name: hair to the head, cloth to the hips, capes to the upper chest. A piece with a skin shows a link mark in the tree, and the info panel says where the skin comes from.
 
-The [Model Scenes](/basic/assets/model-scenes) page says which skeleton kinds use parts at all.
+The [Model Scenes](/basic/entity-assets/model-scenes) page says which skeleton kinds use parts at all.
 
 The [items](/basic/items/items#equipment) you make point at these meshes, and the [equipment types](/basic/equipment-definitions/equipment-type) say which body parts a piece replaces.
 
@@ -77,5 +77,5 @@ A weapon mesh has three more settings, with fine steps (0.001):
 
 ## See also
 
-- [Model Scenes](/basic/assets/model-scenes) for the skeletons these go on, [Items](/basic/items/items) and [Equipment Type](/basic/equipment-definitions/equipment-type).
+- [Model Scenes](/basic/entity-assets/model-scenes) for the skeletons these go on, [Items](/basic/items/items) and [Equipment Type](/basic/equipment-definitions/equipment-type).
 - [How the mesh library is built](/advanced/assets/).

@@ -225,6 +225,12 @@ export const groups = [
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\vfx_database_editor.gd",
         "file": "editor_components/editors/assets/vfx_database_editor.gd"
+      },
+      {
+        "name": "WeaponProfileEditor",
+        "base": "ConfigEditorBase",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\weapon_profile_editor.gd",
+        "file": "editor_components/editors/assets/weapon_profile_editor.gd"
       }
     ]
   },

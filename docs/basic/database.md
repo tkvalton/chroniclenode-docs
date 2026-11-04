@@ -54,13 +54,13 @@ but do not delete them, because parts of the toolkit expect them.
 
 ## Assets are not in the database
 
-Models, meshes, animations, sounds, visual effects and icons are **files you add to folders**, not resources you make in an editor. The **Assets** category shows them, and the toolkit scans the folders to find what you put there:
+Models, meshes, animations, sounds, visual effects and icons are **files you add to folders**, not resources you make in an editor. The **Entity Assets** and **Assets** categories show them, and the toolkit scans the folders to find what you put there:
 
 | Editor tab | What it manages |
 |---|---|
-| [Model Scenes](/basic/assets/model-scenes) | The scenes of characters, creatures and interactable objects |
-| [Meshes](/basic/assets/meshes) | Weapons, the parts of modular characters, attachments, facial features and materials |
-| [Animations](/basic/assets/animations) | Animations, in folders for each kind of character |
+| [Model Scenes](/basic/entity-assets/model-scenes) | The scenes of characters, creatures and interactable objects |
+| [Meshes](/basic/entity-assets/equipment-meshes) | Weapons, the parts of modular characters, attachments, facial features and materials |
+| [Animations](/basic/entity-assets/animations) | Animations, in folders for each kind of character |
 | [VFX](/basic/assets/vfx) | Visual effects: one-shot, looping, beams, weather, telegraphs |
 | [Audio](/basic/audio/) | Sound effects, music, voices, and the Music Albums the worlds, zones and menus use |
 | [Icons](/basic/assets/icons) | The pictures, each named by a number |

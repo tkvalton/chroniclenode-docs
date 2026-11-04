@@ -68,7 +68,7 @@ Equipment is worn in a slot of the [equipment slots](/basic/equipment-definition
 | **Full sockets effect** | An effect that is added when **every** socket of the item is filled |
 | **Set bonus** | The [set](/basic/equipment-definitions/set-bonus) the item belongs to |
 
-The visual side of equipment is the **Equipment mesh** section: the body part and attachment meshes the item shows on a character's [model scene](/basic/assets/model-scenes).
+The visual side of equipment is the **Equipment mesh** section: the body part and attachment meshes the item shows on a character's [model scene](/basic/entity-assets/model-scenes).
 
 When a player equips an item it leaves the bag. If a worn item is in the way it is displaced into the bag, and with a full bag the swap still works. An item that does not meet its requirements is refused with a message. A two-handed weapon empties the slots its weapon type blocks.
 

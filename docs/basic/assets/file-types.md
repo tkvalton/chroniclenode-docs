@@ -6,9 +6,9 @@ Every asset library reads **files in folders**. This page lists the file types e
 
 | Library | Accepted files | Notes |
 |---|---|---|
-| **[Meshes](/basic/assets/meshes)** | `.glb`, `.gltf`, `.fbx`, `.blend` (models with **one mesh node**), `.obj`, `.tres`, `.res` (Godot mesh resources) | Materials: `.tres`, `.res` |
-| **[Model Scenes](/basic/assets/model-scenes)** | `.tscn` | Made with **Create Skeleton** or **Create Interactable** from a model you imported (`.glb`, `.gltf`, `.fbx`, `.blend`, or a scene) |
-| **[Animations](/basic/assets/animations)** | `.res`, `.anim` (Godot `Animation` resources) | One file for each clip, in the folder of its package, category and subcategory |
+| **[Meshes](/basic/entity-assets/equipment-meshes)** | `.glb`, `.gltf`, `.fbx`, `.blend` (models with **one mesh node**), `.obj`, `.tres`, `.res` (Godot mesh resources) | Materials: `.tres`, `.res` |
+| **[Model Scenes](/basic/entity-assets/model-scenes)** | `.tscn` | Made with **Create Skeleton** or **Create Interactable** from a model you imported (`.glb`, `.gltf`, `.fbx`, `.blend`, or a scene) |
+| **[Animations](/basic/entity-assets/animations)** | `.res`, `.anim` (Godot `Animation` resources) | One file for each clip, in the folder of its pack, section and category (for a weapon, in the folder of its [weapon profile](/basic/entity-assets/weapon-profiles)) |
 | **[VFX](/basic/assets/vfx)** | `.tscn` for bursts, auras, beams, weather and telegraphs; `.tres`, `.res`, `.png`, `.jpg`, `.jpeg`, `.webp` for the material types | One scene for each effect |
 | **[Audio](/basic/audio/sound-library)** | `.wav`, `.ogg`, `.mp3` | Voice lines too |
 | **[Music Albums](/basic/audio/music-albums)** | `.tres` | Made by the editor |
@@ -51,7 +51,7 @@ Godot imports `.glb`, `.gltf`, `.fbx` and `.blend` as a **scene**: a tree of nod
 A mesh that bends with a character is **bound to bones**: its **skin** says which bone moves which vertices. The mesh library keeps the skin of a piece as a Godot `Skin` resource that goes with the mesh. **You do not need one unless your parts have different bones.** Some asset packs have body parts with more bones than others (a hand with fingers, a boot without): each part binds only the bones it uses, so it needs its own skin to fit the skeleton properly.
 
 - A weapon, a rigid shield, a helmet on a point, a plain mesh: **no skin**. The mesh is used as it is.
-- A body part of a modular character: the skin comes **from the file** when it is a model with a skeleton (the skin of the mesh node), or from a companion file `<name>_skin.tres`, or from the mesh settings. See [Meshes](/basic/assets/meshes#skins).
+- A body part of a modular character: the skin comes **from the file** when it is a model with a skeleton (the skin of the mesh node), or from a companion file `<name>_skin.tres`, or from the mesh settings. See [Meshes](/basic/entity-assets/equipment-meshes#skins).
 - A mesh with no skin always works. The editor never asks for one.
 
 ### Where the settings of a mesh are kept
@@ -100,5 +100,5 @@ The animation library holds Godot `Animation` resources (`.res` or `.anim`), one
 ## See also
 
 - [Walkthrough: from a model on disk to a character in the game](/basic/assets/walkthrough), the editors one after another.
-- [Meshes](/basic/assets/meshes), [Model Scenes](/basic/assets/model-scenes), [Animations](/basic/assets/animations), [VFX](/basic/assets/vfx), [Audio](/basic/audio/sound-library), [Icons](/basic/assets/icons).
+- [Meshes](/basic/entity-assets/equipment-meshes), [Model Scenes](/basic/entity-assets/model-scenes), [Animations](/basic/entity-assets/animations), [VFX](/basic/assets/vfx), [Audio](/basic/audio/sound-library), [Icons](/basic/assets/icons).
 - [How the mesh library reads a file](/advanced/assets/mesh-pipeline) for the details behind this page.

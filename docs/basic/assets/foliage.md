@@ -111,4 +111,4 @@ Entries have no wind or brush-through numbers: movement in the wind and under th
 
 - [Foliage tools](/basic/world/terrain-foliage): painting more or less of an entry on the ground.
 - [Terrain Textures](/basic/assets/terrain-textures#ground-clutter): the list of scatter that grows on a texture.
-- [Meshes](/basic/assets/meshes): the mesh files.
+- [Meshes](/basic/entity-assets/equipment-meshes): the mesh files.

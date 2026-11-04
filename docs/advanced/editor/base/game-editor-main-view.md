@@ -26,6 +26,7 @@ Main container for the unified game editor system
 | `Array` | [abilities_effects_panels](#var-abilities-effects-panels) | `[]` |
 | `Array` | [events_quests_panels](#var-events-quests-panels) | `[]` |
 | `Array` | [world_panels](#var-world-panels) | `[]` |
+| `Array` | [entity_assets_panels](#var-entity-assets-panels) | `[]` |
 | `Array` | [assets_panels](#var-assets-panels) | `[]` |
 | `Array` | [audio_panels](#var-audio-panels) | `[]` |
 | `Array` | [game_settings_panels](#var-game-settings-panels) | `[]` |
@@ -65,9 +66,10 @@ Main container for the unified game editor system
 - **TAGS** = `6`
 - **ITEMS** = `7`
 - **EQUIPMENT_DEFINITIONS** = `8`
-- **ASSETS** = `9`
-- **AUDIO** = `10`
-- **GAME_SETTINGS** = `11`
+- **ENTITY_ASSETS** = `9`
+- **ASSETS** = `10`
+- **AUDIO** = `11`
+- **GAME_SETTINGS** = `12`
 
 ## Variable descriptions
 
@@ -132,6 +134,10 @@ The Build Size tab (made in code: it has no scene).
 *No description yet.*
 
 ### Array world_panels = [] {#var-world-panels}
+
+*No description yet.*
+
+### Array entity_assets_panels = [] {#var-entity-assets-panels}
 
 *No description yet.*
 

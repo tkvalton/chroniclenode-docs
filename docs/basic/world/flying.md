@@ -34,7 +34,7 @@ The **Land** effect (same group) ends the Flight effects on its target. Leave **
 
 ## Animations of flying
 
-The [animation map](/basic/assets/animations) of an entity type has a **Fly** group: **idle fly**, eight directions (**fly f, b, l, r, fl, fr, bl, br**), **fly up** and **fly down**. A fly animation that is empty uses the swimming one, so a creature with no fly animations flies with its swim animations until you add them.
+The [animation map](/basic/entity-assets/animations) of an entity type has a **Fly** group: **idle fly**, eight directions (**fly f, b, l, r, fl, fr, bl, br**), **fly up** and **fly down**. A fly animation that is empty uses the swimming one, so a creature with no fly animations flies with its swim animations until you add them.
 
 Swimming got the missing two as well: **swim up** and **swim down**. They play when the entity moves up or down in the water or in the air, and blend with the others when it also moves forward or sideways. With no swim up animation the entity keeps its idle swim.
 
@@ -70,4 +70,4 @@ See [Flying: what is planned](/planned/flying): a ceiling, no-fly places, a flig
 - [Movement volumes](/basic/world/movement-volumes): water, weightless, lava and rivers; the same movement without an effect.
 - [Mounts](/basic/entities/mounts): a flying mount.
 - [Effect types](/basic/abilities-and-effects/effect-types#status-and-control): the Flight and Land rows.
-- [Animations](/basic/assets/animations): the animation map.
+- [Animations](/basic/entity-assets/animations): the animation map.

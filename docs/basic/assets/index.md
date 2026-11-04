@@ -1,14 +1,11 @@
 # Assets
 
-The **assets** are the art the game is made of: the models of characters and objects, the meshes of weapons and armor, animations, visual effects, icons, terrain textures and foliage. (Sound has a category of its own: [Audio](/basic/audio/).) The **Assets** category of the editor is where you see what the project has, add to it, and check that it is in order.
+The **assets** are the art the game is made of: visual effects, icons, terrain textures and foliage, and what the project weighs. (The models, meshes and animations of creatures have a category of their own: [Entity Assets](/basic/entity-assets/). Sound has one too: [Audio](/basic/audio/).) The **Assets** category of the editor is where you see what the project has, add to it, and check that it is in order.
 
 Unlike the rest of the editor, assets are not `.tres` records with an id. They are **files in folders**, and the folder is the organisation: the editor reads `res://src/data/` and lists what it finds. You add an asset by putting a file in the right folder (or with the **Import** and **Create** buttons, which do it for you), and **Refresh** reads the folders again.
 
 | Page | What it holds | Folder |
 |---|---|---|
-| [Model Scenes](/basic/assets/model-scenes) | Skeletons for characters and creatures; scenes for interactable objects | `src/data/meshes/skeletons/`, `.../interactable_models/` |
-| [Meshes](/basic/assets/meshes) | Weapon, armor-piece and facial meshes; materials | `src/data/meshes/` |
-| [Animations](/basic/assets/animations) | Animation packages for each [entity type](/basic/types-and-groups/entity-types) | `src/data/animations/` |
 | [VFX](/basic/assets/vfx) | Visual effects: bursts, auras, beams, weather, telegraphs, materials | `src/data/vfx/` |
 | [Icons](/basic/assets/icons) | The pictures of items, abilities and the interface, by number | `src/data/icons/` |
 | [Terrain Textures](/basic/assets/terrain-textures) | The textures the terrain is painted with: maps, tiling, surface types, packs | `src/data/worlds/terrain/textures/` |
@@ -17,15 +14,14 @@ Unlike the rest of the editor, assets are not `.tres` records with an id. They a
 
 ## Where to start
 
+- [Entity Assets](/basic/entity-assets/): the model scenes, equipment meshes, animations and weapon profiles of creatures.
 - [Walkthrough: from a model on disk to a character in the game](/basic/assets/walkthrough) goes through the editors in order with one example.
 - [Supported files and best practice](/basic/assets/file-types) lists what each library accepts and what we suggest.
 
 ## How they connect to the rest
 
 ```text
- Model scene ──► NPC / character / class definition ("Entity skeleton")
- Meshes ───────► Item definition (equipment mesh, weapon model) ──► shown on the model scene
- Animations ───► Entity ("Animation type"), weapon classes (animation tags), abilities (animation)
+ Entity Assets > model scenes, equipment meshes, animations and weapon profiles: see their own chapter
  VFX ──────────► Abilities, effects, interactables, worlds (weather)
  Audio ────────► Abilities, entities (voice, footsteps), interactables, worlds (through Albums)
  Icons ────────► Items, abilities, anything with an icon picker

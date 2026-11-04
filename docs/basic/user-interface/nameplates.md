@@ -13,7 +13,7 @@ The nameplate is **not** part of the [HUD](/basic/user-interface/hud): it lives 
 
 ## Where it is placed
 
-The plate is positioned over the **NameplateMarker** of the owner's [model scene](/basic/assets/model-scenes) (a point you place above the head). An entity or object **without a marker has no nameplate**. An object also needs [stats](/basic/entity-stats/) (something to show) to get one: with a marker but no stats it has none, and an object with stats and a marker gets a simpler plate (name and health, no casting or auras).
+The plate is positioned over the **NameplateMarker** of the owner's [model scene](/basic/entity-assets/model-scenes) (a point you place above the head). An entity or object **without a marker has no nameplate**. An object also needs [stats](/basic/entity-stats/) (something to show) to get one: with a marker but no stats it has none, and an object with stats and a marker gets a simpler plate (name and health, no casting or auras).
 
 The manager also:
 
@@ -65,6 +65,6 @@ The target of the player is also shown in the HUD in the unit frame of the targe
 
 ## See also
 
-- [Model scenes](/basic/assets/model-scenes) (the NameplateMarker)
+- [Model scenes](/basic/entity-assets/model-scenes) (the NameplateMarker)
 - [Settings](/basic/game-settings/settings#ui)
 - [HUD](/basic/user-interface/hud)

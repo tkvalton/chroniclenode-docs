@@ -33,7 +33,7 @@ An NPC can **follow a [template](/basic/entities/templates)**: the stats, pools,
 
 | Field | What it does | Default |
 |---|---|---|
-| **Entity skeleton** | The [model scene](/basic/assets/model-scenes). **Select Skeleton** opens the catalog | none |
+| **Entity skeleton** | The [model scene](/basic/entity-assets/model-scenes). **Select Skeleton** opens the catalog | none |
 | **Skeleton scale** | Size of the model, with **Uniform scale** to keep the axes together | `1, 1, 1` |
 | **Collision shape** | The body size for physics and targeting: tiny, small, normal, large or huge | Normal |
 | **Navigation domain** | Where the NPC can go: **Amphibious** (walks and swims, never enters lava), **Land** (walks only: goes round deep water and lava) or **Water** (lives in the water and cannot walk: a fish; it is left stuck on land). The party is always amphibious. A Land or Water NPC needs the [navigation](/basic/world/terrain-navigation#water-lava-and-where-npcs-can-go) baked again | Amphibious |
@@ -42,9 +42,9 @@ An NPC can **follow a [template](/basic/entities/templates)**: the stats, pools,
 
 | Field | What it does |
 |---|---|
-| **Animation type** | The animation set from the [animation library](/basic/assets/animations) |
-| **Is ranged** | The NPC attacks from a distance, so it uses the aim and reload animations |
-| **Attack tag**, **Stance tag**, **Aim tag**, **Reload tag** | The animations of its attack, its combat idle, its aiming and its reload. They work like a [weapon class](/basic/equipment-definitions/weapon-class#animation-tags): an NPC that carries no weapon item says here how it fights |
+| **Animation type** | The animation set from the [animation library](/basic/entity-assets/animations) |
+| **Weapon Profile** | How the NPC fights: the attack, stance, block, aim and reload clips of a [Weapon Profile](/basic/entity-assets/weapon-profiles). An NPC that carries no weapon item says here which profile it uses (a bow for an archer, *Unarmed* for a wolf). Without a profile it uses the old tags below |
+| **Is ranged**, **Attack tag**, **Stance tag**, **Aim tag**, **Reload tag** | The old tags, only shown when the NPC has *no profile*. They work like the old tags of a [weapon class](/basic/equipment-definitions/weapon-class#animation-tags): an NPC that carries no weapon item says here how it fights |
 
 ## Audio
 

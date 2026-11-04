@@ -14,7 +14,7 @@ This tab holds two kinds of types in one list: **equipment types** (armor and ac
 | **Add Body Part** | A body part of the character model that this type **replaces or hides**: a chest piece covers the torso and upper arms, boots cover the feet. When a piece is worn, the bare body part is hidden so it does not poke through the armor |
 | **Add Attachment Point** | A place on the model where the type shows a mesh: helmet, back, left hand, left shoulder, cloak. A cloak uses the *Cloak* point, a shoulder guard the two *Shoulder* points |
 
-The list of body parts and attachment points comes from the [model scene](/basic/assets/model-scenes) rig (head, torso, arms, hands, hips, legs, feet; head, face, chest, back, hips, hands, shoulders, knees, elbows, helmet, cloak).
+The list of body parts and attachment points comes from the [model scene](/basic/entity-assets/model-scenes) rig (head, torso, arms, hands, hips, legs, feet; head, face, chest, back, hips, hands, shoulders, knees, elbows, helmet, cloak).
 
 ## Weapon types
 

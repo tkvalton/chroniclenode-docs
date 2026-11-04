@@ -2,7 +2,7 @@
 
 # Database types
 
-The [Database](/advanced/data-and-database/database-classes/database) knows 65 types of resource. Each row says the **type name** you pass to the database (`Database.get_resource("effect", id)`), the **class** every resource of the type must be,
+The [Database](/advanced/data-and-database/database-classes/database) knows 71 types of resource. Each row says the **type name** you pass to the database (`Database.get_resource("effect", id)`), the **class** every resource of the type must be,
 the **folder** its files are saved in (one `<id>.tres` file per resource) and the **editor tab** you make them in. Every class in the table extends [DatabaseResource](/advanced/data-and-database/database-classes/database-resource).
 
 The rows are in the order of the REGISTRY, grouped like the editor's categories. The type `enviroment` is spelled that way in the code.
@@ -11,10 +11,16 @@ The rows are in the order of the REGISTRY, grouped like the editor's categories.
 |---|---|---|---|
 | **World** | | | |
 | `world` | `WorldData` | `src/data/worlds/` | [Worlds](/basic/world/worlds) |
-| `enviroment` | `EnvironmentConfig` | `src/data/worlds/enviroment/` | [Environment config](/basic/world/environment-config) |
-| `sky` | `SkyConfig` | `src/data/worlds/sky/` | [Sky config](/basic/world/sky-config) |
-| `sun` | `SunConfig` | `src/data/worlds/sun/` | [Sun config](/basic/world/sun-config) |
-| `time` | `TimeConfig` | `src/data/worlds/time/` | [Time config](/basic/world/time-config) |
+| `enviroment` | `EnvironmentConfig` | `src/data/worlds/enviroment/` | [World Configs](/basic/world/world-configs) |
+| `sky` | `SkyConfig` | `src/data/worlds/sky/` | [World Configs](/basic/world/world-configs) |
+| `sun` | `SunConfig` | `src/data/worlds/sun/` | [World Configs](/basic/world/world-configs) |
+| `time` | `TimeConfig` | `src/data/worlds/time/` | [World Configs](/basic/world/world-configs) |
+| `weather` | `WeatherConfig` | `src/data/worlds/weather/` |  |
+| **(the shelter profiles are the old way of making a shelter: the settings are now on the volume. The kind is kept so that a scene that still has a profile can be read)** | | | |
+| `shelter` | `ShelterProfile` | `src/data/worlds/shelters/` |  |
+| `weather_table` | `WeatherTable` | `src/data/worlds/weather_tables/` |  |
+| `sound_album` | `SoundAlbum` | `src/data/audio/albums/sound_albums/` | [Music Albums](/basic/audio/music-albums) |
+| `dynamic_music` | `DynamicMusic` | `src/data/audio/dynamic_music/` | [Dynamic Music](/basic/audio/dynamic-music) |
 | **Events & Quests** | | | |
 | `event` | `Event` | `src/data/events/` | [Events](/basic/events-and-quests/events) |
 | `quest` | `Quest` | `src/data/quests/` | [Quests](/basic/events-and-quests/quests) |
@@ -65,6 +71,7 @@ The rows are in the order of the REGISTRY, grouped like the editor's categories.
 | **Equipment Definitions** | | | |
 | `armor_class` | `ArmorClassDefinition` | `src/data/items/armor_classes/` | [Armor Class](/basic/equipment-definitions/armor-class) |
 | `weapon_class` | `WeaponClassDefinition` | `src/data/items/weapon_classes/` | [Weapon Class](/basic/equipment-definitions/weapon-class) |
+| `weapon_profile` | `WeaponProfile` | `src/data/items/weapon_profiles/` | [Weapon Profiles](/basic/entity-assets/weapon-profiles) |
 | `equipment_type` | `EquipmentTypeDefinition` | `src/data/items/equipment_types/` | [Equipment Type](/basic/equipment-definitions/equipment-type) |
 | `weapon_type` | `WeaponTypeDefinition` | `src/data/items/weapon_types/` | [Equipment Type](/basic/equipment-definitions/equipment-type) |
 | `equipment_slot` | `EquipmentSlotDefinition` | `src/data/items/equipment_slots/` | [Equipment Slot](/basic/equipment-definitions/equipment-slot) |

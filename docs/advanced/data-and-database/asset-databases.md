@@ -1,7 +1,7 @@
 # Asset databases
 
 Animations, sounds, visual effects, meshes, model scenes and icons are not resources of the [Database](/advanced/data-and-database/database-classes/database). They are **files in folders**, and each kind has a small class that reads its folder and answers questions about what is there.
-They are what you manage in the **Assets** category of the editor: [Model Scenes](/basic/assets/model-scenes), [Meshes](/basic/assets/meshes), [Animations](/basic/assets/animations), [VFX](/basic/assets/vfx), and [Icons](/basic/assets/icons).
+They are what you manage in the **Entity Assets** and **Assets** categories of the editor: [Model Scenes](/basic/entity-assets/model-scenes), [Meshes](/basic/entity-assets/equipment-meshes), [Animations](/basic/entity-assets/animations), [VFX](/basic/assets/vfx), and [Icons](/basic/assets/icons).
 
 ## What they have in common
 
