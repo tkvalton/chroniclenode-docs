@@ -215,6 +215,12 @@ export const groups = [
         "file": "data_classes/stats/trigger_rules/trigger_rule_set.gd"
       },
       {
+        "name": "TriggerSlots",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\trigger_rules\\trigger_slots.gd",
+        "file": "data_classes/stats/trigger_rules/trigger_slots.gd"
+      },
+      {
         "name": "TriggerTagDefinition",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\stats\\definitions\\trigger_tag_definition.gd",

@@ -10,6 +10,7 @@ Maps AnimationCoreMap properties to their filesystem folders Used by editors to 
 
 | | |
 |---|---|
+| `Array[Dictionary]` | [get_trigger_clips](#method-get-trigger-clips)( `entity_type: String, include_parent: bool = true` ) *static* |
 | `String` | [get_folder_for_property](#method-get-folder-for-property)( `property_name: String` ) *static* |
 | `Array[Dictionary]` | [get_animations_in_folder](#method-get-animations-in-folder)( `entity_type: String, property_name: String, include_parent: bool = true` ) *static* |
 | `Error` | [create_entity_folder_structure](#method-create-entity-folder-structure)( `entity_name: String` ) *static* |
@@ -19,8 +20,13 @@ Maps AnimationCoreMap properties to their filesystem folders Used by editors to 
 
 - `const` **PROPERTY_FOLDERS** = `{`
 - `const` **FOLDER_STRUCTURE** = `[` - Complete folder structure to create for new entities
+- `String` **TRIGGER_FOLDER** = `"core/combat_system/triggers"` - The folder of the clips of the triggers that have an animation (Trigger Tags &gt; Entity reactions), relative to the entity root
 
 ## Method descriptions
+
+### Array[Dictionary] get_trigger_clips( entity_type: String, include_parent: bool = true ) {#method-get-trigger-clips}
+
+The clips of the trigger animations of an entity type (and its parent's): [&#123;name, is_parent, entity&#125;]
 
 ### String get_folder_for_property( property_name: String ) {#method-get-folder-for-property}
 

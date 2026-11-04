@@ -24,6 +24,12 @@ Carries what every consumer of a DamageResult / HealingResult needs: the tag tha
 | `float` | [magnitude](#var-magnitude) | `0.0` |
 | `int` | [application](#var-application) | `0` |
 | `int` | [application_priority](#var-application-priority) | `0` |
+| `String` | [slot_name](#var-slot-name) | `""` |
+| `bool` | [has_voice](#var-has-voice) | `false` |
+| `bool` | [has_animation](#var-has-animation) | `false` |
+| `bool` | [animation_by_weapon](#var-animation-by-weapon) | `false` |
+| `PackedStringArray` | [slot_chain](#var-slot-chain) | `PackedStringArray()` |
+| `SFXSelection` | [sound](#var-sound) |  |
 
 ## Methods
 
@@ -86,6 +92,30 @@ How the magnitude changes the number in the phase where the tag fired (TriggerTa
 ### int application_priority = 0 {#var-application-priority}
 
 Where in the modifier order that happens (higher first, like a modifier's processing priority)
+
+### String slot_name = "" {#var-slot-name}
+
+The slot of the trigger (TriggerTagDefinition.get_slot_name), "" for a trigger that has none
+
+### bool has_voice = false {#var-has-voice}
+
+The creature makes the voice call of the slot when it fires
+
+### bool has_animation = false {#var-has-animation}
+
+The creature plays the animation of the slot when it fires, and the slots to try (the slot, then the ones it falls back to)
+
+### bool animation_by_weapon = false {#var-animation-by-weapon}
+
+*No description yet.*
+
+### PackedStringArray slot_chain = PackedStringArray() {#var-slot-chain}
+
+*No description yet.*
+
+### SFXSelection sound {#var-sound}
+
+A sound played at the target when it fires
 
 ## Method descriptions
 

@@ -234,6 +234,7 @@ Entity is the base class for all characters and creatures in the game world. It 
 | `DamageResult` | [take_damage](#method-take-damage)( `result: DamageResult` ) |
 | `HealingResult` | [take_healing](#method-take-healing)( `result: HealingResult` ) |
 | `bool` | [can_apply_school_effect](#method-can-apply-school-effect)( `school_id: int, source_entity: Variant = null, effect: EffectInstance = null` ) |
+| `String` | [get_weapon_animation_tag](#method-get-weapon-animation-tag)() |
 | `EffectInstance` | [get_effect](#method-get-effect)( `effect_id: int` ) |
 | `EffectInstance` | [get_effect_from_caller](#method-get-effect-from-caller)( `effect_id: int, originator: Entity` ) |
 | `void` | [reduce_effect_stacks](#method-reduce-effect-stacks)( `effect_instance: EffectInstance, stacks_to_remove: int` ) |
@@ -1446,6 +1447,10 @@ Completes the HealingResult for a heal on this entity (see StatsComponent.take_h
 ### bool can_apply_school_effect( school_id: int, source_entity: Variant = null, effect: EffectInstance = null ) {#method-can-apply-school-effect}
 
 Can an effect of this school land on the entity (it is not immune and not locked)?
+
+### String get_weapon_animation_tag() {#method-get-weapon-animation-tag}
+
+The animation tag of the weapon in hand (the attack tag of its weapon class, or of the NPC), "unarmed" without one
 
 ### EffectInstance get_effect( effect_id: int ) {#method-get-effect}
 

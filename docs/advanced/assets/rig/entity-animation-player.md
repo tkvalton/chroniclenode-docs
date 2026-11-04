@@ -40,6 +40,7 @@ EntityAnimationPlayer A specialized AnimationPlayer for game entities with robus
 | `void` | [play_falling_animation](#method-play-falling-animation)() |
 | `void` | [play_land_animation](#method-play-land-animation)( `impact_level: int` ) |
 | `void` | [play_combat_animation](#method-play-combat-animation)( `animation_type: String, weapon_type: String = ""` ) |
+| `bool` | [play_trigger_animation](#method-play-trigger-animation)( `slots: PackedStringArray, weapon_tag: String = ""` ) |
 | `bool` | [play_status_effect_start_animation](#method-play-status-effect-start-animation)( `status_name: String, speed: float = 1.0` ) |
 | `bool` | [play_status_effect_loop_animation](#method-play-status-effect-loop-animation)( `status_name: String, speed: float = 1.0` ) |
 | `bool` | [play_status_effect_end_animation](#method-play-status-effect-end-animation)( `status_name: String, speed: float = 1.0` ) |
@@ -333,6 +334,10 @@ Plays the landing, softer or harder by the impact level.
 ### void play_combat_animation( animation_type: String, weapon_type: String = "" ) {#method-play-combat-animation}
 
 Plays a combat animation by its type (attack, hit, dodge ...) for the weapon type in hand.
+
+### bool play_trigger_animation( slots: PackedStringArray, weapon_tag: String = "" ) {#method-play-trigger-animation}
+
+Plays the animation of a trigger (a dodge, a parry ...): the clip of its slot in the animation map for the weapon in hand, or of the next slot of `slots` (the ones it falls back to). False when the creature has none
 
 ### bool play_status_effect_start_animation( status_name: String, speed: float = 1.0 ) {#method-play-status-effect-start-animation}
 

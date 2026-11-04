@@ -53,9 +53,7 @@ Features:
 | `bool` | [play_hit_reaction_voice](#method-play-hit-reaction-voice)( `heavy: bool` ) |
 | `bool` | [play_pain_voice](#method-play-pain-voice)() |
 | `bool` | [play_death_voice](#method-play-death-voice)() |
-| `bool` | [play_avoid_voice](#method-play-avoid-voice)( `trigger_tag: String` ) |
-| `bool` | [play_block_voice](#method-play-block-voice)() |
-| `bool` | [play_crit_voice](#method-play-crit-voice)() |
+| `bool` | [play_trigger_voice](#method-play-trigger-voice)( `record: TriggerRecord` ) |
 | `bool` | [play_aggro_voice](#method-play-aggro-voice)() |
 | `bool` | [play_jump_start_voice](#method-play-jump-start-voice)() |
 | `bool` | [play_jump_end_voice](#method-play-jump-end-voice)() |
@@ -175,17 +173,9 @@ Play a pain sound with cooldown
 
 The sound of dying (a voice without one uses Pain, then Hit)
 
-### bool play_avoid_voice( trigger_tag: String ) {#method-play-avoid-voice}
+### bool play_trigger_voice( record: TriggerRecord ) {#method-play-trigger-voice}
 
-The sound of avoiding a hit: the call named like the avoid trigger (dodge, parry ...), a voice without it uses the call it falls back to
-
-### bool play_block_voice() {#method-play-block-voice}
-
-The sound of a block
-
-### bool play_crit_voice() {#method-play-crit-voice}
-
-The sound of landing a critical strike (one every second at most)
+The voice call of a trigger that fired on the entity (a dodge, a parry, a block, a critical strike ... any trigger with "Has a voice call"): the call is named by its slot, a voice without it uses the call the trigger falls back to. One every half second per trigger at most
 
 ### bool play_aggro_voice() {#method-play-aggro-voice}
 

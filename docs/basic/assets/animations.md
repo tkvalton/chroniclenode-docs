@@ -54,6 +54,17 @@ An entity type can **inherit** from another. A `humanoid_female` that has no jum
 
 An animation left empty falls back to the parent's.
 
+## Trigger animations
+
+A [trigger tag](/basic/entity-stats/trigger-tags#entity-reactions) with **Has an animation** adds a list to every entity type. They are in the **Triggers** section of the map (above the others), one block for each trigger:
+
+- The **clips** are files in the package folder `core/combat_system/triggers/` of the entity type (put them there like any animation). Tick the clips a trigger plays; **one is picked at random** each time.
+- A trigger that **depends on the weapon** has a list for *unarmed* and one for the *attack tag of each weapon class* of the project. The creature plays the list of the weapon it holds, else the *unarmed* one, else the trigger's own list.
+- A creature with no clip for a trigger plays the clip of the trigger it **falls back to** (*Parry* uses *Dodge*), and then nothing.
+- A package without a list for a trigger takes it from its **parent**.
+
+The animations of triggers are stored in the map by the **slot name** of the trigger (`parry`, `parry/1h_weapon_r`): renaming a trigger's slot makes the maps lose their lists.
+
 ## Where animations are chosen
 
 - The **Animation type** of an [NPC](/basic/entities/npcs), character or class is an entity type from this library.

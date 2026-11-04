@@ -129,11 +129,16 @@ Parent package for animation inheritance When an animation is empty/null, the sy
 | `String` | [push](#prop-push) | `"push"` |
 | `String` | [pull](#prop-pull) | `"pull"` |
 | `String` | [climb](#prop-climb) | `"climb"` |
+| `Dictionary` | [trigger_animations](#prop-trigger-animations) | `{}` |
 
 ## Methods
 
 | | |
 |---|---|
+| `Array` | [get_trigger_animation_list](#method-get-trigger-animation-list)( `slot_name: String, weapon_tag: String = ""` ) |
+| `String` | [get_trigger_animation](#method-get-trigger-animation)( `slot_name: String, weapon_tag: String = ""` ) |
+| `Array` | [get_trigger_clips](#method-get-trigger-clips)( `key: String` ) |
+| `void` | [set_trigger_clips](#method-set-trigger-clips)( `key: String, clips: Array` ) |
 | `bool` | [has_parent](#method-has-parent)() |
 | `AnimationCoreMap` | [get_parent_map](#method-get-parent-map)() |
 | `Variant` | [get_with_fallback](#method-get-with-fallback)( `property_name: String` ) |
@@ -663,7 +668,29 @@ The animation of pulling.
 
 The animation of climbing.
 
+*Triggers*
+
+### Dictionary trigger_animations =  {#prop-trigger-animations}
+
+The animations of the trigger tags that have an animation (Trigger Tags &gt; Entity reactions), edited in the Triggers section of Assets &gt; Animations. The key is the slot of the trigger (parry); for a trigger that depends on the weapon it is the slot and the attack tag of the weapon class (parry/1h_weapon_r, parry/unarmed). The value is the list of clips (one is picked at random)
+
 ## Method descriptions
+
+### Array get_trigger_animation_list( slot_name: String, weapon_tag: String = "" ) {#method-get-trigger-animation-list}
+
+The clips for a trigger slot and the weapon in hand: the list for the weapon, else the list for unarmed, else the slot's own list, else the parent package's
+
+### String get_trigger_animation( slot_name: String, weapon_tag: String = "" ) {#method-get-trigger-animation}
+
+One clip for a trigger slot and the weapon in hand ("" when there is none)
+
+### Array get_trigger_clips( key: String ) {#method-get-trigger-clips}
+
+The clips of one key of the trigger animations (a slot, or slot/weapon): this map's own, not the parent's
+
+### void set_trigger_clips( key: String, clips: Array ) {#method-set-trigger-clips}
+
+*No description yet.*
 
 ### bool has_parent() {#method-has-parent}
 

@@ -36,6 +36,23 @@ A critical strike is *Percent Increase* with magnitude `100`: the tag alone does
 | **Message** | Floating text ("CRIT!") |
 | **Log phrase** | The combat log line. Placeholders: `{attacker}` `{target}` `{ability}` `{damage}`. Empty = the default for the kind |
 
+## Entity reactions
+
+What a **creature** does when this trigger fires on it, beyond the floating text. The game only knows the three outcomes (avoid, mitigate, boost); the sounds and the animations are yours, so each trigger you make can give creatures their own.
+
+| Field | What it does |
+|---|---|
+| **Has a voice call** | Creatures make a sound of their own: a **call** named by the slot is added to **every voice** (Audio > [Entity Voices](/basic/audio/entity-voices) lists it under *Triggers*) |
+| **Has an animation** | Creatures play an animation of their own: a **list** named by the slot is added to **every animation map** (Assets > [Animations](/basic/assets/animations#trigger-animations), *Triggers*). Off: the **Animation** of Presentation (Hit, Dodge, Block) is used, as before |
+| **The animation depends on the weapon in hand** | The animation map gets a list for **each weapon**: the *attack tag* of each [weapon class](/basic/equipment-definitions/weapon-class#animation-tags), and *unarmed*. A parry with a sword is not a parry with bare hands. Off: one list for the creature |
+| **Slot name** | The name of the voice folder and of the animation entry. Empty = the tag in snake_case (`critical strike` becomes `critical_strike`). Change it only when you have to: voices and animation maps that use the old name stop finding it |
+| **If a creature has none, use** | The slot of **another trigger** to use when a creature has no voice call or animation for this one: *Parry* uses *Dodge* |
+| **Sound at the target** | A sound played where the hit lands when the trigger fires (the clang of a parry), **the same for everyone**. The voice call is each creature's own; a trigger can have either or both |
+
+Who reacts: a trigger that fired on the **target** of a hit (a dodge, a parry, a block) makes the target react; a trigger the **attacker** rolled (a critical strike) makes the attacker react, and its sound plays at the target. A call plays at most once every half second per trigger. A **block** (a mitigate trigger with its own animation) replaces the hit reaction.
+
+The template's *Dodge*, *Parry*, *Block* and *Critical Strike* have a voice call (slots `dodge`, `parry` (falls back to dodge), `block`, `crit`). They keep their older Presentation animations.
+
 ## Forcing
 
 | Field | What it does |

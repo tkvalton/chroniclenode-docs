@@ -25,21 +25,33 @@ src/data/audio/entity_voices/
 
 ## The calls
 
+There are two kinds: the calls the **game** makes, and the calls of your **triggers**.
+
+### The calls of the game
+
 | Call | When it plays | A voice without it |
 |---|---|---|
 | **Hit** (`hit`) | The entity is hit and takes damage. At most one a second | silent. Required |
 | **Hit, heavy** (`hit_heavy`) | A hit takes a quarter or more of the entity's health at once | uses Hit |
 | **Death** (`death`) | The entity dies | uses Pain, then Hit. Required |
-| **Dodge** (`dodge`) | The entity avoids a hit with an avoid trigger called *dodge* | silent |
-| **Parry** (`parry`) | The same for a trigger called *parry* | uses Dodge |
-| **Block** (`block`) | A block (a mitigate trigger with the Block animation) reduces a hit | silent |
-| **Critical strike** (`crit`) | The entity lands a critical strike. At most one a second | silent |
 | **Aggro** (`aggro`) | A creature starts a fight. Players do not say it. At most one every eight seconds | silent |
 | **Jump** (`jump_start`), **Landing** (`jump_end`) | The entity leaves the ground, lands | silent |
 | **Pain** (`pain`) | Not played by itself: it is what Death falls back to. Use it for a groan of your own | |
 
-- A **required** call is one every voice should have: the editor warns when a voice has neither it nor a call that stands in for it.
-- The avoid calls are named for the **trigger tag** that avoided the hit (the *Tag* of the [Trigger Tags](/basic/entity-stats/trigger-tags) tab). A trigger called *evade* plays a call called `evade` if the voice has a folder with that name.
+### The calls of your triggers
+
+A [trigger tag](/basic/entity-stats/trigger-tags#entity-reactions) with **Has a voice call** adds a call to **every voice**, named by its **slot** (the tag in snake_case, or the *Slot name* you gave it). They are listed in the *Triggers* group. The template's triggers have it:
+
+| Call | When it plays | A voice without it |
+|---|---|---|
+| **Dodge** (`dodge`) | An avoid trigger called *dodge* saves the entity from a hit | silent |
+| **Parry** (`parry`) | The same for *parry* | uses Dodge (the trigger's *If a creature has none, use*) |
+| **Block** (`block`) | A block reduces a hit | silent |
+| **Critical strike** (`crit`) | The entity lands a critical strike (the template's slot is called `crit`) | silent |
+
+Make a trigger (an *Evade*, a *Reflect*) and tick **Has a voice call**: every voice gets an `evade` call to fill, the editor lists it, and nothing else changes. A trigger that fired on the **target** (a dodge, a block) is said by the target, one the **attacker** rolled (a critical strike) by the attacker. A trigger's call plays at most once every half second.
+
+- A **required** call is one every voice should have: the editor warns when a voice has neither it nor a call that stands in for it. Trigger calls are never required.
 - Older folder names still work: `hit_short` is Hit and `hit_long` is Hit, heavy. The editor suggests renaming them.
 - The calls play a little quietly (a few dB under the file) so a crowd is not deafening: make the files the loudness you want.
 

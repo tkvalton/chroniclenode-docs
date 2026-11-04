@@ -22,12 +22,19 @@ The tag is the word modifiers require and procs filter on. Its definition holds 
 | `CalculationTriggerStatEffect.SpecialEffectAnimation` | [animation](#prop-animation) | `CalculationTriggerStatEffect.SpecialEffectAnimation.NONE` |
 | `String` | [message](#prop-message) | `"":` |
 | `String` | [log_phrase](#prop-log-phrase) | `"":` |
+| `String` | [slot_name](#prop-slot-name) | `""` |
+| `bool` | [has_voice_call](#prop-has-voice-call) | `false` |
+| `bool` | [has_animation](#prop-has-animation) | `false` |
+| `bool` | [animation_by_weapon](#prop-animation-by-weapon) | `false` |
+| `String` | [fallback_slot](#prop-fallback-slot) | `""` |
+| `SFXSelection` | [sound](#prop-sound) |  |
 | `Array[CalculationBase.CalculationType]` | [calculations](#prop-calculations) | `[]` |
 
 ## Methods
 
 | | |
 |---|---|
+| `String` | [get_slot_name](#method-get-slot-name)() |
 | `String` | [get_tag](#method-get-tag)() |
 | `bool` | [fires_in](#method-fires-in)( `calculation_type: CalculationBase.CalculationType` ) |
 | `TriggerRecord` | [create_record](#method-create-record)( `stat_id: int, stat_name: String, magnitude: float` ) |
@@ -86,6 +93,32 @@ Floating text when it fires
 
 Combat log phrase when it fires. Placeholders: &#123;attacker&#125; &#123;target&#125; &#123;ability&#125; &#123;damage&#125;. Empty = the default for the kind
 
+*Entity Reactions*
+
+### String slot_name = "" {#prop-slot-name}
+
+The name of this trigger's slot: the folder of its voice call and the key of its animations. Empty = the tag in snake_case ("critical strike" -&gt; critical_strike). Change it only when you have to: voices and animation maps that use the old name stop finding it
+
+### bool has_voice_call = false {#prop-has-voice-call}
+
+Creatures make a sound of their own when this trigger fires on them: a call in their voice (Audio &gt; Entity Voices lists it for every voice)
+
+### bool has_animation = false {#prop-has-animation}
+
+Creatures play an animation of their own when this trigger fires on them: a list in their animation map (Assets &gt; Animations &gt; Triggers). Off: the Animation chosen in Presentation is used
+
+### bool animation_by_weapon = false {#prop-animation-by-weapon}
+
+The animation depends on the weapon in hand: the animation map has a list for each weapon (the attack tag of the weapon class, "unarmed" without one). Off: one list for the creature
+
+### String fallback_slot = "" {#prop-fallback-slot}
+
+When a creature has no voice call or animation for this trigger, use the one of this trigger's slot (parry -&gt; dodge). Empty = nothing
+
+### SFXSelection sound {#prop-sound}
+
+A sound played at the target when the trigger fires (the clang of a parry), the same for everyone. Beside the voice call of the creature
+
 *Forcing*
 
 ### Array[CalculationBase.CalculationType] calculations = [] {#prop-calculations}
@@ -93,6 +126,10 @@ Combat log phrase when it fires. Placeholders: &#123;attacker&#125; &#123;target
 The calculations the tag fires in when a rule forces it. Empty = by kind: avoid and mitigate in damage taken, boost and none in damage done and healing done
 
 ## Method descriptions
+
+### String get_slot_name() {#method-get-slot-name}
+
+The name of the slot: the Slot name, else the tag in snake_case
 
 ### String get_tag() {#method-get-tag}
 

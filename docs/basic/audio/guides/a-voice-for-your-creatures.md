@@ -21,7 +21,7 @@ In this guide an orc gets a voice: you make the kind of creature and the voice, 
 
 3. In the tree select **Hit (hit)** and press **Import files...**. Pick two or three grunts. They are copied into `orc/Orc_Grunt/hit/`.
 4. Select **Death (death)** and import the death cry.
-5. Select **Dodge (dodge)** and import the dodge sound.
+5. Select **Dodge (dodge)** (it is in the *Triggers* group: the *Dodge* [trigger tag](/basic/entity-stats/trigger-tags#entity-reactions) has **Has a voice call**) and import the dodge sound.
 
 **You should see** the files counted in the tree, *has files* in the status of each, and the warnings turn to *Every required call has a sound*. Select a call and press **Play** (or double-click a file) to listen. **Hit, heavy** now says *uses hit*: a voice without a heavy hit uses the light one.
 
@@ -36,7 +36,7 @@ In this guide an orc gets a voice: you make the kind of creature and the voice, 
 7. Open **Entities > NPCs**, select an orc NPC. In its **Voice audio** choose the kind *orc* and the voice *Orc_Grunt*.
 8. Run the world and hit the orc.
 
-**You should see** (hear) a grunt when it is hit (never more than one a second), the death cry when it dies, and the dodge sound when an avoid trigger called *dodge* saves it. Back in the tab, **Used by** lists the NPC.
+**You should see** (hear) a grunt when it is hit (never more than one a second), the death cry when it dies, and the dodge sound when the *Dodge* trigger saves it. Back in the tab, **Used by** lists the NPC.
 
 ## Part 5: a shout for an ability
 
