@@ -13,7 +13,7 @@ The toolkit plays its sound on five **channels** (audio buses). Each has its own
 | **Music** | The music of the worlds and of combat |
 | **Sound effects** | Footsteps, abilities, hits, anything in the world, and global sound effects |
 | **Voice** | The barks of the characters and the voice lines of conversations |
-| **Ambiance** | The ambient loops of a world (wind, birds, a distant crowd) |
+| **Ambience** | The ambient loops of a world (wind, birds, a distant crowd) |
 | **Interface** | The sounds of the UI: clicks, windows, notifications, level up |
 
 The interface has a channel of its own, so a zone that muffles the world **never muffles a click**, and a player can turn the interface down without touching the effects.
@@ -37,7 +37,7 @@ A zone has one **profile**: a resource that says what each channel does inside. 
 | **Fade time** | Seconds the sound takes to change when the camera enters or leaves, so there is no click | `0.3` |
 | **Reverb room size** | How big the room of the reverb is: a closet to a cavern | `0.5` |
 
-Then, for each channel (music, sound effects, voice, ambiance, interface):
+Then, for each channel (music, sound effects, voice, ambience, interface):
 
 | Field | What it does | Default |
 |---|---|---|
@@ -52,10 +52,10 @@ A channel with the defaults is **left alone**.
 | Profile | What it does |
 |---|---|
 | **Underwater** | The world is muffled: low-pass between 500 and 1200 Hz on every world channel and a little quieter. The interface is untouched. It is the profile of the *Water* preset of a [movement volume](/basic/world/movement-volumes) |
-| **Cave** | An echo (large room) on the effects, voices and ambiance, a duller ambiance and a little less music |
+| **Cave** | An echo (large room) on the effects, voices and ambience, a duller ambience and a little less music |
 | **Large hall** | A very long echo on everything the room makes: the sound of a cathedral |
 | **Muffled** | The world dull and quiet, as heard through a wall; the interface is not touched |
-| **Indoors** | A short reverb on the effects and voices, the ambiance of the outside muffled and 6 dB quieter, the music slightly softer at the top |
+| **Indoors** | A short reverb on the effects and voices, the ambience of the outside muffled and 6 dB quieter, the music slightly softer at the top |
 
 ## The player's volume
 
@@ -67,12 +67,12 @@ For a waterfall, a campfire or a market, add an **AmbientSound** node (Godot's *
 
 | It already | So |
 |---|---|
-| Plays on the **Ambiance** channel | The ambiance volume of the player changes it, and the audio zones and the underwater muffle apply to it |
+| Plays on the **Ambience** channel | The ambience volume of the player changes it, and the audio zones and the underwater muffle apply to it |
 | Starts by itself and **loops** | No script needed (*Loop* plays it again when a file does not loop by itself) |
 | Pauses with the pause menu and follows the **time scale** | Like the other sounds of the game |
 | Has a range (*Max distance* 40, *Unit size* 8) | Change them as on any 3D player |
 
-A plain Godot `AudioStreamPlayer3D` works too, **as long as its Bus is one of the channels** above. On the default **Master** bus it ignores the sliders of the player and every audio zone, so set the Bus to *Ambiance* (or *SFX*, *Voice*). For a sound that is not ambient, set the Bus of the AmbientSound to *SFX*.
+A plain Godot `AudioStreamPlayer3D` works too, **as long as its Bus is one of the channels** above. On the default **Master** bus it ignores the sliders of the player and every audio zone, so set the Bus to *Ambience* (or *SFX*, *Voice*). For a sound that is not ambient, set the Bus of the AmbientSound to *SFX*.
 
 ## Good to know
 

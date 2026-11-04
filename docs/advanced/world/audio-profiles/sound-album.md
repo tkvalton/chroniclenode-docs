@@ -4,7 +4,7 @@
 
 **Inherits:** [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-A collection of tracks that play one after the other: the music of a world, a zone or a weather, or the music of a fight. An album is a database kind (Assets &gt; Music Albums) of two kinds, **Music** and **Combat Music**. It says in which order the tracks play (in order, shuffled so every track plays before one repeats, truly random, or by the weight of each track), the time between two tracks, whether the album starts again when it is over, and how the tracks fade. A world, a zone, a weather and an encounter choose an album through a SoundSource. See docs: Assets &gt; Albums.
+A collection of tracks that play one after the other: the music of a world, a zone or a weather, or the music of a fight. An album is a database kind (Audio &gt; Music Albums) of two kinds, **Music** and **Combat Music**. It says in which order the tracks play (in order, shuffled so every track plays before one repeats, truly random, or by the weight of each track), the time between two tracks, whether the album starts again when it is over, and how the tracks fade. A world, a zone, a weather and an encounter choose an album through a SoundSource. See docs: Audio &gt; Music Albums.
 
 ## Properties
 

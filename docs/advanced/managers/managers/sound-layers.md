@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-Who decides what music and ambience play: layers lie one over the other, and the highest layer that has something for a channel wins, for music and for ambience on their own: WORLD (what the world says) &lt; ZONE (the place the party is in) &lt; WEATHER (the weather that is on) &lt; SHELTER (the shelter the camera is in, the rain on its roof) &lt; ENCOUNTER (the fight the party is in, combat music only) &lt; EVENT (an event that plays a track). A layer holds a SoundSource for each channel (a track with its options, or an album), or an old list of track paths. The AudioManager keeps two sets of layers, one for the music and the ambience and one for the combat music (world &lt; zone &lt; encounter), asks `resolve_music()` and `resolve_ambience()` and plays what they say. See docs: Assets &gt; Albums, World &gt; Sound layers.
+Who decides what music and ambience play: layers lie one over the other, and the highest layer that has something for a channel wins, for music and for ambience on their own: WORLD (what the world says) &lt; ZONE (the place the party is in) &lt; WEATHER (the weather that is on) &lt; SHELTER (the shelter the camera is in, the rain on its roof) &lt; ENCOUNTER (the fight the party is in, combat music only) &lt; EVENT (an event that plays a track) &lt; MENU (the music of a menu: the main menu, character creation, the loading screen, the pause menu; Gameplay Config &gt; Audio). A layer holds a SoundSource for each channel (a track with its options, or an album), or an old list of track paths. The AudioManager keeps two sets of layers, one for the music and the ambience and one for the combat music (world &lt; zone &lt; encounter), asks `resolve_music()` and `resolve_ambience()` and plays what they say. See docs: Audio &gt; Music Albums, World &gt; Sound layers.
 
 ## Methods
 
@@ -34,6 +34,7 @@ The layers, lowest first
 - **SHELTER** = `3`
 - **ENCOUNTER** = `4`
 - **EVENT** = `5`
+- **MENU** = `6`
 
 ## Constants
 

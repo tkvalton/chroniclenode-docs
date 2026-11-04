@@ -95,7 +95,7 @@ Class representing the game settings
 | `float` | [master_volume](#prop-master-volume) | `1.0` |
 | `float` | [music_volume](#prop-music-volume) | `1` |
 | `float` | [sfx_volume](#prop-sfx-volume) | `1` |
-| `float` | [ambiance_volume](#prop-ambiance-volume) | `1` |
+| `float` | [ambience_volume](#prop-ambience-volume) | `1` |
 | `float` | [voice_volume](#prop-voice-volume) | `1` |
 | `float` | [ui_volume](#prop-ui-volume) | `1` |
 | `Dictionary` | [action_binding_overrides](#prop-action-binding-overrides) | `{}` |
@@ -736,9 +736,9 @@ The current music volume
 
 The current sound effects volume
 
-### float ambiance_volume = 1 {#prop-ambiance-volume}
+### float ambience_volume = 1 {#prop-ambience-volume}
 
-The current ambiance volume
+The current ambience volume
 
 ### float voice_volume = 1 {#prop-voice-volume}
 

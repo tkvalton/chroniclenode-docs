@@ -169,6 +169,10 @@ Configuration for gameplay rules and mechanics
 | `float` | [audio_default_fade_seconds](#prop-audio-default-fade-seconds) | `3.0` |
 | `float` | [audio_combat_fade_seconds](#prop-audio-combat-fade-seconds) | `1.5` |
 | `float` | [audio_combat_music_end_delay](#prop-audio-combat-music-end-delay) | `4.0` |
+| `SoundSource` | [main_menu_music](#prop-main-menu-music) |  |
+| `SoundSource` | [character_creation_music](#prop-character-creation-music) |  |
+| `SoundSource` | [loading_screen_music](#prop-loading-screen-music) |  |
+| `SoundSource` | [pause_menu_music](#prop-pause-menu-music) |  |
 | `bool` | [npc_lod_enabled](#prop-npc-lod-enabled) | `true` |
 | `bool` | [lod_follows_view_distance](#prop-lod-follows-view-distance) | `false` |
 | `float` | [lod_distance_high](#prop-lod-distance-high) | `30.0` |
@@ -1127,6 +1131,24 @@ The seconds the combat music takes to come in when a fight starts, and the music
 ### float audio_combat_music_end_delay = 4.0 {#prop-audio-combat-music-end-delay}
 
 The seconds after the last fight of the party before the combat music ends (so a short break in the fight does not cut it)
+
+*Menu music*
+
+### SoundSource main_menu_music {#prop-main-menu-music}
+
+The music of the main menu: a track with its options, or a Music Album (Audio &gt; Music Albums). None: the main menu is silent
+
+### SoundSource character_creation_music {#prop-character-creation-music}
+
+The music of character creation. None: silent
+
+### SoundSource loading_screen_music {#prop-loading-screen-music}
+
+The music of the loading screen. None: silent
+
+### SoundSource pause_menu_music {#prop-pause-menu-music}
+
+The music of the pause menu. It plays over the game while the game is paused and the music of the game comes back when the game goes on. None: the music of the game goes on
 
 *NPC LOD System*
 

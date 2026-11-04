@@ -4,7 +4,7 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Where a sound comes from: one track with its own options, or an album. The world, a zone, a weather and an encounter each hold some (music, ambience, combat music); an event sets one. An empty source says nothing, and the place below it in the order (encounter &gt; event &gt; shelter &gt; weather &gt; zone &gt; world) decides. Ambience uses a track only; music and combat music can use an album. See docs: Assets &gt; Albums.
+Where a sound comes from: one track with its own options, or an album. The world, a zone, a weather and an encounter each hold some (music, ambience, combat music); an event sets one. An empty source says nothing, and the place below it in the order (encounter &gt; event &gt; shelter &gt; weather &gt; zone &gt; world) decides. Ambience uses a track only; music and combat music can use an album. See docs: Audio &gt; Music Albums.
 
 ## Properties
 
@@ -48,7 +48,7 @@ What the source is
 
 ### Kind kind = Kind.NONE {#prop-kind}
 
-None = this source says nothing; Track = one track with the options below; Album = a collection of tracks (Music Albums tab)
+None = this source says nothing; Track = one track with the options below; Album = a collection of tracks (Audio &gt; Music Albums)
 
 ### String track_path = "" {#prop-track-path}
 

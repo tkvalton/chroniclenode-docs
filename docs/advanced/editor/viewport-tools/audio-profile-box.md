@@ -4,7 +4,7 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
-Everything an audio profile holds, for the Unique Object panel: a menu of presets (Cave, Indoors, Underwater... and yours), the fade time and room size, and for each of the five channels (music, effects, voices, ambiance, interface) how muffled it is, how loud, and how much reverb. A change is made to every selected volume's profile.
+Everything an audio profile holds, for the Unique Object panel: a menu of presets (Cave, Indoors, Underwater... and yours), the fade time and room size, and for each of the five channels (music, effects, voices, ambience, interface) how muffled it is, how loud, and how much reverb. A change is made to every selected volume's profile.
 
 ## Variables
 
@@ -37,7 +37,7 @@ A preset was saved or deleted: the panel shows itself again
 ## Constants
 
 - `String` **DEFAULT_FOLDER** = `"res://src/data/audio_profiles/"` - Where the presets of the project are kept
-- `Array` **CHANNELS** = `[["music", "Music"], ["sfx", "Sound effects"], ["voice", "Voices"], ["ambianc...`
+- `Array` **CHANNELS** = `[["music", "Music"], ["sfx", "Sound effects"], ["voice", "Voices"], ["ambienc...`
 
 ## Variable descriptions
 

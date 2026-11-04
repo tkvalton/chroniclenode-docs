@@ -33,7 +33,7 @@ Characters are used in three places:
 
 | Field | What it does |
 |---|---|
-| **Voice audio** | The voice type and a variant of it from the [audio library](/basic/assets/audio): the grunts and shouts of the character |
+| **Voice audio** | The voice type and a variant of it from the [audio library](/basic/audio/sound-library): the grunts and shouts of the character |
 | **Motion audio** | The footstep set (humanoid, beast) |
 | **Footprint** | The picture of one footprint of this kind of entity (a sole, a paw, a hoof): a white shape on a transparent background, toes up. The ground tints it and decides how long it stays. **Empty = it leaves no footprints** ([marks on the ground](/basic/world/ground-weather#footprints)) |
 

@@ -15,6 +15,9 @@ Track selection dialog of the audio library: the tracks of an album, of a zone, 
 | `String` | [current_type](#var-current-type) | `""` |
 | `bool` | [is_loading](#var-is-loading) | `false` |
 | `AudioStreamPlayer` | [audio_player](#var-audio-player) |  |
+| `Button` | [import_button](#var-import-button) |  |
+| `FileDialog` | [import_dialog](#var-import-dialog) |  |
+| `String` | [import_message](#var-import-message) | `""` |
 | `String` | [search_text](#var-search-text) | `""` |
 
 ## Methods
@@ -22,6 +25,7 @@ Track selection dialog of the audio library: the tracks of an album, of a zone, 
 | | |
 |---|---|
 | `TrackSelectionDialog` | [create_for](#method-create-for)( `parent: Node, kind: Kind = Kind.ANY` ) *static* |
+| `Dictionary` | [import_files](#method-import-files)( `paths: PackedStringArray` ) |
 | `void` | [show_for_category](#method-show-for-category)( `category: String` ) |
 | `void` | [show_all_categories](#method-show-all-categories)() |
 | `Array[String]` | [get_selected_track_paths](#method-get-selected-track-paths)() |
@@ -30,7 +34,6 @@ Track selection dialog of the audio library: the tracks of an album, of a zone, 
 | `void` | [show_music_only](#method-show-music-only)() |
 | `void` | [show_ambience_only](#method-show-ambience-only)() |
 | `void` | [show_world_sounds_only](#method-show-world-sounds-only)() |
-| `void` | [show_loop_sfx_only](#method-show-loop-sfx-only)() |
 | `void` | [show_all_supported](#method-show-all-supported)() |
 | `void` | [set_search_filter](#method-set-search-filter)( `search: String` ) |
 
@@ -71,6 +74,18 @@ What a field chooses: any of the tracks of the library, music only, or ambient s
 
 *No description yet.*
 
+### Button import_button {#var-import-button}
+
+The button that copies sound files into the folder that is shown (the category and the type), and the window that picks them
+
+### FileDialog import_dialog {#var-import-dialog}
+
+*No description yet.*
+
+### String import_message = "" {#var-import-message}
+
+What the last import did (shown in the window)
+
 ### String search_text = "" {#var-search-text}
 
 *No description yet.*
@@ -80,6 +95,10 @@ What a field chooses: any of the tracks of the library, music only, or ambient s
 ### TrackSelectionDialog create_for( parent: Node, kind: Kind = Kind.ANY ) {#method-create-for}
 
 A dialog for a field: made from its scene, added to `parent` (it needs to be in the tree) and set to show the tracks of a kind. The caller pops it up with `popup_centered()`
+
+### Dictionary import_files( paths: PackedStringArray ) {#method-import-files}
+
+Copies the files into the folder that is shown, and shows them in the list (selected, so Select Track takes them)
 
 ### void show_for_category( category: String ) {#method-show-for-category}
 
@@ -112,10 +131,6 @@ Show only ambience tracks (loop and non-loop)
 ### void show_world_sounds_only() {#method-show-world-sounds-only}
 
 Show the sounds that come from a place in the world: the environmental sounds (a waterfall, a fire, a mechanism), the ambient sounds and the loops
-
-### void show_loop_sfx_only() {#method-show-loop-sfx-only}
-
-Show only loop SFX tracks
 
 ### void show_all_supported() {#method-show-all-supported}
 

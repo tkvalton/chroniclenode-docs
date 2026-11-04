@@ -81,7 +81,7 @@ voicelines/mira/fr/greeting.wav       the same line in French
 
 When the voice language is French, the French file plays; a line with no French file plays in the default recording. Nothing in a conversation or an interaction changes: it points at the line, not at a language.
 
-In the **audio editor** (Assets > Audio), a selected voice line shows a **Language** list: each language of the game with a mark (has a file, or missing), a player for that recording, and warnings (no recording, a recording much longer than the default, a folder that is not a language of the game, a file that has no default). **Add / Replace File** imports a recording into the folder of the language under the name of the line.
+In the **audio editor** (Audio > Sound Library), a selected voice line shows a **Language** list: each language of the game with a mark (has a file, or missing), a player for that recording, and warnings (no recording, a recording much longer than the default, a folder that is not a language of the game, a file that has no default). **Add / Replace File** imports a recording into the folder of the language under the name of the line.
 
 ### Subtitles
 

@@ -66,21 +66,21 @@ The plate is made for a **modular** character: it replaces the torso of the body
 
 ## 7. Sound
 
-1. Open **Assets > Audio**. Press **Import** on the category *Entity voices* or *Impact*; the editor asks for a new folder name (`battle_cry`) and copies the files in.
+1. Open **Audio > Sound Library**. Press **Import** on the category *Entity voices* or *Impact*; the editor asks for a new folder name (`battle_cry`) and copies the files in, from anywhere on your computer.
 2. Select a file and press **Play** to listen.
 3. For a **spoken line** put the file in `voicelines/<character>/` (the character folder is the speaker). In another language it goes in `voicelines/<character>/<language>/` with the same file name.
 4. Select a voice line to see the **Language** list, its warnings and the **Subtitle**.
 5. **Settings > Validate Database**.
 
-**You should see** the sounds in the tree. Pick them in a [sound selection](/basic/abilities-and-effects/abilities) of an ability, an effect or an object. [Audio](/basic/assets/audio), [Localization: voice lines](/basic/game-settings/localization#voice-lines-in-other-languages).
+**You should see** the sounds in the tree. Pick them in a [sound selection](/basic/abilities-and-effects/abilities) of an ability, an effect or an object. [Audio](/basic/audio/sound-library), [Localization: voice lines](/basic/game-settings/localization#voice-lines-in-other-languages).
 
 ## 8. Music
 
 1. Import music into **Music > loop** and ambience into **Atmospheric ambience > loop** (or non-loop for a sound that plays once).
-2. In **Assets > Albums** make a world album and choose its tracks.
-3. Set the album on the [world](/basic/world/worlds).
+2. In **Audio > Music Albums** make an album and add its tracks (or skip this and pick one track).
+3. Give the [world](/basic/world/worlds#music-and-ambience) its **Music** (the album or a track) and its **Ambient sound**.
 
-[Albums](/basic/assets/albums).
+[Music Albums](/basic/audio/music-albums).
 
 ## 9. Put it together
 

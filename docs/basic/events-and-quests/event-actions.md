@@ -11,11 +11,11 @@ Play or stop music, ambience and sounds.
 | Action | What it does |
 |---|---|
 | [**Play SFX At Position**](/advanced/events-and-quests/actions-audio/play-sfx-at-position-action) (`PlaySFXAtPositionAction`) | Play a sound effect at a 3D position |
-| [**Play SFX Global**](/advanced/events-and-quests/actions-audio/play-sfx-global-action) (`PlaySFXGlobalAction`) | Play a sound effect globally (2D audio): any sound, the [interface sounds](/basic/assets/audio#interface-sounds) too |
+| [**Play SFX Global**](/advanced/events-and-quests/actions-audio/play-sfx-global-action) (`PlaySFXGlobalAction`) | Play a sound effect globally (2D audio): any sound, the [interface sounds](/basic/audio/sound-library#interface-sounds) too |
 | **Play Voice Line** ([`PlayVoiceLineAction`](/advanced/events-and-quests/actions-audio/play-voice-line-action)) | Speak a [voice line](/basic/game-settings/localization#voice-lines-in-other-languages) on the Voice channel, heard from an entity (its unique id) or from nowhere, with its subtitle. Can wait until the line is over |
 | [**Spawn Sound**](/advanced/events-and-quests/actions-audio/spawn-sound-action) (`SpawnSoundAction`) | Spawn a [3D sound](/basic/world/3d-sounds#from-an-event) at a position, a marker, an entity or an interactable; it can loop and be stopped |
 | [**Stop Sound**](/advanced/events-and-quests/actions-audio/stop-sound-action) (`StopSoundAction`) | Fade out and remove a sound spawned under a name |
-| [**Set Ambient Track**](/advanced/events-and-quests/actions-audio/set-ambient-track-action) (`SetAmbientTrackAction`) | Play, stop, fade or clear an ambient track: the event layer of the [sound layers](/basic/world/sound-layers) |
+| [**Set Ambience Track**](/advanced/events-and-quests/actions-audio/set-ambient-track-action) (`SetAmbientTrackAction`) | Play, stop, fade or clear an ambient track: the event layer of the [sound layers](/basic/world/sound-layers) |
 | [**Set Music Track**](/advanced/events-and-quests/actions-audio/set-music-track-action) (`SetMusicTrackAction`) | Play, stop, fade or clear a music track: the event layer of the [sound layers](/basic/world/sound-layers) |
 
 ## Encounter

@@ -4,7 +4,7 @@
 
 **Inherits:** [ConfigEditorBase](/advanced/editor/world/config-editor-base) < [ResourceEditor](/advanced/editor/base/resource-editor) < [Control](https://docs.godotengine.org/en/stable/classes/class_control.html)
 
-The Music Albums tab (Assets &gt; Music Albums): the list of the albums on the left, the settings on the right in a container for each group (Details, Album, Tracks) and the warnings. An album is a collection of tracks with the rules for how they play; a world, a zone, a weather or an encounter chooses one through a sound source. See docs: Assets &gt; Albums.
+The Music Albums tab (Audio &gt; Music Albums): the list of the albums on the left, the settings on the right in a container for each group (Details, Album, Tracks) and the warnings. An album is a collection of tracks with the rules for how they play; a world, a zone, a weather or an encounter chooses one through a sound source. See docs: Audio &gt; Music Albums.
 
 ## Methods
 

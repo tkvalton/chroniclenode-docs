@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-The audio buses the toolkit plays on (music, sound effects, voices, ambiance, UI) and a way to make sure they exist.
+The audio buses the toolkit plays on (music, sound effects, voices, ambience, UI) and a way to make sure they exist.
 
 ## Description
 
@@ -20,7 +20,7 @@ The buses of a project live in its bus layout file. A project that has never had
 
 ## Constants
 
-- `Array[String]` **REQUIRED_BUSES** = `["Music", "SFX", "Voice", "Ambiance", "UI"]` - The audio buses the toolkit plays on.
+- `Array[String]` **REQUIRED_BUSES** = `["Music", "SFX", "Voice", "Ambience", "UI"]` - The audio buses the toolkit plays on.
 
 ## Method descriptions
 

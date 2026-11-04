@@ -4,7 +4,7 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-How the sound of the game changes in a place: for each audio channel (music, sound effects, voices, ambiance, interface sounds) a low-pass filter that muffles it, a volume offset and a reverb. An AudioZone (a cave, a house) and a MovementVolume (water) hold one and apply it while the camera is inside. The settings of the player are never touched: the changes are effects on the buses, on top of the volumes the player chose.
+How the sound of the game changes in a place: for each audio channel (music, sound effects, voices, ambience, interface sounds) a low-pass filter that muffles it, a volume offset and a reverb. An AudioZone (a cave, a house) and a MovementVolume (water) hold one and apply it while the camera is inside. The settings of the player are never touched: the changes are effects on the buses, on top of the volumes the player chose.
 
 ## Description
 
@@ -26,9 +26,9 @@ Make your own with Create New Resource &gt; AudioProfile, or start from one of t
 | `float` | [voice_low_pass_hz](#prop-voice-low-pass-hz) | `NO_FILTER` |
 | `float` | [voice_volume_db](#prop-voice-volume-db) | `0.0` |
 | `float` | [voice_reverb](#prop-voice-reverb) | `0.0` |
-| `float` | [ambiance_low_pass_hz](#prop-ambiance-low-pass-hz) | `NO_FILTER` |
-| `float` | [ambiance_volume_db](#prop-ambiance-volume-db) | `0.0` |
-| `float` | [ambiance_reverb](#prop-ambiance-reverb) | `0.0` |
+| `float` | [ambience_low_pass_hz](#prop-ambience-low-pass-hz) | `NO_FILTER` |
+| `float` | [ambience_volume_db](#prop-ambience-volume-db) | `0.0` |
+| `float` | [ambience_reverb](#prop-ambience-reverb) | `0.0` |
 | `float` | [ui_low_pass_hz](#prop-ui-low-pass-hz) | `NO_FILTER` |
 | `float` | [ui_volume_db](#prop-ui-volume-db) | `0.0` |
 | `float` | [ui_reverb](#prop-ui-reverb) | `0.0` |
@@ -51,7 +51,7 @@ Make your own with Create New Resource &gt; AudioProfile, or start from one of t
 ## Constants
 
 - `float` **NO_FILTER** = `20500.0` - The cutoff of a low-pass filter that lets everything through
-- `Array[String]` **BUSES** = `["Music", "SFX", "Voice", "Ambiance", "UI"]` - The audio channels a profile has settings for, as the names of the buses
+- `Array[String]` **BUSES** = `["Music", "SFX", "Voice", "Ambience", "UI"]` - The audio channels a profile has settings for, as the names of the buses
 
 ## Property descriptions
 
@@ -109,17 +109,17 @@ Added to the volume of the channel (dB; negative = quieter)
 
 How much reverb the channel gets (0 = none)
 
-*Ambiance*
+*Ambience*
 
-### float ambiance_low_pass_hz = NO_FILTER {#prop-ambiance-low-pass-hz}
+### float ambience_low_pass_hz = NO_FILTER {#prop-ambience-low-pass-hz}
 
 Frequencies above this are cut (lower = more muffled). The top value cuts nothing
 
-### float ambiance_volume_db = 0.0 {#prop-ambiance-volume-db}
+### float ambience_volume_db = 0.0 {#prop-ambience-volume-db}
 
 Added to the volume of the channel (dB; negative = quieter)
 
-### float ambiance_reverb = 0.0 {#prop-ambiance-reverb}
+### float ambience_reverb = 0.0 {#prop-ambience-reverb}
 
 How much reverb the channel gets (0 = none)
 
@@ -141,7 +141,7 @@ How much reverb the channel gets (0 = none)
 
 ### float get_low_pass( bus: String ) {#method-get-low-pass}
 
-The low-pass cutoff the profile gives a channel (the name of its bus: Music, SFX, Voice, Ambiance, UI)
+The low-pass cutoff the profile gives a channel (the name of its bus: Music, SFX, Voice, Ambience, UI)
 
 ### float get_volume_db( bus: String ) {#method-get-volume-db}
 
@@ -161,11 +161,11 @@ Under water: everything the world makes is muffled, the interface is not
 
 ### AudioProfile make_cave() {#method-make-cave}
 
-In a cave: echo on the sounds of the world, a little less of the music and the high end of the ambiance
+In a cave: echo on the sounds of the world, a little less of the music and the high end of the ambience
 
 ### AudioProfile make_indoors() {#method-make-indoors}
 
-Indoors: the ambiance of the outside is muffled and quieter, a short reverb on the sounds of the room
+Indoors: the ambience of the outside is muffled and quieter, a short reverb on the sounds of the room
 
 ### AudioProfile make_hall() {#method-make-hall}
 

@@ -4,7 +4,7 @@
 
 **Inherits:** [EventAction](/advanced/events-and-quests/bases/event-action) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-Action to control music track playback Uses TrackSelectionDialog to pick specific tracks NOTE: For best performance, only use tracks from the current map's AudioAlbum as those are pre-loaded. Other tracks will need to load at runtime.
+Action to control music track playback Uses TrackSelectionDialog to pick specific tracks NOTE: The world loads the tracks of its events, zones, weather and encounters when it starts (AudioPreload), so they play without a pause. Other tracks load when they are needed.
 
 ## Properties
 

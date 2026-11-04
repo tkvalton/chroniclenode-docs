@@ -28,7 +28,6 @@ The editor of the Worlds tab (World &gt; Worlds): lists the world scenes with a 
 | | |
 |---|---|
 | `void` | [setup_managers](#method-setup-managers)( `p_resource_manager: ResourceManager, p_dialog_manager: DialogManager` ) |
-| `void` | [refresh_audio_album_menu](#method-refresh-audio-album-menu)() |
 | `String` | [describe_zone_maps](#method-describe-zone-maps)( `world: WorldData` ) *static* |
 
 ## Variable descriptions
@@ -84,10 +83,6 @@ The list of weather tables of the world: a table instead of one weather (World C
 ## Method descriptions
 
 ### void setup_managers( p_resource_manager: ResourceManager, p_dialog_manager: DialogManager ) {#method-setup-managers}
-
-*No description yet.*
-
-### void refresh_audio_album_menu() {#method-refresh-audio-album-menu}
 
 *No description yet.*
 

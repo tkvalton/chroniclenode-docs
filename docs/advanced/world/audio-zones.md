@@ -11,7 +11,7 @@ This page is for developers. For the fields and the way to use them, see [Audio 
 | [`AudioZone`](/advanced/world/runtime/audio-zone) | An `Area3D` that checks every 0.1 s whether the camera is inside its shape and calls the stack |
 | [`SpaceVolume`](/advanced/world/runtime/space-volume) | The base of `AudioZone` and `MovementVolume`: the shape, the surface, `contains_point`, `is_camera_inside` and the editor warnings |
 | [`MovementVolume`](/advanced/world/runtime/movement-volume) | Has an `audio_profile` and calls the stack when the camera is under its surface (whether or not the screen look is on) |
-| [`AmbientSound`](/advanced/world/runtime/ambient-sound) | An `AudioStreamPlayer3D` for a placed sound: bus `Ambiance`, autoplay, loop; it joins the groups `ambient_sounds` (paused and resumed by `AudioManager.pause_all_audio` / `resume_all_audio`) and `EntitySFX` (the pitch follows the time scale) |
+| [`AmbientSound`](/advanced/world/runtime/ambient-sound) | An `AudioStreamPlayer3D` for a placed sound: bus `Ambience`, autoplay, loop; it joins the groups `ambient_sounds` (paused and resumed by `AudioManager.pause_all_audio` / `resume_all_audio`) and `EntitySFX` (the pitch follows the time scale) |
 | [`AudioManager`](/advanced/managers/managers/audio-manager) | The players of the UI sounds play on the `UI` bus |
 
 ## What the stack puts on a bus
@@ -56,7 +56,7 @@ Sources that are freed are dropped from the list the next time it is read.
 var profile := AudioProfile.new()
 profile.fade_time = 1.0
 profile.sfx_low_pass_hz = 3000.0     # duller effects
-profile.ambiance_volume_db = -12.0   # a quiet ambiance
+profile.ambience_volume_db = -12.0   # a quiet ambience
 profile.voice_reverb = 0.4           # echo on voices
 AudioProfileStack.enter(self, profile)   # on; leave(self) takes it off
 ```

@@ -54,4 +54,4 @@ Import profiles that apply these settings to a whole folder at once, and an expo
 
 ## See also
 
-- [Audio](/basic/assets/audio), [Terrain textures](/basic/assets/terrain-textures), [File types](/basic/assets/file-types).
+- [Audio](/basic/audio/sound-library), [Terrain textures](/basic/assets/terrain-textures), [File types](/basic/assets/file-types).

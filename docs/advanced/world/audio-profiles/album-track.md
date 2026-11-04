@@ -4,7 +4,7 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-One track of a Music Album: the file, how likely it is to be picked (for the weighted order) and how loud it is. See docs: Assets &gt; Albums.
+One track of a Music Album: the file, how likely it is to be picked (for the weighted order) and how loud it is. See docs: Audio &gt; Music Albums.
 
 ## Properties
 

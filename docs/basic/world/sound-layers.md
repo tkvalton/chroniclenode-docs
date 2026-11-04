@@ -1,6 +1,6 @@
 # Sound layers
 
-The **world** says what plays by default: its music, its combat music and its ambient sound, each a [sound source](/basic/world/music-albums#a-sound-source) (a track with its options, or a [Music Album](/basic/world/music-albums)) chosen in the [Worlds editor](/basic/world/worlds#music-and-ambience). Four things can play **their own** over it, each in a **layer**. The highest layer that has something for a channel wins, for the music and for the ambient sound on their own:
+The **world** says what plays by default: its music, its combat music and its ambient sound, each a [sound source](/basic/audio/music-albums#a-sound-source) (a track with its options, or a [Music Album](/basic/audio/music-albums)) chosen in the [Worlds editor](/basic/world/worlds#music-and-ambience). Other things can play **their own** over it, each in a **layer**. The highest layer that has something for a channel wins, for the music and for the ambient sound on their own:
 
 | Layer | Who sets it | Plays while |
 |---|---|---|
@@ -8,7 +8,8 @@ The **world** says what plays by default: its music, its combat music and its am
 | **Zone** | the **Music**, **Combat music** and **Ambient sound** of a [zone](/basic/world/zones#music-and-ambient-sound) | the party is in the zone (a sub-zone takes the sound of the zone above) |
 | **Weather** | the **Sound** container of a [weather](/basic/world/weather#sound) | the weather is on |
 | **Shelter** | the **Weather sounds** of a [shelter](/basic/world/shelter#the-sound-for-each-kind-of-weather) | the camera is in a shelter and a weather the shelter knows is on |
-| **Event** | the actions [Set Music Track](/advanced/events-and-quests/actions-audio/set-music-track-action) and [Set Ambient Track](/advanced/events-and-quests/actions-audio/set-ambient-track-action) | the source plays |
+| **Event** | the actions [Set Music Track](/advanced/events-and-quests/actions-audio/set-music-track-action) and [Set Ambience Track](/advanced/events-and-quests/actions-audio/set-ambient-track-action) | the source plays |
+| **Menu** | the [menu music](/basic/game-settings/gameplay-config#menu-music) of the Gameplay Config | a menu is on: the main menu, character creation, the loading screen, or the pause menu over the game |
 
 The **combat music** has its own, shorter list: the **world**, the **zone** and the **encounter** (the [encounter's](/basic/world/encounters#combat-music) wins). It takes the place of the music while the party is in combat.
 
@@ -18,16 +19,17 @@ So a storm over a swamp: the swamp zone plays its frogs, the storm puts its rain
 
 - **Each channel is chosen on its own.** A storm that has only an ambient sound leaves the music to the zone.
 - **A change crossfades** over the seconds of whatever changed (the **fade seconds** of a weather, the **look blends** of a zone, a second and a half for a shelter). The same source twice is not started again.
-- **Combat music wins over every music layer.** It follows the combat state of the party (it ends a few seconds after the last fight: [Gameplay Config > Audio](/basic/game-settings/gameplay-config#audio)). When it ends the music of the layers comes back. A fight with no combat music anywhere leaves the music as it is.
+- **A menu is over everything.** The menu layer is the top layer, so the pause menu's music plays over the game's, even in a fight (the combat music comes back when the game goes on, if the party is still fighting). A menu with no music of its own leaves the layers below as they are; the main menu, character creation and the loading screen start with no layers below.
+- **Combat music wins over every other music layer.** It follows the combat state of the party (it ends a few seconds after the last fight: [Gameplay Config > Audio](/basic/game-settings/gameplay-config#audio)). When it ends the music of the layers comes back. A fight with no combat music anywhere leaves the music as it is.
 - **A source plays by its own rules.** A track loops (with an optional pause between plays) or plays once; an album plays its tracks in its order with its pauses. A track or an album that is played once, or an album that is over, gives way to what is under it.
 - **Ambient sound is a track,** not an album: it is background noise that changes with the place.
 - **Leaving the world clears all the layers.** The next world sets its own.
-- **The world loads its tracks when it starts.** It looks through its zones, weather, encounters and the music actions of its events for every track and album and asks for them to be loaded ([Music Albums](/basic/world/music-albums#loading)).
+- **The world loads its tracks when it starts.** It looks through its zones, weather, encounters and the music actions of its events for every track and album and asks for them to be loaded ([Music Albums](/basic/audio/music-albums#loading)).
 - A weather's **ambient sound is quieter in a light weather**: its volume follows the intensity (half the intensity is 6 dB quieter).
 
 ## Events
 
-The [Set Music Track](/advanced/events-and-quests/actions-audio/set-music-track-action) and [Set Ambient Track](/advanced/events-and-quests/actions-audio/set-ambient-track-action) actions take the **event layer**:
+The [Set Music Track](/advanced/events-and-quests/actions-audio/set-music-track-action) and [Set Ambience Track](/advanced/events-and-quests/actions-audio/set-ambient-track-action) actions take the **event layer**:
 
 | Action value | What it does |
 |---|---|
@@ -35,7 +37,7 @@ The [Set Music Track](/advanced/events-and-quests/actions-audio/set-music-track-
 | **Stop** and **Fade stop** | The sound stops and the track of the event is dropped. What is under it plays again the next time a layer changes |
 | **Clear** | Takes the track of the event off and brings what is under it back over the **Fade duration** |
 
-The actions play a [sound source](/basic/world/music-albums#a-sound-source): a track with **Loop** (off = once), a **Pause** between plays, a **Volume** and a **Fade**; **Set Music Track** can also play an album. Actions made before sources, with a track path, keep working. The values of the older actions did not change (**Clear** is added last).
+The actions play a [sound source](/basic/audio/music-albums#a-sound-source): a track with **Loop** (off = once), a **Pause** between plays, a **Volume** and a **Fade**; **Set Music Track** can also play an album. Actions made before sources, with a track path, keep working. The values of the older actions did not change (**Clear** is added last).
 
 ## For developers
 

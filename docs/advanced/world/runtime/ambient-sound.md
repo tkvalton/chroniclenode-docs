@@ -4,7 +4,7 @@
 
 **Inherits:** [AudioStreamPlayer3D](https://docs.godotengine.org/en/stable/classes/class_audiostreamplayer3d.html)
 
-A sound that comes from a place in the world: a waterfall, a campfire, a market, wind in a ruin. It is an ordinary 3D audio player that is already set up the way the toolkit wants it: it plays on the **Ambiance** channel (so the ambiance volume of the player and the audio zones and the underwater muffle change it), it starts by itself, it loops (with an optional pause between plays) and it stops with the pause menu and follows the time scale like the other sounds of the game.
+A sound that comes from a place in the world: a waterfall, a campfire, a market, wind in a ruin. It is an ordinary 3D audio player that is already set up the way the toolkit wants it: it plays on the **Ambience** channel (so the ambience volume of the player and the audio zones and the underwater muffle change it), it starts by itself, it loops (with an optional pause between plays) and it stops with the pause menu and follows the time scale like the other sounds of the game.
 
 ## Description
 

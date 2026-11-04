@@ -8,7 +8,7 @@ The audio library of the project, read from the folders under `res://src/data/au
 
 ## Description
 
-SFX_CATEGORIES lists the categories (music, ambience, UI, voices, voicelines, footsteps, casting, impact, loops, environmental, interactables ...) with their folder, how the folder is organised and the file types. The class also keeps the albums: the built-in UI albums (main menu, character creation, pause menu, loading screen), custom UI albums and the world albums (AudioAlbum) that worlds use. The folders are scanned once on first use.
+SFX_CATEGORIES lists the categories (music, ambience, UI, voices, voicelines, footsteps, casting, impact, loops, environmental, interactables ...) with their folder, how the folder is organised and the file types. The folders are scanned once on first use. The albums (collections of tracks) are not here: they are the Music Albums of the project (SoundAlbum, Audio &gt; Music Albums).
 
 ## Methods
 
@@ -19,22 +19,10 @@ SFX_CATEGORIES lists the categories (music, ambience, UI, voices, voicelines, fo
 | `Dictionary` | [get_addable_sections](#method-get-addable-sections)() *static* |
 | `void` | [initialize](#method-initialize)() *static* |
 | `void` | [ensure_initialized](#method-ensure-initialized)() *static* |
-| `void` | [ensure_directories](#method-ensure-directories)() *static* |
-| `Array[AudioAlbum]` | [get_world_albums](#method-get-world-albums)() *static* |
-| `AudioAlbum` | [create_world_album](#method-create-world-album)( `name: String` ) *static* |
-| `bool` | [save_world_album](#method-save-world-album)( `album: AudioAlbum` ) *static* |
-| `bool` | [delete_world_album](#method-delete-world-album)( `album: AudioAlbum` ) *static* |
-| `AudioAlbum` | [duplicate_world_album](#method-duplicate-world-album)( `original: AudioAlbum, new_name: String` ) *static* |
-| `Dictionary` | [validate_all_world_albums](#method-validate-all-world-albums)() *static* |
-| `UIAlbum` | [get_ui_album](#method-get-ui-album)( `album_type: UIAlbum.BuiltInType` ) *static* |
-| `Array[UIAlbum]` | [get_all_ui_albums](#method-get-all-ui-albums)() *static* |
-| `bool` | [save_ui_album](#method-save-ui-album)( `album: UIAlbum` ) *static* |
-| `UIAlbum` | [create_custom_ui_album](#method-create-custom-ui-album)( `name: String` ) *static* |
-| `bool` | [delete_custom_ui_album](#method-delete-custom-ui-album)( `album: UIAlbum` ) *static* |
-| `Dictionary` | [validate_all_ui_albums](#method-validate-all-ui-albums)() *static* |
 | `void` | [ensure_category_directories](#method-ensure-category-directories)() *static* |
 | `Array[String]` | [get_sfx_categories](#method-get-sfx-categories)() *static* |
 | `Dictionary` | [get_category_info](#method-get-category-info)( `category: String` ) *static* |
+| `Dictionary` | [import_files](#method-import-files)( `category: String, type_name: String, file_paths: PackedStringArray` ) *static* |
 | `String` | [get_category_display_name](#method-get-category-display-name)( `category: String` ) *static* |
 | `Array[String]` | [get_available_types](#method-get-available-types)( `category: String` ) *static* |
 | `Array[String]` | [get_available_files](#method-get-available-files)( `category: String, type: String = ""` ) *static* |
@@ -65,9 +53,6 @@ SFX_CATEGORIES lists the categories (music, ambience, UI, voices, voicelines, fo
 ## Constants
 
 - `String` **AUDIO_RESOURCES_PATH** = `"res://src/data/audio/"` - ========== PATHS ==========
-- `String` **ALBUMS_BASE_PATH** = `"res://src/data/audio/albums/"` - The folder of the albums.
-- `String` **UI_ALBUMS_PATH** = `"res://src/data/audio/albums/ui_albums/"` - The folder of the interface albums.
-- `String` **WORLD_ALBUMS_PATH** = `"res://src/data/audio/albums/world_albums/"` - The folder of the world albums.
 - `Dictionary` **SFX_CATEGORIES** = `{` - ========== Audio CATEGORY DEFINITIONS ========== Organized by source/origin: Tracks, UI, Character Audio, Ability Audio, World Audio
 - `Dictionary` **FOLDER_HELP** = `{` - What the folder name of each category is for, in plain words (the Audio tab shows it when you add a folder)
 - `Dictionary` **SECTIONS** = `{` - The words of the sections of the Audio tab, and which categories belong to each
@@ -94,58 +79,6 @@ Initialize the SFX database by scanning all categories
 
 Ensure database is initialized before any operation (private)
 
-### void ensure_directories() {#method-ensure-directories}
-
-Ensure UI albums directory structure exists
-
-### Array[AudioAlbum] get_world_albums() {#method-get-world-albums}
-
-Get all world albums
-
-### AudioAlbum create_world_album( name: String ) {#method-create-world-album}
-
-Create a new world album
-
-### bool save_world_album( album: AudioAlbum ) {#method-save-world-album}
-
-Save a world album to disk
-
-### bool delete_world_album( album: AudioAlbum ) {#method-delete-world-album}
-
-Delete a world album
-
-### AudioAlbum duplicate_world_album( original: AudioAlbum, new_name: String ) {#method-duplicate-world-album}
-
-Duplicate an existing world album with a new name
-
-### Dictionary validate_all_world_albums() {#method-validate-all-world-albums}
-
-Validate all world albums
-
-### UIAlbum get_ui_album( album_type: UIAlbum.BuiltInType ) {#method-get-ui-album}
-
-Get a built-in UI album by type
-
-### Array[UIAlbum] get_all_ui_albums() {#method-get-all-ui-albums}
-
-Get all UI albums (built-in + custom)
-
-### bool save_ui_album( album: UIAlbum ) {#method-save-ui-album}
-
-Save a UI album (handles both built-in and custom)
-
-### UIAlbum create_custom_ui_album( name: String ) {#method-create-custom-ui-album}
-
-Create a new custom UI album
-
-### bool delete_custom_ui_album( album: UIAlbum ) {#method-delete-custom-ui-album}
-
-Delete a custom UI album
-
-### Dictionary validate_all_ui_albums() {#method-validate-all-ui-albums}
-
-Validate all UI albums
-
 ### void ensure_category_directories() {#method-ensure-category-directories}
 
 Ensure category directories exist
@@ -157,6 +90,10 @@ Get all available SFX categories
 ### Dictionary get_category_info( category: String ) {#method-get-category-info}
 
 Get category info
+
+### Dictionary import_files( category: String, type_name: String, file_paths: PackedStringArray ) {#method-import-files}
+
+Copies sound files from anywhere on the computer (or from the project) into a folder of the library. Files that are not sound files of the category, and files the folder has already, are not copied. Returns &#123;imported: the paths in the library, skipped: [name and why], error: "" or why nothing was done&#125;
 
 ### String get_category_display_name( category: String ) {#method-get-category-display-name}
 

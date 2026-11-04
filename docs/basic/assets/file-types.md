@@ -10,8 +10,8 @@ Every asset library reads **files in folders**. This page lists the file types e
 | **[Model Scenes](/basic/assets/model-scenes)** | `.tscn` | Made with **Create Skeleton** or **Create Interactable** from a model you imported (`.glb`, `.gltf`, `.fbx`, `.blend`, or a scene) |
 | **[Animations](/basic/assets/animations)** | `.res`, `.anim` (Godot `Animation` resources) | One file for each clip, in the folder of its package, category and subcategory |
 | **[VFX](/basic/assets/vfx)** | `.tscn` for bursts, auras, beams, weather and telegraphs; `.tres`, `.res`, `.png`, `.jpg`, `.jpeg`, `.webp` for the material types | One scene for each effect |
-| **[Audio](/basic/assets/audio)** | `.wav`, `.ogg`, `.mp3` | Voice lines too |
-| **[Albums](/basic/assets/albums)** | `.tres` | Made by the editor |
+| **[Audio](/basic/audio/sound-library)** | `.wav`, `.ogg`, `.mp3` | Voice lines too |
+| **[Music Albums](/basic/audio/music-albums)** | `.tres` | Made by the editor |
 | **[Icons](/basic/assets/icons)** | `.png`, `.jpg`, `.jpeg`, `.svg`, `.webp` | Numbered by the editor |
 | **Fonts** (a language of the [Localization](/basic/game-settings/localization) tab) | `.ttf`, `.otf`, `.woff`, `.woff2` | Picked in the Localization tab |
 
@@ -74,7 +74,7 @@ The animation library holds Godot `Animation` resources (`.res` or `.anim`), one
 - **Short sounds** (hits, footsteps, interface clicks): **`.wav`**. It needs no decoding and plays at once.
 - **Music, ambience and voice lines**: **`.ogg`** (Vorbis). It is much smaller than `.wav` and loops cleanly. `.mp3` also works, but it can leave a small gap when it loops, so keep it for sounds that play once.
 - **Mono** for a sound that comes from a place (a footstep, a door, a spell): the position and the distance give it its direction. **Stereo** suits music and ambience that fill the room.
-- **Levels**: leave a little room (peaks around -3 dB) and give the same kind of sounds the same loudness; the volume of each [selection](/basic/assets/audio) can fine-tune.
+- **Levels**: leave a little room (peaks around -3 dB) and give the same kind of sounds the same loudness; the volume of each [selection](/basic/audio/sound-library) can fine-tune.
 - **Loops**: turn *Loop* on in the Godot import settings of the file for a sound that repeats, and put it in a **loop** folder; put sounds that play once in a **non-loop** folder.
 - **Voice lines in other languages**: the same file name in a folder of the language: `voicelines/<character>/<language>/<file>`. See [Localization](/basic/game-settings/localization#voice-lines-in-other-languages).
 
@@ -99,5 +99,5 @@ The animation library holds Godot `Animation` resources (`.res` or `.anim`), one
 ## See also
 
 - [Walkthrough: from a model on disk to a character in the game](/basic/assets/walkthrough), the editors one after another.
-- [Meshes](/basic/assets/meshes), [Model Scenes](/basic/assets/model-scenes), [Animations](/basic/assets/animations), [VFX](/basic/assets/vfx), [Audio](/basic/assets/audio), [Icons](/basic/assets/icons).
+- [Meshes](/basic/assets/meshes), [Model Scenes](/basic/assets/model-scenes), [Animations](/basic/assets/animations), [VFX](/basic/assets/vfx), [Audio](/basic/audio/sound-library), [Icons](/basic/assets/icons).
 - [How the mesh library reads a file](/advanced/assets/mesh-pipeline) for the details behind this page.

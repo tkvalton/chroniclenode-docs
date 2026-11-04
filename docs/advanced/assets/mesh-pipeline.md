@@ -86,7 +86,6 @@ Each library walks its folders with `DirAccess` and keeps what it finds in stati
 | VFX | [`DatabaseVFX`](/advanced/data-and-database/asset-database-classes/database-vfx) | `.tscn` (scenes), `.tres .res .png .jpg .jpeg .webp` (telegraph), `.tres .res` (material) | One folder for each of the seven types |
 | Audio | [`DatabaseAudio`](/advanced/data-and-database/asset-database-classes/database-audio) | `.wav .ogg .mp3` | `SFX_CATEGORIES`; `voicelines/<character>/[<language>/]` |
 | Icons | [`DatabaseIcons`](/advanced/data-and-database/asset-database-classes/database-icons) | `.png .jpg .jpeg .svg .webp` | `icons/<category>/<id>.<ext>` |
-| Albums | `DatabaseAudio` | `.tres` | `albums/` |
 
 `DatabaseMeshes._get_files_in_folder` strips `.import` and `.remap` from the names it lists, so a mesh is found in the editor (where Godot keeps `foo.glb.import` beside `foo.glb`) and in an exported game (which lists `foo.glb.import`). The other libraries still compare the plain extension: **test an export** of a project that scans folders at run time before you ship it. Giving every scan the same cleaning is not done yet.
 
@@ -98,10 +97,9 @@ All seven extend `VBoxContainer` and live in `editor_components/editors/assets/`
 |---|---|---|---|
 | [`MeshDatabaseEditor`](/advanced/editor/assets/mesh-database-editor) | Meshes: the tree, the info panel, material constraints by surface, weapon offsets and points | Loads with `MeshSource.load_mesh`, saves with `MeshSettings.save_mesh`; `_find_and_link_all_skins`; thumbnails by `DatabaseMeshes` | `DatabaseMeshes.validate_database`: missing files, mesh node counts, orphan settings |
 | [`ModelSceneDatabaseEditor`](/advanced/editor/assets/model-scene-database-editor) | Skeleton and interactable scenes | [`SkeletonSceneConverter`](/advanced/editor/tools/skeleton-scene-converter), [`InteractableSceneCreator`](/advanced/editor/tools/interactable-scene-creator); opens a scene in the 3D editor | `_validate_skeleton_nodes`: the required nodes of the kind |
-| [`AnimationDatabaseEditor`](/advanced/editor/assets/animation-database-editor) | Entity types, their parents and the animation map | [`CorePackageEditor`](/advanced/editor/assets/core-package-editor) builds the map's drop-downs by reflection of [`AnimationCoreMap`](/advanced/assets/albums/animation-core-map); `DatabaseAnimation.build_library_for_entity` | `_validate_entity`, `_validate_core_animations`, `_validate_status_effects` |
+| [`AnimationDatabaseEditor`](/advanced/editor/assets/animation-database-editor) | Entity types, their parents and the animation map | [`CorePackageEditor`](/advanced/editor/assets/core-package-editor) builds the map's drop-downs by reflection of [`AnimationCoreMap`](/advanced/assets/animation-map/animation-core-map); `DatabaseAnimation.build_library_for_entity` | `_validate_entity`, `_validate_core_animations`, `_validate_status_effects` |
 | [`VFXDatabaseEditor`](/advanced/editor/assets/vfx-database-editor) | VFX by type | `_create_new_vfx_scene` makes the root node of a type; `_perform_vfx_import` | `_validate_single_vfx`, `_validate_telegraph_vfx`, `_validate_material_vfx` |
 | [`AudioDatabaseEditor`](/advanced/editor/assets/audio-database-editor) | Sounds by category; a **voice line panel** (languages, warnings, subtitle) | `DatabaseAudio`; [`VoicelineSubtitles`](/advanced/world/audio-profiles/voiceline-subtitles); `voice_line_warnings`, `set_subtitle`, `import_language_recording` are static and testable | `_validate_database`: every file loads |
-| [`AlbumDatabaseEditor`](/advanced/editor/assets/album-database-editor) | World and interface albums | `DatabaseAudio` album calls | none |
 | [`IconDatabaseEditor`](/advanced/editor/assets/icon-database-editor) | Icons as a grid by category | `DatabaseIcons.import_icons_to_category` numbers the files | Missing ids are shown as "ID n (Not Found)" where used |
 
 ### Adding to the mesh editor

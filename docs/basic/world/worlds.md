@@ -39,7 +39,6 @@ The demo has three: *Test Dungeon*, *Test World* and *Tutorial*.
 
 | Field | What it does |
 |---|---|
-| **World Album** | The [audio album](/basic/assets/audio) of the world: its music, combat and ambient tracks. *Clear Selection* removes it |
 | **Default music**, **Default ambient** | A track of the album for each. Saved with the world and checked by *Validate*, but the music player does not use them yet: it picks a random track of the album | none |
 
 ### Loading screen
@@ -56,7 +55,7 @@ A world uses the project's default **Time**, **Sun**, **Sky** and **Environment*
 
 ### Music and ambience
 
-The **World Album** container is now **Music and ambience**: three [sound sources](/basic/world/music-albums#a-sound-source). **Music** (a track with its options, or a [Music Album](/basic/world/music-albums)), **Combat music** (a track or a Combat Music Album) and **Ambient sound** (a track). A [zone](/basic/world/zones#music-and-ambient-sound) and a [weather](/basic/world/weather#sound) can play something else, an [encounter](/basic/world/encounters#combat-music) can have its own combat music, and an event can play a track. When the world starts it asks for every track it can need to be loaded.
+The **World Album** container is now **Music and ambience**: three [sound sources](/basic/audio/music-albums#a-sound-source). **Music** (a track with its options, or a [Music Album](/basic/audio/music-albums)), **Combat music** (a track or a Combat Music Album) and **Ambient sound** (a track). A [zone](/basic/world/zones#music-and-ambient-sound) and a [weather](/basic/world/weather#sound) can play something else, an [encounter](/basic/world/encounters#combat-music) can have its own combat music, and an event can play a track. When the world starts it asks for every track it can need to be loaded.
 
 ### Default weather
 

@@ -65,7 +65,7 @@ The player sees the breath in the **breath bar** of the [HUD](/basic/user-interf
 
 ### Footsteps
 
-How the footstep, jump and landing sounds of entities are timed. The sounds themselves come from the [audio library](/basic/assets/audio#sounds-of-an-entity) (`motion/<type>/footsteps/<surface>/<movement>/`).
+How the footstep, jump and landing sounds of entities are timed. The sounds themselves come from the [audio library](/basic/audio/sound-library#sounds-of-an-entity) (`motion/<type>/footsteps/<surface>/<movement>/`).
 
 | Field | What it does | Default |
 |---|---|---|
@@ -187,7 +187,7 @@ The pictures and materials the game uses to show targeting, selection and the ta
 
 ## Audio
 
-How the music, the combat music and the ambient sound behave; the sounds themselves are chosen on the world, the zones, the weather and the encounters ([Music Albums](/basic/world/music-albums)).
+How the music, the combat music and the ambient sound behave; the sounds themselves are chosen on the world, the zones, the weather and the encounters ([Music Albums](/basic/audio/music-albums)). The music of the menus is set here too.
 
 | Field | What it does | Default |
 |---|---|---|
@@ -195,6 +195,19 @@ How the music, the combat music and the ambient sound behave; the sounds themsel
 | **Audio default fade seconds** | The seconds a new music or ambient sound takes to fade in when its source does not say | `3` |
 | **Audio combat fade seconds** | The seconds the combat music takes to come in when a fight starts, and the music to come back when it ends | `1.5` |
 | **Audio combat music end delay** | The seconds after the last fight of the party before the combat music ends (so a short break in a fight does not cut it) | `4` |
+
+### Menu music
+
+Each menu has a **sound source**: **None** (the menu is silent), a **Track** (with Loop, Pause, Volume and Fade) or a **Music Album**. The tracks are chosen in the track window of the [Sound Library](/basic/audio/sound-library#choosing-a-track-in-the-editor); the albums are the ones of [Audio > Music Albums](/basic/audio/music-albums) (kind Music).
+
+| Field | Plays in |
+|---|---|
+| **Main menu music** | The main menu (it starts after the splash screen) |
+| **Character creation music** | The character creator |
+| **Loading screen music** | The loading screen |
+| **Pause menu music** | The pause menu. It plays over the game, even in a fight; the music of the game comes back when the game goes on. None: the music of the game goes on while paused |
+
+The menu music is the top [sound layer](/basic/world/sound-layers): it stays until the game starts a world, and going back from the game to a menu clears the sound of the world.
 
 ## NPC LOD system
 

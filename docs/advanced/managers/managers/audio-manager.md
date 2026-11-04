@@ -4,21 +4,21 @@
 
 **Inherits:** [Node](https://docs.godotengine.org/en/stable/classes/class_node.html)
 
-Centralized audio system managing music, ambiance, and sound effects with pooled players and phased initialization for fast startup.
+Centralized audio system managing music, ambience, and sound effects with pooled players and phased initialization for fast startup.
 
 ## Description
 
 PHASED INITIALIZATION:
 
-- Phase 1 (_init): Loads UI sounds only for fast startup
+- Phase 1 (_init): Makes the players and pools for fast startup
 - Phase 2 (initialize_gameplay): Loads all gameplay audio when entering game
 
 AUDIO SYSTEMS:
 
 - Music: Dual-player crossfading system for seamless transitions
-- Ambiance: Separate crossfading for environmental soundscapes
+- Ambience: Separate crossfading for environmental soundscapes
 - SFX: Pooled 3D/2D audio players for positional and global sounds
-- Albums: Organized music/ambiance collections (UI and world albums)
+- Sound sources: the music and ambience come from layers (menu, world, zone, weather, shelter, event) that hold a track or a Music Album (SoundLayers, SoundSource, SoundAlbum)
 
 SOUND EFFECTS:
 
@@ -29,51 +29,40 @@ SOUND EFFECTS:
 
 USAGE:
 
-- Startup: _init() runs automatically, UI sounds ready immediately
+- Startup: _init() runs automatically
 - Gameplay: Call initialize_gameplay() when entering game
-- Music: load_ui_album() / load_world_album(), then play_ui_music() / play_world_music()
+- Music: setup_audio_for_state("main_menu" ...) for a menu, start_world_sound(world) for a world; zones, weather and events set their layers
 - SFX: get_sfx(category, type) then play_sfx_at_position() or play_sfx_global()
 - 3D Audio: Create RT_Audio3DRequest and call play_3d_audio_from_request()
 
-VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_volume_db, ui_sfx_volume_db
+VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambience_volume_db, ui_sfx_volume_db
 
 ## Variables
 
 | | | |
 |---|---|---|
-| `Dictionary` | [ui_sfx_cache](#var-ui-sfx-cache) | `{}           # UI sound effects only` |
 | `Dictionary` | [gameplay_sfx_cache](#var-gameplay-sfx-cache) | `{}` |
 | `Array[AudioStreamPlayer3D]` | [sfx_3d_players](#var-sfx-3d-players) | `[]      # For positional SFX` |
 | `Array[AudioStreamPlayer]` | [sfx_2d_players](#var-sfx-2d-players) | `[]` |
 | `Array[AudioStreamPlayer]` | [ui_audio_players](#var-ui-audio-players) | `[]` |
 | `AudioStreamPlayer                    # Music player A (for crossfading)` | [music_player_a](#var-music-player-a) |  |
 | `AudioStreamPlayer` | [music_player_b](#var-music-player-b) |  |
-| `AudioStreamPlayer` | [ambiance_player_a](#var-ambiance-player-a) |  |
-| `AudioStreamPlayer` | [ambiance_player_b](#var-ambiance-player-b) |  |
+| `AudioStreamPlayer` | [ambience_player_a](#var-ambience-player-a) |  |
+| `AudioStreamPlayer` | [ambience_player_b](#var-ambience-player-b) |  |
 | `AudioStreamPlayer` | [active_music_player](#var-active-music-player) |  |
-| `AudioStreamPlayer` | [active_ambiance_player](#var-active-ambiance-player) |  |
+| `AudioStreamPlayer` | [active_ambience_player](#var-active-ambience-player) |  |
 | `Tween` | [music_crossfade_tween](#var-music-crossfade-tween) |  |
-| `Tween` | [ambiance_crossfade_tween](#var-ambiance-crossfade-tween) |  |
-| `UIAlbum                            # Currently loaded UI album` | [current_ui_album](#var-current-ui-album) |  |
-| `AudioAlbum` | [current_world_album](#var-current-world-album) |  |
+| `Tween` | [ambience_crossfade_tween](#var-ambience-crossfade-tween) |  |
 | `SoundLayers` | [sound_layers](#var-sound-layers) | `SoundLayers.new()` |
 | `SoundLayers` | [combat_layers](#var-combat-layers) | `SoundLayers.new()` |
 | `bool` | [party_in_combat](#var-party-in-combat) | `false` |
-| `Array[AudioStream]` | [loaded_ui_music_tracks](#var-loaded-ui-music-tracks) | `[]` |
-| `Array[AudioStream]` | [loaded_ui_ambient_tracks](#var-loaded-ui-ambient-tracks) | `[]` |
-| `Array[AudioStream]` | [loaded_ui_transition_tracks](#var-loaded-ui-transition-tracks) | `[]` |
-| `Array[AudioStream]` | [loaded_world_music_tracks](#var-loaded-world-music-tracks) | `[]` |
-| `Array[AudioStream]` | [loaded_world_combat_tracks](#var-loaded-world-combat-tracks) | `[]` |
-| `Array[AudioStream]` | [loaded_world_ambient_tracks](#var-loaded-world-ambient-tracks) | `[]` |
 | `bool` | [ui_sfx_initialized](#var-ui-sfx-initialized) | `false` |
 | `bool` | [gameplay_sfx_initialized](#var-gameplay-sfx-initialized) | `false` |
 | `bool` | [world_audio_initialized](#var-world-audio-initialized) | `false` |
-| `bool` | [ui_album_initialized](#var-ui-album-initialized) | `false` |
 | `bool` | [in_combat](#var-in-combat) | `false` |
 | `String` | [current_game_state](#var-current-game-state) | `"main_menu"` |
-| `String` | [active_album_type](#var-active-album-type) | `"ui"  # "ui" or "world"` |
 | `float` | [music_volume_db](#var-music-volume-db) | `0.0 : set = set_music_volume` |
-| `float` | [ambiance_volume_db](#var-ambiance-volume-db) | `0.0 : set = set_ambiance_volume` |
+| `float` | [ambience_volume_db](#var-ambience-volume-db) | `0.0 : set = set_ambience_volume` |
 | `float` | [ui_sfx_volume_db](#var-ui-sfx-volume-db) | `-10.0 : set = set_ui_sfx_volume` |
 | `Dictionary` | [spawned_sounds](#var-spawned-sounds) | `{}` |
 
@@ -82,24 +71,21 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_
 | | |
 |---|---|
 | `void` | [initialize_gameplay](#method-initialize-gameplay)() |
-| `void` | [set_ui_album](#method-set-ui-album)( `album: UIAlbum` ) |
-| `UIAlbum` | [get_ui_album_for_state](#method-get-ui-album-for-state)( `game_state: String` ) |
-| `void` | [initialize_world_audio](#method-initialize-world-audio)( `album: AudioAlbum` ) |
 | `void` | [set_music_volume](#method-set-music-volume)( `value: float` ) |
-| `void` | [set_ambiance_volume](#method-set-ambiance-volume)( `value: float` ) |
+| `void` | [set_ambience_volume](#method-set-ambience-volume)( `value: float` ) |
 | `void` | [set_ui_sfx_volume](#method-set-ui-sfx-volume)( `value: float` ) |
 | `AudioStreamPlayer` | [get_inactive_music_player](#method-get-inactive-music-player)() |
-| `AudioStreamPlayer` | [get_inactive_ambiance_player](#method-get-inactive-ambiance-player)() |
+| `AudioStreamPlayer` | [get_inactive_ambience_player](#method-get-inactive-ambience-player)() |
 | `void` | [crossfade_music](#method-crossfade-music)( `new_track: AudioStream, target_volume_db: float, fade_duration: float = FADE_DURATION` ) |
-| `void` | [crossfade_ambiance](#method-crossfade-ambiance)( `new_track: AudioStream, target_volume_db: float, fade_duration: float = FADE_DURATION` ) |
+| `void` | [crossfade_ambience](#method-crossfade-ambience)( `new_track: AudioStream, target_volume_db: float, fade_duration: float = FADE_DURATION` ) |
 | `void` | [switch_music_immediate](#method-switch-music-immediate)( `new_track: AudioStream, target_volume_db: float` ) |
-| `void` | [switch_ambiance_immediate](#method-switch-ambiance-immediate)( `new_track: AudioStream, target_volume_db: float` ) |
-| `void` | [play_music](#method-play-music)( `album_type: String = "world", use_crossfade: bool = true, fade_duration: float = FADE_DURATION` ) |
-| `void` | [play_ambiance](#method-play-ambiance)( `album_type: String = "world", use_crossfade: bool = true, fade_duration: float = FADE_DURATION` ) |
+| `void` | [switch_ambience_immediate](#method-switch-ambience-immediate)( `new_track: AudioStream, target_volume_db: float` ) |
+| `void` | [play_music](#method-play-music)( `use_crossfade: bool = true, fade_duration: float = FADE_DURATION` ) |
+| `void` | [play_ambience](#method-play-ambience)( `use_crossfade: bool = true, fade_duration: float = FADE_DURATION` ) |
 | `void` | [fade_stop_music](#method-fade-stop-music)( `fade_duration: float = FADE_DURATION` ) |
-| `void` | [fade_stop_ambiance](#method-fade-stop-ambiance)( `fade_duration: float = FADE_DURATION` ) |
+| `void` | [fade_stop_ambience](#method-fade-stop-ambience)( `fade_duration: float = FADE_DURATION` ) |
 | `void` | [stop_music](#method-stop-music)() |
-| `void` | [stop_ambiance](#method-stop-ambiance)() |
+| `void` | [stop_ambience](#method-stop-ambience)() |
 | `void` | [set_sound_layer](#method-set-sound-layer)( `layer: SoundLayers.Layer, music_tracks: PackedStringArray, ambience_tracks: PackedStringArray, music_db: float = 0.0, ambience_db: float = 0.0, fade_duration: float = FADE_DURATION, loop: bool = true` ) |
 | `void` | [clear_sound_layers](#method-clear-sound-layers)() |
 | `void` | [set_sound_channel](#method-set-sound-channel)( `layer: SoundLayers.Layer, channel: StringName, tracks: PackedStringArray, volume_db: float = 0.0, fade_duration: float = FADE_DURATION, loop: bool = true` ) |
@@ -118,7 +104,8 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_
 | `void` | [clear_combat_layers](#method-clear-combat-layers)() |
 | `void` | [combat_music_start](#method-combat-music-start)() |
 | `void` | [combat_music_end](#method-combat-music-end)() |
-| `void` | [setup_audio_for_state](#method-setup-audio-for-state)( `game_state: String, world_id: String = ""` ) |
+| `void` | [setup_audio_for_state](#method-setup-audio-for-state)( `game_state: String, world_id: String = "", play_now: bool = true` ) |
+| `SoundSource` | [get_menu_source](#method-get-menu-source)( `game_state: String` ) |
 | `void` | [switch_to_pause_menu](#method-switch-to-pause-menu)() |
 | `void` | [return_from_pause_menu](#method-return-from-pause-menu)() |
 | `String` | [get_ui_sound_name](#method-get-ui-sound-name)( `sound: UISound` ) *static* |
@@ -195,13 +182,9 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_
 
 ## Variable descriptions
 
-### Dictionary ui_sfx_cache =            # UI sound effects only {#var-ui-sfx-cache}
-
-========== CACHE STORAGE ==========
-
 ### Dictionary gameplay_sfx_cache =  {#var-gameplay-sfx-cache}
 
-Gameplay SFX (abilities, footsteps, voices)
+========== CACHE STORAGE ==========
 
 ### Array[AudioStreamPlayer3D] sfx_3d_players = []      # For positional SFX {#var-sfx-3d-players}
 
@@ -217,47 +200,39 @@ Dedicated UI audio players
 
 ### AudioStreamPlayer                    # Music player A (for crossfading) music_player_a {#var-music-player-a}
 
-========== GLOBAL MUSIC &amp; AMBIANCE PLAYERS ==========
+========== GLOBAL MUSIC &amp; AMBIENCE PLAYERS ==========
 
 ### AudioStreamPlayer music_player_b {#var-music-player-b}
 
 Music player B (for crossfading)
 
-### AudioStreamPlayer ambiance_player_a {#var-ambiance-player-a}
+### AudioStreamPlayer ambience_player_a {#var-ambience-player-a}
 
-Ambiance player A (for crossfading)
+Ambience player A (for crossfading)
 
-### AudioStreamPlayer ambiance_player_b {#var-ambiance-player-b}
+### AudioStreamPlayer ambience_player_b {#var-ambience-player-b}
 
-Ambiance player B (for crossfading)
+Ambience player B (for crossfading)
 
 ### AudioStreamPlayer active_music_player {#var-active-music-player}
 
 Track which players are currently active
 
-### AudioStreamPlayer active_ambiance_player {#var-active-ambiance-player}
+### AudioStreamPlayer active_ambience_player {#var-active-ambience-player}
 
-The ambiance player that plays now (the other one fades in).
+The ambience player that plays now (the other one fades in).
 
 ### Tween music_crossfade_tween {#var-music-crossfade-tween}
 
 Crossfade tweens
 
-### Tween ambiance_crossfade_tween {#var-ambiance-crossfade-tween}
+### Tween ambience_crossfade_tween {#var-ambience-crossfade-tween}
 
-The tween of the ambiance crossfade.
-
-### UIAlbum                            # Currently loaded UI album current_ui_album {#var-current-ui-album}
-
-========== CURRENT ALBUMS ==========
-
-### AudioAlbum current_world_album {#var-current-world-album}
-
-Currently loaded world album
+The tween of the ambience crossfade.
 
 ### SoundLayers sound_layers = SoundLayers.new() {#var-sound-layers}
 
-The layers of the music and the ambience: the world, the zone, the weather, a shelter and an event can each say what plays (see SoundLayers)
+========== SOUND LAYERS ========== The layers of the music and the ambience: the world, the zone, the weather, a shelter and an event can each say what plays (see SoundLayers)
 
 ### SoundLayers combat_layers = SoundLayers.new() {#var-combat-layers}
 
@@ -266,30 +241,6 @@ The layers of the combat music: the world, the zone and the encounter (the encou
 ### bool party_in_combat = false {#var-party-in-combat}
 
 True while a member of the party is in combat (PartyManager.party_combat_changed), and for a few seconds after
-
-### Array[AudioStream] loaded_ui_music_tracks = [] {#var-loaded-ui-music-tracks}
-
-UI Album tracks (loaded on demand)
-
-### Array[AudioStream] loaded_ui_ambient_tracks = [] {#var-loaded-ui-ambient-tracks}
-
-The ambient tracks of the interface album that are loaded.
-
-### Array[AudioStream] loaded_ui_transition_tracks = [] {#var-loaded-ui-transition-tracks}
-
-The transition sounds of the interface album that are loaded.
-
-### Array[AudioStream] loaded_world_music_tracks = [] {#var-loaded-world-music-tracks}
-
-Map Album tracks (loaded on world change)
-
-### Array[AudioStream] loaded_world_combat_tracks = [] {#var-loaded-world-combat-tracks}
-
-The combat tracks of the world album that are loaded.
-
-### Array[AudioStream] loaded_world_ambient_tracks = [] {#var-loaded-world-ambient-tracks}
-
-The ambient tracks of the world album that are loaded.
 
 ### bool ui_sfx_initialized = false {#var-ui-sfx-initialized}
 
@@ -301,11 +252,7 @@ True once the sound effects of the game are ready.
 
 ### bool world_audio_initialized = false {#var-world-audio-initialized}
 
-True once the audio of the world is ready.
-
-### bool ui_album_initialized = false {#var-ui-album-initialized}
-
-True once the album of the interface is ready.
+True once the music and ambience layers are in use (a menu or a world has started its sound).
 
 ### bool in_combat = false {#var-in-combat}
 
@@ -313,19 +260,15 @@ True once the album of the interface is ready.
 
 ### String current_game_state = "main_menu" {#var-current-game-state}
 
-The part of the game that is on ("main_menu", ...), which picks the album.
-
-### String active_album_type = "ui"  # "ui" or "world" {#var-active-album-type}
-
-Which album plays: "ui" or "world".
+The part of the game that is on ("main_menu", "character_creation", "loading_screen", "main_game"), which picks the menu music.
 
 ### float music_volume_db = 0.0 : set = set_music_volume {#var-music-volume-db}
 
 Volume settings
 
-### float ambiance_volume_db = 0.0 : set = set_ambiance_volume {#var-ambiance-volume-db}
+### float ambience_volume_db = 0.0 : set = set_ambience_volume {#var-ambience-volume-db}
 
-The volume of the ambiance, in decibels.
+The volume of the ambience, in decibels.
 
 ### float ui_sfx_volume_db = -10.0 : set = set_ui_sfx_volume {#var-ui-sfx-volume-db}
 
@@ -341,25 +284,13 @@ The sounds that events spawned and that play under a name: name -&gt; AmbientSou
 
 Initialize gameplay SFX - call this when starting/loading a game
 
-### void set_ui_album( album: UIAlbum ) {#method-set-ui-album}
-
-Set UI album for current game state
-
-### UIAlbum get_ui_album_for_state( game_state: String ) {#method-get-ui-album-for-state}
-
-Get UI album for specific game state
-
-### void initialize_world_audio( album: AudioAlbum ) {#method-initialize-world-audio}
-
-Initialize world-specific audio - call this when loading a new world
-
 ### void set_music_volume( value: float ) {#method-set-music-volume}
 
 Set music volume
 
-### void set_ambiance_volume( value: float ) {#method-set-ambiance-volume}
+### void set_ambience_volume( value: float ) {#method-set-ambience-volume}
 
-Set ambiance volume
+Set ambience volume
 
 ### void set_ui_sfx_volume( value: float ) {#method-set-ui-sfx-volume}
 
@@ -369,47 +300,47 @@ Set UI SFX volume
 
 Get the inactive music player (for crossfading)
 
-### AudioStreamPlayer get_inactive_ambiance_player() {#method-get-inactive-ambiance-player}
+### AudioStreamPlayer get_inactive_ambience_player() {#method-get-inactive-ambience-player}
 
-Get the inactive ambiance player (for crossfading)
+Get the inactive ambience player (for crossfading)
 
 ### void crossfade_music( new_track: AudioStream, target_volume_db: float, fade_duration: float = FADE_DURATION ) {#method-crossfade-music}
 
 Crossfade to new music track
 
-### void crossfade_ambiance( new_track: AudioStream, target_volume_db: float, fade_duration: float = FADE_DURATION ) {#method-crossfade-ambiance}
+### void crossfade_ambience( new_track: AudioStream, target_volume_db: float, fade_duration: float = FADE_DURATION ) {#method-crossfade-ambience}
 
-Crossfade to new ambiance track
+Crossfade to new ambience track
 
 ### void switch_music_immediate( new_track: AudioStream, target_volume_db: float ) {#method-switch-music-immediate}
 
 Immediate music switch (no crossfade)
 
-### void switch_ambiance_immediate( new_track: AudioStream, target_volume_db: float ) {#method-switch-ambiance-immediate}
+### void switch_ambience_immediate( new_track: AudioStream, target_volume_db: float ) {#method-switch-ambience-immediate}
 
-Immediate ambiance switch (no crossfade)
+Immediate ambience switch (no crossfade)
 
-### void play_music( album_type: String = "world", use_crossfade: bool = true, fade_duration: float = FADE_DURATION ) {#method-play-music}
+### void play_music( use_crossfade: bool = true, fade_duration: float = FADE_DURATION ) {#method-play-music}
 
-Play appropriate music track based on album type and current state (with crossfading)
+Plays what the music layers say now (a menu, the world, a zone, a weather, a shelter, an event; the combat music while the party fights), with a crossfade when something plays
 
-### void play_ambiance( album_type: String = "world", use_crossfade: bool = true, fade_duration: float = FADE_DURATION ) {#method-play-ambiance}
+### void play_ambience( use_crossfade: bool = true, fade_duration: float = FADE_DURATION ) {#method-play-ambience}
 
-Play ambient sound track based on album type (with crossfading)
+Plays what the ambience layers say now (the same)
 
 ### void fade_stop_music( fade_duration: float = FADE_DURATION ) {#method-fade-stop-music}
 
 Smoothly fade out current music track
 
-### void fade_stop_ambiance( fade_duration: float = FADE_DURATION ) {#method-fade-stop-ambiance}
+### void fade_stop_ambience( fade_duration: float = FADE_DURATION ) {#method-fade-stop-ambience}
 
-Smoothly fade out current ambiance
+Smoothly fade out current ambience
 
 ### void stop_music() {#method-stop-music}
 
 Stop current music track immediately
 
-### void stop_ambiance() {#method-stop-ambiance}
+### void stop_ambience() {#method-stop-ambience}
 
 Stop ambient sound track immediately
 
@@ -479,23 +410,27 @@ The combat layers are cleared (the world is left)
 
 ### void combat_music_start() {#method-combat-music-start}
 
-Start combat music immediately (always uses world album) with crossfade
+Start combat music immediately with crossfade
 
 ### void combat_music_end() {#method-combat-music-end}
 
-End combat music with crossfade (returns to active album type)
+End combat music with crossfade (the music of the place comes back)
 
-### void setup_audio_for_state( game_state: String, world_id: String = "" ) {#method-setup-audio-for-state}
+### void setup_audio_for_state( game_state: String, world_id: String = "", play_now: bool = true ) {#method-setup-audio-for-state}
 
-Setup audio for a specific game state
+The music of a menu or the game: "main_menu", "character_creation", "loading_screen", "pause_menu" (over the game) or "main_game" (the world with this id starts its sound). The menus play what Gameplay Config &gt; Audio says (a sound source: a track, or a Music Album). `play_now` false sets the music without playing it (the main menu starts it after the splash screen: play_music())
+
+### SoundSource get_menu_source( game_state: String ) {#method-get-menu-source}
+
+The sound source of a menu, from the Gameplay Config (null = the menu has no music of its own)
 
 ### void switch_to_pause_menu() {#method-switch-to-pause-menu}
 
-Switch to pause menu (overlay on main game)
+Switch to the pause menu (it plays over the game: the music of the game comes back with return_from_pause_menu)
 
 ### void return_from_pause_menu() {#method-return-from-pause-menu}
 
-Return from pause menu (restore previous state)
+Return from the pause menu: the menu's music goes and what the game plays comes back
 
 ### String get_ui_sound_name( sound: UISound ) {#method-get-ui-sound-name}
 

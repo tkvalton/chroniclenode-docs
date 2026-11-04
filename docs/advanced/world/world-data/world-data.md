@@ -28,12 +28,9 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `bool` | [map_is_custom](#prop-map-is-custom) | `false` |
 | `Array[ZoneMapEntry]` | [zone_maps](#prop-zone-maps) | `[]` |
 | `Texture` | [loading_screen_texture_override](#prop-loading-screen-texture-override) |  |
-| `AudioAlbum` | [audio_album](#prop-audio-album) |  |
 | `SoundSource` | [music_source](#prop-music-source) |  |
 | `SoundSource` | [combat_source](#prop-combat-source) |  |
 | `SoundSource` | [ambience_source](#prop-ambience-source) |  |
-| `String` | [default_music_track](#prop-default-music-track) | `""` |
-| `String` | [default_ambient_track](#prop-default-ambient-track) | `""` |
 | `WeatherConfig` | [default_weather_config](#prop-default-weather-config) |  |
 | `VFXSelectionWeather` | [default_weather](#prop-default-weather) |  |
 | `WeatherTable` | [default_weather_table](#prop-default-weather-table) |  |
@@ -54,10 +51,6 @@ Pure data storage for world information Contains only world metadata, spawn poin
 
 | | |
 |---|---|
-| `void` | [set_audio_album](#method-set-audio-album)( `album: AudioAlbum` ) |
-| `AudioAlbum` | [get_audio_album](#method-get-audio-album)() |
-| `bool` | [has_audio_album](#method-has-audio-album)() |
-| `void` | [clear_audio_album](#method-clear-audio-album)() |
 | `void` | [set_default_weather](#method-set-default-weather)( `weather: VFXSelectionWeather` ) |
 | `VFXSelectionWeather` | [get_default_weather](#method-get-default-weather)() |
 | `WeatherConfig` | [get_weather_config](#method-get-weather-config)() |
@@ -177,13 +170,9 @@ Loading screen texture override (null = use default loading screens)
 
 *Audio*
 
-### AudioAlbum audio_album {#prop-audio-album}
-
-Audio album containing all track types for this world
-
 ### SoundSource music_source {#prop-music-source}
 
-The music of the world: a track with its options, or a Music Album (Assets &gt; Music Albums). A zone or a weather can play something else
+The music of the world: a track with its options, or a Music Album (Audio &gt; Music Albums). A zone or a weather can play something else
 
 ### SoundSource combat_source {#prop-combat-source}
 
@@ -192,14 +181,6 @@ The music of a fight in this world: a track, or a Combat Music Album. A zone and
 ### SoundSource ambience_source {#prop-ambience-source}
 
 The ambient sound of the world (the wind, the birds): one track with its options. A zone or a weather can play another
-
-### String default_music_track = "" {#prop-default-music-track}
-
-Default music track if spawn point doesn't specify one
-
-### String default_ambient_track = "" {#prop-default-ambient-track}
-
-Default ambient track if spawn point doesn't specify one
 
 *Weather*
 
@@ -270,22 +251,6 @@ Timestamp of last validation
 Validation warnings from last check
 
 ## Method descriptions
-
-### void set_audio_album( album: AudioAlbum ) {#method-set-audio-album}
-
-Set the audio album for this world
-
-### AudioAlbum get_audio_album() {#method-get-audio-album}
-
-Get the audio album for this world
-
-### bool has_audio_album() {#method-has-audio-album}
-
-Check if world has an audio album assigned
-
-### void clear_audio_album() {#method-clear-audio-album}
-
-Clear the audio album
 
 ### void set_default_weather( weather: VFXSelectionWeather ) {#method-set-default-weather}
 

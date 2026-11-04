@@ -1,6 +1,6 @@
 # Assets
 
-The **assets** are the art and sound the game is made of: the models of characters and objects, the meshes of weapons and armor, animations, visual effects, music and sound, and icons. The **Assets** category of the editor is where you see what the project has, add to it, and check that it is in order.
+The **assets** are the art the game is made of: the models of characters and objects, the meshes of weapons and armor, animations, visual effects, icons, terrain textures and foliage. (Sound has a category of its own: [Audio](/basic/audio/).) The **Assets** category of the editor is where you see what the project has, add to it, and check that it is in order.
 
 Unlike the rest of the editor, assets are not `.tres` records with an id. They are **files in folders**, and the folder is the organisation: the editor reads `res://src/data/` and lists what it finds. You add an asset by putting a file in the right folder (or with the **Import** and **Create** buttons, which do it for you), and **Refresh** reads the folders again.
 
@@ -10,8 +10,6 @@ Unlike the rest of the editor, assets are not `.tres` records with an id. They a
 | [Meshes](/basic/assets/meshes) | Weapon, armor-piece and facial meshes; materials | `src/data/meshes/` |
 | [Animations](/basic/assets/animations) | Animation packages for each [entity type](/basic/types-and-groups/entity-types) | `src/data/animations/` |
 | [VFX](/basic/assets/vfx) | Visual effects: bursts, auras, beams, weather, telegraphs, materials | `src/data/vfx/` |
-| [Audio](/basic/assets/audio) | Music, ambience, voices, footsteps, ability and world sounds | `src/data/audio/` |
-| [Albums](/basic/assets/albums) | Sets of music and ambience tracks for worlds and for the menus | `src/data/audio/albums/` |
 | [Icons](/basic/assets/icons) | The pictures of items, abilities and the interface, by number | `src/data/icons/` |
 | [Terrain Textures](/basic/assets/terrain-textures) | The textures the terrain is painted with: maps, tiling, surface types, packs | `src/data/worlds/terrain/textures/` |
 | [Foliage](/basic/assets/foliage) | Ground clutter (grass, weeds, pebbles: a mesh) and foliage (trees, bushes: a scene) that the terrain scatters | `src/data/worlds/foliage/` |

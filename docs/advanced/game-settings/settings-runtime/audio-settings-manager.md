@@ -18,8 +18,8 @@ AudioSettingsManager handles audio-related functionality in the game. It manages
 | `void` | [set_music_volume](#method-set-music-volume)( `settings: SettingsConfig, value: float` ) |
 | `float` | [get_sfx_volume](#method-get-sfx-volume)( `settings: SettingsConfig` ) |
 | `void` | [set_sfx_volume](#method-set-sfx-volume)( `settings: SettingsConfig, value: float` ) |
-| `float` | [get_ambiance_volume](#method-get-ambiance-volume)( `settings: SettingsConfig` ) |
-| `void` | [set_ambiance_volume](#method-set-ambiance-volume)( `settings: SettingsConfig, value: float` ) |
+| `float` | [get_ambience_volume](#method-get-ambience-volume)( `settings: SettingsConfig` ) |
+| `void` | [set_ambience_volume](#method-set-ambience-volume)( `settings: SettingsConfig, value: float` ) |
 | `float` | [get_voice_volume](#method-get-voice-volume)( `settings: SettingsConfig` ) |
 | `void` | [set_voice_volume](#method-set-voice-volume)( `settings: SettingsConfig, value: float` ) |
 | `float` | [get_ui_volume](#method-get-ui-volume)( `settings: SettingsConfig` ) |
@@ -39,9 +39,9 @@ Signal, emitted when the music volume has changed
 
 Signal, emitted when the sound effects volume has changed
 
-### ambiance_volume_changed( newVolume: float ) {#signal-ambiance-volume-changed}
+### ambience_volume_changed( newVolume: float ) {#signal-ambience-volume-changed}
 
-Signal, emitted when the ambiance volume has changed
+Signal, emitted when the ambience volume has changed
 
 ### voice_volume_changed( newVolume: float ) {#signal-voice-volume-changed}
 
@@ -49,14 +49,14 @@ Signal, emitted when the sound effects volume has changed
 
 ### ui_volume_changed( newVolume: float ) {#signal-ui-volume-changed}
 
-Signal, emitted when the ambiance volume has changed
+Signal, emitted when the ambience volume has changed
 
 ## Constants
 
 - `const` **MASTER_VOLUME_LABEL** = `"Master"` - Label for master volume
 - `const` **MUSIC_VOLUME_LABEL** = `"Music"` - Label for music volume
 - `const` **SFX_VOLUME_LABEL** = `"SFX"` - Label for sound effects volume
-- `const` **AMBIANCE_VOLUME_LABEL** = `"Ambiance"` - Label for ambiance volume
+- `const` **AMBIENCE_VOLUME_LABEL** = `"Ambience"` - Label for ambience volume
 - `const` **VOICE_VOLUME_LABEL** = `"Voice"` - Label for voice volume
 - `const` **UI_VOLUME_LABEL** = `"UI"` - Label for voice volume
 
@@ -94,13 +94,13 @@ Gets the SFX volume
 
 Sets the SFX volume
 
-### float get_ambiance_volume( settings: SettingsConfig ) {#method-get-ambiance-volume}
+### float get_ambience_volume( settings: SettingsConfig ) {#method-get-ambience-volume}
 
-Gets the ambiance volume
+Gets the ambience volume
 
-### void set_ambiance_volume( settings: SettingsConfig, value: float ) {#method-set-ambiance-volume}
+### void set_ambience_volume( settings: SettingsConfig, value: float ) {#method-set-ambience-volume}
 
-Sets the ambiance volume
+Sets the ambience volume
 
 ### float get_voice_volume( settings: SettingsConfig ) {#method-get-voice-volume}
 
@@ -112,7 +112,7 @@ Sets the SFX volume
 
 ### float get_ui_volume( settings: SettingsConfig ) {#method-get-ui-volume}
 
-Gets the ambiance volume
+Gets the ambience volume
 
 ### void set_ui_volume( settings: SettingsConfig, value: float ) {#method-set-ui-volume}
 

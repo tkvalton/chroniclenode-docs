@@ -50,7 +50,7 @@ An NPC can **follow a [template](/basic/entities/templates)**: the stats, pools,
 
 | Field | What it does |
 |---|---|
-| **Voice audio** | The voice type and variant from the [audio library](/basic/assets/audio) |
+| **Voice audio** | The voice type and variant from the [audio library](/basic/audio/sound-library) |
 | **Motion audio** | The footstep set |
 | **Footprint** | The picture of one footprint of this kind of entity (a sole, a paw, a hoof): a white shape on a transparent background, toes up. The ground tints it and decides how long it stays. **Empty = it leaves no footprints** ([marks on the ground](/basic/world/ground-weather#footprints)) |
 

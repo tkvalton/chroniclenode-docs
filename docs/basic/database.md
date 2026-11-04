@@ -62,7 +62,7 @@ Models, meshes, animations, sounds, visual effects and icons are **files you add
 | [Meshes](/basic/assets/meshes) | Weapons, the parts of modular characters, attachments, facial features and materials |
 | [Animations](/basic/assets/animations) | Animations, in folders for each kind of character |
 | [VFX](/basic/assets/vfx) | Visual effects: one-shot, looping, beams, weather, telegraphs |
-| [Audio](/basic/assets/audio) and [Albums](/basic/assets/albums) | Sound effects, music, voices, and the playlists the menus and worlds use |
+| [Audio](/basic/audio/) | Sound effects, music, voices, and the Music Albums the worlds, zones and menus use |
 | [Icons](/basic/assets/icons) | The pictures, each named by a number |
 
 Add a file to the right folder and it appears in the pickers of the other editors. The [Advanced section](/advanced/data-and-database/asset-databases) describes the folders and how they are read.

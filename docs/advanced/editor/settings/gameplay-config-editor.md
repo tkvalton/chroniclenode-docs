@@ -21,6 +21,7 @@ Editor for GameplayConfig resource with tab-based UI
 ## Constants
 
 - `const` **CONFIG_PATH** = `"res://src/data/config_data/gameplay_config.tres"`
+- `Array[String]` **MENU_MUSIC_PROPERTIES** = `["main_menu_music", "character_creation_music", "loading_screen_music", "paus...` - The music of the menus: sound sources (a track or a Music Album), each in a field of its own
 
 ## Variable descriptions
 

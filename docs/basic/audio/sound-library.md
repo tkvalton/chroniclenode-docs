@@ -1,15 +1,27 @@
-# Audio
+# Sound Library
 
-The **audio library** is every sound file of the game: music, ambience, voices, footsteps, the sounds of abilities and objects. **Assets > Audio** lists them by category, plays them so you can listen, and helps you add and sort them.
+The **audio library** is every sound file of the game: music, ambience, voices, footsteps, the sounds of abilities and objects. **Audio > Sound Library** lists them by category, plays them so you can listen, and helps you add and sort them.
 
 Sounds are `.wav`, `.ogg` or `.mp3` files under `res://src/data/audio/`. The folder is the organisation: a **category** folder, then (usually) a **type** folder inside it named for what the sound is. The game asks for "a sound of this category and type" and picks one of the files in that folder **at random**, so putting several files in a folder gives variety for free.
+
+## Where the files go
+
+**One rule: every sound of the game is a file in the library, `src/data/audio/`.** The editors only offer what the library holds (a track window, a sound selection), so a sound that lives somewhere else in the project cannot be chosen from a list.
+
+There are three ways to put a file there, all with the same result:
+
+- **Import** in this tab: pick files **from anywhere on your computer**; they are copied into the folder you chose.
+- **Import files...** in the [track window](#choosing-a-track-in-the-editor), wherever you choose music or an ambient sound: it copies into the folder the window is showing, and the new files are selected, so you can add a track without leaving the album you are editing.
+- Copy the files into the folder yourself (or drag them in the Godot FileSystem dock), then press **Refresh**.
+
+An imported file is a normal Godot file: it needs a moment to be imported by Godot before you can listen to it. **Dynamic music** (a later chapter) needs **Ogg or MP3**; use those for music.
 
 ## Categories
 
 | Category | Folder | Inside | Used by |
 |---|---|---|---|
-| **Music** | `music/` | `loop/` and `non_loop/` | World and menu [albums](/basic/assets/albums) |
-| **Atmospheric ambience** | `atmospheric_ambience/` | `loop/` and `non_loop/` | Albums. 2D background sounds: rain, wind, birds |
+| **Music** | `music/` | `loop/` and `non_loop/` | [Music Albums](/basic/audio/music-albums), and the music of worlds, zones, weather, encounters, events and the menus |
+| **Atmospheric ambience** | `atmospheric_ambience/` | `loop/` and `non_loop/` | The ambient sound of worlds, zones, weather and shelters. 2D background sounds: rain, wind, birds |
 | **UI SFX** | `ui_sfx/` | One folder for each interface sound | Buttons, windows, item moves |
 | **Entity voices** | `entity_voices/` | `<entity type>/<voice variant>/<action>/` | Grunts, yells and reactions in combat; the **voice** of an [NPC](/basic/entities/npcs) or character |
 | **Voicelines** | `voicelines/` | One folder for each character; a folder of a language inside it for the recordings in that language | Spoken lines in [conversations](/basic/behaviors/conversations), speak interactions, quests and events. See [voice lines in other languages](/basic/game-settings/localization#voice-lines-in-other-languages) |
@@ -24,7 +36,7 @@ Sounds are `.wav`, `.ogg` or `.mp3` files under `res://src/data/audio/`. The fol
 | **Interactables** | `interactables/` | A folder for each sound | Doors, chests, switches |
 | **Spawns** | `spawns/` | The files themselves | The sound of something appearing |
 
-A **loop** folder holds sounds that repeat; a **non-loop** folder holds sounds that play once. The editor asks which one when you import music or ambience.
+The `loop` and `non_loop` folders are a way to sort your files: whether a track repeats is decided where it is used (the **Loop** setting of a [sound source](/basic/audio/music-albums#a-sound-source)), not by the folder. The editor asks which one when you import music or ambience.
 
 Choose **sounds** in the editors with a [sound selection](/basic/abilities-and-effects/abilities): a category, a type, and optionally one particular file.
 
@@ -34,8 +46,8 @@ Choose **sounds** in the editors with a [sound selection](/basic/abilities-and-e
 |---|---|
 | The tree | The categories, each with its types and files, with counts |
 | **Search**, **Refresh** | Filter; read the folders again |
-| **Import** | Copy audio files in. For a category with types, it asks for a **new folder name** and imports into it; for music and ambience it asks for **loop** or **non-loop** |
-| **Settings > Add New Type/Folder** | Makes a new type folder in a category (`fire`, `ice`, `combat_music`) |
+| **Import** | Copy audio files in, **from anywhere on your computer**. For a category with types, it asks for a **new folder name** and imports into it; for music and ambience it asks for **loop** or **non-loop**. A file the folder has already is not copied again |
+| **Settings > Add a sound folder...** | Makes a new type folder in a category (`fire`, `ice`), see [Adding a sound folder](#adding-a-sound-folder) |
 | **Settings > Validate Database** | Checks every file and lists the ones that cannot be read |
 | **Play**, **Pause**, **Stop** and the time bar | Listen to the selected file |
 | The label | The selected file and its category |
@@ -47,7 +59,9 @@ Choose **sounds** in the editors with a [sound selection](/basic/abilities-and-e
 
 ## Choosing a track in the editor
 
-Wherever the editor asks for music or an ambient sound, the **+** (or **...**) button opens the same **track window** of the library: the *Albums* tab, the *Set Music Track* and *Set Ambient Track* event actions, the **Music** and **Ambient sound** of a [zone](/basic/world/zones#music-and-ambient-sound), a [weather](/basic/world/weather#sound) and the weather sounds of a [shelter](/basic/world/shelter#the-sound-for-each-kind-of-weather). It shows the music or the ambient sounds (loop and non-loop), you listen to a file with **Preview**, and the files you choose are added. A file outside the library can still be typed in the line next to the button.
+Wherever the editor asks for music or an ambient sound, the **+** (or **...**) button opens the same **track window** of the library: the tracks of a [Music Album](/basic/audio/music-albums), the *Set Music Track* and *Set Ambience Track* event actions, the **Music** and **Ambient sound** of a [zone](/basic/world/zones#music-and-ambient-sound), a [weather](/basic/world/weather#sound), the weather sounds of a [shelter](/basic/world/shelter#the-sound-for-each-kind-of-weather) and the [menu music](/basic/audio/music-albums#menu-music). It shows the music or the ambient sounds (loop and non-loop), you listen to a file with **Preview**, and the files you choose are added.
+
+**Import files...** in the window copies sound files into the folder it shows (the **Category** and **Type** at the top) and selects them, so a new track is two clicks. A file outside the library can still be typed in the line next to the button, but it is not offered in the window and the editor does not know it.
 
 ## Interface sounds
 
@@ -65,5 +79,5 @@ Sounds are played by pooled audio players (50 positional, 20 global, 5 for the i
 
 ## See also
 
-- [Albums](/basic/assets/albums) for music and ambience, [Worlds](/basic/world/worlds#audio) for giving a world an album.
+- [Music Albums](/basic/audio/music-albums) for collections of tracks and the sound sources that use them, [Worlds](/basic/world/worlds#music-and-ambience) for giving a world its music.
 - [How the audio library is built](/advanced/assets/).

@@ -155,12 +155,6 @@ export const groups = [
     "slug": "assets",
     "classes": [
       {
-        "name": "AlbumDatabaseEditor",
-        "base": "VBoxContainer",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\album_database_editor.gd",
-        "file": "editor_components/editors/assets/album_database_editor.gd"
-      },
-      {
         "name": "AnimationDatabaseEditor",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\animation_database_editor.gd",

@@ -181,26 +181,14 @@ export const groups = [
     ]
   },
   {
-    "text": "Albums and animation map",
-    "slug": "albums",
+    "text": "Animation map",
+    "slug": "animation-map",
     "classes": [
       {
         "name": "AnimationCoreMap",
         "base": "Resource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\animations\\animation_core_map.gd",
         "file": "data_classes/entity/animations/animation_core_map.gd"
-      },
-      {
-        "name": "AudioAlbum",
-        "base": "Resource",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\albums\\audio_album.gd",
-        "file": "data_classes/albums/audio_album.gd"
-      },
-      {
-        "name": "UIAlbum",
-        "base": "Resource",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\albums\\ui_album.gd",
-        "file": "data_classes/albums/ui_album.gd"
       }
     ]
   },

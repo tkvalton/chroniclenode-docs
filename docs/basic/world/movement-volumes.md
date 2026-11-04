@@ -242,13 +242,13 @@ When the **camera itself** is inside the volume (under the surface of one that h
 | **Camera effect enabled** | Turns the look off for this volume | on |
 | **Camera tint** | A color laid over the whole screen. Its alpha is how strong | blue-green, 30 % |
 | **Camera fog color / density** | The fog while inside. `0` density = no fog | blue-green, `0.05` |
-| **Audio profile** | How the sound changes while the camera is inside: an [audio profile](/basic/world/audio-zones#the-audio-profile) (Water gives the *Underwater* one: the music, effects, voices and ambiance are muffled, the interface is not). Empty = the sound does not change. It works with the camera effect switched off | Underwater |
+| **Audio profile** | How the sound changes while the camera is inside: an [audio profile](/basic/world/audio-zones#the-audio-profile) (Water gives the *Underwater* one: the music, effects, voices and ambience are muffled, the interface is not). Empty = the sound does not change. It works with the camera effect switched off | Underwater |
 
 ### Footsteps in the volume
 
 | Field | What it does | Default (water) |
 |---|---|---|
-| **Footstep surface** | What the footsteps of whoever **walks, runs or wades** in the volume sound like: the kind of ground, in the words of the folders of your [footstep sounds](/basic/assets/audio#sounds-of-an-entity) (`water`, `mud`, `snow`). It wins over the terrain and the floor. Empty = the ground under them decides | water |
+| **Footstep surface** | What the footsteps of whoever **walks, runs or wades** in the volume sound like: the kind of ground, in the words of the folders of your [footstep sounds](/basic/audio/sound-library#sounds-of-an-entity) (`water`, `mud`, `snow`). It wins over the terrain and the floor. Empty = the ground under them decides | water |
 | **Footstep swim** | What the sounds of whoever **swims** in the volume are (`water_deep`): their strokes, and the sounds of jumping into and out of the water. Empty = the footstep surface is used, and `water` when that is empty too | water_deep |
 
 The order of the sounds, for something on foot: the volume (*Footstep surface*), then the floor it stands on (the `surface_type` meta of a StaticBody3D, else the surface of the terrain texture), then the default surface of the terrain.

@@ -102,7 +102,7 @@ The **Sound** container is about what the weather *sounds* like. It has three se
 | Field | What it does | Default |
 |---|---|---|
 | **Kinds of sound** | The kinds of sound this weather makes, in order, separated by commas: `rain`; for sleet `rain, snow`. A [shelter](/basic/world/shelter#the-sound-for-each-kind-of-weather) has a track for a kind of weather (the rain on its roof) and plays the track of the **first** kind it has a line for | empty |
-| **Music** | The music of the weather: a [sound source](/basic/world/music-albums#a-sound-source), **None** (the music of the zone and the world goes on), a **Track** of the [audio library](/basic/assets/audio) chosen in the track window, or a **Music Album** | None |
+| **Music** | The music of the weather: a [sound source](/basic/audio/music-albums#a-sound-source), **None** (the music of the zone and the world goes on), a **Track** of the [audio library](/basic/audio/sound-library) chosen in the track window, or a **Music Album** | None |
 | **Ambient sound** | The ambient sound of the weather (the rain itself, the wind): a track with its options (an album cannot be used for ambience). It is **quieter in a light weather**: half the intensity is 6 dB quieter | None |
 
 The tracks are the *weather layer* of the [sound layers](/basic/world/sound-layers): over the zone's sound, under a shelter's and an event's. They crossfade in over the fade seconds of the weather.
