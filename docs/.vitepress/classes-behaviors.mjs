@@ -317,6 +317,12 @@ export const groups = [
         "file": "data_classes/entity/behavior_states/combat_actions/types/move_to_point_action.gd"
       },
       {
+        "name": "PlayStingerCombatAction",
+        "base": "CombatAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\behavior_states\\combat_actions\\types\\play_stinger_combat_action.gd",
+        "file": "data_classes/entity/behavior_states/combat_actions/types/play_stinger_combat_action.gd"
+      },
+      {
         "name": "RetreatAction",
         "base": "CombatAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\behavior_states\\combat_actions\\types\\retreat_action.gd",
@@ -327,6 +333,18 @@ export const groups = [
         "base": "CombatAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\behavior_states\\combat_actions\\types\\say_action.gd",
         "file": "data_classes/entity/behavior_states/combat_actions/types/say_action.gd"
+      },
+      {
+        "name": "SetMusicIntensityCombatAction",
+        "base": "CombatAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\behavior_states\\combat_actions\\types\\set_music_intensity_combat_action.gd",
+        "file": "data_classes/entity/behavior_states/combat_actions/types/set_music_intensity_combat_action.gd"
+      },
+      {
+        "name": "SetMusicStateCombatAction",
+        "base": "CombatAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\entity\\behavior_states\\combat_actions\\types\\set_music_state_combat_action.gd",
+        "file": "data_classes/entity/behavior_states/combat_actions/types/set_music_state_combat_action.gd"
       },
       {
         "name": "SpawnInteractableCombatAction",

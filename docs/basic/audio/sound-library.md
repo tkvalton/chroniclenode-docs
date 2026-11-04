@@ -14,7 +14,7 @@ There are three ways to put a file there, all with the same result:
 - **Import files...** in the [track window](#choosing-a-track-in-the-editor), wherever you choose music or an ambient sound: it copies into the folder the window is showing, and the new files are selected, so you can add a track without leaving the album you are editing.
 - Copy the files into the folder yourself (or drag them in the Godot FileSystem dock), then press **Refresh**.
 
-An imported file is a normal Godot file: it needs a moment to be imported by Godot before you can listen to it. **Dynamic music** (a later chapter) needs **Ogg or MP3**; use those for music.
+An imported file is a normal Godot file: it needs a moment to be imported by Godot before you can listen to it. [Dynamic Music](/basic/audio/dynamic-music) needs **Ogg or MP3**; use those for music. The [guides](/basic/audio/guides/import-your-audio) walk through importing, and [Choosing file types](/basic/audio/guides/choosing-file-types) says which format suits which sound.
 
 ## Categories
 

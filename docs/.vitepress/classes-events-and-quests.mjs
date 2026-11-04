@@ -689,6 +689,12 @@ export const groups = [
         "file": "data_classes/events/event_actions/audio/play_sfx_global_action.gd"
       },
       {
+        "name": "PlayStingerAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\audio\\play_stinger_action.gd",
+        "file": "data_classes/events/event_actions/audio/play_stinger_action.gd"
+      },
+      {
         "name": "PlayVoiceLineAction",
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\audio\\play_voice_line_action.gd",
@@ -699,6 +705,18 @@ export const groups = [
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\audio\\set_ambient_track_action.gd",
         "file": "data_classes/events/event_actions/audio/set_ambient_track_action.gd"
+      },
+      {
+        "name": "SetMusicIntensityAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\audio\\set_music_intensity_action.gd",
+        "file": "data_classes/events/event_actions/audio/set_music_intensity_action.gd"
+      },
+      {
+        "name": "SetMusicStateAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\audio\\set_music_state_action.gd",
+        "file": "data_classes/events/event_actions/audio/set_music_state_action.gd"
       },
       {
         "name": "SetMusicTrackAction",

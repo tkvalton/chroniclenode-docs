@@ -4,7 +4,7 @@
 
 **Inherits:** [HBoxContainer](https://docs.godotengine.org/en/stable/classes/class_hboxcontainer.html)
 
-**Inherited by:** [ColorField](/advanced/editor/factory/color-field), [DatabaseIdField](/advanced/editor/factory/database-id-field), [FilePathField](/advanced/editor/factory/file-path-field), [NumberField](/advanced/editor/factory/number-field), [OptionField](/advanced/editor/factory/option-field), [PathListField](/advanced/editor/factory/path-list-field), [ResourceField](/advanced/editor/factory/resource-field), [SoundSourceField](/advanced/editor/factory/sound-source-field), [TextField](/advanced/editor/factory/text-field), [ToggleField](/advanced/editor/factory/toggle-field), [Vector3Field](/advanced/editor/factory/vector3-field), [VfxNameField](/advanced/editor/factory/vfx-name-field)
+**Inherited by:** [ColorField](/advanced/editor/factory/color-field), [DatabaseIdField](/advanced/editor/factory/database-id-field), [FilePathField](/advanced/editor/factory/file-path-field), [NamePickerField](/advanced/editor/factory/name-picker-field), [NumberField](/advanced/editor/factory/number-field), [OptionField](/advanced/editor/factory/option-field), [PathListField](/advanced/editor/factory/path-list-field), [ResourceField](/advanced/editor/factory/resource-field), [SoundSourceField](/advanced/editor/factory/sound-source-field), [TextField](/advanced/editor/factory/text-field), [ToggleField](/advanced/editor/factory/toggle-field), [Vector3Field](/advanced/editor/factory/vector3-field), [VfxNameField](/advanced/editor/factory/vfx-name-field)
 
 The base of the field components of the config editors: a label and a control for ONE property of the resource that is open. Place a field scene (number_field.tscn, toggle_field.tscn, option_field.tscn, color_field.tscn, vector3_field.tscn) in an editor scene, set its **Property** (the name of the export, `sun_rise_hour`) and its **Label text** in the inspector, and the editor shows and changes that property: the editor calls `bind(resource)` when a resource is opened, and every change the person makes is written to the resource and sent as `value_changed`. The layout is yours: fields go in the containers of the scene.
 
@@ -31,6 +31,7 @@ A field that does not match a property of the resource stays as it is (and says 
 
 | | |
 |---|---|
+| `bool` | [belongs_to](#method-belongs-to)( `owner: Node, field: Node` ) *static* |
 | `void` | [bind](#method-bind)( `p_resource: Resource` ) |
 | `void` | [refresh](#method-refresh)() |
 | `void` | [set_applies](#method-set-applies)( `applies: bool` ) |
@@ -67,6 +68,10 @@ The width of the label, so the controls of a column line up
 The resource that is open (null before bind)
 
 ## Method descriptions
+
+### bool belongs_to( owner: Node, field: Node ) {#method-belongs-to}
+
+Is this field one of the fields of `owner` itself, not of a form inside a list in it (a form binds its own fields to its own item)?
 
 ### void bind( p_resource: Resource ) {#method-bind}
 

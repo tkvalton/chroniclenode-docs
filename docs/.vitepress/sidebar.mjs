@@ -216,7 +216,25 @@ const basicSystems = [
   system('Audio', 'audio', [
     ['Sound Library', 'sound-library', 'audio'],
     ['Music Albums', 'music-albums', 'sound_album'],
-  ], { after: [page('Sound layers', '/basic/world/sound-layers'), page('3D sounds', '/basic/world/3d-sounds'), page('Audio zones', '/basic/world/audio-zones')] }),
+    ['Dynamic Music', 'dynamic-music', 'dynamic_music'],
+  ], {
+    before: [
+      {
+        text: 'Guides',
+        collapsed: true,
+        items: [
+          page('About the guides', '/basic/audio/guides/'),
+          page('1. Import your audio', '/basic/audio/guides/import-your-audio'),
+          page('2. Choosing file types', '/basic/audio/guides/choosing-file-types'),
+          page('3. How audio is chosen', '/basic/audio/guides/how-audio-is-chosen'),
+          page('4. Your first music album', '/basic/audio/guides/your-first-music-album'),
+          page('5. A boss fight with dynamic music', '/basic/audio/guides/a-boss-fight-with-dynamic-music'),
+          page('6. Music that follows the story', '/basic/audio/guides/music-that-follows-the-story'),
+        ],
+      },
+    ],
+    after: [page('Sound layers', '/basic/world/sound-layers'), page('3D sounds', '/basic/world/3d-sounds'), page('Audio zones', '/basic/world/audio-zones')],
+  }),
   system('Game Settings', 'game-settings', [
     ['Game Settings', 'settings', 'settings'],
     ['Gameplay Config', 'gameplay-config', 'gameplay_config'],

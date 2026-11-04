@@ -17,6 +17,9 @@ Play or stop music, ambience and sounds.
 | [**Stop Sound**](/advanced/events-and-quests/actions-audio/stop-sound-action) (`StopSoundAction`) | Fade out and remove a sound spawned under a name |
 | [**Set Ambience Track**](/advanced/events-and-quests/actions-audio/set-ambient-track-action) (`SetAmbientTrackAction`) | Play, stop, fade or clear an ambient track: the event layer of the [sound layers](/basic/world/sound-layers) |
 | [**Set Music Track**](/advanced/events-and-quests/actions-audio/set-music-track-action) (`SetMusicTrackAction`) | Play, stop, fade or clear a music track: the event layer of the [sound layers](/basic/world/sound-layers) |
+| [**Set Music State**](/advanced/events-and-quests/actions-audio/set-music-state-action) (`SetMusicStateAction`) | Change the state of the [Dynamic Music](/basic/audio/dynamic-music) that plays (or start one in that state) |
+| [**Set Music Intensity**](/advanced/events-and-quests/actions-audio/set-music-intensity-action) (`SetMusicIntensityAction`) | Set the intensity (0 to 1) of the Dynamic Music that plays: its layers fade in and out |
+| [**Play Stinger**](/advanced/events-and-quests/actions-audio/play-stinger-action) (`PlayStingerAction`) | Play a stinger of a Dynamic Music over the music |
 
 ## Encounter
 

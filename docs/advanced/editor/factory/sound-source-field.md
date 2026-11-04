@@ -4,7 +4,7 @@
 
 **Inherits:** [ConfigField](/advanced/editor/factory/config-field) < [HBoxContainer](https://docs.godotengine.org/en/stable/classes/class_hboxcontainer.html)
 
-The field of a SoundSource property (the music, the combat music or the ambience of a world, a zone, a weather or an encounter): None, a Track (chosen in the track window of the audio library, with its loop, the pause between plays, the volume and the fade) or an Album (a Music Album or a Combat Music Album of the project). It edits the source in place and creates it when the first choice is made. Set **Track kind** (music or ambient sounds in the track window), **Album kind** (music or combat albums) and **Allow album** (ambience has tracks only) in the inspector.
+The field of a SoundSource property (the music, the combat music or the ambience of a world, a zone, a weather or an encounter): None, a Track (chosen in the track window of the audio library, with its loop, the pause between plays, the volume and the fade) or an Album (a Music Album or a Combat Music Album of the project). It edits the source in place and creates it when the first choice is made. Set **Track kind** (music or ambient sounds in the track window), **Album kind** (music or combat albums) and **Allow album** (ambience has tracks only; a source that cannot be an album cannot be a Dynamic Music either) in the inspector.
 
 ## Properties
 

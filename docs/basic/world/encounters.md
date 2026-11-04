@@ -23,7 +23,7 @@ The group is **where its members are**: its centre is the average position of it
 | **Auto join combat** | When one member enters combat, all the others are forced into it too | on |
 | **Auto join radius** | The members farther than this from the encounter's centre (meters) do not join | `25` |
 | **Respawns** | The group comes back after it is defeated (see *Respawning* below) | off |
-| **Combat music** | The music of the fight with this encounter: a [sound source](/basic/audio/music-albums#a-sound-source), a track or a Combat Music Album. It wins over the combat music of the zone and the world while the party fights this encounter. None = the zone's, then the world's | None |
+| **Combat music** | The music of the fight with this encounter: a [sound source](/basic/audio/music-albums#a-sound-source): a track, a Combat Music Album or a [Dynamic Music](/basic/audio/dynamic-music) (a boss fight whose music changes with its phases). It wins over the combat music of the zone and the world while the party fights this encounter. None = the zone's, then the world's | None |
 | **Respawn delay** | Seconds between the defeat of the whole group and its return. Only used when *Respawns* is on | `60` |
 
 ## Combat music

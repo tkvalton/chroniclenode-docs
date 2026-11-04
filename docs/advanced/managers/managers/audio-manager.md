@@ -49,6 +49,7 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambience_
 | `AudioStreamPlayer` | [music_player_b](#var-music-player-b) |  |
 | `AudioStreamPlayer` | [ambience_player_a](#var-ambience-player-a) |  |
 | `AudioStreamPlayer` | [ambience_player_b](#var-ambience-player-b) |  |
+| `DynamicMusicPlayer` | [dynamic_player](#var-dynamic-player) |  |
 | `AudioStreamPlayer` | [active_music_player](#var-active-music-player) |  |
 | `AudioStreamPlayer` | [active_ambience_player](#var-active-ambience-player) |  |
 | `Tween` | [music_crossfade_tween](#var-music-crossfade-tween) |  |
@@ -102,6 +103,9 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambience_
 | `void` | [set_combat_source](#method-set-combat-source)( `layer: SoundLayers.Layer, source: SoundSource, fade_duration: float = -1.0` ) |
 | `void` | [set_sound_source_channel](#method-set-sound-source-channel)( `layer: SoundLayers.Layer, channel: StringName, source: SoundSource, fade_duration: float = -1.0` ) |
 | `void` | [clear_combat_layers](#method-clear-combat-layers)() |
+| `bool` | [set_music_state](#method-set-music-state)( `state_name: String, dynamic_id: int = 0` ) |
+| `void` | [set_music_intensity](#method-set-music-intensity)( `value: float, instant: bool = false` ) |
+| `bool` | [play_stinger](#method-play-stinger)( `stinger_name: String, dynamic_id: int = 0` ) |
 | `void` | [combat_music_start](#method-combat-music-start)() |
 | `void` | [combat_music_end](#method-combat-music-end)() |
 | `void` | [setup_audio_for_state](#method-setup-audio-for-state)( `game_state: String, world_id: String = "", play_now: bool = true` ) |
@@ -213,6 +217,10 @@ Ambience player A (for crossfading)
 ### AudioStreamPlayer ambience_player_b {#var-ambience-player-b}
 
 Ambience player B (for crossfading)
+
+### DynamicMusicPlayer dynamic_player {#var-dynamic-player}
+
+The player of a Dynamic Music (a music source that changes with the game; see DynamicMusicPlayer)
 
 ### AudioStreamPlayer active_music_player {#var-active-music-player}
 
@@ -407,6 +415,18 @@ One channel of a layer says what plays (an event): a source, null takes the chan
 ### void clear_combat_layers() {#method-clear-combat-layers}
 
 The combat layers are cleared (the world is left)
+
+### bool set_music_state( state_name: String, dynamic_id: int = 0 ) {#method-set-music-state}
+
+Changes the state of the Dynamic Music that plays (an event, a boss phase). With `dynamic_id` the music is started in that state when it is not the one that plays (as the music of the event layer). False when there is no such state or no Dynamic Music plays
+
+### void set_music_intensity( value: float, instant: bool = false ) {#method-set-music-intensity}
+
+The intensity (0 to 1) of the Dynamic Music that plays: the layers whose "from intensity" is at most this play
+
+### bool play_stinger( stinger_name: String, dynamic_id: int = 0 ) {#method-play-stinger}
+
+Plays a stinger of the Dynamic Music that plays, or of the one with this id, over the music. False when there is none
 
 ### void combat_music_start() {#method-combat-music-start}
 

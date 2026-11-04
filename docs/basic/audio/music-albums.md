@@ -1,6 +1,6 @@
 # Music albums
 
-A **music album** is a collection of tracks that play one after the other: the music of a world, a zone, a weather, a menu, or the music of a fight. You make them in **Audio > Music Albums**. Where the music comes from is always a **sound source**, which is either a single track with its own options or an album, so a place can use one or the other with the same picker.
+A **music album** is a collection of tracks that play one after the other: the music of a world, a zone, a weather, a menu, or the music of a fight. You make them in **Audio > Music Albums**. Where the music comes from is always a **sound source**, which is a single track with its own options, an album, or a [Dynamic Music](/basic/audio/dynamic-music), so a place can use any of them with the same picker.
 
 There are two kinds of album:
 
@@ -36,6 +36,7 @@ Wherever the game asks for music, combat music or an ambient sound, you fill in 
 | **None** | The source says nothing: the place below it in the [order](/basic/world/sound-layers) decides |
 | **Track** | One track of the audio library, with **Loop** (on: it plays again when it ends; off: it plays once and then the place below takes over), **Pause** (the silence before a looping track plays again, a random time between two numbers; 0 = it loops with no break), **Volume** and **Fade** |
 | **Album** | A music album (or a combat album) of the project. The album has its own loop, pauses and fades; the source adds a **Volume** and a **Fade** |
+| **Dynamic** | A [Dynamic Music](/basic/audio/dynamic-music): music that changes with the game, and the state it starts in. Music and combat music only |
 
 ## Combat music
 

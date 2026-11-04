@@ -146,8 +146,11 @@ Texts, voice lines and display names are arrays with one entry per language.
 | [KeepDistanceAction](/advanced/behaviors/combat-actions/keep-distance-action) | Maintains a specific distance from target by moving closer or farther as needed. |
 | [MoveToAllyPositionAction](/advanced/behaviors/combat-actions/move-to-ally-position-action) | Moves to a specific ally's position based on criteria |
 | [MoveToPointAction](/advanced/behaviors/combat-actions/move-to-point-action) | MoveToPointAction commands the entity to move to a specific world position. |
+| [PlayStingerCombatAction](/advanced/behaviors/combat-actions/play-stinger-combat-action) | Plays a stinger of the Dynamic Music that plays during a fight: the boss roars and a hit sounds over the music. |
 | [RetreatAction](/advanced/behaviors/combat-actions/retreat-action) | RetreatAction moves the entity away from their target by a specified distance. |
 | [SayCombatAction](/advanced/behaviors/combat-actions/say-combat-action) | The NPC says a line or does an emote in a fight: the boss roars at half health. |
+| [SetMusicIntensityCombatAction](/advanced/behaviors/combat-actions/set-music-intensity-combat-action) | Sets the intensity (0 to 1) of the Dynamic Music that plays during a fight: the layers of the music fade in and out. |
+| [SetMusicStateCombatAction](/advanced/behaviors/combat-actions/set-music-state-combat-action) | Changes the state of the Dynamic Music that plays during a fight: a boss phase starts and the music goes to its Phase 2 state. |
 | [SpawnInteractableCombatAction](/advanced/behaviors/combat-actions/spawn-interactable-combat-action) | Spawns an interactable during combat at a specific position |
 | [SpawnNPCCombatAction](/advanced/behaviors/combat-actions/spawn-npc-combat-action) | Spawns an NPC during combat at a specific position |
 | [SpawnWorldEffectCombatAction](/advanced/behaviors/combat-actions/spawn-world-effect-combat-action) | Spawns a world effect at a specific position during combat |

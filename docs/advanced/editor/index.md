@@ -392,6 +392,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [ExperiencePerLevelEditor](/advanced/editor/factory/experience-per-level-editor) | Editor for experience_per_level Dictionary in GameplayConfig Displays a list of levels with their XP requirements and allows editing |
 | [FilePathField](/advanced/editor/factory/file-path-field) | The path of one audio track (a String property): chosen with the browse button in the track dialog of the audio library (the same as the albums and the events use), or typed (a file outside the library). |
 | [IdMultiSelect](/advanced/editor/factory/id-multi-select) | A list of ids picked from a database type: the picked entries as small tags with an x, and an Add button that opens a searchable list of everything that exists. |
+| [NamePickerField](/advanced/editor/factory/name-picker-field) | A String property chosen from a list of names that the owner gives with set_choices (the parts of a Dynamic Music, its states). |
 | [NumberField](/advanced/editor/factory/number-field) | A number (a float or an int property) in a SpinBox. |
 | [OptionField](/advanced/editor/factory/option-field) | An enum (or int) property in a drop-down. |
 | [PathListField](/advanced/editor/factory/path-list-field) | A list of tracks (an Array[String] property): the music or the ambient sound of a zone or a weather. |

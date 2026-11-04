@@ -72,9 +72,10 @@ The animation library holds Godot `Animation` resources (`.res` or `.anim`), one
 ## Audio
 
 - **Short sounds** (hits, footsteps, interface clicks): **`.wav`**. It needs no decoding and plays at once.
-- **Music, ambience and voice lines**: **`.ogg`** (Vorbis). It is much smaller than `.wav` and loops cleanly. `.mp3` also works, but it can leave a small gap when it loops, so keep it for sounds that play once.
+- **Music, ambience and voice lines**: **`.ogg`** (Vorbis). [Dynamic Music](/basic/audio/dynamic-music) needs Ogg or MP3. It is much smaller than `.wav` and loops cleanly. `.mp3` also works, but it can leave a small gap when it loops, so keep it for sounds that play once.
 - **Mono** for a sound that comes from a place (a footstep, a door, a spell): the position and the distance give it its direction. **Stereo** suits music and ambience that fill the room.
 - **Levels**: leave a little room (peaks around -3 dB) and give the same kind of sounds the same loudness; the volume of each [selection](/basic/audio/sound-library) can fine-tune.
+- More: [Choosing file types](/basic/audio/guides/choosing-file-types), a guide for audio.
 - **Loops**: turn *Loop* on in the Godot import settings of the file for a sound that repeats, and put it in a **loop** folder; put sounds that play once in a **non-loop** folder.
 - **Voice lines in other languages**: the same file name in a folder of the language: `voicelines/<character>/<language>/<file>`. See [Localization](/basic/game-settings/localization#voice-lines-in-other-languages).
 

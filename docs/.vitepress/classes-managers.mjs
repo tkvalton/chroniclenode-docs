@@ -71,6 +71,12 @@ export const groups = [
         "file": "runtime_classes/system_managers/chrono_manager.gd"
       },
       {
+        "name": "DynamicMusicPlayer",
+        "base": "Node",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\system_managers\\dynamic_music_player.gd",
+        "file": "runtime_classes/system_managers/dynamic_music_player.gd"
+      },
+      {
         "name": "FactionManager",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\system_managers\\faction_manager.gd",

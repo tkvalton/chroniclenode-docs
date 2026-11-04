@@ -1069,6 +1069,54 @@ export const groups = [
     ]
   },
   {
+    "text": "Audio editors",
+    "slug": "audio",
+    "classes": [
+      {
+        "name": "DynamicMusicEditor",
+        "base": "ConfigEditorBase",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\audio\\dynamic_music_editor.gd",
+        "file": "editor_components/editors/audio/dynamic_music_editor.gd"
+      },
+      {
+        "name": "MusicChoiceForm",
+        "base": "ConfigForm",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\audio\\music_choice_form.gd",
+        "file": "editor_components/editors/audio/music_choice_form.gd"
+      },
+      {
+        "name": "MusicLayerForm",
+        "base": "ConfigForm",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\audio\\music_layer_form.gd",
+        "file": "editor_components/editors/audio/music_layer_form.gd"
+      },
+      {
+        "name": "MusicPartForm",
+        "base": "MusicChoiceForm",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\audio\\music_part_form.gd",
+        "file": "editor_components/editors/audio/music_part_form.gd"
+      },
+      {
+        "name": "MusicStateForm",
+        "base": "MusicChoiceForm",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\audio\\music_state_form.gd",
+        "file": "editor_components/editors/audio/music_state_form.gd"
+      },
+      {
+        "name": "MusicStingerForm",
+        "base": "ConfigForm",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\audio\\music_stinger_form.gd",
+        "file": "editor_components/editors/audio/music_stinger_form.gd"
+      },
+      {
+        "name": "MusicTransitionForm",
+        "base": "MusicChoiceForm",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\audio\\music_transition_form.gd",
+        "file": "editor_components/editors/audio/music_transition_form.gd"
+      }
+    ]
+  },
+  {
     "text": "Viewport tools",
     "slug": "viewport-tools",
     "classes": [
@@ -1587,6 +1635,12 @@ export const groups = [
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\id_multi_select.gd",
         "file": "editor_components/controls/id_multi_select.gd"
+      },
+      {
+        "name": "NamePickerField",
+        "base": "ConfigField",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\name_picker_field.gd",
+        "file": "editor_components/controls/config_fields/name_picker_field.gd"
       },
       {
         "name": "NumberField",

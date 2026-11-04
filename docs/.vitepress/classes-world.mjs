@@ -245,6 +245,42 @@ export const groups = [
         "file": "data_classes/audio/audio_profile.gd"
       },
       {
+        "name": "DynamicMusic",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\dynamic_music.gd",
+        "file": "data_classes/audio/dynamic_music.gd"
+      },
+      {
+        "name": "MusicLayer",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\music_layer.gd",
+        "file": "data_classes/audio/music_layer.gd"
+      },
+      {
+        "name": "MusicPart",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\music_part.gd",
+        "file": "data_classes/audio/music_part.gd"
+      },
+      {
+        "name": "MusicState",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\music_state.gd",
+        "file": "data_classes/audio/music_state.gd"
+      },
+      {
+        "name": "MusicStinger",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\music_stinger.gd",
+        "file": "data_classes/audio/music_stinger.gd"
+      },
+      {
+        "name": "MusicTransition",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\music_transition.gd",
+        "file": "data_classes/audio/music_transition.gd"
+      },
+      {
         "name": "SoundAlbum",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\sound_album.gd",

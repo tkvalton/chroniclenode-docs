@@ -94,6 +94,7 @@ The kinds:
 | **Spawn Interactable** | Spawns an [interactable](/basic/entities/interactables) (a totem, a trap) |
 | **Spawn World Effect** | Spawns a ground effect |
 | **Trigger Event** | Triggers an [event](/basic/events-and-quests/events) of the world |
+| **Set Music State**, **Set Music Intensity**, **Play Stinger** | Change the state or the intensity of the [Dynamic Music](/basic/audio/dynamic-music) that plays in the fight, or play one of its stingers: put them in the on enter actions of a boss phase |
 | **Activate Quest** | Starts a [quest](/basic/events-and-quests/quests) |
 
 ## Phases (boss fights)
