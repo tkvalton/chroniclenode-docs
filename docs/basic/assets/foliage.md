@@ -4,6 +4,8 @@ The **foliage library** is everything the terrain scatters over the ground: gras
 
 An entry is a row in the **Ground clutter** list of a [terrain texture](/basic/assets/terrain-textures#ground-clutter) and a thing the **foliage tools** of the [terrain editor](/basic/world/terrain-foliage) paint.
 
+The scenes and meshes of the library are listed, with a 3D preview, in [World Assets](/basic/assets/world-assets#the-foliage-library-is-listed-too) as well; they are changed here.
+
 ## Two folders
 
 | Folder | What goes in it | Kind |

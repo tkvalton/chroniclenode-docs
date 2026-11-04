@@ -20,7 +20,7 @@ An interactable can **follow a [template](/basic/entities/templates)** for its s
 
 | Field | What it does | Default |
 |---|---|---|
-| **Object model scene** | The scene of the object: the model, its collision and its animations. **Select Model** opens the catalog | none |
+| **Object model scene** | The scene of the object: the model, its collision and its animations. **Select Model** opens the catalog; the scene is shown in a **3D preview** under the button | none |
 | **Model scene scale** | Size of the scene, with **Uniform scale** | `1, 1, 1` |
 
 The animations the scene has (open, close, locked, destroyed) are offered in the dropdowns of the interaction.

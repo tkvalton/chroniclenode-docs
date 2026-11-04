@@ -7,6 +7,7 @@ Unlike the rest of the editor, assets are not `.tres` records with an id. They a
 | Page | What it holds | Folder |
 |---|---|---|
 | [VFX](/basic/assets/vfx) | Visual effects: bursts, auras, beams, weather, telegraphs, materials | `src/data/vfx/` |
+| [World Assets](/basic/assets/world-assets) | The scenes you place by hand to dress a world (houses, trees, props), in categories, with a 3D preview; the foliage library is listed too | `src/data/world_assets/` |
 | [Icons](/basic/assets/icons) | The pictures of items, abilities and the interface, by number | `src/data/icons/` |
 | [Terrain Textures](/basic/assets/terrain-textures) | The textures the terrain is painted with: maps, tiling, surface types, packs | `src/data/worlds/terrain/textures/` |
 | [Foliage](/basic/assets/foliage) | Ground clutter (grass, weeds, pebbles: a mesh) and foliage (trees, bushes: a scene) that the terrain scatters | `src/data/worlds/foliage/` |

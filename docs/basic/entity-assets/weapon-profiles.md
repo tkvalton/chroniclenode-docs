@@ -16,7 +16,7 @@ With profiles:
 
 ## The folders
 
-A profile named *One Hand* with **Left hand attacks** on makes this in every pack:
+A profile named *One Hand* with **Left hand attacks** on makes this in every pack (a creature plays the clips of a role at random, so a role can have several):
 
 ```text
 humanoid/
@@ -26,9 +26,10 @@ humanoid/
       attack_left/                attack clips of the left hand (only with Left hand attacks)
       stance/                     the combat idle held with the weapon (the first clip is used)
       block/                      block clips; one is picked at random
+      sheathe/  unsheathe/        putting the weapon away and drawing it
       aim/  reload/               only for a ranged profile
     unarmed/
-      attack/  stance/  block/
+      attack/  stance/  block/  sheathe/  unsheathe/
 ```
 
 | Folder | What goes in it | When it is played |
@@ -37,6 +38,7 @@ humanoid/
 | `attack_left` | The same for the left hand (a dagger in the off hand) | The same ability, when it is used with the weapon of the left hand. With no clips here the `attack` clips are used for both hands |
 | `stance` | The combat idle of the weapon: how the creature stands and moves while it fights with it | While the creature is in combat. The first clip (by name) is used; keep one |
 | `block` | The clips of a block | When a [trigger](/basic/entity-stats/trigger-tags) called *Block* fires. With no clip the old block of the animation map plays |
+| `sheathe`, `unsheathe` | The clips of putting the weapon away and drawing it | The game asks the creature to sheathe or draw (a profile with no clip uses the old fixed lists of the animation map) |
 | `aim`, `reload` | The aim and reload clips of a ranged weapon | An ability whose animation is **Aim** or **Reload** |
 
 The section is **outside** the ability animations: *Ability Animations* are for the casts and special attacks of abilities (casting, spell cast, special attack), *Weapon Animations* are for what a weapon does.
@@ -55,9 +57,9 @@ All the clips of a pack are put in one library by name. Two clips with the same 
 | **Left hand attacks** | Adds the `attack_left` folder |
 | **Ranged weapon** | Adds the `aim` and `reload` folders |
 | **Folders** | The folder name of the profile (made from its name when you made it; it never changes) and what each subfolder is for |
-| **Animation packs** | For every pack, how many clips each folder has. **Green**: every folder has clips. **Orange**: a folder is empty (a pack that has none takes its parent's clips: the count says *(parent)*). **Make the folders in every pack** makes the folders that are missing |
+| **Animation packs** | For every pack, how many clips each folder has. **Green**: every folder has clips. **Orange**: the attack or the stance folder is empty (the other folders are optional) (a pack that has none takes its parent's clips: the count says *(parent)*). **Make the folders in every pack** makes the folders that are missing |
 | **Used by** | The weapon classes and NPCs that use the profile |
-| **From the old tags** | Only shown when the project still has weapon classes or NPCs with the old tags, or old animation files. See below |
+| **From the old tags** | Only shown when the project still has weapon classes or NPCs with the old tags, old animation files or old fixed lists in an animation map. Three buttons, see below |
 | **Warnings** | A profile without a folder name, or two profiles with the same folder |
 
 The folders are made **by themselves** when you make a profile, when you change **Left hand attacks** or **Ranged weapon**, when you make a pack (**Create New Pack** in the Animations tab) and when you open the Animations tab.
@@ -85,17 +87,19 @@ Git does not keep empty folders. After a clone, the folders you have not put cli
 
 ## Moving from the old tags
 
-A project made before profiles has weapon classes with free text tags (`1h_weapon_r`, `bow`) and animation files in `ability_animations/weapon/<tag>`, `aim`, `reload` and `core/combat_system/combat_idle`. **They keep working.** A tag that is not the folder of a profile is looked up in the old places. When you want to move to profiles, the **From the old tags** part of the Weapon Profiles tab does it in two steps. Nothing is deleted, and you can use git to see (and undo) what moved.
+A project made before profiles has weapon classes with free text tags (`1h_weapon_r`, `bow`), animation files in `ability_animations/weapon/<tag>`, `aim`, `reload` and `core/combat_system/combat_idle`, and fixed lists in the animation map (`combat_idle_one_hand`, `block_bow`, `sheathe_polearm` ...). **They keep working.** A tag that is not the folder of a profile is looked up in the old places. When you want to move to profiles, the **From the old tags** part of the Weapon Profiles tab does it in three steps, in order. Nothing is deleted, and you can use git to see (and undo) what moved.
 
 1. **Make profiles from the old tags.** A profile for each different attack tag; `1h_weapon_r` and `1h_weapon_l` become one profile, *1h Weapon*, with **Left hand attacks**. A ranged weapon class makes a ranged profile. The profile is picked in every weapon class and NPC that had the tag. Rename the profiles afterwards if you like (the folders keep their names).
-2. **Move the old animation files.** The files of the attack folders go into `attack` (the `_l` folder into `attack_left`); the clip named by a stance tag goes into `stance`; the clips whose names contain the aim and reload tags go into `aim` and `reload`. A clip that two profiles need is **copied** into both. The plain `combat_idle` clip stays where it is: it is the default every creature holds.
+2. **Move the old animation files.** (Available once no weapon class or NPC has an old tag any more: one that still has one would lose its animations.) The files of the attack folders go into `attack` (the `_l` folder into `attack_left`); the clip named by a stance tag goes into `stance`; the clips whose names contain the aim and reload tags go into `aim` and `reload`. A clip that two profiles need is **copied** into both. The plain `combat_idle` clip stays where it is: it is the default every creature holds.
+3. **Move the old combat idle, block and sheathe lists.** The old fixed lists of an animation map name clips of the weapon (`combat_idle_one_hand`, `block_bow`, `sheathe_polearm`). Each profile takes the lists that fit its folder name: *1h_weapon* or *One Hand* takes the one hand lists, *2h* or *Two Hand* the two hand lists, *Bow* the bow lists, *Pistol*, *Rifle* or *Crossbow* the ranged weapon lists, *Polearm*, *Spear* or *Staff* the polearm lists, *Shield*, *Dual* and *Unarmed* theirs. The clips go into the `stance`, `block`, `sheathe` and `unsheathe` folders (a clip two profiles use is copied) and the lists of the map are emptied. A profile whose name matches no list gets nothing: put its clips in by hand.
 
-The old **Combat Idle** and **Block** lists of the animation map (`combat_idle_one_hand`, `block_bow` and the others) stay as a fallback for creatures whose profile has no stance or block clip.
+The old **Combat Idle**, **Block**, **Sheathe** and **Unsheathe** lists of the animation map are only shown while a map still has something in them. They stay as a fallback for creatures whose profile has no stance, block, sheathe or unsheathe clip.
 
 ## Good to know
 
 - The **folder name** is made from the name when you create the profile (`One Hand!` becomes `one_hand`; a taken name gets a number) and never changes. Deleting a profile does not delete folders or files; the weapon classes and NPCs that used it go back to their old tags.
 - A weapon class **without** a profile and without old tags plays the **Unarmed** animations.
+- The combat idle of a creature with no weapon is the stance of the **Unarmed** profile.
 - The block of an animation map used to play the *unarmed* block whatever the creature held. It now plays the block of the profile of the weapon in hand.
 
 ## See also

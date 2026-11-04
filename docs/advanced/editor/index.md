@@ -94,6 +94,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [ModelSceneDatabaseEditor](/advanced/editor/assets/model-scene-database-editor) | The editor of the Model Scenes tab (Assets &gt; Model Scenes): the skeleton scenes of entities and the scenes of interactable objects, each as a list with a search bar and a button to create a new one. |
 | [VFXDatabaseEditor](/advanced/editor/assets/vfx-database-editor) | The editor of the VFX tab (Assets &gt; VFX): the visual effects of the VFX library as a tree by type, with a search bar, an import button and the information of the selected effect. |
 | [WeaponProfileEditor](/advanced/editor/assets/weapon-profile-editor) | The Weapon Profiles tab (Entity Assets &gt; Weapon Profiles): the list of the profiles on the left, the settings on the right in a container for each group (Profile, Folders, Animation packs, Used by, Old tags, Warnings). |
+| [WorldAssetsEditor](/advanced/editor/assets/world-assets-editor) | The World Assets tab (Assets &gt; World Assets): the scenes of `res://src/data/world_assets/` that the Assets button of the placement tool puts in the world (houses, trees, props) as a list with a picture of each, a category list (a category is a folder; New category makes one), Import (copies scenes and models into a category) and a 3D preview of the selected scene you can turn around. |
 <!-- /classes -->
 
 #### Behaviors
@@ -381,6 +382,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 <!-- classes:editor/factory -->
 | Class | What it is |
 |---|---|
+| [AssetViewport3D](/advanced/editor/factory/asset-viewport3-d) | A 3D preview of a scene you can turn around: the scene is shown in a world of its own (a ground grid, a light, a background), and you drag to orbit, turn the wheel to zoom and drag with the middle or right button to move. |
 | [BBCodeTextControl](/advanced/editor/factory/bb-code-text-control) | Read-only TextEdit that opens BBCodeTextEditor on click |
 | [ColorField](/advanced/editor/factory/color-field) | A Color property in a colour button. |
 | [ConfigField](/advanced/editor/factory/config-field) | The base of the field components of the config editors: a label and a control for ONE property of the resource that is open. |
@@ -407,6 +409,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [Vector3Control](/advanced/editor/factory/vector3-control) | Three spinboxes for Vector3 input with clipboard paste support |
 | [Vector3Field](/advanced/editor/factory/vector3-field) | A Vector3 property in three number boxes (X, Y, Z). |
 | [VfxNameField](/advanced/editor/factory/vfx-name-field) | A string property that is the name of an effect of the VFX library, picked from a drop-down of the effects of one kind (the Weather effects: the scenes in src/data/vfx/weather/) with an entry for none. |
+| [VFXPreview](/advanced/editor/factory/vfx-preview) | The preview of a visual effect (VFX tab): the effect plays in a 3D view you can turn around (AssetViewport3D). |
 <!-- /classes -->
 
 ### Managers and utilities

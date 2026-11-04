@@ -42,8 +42,8 @@ The sections are fixed; you fill their folders. The folders of the weapon sectio
 
 | Section | Categories | What it is for |
 |---|---|---|
-| **core** | movement, combat system, death, interact | What every entity needs: idles, walk and run in eight directions, crouch, sprint, strafe, turn, jump, fall, landing, swim (also up and down), fly; dodge, hit, sheathe and unsheathe; death; using an object |
-| **weapon_animations** | one folder for each [weapon profile](/basic/entity-assets/weapon-profiles) | What a weapon does: its attacks, its combat idle (stance), its block, and for a ranged weapon its aim and reload |
+| **core** | movement, combat system, death, interact | What every entity needs: idles, walk and run in eight directions, crouch, sprint, strafe, turn, jump, fall, landing, swim (also up and down), fly; dodge and hit; death; using an object |
+| **weapon_animations** | one folder for each [weapon profile](/basic/entity-assets/weapon-profiles) | What a weapon does: its attacks, its combat idle (stance), its block, putting it away and drawing it, and for a ranged weapon its aim and reload |
 | **ability_animations** | casting, special attack, spell cast | What an [ability](/basic/abilities-and-effects/abilities) plays: the wind-up of a cast, the release of a spell, a special attack. (An ability that uses *the weapon in hand* plays the weapon section.) |
 | **social** | actions, emotes, random | Emotes (picked at random), small actions with a start, a loop and an end, and idle behaviour such as talking |
 | **status_effects** | one folder for each effect | What an entity does while it is stunned, frozen, feared and so on: a **start**, a **loop** and an **end** animation |
@@ -51,7 +51,7 @@ The sections are fixed; you fill their folders. The folders of the weapon sectio
 The way the folders are arranged in a category is one of four patterns: **flat** (animations in the folder), **categorized** (subfolders, each a kind of animation), **flat categorized** (subfolders that each hold several animations, one picked at random), and **three phase** (a start, a loop and an end).
 
 ::: tip Packs made before the weapon section
-A pack from before weapon profiles has the old folders `ability_animations/weapon`, `aim` and `reload`, and the combat idle and block in `core/combat_system`. They keep working. [Weapon Profiles](/basic/entity-assets/weapon-profiles#moving-from-the-old-tags) has two buttons that move them into the profile folders.
+A pack from before weapon profiles has the old folders `ability_animations/weapon`, `aim` and `reload`, the combat idle, block, sheathe and unsheathe in `core/combat_system`, and lists of them in the animation map. They keep working. [Weapon Profiles](/basic/entity-assets/weapon-profiles#moving-from-the-old-tags) has three buttons that move them into the profile folders.
 :::
 
 ## Parents
@@ -67,7 +67,7 @@ A pack can **inherit** from another. A `humanoid_female` that has no jump animat
 | **Settings > Validate All Animations** | Checks every pack and tells how many have problems |
 | **Settings > Build Animation Library** | Builds the Godot `AnimationLibrary` of one pack, to look at or to use in your own animation tree |
 | **Parent Pack** | The pack this one inherits from, or none |
-| **The map** | One drop-down for each animation: pick the file that plays. The groups are Movement (idles, walk, crouch walk, run, sprint, strafe, turn, crouch turn, jump, fall, landing, swim, fly: each fly animation that is empty plays the swimming one, see [Flying](/basic/world/flying#animations-of-flying)), Combat System (dodge, hit, sheathe, unsheathe, and the old combat idle and block lists), Death and Interact Object |
+| **The map** | One drop-down for each animation: pick the file that plays. The groups are Movement (idles, walk, crouch walk, run, sprint, strafe, turn, crouch turn, jump, fall, landing, swim, fly: each fly animation that is empty plays the swimming one, see [Flying](/basic/world/flying#animations-of-flying)), Combat System (dodge and hit, and the old combat idle, block, sheathe and unsheathe lists while a map still has something in them), Death and Interact Object |
 
 An animation left empty falls back to the parent's. Opening the tab also makes the folders of the weapon profiles in every pack that lacks them.
 

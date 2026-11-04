@@ -24,7 +24,7 @@ Characters are used in three places:
 
 | Field | What it does | Default |
 |---|---|---|
-| **Default skeleton** | The [model scene](/basic/entity-assets/model-scenes) of the character. **Select Skeleton** opens the catalog, **Clear** removes it | none |
+| **Default skeleton** | The [model scene](/basic/entity-assets/model-scenes) of the character. **Select Skeleton** opens the catalog, **Clear** removes it; the model is shown in a **3D preview** under the button | none |
 | **Skeleton scale** | The size of the model. **Uniform scale** keeps x, y and z the same | `1, 1, 1` |
 | **Collision shape** | The size category of the body for physics and targeting: tiny, small, normal, large or huge | Normal |
 | **Animation type** | The animation set from the [animation library](/basic/entity-assets/animations) this character uses | none |

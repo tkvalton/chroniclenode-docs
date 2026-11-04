@@ -33,7 +33,7 @@ An NPC can **follow a [template](/basic/entities/templates)**: the stats, pools,
 
 | Field | What it does | Default |
 |---|---|---|
-| **Entity skeleton** | The [model scene](/basic/entity-assets/model-scenes). **Select Skeleton** opens the catalog | none |
+| **Entity skeleton** | The [model scene](/basic/entity-assets/model-scenes). **Select Skeleton** opens the catalog; the chosen skeleton is shown in a **3D preview** under the button (drag to turn it) | none |
 | **Skeleton scale** | Size of the model, with **Uniform scale** to keep the axes together | `1, 1, 1` |
 | **Collision shape** | The body size for physics and targeting: tiny, small, normal, large or huge | Normal |
 | **Navigation domain** | Where the NPC can go: **Amphibious** (walks and swims, never enters lava), **Land** (walks only: goes round deep water and lava) or **Water** (lives in the water and cannot walk: a fish; it is left stuck on land). The party is always amphibious. A Land or Water NPC needs the [navigation](/basic/world/terrain-navigation#water-lava-and-where-npcs-can-go) baked again | Amphibious |

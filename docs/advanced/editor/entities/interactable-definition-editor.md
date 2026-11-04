@@ -12,6 +12,7 @@ Editor for InteractableDefinition resources
 |---|---|---|
 | `InteractableDefinition:` | [current_interactable](#var-current-interactable) |  |
 | `Array[String]` | [available_collision_shapes](#var-available-collision-shapes) | `[]` |
+| `AssetViewport3D` | [model_preview](#var-model-preview) |  |
 
 ## Methods
 
@@ -30,6 +31,10 @@ Editor for InteractableDefinition resources
 ### Array[String] available_collision_shapes = [] {#var-available-collision-shapes}
 
 *No description yet.*
+
+### AssetViewport3D model_preview {#var-model-preview}
+
+The 3D preview of the model scene under the button that chooses it (made the first time it is needed)
 
 ## Method descriptions
 

@@ -9,9 +9,15 @@ A **model scene** is the body of something in the game: the scene that holds its
 
 Every `.tscn` file in those folders is an entry, named by its file name. The demo has two skeletons (`human_male`, `human_female`) and one interactable, a `target_dummy`.
 
+## The 3D preview
+
+The scene you select is shown at the top of the panel on the right in a **3D view you can turn around**: drag with the left button to orbit, turn the wheel to zoom, drag with the middle or right button to move the view, double click to fit the scene again. The camera starts in front of a character (Godot models face −Z), and the sun shines from the side of the camera whichever way you turn; **Turn around** goes to the other side for a model that faces the other way. The buttons above the view: **Frame** (fit the scene in the view), **Reset** (back to the first angle), **Grid** (a ground grid, one square is one metre), **1.8 m figure** (a figure beside the scene to judge the size by) and **Light** (neutral, bright or dark). The scene is shown as it is, in its rest pose, in a world of its own; the view only draws while the tab is open. The same view is used in the VFX tab and the Select VFX window, and under the model button of the NPC, Character and Interactable editors: the scene you choose is shown right under the button that chose it.
+
+The scene is made the way the game makes it, so a script on it runs in the preview: if one prints an error there, the preview shows the scene all the same. The name and the file of the scene are under the view.
+
 ## Pictures
 
-Every scene in the lists has a **picture**, drawn by the editor from a corner above (a character stands in its rest pose) and kept in `res://src/data/model_scenes/.thumbnails/`. The picture of the scene you select is shown big at the top of the panel on the right, with its name and file. Pictures are made the first time the tab opens and when you press **Refresh Database**; delete the folder to make them all again.
+Every scene in the lists has a small **picture**, drawn by the editor from a corner above (a character stands in its rest pose) and kept in `res://src/data/model_scenes/.thumbnails/`. Pictures are made the first time the tab opens and when you press **Refresh Database**; delete the folder to make them all again.
 
 ## The editor
 

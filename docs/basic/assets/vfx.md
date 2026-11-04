@@ -16,6 +16,24 @@ An effect is a **scene** (or, for two types, a material or a texture) in `res://
 
 ## The editor
 
+The effect you select **plays in a 3D preview** at the top of the panel on the right. Drag with the left button to orbit, turn the wheel to zoom, drag with the middle or right button to move the view. The buttons above the view are Frame, Reset, Grid, a 1.8 m figure (to judge the size) and the light; the **dark** light shows the glow of an effect best. The controls under the view depend on the kind of effect:
+
+| Kind | The preview |
+|---|---|
+| **Loop** | Plays by itself. **Restart** plays it again from its start; **End** plays its end animation when the effect has one |
+| **One shot** | Plays when you select it and **repeats** after its length (the **Repeat** box, on to begin with). **Play** plays it once more |
+| **Weather** | Plays by itself over the view, with an **Intensity** slider (0 to 1) |
+| **Beam** | Stretches between two points: a **Length** slider (1 to 20 m) and **Sweep**, which moves the far end around so you can see the beam follow a target. The mesh named *Beam* is as long as the beam and turned to the far end, the way the game places it |
+| **Path** | Puts a copy of what is under its source node every *section size* metres along a line; the **Length** slider makes the line longer or shorter |
+| **Telegraph** | The warning that fills up on the ground, as the game draws it: a **Shape** (circle or square), a **Size** and the **Fill** (or **Auto**, which fills it again and again). The shape, size and colour of a real telegraph come from the ability that uses it; the file is its outline picture |
+| **Material** | The material on a capsule the size of a character, as its material override |
+
+The **Speed** slider (0.1x to 2x) slows the effect down to look at it. The preview starts the particles and the animations of the scene the way the effect does and places the parts of a beam and a path itself; it does not run the game side of the effect (pools, timers, attaching to a creature).
+
+The same preview is in the **Select VFX** window of an ability or an effect: the effect you click in the list plays next to it.
+
+The demo has one effect of each kind to try the previews with: `campfire` (loop), `lightning_beam`, `fire_wall` (path), `ring_outline.png` (telegraph) and `frozen` (material), besides its one shots and weathers.
+
 | Control | What it does |
 |---|---|
 | The tree | Every effect, grouped by type, with a count |

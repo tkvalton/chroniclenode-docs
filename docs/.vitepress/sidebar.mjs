@@ -212,6 +212,7 @@ const basicSystems = [
   system('Assets', 'assets', [
     ['VFX', 'vfx', 'vfx'],
     ['Icons', 'icons', 'icons'],
+    ['World Assets', 'world-assets', 'world_assets'],
     ['Terrain Textures', 'terrain-textures', 'terrain_textures'],
     ['Foliage', 'foliage', 'foliage'],
     ['Build Size', 'build-size', 'build_size'],

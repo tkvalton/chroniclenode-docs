@@ -382,7 +382,7 @@ Plays the animation of being hit.
 
 ### void play_equipment_animation( action: String, weapon_type: String ) {#method-play-equipment-animation}
 
-For sheathe/unsheathe (simpler since they're single animations, not arrays)
+For sheathe/unsheathe (simpler since they're single animations, not arrays) `weapon_type` is the animation tag of the weapon: a Weapon Profile with sheathe or unsheathe clips plays one of them, otherwise the fixed lists of the animation map for the weapon type
 
 ### void play_sheathe_animation( weapon_type: String ) {#method-play-sheathe-animation}
 

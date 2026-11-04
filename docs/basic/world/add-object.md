@@ -56,6 +56,7 @@ A script that **extends `SpaceVolume`** is a volume of your own. Put it in `res:
 The **Assets** button places the scenes you collect in one folder: `res://src/data/world_assets/`. Put a scene there (a `.tscn` or `.scn`, or a `.glb`, `.gltf`, `.fbx` or `.blend` model) and it is in the palette.
 
 - **Subfolders are categories.** `world_assets/trees/oak.tscn` is in the category *trees*; `world_assets/buildings/ruins/tower.tscn` in *buildings / ruins*. A scene in the folder itself is *Uncategorised*. The **category menu** in the palette shows one category or all of them.
+- **The list of the assets is in Assets > [World Assets](/basic/assets/world-assets)**, with the categories, Import and a 3D preview.
 - **Each scene has a picture**, drawn by the editor the first time the palette opens (they show up one by one) and kept in a hidden `.thumbnails` folder inside the asset folder. The **search bar** works on the names (the file name in words: `stone_pillar.tscn` is *Stone pillar*), inside the category you chose.
 - Placing works as for everything else: the scene is on the mouse, stands on the ground or on any floor, **Q** and **E** turn it. What lands in the world is an **instance of your scene**, linked to the file: change the asset later and every one you placed changes with it.
 

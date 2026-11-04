@@ -231,6 +231,12 @@ export const groups = [
         "base": "ConfigEditorBase",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\weapon_profile_editor.gd",
         "file": "editor_components/editors/assets/weapon_profile_editor.gd"
+      },
+      {
+        "name": "WorldAssetsEditor",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\world_assets_editor.gd",
+        "file": "editor_components/editors/assets/world_assets_editor.gd"
       }
     ]
   },
@@ -1583,6 +1589,12 @@ export const groups = [
     "slug": "factory",
     "classes": [
       {
+        "name": "AssetViewport3D",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\asset_viewport_3d.gd",
+        "file": "editor_components/controls/asset_viewport_3d.gd"
+      },
+      {
         "name": "BBCodeTextControl",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\factory\\bbcode_text_control.gd",
@@ -1737,6 +1749,12 @@ export const groups = [
         "base": "ConfigField",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\vfx_name_field.gd",
         "file": "editor_components/controls/config_fields/vfx_name_field.gd"
+      },
+      {
+        "name": "VFXPreview",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\vfx_preview.gd",
+        "file": "editor_components/controls/vfx_preview.gd"
       }
     ]
   },

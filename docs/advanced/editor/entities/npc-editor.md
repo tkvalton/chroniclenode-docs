@@ -22,6 +22,7 @@ Entity Editor for managing NPCDefinitions resources
 | `Array[String]` | [available_stance_tags](#var-available-stance-tags) | `[]` |
 | `Array[String]` | [available_aim_tags](#var-available-aim-tags) | `[]` |
 | `Array[String]` | [available_reload_tags](#var-available-reload-tags) | `[]` |
+| `AssetViewport3D` | [model_preview](#var-model-preview) |  |
 
 ## Methods
 
@@ -81,6 +82,10 @@ Entity Editor for managing NPCDefinitions resources
 ### Array[String] available_reload_tags = [] {#var-available-reload-tags}
 
 *No description yet.*
+
+### AssetViewport3D model_preview {#var-model-preview}
+
+The 3D preview of the skeleton under the button that chooses it (made the first time it is needed)
 
 ## Method descriptions
 

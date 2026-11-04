@@ -21,6 +21,7 @@ CharacterEditor for managing CharacterDefinition resources CharacterDefinition i
 | `EditorResourcePicker` | [footprint_picker](#var-footprint-picker) |  |
 | `Array[String]` | [available_motion_entities](#var-available-motion-entities) | `[]` |
 | `bool` | [item_selection_mode](#var-item-selection-mode) | `false` |
+| `AssetViewport3D` | [model_preview](#var-model-preview) |  |
 
 ## Methods
 
@@ -80,6 +81,10 @@ CharacterEditor for managing CharacterDefinition resources CharacterDefinition i
 ### bool item_selection_mode = false {#var-item-selection-mode}
 
 *No description yet.*
+
+### AssetViewport3D model_preview {#var-model-preview}
+
+The 3D preview of the model under the button that chooses it (made the first time it is needed)
 
 ## Method descriptions
 

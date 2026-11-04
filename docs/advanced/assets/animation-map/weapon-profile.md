@@ -4,7 +4,7 @@
 
 **Inherits:** [DatabaseResource](/advanced/data-and-database/database-classes/database-resource) < [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-A Weapon Animation Profile: one way of fighting that your game has animations for (One Hand, Two Hand, Bow, Rifle, Unarmed ...). You define it once (Entity Assets &gt; Weapon Profiles) and every animation pack gets its folder `weapon_animations/<folder name>/` with a subfolder for each animation role: `attack`, `stance` (the combat idle), `block`, and for a ranged profile `aim` and `reload`; a profile with hand variants has `attack_left` too. The packs that already exist get the folders when you save the profile, and the packs you make afterwards get them with the rest of their folders. A weapon class (and an NPC) picks a profile; the animations of the equipped weapon are then the clips in its folders. Unarmed is built in and cannot be deleted. See docs: Entity Assets &gt; Weapon Profiles.
+A Weapon Animation Profile: one way of fighting that your game has animations for (One Hand, Two Hand, Bow, Rifle, Unarmed ...). You define it once (Entity Assets &gt; Weapon Profiles) and every animation pack gets its folder `weapon_animations/<folder name>/` with a subfolder for each animation role: `attack`, `stance` (the combat idle), `block`, `sheathe`, `unsheathe`, and for a ranged profile `aim` and `reload`; a profile with hand variants has `attack_left` too. The packs that already exist get the folders when you save the profile, and the packs you make afterwards get them with the rest of their folders. A weapon class (and an NPC) picks a profile; the animations of the equipped weapon are then the clips in its folders. Unarmed is built in and cannot be deleted. See docs: Entity Assets &gt; Weapon Profiles.
 
 ## Properties
 
@@ -21,6 +21,7 @@ A Weapon Animation Profile: one way of fighting that your game has animations fo
 |---|---|
 | `PackedStringArray` | [get_roles](#method-get-roles)() |
 | `String` | [describe_role](#method-describe-role)( `role: String` ) *static* |
+| `PackedStringArray` | [get_required_roles](#method-get-required-roles)() |
 | `PackedStringArray` | [get_folder_paths](#method-get-folder-paths)() |
 | `String` | [make_folder_name](#method-make-folder-name)( `text: String` ) *static* |
 | `bool` | [is_valid_folder_name](#method-is-valid-folder-name)( `text: String` ) *static* |
@@ -35,6 +36,8 @@ A Weapon Animation Profile: one way of fighting that your game has animations fo
 - `String` **ROLE_ATTACK_LEFT** = `"attack_left"`
 - `String` **ROLE_STANCE** = `"stance"`
 - `String` **ROLE_BLOCK** = `"block"`
+- `String` **ROLE_SHEATHE** = `"sheathe"`
+- `String` **ROLE_UNSHEATHE** = `"unsheathe"`
 - `String` **ROLE_AIM** = `"aim"`
 - `String` **ROLE_RELOAD** = `"reload"`
 
@@ -65,6 +68,10 @@ The folders (roles) of this profile: attack, attack_left (hand variants), stance
 ### String describe_role( role: String ) {#method-describe-role}
 
 What a role is for, in a sentence (the tooltips and the report of the editor)
+
+### PackedStringArray get_required_roles() {#method-get-required-roles}
+
+The roles a profile should have clips for (the others are optional): the report of the editor is orange when one of these is empty
 
 ### PackedStringArray get_folder_paths() {#method-get-folder-paths}
 
