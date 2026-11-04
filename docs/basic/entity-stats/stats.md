@@ -35,7 +35,7 @@ Tick the [stat groups](/basic/entity-stats/stat-groups) the stat is in (Primary,
 
 ## Level growth
 
-A stat has no growth of its own: **growth belongs to the entity**. A Warrior grows its Strength by 2 per level and a Mage by 0.5, so the growth is written for the kind of entity, in a [growth profile](/basic/entity-stats/growth-profiles) or in the *level growth overrides* of a class or an NPC. The value of the stat is `(base + growth + bonus) x multiplier`, so growth comes on top of the base. A stat that no profile or override lists does not grow. See [Growth](/basic/shared-systems/growth) for how growth, templates and levels work together.
+A stat has no growth of its own: **growth belongs to the entity**. A Warrior grows its Strength by 2 per level and a Mage by 0.5, so the growth is written for the kind of entity, in a [growth profile](/basic/entities/growth-profiles) or in the *level growth overrides* of a class or an NPC. The value of the stat is `(base + growth + bonus) x multiplier`, so growth comes on top of the base. A stat that no profile or override lists does not grow. See [Growth](/basic/shared-systems/growth) for how growth, templates and levels work together.
 
 ## Stat effects
 

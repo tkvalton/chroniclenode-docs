@@ -75,6 +75,7 @@ The registry hooks the party for the [NPC level scaling](/advanced/entities/) ru
 <!-- classes:world/world-data -->
 | Class | What it is |
 |---|---|
+| [ShelterPreset](/advanced/world/world-data/shelter-preset) | The settings of a shelter volume that make it a wooden cabin, a cave or a tent: how much of the weather it keeps off, whether it stops the exposed effects, the audio profile and the weather sounds. |
 | [ShelterProfile](/advanced/world/world-data/shelter-profile) | What a kind of shelter does (a wooden cabin, a cave, a tent, a stone hall): how much of the weather it keeps off, what it does to the sound and which sound plays inside for each kind of weather. |
 | [ShelterWeatherSound](/advanced/world/world-data/shelter-weather-sound) | One line of the weather sounds of a shelter: for a kind of weather (rain, snow, wind ...) the track that plays while the camera is inside and that weather is on. |
 | [TriggerAreaData](/advanced/world/world-data/trigger-area-data) | Map this trigger area belongs to |

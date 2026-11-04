@@ -32,7 +32,7 @@ These three are easy to mix up. They answer three different questions, and an en
 | | Answers | Holds | Shared by |
 |---|---|---|---|
 | **[Template](/basic/entities/templates)** | What is this *kind of thing* to begin with? | Base stat values, abilities, loot, tags: the whole starting point | Every entity that follows it, until the entity changes a value |
-| **[Growth profile](/basic/entity-stats/growth-profiles)** | How does it get stronger with its level? | Growth entries only | Every entity that chose it |
+| **[Growth profile](/basic/entities/growth-profiles)** | How does it get stronger with its level? | Growth entries only | Every entity that chose it |
 | **The entity itself** | What is different about *this* one? | Its own values, and its own growth entries | Nobody |
 
 **Elite Warrior** is the *Warrior* template plus the *Elite* profile. The template gives the Strength 10, the sword and the loot. The profile gives "+3 Strength and +14 health per level". Change the Warrior template and every warrior (elite or not) gets the new base values. Change the Elite profile and every elite gets the new growth, whatever it is. Neither one knows about the other.
@@ -51,7 +51,7 @@ The **Preview at level** tick box of the stats editor (in the [NPC](/basic/entit
 
 ## See also
 
-- [Growth profiles](/basic/entity-stats/growth-profiles): the editor and the demo's profiles.
+- [Growth profiles](/basic/entities/growth-profiles): the editor and the demo's profiles.
 - [Templates](/basic/entities/templates).
 - [Formulas](/basic/shared-systems/formulas): the shape of a growth.
 - [Growth, core stats and gain channels](/advanced/entity-stats/growth-and-core-stats): how it is built.

@@ -16,7 +16,6 @@ Everything the party meets in a world is placed in the scene and stored as a **u
 | [Placing objects](/basic/world/add-object) | The buttons in the 3D viewport that place NPCs, interactables, dropped items, volumes and assets: the model on your mouse, standing on the ground or any floor |
 | [The Unique Object tool](/basic/world/unique-object-tool) | The bottom panel that edits the thing you selected in the viewport |
 | [Trigger areas](/basic/world/trigger-areas) | Invisible areas of the map that [quests](/basic/events-and-quests/quests) and events can watch (formerly regions) |
-| [Spawn tables](/basic/world/spawn-tables) | What can appear and how likely each thing is (NPCs in groups, interactables, dropped items and money, nothing): the lists the [spawners](/basic/world/spawners) roll |
 | [Spawners](/basic/world/spawners) | Nodes that make NPCs, objects and items appear from a spawn table and keep the place alive (Point spawner built; Volume and Painted planned) |
 | [Zones](/basic/world/zones) | Named places of the map with sub-zones: a banner when the party enters, events, quest objectives and [text tokens](/basic/shared-systems/text-tokens); painted on the terrain, or placed as volumes |
 | [Shelters](/basic/world/shelter) | A cabin, a cave or a tent keeps the weather off the screen and its effects off the party, and sounds like a roof in the rain |

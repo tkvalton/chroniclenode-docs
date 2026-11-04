@@ -1,6 +1,6 @@
 # Spawn tables: how they are built
 
-This page is for developers. For the fields and the way to use them, see [Spawn tables](/basic/world/spawn-tables).
+This page is for developers. For the fields and the way to use them, see [Spawn tables](/basic/entities/spawn-tables).
 
 A spawn table is a database record (`spawn_table`, `res://src/data/spawn_tables/`) that holds a list of lines. It only **answers a question**: *what comes up next?* What is made out of the answer, and where, is up to the spawner that asked.
 

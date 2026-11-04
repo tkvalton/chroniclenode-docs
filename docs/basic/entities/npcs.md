@@ -68,10 +68,10 @@ An NPC levels with its **level**: its stats grow with it by their *level growth*
 
 | Field | What it does | Default |
 |---|---|---|
-| **Growth profile** (in the **Level growth** fold) | The [growth profile](/basic/entity-stats/growth-profiles) of this NPC (Heavy, Caster, Elite...): which stats and pools grow, and how fast. *Default* is the profile the [template](/basic/entities/templates) suggests, else the one the Gameplay Config names for every NPC. An NPC that follows a template still chooses its own | Default |
+| **Growth profile** (in the **Level growth** fold) | The [growth profile](/basic/entities/growth-profiles) of this NPC (Heavy, Caster, Elite...): which stats and pools grow, and how fast. *Default* is the profile the [template](/basic/entities/templates) suggests, else the one the Gameplay Config names for every NPC. An NPC that follows a template still chooses its own | Default |
 | **Level growth overrides** (*Add Override*) | A growth for one stat or pool of this NPC only. It wins over the profile | none |
 
-A pool and the stats that feed it all grow with the level, and the **weapon damage** of an NPC that has some can grow too (a profile entry for *Weapon Damage*). When the level changes (a respawn, level scaling) the NPC keeps its share of health. See [Growth Profiles](/basic/entity-stats/growth-profiles#what-happens-when-an-npc-changes-level).
+A pool and the stats that feed it all grow with the level, and the **weapon damage** of an NPC that has some can grow too (a profile entry for *Weapon Damage*). When the level changes (a respawn, level scaling) the NPC keeps its share of health. See [Growth Profiles](/basic/entities/growth-profiles#what-happens-when-an-npc-changes-level).
 
 ## Abilities
 

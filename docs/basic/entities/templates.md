@@ -63,5 +63,5 @@ A [placed NPC or object](/basic/world/uniques) with a **stats override** follows
 
 ## See also
 
-- [Growth profiles](/basic/entity-stats/growth-profiles): the shared growth a template names
+- [Growth profiles](/basic/entities/growth-profiles): the shared growth a template names
 - [NPCs](/basic/entities/npcs), [Interactables](/basic/entities/interactables), [Player classes](/basic/entities/player-classes)

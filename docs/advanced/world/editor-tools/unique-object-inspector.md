@@ -40,7 +40,7 @@ Dynamic inspector for unique object data (NPC, Encounter, InteractableObject) Di
 - `Array[String]` **EXCLUDED_PROPERTIES** = `[` - Properties that should be excluded from the inspector
 - `Dictionary` **KEY_FIELDS** = `{` - The fields of the strip along the top, by kind of object, with the short name each has there (the same fields, not repeated in the pages)
 - `Array[String]` **INLINE_SUBGROUPS** = `["Basic Properties", "Targeting"]` - Sub-groups of a script are pages of their own (the panel has no boxes); these ones are not: they are the fields of the page of their group, one after the other
-- `Array[String]` **NODE_EXCLUDED** = `["preset", "preset_name", "placement_id", "unique_data"]` - Properties of a node that the panel never shows (the preset has a menu of its own, the placement id is how the game remembers a placed item was taken)
+- `Array[String]` **NODE_EXCLUDED** = `["preset", "preset_name", "placement_id", "unique_data", "profile", "amount_o...` - Properties of a node that the panel never shows (the preset has a menu of its own, the placement id is how the game remembers a placed item was taken)
 - `Dictionary` **NODE_ARRAY_DATABASES** = `{"effects_inside": "effect"}` - The databases an array of ids is chosen from, for the nodes whose property name says nothing
 - `Array[String]` **NPC_SETTINGS** = `["is_active", "spawn_delay", "respawn_timer", "is_unique_encounter", "despawn...` - Settings of a placed NPC that are not overrides of its definition (they are never marked, and "Reset overrides" leaves them)
 - `Dictionary` **DEFINITION_PROPERTY** = `{` - The property of the definition that an override replaces, to show what the definition says

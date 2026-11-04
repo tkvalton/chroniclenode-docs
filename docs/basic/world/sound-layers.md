@@ -7,7 +7,7 @@ The **album** of a world (chosen in the [Worlds editor](/basic/world/worlds)) pl
 | Album of the world | the [Worlds editor](/basic/world/worlds) | always, as the base |
 | **Zone** | the **Music** and **Ambient sound** of a [zone](/basic/world/zones#music-and-ambient-sound) | the party is in the zone (a sub-zone takes the sound of the zone above) |
 | **Weather** | the **Sound** container of a [weather](/basic/world/weather#sound) | the weather is on |
-| **Shelter** | the **Weather sounds** of a [shelter profile](/basic/world/shelter#the-sound-for-each-kind-of-weather) | the camera is in a shelter and a weather the shelter knows is on |
+| **Shelter** | the **Weather sounds** of a [shelter](/basic/world/shelter#the-sound-for-each-kind-of-weather) | the camera is in a shelter and a weather the shelter knows is on |
 | **Event** | the actions [Set Music Track](/advanced/events-and-quests/actions-audio/set-music-track-action) and [Set Ambient Track](/advanced/events-and-quests/actions-audio/set-ambient-track-action) | the track plays |
 
 So a storm over a swamp: the swamp zone plays its frogs, the storm puts its rain over them, and when the party steps into a cabin the cabin's rain-on-the-roof replaces the rain; the music stays with the zone because neither the storm nor the cabin has music. Step out and the rain comes back; the storm ends and the frogs are alone again.

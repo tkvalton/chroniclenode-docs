@@ -80,7 +80,7 @@ The rows are in the order of the REGISTRY, grouped like the editor's categories.
 | **Trigger areas** | | | |
 | `trigger_area` | `TriggerAreaData` | `src/data/trigger_areas/` | [Trigger areas](/basic/world/trigger-areas) |
 | **Spawning** | | | |
-| `spawn_table` | `SpawnTableDefinition` | `src/data/spawn_tables/` | [Spawn tables](/basic/world/spawn-tables) |
+| `spawn_table` | `SpawnTableDefinition` | `src/data/spawn_tables/` | [Spawn tables](/basic/entities/spawn-tables) |
 | **Zones** | | | |
 | `zone` | `ZoneDefinition` | `src/data/zones/` | [Zones](/basic/world/zones) |
 | **Terrain** | | | |

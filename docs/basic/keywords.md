@@ -10,7 +10,7 @@ This list is growing. Entries are added as the pages that use them are written.
 
 ## Growth
 
-What an entity gains from its level: a stat or pool that rises by some amount for each level gained. Growth belongs to the entity, through a [growth profile](/basic/entity-stats/growth-profiles) shared by a kind of entity or an entry of its own, never to the stat. A stat that no entry lists does not grow. How it differs from a [template](/basic/entities/templates), and how it works with levels and stats, is on the [Growth](/basic/shared-systems/growth) page.
+What an entity gains from its level: a stat or pool that rises by some amount for each level gained. Growth belongs to the entity, through a [growth profile](/basic/entities/growth-profiles) shared by a kind of entity or an entry of its own, never to the stat. A stat that no entry lists does not grow. How it differs from a [template](/basic/entities/templates), and how it works with levels and stats, is on the [Growth](/basic/shared-systems/growth) page.
 
 ## Global cooldown
 

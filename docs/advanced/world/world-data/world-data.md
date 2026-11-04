@@ -58,6 +58,7 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `void` | [set_default_weather](#method-set-default-weather)( `weather: VFXSelectionWeather` ) |
 | `VFXSelectionWeather` | [get_default_weather](#method-get-default-weather)() |
 | `WeatherConfig` | [get_weather_config](#method-get-weather-config)() |
+| `bool` | [ensure_weather](#method-ensure-weather)() |
 | `bool` | [has_default_weather](#method-has-default-weather)() |
 | `void` | [clear_default_weather](#method-clear-default-weather)() |
 | `void` | [add_unique_entity](#method-add-unique-entity)( `entity_id: int` ) |
@@ -282,6 +283,10 @@ Get the default weather for this world
 ### WeatherConfig get_weather_config() {#method-get-weather-config}
 
 The weather this world starts with: its Weather config, else the old selection made into one, else null (clear)
+
+### bool ensure_weather() {#method-ensure-weather}
+
+Every world has a weather: a world with none (a new world, or one made before this rule) gets the built-in Clear weather, the no-weather state. Returns true when it changed something (the caller saves the world). A world with a weather table counts as having one
 
 ### bool has_default_weather() {#method-has-default-weather}
 

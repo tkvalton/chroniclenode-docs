@@ -56,9 +56,9 @@ A world uses the project's default **Time**, **Sun**, **Sky** and **Environment*
 
 ### Default weather
 
-The **Weather** section has two drop-downs. The first is a list of the weathers of the project; the second a list of [weather tables](/basic/world/weather-tables): a world with a table uses it instead of the one weather, and picks a weather from it by weight, another when its time is up. **No table** uses the weather above. A [zone](/basic/world/zones#weather-for-each-zone) can have a weather or a table of its own.
+Every world has a weather: a new world, or one that had none, gets **Clear**, the built-in weather with nothing in it, and Clear is the first choice of the list (there is no empty choice). The **Weather** section has two drop-downs. The first is a list of the weathers of the project; the second a list of [weather tables](/basic/world/weather-tables): a world with a table uses it instead of the one weather, and picks a weather from it by weight, another when its time is up. **No table** uses the weather above. A [zone](/basic/world/zones#weather-for-each-zone) can have a weather or a table of its own.
 
-A list of the [weathers](/basic/world/weather) of the project (made in World > Weather). The weather starts when the party enters the world; its particles follow the camera. **Clear** is no weather. A [Set Weather event](/basic/events-and-quests/events) changes it later; the world's setting is not changed by that, so the next visit starts with the default again. A world that had a weather effect chosen the old way gets a weather made from it the first time you open it here.
+A list of the [weathers](/basic/world/weather) of the project (made in World > Weather). The weather starts when the party enters the world; its particles follow the camera. **Clear** is the weather with nothing in it. A [Set Weather event](/basic/events-and-quests/events) changes it later; the world's setting is not changed by that, so the next visit starts with the default again. A world that had a weather effect chosen the old way gets a weather made from it the first time you open it here.
 
 ### Persistence
 

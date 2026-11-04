@@ -75,7 +75,7 @@ By default an NPC has the level you gave it: a level 4 wolf is a level 4 wolf, h
 | **Scale down within levels** | A strong NPC is lowered until it is this many levels **over** the reference. `0` lowers it to the reference | `3` |
 | **Rescale NPCs on respawn** | An NPC that respawns takes the level the party needs **now**, not the one it was made with | on |
 | **Rescale NPCs on party change** | Living NPCs take the new level when the party levels up, a member joins or leaves, or the player switches character (when the reference is the character in control). An NPC in a fight keeps its level and takes the new one when the fight ends | on |
-| **Default NPC growth profile** | The [growth profile](/basic/entity-stats/growth-profiles) every NPC starts with: how its stats and pools grow with its level. The toolkit makes one called *Default* (empty); pick another, or `None` | Default |
+| **Default NPC growth profile** | The [growth profile](/basic/entities/growth-profiles) every NPC starts with: how its stats and pools grow with its level. The toolkit makes one called *Default* (empty); pick another, or `None` | Default |
 
 An NPC that is already inside the band is not touched. With the reference at 13 and both distances at 3, the band is levels 10 to 16:
 
@@ -99,7 +99,7 @@ An NPC that is already inside the band is not touched. With the reference at 13 
 
 A rescaled NPC keeps its share of health, **whatever the Level up capacity rule below says** (that rule is for the player's characters). An NPC at 65 % health that is raised from level 4 to level 10 has a bigger maximum and is still at 65 %; one that is lowered is still at 65 %. The level always stays between 1 and **Max level**. Turn both rescale options off for a game where an NPC keeps the level it was made with.
 
-**The stats follow.** An NPC's [stats and pools grow with its level](/basic/entity-stats/growth-profiles), so a raised NPC is really stronger, not just labelled differently. *How much* each stat grows is the job of the [growth profile](/basic/entity-stats/growth-profiles): one for every kind of NPC (heavy, caster, minion), with the project's default profile behind them all.
+**The stats follow.** An NPC's [stats and pools grow with its level](/basic/entities/growth-profiles), so a raised NPC is really stronger, not just labelled differently. *How much* each stat grows is the job of the [growth profile](/basic/entities/growth-profiles): one for every kind of NPC (heavy, caster, minion), with the project's default profile behind them all.
 
 ### Ranks: elite, rare, boss
 

@@ -184,7 +184,7 @@ Change how the ground looks in the weather.
 
 ## Spawner
 
-Switch a [spawner](/basic/world/spawners) on or off, make it start over, or roll a [spawn table](/basic/world/spawn-tables) at a place.
+Switch a [spawner](/basic/world/spawners) on or off, make it start over, or roll a [spawn table](/basic/entities/spawn-tables) at a place.
 
 | Action | What it does |
 |---|---|

@@ -965,12 +965,6 @@ export const groups = [
         "file": "editor_components/editors/world/config_editors/resource_list_editor.gd"
       },
       {
-        "name": "ShelterEditor",
-        "base": "ConfigEditorBase",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\shelter_editor.gd",
-        "file": "editor_components/editors/world/shelter_editor.gd"
-      },
-      {
         "name": "ShelterWeatherSoundForm",
         "base": "ConfigForm",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\shelter_weather_sound_form.gd",

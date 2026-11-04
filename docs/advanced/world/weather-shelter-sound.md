@@ -17,8 +17,8 @@ This page is for developers who want to read or extend the parts of the weather 
 | `WeatherConfig` | resource (`DatabaseResource`) | Everything a weather says: effect, wind, ground, sky and light, fog, **Screen**, **Sound**, **Exposed Effects**, intensity |
 | `WeatherSystem` | node of the `WorldContainer` | Applies a weather: the particles, the wind, the ground, the sky/fog/light (`WeatherLook`), the screen layer, the sound layers, the shelter tracker and the exposure |
 | `WeatherScreen` | helper | `blend(a, b, t)` between two `ScreenLook`s; the weather's screen look is a layer of `CameraLook` at `PRIORITY_WEATHER` (15, over a zone's 10, under an effect's 20) |
-| `ShelterProfile` | resource (`DatabaseResource`, registry `"shelter"`) | Amount, effects stopped, `audio_profile`, `weather_sounds` (`ShelterWeatherSound` lines) |
-| `ShelterVolume` | `SpaceVolume` | A place with a profile; it is in the group `shelter_volumes` and only measures |
+| `ShelterVolume` | `SpaceVolume` | A place with its own settings (`shelter_amount`, `stops_effects`, `audio_profile`, `weather_sounds` lines, `preset_name`); it is in the group `shelter_volumes` and only measures. An old `profile` (`ShelterProfile`, registry `"shelter"`) or `amount_override` in a scene is read into these settings by its setters |
+| `ShelterPreset` | `Resource` | The settings of a cabin, a cave, a tent: built-ins in code, yours in `res://src/data/shelter_presets/`; copied into a volume by the Unique Object panel (`MovementPresetBar` is given the class of the presets) |
 | `Shelter` | static queries | `volume_at`, `amount_at`, `protects_at`, `camera_position`, `amount_at_camera` |
 | `ShelteredCondition` | `Condition` | Is the camera sheltered by at least a given amount (or in the open) |
 | `WeatherExposure` | `RefCounted` of the weather system | Gives and takes the exposed effects |

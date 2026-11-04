@@ -5,6 +5,12 @@ export const groups = [
     "slug": "world-data",
     "classes": [
       {
+        "name": "ShelterPreset",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\shelter_preset.gd",
+        "file": "data_classes/world/shelter_preset.gd"
+      },
+      {
         "name": "ShelterProfile",
         "base": "DatabaseResource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\world\\shelter_profile.gd",

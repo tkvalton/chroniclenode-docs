@@ -52,13 +52,14 @@ Select an item or a pile of currency lying in the world. A column at the left of
 
 ### Volumes
 
-A **movement volume**, an **audio zone** and a **zone volume** are edited in the panel too (the Inspector keeps only what Godot gives a node):
+A **movement volume**, an **audio zone**, a **zone volume** and a **shelter volume** are edited in the panel too (the Inspector keeps only what Godot gives a node):
 
 | Volume | Strip | Pages |
 |---|---|---|
 | **Movement volume** | **Preset** menu (with *Save as preset...*), **Moves as**, **Affects**, **Speed** | Movement, Surface and shallow water, Breath, Effects while inside, [Flow](/basic/world/movement-volumes#flow), Look, Camera, Sound, Editor. See [Movement volumes](/basic/world/movement-volumes) |
 | **Audio zone** | none | **Sound**: the [audio profile](/basic/world/audio-zones#the-audio-profile) in full, with a preset menu. Editor (the colour of the box) |
 | **Zone volume** | **Zone**, **Priority** | Editor |
+| **Shelter volume** | **Preset** menu (Wooden cabin, Cave, Tent and yours), **Keeps off**, **Stops effects** | **Sound**: the audio profile in full and the list of weather sounds. See [Shelters](/basic/world/shelter) |
 
 A change to a volume is a normal editor change: **Ctrl+Z** undoes it, and the scene is marked as changed. Select several volumes of one kind and a change is made to all of them.
 

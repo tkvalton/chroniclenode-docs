@@ -13,6 +13,8 @@ Build [an NPC who talks and sells](/basic/entities/first-npc): an NPC, a shop an
 | [**NPCs**](/basic/entities/npcs) | Everything that is not a player: enemies, townspeople, animals, bosses, vendors |
 | [**Interactables**](/basic/entities/interactables) | Objects: doors, chests, switches, ladders, traps, signs, crafting stations, destructible barrels |
 | [**Mounts**](/basic/entities/mounts) | Horses, griffins, carts, tanks and boats the player rides: how they move, how they are steered, and the seats with the abilities of each |
+| [**Spawn Tables**](/basic/entities/spawn-tables) | What can appear and how likely each thing is (NPCs in groups, interactables, dropped items and money, nothing): the lists the [spawners](/basic/world/spawners) roll |
+| [**Growth Profiles**](/basic/entities/growth-profiles) | How a kind of NPC gains stats with its level (heavy, caster, minion), shared by every NPC that uses the profile |
 
 ## The kinds of entity
 

@@ -70,7 +70,7 @@ Both put an NPC in the world, and they are for different jobs.
 | | **A placed NPC** (the NPCs button) | **A spawner** (the Spawners button) |
 |---|---|---|
 | **It is for** | The **authored** part of the world: these mobs, here, maybe edited just for this one. The vendor, the quest giver, the guard, the boss of the dungeon | The **living** part of the world: wolves in the forest, herbs in the meadow, undead in the graveyard, mobs that are killed again and again |
-| **It is** | Someone: [events](/basic/events-and-quests/events), quests and conversations can name it, and the [Unique Object panel](/basic/world/unique-object-tool) changes anything about this one | Somewhere: a place that rolls a [spawn table](/basic/world/spawn-tables) and makes what belongs there, at a level in a range, alone or in a group |
+| **It is** | Someone: [events](/basic/events-and-quests/events), quests and conversations can name it, and the [Unique Object panel](/basic/world/unique-object-tool) changes anything about this one | Somewhere: a place that rolls a [spawn table](/basic/entities/spawn-tables) and makes what belongs there, at a level in a range, alone or in a group |
 | **Comes back?** | **No, by default** (*Respawn timer* is `0`) | **Yes, by default** (a minute, set by *Respawn min* and *max*) |
 
 The respawn timer is still there on a placed NPC for the day you want it: an important NPC that dies for the story and returns later. It is a design choice, not the normal case. In the other direction, a [Point spawner](/basic/world/spawners) with a one-line table is the way to make one particular place fill again and again.

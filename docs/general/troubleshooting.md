@@ -40,7 +40,7 @@ See [Quests](/basic/events-and-quests/quests).
 
 ### An NPC never grows with its level
 
-Growth comes from the first layer that has an answer: the NPC's own override, its growth profile, the profile's parents, the project's default profile, then the stat or pool itself. A stat with no growth formula shows a yellow *no growth* note in its editor. An NPC that follows a [template](/basic/entities/templates) has the growth of the template, and its Stats section shows it without letting you change it. See [Growth profiles](/basic/entity-stats/growth-profiles).
+Growth comes from the first layer that has an answer: the NPC's own override, its growth profile, the profile's parents, the project's default profile, then the stat or pool itself. A stat with no growth formula shows a yellow *no growth* note in its editor. An NPC that follows a [template](/basic/entities/templates) has the growth of the template, and its Stats section shows it without letting you change it. See [Growth profiles](/basic/entities/growth-profiles).
 
 Weapon Damage only grows for an NPC that has some: an NPC with weapon damage `0` stays at `0`.
 

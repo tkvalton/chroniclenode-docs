@@ -4,18 +4,18 @@
 
 **Inherits:** [HBoxContainer](https://docs.godotengine.org/en/stable/classes/class_hboxcontainer.html)
 
-The preset row of the Unique Object panel for a movement volume: a menu of the presets (Water, Lava... and yours), "(modified)" when the numbers were changed after the preset was taken, and the buttons to save the volume as a new preset, to update the preset with the numbers of the volume, and to delete one of yours. A volume does not need a preset.
+The preset row of the Unique Object panel for a movement volume or a shelter volume (it is given the class of the presets: MovementVolumePreset or ShelterPreset): a menu of the presets (Water, Lava... and yours), "(modified)" when the numbers were changed after the preset was taken, and the buttons to save the volume as a new preset, to update the preset with the numbers of the volume, and to delete one of yours. A volume does not need a preset.
 
 ## Methods
 
 | | |
 |---|---|
-| `void` | [setup](#method-setup)( `volumes: Array[MovementVolume]` ) |
-| `MovementVolumePreset` | [current_preset](#method-current-preset)() |
+| `void` | [setup](#method-setup)( `volumes: Array, preset_class: GDScript = MovementVolumePreset` ) |
+| `Resource` | [current_preset](#method-current-preset)() |
 
 ## Signals
 
-### apply_requested( preset: MovementVolumePreset ) {#signal-apply-requested}
+### apply_requested( preset: Resource ) {#signal-apply-requested}
 
 A preset was chosen (null = no preset): the panel gives its settings to the selected volumes
 
@@ -29,11 +29,11 @@ The list of presets changed: the panel shows itself again
 
 ## Method descriptions
 
-### void setup( volumes: Array[MovementVolume] ) {#method-setup}
+### void setup( volumes: Array, preset_class: GDScript = MovementVolumePreset ) {#method-setup}
 
 *No description yet.*
 
-### MovementVolumePreset current_preset() {#method-current-preset}
+### Resource current_preset() {#method-current-preset}
 
 The preset the first volume was made from (null: none, or one that is gone).
 

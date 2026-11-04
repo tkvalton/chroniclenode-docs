@@ -1,9 +1,6 @@
 # Shelters
 
-A **shelter** is a place that keeps the weather off: a cabin, a cave, a tent, a porch. It is made of two things:
-
-- a **shelter profile**: what *kind* of shelter it is (a wooden cabin, a tent): how much of the weather it keeps off, whether it stops the effects of the weather, how it changes the sound and which sound plays inside for each kind of weather. You make profiles in **World > Shelters** and write each one once;
-- a **shelter volume**: the *place*, put in the world with a box (or any shape) over the room, and a profile chosen for it.
+A **shelter** is a place that keeps the weather off: a cabin, a cave, a tent, a porch. It is a **shelter volume**: put in the world with a box (or any shape) over the room. Its settings are on the volume itself, in the [Unique Object panel](/basic/world/unique-object-tool#volumes): how much of the weather it keeps off, whether it stops the effects of the weather, how it changes the sound and which sound plays inside for each kind of weather. The panel has a menu of **presets** (Wooden cabin, Cave, Tent, and yours) so you do not set a cabin up again each time.
 
 Rain already stays off a roof by itself: the particles of the weather land on any solid mesh, so a roof, a floor or the stone over a cave stops them. A shelter does the rest: it weakens the **screen look** of the weather for the camera, plays the **sound of the inside**, and keeps the **exposed effects** of the weather off whoever stands in it.
 
@@ -12,25 +9,30 @@ Rain already stays off a roof by itself: the particles of the weather land on an
 | While... | The shelter |
 |---|---|
 | the **camera** is inside | weakens the screen look of the weather by its **amount** (the dark corners, the grey, the tint of the storm), plays its **audio profile** (a muffled world) and the **sound for the weather** that is on (the rain on the roof) |
-| an **entity** is inside | stops the [exposed effects](/basic/world/weather#exposed-effects) of the weather for it (a burn, a Wet debuff), if the profile says so |
+| an **entity** is inside | stops the [exposed effects](/basic/world/weather#exposed-effects) of the weather for it (a burn, a Wet debuff), if the shelter says so |
 | nobody is inside | nothing: it only measures |
 
 Entering and leaving blend smoothly: the screen look fades over about half a second, the sound over a second and a half.
 
-## The Shelters tab
+## The settings of a shelter
 
-**World > Shelters** is the editor of the shelter profiles: the list on the left (with a filter box and **New**; right-click for **Duplicate**, **Delete** and **Copy Path**; the built-in **Default shelter** is always there and cannot be deleted), the settings on the right in a container for each group.
+Select a shelter volume and the Unique Object panel shows its settings, with the strip of the main ones along the top:
 
-| Group | Field | What it does | Default |
+| Where | Setting | What it does | Default |
 |---|---|---|---|
-| **Shelter** | **How much it keeps off** | How much of the screen look of the weather is kept off (0 to 1). A tent 0.6, a porch 0.8, a cabin or a cave 1 | 1 |
-| | **Stops weather effects** | Do the exposed effects of the weather stop for whoever is inside? Off for a tent that keeps the rain off but not the cold | on |
-| **Sound** | **Audio profile** | How the sound changes while the camera is inside (the muffle of the world outside, an echo): an [audio profile](/basic/world/audio-zones#the-audio-profile). Empty = it does not change | none |
-| | **Weather sounds** (a list) | A track for each kind of weather: see below | empty |
+| Strip | **Preset** | A menu of presets: choosing one **copies** its settings into this volume. The settings are the volume's own afterwards. **Save as preset...** keeps the settings of this volume as a preset of the project, **Update preset** puts the numbers into the preset it came from, **Delete preset** removes one of yours. *(modified)* shows when the numbers differ from the preset | none |
+| Strip | **Keeps off** | How much of the screen look of the weather is kept off (0 to 1). A tent 0.6, a porch 0.8, a cabin or a cave 1 | 1 |
+| Strip | **Stops effects** | Do the exposed effects of the weather stop for whoever is inside? Off for a tent that keeps the rain off but not the cold | on |
+| Sound page | **Audio profile** | How the sound changes while the camera is inside (the muffle of the world outside, an echo): an [audio profile](/basic/world/audio-zones#the-audio-profile). Empty = it does not change | none |
+| Sound page | **Weather sounds** (a list) | A track for each kind of weather: see below | empty |
 
-The **Warnings** container lists what is probably a mistake: a weather sound with no kind or no track, a track that is not in the project, two lines for the same kind.
+The editor shows a warning on the volume (in the scene tree) for what is probably a mistake: a weather sound with no kind or no track, a track that is not in the project, two lines for the same kind.
 
-Three profiles come with the toolkit: **Wooden cabin** (all kept off, a muffled outside), **Cave** (all kept off, an echo) and **Tent** (0.6, effects not stopped, no muffle).
+Three presets come with the toolkit: **Wooden cabin** (all kept off, a muffled outside, the rain on the roof), **Cave** (all kept off, an echo) and **Tent** (0.6, effects not stopped, no muffle). Your own are files in `res://src/data/shelter_presets/`.
+
+::: tip Shelters used to be shelter profiles
+Before, a shelter volume chose a *shelter profile* made in the **World > Shelters** tab. That tab is gone: the settings are on the volume. A scene that still has a volume with a profile is read when it opens: the settings of the profile become the volume's own (and its amount override, if it had one), with the profile's name as the preset name. Save the scene to keep them.
+:::
 
 ### The sound for each kind of weather
 
@@ -42,13 +44,13 @@ The *rain on the roof* is not the rain you hear outside, so a shelter has its ow
 | **Track** | The ambience track that plays inside (an audio file; **...** opens the file window) |
 | **Volume** | How loud the track is (dB) |
 
-A weather lists the **kinds of sound** it makes in the **Sound** container of the [Weather tab](/basic/world/weather#sound) (`rain`; or for sleet `rain, snow`). Inside the shelter the first kind the profile has a line for plays. A weather the shelter has no line for (a kind it does not know) plays nothing extra: the sound of the weather outside goes on, muffled by the audio profile.
+A weather lists the **kinds of sound** it makes in the **Sound** container of the [Weather tab](/basic/world/weather#sound) (`rain`; or for sleet `rain, snow`). Inside the shelter the first kind the volume has a line for plays. A weather the shelter has no line for (a kind it does not know) plays nothing extra: the sound of the weather outside goes on, muffled by the audio profile.
 
 ## Putting a shelter in the world
 
-1. Open the world scene, click the **Volumes** button of the placement palette and choose **Shelter volume**, then click where it goes. A volume with a box of 10 × 4 × 10 and the **Default shelter** appears.
+1. Open the world scene, click the **Volumes** button of the placement palette and choose **Shelter volume**, then click where it goes. A volume with a box of 10 × 4 × 10 that keeps off all the weather appears.
 2. Resize the `CollisionShape3D` inside it (a box, a sphere, a cylinder or a capsule) over the room.
-3. In the [Unique Object panel](/basic/world/unique-object-tool#volumes) choose its **Profile** (the Wooden cabin, the Cave ...). **Amount override** (-1 = the profile's) gives this one volume a number of its own.
+3. In the [Unique Object panel](/basic/world/unique-object-tool#volumes) choose a **Preset** (the Wooden cabin, the Cave ...) and change what you need, or set the settings by hand.
 
 If a point is inside several shelters the one that keeps off **most** counts.
 

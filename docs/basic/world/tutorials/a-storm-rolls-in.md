@@ -30,10 +30,10 @@ In this tutorial a storm comes over your valley: the sky darkens, rain falls, th
 
 ## Part 4: a cabin
 
-10. Open **World > Shelters**. Choose **Wooden cabin** and press **Duplicate**: `Valley cabin`.
-11. In **Sound** use **Add a weather sound**: **Kind of weather** `rain`, **Track** your rain-on-the-roof file, **Volume** `-3`. The **Audio profile** (a muffled outside) is already set.
-12. Open the world scene. In the placement palette click **Volumes**, choose **Shelter volume** and click inside the hut. Resize its box over the room (the `CollisionShape3D` inside it).
-13. In the **Unique Object panel** choose **Valley cabin** as the **Profile** of the volume.
+10. Open the world scene. In the placement palette click **Volumes**, choose **Shelter volume** and click inside the hut. Resize its box over the room (the `CollisionShape3D` inside it).
+11. In the **Unique Object panel** choose the preset **Wooden cabin**: it keeps all the weather off, muffles the outside and has the rain on the roof.
+12. In the **Sound** page use the **Weather sounds** list: change the `rain` line, **Track** your rain-on-the-roof file, **Volume** `-3`.
+13. Use **Save as preset...** and name it `Valley cabin` to use the same cabin in other huts.
 
 ## Part 5: a burn in the storm
 

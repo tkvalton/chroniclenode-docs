@@ -1,6 +1,6 @@
 # Spawners
 
-A **spawner** (the `Spawner` node) makes things appear in a world and keeps the place alive. It rolls a [spawn table](/basic/world/spawn-tables) and makes what comes up: an NPC, or a group of them, an [interactable](/basic/entities/interactables) (a herb, an ore vein), an item or some money on the ground, a roll of a [loot table](/basic/items/loot-tables), or nothing. When what it made is gone (killed, taken, used up) it waits a while and rolls again.
+A **spawner** (the `Spawner` node) makes things appear in a world and keeps the place alive. It rolls a [spawn table](/basic/entities/spawn-tables) and makes what comes up: an NPC, or a group of them, an [interactable](/basic/entities/interactables) (a herb, an ore vein), an item or some money on the ground, a roll of a [loot table](/basic/items/loot-tables), or nothing. When what it made is gone (killed, taken, used up) it waits a while and rolls again.
 
 A spawner is for the living part of a world, the mobs that are killed and come back, like an MMO. For a character that is placed by hand because the story needs it (a vendor, a quest giver, a boss), place an [NPC](/basic/world/add-object#an-npc-or-a-spawner) instead.
 
@@ -88,7 +88,7 @@ A spawner is a unique of the world, so [events](/basic/events-and-quests/events)
 |---|---|---|
 | **Set Spawner Active** | action | Turns a spawner **on**, **off** or flips it. An off spawner makes nothing new; what it made stays. The state is saved |
 | **Reset Spawner** | action | The spawner starts over: what it made is taken away (or left standing and forgotten), every place is empty, and it rolls again at once, with no respawn time. The waits of what was killed are forgotten |
-| **Spawn From Table** | action | Rolls a [spawn table](/basic/world/spawn-tables) once or more at a place and makes what comes up: an ambush, a pack out of a cave, loot from the ceiling. *Rolls* sets how many times, *Spread radius* how far round the place. The things are ordinary things of the world: no spawner keeps them and the game saves them |
+| **Spawn From Table** | action | Rolls a [spawn table](/basic/entities/spawn-tables) once or more at a place and makes what comes up: an ambush, a pack out of a cave, loot from the ceiling. *Rolls* sets how many times, *Spread radius* how far round the place. The things are ordinary things of the world: no spawner keeps them and the game saves them |
 | **Spawner** | trigger | Fires when the spawner **makes something**, when what it made is **cleared** (all the NPCs of a group dead, the object used up, the items taken), or when it is **turned on** or **off**. "Clear the wolves" is a quest objective with the *cleared* event |
 | **Spawner Active** | condition | The spawner is on (or off) |
 | **Spawner Alive Count** | condition | How many things the spawner made are standing: NPCs alive, objects there, items that lie. Compare it with a number: "none left" is a count of 0 |
@@ -113,5 +113,5 @@ The game saves the **state of each spawner**, not every thing it made: for each 
 
 ## See also
 
-- [Spawn tables](/basic/world/spawn-tables), [Encounters](/basic/world/encounters), [Placing objects](/basic/world/add-object), [Zones](/basic/world/zones).
+- [Spawn tables](/basic/entities/spawn-tables), [Encounters](/basic/world/encounters), [Placing objects](/basic/world/add-object), [Zones](/basic/world/zones).
 - [How spawners are built](/advanced/world/spawners).

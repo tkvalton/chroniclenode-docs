@@ -22,7 +22,7 @@ The area can be made to **avoid** places: water, steep ground, the inside of a [
 
 ## What: spawn tables (built)
 
-The tables are built: see [Spawn tables](/basic/world/spawn-tables). A spawner has a **spawn table**, much like a [loot table](/basic/items/loot-tables):
+The tables are built: see [Spawn tables](/basic/entities/spawn-tables). A spawner has a **spawn table**, much like a [loot table](/basic/items/loot-tables):
 
 | Field | What it does |
 |---|---|
