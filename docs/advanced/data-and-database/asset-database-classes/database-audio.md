@@ -14,6 +14,9 @@ SFX_CATEGORIES lists the categories (music, ambience, UI, voices, voicelines, fo
 
 | | |
 |---|---|
+| `Array[String]` | [get_ui_sound_names](#method-get-ui-sound-names)() *static* |
+| `Array[String]` | [get_missing_ui_sounds](#method-get-missing-ui-sounds)() *static* |
+| `Dictionary` | [get_addable_sections](#method-get-addable-sections)() *static* |
 | `void` | [initialize](#method-initialize)() *static* |
 | `void` | [ensure_initialized](#method-ensure-initialized)() *static* |
 | `void` | [ensure_directories](#method-ensure-directories)() *static* |
@@ -66,8 +69,22 @@ SFX_CATEGORIES lists the categories (music, ambience, UI, voices, voicelines, fo
 - `String` **UI_ALBUMS_PATH** = `"res://src/data/audio/albums/ui_albums/"` - The folder of the interface albums.
 - `String` **WORLD_ALBUMS_PATH** = `"res://src/data/audio/albums/world_albums/"` - The folder of the world albums.
 - `Dictionary` **SFX_CATEGORIES** = `{` - ========== Audio CATEGORY DEFINITIONS ========== Organized by source/origin: Tracks, UI, Character Audio, Ability Audio, World Audio
+- `Dictionary` **FOLDER_HELP** = `{` - What the folder name of each category is for, in plain words (the Audio tab shows it when you add a folder)
+- `Dictionary` **SECTIONS** = `{` - The words of the sections of the Audio tab, and which categories belong to each
 
 ## Method descriptions
+
+### Array[String] get_ui_sound_names() {#method-get-ui-sound-names}
+
+The names of the interface sounds the game knows: the folders of ui_sfx that it looks for (AudioManager.UISound)
+
+### Array[String] get_missing_ui_sounds() {#method-get-missing-ui-sounds}
+
+The interface sounds the game knows that the library has no folder for yet
+
+### Dictionary get_addable_sections() {#method-get-addable-sections}
+
+The categories you can add a folder to (the ones whose folders are free names), by section: &#123;section: [categories]&#125;
 
 ### void initialize() {#method-initialize}
 

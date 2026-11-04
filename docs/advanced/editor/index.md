@@ -259,6 +259,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 <!-- classes:editor/world -->
 | Class | What it is |
 |---|---|
+| [AlbumTrackForm](/advanced/editor/world/album-track-form) | The form of one track of a Music Album (an AlbumTrack): the file (chosen in the track window of the audio library), its weight and its volume. |
 | [ConfigEditorBase](/advanced/editor/world/config-editor-base) | The base of the editors of the world configs (Time, Sun, Sky, Environment, Weather), built like the other editors of the toolkit: a scene with the list of the configs on the left (the shared EditorFileList with its New button) and the settings on the right in a container for each group. |
 | [ConfigForm](/advanced/editor/world/config-form) | A small form made of field components (ConfigField) for a resource that is part of another one: an item of a list (an exposed effect of a weather). |
 | [DetileSlider](/advanced/editor/world/detile-slider) | A slider with its number written next to it: the control of the detiling numbers (the Terrain Textures editor and the Detiling panel of the terrain tool). |
@@ -266,6 +267,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [ResourceListEditor](/advanced/editor/world/resource-list-editor) | A list of resources edited in place: a container for each item (titled with a line that says what it is) with buttons to move and remove it and a form for its fields, and an Add button below. |
 | [ShelterWeatherSoundForm](/advanced/editor/world/shelter-weather-sound-form) | The form of one weather sound of a shelter profile (a ShelterWeatherSound): the kind of weather, the track that plays inside and its volume. |
 | [SkyConfigEditor](/advanced/editor/world/sky-config-editor) | The Sky tab (World &gt; Sky): the list of the sky configs on the left, the settings on the right in a container for each group. |
+| [SoundAlbumEditor](/advanced/editor/world/sound-album-editor) | The Music Albums tab (Assets &gt; Music Albums): the list of the albums on the left, the settings on the right in a container for each group (Details, Album, Tracks) and the warnings. |
 | [SpawnTablesEditor](/advanced/editor/world/spawn-tables-editor) | The Spawn Tables editor (the SpawnTableDefinition database, World &gt; Spawn Tables): a name, a description and the lines of the table. |
 | [SunConfigEditor](/advanced/editor/world/sun-config-editor) | The Sun tab (World &gt; Sun): the list of the sun configs on the left, the settings on the right in a container for each group (Day Night Cycle, Static Sun, Day Night Timing, Sun Direction). |
 | [TerrainDetilePreview](/advanced/editor/world/terrain-detile-preview) | The preview of the Detiling section of the Terrain Textures editor: the albedo of the texture repeated over three squares, as it is (the repeats line up), with hex tiling (what the ground shows near the camera) and with the second look (what it shows far away), drawn by the same code as the ground (terrain_hex.gdshaderinc). |
@@ -397,6 +399,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [PropertyFactory](/advanced/editor/factory/property-factory) | Makes the rows of the inspector editors of the toolkit: a label with a check box, a text field, a number, a drop-down, a database drop-down, a slider or a color picker, each as an `EditorProperty` that calls a function when its value changes. |
 | [PropertyUIFactory](/advanced/editor/factory/property-ui-factory) | Factory for creating UI controls with consistent styling and behavior Uses class-based controls for complex components |
 | [ResourceField](/advanced/editor/factory/resource-field) | A property that holds a resource (a gradient, a curve, a texture, a sky driver) in a resource picker: pick one from the project, make a new one or clear it. |
+| [SoundSourceField](/advanced/editor/factory/sound-source-field) | The field of a SoundSource property (the music, the combat music or the ambience of a world, a zone, a weather or an encounter): None, a Track (chosen in the track window of the audio library, with its loop, the pause between plays, the volume and the fade) or an Album (a Music Album or a Combat Music Album of the project). |
 | [TextField](/advanced/editor/factory/text-field) | A text (a String property) in a line. |
 | [ToggleField](/advanced/editor/factory/toggle-field) | A bool property in a check box. |
 | [Vector2Control](/advanced/editor/factory/vector2-control) | Two spinboxes for Vector2 input with clipboard paste support |

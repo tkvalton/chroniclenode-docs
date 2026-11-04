@@ -54,6 +54,10 @@ A picture of the world from above, shown for you and used by the in-game [world 
 
 A world uses the project's default **Time**, **Sun**, **Sky** and **Environment** configs. Choose another for this world here: a dungeon with no sun and heavy fog, a dream with fast time. See [World Configs](/basic/world/world-configs). *Default* means the project's.
 
+### Music and ambience
+
+The **World Album** container is now **Music and ambience**: three [sound sources](/basic/world/music-albums#a-sound-source). **Music** (a track with its options, or a [Music Album](/basic/world/music-albums)), **Combat music** (a track or a Combat Music Album) and **Ambient sound** (a track). A [zone](/basic/world/zones#music-and-ambient-sound) and a [weather](/basic/world/weather#sound) can play something else, an [encounter](/basic/world/encounters#combat-music) can have its own combat music, and an event can play a track. When the world starts it asks for every track it can need to be loaded.
+
 ### Default weather
 
 Every world has a weather: a new world, or one that had none, gets **Clear**, the built-in weather with nothing in it, and Clear is the first choice of the list (there is no empty choice). The **Weather** section has two drop-downs. The first is a list of the weathers of the project; the second a list of [weather tables](/basic/world/weather-tables): a world with a table uses it instead of the one weather, and picks a weather from it by weight, another when its time is up. **No table** uses the weather above. A [zone](/basic/world/zones#weather-for-each-zone) can have a weather or a table of its own.

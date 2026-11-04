@@ -19,6 +19,7 @@ The editor of the Worlds tab (World &gt; Worlds): lists the world scenes with a 
 | `String` | [current_category_filter](#var-current-category-filter) | `""` |
 | `ResourceManager` | [resource_manager](#var-resource-manager) |  |
 | `DialogManager` | [dialog_manager](#var-dialog-manager) |  |
+| `Array[SoundSourceField]` | [sound_fields](#var-sound-fields) | `[]` |
 | `OptionButton` | [weather_config_option](#var-weather-config-option) | `null` |
 | `OptionButton` | [weather_table_option](#var-weather-table-option) | `null` |
 
@@ -67,6 +68,10 @@ The Zones section (made in code)
 ### DialogManager dialog_manager {#var-dialog-manager}
 
 *No description yet.*
+
+### Array[SoundSourceField] sound_fields = [] {#var-sound-fields}
+
+The music, the combat music and the ambient sound of the world (sound sources), in the place of the old album menu
 
 ### OptionButton weather_config_option = null {#var-weather-config-option}
 

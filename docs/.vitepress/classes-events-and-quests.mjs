@@ -705,6 +705,18 @@ export const groups = [
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\audio\\set_music_track_action.gd",
         "file": "data_classes/events/event_actions/audio/set_music_track_action.gd"
+      },
+      {
+        "name": "SpawnSoundAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\audio\\spawn_sound_action.gd",
+        "file": "data_classes/events/event_actions/audio/spawn_sound_action.gd"
+      },
+      {
+        "name": "StopSoundAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\audio\\stop_sound_action.gd",
+        "file": "data_classes/events/event_actions/audio/stop_sound_action.gd"
       }
     ]
   },

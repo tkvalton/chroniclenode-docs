@@ -19,6 +19,7 @@ UniqueEncounterData defines both the behavior AND unique instance data for an en
 | `float` | [auto_join_radius](#prop-auto-join-radius) | `25.0` |
 | `bool` | [respawns](#prop-respawns) | `false` |
 | `int` | [respawn_delay](#prop-respawn-delay) | `60` |
+| `SoundSource` | [combat_source](#prop-combat-source) |  |
 | `Formation` | [formation_type](#prop-formation-type) | `Formation.NONE` |
 | `float` | [min_spacing_distance](#prop-min-spacing-distance) | `3.0` |
 | `float` | [spacing_check_interval](#prop-spacing-check-interval) | `2.0` |
@@ -112,6 +113,10 @@ Does the group come back after it is defeated? Its dead members stand up again a
 ### int respawn_delay = 60 {#prop-respawn-delay}
 
 Seconds between the defeat of the whole group and its return (only when Respawns is on)
+
+### SoundSource combat_source {#prop-combat-source}
+
+The music of the fight with this encounter (a track or a Combat Music Album). Empty = the zone's, then the world's. It wins over both while the party fights this encounter
 
 *Formation &amp; Spacing*
 

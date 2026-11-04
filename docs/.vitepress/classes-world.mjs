@@ -227,10 +227,40 @@ export const groups = [
     "slug": "audio-profiles",
     "classes": [
       {
+        "name": "AlbumCursor",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\album_cursor.gd",
+        "file": "data_classes/audio/album_cursor.gd"
+      },
+      {
+        "name": "AlbumTrack",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\album_track.gd",
+        "file": "data_classes/audio/album_track.gd"
+      },
+      {
         "name": "AudioProfile",
         "base": "Resource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\audio_profile.gd",
         "file": "data_classes/audio/audio_profile.gd"
+      },
+      {
+        "name": "SoundAlbum",
+        "base": "DatabaseResource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\sound_album.gd",
+        "file": "data_classes/audio/sound_album.gd"
+      },
+      {
+        "name": "SoundSource",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\sound_source.gd",
+        "file": "data_classes/audio/sound_source.gd"
+      },
+      {
+        "name": "SoundSourceHolder",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\audio\\sound_source_holder.gd",
+        "file": "data_classes/audio/sound_source_holder.gd"
       },
       {
         "name": "VoicelineSubtitles",

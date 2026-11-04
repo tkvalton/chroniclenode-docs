@@ -45,12 +45,13 @@ Not managers, but used the same way from anywhere: the [`Database`](/advanced/da
 | Class | What it is |
 |---|---|
 | [AudioManager](/advanced/managers/managers/audio-manager) | Centralized audio system managing music, ambiance, and sound effects with pooled players and phased initialization for fast startup. |
+| [AudioPreload](/advanced/managers/managers/audio-preload) | Walks a world for every track it can need and gives their paths, so the AudioManager asks for them when the world loads (and the sources that start later find them ready). |
 | [ChatCommands](/advanced/managers/managers/chat-commands) | What the player types in the chat box. |
 | [ChatListeners](/advanced/managers/managers/chat-listeners) | Turns what happens in the game into messages: it listens to the signals that exist already (a level up, an item received, a quest accepted ...) and posts a line to the right channel of the message manager, so no system has to know about the chat. |
 | [ChatManager](/advanced/managers/managers/chat-manager) | The **message manager**: everything the game wants to tell the player goes through here. |
 | [ChronoManager](/advanced/managers/managers/chrono-manager) | Centralized timer pool and game time management system. |
 | [FactionManager](/advanced/managers/managers/faction-manager) | FactionManager - Global singleton that orchestrates faction relationships Delegates logic to FactionDefinition instances and handles synchronization between factions Each faction manages its own runtime reputation; manager ensures both sides stay in sync |
-| [SoundLayers](/advanced/managers/managers/sound-layers) | Who decides what music and ambience play: the album of the world is the base, and four layers lie over it. |
+| [SoundLayers](/advanced/managers/managers/sound-layers) | Who decides what music and ambience play: layers lie one over the other, and the highest layer that has something for a channel wins, for music and for ambience on their own: WORLD (what the world says) &lt; ZONE (the place the party is in) &lt; WEATHER (the weather that is on) &lt; SHELTER (the shelter the camera is in, the rain on its roof) &lt; ENCOUNTER (the fight the party is in, combat music only) &lt; EVENT (an event that plays a track). |
 <!-- /classes -->
 
 ### Save and load

@@ -41,6 +41,12 @@ export const groups = [
         "file": "runtime_classes/system_managers/audio_manager.gd"
       },
       {
+        "name": "AudioPreload",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\system_managers\\audio_preload.gd",
+        "file": "runtime_classes/system_managers/audio_preload.gd"
+      },
+      {
         "name": "ChatCommands",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\system_managers\\chat_commands.gd",

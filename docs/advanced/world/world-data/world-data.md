@@ -29,6 +29,9 @@ Pure data storage for world information Contains only world metadata, spawn poin
 | `Array[ZoneMapEntry]` | [zone_maps](#prop-zone-maps) | `[]` |
 | `Texture` | [loading_screen_texture_override](#prop-loading-screen-texture-override) |  |
 | `AudioAlbum` | [audio_album](#prop-audio-album) |  |
+| `SoundSource` | [music_source](#prop-music-source) |  |
+| `SoundSource` | [combat_source](#prop-combat-source) |  |
+| `SoundSource` | [ambience_source](#prop-ambience-source) |  |
 | `String` | [default_music_track](#prop-default-music-track) | `""` |
 | `String` | [default_ambient_track](#prop-default-ambient-track) | `""` |
 | `WeatherConfig` | [default_weather_config](#prop-default-weather-config) |  |
@@ -177,6 +180,18 @@ Loading screen texture override (null = use default loading screens)
 ### AudioAlbum audio_album {#prop-audio-album}
 
 Audio album containing all track types for this world
+
+### SoundSource music_source {#prop-music-source}
+
+The music of the world: a track with its options, or a Music Album (Assets &gt; Music Albums). A zone or a weather can play something else
+
+### SoundSource combat_source {#prop-combat-source}
+
+The music of a fight in this world: a track, or a Combat Music Album. A zone and an encounter can have their own
+
+### SoundSource ambience_source {#prop-ambience-source}
+
+The ambient sound of the world (the wind, the birds): one track with its options. A zone or a weather can play another
 
 ### String default_music_track = "" {#prop-default-music-track}
 

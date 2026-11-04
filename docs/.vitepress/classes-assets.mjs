@@ -107,6 +107,12 @@ export const groups = [
         "file": "data_classes/selections/sfx/sfx_selection_status_effect.gd"
       },
       {
+        "name": "UISFXSelection",
+        "base": "SFXSelection",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\selections\\sfx\\sfx_selection_ui.gd",
+        "file": "data_classes/selections/sfx/sfx_selection_ui.gd"
+      },
+      {
         "name": "VoicelineSFXSelection",
         "base": "SFXSelection",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\selections\\sfx\\sfx_selection_voiceline.gd",

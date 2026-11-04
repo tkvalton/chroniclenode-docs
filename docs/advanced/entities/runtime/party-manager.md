@@ -127,6 +127,10 @@ Death System Signals Signal emitted when game over is triggered (for UI to respo
 
 Signal emitted when respawn is requested
 
+### party_combat_changed( in_combat: bool ) {#signal-party-combat-changed}
+
+The party entered or left a fight (a member is in combat or none is): the combat music follows it
+
 ## Enumerations
 
 ### enum RecruitResult {#enum-recruitresult}

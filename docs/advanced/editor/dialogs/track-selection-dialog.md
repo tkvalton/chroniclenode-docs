@@ -29,6 +29,7 @@ Track selection dialog of the audio library: the tracks of an album, of a zone, 
 | `bool` | [has_valid_selection](#method-has-valid-selection)() |
 | `void` | [show_music_only](#method-show-music-only)() |
 | `void` | [show_ambience_only](#method-show-ambience-only)() |
+| `void` | [show_world_sounds_only](#method-show-world-sounds-only)() |
 | `void` | [show_loop_sfx_only](#method-show-loop-sfx-only)() |
 | `void` | [show_all_supported](#method-show-all-supported)() |
 | `void` | [set_search_filter](#method-set-search-filter)( `search: String` ) |
@@ -46,6 +47,7 @@ What a field chooses: any of the tracks of the library, music only, or ambient s
 - **ANY** = `0`
 - **MUSIC** = `1`
 - **AMBIENCE** = `2`
+- **WORLD_SOUND** = `3`
 
 ## Variable descriptions
 
@@ -106,6 +108,10 @@ Show only music tracks (loop and non-loop)
 ### void show_ambience_only() {#method-show-ambience-only}
 
 Show only ambience tracks (loop and non-loop)
+
+### void show_world_sounds_only() {#method-show-world-sounds-only}
+
+Show the sounds that come from a place in the world: the environmental sounds (a waterfall, a fire, a mechanism), the ambient sounds and the loops
 
 ### void show_loop_sfx_only() {#method-show-loop-sfx-only}
 

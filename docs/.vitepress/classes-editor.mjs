@@ -935,6 +935,12 @@ export const groups = [
     "slug": "world",
     "classes": [
       {
+        "name": "AlbumTrackForm",
+        "base": "ConfigForm",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\album_track_form.gd",
+        "file": "editor_components/editors/world/album_track_form.gd"
+      },
+      {
         "name": "ConfigEditorBase",
         "base": "ResourceEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\config_editor_base.gd",
@@ -975,6 +981,12 @@ export const groups = [
         "base": "ConfigEditorBase",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\sky_config_editor.gd",
         "file": "editor_components/editors/world/sky_config_editor.gd"
+      },
+      {
+        "name": "SoundAlbumEditor",
+        "base": "ConfigEditorBase",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\world\\sound_album_editor.gd",
+        "file": "editor_components/editors/world/sound_album_editor.gd"
       },
       {
         "name": "SpawnTablesEditor",
@@ -1617,6 +1629,12 @@ export const groups = [
         "base": "ConfigField",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\resource_field.gd",
         "file": "editor_components/controls/config_fields/resource_field.gd"
+      },
+      {
+        "name": "SoundSourceField",
+        "base": "ConfigField",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\sound_source_field.gd",
+        "file": "editor_components/controls/config_fields/sound_source_field.gd"
       },
       {
         "name": "TextField",

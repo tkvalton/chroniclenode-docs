@@ -95,6 +95,7 @@ const basicSystems = [
     ['Weather', 'weather', 'weather'],
     ['Shelters', 'shelter', 'shelter'],
     ['Weather Tables', 'weather-tables', 'weather_table'],
+    ['Music Albums', 'music-albums', 'sound_album'],
     ['Uniques', 'uniques', 'uniques'],
   ], {
     after: [
@@ -137,7 +138,8 @@ const basicSystems = [
       page('Camera effects', '/basic/world/camera-effects'),
       page('Your own sky', '/basic/world/your-own-sky'),
       page('Shader globals', '/basic/world/shader-globals'),
-      page('Audio zones', '/basic/world/audio-zones'),
+      page('3D sounds', '/basic/world/3d-sounds'),
+    page('Audio zones', '/basic/world/audio-zones'),
       page('Sound layers', '/basic/world/sound-layers'),
       page('Encounters', '/basic/world/encounters'),
     ],
@@ -211,7 +213,7 @@ const basicSystems = [
     ['Animations', 'animations', 'animations'],
     ['VFX', 'vfx', 'vfx'],
     ['Audio', 'audio', 'audio'],
-    ['Albums', 'albums', 'albums'],
+    ['UI Albums', 'albums', 'albums'],
     ['Icons', 'icons', 'icons'],
     ['Terrain Textures', 'terrain-textures', 'terrain_textures'],
     ['Foliage', 'foliage', 'foliage'],

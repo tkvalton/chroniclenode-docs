@@ -57,6 +57,8 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_
 | `UIAlbum                            # Currently loaded UI album` | [current_ui_album](#var-current-ui-album) |  |
 | `AudioAlbum` | [current_world_album](#var-current-world-album) |  |
 | `SoundLayers` | [sound_layers](#var-sound-layers) | `SoundLayers.new()` |
+| `SoundLayers` | [combat_layers](#var-combat-layers) | `SoundLayers.new()` |
+| `bool` | [party_in_combat](#var-party-in-combat) | `false` |
 | `Array[AudioStream]` | [loaded_ui_music_tracks](#var-loaded-ui-music-tracks) | `[]` |
 | `Array[AudioStream]` | [loaded_ui_ambient_tracks](#var-loaded-ui-ambient-tracks) | `[]` |
 | `Array[AudioStream]` | [loaded_ui_transition_tracks](#var-loaded-ui-transition-tracks) | `[]` |
@@ -73,6 +75,7 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_
 | `float` | [music_volume_db](#var-music-volume-db) | `0.0 : set = set_music_volume` |
 | `float` | [ambiance_volume_db](#var-ambiance-volume-db) | `0.0 : set = set_ambiance_volume` |
 | `float` | [ui_sfx_volume_db](#var-ui-sfx-volume-db) | `-10.0 : set = set_ui_sfx_volume` |
+| `Dictionary` | [spawned_sounds](#var-spawned-sounds) | `{}` |
 
 ## Methods
 
@@ -103,12 +106,22 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_
 | `void` | [clear_sound_channel](#method-clear-sound-channel)( `layer: SoundLayers.Layer, channel: StringName, fade_duration: float = FADE_DURATION` ) |
 | `void` | [clear_sound_layer](#method-clear-sound-layer)( `layer: SoundLayers.Layer, fade_duration: float = FADE_DURATION` ) |
 | `void` | [drop_event_track](#method-drop-event-track)( `channel: StringName` ) |
+| `AmbientSound` | [spawn_sound](#method-spawn-sound)( `parent: Node, audio: AudioStream, world_position: Vector3, sound_name: String = "", loop: bool = true` ) |
+| `bool` | [stop_sound](#method-stop-sound)( `sound_name: String, fade_seconds: float = 1.0` ) |
+| `void` | [start_world_sound](#method-start-world-sound)( `world_data: WorldData` ) |
+| `void` | [preload_tracks](#method-preload-tracks)( `paths: PackedStringArray` ) |
+| `void` | [set_party_in_combat](#method-set-party-in-combat)( `value: bool` ) |
+| `void` | [connect_party](#method-connect-party)( `party: PartyManager` ) |
+| `void` | [set_sound_sources](#method-set-sound-sources)( `layer: SoundLayers.Layer, music: SoundSource, ambience: SoundSource, fade_duration: float = -1.0, ambience_gain_db: float = 0.0` ) |
+| `void` | [set_combat_source](#method-set-combat-source)( `layer: SoundLayers.Layer, source: SoundSource, fade_duration: float = -1.0` ) |
+| `void` | [set_sound_source_channel](#method-set-sound-source-channel)( `layer: SoundLayers.Layer, channel: StringName, source: SoundSource, fade_duration: float = -1.0` ) |
+| `void` | [clear_combat_layers](#method-clear-combat-layers)() |
 | `void` | [combat_music_start](#method-combat-music-start)() |
 | `void` | [combat_music_end](#method-combat-music-end)() |
 | `void` | [setup_audio_for_state](#method-setup-audio-for-state)( `game_state: String, world_id: String = ""` ) |
 | `void` | [switch_to_pause_menu](#method-switch-to-pause-menu)() |
 | `void` | [return_from_pause_menu](#method-return-from-pause-menu)() |
-| `String` | [get_ui_sound_name](#method-get-ui-sound-name)( `sound: UISound` ) |
+| `String` | [get_ui_sound_name](#method-get-ui-sound-name)( `sound: UISound` ) *static* |
 | `AudioStreamPlayer` | [get_available_ui_player](#method-get-available-ui-player)() |
 | `bool` | [play_ui_sound](#method-play-ui-sound)( `sound: UISound, volume_modifier: float = 0.0` ) |
 | `bool` | [play_ui_effect](#method-play-ui-effect)( `display_name: String, volume_modifier: float = 0.0` ) |
@@ -161,6 +174,17 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambiance_
 - **CHARACTER_SELECT** = `19`
 - **LEVEL_UP** = `20`
 - **NOTIFICATION** = `21`
+- **ITEM_DROP** = `22`
+- **ITEM_USE** = `23`
+- **MONEY** = `24`
+- **CRAFT_COMPLETE** = `25`
+- **ITEM_BREAK** = `26`
+- **ITEM_REPAIR** = `27`
+- **MAP_OPEN** = `28`
+- **MAP_CLOSE** = `29`
+- **JOURNAL_UPDATE** = `30`
+- **ACHIEVEMENT** = `31`
+- **CANT_DO** = `32`
 
 ## Constants
 
@@ -233,7 +257,15 @@ Currently loaded world album
 
 ### SoundLayers sound_layers = SoundLayers.new() {#var-sound-layers}
 
-The layers over the album: the zone, the weather, a shelter and an event can each play music and ambience of their own (see SoundLayers)
+The layers of the music and the ambience: the world, the zone, the weather, a shelter and an event can each say what plays (see SoundLayers)
+
+### SoundLayers combat_layers = SoundLayers.new() {#var-combat-layers}
+
+The layers of the combat music: the world, the zone and the encounter (the encounter wins). It plays instead of the music while the party is in combat
+
+### bool party_in_combat = false {#var-party-in-combat}
+
+True while a member of the party is in combat (PartyManager.party_combat_changed), and for a few seconds after
 
 ### Array[AudioStream] loaded_ui_music_tracks = [] {#var-loaded-ui-music-tracks}
 
@@ -298,6 +330,10 @@ The volume of the ambiance, in decibels.
 ### float ui_sfx_volume_db = -10.0 : set = set_ui_sfx_volume {#var-ui-sfx-volume-db}
 
 The volume of the sounds of the interface, in decibels.
+
+### Dictionary spawned_sounds =  {#var-spawned-sounds}
+
+The sounds that events spawned and that play under a name: name -&gt; AmbientSound
 
 ## Method descriptions
 
@@ -400,6 +436,46 @@ Takes a layer off: what is under it (another layer, or the album) comes back ove
 ### void drop_event_track( channel: StringName ) {#method-drop-event-track}
 
 An event stopped the music or the ambience: its track is dropped without bringing anything else back (what is under it plays again only when a layer next changes)
+
+### AmbientSound spawn_sound( parent: Node, audio: AudioStream, world_position: Vector3, sound_name: String = "", loop: bool = true ) {#method-spawn-sound}
+
+Spawns a 3D sound under a node at a place. A sound given a name replaces the one that plays under it
+
+### bool stop_sound( sound_name: String, fade_seconds: float = 1.0 ) {#method-stop-sound}
+
+Fades out the sound spawned under a name and takes it away. False when nothing plays under the name
+
+### void start_world_sound( world_data: WorldData ) {#method-start-world-sound}
+
+The world's sound starts: the music, the ambience and the combat music the world says are its layer, and every track the world can need is asked for in the background (or waited for: Gameplay Config &gt; Audio)
+
+### void preload_tracks( paths: PackedStringArray ) {#method-preload-tracks}
+
+Asks for files to be loaded in the background, so a source that starts later finds them ready (a world with many zones loads its albums while the party plays). In the mode "wait" the call waits for them
+
+### void set_party_in_combat( value: bool ) {#method-set-party-in-combat}
+
+The party enters or leaves a fight (PartyManager). The combat music starts at once and ends after a few seconds without a fight (Gameplay Config &gt; Audio)
+
+### void connect_party( party: PartyManager ) {#method-connect-party}
+
+Listens to the party (called once by the game host)
+
+### void set_sound_sources( layer: SoundLayers.Layer, music: SoundSource, ambience: SoundSource, fade_duration: float = -1.0, ambience_gain_db: float = 0.0 ) {#method-set-sound-sources}
+
+A layer says what plays (a zone, a weather ...): a music source and an ambience source (null = nothing of its own). `ambience_gain_db` makes the ambience quieter or louder (the weather's, by its intensity)
+
+### void set_combat_source( layer: SoundLayers.Layer, source: SoundSource, fade_duration: float = -1.0 ) {#method-set-combat-source}
+
+A layer says what its combat music is (a zone, an encounter): null takes it off
+
+### void set_sound_source_channel( layer: SoundLayers.Layer, channel: StringName, source: SoundSource, fade_duration: float = -1.0 ) {#method-set-sound-source-channel}
+
+One channel of a layer says what plays (an event): a source, null takes the channel off. The sound changes over the seconds (-1 = the project's default)
+
+### void clear_combat_layers() {#method-clear-combat-layers}
+
+The combat layers are cleared (the world is left)
 
 ### void combat_music_start() {#method-combat-music-start}
 

@@ -17,6 +17,7 @@ What is known about the zones from the database alone: who is whose parent, the 
 | `ZoneDefinition` | [get_weather_owner](#method-get-weather-owner)( `zone_id: int` ) *static* |
 | `ZoneDefinition` | [get_music_owner](#method-get-music-owner)( `zone_id: int` ) *static* |
 | `ZoneDefinition` | [get_ambience_owner](#method-get-ambience-owner)( `zone_id: int` ) *static* |
+| `ZoneDefinition` | [get_combat_owner](#method-get-combat-owner)( `zone_id: int` ) *static* |
 | `int` | [get_look_id](#method-get-look-id)( `zone_id: int, kind: String` ) *static* |
 | `bool` | [is_inside](#method-is-inside)( `zone_id: int, ancestor_id: int` ) *static* |
 | `int` | [get_top](#method-get-top)( `zone_id: int` ) *static* |
@@ -59,6 +60,10 @@ The zone that gives the music of a place: the zone itself if it has music tracks
 ### ZoneDefinition get_ambience_owner( zone_id: int ) {#method-get-ambience-owner}
 
 The zone that gives the ambient sound of a place (the same way)
+
+### ZoneDefinition get_combat_owner( zone_id: int ) {#method-get-combat-owner}
+
+The zone that gives the combat music of a place (the same way)
 
 ### int get_look_id( zone_id: int, kind: String ) {#method-get-look-id}
 

@@ -45,10 +45,8 @@ A world has a default weather (World editor &gt; Weather) and an event changes i
 | `float` | [screen_aberration](#prop-screen-aberration) | `0.0` |
 | `float` | [screen_grain](#prop-screen-grain) | `0.0` |
 | `String` | [sound_kinds](#prop-sound-kinds) | `""` |
-| `Array[String]` | [music_tracks](#prop-music-tracks) | `[]` |
-| `float` | [music_volume_db](#prop-music-volume-db) | `0.0` |
-| `Array[String]` | [ambience_tracks](#prop-ambience-tracks) | `[]` |
-| `float` | [ambience_volume_db](#prop-ambience-volume-db) | `0.0` |
+| `SoundSource` | [music_source](#prop-music-source) |  |
+| `SoundSource` | [ambience_source](#prop-ambience-source) |  |
 | `Array[WeatherEffectEntry]` | [exposed_effects](#prop-exposed-effects) | `[]` |
 
 ## Methods
@@ -57,6 +55,8 @@ A world has a default weather (World editor &gt; Weather) and an event changes i
 |---|---|
 | `PackedStringArray` | [get_sound_kinds](#method-get-sound-kinds)() |
 | `bool` | [has_sound_layer](#method-has-sound-layer)() |
+| `SoundSource` | [get_music_source](#method-get-music-source)() |
+| `SoundSource` | [get_ambience_source](#method-get-ambience-source)() |
 | `bool` | [has_screen_look](#method-has-screen-look)() |
 | `ScreenLook` | [make_screen_look](#method-make-screen-look)( `intensity: float = 1.0, shelter: float = 0.0` ) |
 | `float` | [get_cover_stick](#method-get-cover-stick)() |
@@ -216,21 +216,13 @@ Film grain (0 to 1)
 
 The kinds of sound this weather makes, in order, separated by commas (rain; or sleet: rain, snow; or wind, sand). A shelter has a track for a kind of weather (the rain on its roof): it plays the track of the first kind it has one for. A kind the shelter has no track for does nothing
 
-### Array[String] music_tracks = [] {#prop-music-tracks}
+### SoundSource music_source {#prop-music-source}
 
-The music this weather plays while it is on (audio files; one is picked, and another after it ends). Empty = it leaves the music to the zone and the world. A shelter and events can play over it
+The music this weather plays while it is on: a track with its options or a Music Album. Empty = it leaves the music to the zone and the world. A shelter and events can play over it
 
-### float music_volume_db = 0.0 {#prop-music-volume-db}
+### SoundSource ambience_source {#prop-ambience-source}
 
-How loud the music of the weather is (dB)
-
-### Array[String] ambience_tracks = [] {#prop-ambience-tracks}
-
-The ambient sound of this weather (rain, wind): audio files, one is picked. Empty = it leaves the ambient sound to the zone and the world. It is quieter in a light weather (the volume follows the intensity)
-
-### float ambience_volume_db = 0.0 {#prop-ambience-volume-db}
-
-How loud the ambient sound of the weather is at full intensity (dB)
+The ambient sound of this weather (rain, wind): one track with its options. Empty = it leaves the ambient sound to the zone and the world. It is quieter in a light weather (the volume follows the intensity)
 
 *Exposed Effects*
 
@@ -247,6 +239,14 @@ The kinds of sound of this weather, in order (empty names left out)
 ### bool has_sound_layer() {#method-has-sound-layer}
 
 Does this weather play music or an ambient sound of its own?
+
+### SoundSource get_music_source() {#method-get-music-source}
+
+The music of this weather as a source: the music source, else the first track of the old list (a weather made before sources)
+
+### SoundSource get_ambience_source() {#method-get-ambience-source}
+
+The ambient sound of this weather as a source (the same way)
 
 ### bool has_screen_look() {#method-has-screen-look}
 

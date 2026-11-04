@@ -47,9 +47,9 @@ Each instance gets `custom_effect_data["from_weather"] = weather id`. `WeatherEf
 
 ## The sound layers
 
-`SoundLayers` holds, for each `Layer` (`ZONE`, `WEATHER`, `SHELTER`, `EVENT`, lowest first), a list of tracks, a volume and a `loop` flag for each of the two channels (`MUSIC`, `AMBIENCE`). `resolve_music()` and `resolve_ambience()` return the highest layer that has tracks: `{layer, tracks, volume_db, loop}`, or an empty dictionary when only the album plays.
+`SoundLayers` holds, for each `Layer` (`WORLD`, `ZONE`, `WEATHER`, `SHELTER`, `ENCOUNTER`, `EVENT`, lowest first), a `SoundSource` (a track with options or an album: `set_source`) or an old list of tracks for each of the two channels (`MUSIC`, `AMBIENCE`). `resolve_music()` and `resolve_ambience()` return the highest layer that has something: `{layer, tracks, volume_db, loop, source}` (`source` is null for an old list), or an empty dictionary when nothing plays. The `AudioManager` keeps two sets: `sound_layers` and `combat_layers` (world, zone, encounter), the second used while `party_in_combat` is true. See [Music albums](/basic/world/music-albums) for the player side.
 
-`AudioManager` keeps the key of what it plays from the layers (`"layer|tracks"`). `_apply_layers(fade)` resolves both channels: a changed key crossfades to a track picked from the new source (or back to the album when no layer has any; a world album with no music fades the music out); the same key only fades the volume. `play_music` and `play_ambiance` ask the layers first (everything but the `"ui"` album type), except that `in_combat` with combat tracks keeps the combat music; `combat_music_end()` therefore returns to the layers.
+`AudioManager` keeps the key of what it plays (`_layer_music_key`, `_layer_ambience_key`). `_apply_music(fade)` and `_apply_ambience(fade)` resolve a channel (the music from the combat layers while the party is in combat and some layer has combat music): a changed key crossfades to the new source (`_start_run`: a track, or the first track of an album from an `AlbumCursor`); nothing to play fades the channel out; the same key only fades the volume of a track. When a track ends `_continue_run` decides: the next album track after the album pause, the same track after its pause, or the end of the source (`_end_run` clears its layer and the one below plays). Streams are copied before the loop flag is set. `set_sound_sources`, `set_combat_source` and `set_sound_source_channel` are what the zone, weather, encounter and event call; `start_world_sound` sets the world layer and asks for the tracks `AudioPreload.collect` found. `set_party_in_combat` (from `PartyManager.party_combat_changed`) starts and, after `audio_combat_music_end_delay`, ends the combat music.
 
 | Who sets it | Where |
 |---|---|
@@ -62,7 +62,7 @@ Each instance gets `custom_effect_data["from_weather"] = weather id`. `WeatherEf
 
 ## Extending
 
-- Another layer is a new value of `SoundLayers.Layer` (keep the order: later is higher) and a call to `set_sound_layer` from wherever it lives.
+- Another layer is a new value of `SoundLayers.Layer` (keep the order: later is higher) and a call to `set_sound_sources` (or `set_sound_source_channel`) from wherever it lives.
 - Your own targets for the exposed effects: change `WeatherExposure._targets`.
 - Your own idea of "sheltered": `Shelter.protects_at` and `amount_at` look at every node of the group `shelter_volumes`, so a `ShelterVolume` subclass (or any node of the group with `contains_point`, `get_amount` and `protects_from_effects`) takes part.
 

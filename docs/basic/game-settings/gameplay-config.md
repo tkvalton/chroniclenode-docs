@@ -17,6 +17,7 @@ The **Gameplay Config** holds the rules of your game that are not about one thin
 | **General** | [Quests](/basic/events-and-quests/quests), Fog of War, Footsteps, Developer, Save/Load Rules, Breath | [below](#general) |
 | **Items & Inventory** | Item Generation, Inventory Styles, Items and inventory, Durability, Dropped Items | [below](#items-inventory) |
 | **Visuals** | Rig Markers, Outline Materials, Targeting Visuals, Tactical View Visuals, Target Textures | [below](#visuals) |
+| **Audio** | Music and ambience: how the world loads its tracks, the default fade, the combat music fade and end delay | [below](#audio) |
 | **NPC LOD System** | LOD distance thresholds, Terrain Range, update intervals, batch processing | [below](#npc-lod-system) |
 
 ::: tip Where to start
@@ -183,6 +184,17 @@ The pictures and materials the game uses to show targeting, selection and the ta
 | **Targeting visuals** | **Max distance circle marker** (the range of an ability), **Attack ribbon material** (the line from the user to the mouse) | Aiming an ability. *The range circle is not used yet* |
 | **Tactical view visuals** | **Path material**, **Destination material** | The line and the marker of a click-to-move path. *Not used yet* |
 | **Target textures** | **Ability target textures**: the pictures an ability can choose for its targeting marker | The ability's targeting marker |
+
+## Audio
+
+How the music, the combat music and the ambient sound behave; the sounds themselves are chosen on the world, the zones, the weather and the encounters ([Music Albums](/basic/world/music-albums)).
+
+| Field | What it does | Default |
+|---|---|---|
+| **Audio preload mode** | **Background**: when a world starts it asks for every track its zones, weather, encounters and events can play, and the game goes on while they load. **Wait**: the loading screen waits until they are all loaded (more memory used at the start, no pause later) | Background |
+| **Audio default fade seconds** | The seconds a new music or ambient sound takes to fade in when its source does not say | `3` |
+| **Audio combat fade seconds** | The seconds the combat music takes to come in when a fight starts, and the music to come back when it ends | `1.5` |
+| **Audio combat music end delay** | The seconds after the last fight of the party before the combat music ends (so a short break in a fight does not cut it) | `4` |
 
 ## NPC LOD system
 

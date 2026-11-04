@@ -11,9 +11,7 @@ Action to control music track playback Uses TrackSelectionDialog to pick specifi
 | | | |
 |---|---|---|
 | `MusicAction` | [action](#prop-action) | `MusicAction.PLAY_TRACK` |
-| `String` | [track_path](#prop-track-path) | `""` |
-| `bool` | [loop_track](#prop-loop-track) | `true` |
-| `float` | [volume_db](#prop-volume-db) | `0.0` |
+| `SoundSource` | [source](#prop-source) |  |
 | `float` | [fade_duration](#prop-fade-duration) | `3.0` |
 | `bool` | [use_crossfade](#prop-use-crossfade) | `true` |
 | `bool` | [return_to_map_album](#prop-return-to-map-album) | `false` |
@@ -23,6 +21,7 @@ Action to control music track playback Uses TrackSelectionDialog to pick specifi
 | | |
 |---|---|
 | `String` | [get_function_description](#method-get-function-description)() |
+| `SoundSource` | [get_source](#method-get-source)() |
 | `Dictionary` | [save](#method-save)() |
 | `void` | [load_data](#method-load-data)( `data: Dictionary` ) |
 
@@ -43,21 +42,13 @@ The options of music action: play track, stop, fade stop.
 
 What to do with the music
 
-### String track_path = "" {#prop-track-path}
+### SoundSource source {#prop-source}
 
-The music track file path to play (only used for PLAY_TRACK action) Selected via TrackSelectionDialog - should be from current map's album for best performance
-
-### bool loop_track = true {#prop-loop-track}
-
-Whether to loop the track (only used for PLAY_TRACK action)
-
-### float volume_db = 0.0 {#prop-volume-db}
-
-Volume in decibels (only used for PLAY_TRACK action)
+What to play (only for PLAY_TRACK): a track with its options (loop or one shot, the pause between plays, volume, fade) or a Music Album. It wins over the zone, the weather and the shelter until it ends or a Clear action takes it off
 
 ### float fade_duration = 3.0 {#prop-fade-duration}
 
-Crossfade duration in seconds (only used for PLAY_TRACK action)
+Crossfade duration in seconds (for PLAY_TRACK and the fades of the other actions; the source may have its own fade)
 
 ### bool use_crossfade = true {#prop-use-crossfade}
 
@@ -72,6 +63,10 @@ After track finishes, return to map album instead of looping
 ### String get_function_description() {#method-get-function-description}
 
 Return a description of this action with parameter placeholders
+
+### SoundSource get_source() {#method-get-source}
+
+The source this action plays: the one chosen, else a track made from the old settings of the action
 
 ### Dictionary save() {#method-save}
 

@@ -1,11 +1,10 @@
 # Albums
 
-An **album** is a set of music and ambience tracks, with the rules for how they play. **Assets > Albums** makes and edits them. There are two kinds:
+A **UI album** is the set of tracks of the menus of the game: the music, the ambient sound and the transition sounds of the main menu, the character creator, the pause menu and the loading screen. **Assets > UI Albums** makes and edits them.
 
-| Kind | Used by | Tracks it has |
-|---|---|---|
-| **Map album** | A [world](/basic/world/worlds#audio) | **Music** (exploring), **Combat** (fighting), **Ambient** (wind, water, birds) |
-| **UI album** | The menus of the game | **Menu music**, **Ambient**, **Transition** sounds |
+::: tip The music of a world is not here
+The music, the combat music and the ambient sound of a world, a zone, a weather or an encounter are [sound sources](/basic/world/music-albums#a-sound-source): a track with its options, or a [Music Album](/basic/world/music-albums) (**World > Music Albums**). The map albums this page used to describe (one list of music, combat and ambient tracks for a world) are not used any more.
+:::
 
 The tracks are the files of the [Audio](/basic/assets/audio) library (music and atmospheric ambience); an album lists them by name.
 
@@ -26,7 +25,7 @@ You cannot delete them, but you can fill them. You can also make **custom UI alb
 
 | Control | What it does |
 |---|---|
-| The filter | **All Albums**, **UI Albums**, **Map Albums** |
+| The filter | **All Albums**, **UI Albums** |
 | The list | The albums, with the number of tracks |
 | **Settings > Create New Map Album** | Name it and give it a description |
 | **Settings > Create New Custom UI Album** | The same, for a menu |

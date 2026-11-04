@@ -165,6 +165,10 @@ Configuration for gameplay rules and mechanics
 | `float` | [glancing_chance](#prop-glancing-chance) | `30.0` |
 | `float` | [glancing_reduction](#prop-glancing-reduction) | `40.0` |
 | `bool` | [glancing_other_effects_apply](#prop-glancing-other-effects-apply) | `true` |
+| `AudioPreloadMode` | [audio_preload_mode](#prop-audio-preload-mode) | `AudioPreloadMode.BACKGROUND` |
+| `float` | [audio_default_fade_seconds](#prop-audio-default-fade-seconds) | `3.0` |
+| `float` | [audio_combat_fade_seconds](#prop-audio-combat-fade-seconds) | `1.5` |
+| `float` | [audio_combat_music_end_delay](#prop-audio-combat-music-end-delay) | `4.0` |
 | `bool` | [npc_lod_enabled](#prop-npc-lod-enabled) | `true` |
 | `bool` | [lod_follows_view_distance](#prop-lod-follows-view-distance) | `false` |
 | `float` | [lod_distance_high](#prop-lod-distance-high) | `30.0` |
@@ -406,6 +410,13 @@ What happens to the items of a player who dies: they are kept, dropped on the gr
 - **KEEP** = `0`
 - **DROP** = `1`
 - **DESTROY** = `2`
+
+### enum AudioPreloadMode {#enum-audiopreloadmode}
+
+How the tracks of a world are loaded. Background: the world asks for every track its zones, weather, encounters and events can play when it starts, and the game goes on while they load. Wait: the loading screen waits until they are all loaded (more memory used at the start, no pause later)
+
+- **BACKGROUND** = `0`
+- **WAIT** = `1`
 
 ## Constants
 
@@ -1098,6 +1109,24 @@ How much a glancing hit is weaker (percent): its damage and healing are reduced 
 ### bool glancing_other_effects_apply = true {#prop-glancing-other-effects-apply}
 
 Do the other effects of a glancing hit (statuses, buffs, debuffs) still apply? Off: only its damage and healing happen
+
+*Music and ambience*
+
+### AudioPreloadMode audio_preload_mode = AudioPreloadMode.BACKGROUND {#prop-audio-preload-mode}
+
+*No description yet.*
+
+### float audio_default_fade_seconds = 3.0 {#prop-audio-default-fade-seconds}
+
+The seconds a new music or ambience takes to fade in when its source does not say (a zone, a weather, an event)
+
+### float audio_combat_fade_seconds = 1.5 {#prop-audio-combat-fade-seconds}
+
+The seconds the combat music takes to come in when a fight starts, and the music to come back when it ends
+
+### float audio_combat_music_end_delay = 4.0 {#prop-audio-combat-music-end-delay}
+
+The seconds after the last fight of the party before the combat music ends (so a short break in the fight does not cut it)
 
 *NPC LOD System*
 
