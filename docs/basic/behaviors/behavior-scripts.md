@@ -135,7 +135,27 @@ A behaviour script of a definition is shared by every NPC of it, so the tab only
 | **Take off the last patrol point** | Choose the patrol, **Remove last point** |
 | **Make the shape work anywhere** | Choose a task, tick **Relative to where the NPC is placed**: its places become distances from the NPC (move the NPC and the route moves with it) |
 
-Escape turns an Add tool off. Deleting and reordering schedules and tasks, and their fields, are still done in the Behavior Scripts editor.
+Escape turns an Add tool off.
+
+#### Schedules, tasks and conditions
+
+The list works like the lists of the [Behavior Scripts editor](#the-script) and opens the same windows. **Add Schedule** opens the *Create New Schedule* window (a name and a kind), **Add Task** the task window for the chosen schedule. **Right click** a row (or double click to edit):
+
+| Row | Menu |
+|---|---|
+| **Schedule** | Edit (the schedule window), Add Task, Add Condition, Delete, Move Up, Move Down (the order is the order they are checked in) |
+| **Task** | Edit (the task window), Add Condition, Delete, Move Up, Move Down |
+| **Condition** ("Condition:" under a schedule, "Only when:" under a task) | Edit, Delete |
+
+Reactions and the fallback are still edited in the Behavior Scripts editor. A change to a script that is not the NPC's own is refused with the reason, and the menu items are greyed.
+
+#### The day
+
+Drag on the strip of the day to set the time of a schedule: drag over an empty stretch of its row to make a time there, drag the bar to move it, drag its left or right edge to stretch it (to the quarter hour), right click the row to make it **any time**. It writes the schedule's *Time Of Day* condition (making it when there is none).
+
+#### Targets
+
+A task that is about someone (*Interact with Object*, *Follow Entity*, *Say* with a target) draws a yellow line to its target. Choose the task, press **Pick target** and click the NPC or object in the viewport (the nearest one to the click, within a few pixels): its unique id is set.
 
 ### Time of day
 

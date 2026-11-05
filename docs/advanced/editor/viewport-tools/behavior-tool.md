@@ -4,7 +4,7 @@
 
 **Inherits:** [RefCounted](https://docs.godotengine.org/en/stable/classes/class_refcounted.html)
 
-The click tool of the Behaviour tab: while one of its buttons is on (Add patrol points, Add a place, Add a wander area) a left click on the ground of the 3D viewport adds there what the button adds, through BehaviorPanel.add_point_at (one step of Undo). Escape turns the tool off. A click is used up, so it does not select what is under it.
+The click tool of the Behaviour tab: while one of its buttons is on (Add patrol points, Add a place, Add a wander area) a left click on the ground of the 3D viewport adds there what the button adds, through BehaviorPanel.add_point_at (one step of Undo). With Pick target on, a click picks the NPC or the object nearest to it (within a few pixels) as the target of the chosen task (BehaviorPanel.pick_target). Escape turns the tool off. A click is used up, so it does not select what is under it.
 
 ## Variables
 

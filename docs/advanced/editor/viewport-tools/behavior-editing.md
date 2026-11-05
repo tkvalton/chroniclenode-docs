@@ -24,7 +24,28 @@ What the Behaviour tab does to a behaviour script, apart from the editor: the ha
 | `Dictionary` | [add_by_click](#method-add-by-click)( `script: ModularBehaviorScript, mode: Mode, world: Vector3, focus_schedule: int, focus_task: int, origin: Vector3 = Vector3.ZERO` ) *static* |
 | `String` | [unique_schedule_name](#method-unique-schedule-name)( `script: ModularBehaviorScript, base: String` ) *static* |
 | `ModularBehaviorScript` | [make_copy](#method-make-copy)( `source: ModularBehaviorScript, script_name: String` ) *static* |
+| `TaskSchedule` | [new_schedule](#method-new-schedule)( `type_class: String, schedule_name: String` ) *static* |
+| `int` | [add_schedule](#method-add-schedule)( `script: ModularBehaviorScript, schedule: TaskSchedule` ) *static* |
+| `bool` | [remove_schedule](#method-remove-schedule)( `script: ModularBehaviorScript, index: int` ) *static* |
+| `int` | [move_schedule](#method-move-schedule)( `script: ModularBehaviorScript, index: int, delta: int` ) *static* |
+| `int` | [add_task](#method-add-task)( `schedule: TaskSchedule, task: BehaviorTask` ) *static* |
+| `bool` | [remove_task](#method-remove-task)( `schedule: TaskSchedule, index: int` ) *static* |
+| `int` | [move_task](#method-move-task)( `schedule: TaskSchedule, index: int, delta: int` ) *static* |
+| `Array` | [conditions_of](#method-conditions-of)( `owner: Resource` ) *static* |
+| `Resource` | [condition_owner](#method-condition-owner)( `schedule: TaskSchedule, task_index: int` ) *static* |
+| `bool` | [add_condition](#method-add-condition)( `owner: Resource, condition: EntityCondition` ) *static* |
+| `bool` | [remove_condition](#method-remove-condition)( `owner: Resource, index: int` ) *static* |
+| `EntityCondition` | [condition_from_data](#method-condition-from-data)( `type_data: Dictionary, param_values: Dictionary` ) *static* |
+| `TimeOfDayCondition` | [time_condition_of](#method-time-condition-of)( `schedule: TaskSchedule` ) *static* |
+| `void` | [set_schedule_time](#method-set-schedule-time)( `schedule: TaskSchedule, start: float, end: float` ) *static* |
+| `void` | [clear_schedule_time](#method-clear-schedule-time)( `schedule: TaskSchedule` ) *static* |
+| `bool` | [is_link_task](#method-is-link-task)( `task: BehaviorTask` ) *static* |
+| `int` | [target_of](#method-target-of)( `task: BehaviorTask` ) *static* |
+| `void` | [set_target](#method-set-target)( `task: BehaviorTask, unique_id: int` ) *static* |
+| `Dictionary` | [nearest_target](#method-nearest-target)( `camera: Camera3D, candidates: Array[Dictionary], screen_point: Vector2, max_pixels: float = 48.0` ) *static* |
+| `Array[Dictionary]` | [targets_in](#method-targets-in)( `scene_root: Node` ) *static* |
 | `Dictionary` | [capture](#method-capture)( `script: ModularBehaviorScript` ) *static* |
+| `bool` | [same](#method-same)( `a: Dictionary, b: Dictionary` ) *static* |
 | `void` | [restore](#method-restore)( `script: ModularBehaviorScript, state: Dictionary` ) *static* |
 
 ## Enumerations
@@ -38,16 +59,18 @@ The kinds of handle on a task: a point (patrol point, place, centre) and the rad
 
 ### enum Mode {#enum-mode}
 
-What a click on the ground adds: nothing, a patrol point, a place to walk to, a wander area
+What a click in the viewport does: nothing, adds a patrol point, adds a place to walk to, adds a wander area, or picks the target of a task (an NPC or an object)
 
 - **NONE** = `0`
 - **PATROL** = `1`
 - **MOVE** = `2`
 - **WANDER** = `3`
+- **TARGET** = `4`
 
 ## Constants
 
 - `float` **DEFAULT_RADIUS** = `5.0` - The radius a wander area starts with, in metres
+- `Array[Dictionary]` **SCHEDULE_TYPES** = `[` - The kinds of schedule that can be made, for the New Schedule window
 
 ## Method descriptions
 
@@ -107,11 +130,95 @@ A schedule name that no schedule of the script has: "Patrol", then "Patrol 2" ..
 
 A new record of the Behavior Scripts database with the contents of `source` (a deep copy: the schedules, tasks and reactions are its own). With no source the script is empty (the fallback is a wander). The record is a script like any other: it stays in the database when the NPC that uses it is deleted, until it is deleted in the Behavior Scripts editor. Null when it could not be saved
 
+### TaskSchedule new_schedule( type_class: String, schedule_name: String ) {#method-new-schedule}
+
+A new schedule of a kind (the "class" of SCHEDULE_TYPES) with a name. Null for a kind that is not known
+
+### int add_schedule( script: ModularBehaviorScript, schedule: TaskSchedule ) {#method-add-schedule}
+
+Puts a schedule at the end of the script (the lowest priority). Returns its index
+
+### bool remove_schedule( script: ModularBehaviorScript, index: int ) {#method-remove-schedule}
+
+Takes a schedule off the script
+
+### int move_schedule( script: ModularBehaviorScript, index: int, delta: int ) {#method-move-schedule}
+
+Moves a schedule up (delta -1: it is checked earlier) or down (+1). Returns its new index, or -1 when it cannot move
+
+### int add_task( schedule: TaskSchedule, task: BehaviorTask ) {#method-add-task}
+
+Puts a task at the end of a schedule. Returns its index
+
+### bool remove_task( schedule: TaskSchedule, index: int ) {#method-remove-task}
+
+Takes a task off a schedule
+
+### int move_task( schedule: TaskSchedule, index: int, delta: int ) {#method-move-task}
+
+Moves a task up or down in its schedule. Returns its new index, or -1 when it cannot move
+
+### Array conditions_of( owner: Resource ) {#method-conditions-of}
+
+The conditions a schedule has to be chosen (activation) or a task to start (execution); an empty array for anything else. The array itself, so it can be changed
+
+### Resource condition_owner( schedule: TaskSchedule, task_index: int ) {#method-condition-owner}
+
+What a condition of a row belongs to: the schedule (task_index -1) or one of its tasks (null when there is none)
+
+### bool add_condition( owner: Resource, condition: EntityCondition ) {#method-add-condition}
+
+Gives a schedule or a task a condition
+
+### bool remove_condition( owner: Resource, index: int ) {#method-remove-condition}
+
+Takes a condition off a schedule or a task
+
+### EntityCondition condition_from_data( type_data: Dictionary, param_values: Dictionary ) {#method-condition-from-data}
+
+A condition made from what the Condition window gave (&#123;"path": the script, ...&#125; and the values of its settings). Null when it is not an entity condition
+
+### TimeOfDayCondition time_condition_of( schedule: TaskSchedule ) {#method-time-condition-of}
+
+The Time of Day condition of a schedule (null when it has none)
+
+### void set_schedule_time( schedule: TaskSchedule, start: float, end: float ) {#method-set-schedule-time}
+
+Sets the time of a schedule: from `start` to `end` (hours of the game day, to the quarter hour). The schedule gets a Time of Day condition if it has none
+
+### void clear_schedule_time( schedule: TaskSchedule ) {#method-clear-schedule-time}
+
+Makes a schedule for any time (takes its Time of Day conditions off)
+
+### bool is_link_task( task: BehaviorTask ) {#method-is-link-task}
+
+Is this a task that is about someone or something with a unique id (the ones the viewport draws a line to)?
+
+### int target_of( task: BehaviorTask ) {#method-target-of}
+
+The unique id a link task points at (0 = none)
+
+### void set_target( task: BehaviorTask, unique_id: int ) {#method-set-target}
+
+Points a link task at a unique id
+
+### Dictionary nearest_target( camera: Camera3D, candidates: Array[Dictionary], screen_point: Vector2, max_pixels: float = 48.0 ) {#method-nearest-target}
+
+The placed NPC or object of a list that is nearest to a point of the screen, within `max_pixels` (null when none): [&#123;"node", "id"&#125;] -&gt; the entry. `camera` looks at the world they are in
+
+### Array[Dictionary] targets_in( scene_root: Node ) {#method-targets-in}
+
+The NPCs and objects of a scene that have a record (so a unique id): [&#123;"node", "id", "name"&#125;]
+
 ### Dictionary capture( script: ModularBehaviorScript ) {#method-capture}
 
-What a script is now, to put it back later: its schedules, the tasks of each, and the places of each task
+What a script is now, to put it back later: a deep copy of its schedules (with their tasks, conditions and settings) and reactions and its own settings, and a text that says whether two states are the same. A state never changes once it is made: putting it back uses a copy of it (`restore`)
+
+### bool same( a: Dictionary, b: Dictionary ) {#method-same}
+
+Are two states of `capture` the same?
 
 ### void restore( script: ModularBehaviorScript, state: Dictionary ) {#method-restore}
 
-Puts a script back as `capture` found it
+Puts a script back as `capture` found it (with copies of what the state holds: the state stays as it was)
 

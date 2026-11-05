@@ -10,31 +10,15 @@ Modular Behavior Script Editor with separate Tree classes for management
 
 | | | |
 |---|---|---|
-| `ConfirmationDialog` | [schedule_type_dialog](#var-schedule-type-dialog) |  |
-| `OptionButton` | [schedule_type_option](#var-schedule-type-option) |  |
-| `Label` | [schedule_description_label](#var-schedule-description-label) |  |
-| `LineEdit` | [schedule_name_input](#var-schedule-name-input) |  |
+| `NewScheduleDialog` | [new_schedule_dialog](#var-new-schedule-dialog) |  |
 | `ConfirmationDialog` | [schedule_edit_dialog](#var-schedule-edit-dialog) |  |
 | `ConditionalEditDialog` | [condition_dialog](#var-condition-dialog) |  |
 | `ModularBehaviorScript` | [current_script](#var-current-script) |  |
 | `int` | [selected_schedule_index](#var-selected-schedule-index) | `-1` |
-| `Array[Dictionary]` | [available_schedule_types](#var-available-schedule-types) | `[]` |
 
 ## Variable descriptions
 
-### ConfirmationDialog schedule_type_dialog {#var-schedule-type-dialog}
-
-*No description yet.*
-
-### OptionButton schedule_type_option {#var-schedule-type-option}
-
-*No description yet.*
-
-### Label schedule_description_label {#var-schedule-description-label}
-
-*No description yet.*
-
-### LineEdit schedule_name_input {#var-schedule-name-input}
+### NewScheduleDialog new_schedule_dialog {#var-new-schedule-dialog}
 
 *No description yet.*
 
@@ -51,10 +35,6 @@ Modular Behavior Script Editor with separate Tree classes for management
 *No description yet.*
 
 ### int selected_schedule_index = -1 {#var-selected-schedule-index}
-
-*No description yet.*
-
-### Array[Dictionary] available_schedule_types = [] {#var-available-schedule-types}
 
 *No description yet.*
 

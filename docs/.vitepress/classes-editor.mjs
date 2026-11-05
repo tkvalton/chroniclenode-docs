@@ -1445,6 +1445,12 @@ export const groups = [
         "file": "editor_components/dialogs/loot_entry_dialog/loot_entry_config_dialog.gd"
       },
       {
+        "name": "NewScheduleDialog",
+        "base": "ConfirmationDialog",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\dialogs\\new_schedule_dialog.gd",
+        "file": "editor_components/dialogs/new_schedule_dialog.gd"
+      },
+      {
         "name": "OptionsParameterPopup",
         "base": "ParameterPopupBase",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\dialogs\\parameters_popups\\parameter_options_popup.gd",
