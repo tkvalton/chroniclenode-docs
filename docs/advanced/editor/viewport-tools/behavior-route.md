@@ -23,6 +23,7 @@ A task is described by a Dictionary: kind     "route" (points, one after the oth
 | `String` | [schedule_summary](#method-schedule-summary)( `schedule: TaskSchedule` ) *static* |
 | `String` | [fallback_text](#method-fallback-text)( `script: ModularBehaviorScript` ) *static* |
 | `Dictionary` | [script_users](#method-script-users)( `script_id: int` ) *static* |
+| `Vector3` | [place_shift](#method-place-shift)( `task: BehaviorTask, origin: Vector3` ) *static* |
 | `Dictionary` | [task_shape](#method-task-shape)( `task: BehaviorTask, origin: Vector3` ) *static* |
 | `Array[Dictionary]` | [schedule_shapes](#method-schedule-shapes)( `schedule: TaskSchedule, origin: Vector3` ) *static* |
 | `Dictionary` | [build_lines](#method-build-lines)( `script: ModularBehaviorScript, origin: Vector3, to_local: Callable, find_target: Callable, focus_schedule: int = -1, focus_task: int = -1, only_focus: bool = false` ) *static* |
@@ -72,6 +73,10 @@ The fallback of a script, as text
 ### Dictionary script_users( script_id: int ) {#method-script-users}
 
 Who uses a script: &#123;"definitions": [names of the NPC definitions that have it], "uniques": the number of placed NPCs that have it as their own&#125;
+
+### Vector3 place_shift( task: BehaviorTask, origin: Vector3 ) {#method-place-shift}
+
+What is added to the places a task stores to get places of the world: where the NPC is placed for a task with relative places, nothing for any other
 
 ### Dictionary task_shape( task: BehaviorTask, origin: Vector3 ) {#method-task-shape}
 

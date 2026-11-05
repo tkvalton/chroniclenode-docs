@@ -63,6 +63,7 @@ Every task has these common settings:
 | **General** | **Interruptible** (a reaction may stop it), **Priority** (in a priority schedule) |
 | **Timing** | **Completion criteria** (when the task is complete: when its action finishes, when its **Task duration** ends, or whichever is first), **Task duration** (`0` = no limit), **Cooldown time**, **Minimum runtime** |
 | **Movement** | **Path failure strategy** when it cannot get there: *Retry original*, *Find nearby* (default), *Teleport close* (last resort, only if **Allow teleport recovery**), *Skip gracefully*, *Wait and retry*; **Max recovery attempts** (`3`), **Recovery attempt delay**, **Nearby search radius** |
+| **Places** | **Relative to spawn**: the places of the task (patrol points, the place to walk to, the centre of a wander, the point of an ability) are distances from where the NPC is placed, so the same shape works wherever the NPC is put. Set it in the [Behaviour tab](#the-behaviour-tab-see-it-in-the-world) | off |
 | **Conditions** | **Execution conditions** for this task, and **Max distance from start** (`-1` = unlimited) |
 | **Error handling** | **Max retry attempts**, **Retry delay** |
 
@@ -118,7 +119,23 @@ Select an NPC in the 3D viewport and open the **Behaviour** tab (it sits beside 
 | **Show paths**, **Only the chosen schedule** | Draw or hide the lines in the viewport; draw only the chosen schedule |
 | **Refresh**, **Open script** | Read the script again; open it in the Behavior Scripts editor |
 
-In the viewport, for the selected NPC only: a **patrol** is its points with arrows between them (a loop closes), a **move** is a point with an arrow for the way it faces, a **wander** is the circle it wanders in (round where the NPC is placed unless the task has a centre), and a task that talks to, uses or follows someone is a yellow line to them. Each schedule has the colour of its row; the chosen schedule is bright and the others dim; the chosen task is white. This build only shows: you still edit the script in the Behavior Scripts editor.
+In the viewport, for the selected NPC only: a **patrol** is its points with arrows between them (a loop closes), a **move** is a point with an arrow for the way it faces, a **wander** is the circle it wanders in (round where the NPC is placed unless the task has a centre), and a task that talks to, uses or follows someone is a yellow line to them. Each schedule has the colour of its row; the chosen schedule is bright and the others dim; the chosen task is white. You can also edit the routes here, for an NPC that has **its own** script.
+
+#### Editing in the viewport
+
+A behaviour script of a definition is shared by every NPC of it, so the tab only changes the script that is **this NPC's own**. **Make this NPC's own** copies the script into a new behaviour script (named after the NPC, for instance "Town guard behaviour") and gives it to this placed NPC; **New behaviour for this NPC** does the same with an empty one. The copy is an ordinary script of the Behavior Scripts: **if you delete the NPC, the script stays** until you delete it there (its **Used by** says nobody), so you can place the NPC again and choose it. **Use the definition's script** goes back to the shared one without deleting the copy. Everything below can be undone with **Undo**.
+
+| You want | Do |
+|---|---|
+| **Move a point** | Choose its schedule in the list: its points get handles. Drag one over the ground (a patrol point, the place of a move, the centre of a wander) |
+| **Change a wander's radius** | Drag the small handle on its circle |
+| **Add patrol points** | Press **Add patrol points** and click the ground: each click adds a point to the chosen patrol (or starts a patrol in the chosen schedule, or in a new one) |
+| **Add a place to walk to** | **Add a place**, click the ground: a *Move to Point* task in the chosen schedule (or a new schedule) |
+| **Add a wander area** | **Add a wander area**, click the ground: a *Wander* task, 5 m round the click |
+| **Take off the last patrol point** | Choose the patrol, **Remove last point** |
+| **Make the shape work anywhere** | Choose a task, tick **Relative to where the NPC is placed**: its places become distances from the NPC (move the NPC and the route moves with it) |
+
+Escape turns an Add tool off. Deleting and reordering schedules and tasks, and their fields, are still done in the Behavior Scripts editor.
 
 ### Time of day
 

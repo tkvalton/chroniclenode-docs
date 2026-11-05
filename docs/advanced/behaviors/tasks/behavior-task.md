@@ -29,6 +29,7 @@ CORRECTED: Restored proper movement functionality and signal handling
 | `bool` | [allow_teleport_recovery](#prop-allow-teleport-recovery) | `false` |
 | `Array[EntityCondition]` | [execution_conditions](#prop-execution-conditions) | `[]` |
 | `float` | [max_distance_from_start](#prop-max-distance-from-start) | `-1.0` |
+| `bool` | [relative_to_spawn](#prop-relative-to-spawn) | `false` |
 | `int` | [max_retry_attempts](#prop-max-retry-attempts) | `0` |
 | `float` | [retry_delay](#prop-retry-delay) | `1.0` |
 
@@ -62,6 +63,7 @@ CORRECTED: Restored proper movement functionality and signal handling
 
 | | |
 |---|---|
+| `void` | [apply_spawn_origin](#method-apply-spawn-origin)( `spawn: Vector3` ) |
 | `void` | [set_system_hub](#method-set-system-hub)( `p_system_hub: GameHost.SystemHub` ) |
 | `void` | [task_start](#method-task-start)() |
 | `void` | [task_complete](#method-task-complete)() |
@@ -194,6 +196,12 @@ Conditions that must be met for this task to start
 
 Maximum distance from start position (-1 = unlimited)
 
+*Places*
+
+### bool relative_to_spawn = false {#prop-relative-to-spawn}
+
+The places of this task (patrol points, the place to walk to, the centre of a wander, the point of an ability) are distances from where the NPC is placed, not places of the world: the same shape works wherever the NPC is put. Off = they are places of the world. The Behaviour tab of the 3D viewport sets it
+
 *Error Handling*
 
 ### int max_retry_attempts = 0 {#prop-max-retry-attempts}
@@ -291,6 +299,10 @@ Whether minimum runtime has been satisfied
 SystemRefs
 
 ## Method descriptions
+
+### void apply_spawn_origin( spawn: Vector3 ) {#method-apply-spawn-origin}
+
+Called when the schedule is set up for an NPC: a task with relative places adds the place the NPC was put at to each of them (once). Every NPC has its own copy of the script, so this changes only its own
 
 ### void set_system_hub( p_system_hub: GameHost.SystemHub ) {#method-set-system-hub}
 

@@ -1151,6 +1151,12 @@ export const groups = [
         "file": "editor_components/3d_scene_tools/audio_profile_box.gd"
       },
       {
+        "name": "BehaviorEditing",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\behavior\\behavior_editing.gd",
+        "file": "editor_components/3d_scene_tools/behavior/behavior_editing.gd"
+      },
+      {
         "name": "BehaviorGizmoPlugin",
         "base": "EditorNode3DGizmoPlugin",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\behavior\\behavior_gizmo.gd",
@@ -1173,6 +1179,12 @@ export const groups = [
         "base": "Control",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\behavior\\behavior_time_strip.gd",
         "file": "editor_components/3d_scene_tools/behavior/behavior_time_strip.gd"
+      },
+      {
+        "name": "BehaviorTool",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\behavior\\behavior_tool.gd",
+        "file": "editor_components/3d_scene_tools/behavior/behavior_tool.gd"
       },
       {
         "name": "EntityDataPropertyEditor",

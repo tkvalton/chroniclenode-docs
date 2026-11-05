@@ -11,6 +11,8 @@ The Behaviour tab: what the NPC selected in the 3D viewport does. It shows the b
 | | | |
 |---|---|---|
 | `EditorPlugin` | [plugin](#var-plugin) | `null` |
+| `EditorUndoRedoManager` | [undo_redo](#var-undo-redo) | `null` |
+| `BehaviorEditing.Mode` | [tool_mode](#var-tool-mode) | `BehaviorEditing.Mode.NONE` |
 | `NPC` | [current_npc](#var-current-npc) | `null` |
 | `ModularBehaviorScript` | [current_script](#var-current-script) | `null` |
 | `int` | [focus_schedule](#var-focus-schedule) | `-1` |
@@ -27,6 +29,12 @@ The Behaviour tab: what the NPC selected in the 3D viewport does. It shows the b
 | `CheckBox` | [only_check](#var-only-check) |  |
 | `Button` | [open_button](#var-open-button) |  |
 | `Button` | [refresh_button](#var-refresh-button) |  |
+| `Button` | [own_button](#var-own-button) |  |
+| `Button` | [shared_button](#var-shared-button) |  |
+| `Dictionary` | [tool_buttons](#var-tool-buttons) | `{}` |
+| `Button` | [remove_point_button](#var-remove-point-button) |  |
+| `CheckBox` | [relative_check](#var-relative-check) |  |
+| `Label` | [status_label](#var-status-label) |  |
 
 ## Methods
 
@@ -37,6 +45,16 @@ The Behaviour tab: what the NPC selected in the 3D viewport does. It shows the b
 | `void` | [clear](#method-clear)() |
 | `void` | [reload](#method-reload)() |
 | `void` | [tick](#method-tick)() |
+| `bool` | [is_editable](#method-is-editable)() |
+| `void` | [set_tool](#method-set-tool)( `mode: BehaviorEditing.Mode` ) |
+| `void` | [make_own](#method-make-own)() |
+| `void` | [use_definitions_script](#method-use-definitions-script)() |
+| `void` | [set_override_id](#method-set-override-id)( `data: UniqueEntityData, script_id: int` ) |
+| `bool` | [add_point_at](#method-add-point-at)( `world: Vector3` ) |
+| `BehaviorTask` | [chosen_task](#method-chosen-task)() |
+| `void` | [remove_last_point](#method-remove-last-point)() |
+| `void` | [finish_edit](#method-finish-edit)( `action_name: String, before: Dictionary` ) |
+| `void` | [apply_state](#method-apply-state)( `state: Dictionary, save: bool = true` ) |
 
 ## Signals
 
@@ -49,6 +67,14 @@ The viewport has to draw again
 ### EditorPlugin plugin = null {#var-plugin}
 
 *No description yet.*
+
+### EditorUndoRedoManager undo_redo = null {#var-undo-redo}
+
+Where the editor's undo history is (set by the plugin; without it a change is made and saved but cannot be undone)
+
+### BehaviorEditing.Mode tool_mode = BehaviorEditing.Mode.NONE {#var-tool-mode}
+
+What a click on the ground adds (BehaviorEditing.Mode; BehaviorTool does the click)
 
 ### NPC current_npc = null {#var-current-npc}
 
@@ -114,6 +140,30 @@ The schedule and the task chosen in the list (-1 = none)
 
 *No description yet.*
 
+### Button own_button {#var-own-button}
+
+*No description yet.*
+
+### Button shared_button {#var-shared-button}
+
+*No description yet.*
+
+### Dictionary tool_buttons =  {#var-tool-buttons}
+
+BehaviorEditing.Mode -&gt; Button
+
+### Button remove_point_button {#var-remove-point-button}
+
+*No description yet.*
+
+### CheckBox relative_check {#var-relative-check}
+
+*No description yet.*
+
+### Label status_label {#var-status-label}
+
+*No description yet.*
+
 ## Method descriptions
 
 ### Dictionary get_draw_state( npc: NPC ) {#method-get-draw-state}
@@ -135,4 +185,44 @@ Reads the script of the NPC again from the database
 ### void tick() {#method-tick}
 
 Called now and then by the plugin: an NPC that was moved draws its routes from its new place
+
+### bool is_editable() {#method-is-editable}
+
+Can the routes be changed? Only when the script is this NPC's own: a script of the definition is shared by every NPC that has it
+
+### void set_tool( mode: BehaviorEditing.Mode ) {#method-set-tool}
+
+What a click on the ground adds (NONE = nothing)
+
+### void make_own() {#method-make-own}
+
+Copies the script into a new record for this NPC alone (an empty one when it has no script) and gives it to the NPC. The record is a script of the database: it stays there when the NPC is deleted
+
+### void use_definitions_script() {#method-use-definitions-script}
+
+Follows the script of the definition again (the own script stays in the database)
+
+### void set_override_id( data: UniqueEntityData, script_id: int ) {#method-set-override-id}
+
+Sets the script the placed NPC follows instead of its definition's (0 = the definition's), saves it and shows it
+
+### bool add_point_at( world: Vector3 ) {#method-add-point-at}
+
+A click on the ground with the tool on: adds what the tool adds there. False when nothing was added
+
+### BehaviorTask chosen_task() {#method-chosen-task}
+
+The task chosen in the list (null when none)
+
+### void remove_last_point() {#method-remove-last-point}
+
+Takes the last point off the chosen patrol
+
+### void finish_edit( action_name: String, before: Dictionary ) {#method-finish-edit}
+
+A change was made to the script (`before` is what BehaviorEditing.capture found before it): it is saved, the list and the viewport show it, and it is one step of Undo
+
+### void apply_state( state: Dictionary, save: bool = true ) {#method-apply-state}
+
+Puts the script back as a state of BehaviorEditing.capture (Undo and Redo, and a cancelled drag)
 
