@@ -67,7 +67,7 @@ Lifetime duration of floating text (If audio is longer it will override)
 
 ### SFXSelection voice_line_sfx {#prop-voice-line-sfx}
 
-SFX selection for interaction audio
+The voice line the entity speaks (a character of the voice lines and a file; it plays on the Voice bus with its subtitle)
 
 ### AnimationSelectionSocial animation {#prop-animation}
 

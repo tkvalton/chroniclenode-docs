@@ -28,7 +28,8 @@ Modular SFX selection dialog that works with any SFXSelection class type Uses st
 | | |
 |---|---|
 | `void` | [edit_sfx_selection](#method-edit-sfx-selection)( `selection: SFXSelection, class_type: String = "", allow_type_selection: bool = false` ) |
-| `void` | [create_new_sfx_selection](#method-create-new-sfx-selection)( `class_type: String = ""` ) |
+| `void` | [edit_voice_line](#method-edit-voice-line)( `selection: SFXSelection` ) |
+| `void` | [create_new_sfx_selection](#method-create-new-sfx-selection)( `class_type: String = "", lock_type: bool = false` ) |
 | `void` | [preview_current_audio](#method-preview-current-audio)() |
 | `void` | [preview_audio_manually](#method-preview-audio-manually)() |
 
@@ -74,9 +75,13 @@ Set this before calling popup() to specify which SFX selection type to edit
 
 Configure and show dialog for editing a specific SFX selection
 
-### void create_new_sfx_selection( class_type: String = "" ) {#method-create-new-sfx-selection}
+### void edit_voice_line( selection: SFXSelection ) {#method-edit-voice-line}
 
-Create a new selection of the specified type with type selection enabled
+Edit a voice line: the dialog is locked to the Voiceline type (no type selector) for every place that holds a voice line (a conversation chat or reply, a Speak interaction, the Play Voice Line action). A sound of another kind that an older project holds there is replaced by a new voice line when the dialog is confirmed.
+
+### void create_new_sfx_selection( class_type: String = "", lock_type: bool = false ) {#method-create-new-sfx-selection}
+
+Create a new selection of the specified type with type selection enabled (`lock_type`: the type cannot be changed)
 
 ### void preview_current_audio() {#method-preview-current-audio}
 

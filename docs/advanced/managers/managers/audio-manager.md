@@ -135,6 +135,7 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambience_
 | `bool` | [play_voice_global](#method-play-voice-global)( `audio: AudioStream, volume_db: float = 0.0` ) |
 | `void` | [stop_voice_global](#method-stop-voice-global)() |
 | `bool` | [play_voice_selection_global](#method-play-voice-selection-global)( `hub: GameHost.SystemHub, selection: SFXSelection` ) |
+| `bool` | [play_voice_selection_at_position](#method-play-voice-selection-at-position)( `hub: GameHost.SystemHub, selection: SFXSelection, position: Vector3` ) |
 | `bool` | [play_sfx_global](#method-play-sfx-global)( `audio: AudioStream, volume_db: float = 0.0, pitch_scale: float = 1.0` ) |
 | `bool` | [play_sfx_at_position_by_name](#method-play-sfx-at-position-by-name)( `category: String, type: String, position: Vector3, volume_db: float = 0.0, pitch_scale: float = 1.0` ) |
 | `bool` | [play_sfx_global_by_name](#method-play-sfx-global-by-name)( `category: String, type: String, volume_db: float = 0.0, pitch_scale: float = 1.0` ) |
@@ -553,6 +554,10 @@ Stops the line that plays with `play_voice_global`.
 ### bool play_voice_selection_global( hub: GameHost.SystemHub, selection: SFXSelection ) {#method-play-voice-selection-global}
 
 Plays a voice line selection heard from nowhere on the Voice bus and shows its subtitle (the quest voice lines, the Play Voice Line action without a speaker). Does nothing for a selection that is not a voice line. Returns true when something played.
+
+### bool play_voice_selection_at_position( hub: GameHost.SystemHub, selection: SFXSelection, position: Vector3 ) {#method-play-voice-selection-at-position}
+
+Plays a voice line selection from a point of the world (3D, on the Voice bus) and shows its subtitle. Does nothing for a selection that is not a voice line. Returns true when something played.
 
 ### bool play_sfx_global( audio: AudioStream, volume_db: float = 0.0, pitch_scale: float = 1.0 ) {#method-play-sfx-global}
 

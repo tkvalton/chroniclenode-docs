@@ -173,6 +173,12 @@ export const groups = [
         "file": "runtime_classes/utility/scene_state_reader.gd"
       },
       {
+        "name": "SpeechAudio",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\speech_audio.gd",
+        "file": "runtime_classes/utility/speech_audio.gd"
+      },
+      {
         "name": "SpeechDelivery",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\utility\\speech_delivery.gd",

@@ -30,6 +30,8 @@ Factory for creating UI controls with consistent styling and behavior Uses class
 | `Vector3Control` | [create_vector3_control](#method-create-vector3-control)( `initial_value: Vector3 = Vector3.ZERO, options: Dictionary = {}, callback: Callable = Callable()` ) *static* |
 | `BBCodeTextControl` | [create_bbcode_text_control](#method-create-bbcode-text-control)( `initial_text: String, dialog_manager: DialogManager, callback: Callable = Callable()` ) *static* |
 | `Button` | [create_sfx_selection_button](#method-create-sfx-selection-button)( `initial_selection: SFXSelection, dialog_manager: DialogManager, callback: Callable = Callable(), button_text: String = "Select SFX"` ) *static* |
+| `Button` | [create_voice_line_button](#method-create-voice-line-button)( `initial_selection: SFXSelection, dialog_manager: DialogManager, callback: Callable = Callable(), button_text: String = "Select voice line"` ) *static* |
+| `HBoxContainer` | [create_voice_line_button_field](#method-create-voice-line-button-field)( `label_text: String, initial_selection: SFXSelection, dialog_manager: DialogManager, tooltip: String, callback: Callable, target_container: Control = null, button_text: String = "Select voice line"` ) *static* |
 | `Button` | [create_vfx_selection_button](#method-create-vfx-selection-button)( `initial_selection: VFXSelection, dialog_manager: DialogManager, callback: Callable = Callable(), button_text: String = "Select VFX"` ) *static* |
 | `Button` | [create_shape_selection_button](#method-create-shape-selection-button)( `initial_shape: Shape3D, dialog_manager: DialogManager, callback: Callable = Callable(), button_text: String = "Configure Shape", context: String = ""` ) *static* |
 | `Button` | [create_animation_selection_button](#method-create-animation-selection-button)( `initial_selection: AnimationSelection, dialog_manager: DialogManager, callback: Callable = Callable(), button_text: String = "Select Animation"` ) *static* |
@@ -118,6 +120,14 @@ Creates a BBCodeTextControl - read-only text that opens BBCode editor
 ### Button create_sfx_selection_button( initial_selection: SFXSelection, dialog_manager: DialogManager, callback: Callable = Callable(), button_text: String = "Select SFX" ) {#method-create-sfx-selection-button}
 
 Creates a button that opens the SFX Selection Dialog
+
+### Button create_voice_line_button( initial_selection: SFXSelection, dialog_manager: DialogManager, callback: Callable = Callable(), button_text: String = "Select voice line" ) {#method-create-voice-line-button}
+
+Creates a button that opens the SFX Selection Dialog locked to a voice line (a Speak interaction, a conversation reply, the Play Voice Line action: the same picker everywhere)
+
+### HBoxContainer create_voice_line_button_field( label_text: String, initial_selection: SFXSelection, dialog_manager: DialogManager, tooltip: String, callback: Callable, target_container: Control = null, button_text: String = "Select voice line" ) {#method-create-voice-line-button-field}
+
+*No description yet.*
 
 ### Button create_vfx_selection_button( initial_selection: VFXSelection, dialog_manager: DialogManager, callback: Callable = Callable(), button_text: String = "Select VFX" ) {#method-create-vfx-selection-button}
 

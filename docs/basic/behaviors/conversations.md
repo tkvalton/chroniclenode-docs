@@ -42,7 +42,7 @@ A **conversation** is a dialogue: what an NPC says, what the player can answer, 
 | **Response text** | What the player's character says when it is chosen (in the source language) | |
 | **Active** | A response that is not active is hidden until an action turns it on | on |
 | **Tags** | Words to group responses ("quest_active", "merchant", "romance") | none |
-| **Voice line**, **Animation** | Played when chosen | none |
+| **Voice line**, **Animation** | Played when chosen. The voice line is spoken by the player character (it replaces the line of the NPC that is still playing), with its subtitle | none |
 | **Requirements** | [Requirements](/basic/shared-systems/requirements) the player must meet for the response to show: a level, a class, a quest done, a [proficiency](/basic/entity-stats/proficiencies), a reputation. The **Response seen** requirement needs the player to have chosen another response before | none |
 | **Actions** | What happens when it is chosen, see below | none |
 
