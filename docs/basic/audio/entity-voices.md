@@ -66,7 +66,7 @@ Folders of a voice that are not calls of the game appear in **Your own calls**.
 | Part | What it does |
 |---|---|
 | **Search**, **Refresh** | Filter the kinds of creature; read the folders again |
-| **Tools menu** | **Create a kind of creature...**, **Create a voice...**, **Rename the voice...** (renames the folder and gives the new name to every NPC, character and player class that has the voice, so none is left with a voice that is gone), **Check all the voices** (lists the voices that lack a required call) |
+| **Tools menu** | **Create a kind of creature...**, **Create a voice...**, **Rename the voice...** (renames the folder and gives the new name to every NPC, character and player class that has the voice, and to the character creation profiles that offer it, so none is left with a voice that is gone), **Copy the voice...** (a new voice that starts with the folders and files of this one), **Check all the voices** (lists the voices that lack a required call) |
 | The list on the left | The kinds of creature with the number of voices; a mark when a voice lacks a required call |
 | **Voice** | The voices of the kind; **New voice...** makes one |
 | The tree | The calls by group, with how many **files** each has, its **status** (*has files*, *uses Hit*, *none (silent)*, *missing* for a required call, *your call*) and **when it plays**. Select a call to work on it |
@@ -75,7 +75,7 @@ Folders of a voice that are not calls of the game appear in **Your own calls**.
 | **Open folder** | Show the folder in the file manager |
 | The selected call | What it is for, its files, **Play** (a double-click plays a file), **Stop** |
 | **What this voice lacks** | The warnings: required calls with no sound, the optional ones that stay silent, folders with an old name |
-| **Used by** | The NPCs, characters and player classes that have this voice |
+| **Used by** | The NPCs, characters and player classes that have this voice, and the character creation profiles that offer it |
 
 The template project has a voice to look at: **humanoid / Mage_Pack**. Its folders are the names of the pack (`hit`, `death`, `crit` match the calls of the game; `attack`, `lightattack`, `laugh` ... are calls of your own for abilities).
 

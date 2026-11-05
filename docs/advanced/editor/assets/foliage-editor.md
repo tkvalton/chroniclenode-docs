@@ -18,6 +18,7 @@ The Foliage tab (Assets &gt; Foliage): the files of the two folders of the folia
 | `Tree` | [tree](#var-tree) |  |
 | `VBoxContainer` | [detail](#var-detail) |  |
 | `TextureRect` | [preview_rect](#var-preview-rect) |  |
+| `AssetViewport3D` | [preview_3d](#var-preview-3d) |  |
 | `Label` | [title_label](#var-title-label) |  |
 | `Label` | [path_label](#var-path-label) |  |
 | `Label` | [kind_label](#var-kind-label) |  |
@@ -83,6 +84,10 @@ The Foliage tab (Assets &gt; Foliage): the files of the two folders of the folia
 ### TextureRect preview_rect {#var-preview-rect}
 
 *No description yet.*
+
+### AssetViewport3D preview_3d {#var-preview-3d}
+
+The 3D view of the selected scene or mesh (with the materials of the entry), in place of the small picture
 
 ### Label title_label {#var-title-label}
 

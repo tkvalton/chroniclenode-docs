@@ -109,7 +109,7 @@ The music of the template (**Demo: explore and fight**) is made from the ambient
 - **The tempo is in the music, not in the file.** You give each part its tempo in the editor; the file needs no tempo. Get it right (a DAW shows it), because the beat and bar transitions use it.
 - **Layers must match the part**: the same length, the same tempo. Export the stems of a piece from your DAW over the same range.
 - **A part that does not loop and has no *Then* ends the music**; the music below takes over (the music of the place, or silence).
-- **Two Dynamic Musics do not cross fade into each other**: when one replaces another (a zone with its own), the old one stops and the new one fades in.
+- **Two Dynamic Musics cross fade into each other**: when one replaces another (a zone with its own), the old one fades out on a player of its own while the new one fades in, over the **Fade** of the source that starts.
 - **Ambient sound cannot be a Dynamic Music** (it is a track).
 - The files are loaded with the rest of the world's sound ([Loading](/basic/audio/music-albums#loading)); the stingers too.
 - **A stinger** can be played when no Dynamic Music plays, if the action names the music; the stinger plays and nothing is lowered.

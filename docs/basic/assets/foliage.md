@@ -27,7 +27,7 @@ The **left side** is the tree: the two folders and the files in them, each with 
 
 The **pictures** are made by the editor and kept in `res://src/data/worlds/foliage/.thumbnails/` (add that folder to `.gitignore` if you do not want them in version control). A mesh is drawn by the editor's own preview. A scene is drawn by the toolkit from a corner above, lit by a sun.
 
-The **right side** shows the big picture, the file, the **name** of the entry and its buttons:
+The **right side** shows the selected scene or mesh in a **3D view** you can turn around (a mesh with the materials of the entry, so a variant with another material shows it; a group shows its first scene), the file, the **name** of the entry and its buttons:
 
 | Button | What it does |
 |---|---|

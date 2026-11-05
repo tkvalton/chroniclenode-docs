@@ -13,6 +13,8 @@ The preview of a visual effect (VFX tab): the effect plays in a 3D view you can 
 | `String` | [vfx_type](#var-vfx-type) | `""` |
 | `Node` | [instance](#var-instance) | `null` |
 | `ShaderMaterial` | [telegraph_material](#var-telegraph-material) | `null` |
+| `ColorPickerButton` | [color_button](#var-color-button) | `null` |
+| `CheckBox` | [chain_check](#var-chain-check) | `null` |
 
 ## Methods
 
@@ -41,6 +43,14 @@ The effect in the view
 ### ShaderMaterial telegraph_material = null {#var-telegraph-material}
 
 The material of the warning of a telegraph, and the clock of its fill
+
+### ColorPickerButton color_button = null {#var-color-button}
+
+The colour of the warning of a telegraph, and the switch that shows a beam that chains as a chain of beams (made in _ready)
+
+### CheckBox chain_check = null {#var-chain-check}
+
+*No description yet.*
 
 ## Method descriptions
 

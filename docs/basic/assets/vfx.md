@@ -23,9 +23,9 @@ The effect you select **plays in a 3D preview** at the top of the panel on the r
 | **Loop** | Plays by itself. **Restart** plays it again from its start; **End** plays its end animation when the effect has one |
 | **One shot** | Plays when you select it and **repeats** after its length (the **Repeat** box, on to begin with). **Play** plays it once more |
 | **Weather** | Plays by itself over the view, with an **Intensity** slider (0 to 1) |
-| **Beam** | Stretches between two points: a **Length** slider (1 to 20 m) and **Sweep**, which moves the far end around so you can see the beam follow a target. The mesh named *Beam* is as long as the beam and turned to the far end, the way the game places it |
+| **Beam** | Stretches between two points: a **Length** slider (1 to 20 m) and **Sweep**, which moves the far end around so you can see the beam follow a target. The mesh named *Beam* is as long as the beam and turned to the far end, the way the game places it. A beam with a **Curve Intensity** bends toward a point beside its middle, as in the game. **Chain** shows the beam going on from its far end to two more targets, to see a beam that chains (lightning) |
 | **Path** | Puts a copy of what is under its source node every *section size* metres along a line; the **Length** slider makes the line longer or shorter |
-| **Telegraph** | The warning that fills up on the ground, as the game draws it: a **Shape** (circle or square), a **Size** and the **Fill** (or **Auto**, which fills it again and again). The shape, size and colour of a real telegraph come from the ability that uses it; the file is its outline picture |
+| **Telegraph** | The warning that fills up on the ground, as the game draws it: a **Shape** (circle or square), a **Size**, a **Colour** (red to begin with) and the **Fill** (or **Auto**, which fills it again and again). The shape, size and colour of a real telegraph come from the ability that uses it; the file is its outline picture |
 | **Material** | The material on a capsule the size of a character, as its material override |
 
 The **Speed** slider (0.1x to 2x) slows the effect down to look at it. The preview starts the particles and the animations of the scene the way the effect does and places the parts of a beam and a path itself; it does not run the game side of the effect (pools, timers, attaching to a creature).

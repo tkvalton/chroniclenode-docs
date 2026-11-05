@@ -41,6 +41,7 @@ SFX_CATEGORIES lists the categories (music, ambience, UI, voices, voicelines, fo
 | `String` | [create_voice_type](#method-create-voice-type)( `entity_type: String` ) *static* |
 | `String` | [create_voice_variant](#method-create-voice-variant)( `entity_type: String, voice_variant: String` ) *static* |
 | `Dictionary` | [rename_voice_variant](#method-rename-voice-variant)( `entity_type: String, old_name: String, new_name: String` ) *static* |
+| `String` | [copy_voice_variant](#method-copy-voice-variant)( `entity_type: String, source_name: String, new_name: String` ) *static* |
 | `String` | [create_voice_call_folder](#method-create-voice-call-folder)( `entity_type: String, voice_variant: String, call_name: String` ) *static* |
 | `Dictionary` | [import_voice_files](#method-import-voice-files)( `entity_type: String, voice_variant: String, call_name: String, file_paths: PackedStringArray` ) *static* |
 | `Array[String]` | [get_voice_usage](#method-get-voice-usage)( `entity_type: String, voice_variant: String` ) *static* |
@@ -176,6 +177,10 @@ Makes the folder of a new voice of an entity type
 ### Dictionary rename_voice_variant( entity_type: String, old_name: String, new_name: String ) {#method-rename-voice-variant}
 
 Renames a voice (the folder of a voice of an entity type) and gives every NPC, character and player class that has it the new name, so none of them is left with a voice that is gone. Returns &#123;error, updated&#125;: the error in words ("" when it was renamed) and how many definitions were changed
+
+### String copy_voice_variant( entity_type: String, source_name: String, new_name: String ) {#method-copy-voice-variant}
+
+Copies a voice (all its folders and files) as the start of another voice of the same kind of creature. The error in words, "" when it was copied
 
 ### String create_voice_call_folder( entity_type: String, voice_variant: String, call_name: String ) {#method-create-voice-call-folder}
 
