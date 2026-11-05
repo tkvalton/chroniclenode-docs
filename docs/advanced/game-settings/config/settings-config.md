@@ -75,6 +75,7 @@ Class representing the game settings
 | `float` | [view_distance_scale](#prop-view-distance-scale) | `1.0:` |
 | `TerrainDetailOption` | [terrain_detail](#prop-terrain-detail) | `TerrainDetailOption.HIGH:` |
 | `GroundClutterOption` | [ground_clutter](#prop-ground-clutter) | `GroundClutterOption.HIGH:` |
+| `FoliageDistanceOption` | [foliage_distance](#prop-foliage-distance) | `FoliageDistanceOption.HIGH:` |
 | `ResolutionScalingOption` | [resolution_scaling_mode](#prop-resolution-scaling-mode) | `ResolutionScalingOption.BILINEAR` |
 | `float` | [fsr_sharpness](#prop-fsr-sharpness) | `1.0` |
 | `SSROption` | [SSR](#prop-ssr) | `SSROption.DISABLED` |
@@ -236,6 +237,14 @@ Enumeration of ground clutter amounts (Off, then the three levels of the Terrain
 - **MEDIUM** = `2`
 - **HIGH** = `3`
 
+### enum FoliageDistanceOption {#enum-foliagedistanceoption}
+
+Enumeration of foliage distance levels (the three levels of the TerrainConfig: percent of the foliage distances)
+
+- **LOW** = `0`
+- **MEDIUM** = `1`
+- **HIGH** = `2`
+
 ### enum SSROption {#enum-ssroption}
 
 Enumeration of valid Screen-Space Reflections options for the game's settings
@@ -352,6 +361,7 @@ Enumeration of crouch control modes
 - `Dictionary` **MESH_LOD** = `{` - Dictionary of mesh lod setting for the game's settings
 - `Dictionary` **TERRAIN_DETAIL** = `{` - Dictionary of terrain detail levels for the game's settings (what each level means is set in the Terrain Settings of the editor)
 - `Dictionary` **GROUND_CLUTTER** = `{` - Dictionary of ground clutter amounts for the game's settings (what each level means, in percent, is set in the Terrain Settings of the editor; Off is always none)
+- `Dictionary` **FOLIAGE_DISTANCE** = `{` - Dictionary of foliage distance levels for the game's settings (what each level means, in percent, is set in the Terrain Settings of the editor)
 - `Dictionary` **SSR_MODE** = `{` - Dictionary of SSR mode for the game's settings
 - `Dictionary` **SSAO_MODE** = `{` - Dictionary of SSAO mode for the game's settings
 - `Dictionary` **SSILM_MODE** = `{` - Dictionary of SSILM mode for the game's settings
@@ -648,6 +658,10 @@ The level of terrain detail: how many textures of a chunk are drawn, how sharp t
 ### GroundClutterOption ground_clutter = GroundClutterOption.HIGH: {#prop-ground-clutter}
 
 How much grass, weeds and pebbles there are: Off, or one of three amounts the game sets (in percent) in its Terrain Settings. Trees and bushes are not touched (they are level design)
+
+### FoliageDistanceOption foliage_distance = FoliageDistanceOption.HIGH: {#prop-foliage-distance}
+
+How far trees, bushes, rocks and ground scatter are drawn: Low, Medium or High, a share of their distances that the game sets (in percent) in its Terrain Settings. The View distance setting scales it further
 
 *Advanced Graphics*
 

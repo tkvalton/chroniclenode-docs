@@ -42,6 +42,18 @@ How the [navigation of the terrain](/basic/world/terrain-navigation) is baked (*
 | **Clutter grows on textures** | On: the [Ground clutter list of a terrain texture](/basic/assets/terrain-textures#ground-clutter) makes grass, weeds and pebbles appear where the texture is painted. Off: no texture grows anything, only what you painted with the [foliage tools](/basic/world/terrain-foliage) is drawn |
 | **Clutter low / medium / high percent** | What the player's **Ground clutter** setting means: the share of every clutter entry that is drawn on Low, Medium and High (35, 65 and 100 at first). Off is always none |
 
+## Foliage distance
+
+How far grass, weeds, pebbles, trees, bushes and rocks are drawn. They fade out over the last part of the distance (the **Foliage fade** of the Terrain node).
+
+| Setting | What it does |
+|---|---|
+| **Default clutter distance** | How far ground scatter is drawn when its entry does not set a distance of its own (40 m at first) |
+| **Default foliage distance** | The same for foliage: trees, bushes, rocks (250 m at first) |
+| **Foliage distance low / medium / high percent** | What the player's **Foliage distance** setting means: the share of those distances (and of the **View distance** of every entry, in [Assets > Foliage](/basic/assets/foliage)) that is drawn on Low, Medium and High (50, 75 and 100 at first) |
+
+An entry's own **View distance** overrides the default of its kind. The player's **View distance scale** scales the result further.
+
 ## Limits
 
 | Setting | What it does |
@@ -69,10 +81,11 @@ Under the table the editor shows what the settings cost: the memory of the textu
 
 ## The player's settings
 
-In the video settings of **Game Settings > Quality** the player gets three choices (you tick them in *Player accessible settings* like the others):
+In the video settings of **Game Settings > Quality** the player gets four choices (you tick them in *Player accessible settings* like the others):
 
 - **View distance scale** (0.5 to 1.5): how far the world is drawn compared with the distances you set. It scales the terrain, and whatever you tie to it with `ViewDistance.scaled(metres)` (foliage and props that hide at a distance).
 - **Terrain detail** (Low, Medium, High, Ultra): the level above.
+- **Foliage distance** (Low, Medium, High): how far grass, trees and rocks are drawn, as the percentages of [Foliage distance](#foliage-distance) above, on top of the view distance scale.
 - **Ground clutter** (Off, Low, Medium, High): how much grass, weeds and pebbles there are. The three levels are the percentages of [Ground clutter](#ground-clutter) above; trees and bushes are not touched.
 
 The AI of NPCs gets simpler at a distance (the LOD distances of the [Gameplay Config](/basic/game-settings/gameplay-config)). By default these are **the same for every player**, so the game plays the same on every computer. Tick **LOD follows view distance** there if you want a player who halves the view distance to halve those distances too.

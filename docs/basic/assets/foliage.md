@@ -44,7 +44,7 @@ Problems of the entry are listed under the buttons (a mesh that cannot be read, 
 |---|---|---|
 | **Is** | A **mesh** and the materials it is drawn with | A **scene** you build: a mesh, a StaticBody3D, the collision |
 | **Collision** | Never | Whatever the scene has (it is optional) |
-| **Seen from** | Near the camera (40 m by default) | Far (250 m by default) |
+| **Seen from** | Near the camera (40 m by default: [Terrain Settings](/basic/game-settings/terrain-settings#foliage-distance)) | Far (250 m by default, the same setting) |
 | **Shadows** | Off by default | On by default |
 | **Takes ground from the navigation** | No | Yes: a footprint |
 
