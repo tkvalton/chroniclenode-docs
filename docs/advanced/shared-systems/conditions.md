@@ -141,6 +141,7 @@ func get_entity_description() -> String:
 | [TargetDistanceBetweenCondition](/advanced/shared-systems/entity-conditions/target-distance-between-condition) | Checks if the target is within a specified distance range (between min and max). |
 | [TargetDistanceCondition](/advanced/shared-systems/entity-conditions/target-distance-condition) | Checks if the target is closer/farther than a specified range. |
 | [TargetIsPlayerCondition](/advanced/shared-systems/entity-conditions/target-is-player-condition) | Checks if the target is a player entity. |
+| [TimeOfDayCondition](/advanced/shared-systems/entity-conditions/time-of-day-condition) | Is it between two hours of the game day? |
 | [WearingArmorClassCondition](/advanced/shared-systems/entity-conditions/wearing-armor-class-condition) | Checks the armor an entity wears: "wears at least three pieces of plate". |
 | [WorldPositionDistanceBetweenCondition](/advanced/shared-systems/entity-conditions/world-position-distance-between-condition) | Checks if the entity is within a specified distance range from a world position. |
 | [WorldPositionDistanceCondition](/advanced/shared-systems/entity-conditions/world-position-distance-condition) | Checks if the entity is within range or farther than a world position. |

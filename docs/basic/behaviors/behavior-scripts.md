@@ -48,7 +48,7 @@ Every schedule has:
 | **Task sequence** | The [tasks](#tasks) | none |
 | **Loop sequence** | Start again after the last task | on |
 | **Cooldown time** | Seconds before the schedule may start again | `0` |
-| **Activation conditions** | [Entity conditions](/basic/shared-systems/conditions) that must hold for the schedule to be chosen: "it is between 7 and 19", "the [quest](/basic/events-and-quests/quests) is active". **Require all conditions**: all (on) or any (off) | none, all |
+| **Activation conditions** | [Entity conditions](/basic/shared-systems/conditions) that must hold for the schedule to be chosen: "it is between 7 and 19" (the **Time Of Day** condition), "the [quest](/basic/events-and-quests/quests) is active". **Require all conditions**: all (on) or any (off) | none, all |
 | **Failure handling** | What to do when a task fails: **Skip to next**, **Retry the task**, **Restart the schedule** or **Abort the schedule** | Skip to next |
 | **Randomize order** | Shuffle the tasks | off |
 
@@ -104,6 +104,25 @@ A **schedule reaction** watches for something and changes what the entity is doi
 | **Return to previous**, **Return delay** | Go back to the previous schedule when the trigger is over, after a delay | on, `2` s |
 
 "When the player comes near, switch to the Greet schedule, and 2 seconds after they leave, go back."
+
+## The Behaviour tab (see it in the world)
+
+Select an NPC in the 3D viewport and open the **Behaviour** tab (it sits beside **Unique Object** in the bottom panel; the **Behaviour** button of the NPC's Unique Object panel jumps to it). It shows what the NPC does and draws it in the viewport.
+
+| In the tab | What it shows |
+|---|---|
+| **Header** | The NPC, its script, and where the script comes from (*from its definition* or *this NPC's own*). **Used by** says who else has the script: changing a shared script changes all of them |
+| **The list** | Each schedule (a colour of its own) with its time and kind, and under it its tasks, one line each ("Patrol: 4 points, loop, waits 2 s") |
+| **The day** | 24 hours across, one bar per schedule from the hour its *Time Of Day* starts to the hour it ends. The schedules are checked from the top: the first whose time and conditions hold runs |
+| **Details** | The schedule or task chosen in the list: its conditions and what it does |
+| **Show paths**, **Only the chosen schedule** | Draw or hide the lines in the viewport; draw only the chosen schedule |
+| **Refresh**, **Open script** | Read the script again; open it in the Behavior Scripts editor |
+
+In the viewport, for the selected NPC only: a **patrol** is its points with arrows between them (a loop closes), a **move** is a point with an arrow for the way it faces, a **wander** is the circle it wanders in (round where the NPC is placed unless the task has a centre), and a task that talks to, uses or follows someone is a yellow line to them. Each schedule has the colour of its row; the chosen schedule is bright and the others dim; the chosen task is white. This build only shows: you still edit the script in the Behavior Scripts editor.
+
+### Time of day
+
+A schedule that is for a time of day has a **Time Of Day** activation condition: it is met from one hour of the game day to another (8.5 is half past eight; 22 to 6 goes past midnight; the same hour twice is all day). Put the schedules in the order you want them checked: the guard's "Night" (22 to 6) above "Day round" (8 to 18) above a schedule with no time that is the rest of the day.
 
 ## Examples
 

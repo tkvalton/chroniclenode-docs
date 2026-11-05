@@ -1151,6 +1151,30 @@ export const groups = [
         "file": "editor_components/3d_scene_tools/audio_profile_box.gd"
       },
       {
+        "name": "BehaviorGizmoPlugin",
+        "base": "EditorNode3DGizmoPlugin",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\behavior\\behavior_gizmo.gd",
+        "file": "editor_components/3d_scene_tools/behavior/behavior_gizmo.gd"
+      },
+      {
+        "name": "BehaviorPanel",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\behavior\\behavior_panel.gd",
+        "file": "editor_components/3d_scene_tools/behavior/behavior_panel.gd"
+      },
+      {
+        "name": "BehaviorRoute",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\behavior\\behavior_route.gd",
+        "file": "editor_components/3d_scene_tools/behavior/behavior_route.gd"
+      },
+      {
+        "name": "BehaviorTimeStrip",
+        "base": "Control",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\behavior\\behavior_time_strip.gd",
+        "file": "editor_components/3d_scene_tools/behavior/behavior_time_strip.gd"
+      },
+      {
         "name": "EntityDataPropertyEditor",
         "base": "EditorProperty",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\inspector_plugins\\entity_data_property_editor.gd",

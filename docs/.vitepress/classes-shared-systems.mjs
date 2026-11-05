@@ -455,6 +455,12 @@ export const groups = [
         "file": "data_classes/conditions/entity/target_is_player_condition.gd"
       },
       {
+        "name": "TimeOfDayCondition",
+        "base": "EntityCondition",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\entity\\time_of_day_condition.gd",
+        "file": "data_classes/conditions/entity/time_of_day_condition.gd"
+      },
+      {
         "name": "WearingArmorClassCondition",
         "base": "EntityCondition",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\conditions\\entity\\wearing_armor_class_condition.gd",
