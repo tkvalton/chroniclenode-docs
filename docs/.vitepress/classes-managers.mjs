@@ -83,6 +83,18 @@ export const groups = [
         "file": "runtime_classes/system_managers/faction_manager.gd"
       },
       {
+        "name": "SfxCache",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\system_managers\\sfx_cache.gd",
+        "file": "runtime_classes/system_managers/sfx_cache.gd"
+      },
+      {
+        "name": "SfxPlayerPool",
+        "base": "Node",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\system_managers\\sfx_player_pool.gd",
+        "file": "runtime_classes/system_managers/sfx_player_pool.gd"
+      },
+      {
         "name": "SoundLayers",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\system_managers\\sound_layers.gd",

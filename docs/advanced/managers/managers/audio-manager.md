@@ -42,9 +42,10 @@ VOLUME CONTROL: Separate volume controls via setters: music_volume_db, ambience_
 | | | |
 |---|---|---|
 | `Dictionary` | [gameplay_sfx_cache](#var-gameplay-sfx-cache) | `{}` |
-| `Array[AudioStreamPlayer3D]` | [sfx_3d_players](#var-sfx-3d-players) | `[]      # For positional SFX` |
-| `Array[AudioStreamPlayer]` | [sfx_2d_players](#var-sfx-2d-players) | `[]` |
-| `Array[AudioStreamPlayer]` | [ui_audio_players](#var-ui-audio-players) | `[]` |
+| `SfxPlayerPool` | [sfx_pool](#var-sfx-pool) |  |
+| `Array[AudioStreamPlayer3D]:` | [sfx_3d_players](#var-sfx-3d-players) |  |
+| `Array[AudioStreamPlayer]:` | [sfx_2d_players](#var-sfx-2d-players) |  |
+| `Array[AudioStreamPlayer]:` | [ui_audio_players](#var-ui-audio-players) |  |
 | `AudioStreamPlayer                    # Music player A (for crossfading)` | [music_player_a](#var-music-player-a) |  |
 | `AudioStreamPlayer` | [music_player_b](#var-music-player-b) |  |
 | `AudioStreamPlayer` | [ambience_player_a](#var-ambience-player-a) |  |
@@ -190,10 +191,8 @@ The sun went down or came up (the sources with a night version have crossfaded)
 
 ## Constants
 
-- `int` **SFX_3D_POOL_SIZE** = `50` - Pool sizes
-- `int` **SFX_2D_POOL_SIZE** = `20` - How many players of 2D sound effects are made.
-- `int` **UI_AUDIO_POOL_SIZE** = `5` - How many players of interface sounds are made.
-- `float` **FADE_DURATION** = `3.0` - How many seconds a crossfade takes.
+- `float` **FADE_DURATION** = `3.0` - Pool sizes How many players of 2D sound effects are made. How many players of interface sounds are made. How many seconds a crossfade takes.
+- `const` **AudioPlayerRequest** = `SfxPlayerPool.AudioPlayerRequest` - AudioPlayerRequest structure for requesting configured audio players
 
 ## Variable descriptions
 
@@ -201,15 +200,19 @@ The sun went down or came up (the sources with a night version have crossfaded)
 
 ========== CACHE STORAGE ==========
 
-### Array[AudioStreamPlayer3D] sfx_3d_players = []      # For positional SFX {#var-sfx-3d-players}
+### SfxPlayerPool sfx_pool {#var-sfx-pool}
 
-========== AUDIO PLAYER POOLS ==========
+========== AUDIO PLAYER POOLS ========== The pools of the players of the sound effects (SfxPlayerPool); the lists below are its lists
 
-### Array[AudioStreamPlayer] sfx_2d_players = [] {#var-sfx-2d-players}
+### Array[AudioStreamPlayer3D]: sfx_3d_players {#var-sfx-3d-players}
+
+For positional SFX
+
+### Array[AudioStreamPlayer]: sfx_2d_players {#var-sfx-2d-players}
 
 For UI/global SFX
 
-### Array[AudioStreamPlayer] ui_audio_players = [] {#var-ui-audio-players}
+### Array[AudioStreamPlayer]: ui_audio_players {#var-ui-audio-players}
 
 Dedicated UI audio players
 

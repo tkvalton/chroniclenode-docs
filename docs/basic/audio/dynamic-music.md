@@ -60,7 +60,7 @@ The list is on the left (**New**; right-click for **Duplicate**, **Delete** and 
 | **Fade length** | In beats of the old part |
 | **Bridge part** | A part that plays between the two: a drum fill, a riser. The new part starts when the bridge ends |
 
-Under the groups, **Used by** lists where the music is chosen (the music, combat music or ambience of a world, a zone and a weather, an event that sets the music, the Gameplay Config's menu music). A source placed in a world scene (an encounter) is not looked at.
+Under the groups, **Used by** lists where the music is chosen (the music, combat music or ambience of a world, a zone, a weather and an encounter, an event that sets the music, the Gameplay Config's menu music).
 
 The rule that is used is the **most specific** one that fits the change: a rule for *Explore to Combat* beats a rule for *any to Combat*, which beats the default transition.
 

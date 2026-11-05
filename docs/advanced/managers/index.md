@@ -52,6 +52,8 @@ Not managers, but used the same way from anywhere: the [`Database`](/advanced/da
 | [ChronoManager](/advanced/managers/managers/chrono-manager) | Centralized timer pool and game time management system. |
 | [DynamicMusicPlayer](/advanced/managers/managers/dynamic-music-player) | Plays a Dynamic Music. |
 | [FactionManager](/advanced/managers/managers/faction-manager) | FactionManager - Global singleton that orchestrates faction relationships Delegates logic to FactionDefinition instances and handles synchronization between factions Each faction manages its own runtime reputation; manager ensures both sides stay in sync |
+| [SfxCache](/advanced/managers/managers/sfx-cache) | The loaded gameplay sounds (abilities, footsteps, voices), taken out of AudioManager. |
+| [SfxPlayerPool](/advanced/managers/managers/sfx-player-pool) | The pools of players of the sound effects, taken out of AudioManager: 3D players for sounds at a place (hits, footsteps, voices), 2D players for sounds from nowhere and a few players of the interface bus. |
 | [SoundLayers](/advanced/managers/managers/sound-layers) | Who decides what music and ambience play: layers lie one over the other, and the highest layer that has something for a channel wins, for music and for ambience on their own: WORLD (what the world says) &lt; ZONE (the place the party is in) &lt; WEATHER (the weather that is on) &lt; SHELTER (the shelter the camera is in, the rain on its roof) &lt; ENCOUNTER (the fight the party is in, combat music only) &lt; EVENT (an event that plays a track) &lt; MENU (the music of a menu: the main menu, character creation, the loading screen, the pause menu; Gameplay Config &gt; Audio). |
 <!-- /classes -->
 
