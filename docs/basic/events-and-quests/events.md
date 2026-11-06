@@ -62,7 +62,7 @@ Each event has its own **local variables**: named values of type int, float, boo
 
 ## Examples
 
-**A door that opens when a switch is flipped.** Trigger: *Object Switch State Change* (the switch, turned on). Action: *Control Door* (the door, open).
+**A door that opens when a switch is flipped.** Trigger: *Object Switch State Change* (the switch, turned on). Action: *Control Door* (the door, open). (For small things like this inside one place, the [Local Events](/basic/events-and-quests/local-events) tab makes the same rule with the world open and draws its wires.)
 
 **A trap on the road.** Trigger: *Trigger area Detection Player* (the road, enters). Condition: *Global Variable* `ambush_done` is false. Actions: *Spawn Entity* (three bandits), *Popup* ("Ambush!"), *Set Global Variable* `ambush_done` = true.
 

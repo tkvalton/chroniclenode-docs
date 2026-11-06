@@ -470,7 +470,7 @@ const SYSTEMS = {
       { text: 'Stat editors', slug: 'stats', dirs: [['editor_components/editors/stats', true]] },
       { text: 'World editors', slug: 'world', dirs: [['editor_components/editors/world', true]] },
       { text: 'Audio editors', slug: 'audio', dirs: [['editor_components/editors/audio', true]] },
-      { text: 'Viewport tools', slug: 'viewport-tools', dirs: [['editor_components/3d_scene_tools', false], ['editor_components/3d_scene_tools/behavior', false], ['editor_components/inspector_plugins', false]] },
+      { text: 'Viewport tools', slug: 'viewport-tools', dirs: [['editor_components/3d_scene_tools', false], ['editor_components/3d_scene_tools/behavior', false], ['editor_components/3d_scene_tools/local_events', false], ['editor_components/inspector_plugins', false]] },
       { text: 'Catalogs', slug: 'catalogs', dirs: [['editor_components/catalogs', true]] },
       { text: 'Dialogs', slug: 'dialogs', dirs: [['editor_components/dialogs', true]] },
       { text: 'Property controls', slug: 'factory', dirs: [['editor_components/factory', true], ['editor_components/curve_editor', true], ['editor_components/controls', true]] },

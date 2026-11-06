@@ -14,6 +14,7 @@ ObjectRegistry - manages all NPCs, Interactables, Trigger areas, and special Enc
 | `Dictionary` | [dynamic_entities](#var-dynamic-entities) | `{}` |
 | `Dictionary` | [placed_encounters](#var-placed-encounters) | `{}` |
 | `Dictionary` | [placed_spawners](#var-placed-spawners) | `{}` |
+| `Dictionary` | [placed_local_events](#var-placed-local-events) | `{}` |
 | `Array[EncounterGroup]` | [dynamic_encounters](#var-dynamic-encounters) | `[]` |
 | `Dictionary` | [placed_interactables](#var-placed-interactables) | `{}` |
 | `Dictionary` | [dynamic_interactables](#var-dynamic-interactables) | `{}` |
@@ -38,7 +39,7 @@ ObjectRegistry - manages all NPCs, Interactables, Trigger areas, and special Enc
 | | |
 |---|---|
 | `void` | [process_lod](#method-process-lod)( `delta: float` ) |
-| `void` | [register_world_objects](#method-register-world-objects)( `entities: Array, interactables: Array, trigger_areas: Array, dropped_items: Array = [], spawners: Array = []` ) |
+| `void` | [register_world_objects](#method-register-world-objects)( `entities: Array, interactables: Array, trigger_areas: Array, dropped_items: Array = [], spawners: Array = [], local_events: Array = []` ) |
 | `void` | [register_entity](#method-register-entity)( `entity: Entity` ) |
 | `Entity` | [get_entity](#method-get-entity)( `entity_unique_id: int` ) |
 | `Array[Entity]` | [get_entities_by_data_id](#method-get-entities-by-data-id)( `definition_id: int` ) |
@@ -65,6 +66,11 @@ ObjectRegistry - manages all NPCs, Interactables, Trigger areas, and special Enc
 | `Spawner` | [get_spawner](#method-get-spawner)( `spawner_unique_id: int` ) |
 | `Array[Spawner]` | [get_all_spawners](#method-get-all-spawners)() |
 | `void` | [unregister_spawner](#method-unregister-spawner)( `spawner: Spawner` ) |
+| `void` | [register_local_event](#method-register-local-event)( `local_event: LocalEvent` ) |
+| `LocalEvent` | [get_local_event](#method-get-local-event)( `local_id: int` ) |
+| `Array[LocalEvent]` | [get_all_local_events](#method-get-all-local-events)() |
+| `void` | [unregister_local_event](#method-unregister-local-event)( `local_event: LocalEvent` ) |
+| `void` | [settle_local_events](#method-settle-local-events)() |
 | `void` | [register_controller](#method-register-controller)( `entity: Entity, controller: EntityStateComponent` ) |
 | `void` | [unregister_controller](#method-unregister-controller)( `entity: Entity` ) |
 | `void` | [force_lod_update](#method-force-lod-update)( `entity: Entity` ) |
@@ -126,6 +132,10 @@ Dictionary of encounters keyed by unique_id for fast lookups
 ### Dictionary placed_spawners =  {#var-placed-spawners}
 
 The spawners of the world by the id of their record
+
+### Dictionary placed_local_events =  {#var-placed-local-events}
+
+The local events of the world (small rules of the place, nodes of its scene) by their local id
 
 ### Array[EncounterGroup] dynamic_encounters = [] {#var-dynamic-encounters}
 
@@ -205,7 +215,7 @@ Track active interactions across all NPCs
 
 Thins out the behaviour of what is far from the player (called every frame by the WorldContainer: a RefCounted has no process of its own)
 
-### void register_world_objects( entities: Array, interactables: Array, trigger_areas: Array, dropped_items: Array = [], spawners: Array = [] ) {#method-register-world-objects}
+### void register_world_objects( entities: Array, interactables: Array, trigger_areas: Array, dropped_items: Array = [], spawners: Array = [], local_events: Array = [] ) {#method-register-world-objects}
 
 Register all world objects at once (called by WorldContainer after world loads) This handles pre-placed objects from the WorldScene containers
 
@@ -312,6 +322,26 @@ Every spawner of the world.
 ### void unregister_spawner( spawner: Spawner ) {#method-unregister-spawner}
 
 Takes a spawner out of the registry (it stops working).
+
+### void register_local_event( local_event: LocalEvent ) {#method-register-local-event}
+
+Register a local event: it makes its runtime copy. It does not listen yet (see settle_local_events)
+
+### LocalEvent get_local_event( local_id: int ) {#method-get-local-event}
+
+The local event with a number (null when there is none)
+
+### Array[LocalEvent] get_all_local_events() {#method-get-all-local-events}
+
+Every local event of the world
+
+### void unregister_local_event( local_event: LocalEvent ) {#method-unregister-local-event}
+
+Takes a local event out of the registry (it stops listening)
+
+### void settle_local_events() {#method-settle-local-events}
+
+The world has put back what it remembers: the local events start to listen (so a switch put back in the position it was saved in does not set a rule off)
 
 ### void register_controller( entity: Entity, controller: EntityStateComponent ) {#method-register-controller}
 

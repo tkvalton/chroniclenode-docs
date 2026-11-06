@@ -76,6 +76,8 @@ Wait, branch (If and Switch), change world, play cutscenes and cinematics, move 
 
 | Action | What it does |
 |---|---|
+| [**Run Event**](/advanced/events-and-quests/actions-general/run-event-action) (`RunEventAction`) | Runs another event (a global one): the link from a local event to the story. Goes on at once or waits until it is over |
+| [**Run Local Event**](/advanced/events-and-quests/actions-general/run-local-event-action) (`RunLocalEventAction`) | Runs, switches on or off, or resets a [local event](/basic/events-and-quests/local-events) of the world the party is in |
 | [**Await**](/advanced/events-and-quests/actions-general/await-action) (`AwaitAction`) | A simple action that introduces a delay in the action execution sequence. |
 | [**Manipulate Camera**](/advanced/events-and-quests/actions-general/manipulate-camera-action) (`ManipulateCameraAction`) | Manipulate the game camera through the CameraController. |
 | [**Change World**](/advanced/events-and-quests/actions-general/change-world-action) (`ChangeWorldAction`) | Action for changing the current map while preserving game session state. |

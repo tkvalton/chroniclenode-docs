@@ -1223,6 +1223,42 @@ export const groups = [
         "file": "editor_components/inspector_plugins/id_catalog_property_editor.gd"
       },
       {
+        "name": "LocalEventCheck",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\local_events\\local_event_check.gd",
+        "file": "editor_components/3d_scene_tools/local_events/local_event_check.gd"
+      },
+      {
+        "name": "LocalEventEditing",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\local_events\\local_event_editing.gd",
+        "file": "editor_components/3d_scene_tools/local_events/local_event_editing.gd"
+      },
+      {
+        "name": "LocalEventGizmoPlugin",
+        "base": "EditorNode3DGizmoPlugin",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\local_events\\local_event_gizmo.gd",
+        "file": "editor_components/3d_scene_tools/local_events/local_event_gizmo.gd"
+      },
+      {
+        "name": "LocalEventPalette",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\local_events\\local_event_palette.gd",
+        "file": "editor_components/3d_scene_tools/local_events/local_event_palette.gd"
+      },
+      {
+        "name": "LocalEventPanel",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\local_events\\local_event_panel.gd",
+        "file": "editor_components/3d_scene_tools/local_events/local_event_panel.gd"
+      },
+      {
+        "name": "LocalEventTool",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\local_events\\local_event_tool.gd",
+        "file": "editor_components/3d_scene_tools/local_events/local_event_tool.gd"
+      },
+      {
         "name": "ModularEquipmentTypeTagPropertyEditor",
         "base": "EditorProperty",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\inspector_plugins\\modular_equipment_type_tag_property_editor.gd",

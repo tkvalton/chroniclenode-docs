@@ -146,7 +146,7 @@ const basicSystems = [
     ['Quest Lines', 'quest-lines', 'questlines'],
     ['Global Variables', 'global-variables', 'global_variables'],
   ], {
-    after: [page('Tutorial: your first quest', '/basic/events-and-quests/first-quest'), page('Popups', '/basic/events-and-quests/popups'), page('Event triggers', '/basic/events-and-quests/event-triggers'), page('Event actions', '/basic/events-and-quests/event-actions')],
+    after: [page('Tutorial: your first quest', '/basic/events-and-quests/first-quest'), page('Local Events', '/basic/events-and-quests/local-events'), page('Popups', '/basic/events-and-quests/popups'), page('Event triggers', '/basic/events-and-quests/event-triggers'), page('Event actions', '/basic/events-and-quests/event-actions')],
   }),
   system('Entities', 'entities', [
     ['Playable Character', 'playable-character', 'character_editor'],

@@ -13,6 +13,7 @@ Build [your first quest](/basic/events-and-quests/first-quest) (kill three wolve
 | Page | What it covers |
 |---|---|
 | [Events](/basic/events-and-quests/events) | The Events editor: triggers, conditions, actions, local variables |
+| [Local Events](/basic/events-and-quests/local-events) | The small events of a place (a plate opens a door), made with the world open, with wires in the viewport |
 | [Event triggers](/basic/events-and-quests/event-triggers) | Every trigger, by category |
 | [Event actions](/basic/events-and-quests/event-actions) | Every action, by category |
 | [Quests](/basic/events-and-quests/quests) | The Quests editor: objectives, rewards, requirements, repeating, failing, giving up |

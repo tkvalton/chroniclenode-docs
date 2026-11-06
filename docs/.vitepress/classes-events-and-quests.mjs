@@ -1019,6 +1019,18 @@ export const groups = [
         "file": "data_classes/events/event_actions/general/camera_manipulate_action.gd"
       },
       {
+        "name": "RunEventAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\general\\run_event_action.gd",
+        "file": "data_classes/events/event_actions/general/run_event_action.gd"
+      },
+      {
+        "name": "RunLocalEventAction",
+        "base": "EventAction",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\general\\run_local_event_action.gd",
+        "file": "data_classes/events/event_actions/general/run_local_event_action.gd"
+      },
+      {
         "name": "SwitchAction",
         "base": "EventAction",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\events\\event_actions\\general\\switch_action.gd",
