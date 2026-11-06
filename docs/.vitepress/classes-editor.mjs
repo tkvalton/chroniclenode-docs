@@ -1151,6 +1151,12 @@ export const groups = [
         "file": "editor_components/3d_scene_tools/audio_profile_box.gd"
       },
       {
+        "name": "BehaviorCheck",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\behavior\\behavior_check.gd",
+        "file": "editor_components/3d_scene_tools/behavior/behavior_check.gd"
+      },
+      {
         "name": "BehaviorEditing",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\behavior\\behavior_editing.gd",

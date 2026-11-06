@@ -20,6 +20,10 @@ The Behaviour tab: what the NPC selected in the 3D viewport does, and the place 
 | `int` | [focus_task](#var-focus-task) | `-1` |
 | `bool` | [show_paths](#var-show-paths) | `true` |
 | `bool` | [only_focus](#var-only-focus) | `false` |
+| `bool` | [check_paths](#var-check-paths) | `true` |
+| `Dictionary` | [check_result](#var-check-result) | `{}` |
+| `float` | [ghost_time](#var-ghost-time) | `-1.0` |
+| `bool` | [walker_playing](#var-walker-playing) | `false` |
 | `Label` | [title_label](#var-title-label) |  |
 | `Label` | [source_label](#var-source-label) |  |
 | `Label` | [users_label](#var-users-label) |  |
@@ -28,6 +32,12 @@ The Behaviour tab: what the NPC selected in the 3D viewport does, and the place 
 | `RichTextLabel` | [details](#var-details) |  |
 | `CheckBox` | [show_check](#var-show-check) |  |
 | `CheckBox` | [only_check](#var-only-check) |  |
+| `CheckBox` | [paths_check](#var-paths-check) |  |
+| `CheckBox` | [walker_check](#var-walker-check) |  |
+| `Button` | [play_button](#var-play-button) |  |
+| `HSlider` | [walk_slider](#var-walk-slider) |  |
+| `OptionButton` | [speed_option](#var-speed-option) |  |
+| `Label` | [walk_label](#var-walk-label) |  |
 | `Button` | [open_button](#var-open-button) |  |
 | `Button` | [refresh_button](#var-refresh-button) |  |
 | `Button` | [own_button](#var-own-button) |  |
@@ -73,6 +83,8 @@ The Behaviour tab: what the NPC selected in the 3D viewport does, and the place 
 | `void` | [edit_entry](#method-edit-entry)( `entry: Dictionary` ) |
 | `void` | [request_add_condition](#method-request-add-condition)( `entry: Dictionary` ) |
 | `void` | [add_condition_made](#method-add-condition-made)( `condition: EntityCondition, schedule_index: int, task_index: int` ) |
+| `Array` | [problems_of](#method-problems-of)( `schedule_index: int, task_index: int` ) |
+| `void` | [advance_walker](#method-advance-walker)( `seconds: float, round_seconds: float` ) |
 
 ## Signals
 
@@ -139,6 +151,22 @@ The schedule and the task chosen in the list (-1 = none)
 
 *No description yet.*
 
+### bool check_paths = true {#var-check-paths}
+
+Phase 4: draw the real walk, the places that cannot be reached; the result of the checks of the whole script (BehaviorCheck.check_script); the walker
+
+### Dictionary check_result =  {#var-check-result}
+
+*No description yet.*
+
+### float ghost_time = -1.0 {#var-ghost-time}
+
+The time of the walker in the round of the chosen schedule, in seconds (-1 = no walker)
+
+### bool walker_playing = false {#var-walker-playing}
+
+*No description yet.*
+
 ### Label title_label {#var-title-label}
 
 *No description yet.*
@@ -168,6 +196,30 @@ The schedule and the task chosen in the list (-1 = none)
 *No description yet.*
 
 ### CheckBox only_check {#var-only-check}
+
+*No description yet.*
+
+### CheckBox paths_check {#var-paths-check}
+
+*No description yet.*
+
+### CheckBox walker_check {#var-walker-check}
+
+*No description yet.*
+
+### Button play_button {#var-play-button}
+
+*No description yet.*
+
+### HSlider walk_slider {#var-walk-slider}
+
+*No description yet.*
+
+### OptionButton speed_option {#var-speed-option}
+
+*No description yet.*
+
+### Label walk_label {#var-walk-label}
 
 *No description yet.*
 
@@ -332,4 +384,12 @@ The condition window opens to add a condition to a schedule (activation) or a ta
 ### void add_condition_made( condition: EntityCondition, schedule_index: int, task_index: int ) {#method-add-condition-made}
 
 A condition made in the condition window goes to a schedule (task_index -1) or to one of its tasks
+
+### Array problems_of( schedule_index: int, task_index: int ) {#method-problems-of}
+
+The problems found for a schedule (task -1) or for one of its tasks
+
+### void advance_walker( seconds: float, round_seconds: float ) {#method-advance-walker}
+
+Moves the walker on by this many seconds of the round (it goes round again at the end)
 

@@ -157,6 +157,26 @@ Drag on the strip of the day to set the time of a schedule: drag over an empty s
 
 A task that is about someone (*Interact with Object*, *Follow Entity*, *Say* with a target) draws a yellow line to its target. Choose the task, press **Pick target** and click the NPC or object in the viewport (the nearest one to the click, within a few pixels): its unique id is set.
 
+#### Checking the paths
+
+With **Check paths** on (the default) the viewport also shows how the NPC would really walk the chosen schedule, using the navigation baked in the Terrain tab (the navigation of the NPC's size, and of its navigation domain: a land NPC does not walk through water):
+
+| You see | It means |
+|---|---|
+| A **light green line** next to the coloured one | The real path between the places: round the rock, the house, the lake |
+| A **red cross, a circle and a red line** | A place the NPC cannot reach. Either the place is not on ground it can walk on (water, a slope that is too steep, lava, a gap) or there is no way to it from the place before (a wall, water or a drop in between). The tab's row says which |
+| A red **(!)** after a row of the list | That schedule or task has a problem; hover the row to read it |
+
+A walk that cannot be done takes no time in the checks and the NPC stays where it was (the places after it are checked from there). Without baked navigation the walks are straight lines, the details say so, and nothing is called unreachable.
+
+The details of a chosen schedule say how long **one round** takes ("about 1 min 20 s"; the speed is the NPC's Movement Speed, a third of it when it walks; effects and gear change the real time). It says "and more" when part of the round takes as long as things take: a random patrol, a wander with no time, talking, following. A patrol that loops or goes back and forth counts the walk back, and a schedule that loops counts the walk back to its first place.
+
+The problems listed are: a patrol with no points, an *Interact with Object* or *Follow Entity* task with no target, a target that is not in this scene (a note, it may be in another one), a wander area with no radius, a schedule that never runs (the schedules above it already cover its whole time: the first schedule that fits is the one that runs), and a schedule with no tasks. The **last row** of the list (what it does when no schedule fits) says **(!) note** when some hours have no schedule, for example "From 18:00 to 08:00 no schedule applies, so the NPC wanders within 5 m".
+
+#### The walker
+
+Tick **Walker** to put a figure (a ring, a post and an arrow for the way it goes) in the viewport that does the chosen schedule from the beginning: it walks the real paths and waits where the tasks wait. Drag the **slider** to any moment of one round; the text says how far in it is and what it is doing. **Play** lets it walk (1x, 5x or 20x real time) and it goes round again at the end. A priority schedule's tasks are alternatives, so the walker shows each one in turn, starting where the NPC is placed.
+
 ### Time of day
 
 A schedule that is for a time of day has a **Time Of Day** activation condition: it is met from one hour of the game day to another (8.5 is half past eight; 22 to 6 goes past midnight; the same hour twice is all day). Put the schedules in the order you want them checked: the guard's "Night" (22 to 6) above "Day round" (8 to 18) above a schedule with no time that is the rest of the day.

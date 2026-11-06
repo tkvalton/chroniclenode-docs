@@ -291,6 +291,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | Class | What it is |
 |---|---|
 | [AudioProfileBox](/advanced/editor/viewport-tools/audio-profile-box) | Everything an audio profile holds, for the Unique Object panel: a menu of presets (Cave, Indoors, Underwater... |
+| [BehaviorCheck](/advanced/editor/viewport-tools/behavior-check) | Phase 4 of the Behaviour tab: what the NPC would really do with a schedule. |
 | [BehaviorEditing](/advanced/editor/viewport-tools/behavior-editing) | What the Behaviour tab does to a behaviour script, apart from the editor: the handles on the points of the tasks (a patrol point, the place of a move, the centre and the radius of a wander), dragging one, adding a point or a task with a click on the ground, a copy of a script for one NPC, and keeping what a change did as one step of Undo (a script is captured before and restored by Undo). |
 | [BehaviorGizmoPlugin](/advanced/editor/viewport-tools/behavior-gizmo-plugin) | Draws the behaviour of the selected NPC in the 3D viewport: for each schedule of its behaviour script a route with arrows (patrol points, the places it walks to), the circle it wanders in, and lines to the people and objects it talks to, uses or follows. |
 | [BehaviorPanel](/advanced/editor/viewport-tools/behavior-panel) | The Behaviour tab: what the NPC selected in the 3D viewport does, and the place to change it. |
