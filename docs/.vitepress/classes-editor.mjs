@@ -1181,6 +1181,12 @@ export const groups = [
         "file": "editor_components/3d_scene_tools/behavior/behavior_route.gd"
       },
       {
+        "name": "BehaviorTemplates",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\behavior\\behavior_templates.gd",
+        "file": "editor_components/3d_scene_tools/behavior/behavior_templates.gd"
+      },
+      {
         "name": "BehaviorTimeStrip",
         "base": "Control",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\behavior\\behavior_time_strip.gd",
@@ -1361,6 +1367,12 @@ export const groups = [
         "file": "editor_components/dialogs/bbcode_text_editor/bbcode_text_editor.gd"
       },
       {
+        "name": "BehaviorTemplateDialog",
+        "base": "ConfirmationDialog",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\dialogs\\behavior_template_dialog.gd",
+        "file": "editor_components/dialogs/behavior_template_dialog.gd"
+      },
+      {
         "name": "BoolParameterPopup",
         "base": "ParameterPopupBase",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\dialogs\\parameters_popups\\parameter_bool_popup.gd",
@@ -1491,6 +1503,12 @@ export const groups = [
         "base": "ConfirmationDialog",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\dialogs\\response_state_dialog.gd",
         "file": "editor_components/dialogs/response_state_dialog.gd"
+      },
+      {
+        "name": "SaveTemplateDialog",
+        "base": "ConfirmationDialog",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\dialogs\\save_template_dialog.gd",
+        "file": "editor_components/dialogs/save_template_dialog.gd"
       },
       {
         "name": "ScheduleEditDialog",

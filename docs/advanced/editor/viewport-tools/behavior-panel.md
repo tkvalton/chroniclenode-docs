@@ -24,6 +24,13 @@ The Behaviour tab: what the NPC selected in the 3D viewport does, and the place 
 | `Dictionary` | [check_result](#var-check-result) | `{}` |
 | `float` | [ghost_time](#var-ghost-time) | `-1.0` |
 | `bool` | [walker_playing](#var-walker-playing) | `false` |
+| `int` | [focus_reaction](#var-focus-reaction) | `-1` |
+| `Button` | [add_reaction_button](#var-add-reaction-button) |  |
+| `Button` | [template_button](#var-template-button) |  |
+| `Button` | [save_template_button](#var-save-template-button) |  |
+| `BehaviorTemplateDialog` | [template_dialog](#var-template-dialog) |  |
+| `SaveTemplateDialog` | [save_template_dialog](#var-save-template-dialog) |  |
+| `ConfirmationDialog` | [delete_template_dialog](#var-delete-template-dialog) |  |
 | `Label` | [title_label](#var-title-label) |  |
 | `Label` | [source_label](#var-source-label) |  |
 | `Label` | [users_label](#var-users-label) |  |
@@ -85,6 +92,10 @@ The Behaviour tab: what the NPC selected in the 3D viewport does, and the place 
 | `void` | [add_condition_made](#method-add-condition-made)( `condition: EntityCondition, schedule_index: int, task_index: int` ) |
 | `Array` | [problems_of](#method-problems-of)( `schedule_index: int, task_index: int` ) |
 | `void` | [advance_walker](#method-advance-walker)( `seconds: float, round_seconds: float` ) |
+| `void` | [request_add_reaction](#method-request-add-reaction)() |
+| `void` | [add_reaction_made](#method-add-reaction-made)( `reaction: BehaviorReaction` ) |
+| `void` | [add_reaction_condition_made](#method-add-reaction-condition-made)( `condition: EntityCondition, reaction_index: int` ) |
+| `void` | [save_chosen_as_template](#method-save-chosen-as-template)( `template_name: String, description: String` ) |
 
 ## Signals
 
@@ -164,6 +175,34 @@ Phase 4: draw the real walk, the places that cannot be reached; the result of th
 The time of the walker in the round of the chosen schedule, in seconds (-1 = no walker)
 
 ### bool walker_playing = false {#var-walker-playing}
+
+*No description yet.*
+
+### int focus_reaction = -1 {#var-focus-reaction}
+
+Phase 5: the reaction chosen in the list (-1 = none), the buttons and windows of reactions and templates
+
+### Button add_reaction_button {#var-add-reaction-button}
+
+*No description yet.*
+
+### Button template_button {#var-template-button}
+
+*No description yet.*
+
+### Button save_template_button {#var-save-template-button}
+
+*No description yet.*
+
+### BehaviorTemplateDialog template_dialog {#var-template-dialog}
+
+*No description yet.*
+
+### SaveTemplateDialog save_template_dialog {#var-save-template-dialog}
+
+*No description yet.*
+
+### ConfirmationDialog delete_template_dialog {#var-delete-template-dialog}
 
 *No description yet.*
 
@@ -392,4 +431,20 @@ The problems found for a schedule (task -1) or for one of its tasks
 ### void advance_walker( seconds: float, round_seconds: float ) {#method-advance-walker}
 
 Moves the walker on by this many seconds of the round (it goes round again at the end)
+
+### void request_add_reaction() {#method-request-add-reaction}
+
+The window that makes a reaction opens
+
+### void add_reaction_made( reaction: BehaviorReaction ) {#method-add-reaction-made}
+
+A reaction made in its window goes at the end of the reactions and is chosen
+
+### void add_reaction_condition_made( condition: EntityCondition, reaction_index: int ) {#method-add-reaction-condition-made}
+
+A condition made in the condition window goes to a reaction
+
+### void save_chosen_as_template( template_name: String, description: String ) {#method-save-chosen-as-template}
+
+Saves the chosen schedule as a template of the database
 

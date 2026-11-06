@@ -105,6 +105,10 @@ Detection signals
 
 Emitted when the entity loses sight of the player it was after.
 
+## Constants
+
+- `float` **PLAYER_DETECTION_RADIUS** = `10.0` - How near the player must come for "Player nearby" reactions (the Behaviour tab draws this circle)
+
 ## Variable descriptions
 
 ### Entity entity {#var-entity}

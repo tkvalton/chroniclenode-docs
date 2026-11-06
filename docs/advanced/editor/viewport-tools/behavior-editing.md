@@ -28,6 +28,9 @@ What the Behaviour tab does to a behaviour script, apart from the editor: the ha
 | `int` | [add_schedule](#method-add-schedule)( `script: ModularBehaviorScript, schedule: TaskSchedule` ) *static* |
 | `bool` | [remove_schedule](#method-remove-schedule)( `script: ModularBehaviorScript, index: int` ) *static* |
 | `int` | [move_schedule](#method-move-schedule)( `script: ModularBehaviorScript, index: int, delta: int` ) *static* |
+| `int` | [add_reaction](#method-add-reaction)( `script: ModularBehaviorScript, reaction: BehaviorReaction` ) *static* |
+| `bool` | [remove_reaction](#method-remove-reaction)( `script: ModularBehaviorScript, index: int` ) *static* |
+| `int` | [move_reaction](#method-move-reaction)( `script: ModularBehaviorScript, index: int, delta: int` ) *static* |
 | `int` | [add_task](#method-add-task)( `schedule: TaskSchedule, task: BehaviorTask` ) *static* |
 | `bool` | [remove_task](#method-remove-task)( `schedule: TaskSchedule, index: int` ) *static* |
 | `int` | [move_task](#method-move-task)( `schedule: TaskSchedule, index: int, delta: int` ) *static* |
@@ -145,6 +148,18 @@ Takes a schedule off the script
 ### int move_schedule( script: ModularBehaviorScript, index: int, delta: int ) {#method-move-schedule}
 
 Moves a schedule up (delta -1: it is checked earlier) or down (+1). Returns its new index, or -1 when it cannot move
+
+### int add_reaction( script: ModularBehaviorScript, reaction: BehaviorReaction ) {#method-add-reaction}
+
+Puts a reaction at the end of the script's reactions. Returns its index
+
+### bool remove_reaction( script: ModularBehaviorScript, index: int ) {#method-remove-reaction}
+
+Takes a reaction off the script
+
+### int move_reaction( script: ModularBehaviorScript, index: int, delta: int ) {#method-move-reaction}
+
+Moves a reaction up (-1) or down (+1). Returns its new index, -1 when it cannot move
 
 ### int add_task( schedule: TaskSchedule, task: BehaviorTask ) {#method-add-task}
 

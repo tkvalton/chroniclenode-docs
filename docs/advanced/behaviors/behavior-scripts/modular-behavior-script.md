@@ -33,6 +33,8 @@ ModularBehaviorScript coordinates behavior schedules and reactions for entities.
 | | |
 |---|---|
 | `void` | [setup](#method-setup)( `system_hub: GameHost.SystemHub, entity_ref: Entity` ) |
+| `bool` | [is_held_by_reaction](#method-is-held-by-reaction)() |
+| `void` | [reevaluate_now](#method-reevaluate-now)() |
 | `bool` | [set_active_schedule](#method-set-active-schedule)( `new_schedule: TaskSchedule` ) |
 | `bool` | [set_active_schedule_by_index](#method-set-active-schedule-by-index)( `index: int` ) |
 | `bool` | [activate_schedule_by_name](#method-activate-schedule-by-name)( `schedule_name: String` ) |
@@ -142,6 +144,14 @@ Evaluation interval to prevent excessive checking
 ### void setup( system_hub: GameHost.SystemHub, entity_ref: Entity ) {#method-setup}
 
 Initialize the behavior script with entity reference only
+
+### bool is_held_by_reaction() {#method-is-held-by-reaction}
+
+Is a reaction that switched the schedule still in charge (it is until it returns, or for good when it does not return)
+
+### void reevaluate_now() {#method-reevaluate-now}
+
+Picks the schedule that fits now, without waiting for the next periodic check
 
 ### bool set_active_schedule( new_schedule: TaskSchedule ) {#method-set-active-schedule}
 

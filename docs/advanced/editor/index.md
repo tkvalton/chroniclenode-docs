@@ -296,6 +296,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [BehaviorGizmoPlugin](/advanced/editor/viewport-tools/behavior-gizmo-plugin) | Draws the behaviour of the selected NPC in the 3D viewport: for each schedule of its behaviour script a route with arrows (patrol points, the places it walks to), the circle it wanders in, and lines to the people and objects it talks to, uses or follows. |
 | [BehaviorPanel](/advanced/editor/viewport-tools/behavior-panel) | The Behaviour tab: what the NPC selected in the 3D viewport does, and the place to change it. |
 | [BehaviorRoute](/advanced/editor/viewport-tools/behavior-route) | The map of a behaviour script, without any editor object: what each task is on the ground (a route, a point, an area, a link to a person or an object), the lines to draw for it, and the texts the Behaviour tab shows (a title and a summary of a task, the kind and the time of a schedule, who uses a script). |
+| [BehaviorTemplates](/advanced/editor/viewport-tools/behavior-templates) | Starting points for the behaviour of an NPC, and copies of what another NPC does (phase 5 of the Behaviour tab). |
 | [BehaviorTimeStrip](/advanced/editor/viewport-tools/behavior-time-strip) | The day of an NPC in one picture: 24 hours across, one bar per schedule in the colour the viewport draws it, from the hour its Time of Day condition starts to the hour it ends (a schedule with no time is for any time: a faint bar all along). |
 | [BehaviorTool](/advanced/editor/viewport-tools/behavior-tool) | The click tool of the Behaviour tab: while one of its buttons is on (Add patrol points, Add a place, Add a wander area) a left click on the ground of the 3D viewport adds there what the button adds, through BehaviorPanel.add_point_at (one step of Undo). |
 | [EntityDataPropertyEditor](/advanced/editor/viewport-tools/entity-data-property-editor) | Property editor for selecting EntityDefinition using ListCatalog |
@@ -338,6 +339,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [AnimationSelectionDialog](/advanced/editor/dialogs/animation-selection-dialog) | Enhanced animation selection dialog with per-library animation mappings for non-weapon categories |
 | [ArrayParameterPopup](/advanced/editor/dialogs/array-parameter-popup) | Popup for editing array parameters with type support |
 | [BBCodeTextEditor](/advanced/editor/dialogs/bb-code-text-editor) | Emitted when the user accepts the dialog with the edited text |
+| [BehaviorTemplateDialog](/advanced/editor/dialogs/behavior-template-dialog) | The window of "Add from template or copy": a list of starting points (the templates that come with the toolkit and the ones you saved) and of the schedules of other NPCs and behaviour scripts. |
 | [BoolParameterPopup](/advanced/editor/dialogs/bool-parameter-popup) | Popup for editing boolean parameters |
 | [ConditionalEditDialog](/advanced/editor/dialogs/conditional-edit-dialog) | Dialog for selecting and configuring all condition types with category organization |
 | [CreateEntityDialog](/advanced/editor/dialogs/create-entity-dialog) | Dialog for creating new entities or player classes with optional template selection |
@@ -360,6 +362,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [QuestSelectionDialog](/advanced/editor/dialogs/quest-selection-dialog) | Dialog for selecting quests to add to questline steps |
 | [ReputationLevelDialog](/advanced/editor/dialogs/reputation-level-dialog) | Dialog for creating and editing reputation levels within a faction. |
 | [ResponseStatePopup](/advanced/editor/dialogs/response-state-popup) | A dialog of the conversation editor that works in two modes: choose a response and whether it is turned on or off (the Set response state action), or choose the chat the conversation will start at the next time (the Set starting chat action). |
+| [SaveTemplateDialog](/advanced/editor/dialogs/save-template-dialog) | The window of "Save as template": a name and a line about it. |
 | [ScheduleEditDialog](/advanced/editor/dialogs/schedule-edit-dialog) | Dialog for editing the actual exported properties of TaskSchedule |
 | [SetBonusSelectionDialog](/advanced/editor/dialogs/set-bonus-selection-dialog) | Minimal set bonus selection dialog to prevent stretching |
 | [SFXSelectionDialog](/advanced/editor/dialogs/sfx-selection-dialog) | Modular SFX selection dialog that works with any SFXSelection class type Uses static DatabaseAudio for all audio data access Now supports SFX type selection and uses ItemLists for better UX |

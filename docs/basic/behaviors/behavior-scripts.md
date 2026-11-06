@@ -106,6 +106,8 @@ A **schedule reaction** watches for something and changes what the entity is doi
 
 "When the player comes near, switch to the Greet schedule, and 2 seconds after they leave, go back."
 
+**What works.** The triggers the game watches are **Player nearby** (the player comes within 10 m of the NPC), **Player left**, **Time changed**, **Health below percent**, **Quest accepted** and **Quest completed**. **Event started**, **Event ended**, **Item equipped** and **Item unequipped** are in the list but nothing in the game connects them yet, and the reaction type **Trigger task** does nothing yet; the Behaviour tab marks such reactions with a red (!). A reaction that **switches** the schedule is in charge until it gives it back: the schedule check every two seconds does not take the NPC back to the first schedule that fits. With **Return to previous** on, "Player nearby" gives it back the **Return delay** after the player has gone away; the other triggers after the delay from the moment they fired; when it returns, the NPC takes the schedule that fits then (the one before, unless the hour has moved on). With Return to previous off the switch stays. A schedule is looked up by **name** first, then by **number**.
+
 ## The Behaviour tab (see it in the world)
 
 Select an NPC in the 3D viewport and open the **Behaviour** tab (it sits beside **Unique Object** in the bottom panel; the **Behaviour** button of the NPC's Unique Object panel jumps to it). It shows what the NPC does and draws it in the viewport.
@@ -176,6 +178,25 @@ The problems listed are: a patrol with no points, an *Interact with Object* or *
 #### The walker
 
 Tick **Walker** to put a figure (a ring, a post and an arrow for the way it goes) in the viewport that does the chosen schedule from the beginning: it walks the real paths and waits where the tasks wait. Drag the **slider** to any moment of one round; the text says how far in it is and what it is doing. **Play** lets it walk (1x, 5x or 20x real time) and it goes round again at the end. A priority schedule's tasks are alternatives, so the walker shows each one in turn, starting where the NPC is placed.
+
+#### Reactions in the tab
+
+The **Reactions** group of the list has one row for each reaction ("Greet the player: when the player comes within 10 m, switch to Greet, back 3 s after") and its conditions under it ("Only when:"). **Add Reaction** opens the reaction window (the same as the Behavior Scripts editor), and the row's right-click menu has Edit, Add Condition, Delete, Move Up and Move Down. Each change is one step of Undo. A reaction that is chosen shows its schedule in bright colour and, for **Player nearby** and **Player left**, draws an amber **circle** round the NPC: how near the player has to come. A reaction with a problem has a red (!): the trigger is not watched yet, the type does nothing yet, or the schedule it switches to is not in the script. Moving or deleting a schedule keeps the reactions that switch by number pointing at the same schedule.
+
+#### Templates and copies
+
+**From template or copy...** opens a window with:
+
+| Group | What it is |
+|---|---|
+| **Templates** | Guard patrol (a square of 8 m round the NPC, waits 3 s at each corner), Sentry (stands and looks at players), Wanderer (wanders within 8 m), Day and night (wanders 06:00 to 20:00, goes back to where it is placed and stands there 20:00 to 06:00), Errand (10 m ahead, wait, back, wait), Greeter (wanders; stops and looks at the player who comes near, wanders again 3 s after they leave: two schedules and a reaction) |
+| **Your templates** | Templates you saved |
+| **Other NPCs in this scene** | The schedules of the other placed NPCs that have a script |
+| **Behaviour scripts** | The schedules of every other behaviour script of the database |
+
+Choose one and press **Add**. A template is added at the end of the NPC's own script with its places **relative to where the NPC is placed**, so it fits wherever the NPC stands (the schedules get a new name if theirs is taken, and the reactions follow the new name). A schedule of another NPC or script is **copied**, and you choose what happens to its places: **keep them where they are in the world** (several guards walking the same wall) or **make them relative to where this NPC is placed** (the shape moves with the NPC; it counts from where the NPC you copied it from stands, so a script of the database, which has no NPC, can only be copied as it is). A copy is a copy: later changes to the source do not follow. Both are one step of Undo. The buttons need the NPC's own script (**Make this NPC's own** first).
+
+**Save as template...** saves the chosen schedule, with the reactions that switch to it, as a template of your own: a record of the database (the category *behavior_template*, a small behaviour script), with its places turned into distances from the NPC, so it can be added to any NPC. Select your template in the window and press **Delete this template** to remove it; the NPCs that used it keep their copies.
 
 ### Time of day
 

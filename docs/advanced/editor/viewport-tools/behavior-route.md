@@ -23,6 +23,10 @@ A task is described by a Dictionary: kind     "route" (points, one after the oth
 | `String` | [schedule_summary](#method-schedule-summary)( `schedule: TaskSchedule` ) *static* |
 | `String` | [fallback_text](#method-fallback-text)( `script: ModularBehaviorScript` ) *static* |
 | `Dictionary` | [script_users](#method-script-users)( `script_id: int` ) *static* |
+| `String` | [trigger_text](#method-trigger-text)( `reaction: BehaviorReaction` ) *static* |
+| `int` | [reaction_target_index](#method-reaction-target-index)( `reaction: BehaviorReaction, script: ModularBehaviorScript` ) *static* |
+| `String` | [reaction_action_text](#method-reaction-action-text)( `reaction: BehaviorReaction, script: ModularBehaviorScript` ) *static* |
+| `String` | [reaction_summary](#method-reaction-summary)( `reaction: BehaviorReaction, script: ModularBehaviorScript` ) *static* |
 | `Vector3` | [place_shift](#method-place-shift)( `task: BehaviorTask, origin: Vector3` ) *static* |
 | `Dictionary` | [task_shape](#method-task-shape)( `task: BehaviorTask, origin: Vector3` ) *static* |
 | `Array[Dictionary]` | [schedule_shapes](#method-schedule-shapes)( `schedule: TaskSchedule, origin: Vector3` ) *static* |
@@ -35,6 +39,7 @@ A task is described by a Dictionary: kind     "route" (points, one after the oth
 - `float` **MARK** = `0.3` - The size of the mark of a point, in metres
 - `float` **LIFT** = `0.15` - How high over the point the lines are drawn (so they are not inside the ground)
 - `int` **CIRCLE_SEGMENTS** = `40` - The number of segments of the circle of an area
+- `Array[int]` **WORKING_TRIGGERS** = `[` - The triggers that really fire (BehaviorReaction._connect_trigger_signals connects these; the others are in the list of the window but nothing connects them yet)
 
 ## Method descriptions
 
@@ -73,6 +78,22 @@ The fallback of a script, as text
 ### Dictionary script_users( script_id: int ) {#method-script-users}
 
 Who uses a script: &#123;"definitions": [names of the NPC definitions that have it], "uniques": the number of placed NPCs that have it as their own&#125;
+
+### String trigger_text( reaction: BehaviorReaction ) {#method-trigger-text}
+
+What starts a reaction, as words ("the player comes within 10 m")
+
+### int reaction_target_index( reaction: BehaviorReaction, script: ModularBehaviorScript ) {#method-reaction-target-index}
+
+The schedule a reaction switches to (an index of the script's schedules; -1 when it is not a switch or the schedule is not there). Like the game: the name first, then the number
+
+### String reaction_action_text( reaction: BehaviorReaction, script: ModularBehaviorScript ) {#method-reaction-action-text}
+
+What a reaction does, as words ("switch to Greet, back 2 s after it is over")
+
+### String reaction_summary( reaction: BehaviorReaction, script: ModularBehaviorScript ) {#method-reaction-summary}
+
+One line about a reaction: its name, what starts it and what it does
 
 ### Vector3 place_shift( task: BehaviorTask, origin: Vector3 ) {#method-place-shift}
 

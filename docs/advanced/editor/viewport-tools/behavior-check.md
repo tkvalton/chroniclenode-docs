@@ -26,6 +26,7 @@ A plan is a Dictionary: entries   the timeline, in order: &#123;"kind": "walk" (
 | `String` | [seconds_text](#method-seconds-text)( `seconds: float, open: bool = false` ) *static* |
 | `Dictionary` | [build_lines](#method-build-lines)( `plan_data: Dictionary, to_local: Callable, ghost: Dictionary = {}` ) *static* |
 | `Dictionary` | [check_script](#method-check-script)( `script: ModularBehaviorScript, origin: Vector3, map: RID, run_speed: float, find_target: Callable` ) *static* |
+| `Array` | [reaction_problems](#method-reaction-problems)( `reaction: BehaviorReaction, script: ModularBehaviorScript` ) *static* |
 | `Array[Dictionary]` | [uncovered_hours](#method-uncovered-hours)( `script: ModularBehaviorScript` ) *static* |
 
 ## Constants
@@ -85,7 +86,11 @@ The lines of a plan: "walk" (the real paths), "bad" (the places that cannot be r
 
 ### Dictionary check_script( script: ModularBehaviorScript, origin: Vector3, map: RID, run_speed: float, find_target: Callable ) {#method-check-script}
 
-What is found about a whole script: &#123;"navigation": is there baked navigation, "schedules": [&#123;"seconds", "open", "problems": [&#123;"task", "level", "text"&#125;]&#125;] (one for each schedule), "notes": [texts about the script]&#125;
+What is found about a whole script: &#123;"navigation": is there baked navigation, "schedules": [&#123;"seconds", "open", "problems": [&#123;"task", "level", "text"&#125;]&#125;] (one for each schedule), "reactions": [&#123;"problems": [...]&#125;] (one for each reaction), "notes": [texts about the script]&#125;
+
+### Array reaction_problems( reaction: BehaviorReaction, script: ModularBehaviorScript ) {#method-reaction-problems}
+
+What is wrong with a reaction: [&#123;"task": -1, "level", "text"&#125;]
 
 ### Array[Dictionary] uncovered_hours( script: ModularBehaviorScript ) {#method-uncovered-hours}
 
