@@ -41,6 +41,18 @@ export const groups = [
         "file": "data_classes/settings/gameplay_config.gd"
       },
       {
+        "name": "MapIconCatalog",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\settings\\map_icon_catalog.gd",
+        "file": "data_classes/settings/map_icon_catalog.gd"
+      },
+      {
+        "name": "MapIconDefinition",
+        "base": "Resource",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\settings\\map_icon_definition.gd",
+        "file": "data_classes/settings/map_icon_definition.gd"
+      },
+      {
         "name": "SettingsConfig",
         "base": "Resource",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\settings\\settings_config.gd",

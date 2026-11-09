@@ -60,6 +60,31 @@ The markers the [minimap](/basic/user-interface/hud) draws.
 | **Minimap treasure** | Treasure and loot |
 | **Minimap rabbithole** | A transition: a door, a teleport |
 
+
+## Map icons
+
+Under the settings, the **Map icons** section is the **catalog** of pictures the map draws: one named icon for each kind of thing on it. The toolkit comes with **46 icons** (SVG, `assets/ui/map_icons`), each a **white glyph with a dark outline**: the game lays a colour on the glyph, so one picture serves every faction and state (a friendly character green, an enemy red, a quest gold).
+
+| Group | Icons |
+|---|---|
+| **Quests** | `quest_available`, `quest_complete` (ready to hand in), `quest_in_progress`, `hint` |
+| **Services** | `mailbox`, `shop`, `inn`, `bank`, `trainer` |
+| **Professions** | `blacksmith`, `tailor`, `alchemy`, `leatherworking`, `enchanting`, `jewelcrafting`, `cooking`, `fishing`, `mining`, `herbalism`, `engineering`, `inscription` |
+| **Gathering** | `node_ore`, `node_herb`, `node_wood`, `node_fish` |
+| **Creatures** | `enemy_normal`, `enemy_elite`, `enemy_rare`, `enemy_boss`, `npc_friendly` |
+| **Places** | `village`, `town`, `city`, `poi`, `graveyard`, `corpse` |
+| **Travel** | `fast_travel`, `map_pin` (the player's own marker), `cave`, `door`, `hole`, `portal` |
+| **Loot** | `loot_gear`, `loot_chest`, `loot_bag` |
+| **Player** | `player` |
+
+Each row shows the picture on a ground colour, its **name**, the **picture** (click to choose another image), the **colour** laid on it, **Faction** (the colour comes from the faction of whoever it marks instead), where it shows (**Mini map**, **World map**) and **Reset** (puts a toolkit icon back as it comes) or **Remove** (your own). **Add your own icon** makes a new one with an id you choose; **Add missing toolkit icons** brings back any that you removed or that a new version added. Every change is saved at once, to `src/data/config_data/map_icon_catalog.tres`.
+
+The minimap uses the catalog for what the settings above have no picture for: a quest giver is `quest_available`, a quest target `quest_in_progress`, treasure `loot_chest`, a gathering node `node_ore`, a transition `portal`, any other entity the enemy or friendly icon by its faction. A picture you set in the settings above still wins. In code: `MapIconCatalog.get_catalog().get_texture(&"blacksmith")`.
+
+**SVG** is the right format for these: it stays sharp at any size, is tiny, and a single white shape is tinted by code. The toolkit imports them at twice their size (128 px), lossless and with mipmaps so they scale down cleanly on a minimap. To make your own, draw a white shape with a dark outline on a 64 x 64 grid (the toolkit's are made by `tools/map_icons/make_icons.mjs`: add a line and run it).
+
+*Not yet:* choosing an icon on an NPC, an interactable or a spawner, the icons on the world map, and the minimap draws the glyph without its outline (its markers are lights on the ground).
+
 ## Tactical command icons
 
 The icons of the tactical commands (*movement*, *attack*, *heal*, *interact*, *target*), for a game that gives orders to the party.

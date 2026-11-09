@@ -797,6 +797,12 @@ export const groups = [
         "file": "editor_components/editors/settings/logic_settings_control.gd"
       },
       {
+        "name": "MapIconsPanel",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\map_icons_panel.gd",
+        "file": "editor_components/editors/settings/map_icons_panel.gd"
+      },
+      {
         "name": "SettingsEditor",
         "base": "ConfigEditor",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\settings\\settings_editor.gd",
