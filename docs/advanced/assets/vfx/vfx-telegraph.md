@@ -28,6 +28,7 @@ Telegraph VFX - Warning/indicator effects for abilities Uses shader-based approa
 | `Shader` | [telegraph_shader](#var-telegraph-shader) |  |
 | `bool` | [is_telegraph_active](#var-is-telegraph-active) | `false` |
 | `bool` | [is_interrupted](#var-is-interrupted) | `false` |
+| `Texture2D` | [outline_texture](#var-outline-texture) | `null` |
 
 ## Methods
 
@@ -122,6 +123,10 @@ State tracking
 
 True when the warning was cut short.
 
+### Texture2D outline_texture = null {#var-outline-texture}
+
+The picture of the shape the warning draws (a telegraph outline of the library, src/data/vfx/telegraph: the red channel is the area, the green how far inside the edge, the blue the order it fills in). With none the circle or the square is drawn
+
 ## Method descriptions
 
 ### void setup_from_selection( selection: VFXSelectionTelegraph ) {#method-setup-from-selection}
@@ -130,7 +135,7 @@ Setup telegraph from selection (called by VFXManager)
 
 ### void set_outline_texture( texture: Texture2D ) {#method-set-outline-texture}
 
-Set outline texture from VFXManager (called after creation)
+Set the picture of the shape (the VFXManager picks it by the name of the telegraph; null goes back to the circle and square)
 
 ### void start_telegraph( duration: float ) {#method-start-telegraph}
 

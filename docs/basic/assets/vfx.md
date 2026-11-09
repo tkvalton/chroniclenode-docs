@@ -11,7 +11,7 @@ An effect is a **scene** (or, for two types, a material or a texture) in `res://
 | **beam** | scene | Stretches between two points and follows them | Lightning chains, tethers, lasers |
 | **path** | scene | Repeats a piece of effect along a line between two points | A wall of fire, a line of spikes, a poison trail |
 | **weather** | scene | A loop that stays with the camera and can be blown by the wind | Rain, snow, fog |
-| **telegraph** | material or image | A warning on the ground, with a shape and a fill | The circle of an area attack, the cone of a breath |
+| **telegraph** | image | A warning on the ground: the picture is the **shape** (a circle, a cone, a lane ...), the game draws its outline and fills it up while the ability is cast | The circle of an area attack, the cone of a breath, the lane of a charge |
 | **material** | material | Replaces the look of a character for a while | A frozen blue, a stone skin, a burning glow |
 
 ## The editor
@@ -25,14 +25,14 @@ The effect you select **plays in a 3D preview** at the top of the panel on the r
 | **Weather** | Plays by itself over the view, with an **Intensity** slider (0 to 1) |
 | **Beam** | Stretches between two points: a **Length** slider (1 to 20 m) and **Sweep**, which moves the far end around so you can see the beam follow a target. The mesh named *Beam* is as long as the beam and turned to the far end, the way the game places it. A beam with a **Curve Intensity** bends toward a point beside its middle, as in the game. **Chain** shows the beam going on from its far end to two more targets, to see a beam that chains (lightning) |
 | **Path** | Puts a copy of what is under its source node every *section size* metres along a line; the **Length** slider makes the line longer or shorter |
-| **Telegraph** | The warning that fills up on the ground, as the game draws it: a **Shape** (circle or square), a **Size**, a **Colour** (red to begin with) and the **Fill** (or **Auto**, which fills it again and again). The shape, size and colour of a real telegraph come from the ability that uses it; the file is its outline picture |
+| **Telegraph** | The warning that fills up on the ground, as the game draws it: the shape of the picture you selected (its outline and its fill), a **Size**, a **Colour** (red to begin with) and the **Fill** (or **Auto**, which fills it again and again). The **Shape** menu (circle or square) is for the old telegraphs that have no picture and is off while a picture is shown. The size and colour of a real telegraph come from the ability that uses it |
 | **Material** | The material on a capsule the size of a character, as its material override |
 
 The **Speed** slider (0.1x to 2x) slows the effect down to look at it. The preview starts the particles and the animations of the scene the way the effect does and places the parts of a beam and a path itself; it does not run the game side of the effect (pools, timers, attaching to a creature).
 
 The same preview is in the **Select VFX** window of an ability or an effect: the effect you click in the list plays next to it.
 
-The demo has one effect of each kind to try the previews with: `campfire` (loop), `lightning_beam`, `fire_wall` (path), `ring_outline.png` (telegraph) and `frozen` (material), besides its one shots and weathers.
+The demo has one effect of each kind to try the previews with: `campfire` (loop), `lightning_beam`, `fire_wall` (path), `ring.png` (telegraph) and `frozen` (material), besides its one shots and weathers.
 
 | Control | What it does |
 |---|---|
@@ -57,14 +57,14 @@ The demo has one effect of each kind to try the previews with: `campfire` (loop)
 |---|---|
 | All | **VFX Type**; **Auto cleanup** (go back to the pool when finished); **On top level** |
 | **One shot** | **Delay start**; **Follow target on death** (keep following even if the target dies) |
-| **Beam** | **Beam width**, **Beam segments**, **Curve intensity** (0 = straight), **Follow target movement**, **Update continuously** |
+| **Beam** | **Beam width**, **Beam segments**, **Curve intensity** (0 = straight), **Follow target movement**, **Update continuously**. Under *BeamRotation* the mesh named **Beam** is the beam itself (a tube with no caps: the game sets its length), and two optional nodes, **BeamStart** and **BeamEnd**, are put at the two ends of the beam: the flare at the caster and the impact on the target are particles under them |
 | **Path** | **VFX source node** (the node whose children are repeated), **Section size**, **Section overlap**, **Path curve strength**; **Follow terrain** with its layer mask, offset and maximum slope; **Spawn progressively** with a delay and direction; **Max sections** and **Despawn distant sections** |
-| **Telegraph** | **Size**, **Shape** (circle or square), **Color**, **Attachment** (at a point, or attached to a character with an orientation), **Orientation offset** |
+| **Telegraph** | **Size**, **Shape** (circle or square: used only when the telegraph has no picture), **Color**, **Attachment** (at a point, or attached to a character with an orientation), **Orientation offset**. The *VFX type* of the selection is the name of a picture in the telegraph folder (see [Telegraph outlines](#telegraph-outlines)) |
 | **Weather** | The effect follows the camera. The wind comes from the [weather](/basic/world/weather) that uses it, not from the scene. The toolkit's own particle shader (below) leans with that wind |
 
 ### The weather effects that come with the toolkit
 
-The **weather** folder of the project has five effects, each a scene of GPU particles that uses the shader `weather_particles` (`assets/vfx/vfx_shaders`). Use them as they are, or copy one and change its numbers.
+The **weather** folder of the project has five weather effects, each a scene of GPU particles that uses the shader `weather_particles` (`assets/vfx/vfx_shaders`), and the ten **environment** effects of the library (fog, dust, fireflies, pollen, ash, embers, a sandstorm, arcane motes, glow spores, falling petals: see [the effects that come with the toolkit](#the-effects-that-come-with-the-toolkit)), which are made the same way. Use them as they are, or copy one and change its numbers.
 
 | Effect | What it is |
 |---|---|
@@ -175,7 +175,7 @@ The settings of `weather_particles` are the table above (*Shape*, *Area*, *Sprea
 
 ## The effects that come with the toolkit
 
-The toolkit ships with a library of **60 effects** (15 of them are the three parts of the five projectiles), all made for it: every picture is drawn by a script (no stock textures) and every effect is built from the same few shaders, so they match each other and you can read how they are made. Find them in **Assets > VFX** under the type shown here.
+The toolkit ships with a library of **90 effects and 10 telegraph outlines** (15 of the effects are the three parts of the five projectiles), all made for it: every picture is drawn by a script (no stock textures) and every effect is built from the same few shaders, so they match each other and you can read how they are made. Find them in **Assets > VFX** under the type shown here.
 
 | Group | Type | Effects |
 |---|---|---|
@@ -183,10 +183,31 @@ The toolkit ships with a library of **60 effects** (15 of them are the three par
 | **Area effects** (on the ground, about three metres across) | oneshot | `fire_nova`, `frost_nova`, `poison_cloud`, `lightning_strike`, `holy_pillar`, `arcane_circle`, `ground_slam`, `whirlwind`, `meteor_impact`, `void_collapse` |
 | **Above the head** (buffs and debuffs) | loop | `stun`, `sleep`, `frost`, `poison`, `burn`, `fear`, `curse`, `haste`, `regeneration`, `blessing` |
 | **Hits and bleeds** (on the body that is hit) | oneshot | `slash_hit`, `blunt_hit`, `pierce_hit`, `bleed_light`, `bleed_heavy`, `bleed_drip`, `critical_hit`, `block_clash`, `magic_hit`, `venom_hit` |
-| **Character looks** | material | Layers (Overlay or Additive): `frost_rime`, `burning`, `poison_sheen`, `shadow_veil`, `ghost_form`, `electrified`, `blood_rage`. Skins (Replace): `stone_skin`, `golden_skin`, `crystal_skin` |
+| **Character looks** | material | Layers (Overlay or Additive): `frost_rime`, `burning`, `poison_sheen`, `shadow_veil`, `ghost_form`, `electrified`, `blood_rage`, `holographic`, `holy_radiance`, `void_corruption`, `stealth_shimmer` (bends what is behind the character: a cloak), `arcane_ward`, `spirit_flame`. Skins (Replace): `stone_skin`, `golden_skin`, `crystal_skin`, `lava_skin`, `obsidian_skin`, `steel_skin`, `bark_skin` |
 | **Casting in the hands** | loop | `fire_hands`, `frost_hands`, `storm_hands`, `holy_hands`, `shadow_hands` |
+| **Environment** (the air of a place) | weather | `ground_fog`, `dust_motes`, `fireflies`, `pollen`, `ash_fall`, `embers_rising`, `sandstorm`, `arcane_motes`, `glow_spores`, `petal_fall` |
+| **Beams** (between two points) | beam | `arc_lightning`, `frost_ray`, `arcane_laser`, `life_drain` (flows towards the caster), `holy_ray` |
+| **Walls and trails** (along a line) | path | `frost_wall`, `earth_spikes`, `poison_gas`, `lightning_fence`, `light_curtain` |
+| **Telegraph outlines** (warnings on the ground) | telegraph | `circle`, `ring`, `cone_narrow`, `cone_wide`, `half_circle`, `arc`, `line`, `bar`, `cross`, `arrow` |
 
-To use a projectile, make the ability's projectile effect use the flight loop as its VFX, put the `_cast` one shot in the ability's casting VFX (at the hands) and the `_hit` one shot as the hit effect. A buff or debuff effect points at the loop (placed at *Overhead*), a hit at the one shot (placed at *Chest*), a material in a **VFX Selection Material** with the blend mode noted above.
+To use a projectile, make the ability's projectile effect use the flight loop as its VFX, put the `_cast` one shot in the ability's casting VFX (at the hands) and the `_hit` one shot as the hit effect. A buff or debuff effect points at the loop (placed at *Overhead*), a hit at the one shot (placed at *Chest*), a material in a **VFX Selection Material** with the blend mode noted above. A beam goes in a beam VFX selection (the ability gives its two ends), a wall or trail in a path selection (the ability gives the points), an environment effect in a [weather](/basic/world/weather) (it fades with the weather's intensity: the light layers come first, the dense ones last), a telegraph outline in a telegraph selection (below).
+
+### Telegraph outlines
+
+A telegraph is the warning an ability shows while it is being cast. Its **picture** is the shape, and the game draws three things from it: the **outline** (a line that is the same width on the screen at any distance), the **shape** faintly, and the **fill**, which sweeps through the shape as the cast goes on with a bright front and gets stronger as the cast nears its end (diagonal stripes run through the fill so it reads as danger). Choose the picture by its name as the *VFX type* of a telegraph selection; the *size* of the selection is the size of the picture on the ground, in metres, and *Color* tints it.
+
+| Picture | Shape | Fills | Size means |
+|---|---|---|---|
+| `circle` | A disc | From the middle out | The diameter |
+| `ring` | A donut (hole of about half the width) | From the hole out | The outer diameter |
+| `cone_narrow`, `cone_wide`, `half_circle` | A slice of a disc of 40, 90 and 180 degrees | From the caster out | The diameter of the whole disc: the cone reaches half of it forward. Keep the two numbers of the size equal or the angle changes |
+| `arc` | A band of a ring of 120 degrees in front of the caster (a sweep, a wave) | Outward | The same |
+| `line` | A lane from the caster forward | Outward | The width, and twice the length |
+| `bar` | A lane or a square centred on the point | Back to front | Width and length |
+| `cross` | Two lanes across each other | From the middle out | The size of the arms |
+| `arrow` | An arrow that points forward (a charge, a dash) | Tail to tip | Width and length |
+
+Shapes that point somewhere point **forward** (the way the caster faces); turn them with the *orientation offset*. **Make your own:** a telegraph picture is any image in `src/data/vfx/telegraph/` with the shape in the **red** channel (white inside, black outside, with a soft edge), how far inside the edge a point is in the **green** channel (0 on the edge, 1 deeper than about a sixth of the width) and the order of the fill in the **blue** channel (0 where it starts, 1 where it ends). In the import settings of the picture set *Compress > Mode* to **Lossless** and *Detect 3D > Compress to* to **Disabled**, or the engine compresses it and the edges break. The library's are drawn by `tools/vfx/make_telegraphs.gd`, which you can copy and add shapes to. A telegraph with no picture still draws the old circle and square.
 
 ### How they are made (to make your own)
 
@@ -195,10 +216,14 @@ Each effect is a set of **layers** of particles, and every layer is one picture,
 - The **picture** is a black and white mask (a flame, a ring, a snowflake, a crack). The library's are in `assets/vfx/textures/custom`.
 - The **shader** (`fx_sprite_add`, `fx_sprite_mix`, `fx_mesh_add`, `fx_mesh_mix`, `fx_refract` for particles; `fx_surface_add`, `fx_surface_mix`, `fx_surface_lit` for materials) tints the mask, **eats it away with a moving noise** as the particle fades (so fire burns away instead of just fading), colours it by a **gradient** (white-hot to orange to dark), lifts it above 1 so the world's glow picks it up, and softens it where it meets the ground.
 - *Add* shaders are for light (fire, sparks, glows); *mix* shaders are for what blocks light (smoke, blood, acid).
+- A **beam** is one tube mesh drawn by `fx_beam_add` or `fx_beam_mix`: a bright core that fades toward the edge, noise that **streams along the beam in metres** (so it looks the same at any length), hot threads cut from a second noise, **pulses** that travel along it (the other way when the speed is negative: a drain flows to the caster) and a **jitter** that bends it (lightning takes a new shape fifteen times a second, a tether sways). A second material as the next pass gives a thin hot core or a second bolt. The particles at the two ends are under the nodes **BeamStart** and **BeamEnd**.
+- A **wall** (path) is a section of particles repeated along the line: things that stand on the ground (ice, stone, light) are two upright quads across each other that grow out of the ground.
+- An **environment** effect is layers of particles that fill a box around the camera and drift with the wind (`weather_particles` moves them, an `fx_sprite` shader draws them). A layer that is eaten away by the noise takes its opacity from the tint, not from the particle, so a faint haze stays soft instead of breaking into hard blobs. The `blink` setting makes each particle pulse by itself (fireflies, spores).
+- A **character look** can also bend what is behind the character (`fx_surface_refract`, the cloak), run **bands** up the model (the hologram) or glow from the **cracks** of the noise (the lava).
 
 The order of a good effect is always the same: a **flash** (a tenth of a second), the **main shape**, **sparks and secondary motion**, then **smoke or mist** that lingers last. Keep one clear colour per effect, and let it move from bright to dark over its life.
 
-The scripts that made the library (`tools/vfx` in the toolkit repository) are plain Godot scripts you can copy: `make_textures.gd` draws the masks, `vfx_kit.gd` has the building blocks (`emitter`, `flash`, `ring`, `sparks`, `smoke`, `flames`, `glow`, `shockwave`, the gradient ramps) and the `gen_*.gd` files are the effects. Run one with `godot --headless -s res://tools/vfx/gen_area.gd` and it rewrites the scenes in `src/data/vfx`. Edit the numbers and run it again, or just open a generated scene and tweak it by hand.
+The scripts that made the library (`tools/vfx` in the toolkit repository) are plain Godot scripts you can copy: `make_textures.gd` draws the masks, `make_telegraphs.gd` the telegraph outlines, `vfx_kit.gd` has the building blocks (`emitter`, `flash`, `ring`, `sparks`, `smoke`, `flames`, `glow`, `shockwave`, `beam_root`, `beam_material`, `path_root`, `weather_layer`, `cross_quads`, the gradient ramps) and the `gen_*.gd` files are the effects (`gen_weather.gd`, `gen_beams.gd`, `gen_paths.gd`, `gen_materials2.gd` are the second batch). Run one with `godot --headless -s res://tools/vfx/gen_area.gd` and it rewrites the scenes in `src/data/vfx`. Edit the numbers and run it again, or just open a generated scene and tweak it by hand.
 
 ## Where VFX are used
 
