@@ -175,7 +175,7 @@ The settings of `weather_particles` are the table above (*Shape*, *Area*, *Sprea
 
 ## The effects that come with the toolkit
 
-The toolkit ships with a library of **173 effects and 10 telegraph outlines** (30 of the effects are the three parts of the ten projectiles), all made for it: every picture is drawn by a script (no stock textures) and every effect is built from the same few shaders, so they match each other and you can read how they are made. Find them in **Assets > VFX** under the type shown here.
+The toolkit ships with a library of **188 effects and 10 telegraph outlines** (30 of the effects are the three parts of the ten projectiles), all made for it: every picture is drawn by a script (no stock textures) and every effect is built from the same few shaders, so they match each other and you can read how they are made. Find them in **Assets > VFX** under the type shown here.
 
 | Group | Type | Effects |
 |---|---|---|
@@ -201,6 +201,8 @@ The toolkit ships with a library of **173 effects and 10 telegraph outlines** (3
 | **Wind: environment** (they follow the camera and lean with the world's wind) | weather | `wind_breeze`, `wind_gusts`, `wind_gale` |
 | **Wind: at a place** | loop | `dust_devil`, `updraft`, `tornado` (about 6 m high) |
 | **Wind: abilities** | loop, oneshot, beam | `wind_slash_hit`, `wind_hit`, `gust_cone` (a blast forward), `wind_nova` (a blast all round), `wind_blade` (a projectile: loop + `_cast` + `_hit`), `wind_shield`, `wind_hands`, `wind_haste` (speed lines), beams `wind_stream` and `wind_chain` |
+| **Waterfalls, second set** (bodies of water; choose between them) | loop | `waterfall_glass_small` / `_wide` / `_tall` (a clear flat sheet that bends the world behind it), `waterfall_curved_small` / `_wide` (the water arcs out of the ledge), `waterfall_strands` (separate strands), `waterfall_steps` (three small falls with pools), `waterfall_spillway` (a wide weir of white water). The first set above is the older sheet shader |
+| **River effects, second set** | path, loop | Along a river: `river_rapids` (humps of white water), `river_eddies` (small whirlpools), `river_chop` (choppy patches). At ends and joins: `river_mouth_waves` (rings of waves that spread), `river_confluence_swirl`, `river_edge_fall` (a river pouring over the edge of the map), `river_edge_veil`. Put a swirl or an eddy a little above the water: a funnel below the surface is hidden by the water |
 
 To use a projectile, make the ability's projectile effect use the flight loop as its VFX, put the `_cast` one shot in the ability's casting VFX (at the hands) and the `_hit` one shot as the hit effect. A buff or debuff effect points at the loop (placed at *Overhead*), a hit at the one shot (placed at *Chest*), a material in a **VFX Selection Material** with the blend mode noted above. A beam goes in a beam VFX selection (the ability gives its two ends), a wall or trail in a path selection (the ability gives the points), an environment effect in a [weather](/basic/world/weather) (it fades with the weather's intensity: the light layers come first, the dense ones last), a telegraph outline in a telegraph selection (below).
 
