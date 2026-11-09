@@ -173,6 +173,33 @@ Nothing restarts when the intensity changes, so it can fade smoothly. A scene sh
 
 The settings of `weather_particles` are the table above (*Shape*, *Area*, *Spread y*, *Floor below*, *Fall speed*, the wind numbers, *Flutter*, *Size*, *Streak*, *Stretch*, *Spin speed*, the colours, the fades, the splash numbers). The shaders of the **world** that react to the weather are set by the weather too, through [shader globals](/basic/world/shader-globals): the terrain shader (wet ground, cover, tint), the plant shaders (`world_wind`) and the sky (clouds, darkening): they follow the weather's own numbers scaled by its intensity, so they need nothing from you.
 
+## The effects that come with the toolkit
+
+The toolkit ships with a library of **60 effects** (15 of them are the three parts of the five projectiles), all made for it: every picture is drawn by a script (no stock textures) and every effect is built from the same few shaders, so they match each other and you can read how they are made. Find them in **Assets > VFX** under the type shown here.
+
+| Group | Type | Effects |
+|---|---|---|
+| **Projectiles** (a flight loop, a `_cast` one shot for the hands and a `_hit` one shot) | loop + oneshot | `fire_bolt`, `frost_shard`, `arcane_missile`, `acid_glob`, `storm_orb` |
+| **Area effects** (on the ground, about three metres across) | oneshot | `fire_nova`, `frost_nova`, `poison_cloud`, `lightning_strike`, `holy_pillar`, `arcane_circle`, `ground_slam`, `whirlwind`, `meteor_impact`, `void_collapse` |
+| **Above the head** (buffs and debuffs) | loop | `stun`, `sleep`, `frost`, `poison`, `burn`, `fear`, `curse`, `haste`, `regeneration`, `blessing` |
+| **Hits and bleeds** (on the body that is hit) | oneshot | `slash_hit`, `blunt_hit`, `pierce_hit`, `bleed_light`, `bleed_heavy`, `bleed_drip`, `critical_hit`, `block_clash`, `magic_hit`, `venom_hit` |
+| **Character looks** | material | Layers (Overlay or Additive): `frost_rime`, `burning`, `poison_sheen`, `shadow_veil`, `ghost_form`, `electrified`, `blood_rage`. Skins (Replace): `stone_skin`, `golden_skin`, `crystal_skin` |
+| **Casting in the hands** | loop | `fire_hands`, `frost_hands`, `storm_hands`, `holy_hands`, `shadow_hands` |
+
+To use a projectile, make the ability's projectile effect use the flight loop as its VFX, put the `_cast` one shot in the ability's casting VFX (at the hands) and the `_hit` one shot as the hit effect. A buff or debuff effect points at the loop (placed at *Overhead*), a hit at the one shot (placed at *Chest*), a material in a **VFX Selection Material** with the blend mode noted above.
+
+### How they are made (to make your own)
+
+Each effect is a set of **layers** of particles, and every layer is one picture, one shader and one gradient:
+
+- The **picture** is a black and white mask (a flame, a ring, a snowflake, a crack). The library's are in `assets/vfx/textures/custom`.
+- The **shader** (`fx_sprite_add`, `fx_sprite_mix`, `fx_mesh_add`, `fx_mesh_mix`, `fx_refract` for particles; `fx_surface_add`, `fx_surface_mix`, `fx_surface_lit` for materials) tints the mask, **eats it away with a moving noise** as the particle fades (so fire burns away instead of just fading), colours it by a **gradient** (white-hot to orange to dark), lifts it above 1 so the world's glow picks it up, and softens it where it meets the ground.
+- *Add* shaders are for light (fire, sparks, glows); *mix* shaders are for what blocks light (smoke, blood, acid).
+
+The order of a good effect is always the same: a **flash** (a tenth of a second), the **main shape**, **sparks and secondary motion**, then **smoke or mist** that lingers last. Keep one clear colour per effect, and let it move from bright to dark over its life.
+
+The scripts that made the library (`tools/vfx` in the toolkit repository) are plain Godot scripts you can copy: `make_textures.gd` draws the masks, `vfx_kit.gd` has the building blocks (`emitter`, `flash`, `ring`, `sparks`, `smoke`, `flames`, `glow`, `shockwave`, the gradient ramps) and the `gen_*.gd` files are the effects. Run one with `godot --headless -s res://tools/vfx/gen_area.gd` and it rewrites the scenes in `src/data/vfx`. Edit the numbers and run it again, or just open a generated scene and tweak it by hand.
+
 ## Where VFX are used
 
 - An [ability](/basic/abilities-and-effects/abilities) or [effect](/basic/abilities-and-effects/effects) picks an effect (and where on the character it plays: head, chest, hands, feet, the ground) with a VFX selection.
