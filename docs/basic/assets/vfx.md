@@ -200,6 +200,33 @@ The settings of `weather_particles` are the table above (*Shape*, *Area*, *Sprea
 
 A projectile ability uses a **loop** as its projectile VFX (it flies with the projectile), a **oneshot** in its casting VFX (at the hands) and a **oneshot** as the hit effect. A buff or debuff effect points at a loop (placed at *Overhead*), a hit at a oneshot (placed at *Chest*), a material in a **VFX Selection Material** with its blend mode. A beam goes in a beam VFX selection (the ability gives its two ends), a wall or trail in a path selection (the ability gives the points), an environment effect in a [weather](/basic/world/weather) (it fades with the weather's intensity), a telegraph outline in a telegraph selection (below).
 
+### Tinting an effect
+
+An effect can be put in another colour without making a new one. A **tint** is one colour put on the whole effect (every mesh and particle of it, and its lights):
+
+- **Multiply** multiplies the colours of the effect by the tint. It is made for neutral effects (white, grey, steel): a white effect becomes the colour.
+- **Colorize** keeps the brightness of the effect and replaces its colour, so an effect that has its own colours (a red flame) becomes another colour (a blue flame) and stays bright. Multiply on a coloured effect only darkens it.
+- **Strength** (0 to 1) mixes the tint with the colours the effect was made with. The brightest parts of an effect lean back to white, so a tinted bolt is still hot in the middle.
+
+Where a tint is set:
+
+- In the **Select VFX** window of an ability or an effect: the **Tint** section at the bottom of every kind has a switch, a colour, the mode and the strength. That tint is put on the effect every time it plays, and an effect that plays next without a tint has none (effects are [pooled](/advanced/pooling), and a tint never stays on the next use).
+- On the **root node** of an effect scene: *Tint Color*, *Tint Strength* and *Tint Mode* are the tint the scene is saved with (strength 0 = none). A selection that sets its own tint wins.
+- In the **VFX tab**: the **Tint** row under the preview puts a colour on the effect you are looking at, to try it. It stays on while you pick other effects, so you can look at a set in one colour.
+
+The tint works through the shaders of the toolkit (`fx_tint.gdshaderinc`, an instance uniform `vfx_tint`). The water and refraction shaders and shaders you wrote yourself do not have it, so they are not tinted; add the include to your own shader to make it follow the tint.
+
+### The projectile mesh
+
+A projectile effect that has a node called **ProjectileMesh** (a MeshInstance3D) can show the mesh of an item instead of its own. In the **Select VFX** window of a **loop** effect (the projectile VFX of a projectile effect) pick **Projectile mesh**:
+
+- *The effect's own mesh*: as it was made.
+- *An item*: the mesh of one item (its ID).
+- *The weapon the user holds*: the first weapon the user has equipped (a thrown axe looks like the axe).
+- *The ammo the ability spends*: the ammo that was spent (an arrow for a bow), then the ammo that is equipped, then the *Ammo Model* of the weapon in hand.
+
+The mesh is the item's **Projectile Model** (or its item model when that is empty), turned by **Projectile Rotation** so its tip points along +Y (the way projectile effects fly), scaled to the length of the effect's own mesh (or left at its own size) and centred, so the glow and the trail of the effect stay where they are. *Keep the mesh's own materials* shows it as the item looks; turned off, it gets the material of the effect (a glowing weapon). A ranged weapon has an **Ammo Model** and **Ammo Model Rotation**: the arrow it shoots when no ammo item is spent (an NPC's bow). To make your own effect take a mesh, name a MeshInstance3D **ProjectileMesh**, lay it along +Y and give it a metadata value `projectile_slot_length` (its length in metres).
+
 ## Telegraph outlines
 
 A telegraph is the warning an ability shows while it is being cast. Its **picture** is the shape, and the game draws three things from it: the **outline** (a line that is the same width on the screen at any distance), the **shape** faintly, and the **fill**, which sweeps through the shape as the cast goes on with a bright front and gets stronger as the cast nears its end (diagonal stripes run through the fill so it reads as danger). Choose the picture by its name as the *VFX type* of a telegraph selection; the *size* of the selection is the size of the picture on the ground, in metres, and *Color* tints it.
