@@ -32,16 +32,39 @@ The **Speed** slider (0.1x to 2x) slows the effect down to look at it. The previ
 
 The same preview is in the **Select VFX** window of an ability or an effect: the effect you click in the list plays next to it.
 
-The demo has one effect of each kind to try the previews with: `campfire` (loop), `lightning_beam`, `fire_wall` (path), `ring.png` (telegraph) and `frozen` (material), besides its one shots and weathers.
+The demo has effects of each kind to try the previews with.
 
 | Control | What it does |
 |---|---|
-| The tree | Every effect, grouped by type, with a count |
-| **Search**, **Refresh** | Filter; read the folders again |
+| The tree | Every effect, grouped by type, with a count; each row also shows its theme and category |
+| **Theme**, **Category** | Show only the effects of one theme or one category. The lists are read from the names of the effects, so a new theme or category appears by itself. Pick a theme and the Category list shrinks to the categories that theme has |
+| **Search**, **Refresh** | Filter by name (the search works together with the two lists); read the folders again |
 | **Import** | Copy effect files in; you choose the type |
 | **Settings > Add New VFX Scene** | Makes a new scene of a type, with the right root node, and opens it |
 | **Settings > Validate All VFX** | Checks every scene (root type, required nodes) and lists the failures |
 | **Open in Editor** | Opens the selected scene (a material or an image cannot be opened, the button says so) |
+
+## Naming an effect
+
+Every effect is named by one rule, so the library can be filtered:
+
+```
+vfx_<theme>_<category>_<name>_<nn>        e.g.  vfx_fire_projectile_fireball_01
+```
+
+| Part | What it is |
+|---|---|
+| `vfx` | Always the first word |
+| **theme** | The colour, the magic or the style of the effect: `fire`, `frost`, `holy`, `blood`, `physical` ... One word |
+| **category** | What the effect does: `slash`, `projectile`, `area`, `buff`, `debuff`, `movement`, `beam`, `cone` ... One word |
+| **name** | What it is called. It can hold underscores: `fireball_big` |
+| **nn** | Two digits for the variant: `01`, `02` ... |
+
+The type (oneshot, loop ...) is **not** in the name: it is the folder. The **Theme** and **Category** lists of the VFX tab and of the Select VFX window are read from the names, so to add a theme you name an effect with it. The list shows the name for people (`Fireball 01`), the file keeps the full name. **Add New VFX Scene** refuses a name that breaks the rule and **Validate All VFX** lists the effects that do (their theme shows in orange).
+
+## Environmental effects
+
+An **environmental** effect is scenery rather than an ability effect: a campfire, smoke from a chimney, a shaft of light through a window, a waterfall, birds. It is an ordinary scene **without a VFX script** that plays by itself (its animation has *Autoplay* on), so you can put it in the world like any other asset. It lives in the **World Assets** folder `src/data/world_assets/environmental_vfx/` (the category *environmental_vfx*), not in the VFX library, and follows the same naming rule. Weather is different: weather effects stay in the `weather` type because the weather system plays them.
 
 ## Building an effect scene
 
