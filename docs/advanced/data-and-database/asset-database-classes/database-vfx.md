@@ -34,6 +34,14 @@ Each folder is a VFX TYPE (oneshot, loop, beam, path, weather, telegraph, materi
 | `bool` | [is_scene_type](#method-is-scene-type)( `vfx_type: String` ) *static* |
 | `bool` | [is_material_type](#method-is-material-type)( `vfx_type: String` ) *static* |
 | `Dictionary` | [get_database_stats](#method-get-database-stats)() *static* |
+| `Dictionary` | [parse_name](#method-parse-name)( `vfx_name: String` ) *static* |
+| `bool` | [is_valid_name](#method-is-valid-name)( `vfx_name: String` ) *static* |
+| `String` | [get_theme](#method-get-theme)( `vfx_name: String` ) *static* |
+| `String` | [get_category](#method-get-category)( `vfx_name: String` ) *static* |
+| `String` | [get_display_name](#method-get-display-name)( `vfx_name: String` ) *static* |
+| `Array[String]` | [get_themes](#method-get-themes)( `vfx_type: String = ""` ) *static* |
+| `Array[String]` | [get_categories](#method-get-categories)( `vfx_type: String = "", theme: String = ""` ) *static* |
+| `Array[String]` | [get_available_vfx_filtered](#method-get-available-vfx-filtered)( `vfx_type: String, theme: String = "", category: String = ""` ) *static* |
 
 ## Constants
 
@@ -41,6 +49,9 @@ Each folder is a VFX TYPE (oneshot, loop, beam, path, weather, telegraph, materi
 - `const` **VFX_TYPES** = `{` - VFX type definitions - maps directly to VFX classes
 - `const` **VFX_CLASS_MAPPING** = `{` - ========== VFX SCRIPT MAPPING ==========
 - `Dictionary` **VFX_SCRIPT_MAP** = `{` - Which script each folder of visual effects (oneshot, loop, beam ...) uses.
+- `String` **NAME_PREFIX** = `"vfx"` - The word every effect name starts with.
+- `String` **UNSORTED** = `"unsorted"` - What the editor shows for an effect whose name does not follow the rule.
+- `String` **NAME_RULE_TEXT** = `"vfx_<theme>_<category>_<name>_<nn>   e.g. vfx_fire_projectile_fireball_01"` - A short text for the hover of the name rule.
 
 ## Method descriptions
 
@@ -123,4 +134,36 @@ Check if VFX type supports materials
 ### Dictionary get_database_stats() {#method-get-database-stats}
 
 Get database statistics
+
+### Dictionary parse_name( vfx_name: String ) {#method-parse-name}
+
+Reads a name by the rule. Gives &#123;valid, theme, category, name, variant&#125;; for a name that breaks the rule `valid` is false and the other fields are empty.
+
+### bool is_valid_name( vfx_name: String ) {#method-is-valid-name}
+
+True when the name follows the rule.
+
+### String get_theme( vfx_name: String ) {#method-get-theme}
+
+The theme of an effect (UNSORTED when the name breaks the rule).
+
+### String get_category( vfx_name: String ) {#method-get-category}
+
+The category of an effect (UNSORTED when the name breaks the rule).
+
+### String get_display_name( vfx_name: String ) {#method-get-display-name}
+
+The name for people: "Fireball 01" for vfx_fire_projectile_fireball_01. A name that breaks the rule is shown as it is, in words.
+
+### Array[String] get_themes( vfx_type: String = "" ) {#method-get-themes}
+
+The themes in use, sorted, for one kind of effect (all kinds when `vfx_type` is empty).
+
+### Array[String] get_categories( vfx_type: String = "", theme: String = "" ) {#method-get-categories}
+
+The categories in use, sorted, for one kind of effect (all when empty) and, when `theme` is not empty, only those of that theme.
+
+### Array[String] get_available_vfx_filtered( vfx_type: String, theme: String = "", category: String = "" ) {#method-get-available-vfx-filtered}
+
+The names of one kind of effect that have the theme and the category (an empty text means any).
 

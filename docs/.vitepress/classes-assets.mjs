@@ -263,10 +263,22 @@ export const groups = [
         "file": "runtime_classes/vfx/vfx_point_to_point_path.gd"
       },
       {
+        "name": "VFXProjectileMesh",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\vfx\\vfx_projectile_mesh.gd",
+        "file": "runtime_classes/vfx/vfx_projectile_mesh.gd"
+      },
+      {
         "name": "VFXTelegraph",
         "base": "VFX",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\vfx\\vfx_telegraph.gd",
         "file": "runtime_classes/vfx/vfx_telegraph.gd"
+      },
+      {
+        "name": "VFXTint",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\vfx\\vfx_tint.gd",
+        "file": "runtime_classes/vfx/vfx_tint.gd"
       },
       {
         "name": "VFXTransformation",

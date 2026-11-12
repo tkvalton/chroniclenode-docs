@@ -12,6 +12,7 @@ Item Weapon Editor - handles ItemDefinitionEquipmentWeapon specific properties U
 |---|---|---|
 | `ItemDefinitionEquipmentWeapon` | [current_weapon](#var-current-weapon) |  |
 | `ResourceManager` | [resource_manager](#var-resource-manager) |  |
+| `MeshRotationField` | [ammo_field](#var-ammo-field) |  |
 | `bool` | [is_loading](#var-is-loading) | `false` |
 
 ## Methods
@@ -40,6 +41,10 @@ Item Weapon Editor - handles ItemDefinitionEquipmentWeapon specific properties U
 ### ResourceManager resource_manager {#var-resource-manager}
 
 *No description yet.*
+
+### MeshRotationField ammo_field {#var-ammo-field}
+
+The field of the ammo model (the arrow a ranged weapon shoots when no ammo item is spent) and its turn
 
 ### bool is_loading = false {#var-is-loading}
 

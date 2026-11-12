@@ -16,7 +16,7 @@ An effect is a **scene** (or, for two types, a material or a texture) in `res://
 
 ## The editor
 
-The effect you select **plays in a 3D preview** at the top of the panel on the right. Drag with the left button to orbit, turn the wheel to zoom, drag with the middle or right button to move the view. The buttons above the view are Frame, Reset, Grid, a 1.8 m figure (to judge the size) and the light; the **dark** light shows the glow of an effect best. The controls under the view depend on the kind of effect:
+The effect you select **plays in a 3D preview** at the top of the panel on the right. Drag with the left button to orbit, turn the wheel to zoom, drag with the middle or right button to move the view. The buttons above the view are Frame, Reset, Grid, **Floor** (untick it to see the parts of a hit or a low projectile that go under the ground; the choice is kept for every view), a 1.8 m figure (to judge the size) and the light; the **dark** light shows the glow of an effect best. Each effect you select is shown from the Reset angle, framed. The controls under the view depend on the kind of effect:
 
 | Kind | The preview |
 |---|---|

@@ -19,6 +19,8 @@ Modular VFX selection dialog that works with any VFXSelection class type Uses pr
 | | | |
 |---|---|---|
 | `Button` | [remove_vfx_button](#var-remove-vfx-button) |  |
+| `OptionButton` | [theme_filter](#var-theme-filter) |  |
+| `OptionButton` | [category_filter](#var-category-filter) |  |
 | `VFXSelectionOneShotProperties` | [oneshot_properties](#var-oneshot-properties) |  |
 | `VFXSelectionLoopProperties` | [loop_properties](#var-loop-properties) |  |
 | `VFXSelectionMaterialProperties` | [material_properties](#var-material-properties) |  |
@@ -63,6 +65,14 @@ Modular VFX selection dialog that works with any VFXSelection class type Uses pr
 ## Variable descriptions
 
 ### Button remove_vfx_button {#var-remove-vfx-button}
+
+*No description yet.*
+
+### OptionButton theme_filter {#var-theme-filter}
+
+The Theme and Category drop-downs above the list of names (read from the names of the library).
+
+### OptionButton category_filter {#var-category-filter}
 
 *No description yet.*
 

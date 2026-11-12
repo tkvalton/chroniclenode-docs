@@ -4,7 +4,7 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
-A 3D preview of a scene you can turn around: the scene is shown in a world of its own (a ground grid, a light, a background), and you drag to orbit, turn the wheel to zoom and drag with the middle or right button to move. A row of buttons above it has Frame (fits the scene in the view), Reset, the grid, a 1.8 m figure to judge the size by, and the light (neutral, bright, dark: the glow of an effect shows in the dark). Used by the Model Scenes and VFX tabs (Entity Assets / Assets), and made to be put in the catalogs that choose a skeleton or an effect. It only draws while it is visible. Put your own controls in `extra_bar` (the row of buttons), or under the view. See docs: Entity Assets &gt; Model Scenes.
+A 3D preview of a scene you can turn around: the scene is shown in a world of its own (a ground grid, a light, a background), and you drag to orbit, turn the wheel to zoom and drag with the middle or right button to move. A row of buttons above it has Frame (fits the scene in the view), Reset, the grid, the floor (off: the parts of an effect under the ground show), a 1.8 m figure to judge the size by, and the light (neutral, bright, dark: the glow of an effect shows in the dark). Every new scene starts from the Reset angle, framed. Used by the Model Scenes and VFX tabs (Entity Assets / Assets), and made to be put in the catalogs that choose a skeleton or an effect. It only draws while it is visible. Put your own controls in `extra_bar` (the row of buttons), or under the view. See docs: Entity Assets &gt; Model Scenes.
 
 ## Properties
 
@@ -19,6 +19,7 @@ A 3D preview of a scene you can turn around: the scene is shown in a world of it
 | | | |
 |---|---|---|
 | `int` | [last_look](#var-last-look) | `0` |
+| `bool` | [show_floor](#var-show-floor) | `true` |
 | `Node` | [content](#var-content) | `null` |
 | `Vector3` | [target](#var-target) | `Vector3(0.0, 1.0, 0.0)` |
 | `float` | [distance](#var-distance) | `5.0` |
@@ -53,6 +54,7 @@ The view was emptied
 ## Constants
 
 - `Array[Dictionary]` **LOOKS** = `[` - The light of the world of the view: the name, the colour of the background, the ambient light and the strength of the sun
+- `float` **PARTICLE_FRAME_SIZE** = `3.0` - How big the box of one particle node counts when a scene is framed (metres across, at most)
 - `String` **SCENE** = `"res://addons/chroniclenode/editor_components/controls/asset_viewport_3d.tscn"` - The scene of the control
 - `float` **DEFAULT_YAW** = `0.6 + PI` - The first angle: the camera is in front of a character (a character of Godot faces -Z, so the camera is on the -Z side), a little to its right
 - `float` **DEFAULT_PITCH** = `0.35`
@@ -76,6 +78,10 @@ Is the 1.8 m figure shown to begin with?
 ### int last_look = 0 {#var-last-look}
 
 The look every view opens with (the one you chose last)
+
+### bool show_floor = true {#var-show-floor}
+
+Is the solid floor shown (the one you chose last, in every view)? Off shows the parts of an effect under the ground
 
 ### Node content = null {#var-content}
 

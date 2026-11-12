@@ -12,6 +12,7 @@ Base Item Data Editor for managing basic item properties with sub-editors
 |---|---|---|
 | `ItemDefinition:` | [current_item](#var-current-item) |  |
 | `Mesh` | [item_model_mesh](#var-item-model-mesh) |  |
+| `MeshRotationField` | [projectile_field](#var-projectile-field) |  |
 | `int` | [current_surface_index](#var-current-surface-index) | `0` |
 | `Dictionary` | [surface_material_overrides](#var-surface-material-overrides) | `{}  # surface_index -> Material` |
 | `Dictionary` | [item_editor_map](#var-item-editor-map) | `{}` |
@@ -33,6 +34,10 @@ Base Item Data Editor for managing basic item properties with sub-editors
 ### Mesh item_model_mesh {#var-item-model-mesh}
 
 *No description yet.*
+
+### MeshRotationField projectile_field {#var-projectile-field}
+
+The field of the projectile model of the item (the mesh it has when it flies as a projectile) and its turn (made in _build_projectile_field)
 
 ### int current_surface_index = 0 {#var-current-surface-index}
 

@@ -15,6 +15,9 @@ Base class for all VFX nodes - handles pooling, lifecycle, and common functional
 | `String` | [vfx_type](#prop-vfx-type) | `""  # The VFX type identifier (from database)` |
 | `bool` | [auto_cleanup](#prop-auto-cleanup) | `true` |
 | `bool` | [on_top_level](#prop-on-top-level) | `false` |
+| `float` | [tint_strength](#prop-tint-strength) | `0.0` |
+| `Color` | [tint_color](#prop-tint-color) | `Color.WHITE` |
+| `VFXTint.Mode` | [tint_mode](#prop-tint-mode) | `VFXTint.Mode.MULTIPLY` |
 
 ## Variables
 
@@ -91,6 +94,20 @@ Automatically return to pool when finished
 ### bool on_top_level = false {#prop-on-top-level}
 
 Set top_level = true when activated (for world-space positioning)
+
+*Tint*
+
+### float tint_strength = 0.0 {#prop-tint-strength}
+
+How much of the tint colour this scene is saved with (0 = none: the effect has the colours it was made with). A selection that plays the effect can set its own tint instead.
+
+### Color tint_color = Color.WHITE {#prop-tint-color}
+
+The colour the scene is tinted with when `tint_strength` is above 0.
+
+### VFXTint.Mode tint_mode = VFXTint.Mode.MULTIPLY {#prop-tint-mode}
+
+Multiply: the colours of the effect are multiplied by the tint (for neutral white and grey effects). Colorize: the brightness is kept and the colour is replaced (for effects that have their own colours).
 
 ## Variable descriptions
 

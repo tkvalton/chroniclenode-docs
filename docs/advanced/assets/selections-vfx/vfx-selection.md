@@ -15,6 +15,10 @@ Base VFX selection class - stores VFX configuration and references All VFX selec
 | `String` | [vfx_type](#prop-vfx-type) | `"":` |
 | `float` | [duration_override](#prop-duration-override) | `0.0` |
 | `bool` | [on_top_level](#prop-on-top-level) | `false` |
+| `bool` | [tint_enabled](#prop-tint-enabled) | `false` |
+| `Color` | [tint_color](#prop-tint-color) | `Color.WHITE` |
+| `float` | [tint_strength](#prop-tint-strength) | `1.0` |
+| `VFXTint.Mode` | [tint_mode](#prop-tint-mode) | `VFXTint.Mode.MULTIPLY` |
 
 ## Methods
 
@@ -56,6 +60,24 @@ Notify editor of change The visual effect that is picked, by name.
 ### bool on_top_level = false {#prop-on-top-level}
 
 Set top_level = true when activated (for world-space positioning)
+
+*Tint*
+
+### bool tint_enabled = false {#prop-tint-enabled}
+
+Puts a colour on the whole effect when it plays. Off: the effect keeps the colours it was made with (or the tint saved in its scene).
+
+### Color tint_color = Color.WHITE {#prop-tint-color}
+
+The colour put on the effect.
+
+### float tint_strength = 1.0 {#prop-tint-strength}
+
+How much of the tint is put on: 1 is all of it, less mixes it with the colours the effect was made with.
+
+### VFXTint.Mode tint_mode = VFXTint.Mode.MULTIPLY {#prop-tint-mode}
+
+Multiply: the colours of the effect are multiplied by the tint (for neutral white and grey effects). Colorize: the brightness is kept and the colour is replaced (for effects that have their own colours).
 
 ## Method descriptions
 

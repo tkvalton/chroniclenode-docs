@@ -1775,6 +1775,12 @@ export const groups = [
         "file": "editor_components/controls/id_multi_select.gd"
       },
       {
+        "name": "MeshRotationField",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\mesh_rotation_field.gd",
+        "file": "editor_components/controls/config_fields/mesh_rotation_field.gd"
+      },
+      {
         "name": "NamePickerField",
         "base": "ConfigField",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\name_picker_field.gd",

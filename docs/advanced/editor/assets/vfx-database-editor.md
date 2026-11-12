@@ -16,6 +16,8 @@ The editor of the VFX tab (Assets &gt; VFX): the visual effects of the VFX libra
 | `String` | [selected_vfx_name](#var-selected-vfx-name) | `""` |
 | `String` | [selected_vfx_path](#var-selected-vfx-path) | `""` |
 | `Dictionary` | [validation_errors](#var-validation-errors) | `{}` |
+| `OptionButton` | [theme_filter](#var-theme-filter) |  |
+| `OptionButton` | [category_filter](#var-category-filter) |  |
 | `FileDialog` | [file_dialog](#var-file-dialog) |  |
 
 ## Variable descriptions
@@ -41,6 +43,14 @@ The editor of the VFX tab (Assets &gt; VFX): the visual effects of the VFX libra
 *No description yet.*
 
 ### Dictionary validation_errors =  {#var-validation-errors}
+
+*No description yet.*
+
+### OptionButton theme_filter {#var-theme-filter}
+
+The Theme and Category drop-downs, filled from the names of the library (the naming rule: vfx_&lt;theme&gt;_&lt;category&gt;_&lt;name&gt;_&lt;nn&gt;).
+
+### OptionButton category_filter {#var-category-filter}
 
 *No description yet.*
 

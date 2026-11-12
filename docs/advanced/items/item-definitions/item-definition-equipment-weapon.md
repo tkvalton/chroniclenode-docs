@@ -12,6 +12,8 @@ Weapon items that can be equipped to provide combat capabilities Inherits all eq
 |---|---|---|
 | `int` | [weapon_class](#prop-weapon-class) |  |
 | `float` | [weapon_scale](#prop-weapon-scale) | `1.0` |
+| `Mesh` | [ammo_model](#prop-ammo-model) | `null` |
+| `Vector3` | [ammo_model_rotation](#prop-ammo-model-rotation) | `Vector3.ZERO` |
 | `bool` | [no_damage](#prop-no-damage) | `false` |
 | `int` | [weapon_damage_min](#prop-weapon-damage-min) | `10` |
 | `int` | [weapon_damage_max](#prop-weapon-damage-max) | `15` |
@@ -62,6 +64,14 @@ Weapon class definition that determines weapon type, hand requirements, and equi
 ### float weapon_scale = 1.0 {#prop-weapon-scale}
 
 Visual scale multiplier applied to the weapon model when equipped
+
+### Mesh ammo_model = null {#prop-ammo-model}
+
+The mesh of the projectile a ranged weapon shoots when no ammo item is spent (an NPC, or a weapon that needs no ammo): the arrow of a bow. The ammo item that is spent has its own mesh and wins over this one. Empty: the projectile effect shows its own.
+
+### Vector3 ammo_model_rotation = Vector3.ZERO {#prop-ammo-model-rotation}
+
+How the ammo model is turned so that its tip points along +Y, in degrees.
 
 *Weapon Combat*
 

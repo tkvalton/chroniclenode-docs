@@ -14,6 +14,8 @@ Base class for all item definitions with integrated Requirement system
 |---|---|---|
 | `Mesh` | [item_model](#prop-item-model) | `null` |
 | `Array[Material]` | [item_material_override](#prop-item-material-override) | `[]` |
+| `Mesh` | [projectile_model](#prop-projectile-model) | `null` |
+| `Vector3` | [projectile_rotation](#prop-projectile-rotation) | `Vector3.ZERO` |
 | `int` | [quality_id](#prop-quality-id) | `0` |
 | `bool` | [randomize_quality](#prop-randomize-quality) | `false` |
 | `Array[int]` | [rollable_quality_ids](#prop-rollable-quality-ids) | `[]` |
@@ -60,6 +62,16 @@ Base class for all item definitions with integrated Requirement system
 ### Array[Material] item_material_override = [] {#prop-item-material-override}
 
 Material overrides applied to the item model
+
+*Projectile*
+
+### Mesh projectile_model = null {#prop-projectile-model}
+
+The mesh this item has when it flies as a projectile (an arrow, a bolt, a thrown axe): the projectile effects that have a projectile mesh show it. Empty: the item model above is used.
+
+### Vector3 projectile_rotation = Vector3.ZERO {#prop-projectile-rotation}
+
+How the model is turned so that its tip points along +Y (the direction the projectile effects fly along), in degrees. 0, 0, 0: the model already has its tip up.
 
 ### int quality_id = 0 {#prop-quality-id}
 

@@ -15,7 +15,7 @@ Like the other asset libraries, it is **files in folders**: there is no record w
 | **Refresh** | Reads the folders again. The list also reads them when the tab opens |
 | The list | Every scene with its picture and its name; with *All categories* the category is in brackets. The pictures are drawn by the editor the first time and kept in `world_assets/.thumbnails/` |
 
-The **right side** shows the selected scene in 3D, turned the way you drag it (drag to orbit, wheel to zoom, middle or right drag to move, double click to frame; the buttons are *Frame*, *Reset*, *Turn around*, *Grid*, *1.8 m figure* and *Light*), then its name, its category and its file, and two buttons: **Open in Editor** (to change the scene) and **Show in FileSystem**.
+The **right side** shows the selected scene in 3D, turned the way you drag it (drag to orbit, wheel to zoom, middle or right drag to move, double click to frame; the buttons are *Frame*, *Reset*, *Turn around*, *Grid*, *Floor*, *1.8 m figure* and *Light*; each scene you select starts from the Reset angle), then its name, its category and its file, and two buttons: **Open in Editor** (to change the scene) and **Show in FileSystem**.
 
 ## The foliage library is listed too
 

@@ -15,6 +15,11 @@ The preview of a visual effect (VFX tab): the effect plays in a 3D view you can 
 | `ShaderMaterial` | [telegraph_material](#var-telegraph-material) | `null` |
 | `ColorPickerButton` | [color_button](#var-color-button) | `null` |
 | `CheckBox` | [chain_check](#var-chain-check) | `null` |
+| `HBoxContainer` | [tint_row](#var-tint-row) | `null` |
+| `CheckBox` | [tint_check](#var-tint-check) | `null` |
+| `ColorPickerButton` | [tint_color_button](#var-tint-color-button) | `null` |
+| `OptionButton` | [tint_mode_option](#var-tint-mode-option) | `null` |
+| `HSlider` | [tint_strength_slider](#var-tint-strength-slider) | `null` |
 
 ## Methods
 
@@ -49,6 +54,26 @@ The material of the warning of a telegraph, and the clock of its fill
 The colour of the warning of a telegraph, and the switch that shows a beam that chains as a chain of beams (made in _ready)
 
 ### CheckBox chain_check = null {#var-chain-check}
+
+*No description yet.*
+
+### HBoxContainer tint_row = null {#var-tint-row}
+
+The row with the tint of the preview (a colour put on the effect to see it in another colour: made in _ready), and its controls
+
+### CheckBox tint_check = null {#var-tint-check}
+
+*No description yet.*
+
+### ColorPickerButton tint_color_button = null {#var-tint-color-button}
+
+*No description yet.*
+
+### OptionButton tint_mode_option = null {#var-tint-mode-option}
+
+*No description yet.*
+
+### HSlider tint_strength_slider = null {#var-tint-strength-slider}
 
 *No description yet.*
 

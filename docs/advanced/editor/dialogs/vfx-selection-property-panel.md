@@ -18,6 +18,10 @@ Base class for VFX selection property panels Each VFX selection type gets its ow
 | `Label` | [duration_label](#var-duration-label) |  |
 | `CheckBox` | [duration_override_check](#var-duration-override-check) |  |
 | `SpinBox` | [duration_spin](#var-duration-spin) |  |
+| `CheckBox` | [tint_check](#var-tint-check) |  |
+| `ColorPickerButton` | [tint_color_button](#var-tint-color-button) |  |
+| `HSlider` | [tint_strength_slider](#var-tint-strength-slider) |  |
+| `OptionButton` | [tint_mode_option](#var-tint-mode-option) |  |
 
 ## Methods
 
@@ -58,6 +62,22 @@ Base class for VFX selection property panels Each VFX selection type gets its ow
 *No description yet.*
 
 ### SpinBox duration_spin {#var-duration-spin}
+
+*No description yet.*
+
+### CheckBox tint_check {#var-tint-check}
+
+*No description yet.*
+
+### ColorPickerButton tint_color_button {#var-tint-color-button}
+
+*No description yet.*
+
+### HSlider tint_strength_slider {#var-tint-strength-slider}
+
+*No description yet.*
+
+### OptionButton tint_mode_option {#var-tint-mode-option}
 
 *No description yet.*
 
