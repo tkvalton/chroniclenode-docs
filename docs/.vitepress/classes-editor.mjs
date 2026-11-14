@@ -209,16 +209,34 @@ export const groups = [
         "file": "editor_components/editors/assets/icon_database_editor.gd"
       },
       {
+        "name": "InteractableScenesEditor",
+        "base": "SceneListEditor",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\interactable_scenes_editor.gd",
+        "file": "editor_components/editors/assets/interactable_scenes_editor.gd"
+      },
+      {
         "name": "MeshDatabaseEditor",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\mesh_database_editor.gd",
         "file": "editor_components/editors/assets/mesh_database_editor.gd"
       },
       {
-        "name": "ModelSceneDatabaseEditor",
-        "base": "VBoxContainer",
-        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\model_scene_database_editor.gd",
-        "file": "editor_components/editors/assets/model_scene_database_editor.gd"
+        "name": "SceneListEditor",
+        "base": "HSplitContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\scene_list_editor.gd",
+        "file": "editor_components/editors/assets/scene_list_editor.gd"
+      },
+      {
+        "name": "ScenePointsTools",
+        "base": "HSplitContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\scene_points_tools.gd",
+        "file": "editor_components/editors/assets/scene_points_tools.gd"
+      },
+      {
+        "name": "SkeletonsEditor",
+        "base": "SceneListEditor",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\skeletons_editor.gd",
+        "file": "editor_components/editors/assets/skeletons_editor.gd"
       },
       {
         "name": "VFXDatabaseEditor",
@@ -1163,6 +1181,12 @@ export const groups = [
         "file": "editor_components/3d_scene_tools/audio_profile_box.gd"
       },
       {
+        "name": "AxisHandles",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\axis_handles.gd",
+        "file": "editor_components/3d_scene_tools/axis_handles.gd"
+      },
+      {
         "name": "BehaviorCheck",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\3d_scene_tools\\behavior\\behavior_check.gd",
@@ -1715,6 +1739,12 @@ export const groups = [
         "file": "editor_components/controls/asset_viewport_3d.gd"
       },
       {
+        "name": "AxisGizmo3D",
+        "base": "Node3D",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\axis_gizmo_3d.gd",
+        "file": "editor_components/controls/axis_gizmo_3d.gd"
+      },
+      {
         "name": "BBCodeTextControl",
         "base": "VBoxContainer",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\factory\\bbcode_text_control.gd",
@@ -1943,6 +1973,12 @@ export const groups = [
         "file": "editor_components/managers/event_type_manager.gd"
       },
       {
+        "name": "InteractablePoints",
+        "base": "ScenePoints",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\interactable_points.gd",
+        "file": "editor_components/utility/interactable_points.gd"
+      },
+      {
         "name": "InteractableSceneCreator",
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\interactable_scene_creator.gd",
@@ -1983,6 +2019,18 @@ export const groups = [
         "base": "RefCounted",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\rpg_shape_utils.gd",
         "file": "editor_components/utility/rpg_shape_utils.gd"
+      },
+      {
+        "name": "ScenePoints",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\scene_points.gd",
+        "file": "editor_components/utility/scene_points.gd"
+      },
+      {
+        "name": "SkeletonPoints",
+        "base": "ScenePoints",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\utility\\skeleton_points.gd",
+        "file": "editor_components/utility/skeleton_points.gd"
       },
       {
         "name": "SkeletonSceneConverter",

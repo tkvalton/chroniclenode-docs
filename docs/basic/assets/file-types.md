@@ -7,7 +7,7 @@ Every asset library reads **files in folders**. This page lists the file types e
 | Library | Accepted files | Notes |
 |---|---|---|
 | **[Meshes](/basic/entity-assets/equipment-meshes)** | `.glb`, `.gltf`, `.fbx`, `.blend` (models with **one mesh node**), `.obj`, `.tres`, `.res` (Godot mesh resources) | Materials: `.tres`, `.res` |
-| **[Model Scenes](/basic/entity-assets/model-scenes)** | `.tscn` | Made with **Create Skeleton** or **Create Interactable** from a model you imported (`.glb`, `.gltf`, `.fbx`, `.blend`, or a scene) |
+| **[Skeletons](/basic/entity-assets/skeletons)** | `.tscn` | Made with **Create Skeleton** or **Create Interactable** from a model you imported (`.glb`, `.gltf`, `.fbx`, `.blend`, or a scene) |
 | **[Animations](/basic/entity-assets/animations)** | `.res`, `.anim` (Godot `Animation` resources) | One file for each clip, in the folder of its pack, section and category (for a weapon, in the folder of its [weapon profile](/basic/entity-assets/weapon-profiles)) |
 | **[VFX](/basic/assets/vfx)** | `.tscn` for bursts, auras, beams, weather and telegraphs; `.tres`, `.res`, `.png`, `.jpg`, `.jpeg`, `.webp` for the material types | One scene for each effect |
 | **[Audio](/basic/audio/sound-library)** | `.wav`, `.ogg`, `.mp3` | Voice lines too |
@@ -100,5 +100,5 @@ The animation library holds Godot `Animation` resources (`.res` or `.anim`), one
 ## See also
 
 - [Walkthrough: from a model on disk to a character in the game](/basic/assets/walkthrough), the editors one after another.
-- [Meshes](/basic/entity-assets/equipment-meshes), [Model Scenes](/basic/entity-assets/model-scenes), [Animations](/basic/entity-assets/animations), [VFX](/basic/assets/vfx), [Audio](/basic/audio/sound-library), [Icons](/basic/assets/icons).
+- [Meshes](/basic/entity-assets/equipment-meshes), [Skeletons](/basic/entity-assets/skeletons), [Interactable Scenes](/basic/entity-assets/interactable-scenes), [Animations](/basic/entity-assets/animations), [VFX](/basic/assets/vfx), [Audio](/basic/audio/sound-library), [Icons](/basic/assets/icons).
 - [How the mesh library reads a file](/advanced/assets/mesh-pipeline) for the details behind this page.

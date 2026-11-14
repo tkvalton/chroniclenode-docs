@@ -58,7 +58,7 @@ Models, meshes, animations, sounds, visual effects and icons are **files you add
 
 | Editor tab | What it manages |
 |---|---|
-| [Model Scenes](/basic/entity-assets/model-scenes) | The scenes of characters, creatures and interactable objects |
+| [Skeletons](/basic/entity-assets/skeletons) | The scenes of characters, creatures and interactable objects |
 | [Meshes](/basic/entity-assets/equipment-meshes) | Weapons, the parts of modular characters, attachments, facial features and materials |
 | [Animations](/basic/entity-assets/animations) | Animations, in folders for each kind of character |
 | [VFX](/basic/assets/vfx) | Visual effects: one-shot, looping, beams, weather, telegraphs |

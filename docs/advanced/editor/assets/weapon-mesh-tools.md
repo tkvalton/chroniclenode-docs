@@ -4,7 +4,7 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
-THE TOOLS OF A WEAPON MESH (Assets &gt; Meshes, 2026-11-14; the user: a 3D view of the equipment mesh where the data a dev sets on it is set with tools, not typed blind). The weapon is shown IN THE HAND of the figure of the view (a skeleton of Model Scenes playing an animation: AssetViewport3D), in the very weapon slot the game puts it in, so what is set is what is seen in game. Tools (the row above the view): View        turn the camera round (no handles) Grip        where the weapon sits in the hand: drag the white handle (its position offset); the X, Y, Z +90 buttons turn it (its rotation offset) Enchant     the part of the weapon an enchant covers: click the mesh to place START, click again for END (Shift+click: END), drag the green START, red END and yellow WIDTH handles; the rings show its width Spawn       where projectiles leave the weapon: click the mesh, or drag the handle Hold Ctrl while dragging to snap to the centimetre. A value is told (the signals) when a drag ends or a click places it; the Meshes tab saves it on the mesh (MeshSettings) and shows it in its fields. Main hand or Off hand: which hand of the figure holds it. Without a skeleton (the stand-in) the mesh is shown on its own and the Grip tool has nothing to hold it.
+THE TOOLS OF A WEAPON MESH (Assets &gt; Meshes, 2026-11-14; the user: a 3D view of the equipment mesh where the data a dev sets on it is set with tools, not typed blind). The weapon is shown IN THE HAND of the figure of the view (a skeleton of Model Scenes playing an animation: AssetViewport3D), in the very weapon slot the game puts it in, so what is set is what is seen in game. Tools (the row above the view): View        turn the camera round (no handles) Grip        where the weapon sits in the hand: drag the white handle (its position offset); the X, Y, Z +90 buttons turn it (its rotation offset) Enchant     the part of the weapon an enchant covers: click the mesh to place START, click again for END (Shift+click: END), drag the green START, red END and yellow WIDTH handles; the rings show its width Spawn       where projectiles leave the weapon: click the mesh, or drag the handle THE MOVE GIZMO (2026-11-14): the handle picked (the last one taken, or the first of the tool) has the X, Y, Z arrows: hold one to move it along that axis only. Hold Ctrl while dragging to snap to the centimetre. A value is told (the signals) when a drag ends or a click places it; the Meshes tab saves it on the mesh (MeshSettings) and shows it in its fields. Main hand or Off hand: which hand of the figure holds it. Without a skeleton (the stand-in) the mesh is shown on its own and the Grip tool has nothing to hold it.
 
 ## Variables
 
@@ -25,6 +25,8 @@ THE TOOLS OF A WEAPON MESH (Assets &gt; Meshes, 2026-11-14; the user: a 3D view 
 | `MeshInstance3D` | [grip_gizmo](#var-grip-gizmo) | `null` |
 | `Dictionary` | [handles](#var-handles) | `{}` |
 | `MeshInstance3D` | [lines](#var-lines) | `null` |
+| `AxisGizmo3D` | [gizmo](#var-gizmo) | `null` |
+| `String` | [gizmo_key](#var-gizmo-key) | `""` |
 | `Array[Button]` | [tool_buttons](#var-tool-buttons) | `[]` |
 | `OptionButton` | [hand_option](#var-hand-option) | `null` |
 | `OptionButton` | [effect_option](#var-effect-option) | `null` |
@@ -140,6 +142,14 @@ Where the mesh is shown (a weapon slot of the figure, or a node of its own), its
 *No description yet.*
 
 ### MeshInstance3D lines = null {#var-lines}
+
+*No description yet.*
+
+### AxisGizmo3D gizmo = null {#var-gizmo}
+
+THE MOVE GIZMO (2026-11-14): on the handle picked (the last one taken; the first of the tool), hold an arrow to move it along one axis
+
+### String gizmo_key = "" {#var-gizmo-key}
 
 *No description yet.*
 

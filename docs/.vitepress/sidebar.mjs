@@ -204,7 +204,8 @@ const basicSystems = [
     ['Set Bonus', 'set-bonus', 'set_bonus'],
   ]),
   system('Entity Assets', 'entity-assets', [
-    ['Model Scenes', 'model-scenes', 'skeletons'],
+    ['Skeletons', 'skeletons', 'skeletons'],
+    ['Interactable Scenes', 'interactable-scenes', 'interactable_scenes'],
     ['Equipment Meshes', 'equipment-meshes', 'equipment'],
     ['Animations', 'animations', 'animations'],
     ['Weapon Profiles', 'weapon-profiles', 'weapon_profiles'],

@@ -131,6 +131,7 @@ A behaviour script of a definition is shared by every NPC of it, so the tab only
 |---|---|
 | **Move a point** | Choose its schedule in the list: its points get handles. Drag one over the ground (a patrol point, the place of a move, the centre of a wander) |
 | **Change a wander's radius** | Drag the small handle on its circle |
+| **Move a point along one axis** | The point you last dragged has the **move gizmo**: a red X, a green Y and a blue Z arrow. Drag the tip of an arrow to move the point along that axis only (Y: up and down, off the ground). Hold **Ctrl** for steps of a centimetre |
 | **Add patrol points** | Press **Add patrol points** and click the ground: each click adds a point to the chosen patrol (or starts a patrol in the chosen schedule, or in a new one) |
 | **Add a place to walk to** | **Add a place**, click the ground: a *Move to Point* task in the chosen schedule (or a new schedule) |
 | **Add a wander area** | **Add a wander area**, click the ground: a *Wander* task, 5 m round the click |

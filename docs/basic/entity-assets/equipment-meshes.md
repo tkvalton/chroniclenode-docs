@@ -9,7 +9,7 @@ They live under `res://src/data/meshes/`, and **the folder a mesh is in is what 
 | Folder | What it holds |
 |---|---|
 | `equipment/weapons/<category>/` | Weapons, grouped by category (`swords`, `bows`, `staves`) |
-| `equipment/body_parts/<tag>/<part>/` | The body-part meshes of [modular](/basic/entity-assets/model-scenes#skeletons) characters: a chest plate, boots, gloves. `<tag>` is the equipment tag of the skeleton (`humanoid`); `<part>` is head, torso, upper arm, lower arm, hand, hips, upper leg, lower leg, foot |
+| `equipment/body_parts/<tag>/<part>/` | The body-part meshes of [modular](/basic/entity-assets/skeletons#kinds-of-skeleton) characters: a chest plate, boots, gloves. `<tag>` is the equipment tag of the skeleton (`humanoid`); `<part>` is head, torso, upper arm, lower arm, hand, hips, upper leg, lower leg, foot |
 | `equipment/attachments/<tag>/<slot>/` | Pieces that attach to a point: helmets, cloaks, shoulder guards, belts. `<slot>` is the attachment point |
 | `facial/<skeleton tag>/<feature>/` | Eyes, eyebrows, ears, nose, teeth, hair, facial hair |
 | `materials/<category>/` | Materials (`metals`, `woods`, `fabrics`) |
@@ -26,7 +26,7 @@ The skin of a piece comes from the first of these:
 
 When the piece is put on a character the skin is **remapped to the bones of that skeleton**: a skin that already uses the Godot humanoid bone names is used as it is; one that uses the bone names of the packs the toolkit knows (`upperarm_l`, `thigh_r`, `spine_02`) is renamed and its bind poses are recomputed from the skeleton; bones the skeleton does not have (the dynamic hair, cloth, cape, arm and leg bones of the packs) are attached to a main bone chosen from their name: hair to the head, cloth to the hips, capes to the upper chest. A piece with a skin shows a link mark in the tree, and the info panel says where the skin comes from.
 
-The [Model Scenes](/basic/entity-assets/model-scenes) page says which skeleton kinds use parts at all.
+The [Skeletons](/basic/entity-assets/skeletons) page says which skeleton kinds use parts at all.
 
 The [items](/basic/items/items#equipment) you make point at these meshes, and the [equipment types](/basic/equipment-definitions/equipment-type) say which body parts a piece replaces.
 
@@ -75,7 +75,11 @@ A weapon mesh has three more settings, with fine steps (0.001):
 | **Enchant VFX position** | Where the glow of an enchantment appears on the weapon |
 | **Projectile spawn point** | Where arrows, bolts and shots leave the weapon |
 
+These are set in the **3D view** of the weapon too: it is held in the hand of the figure (a skeleton you choose), and the tools above the view (**Grip**, **Enchant**, **Spawn**) put handles on it. The handle you picked has the **move gizmo**: hold its red X, green Y or blue Z arrow and drag to move it along that axis only (Ctrl: steps of a centimetre; **Local axes** turns the arrows to the weapon's own).
+
+The weapon is held by the **grip** of the skeleton (set once per skeleton in [Skeletons](/basic/entity-assets/skeletons#the-weapon-grips)), and a weapon's pivot should be its handle. The position and rotation offsets are only for a weapon whose model does not have its pivot at the handle.
+
 ## See also
 
-- [Model Scenes](/basic/entity-assets/model-scenes) for the skeletons these go on, [Items](/basic/items/items) and [Equipment Type](/basic/equipment-definitions/equipment-type).
+- [Skeletons](/basic/entity-assets/skeletons) for the skeletons these go on, [Items](/basic/items/items) and [Equipment Type](/basic/equipment-definitions/equipment-type).
 - [How the mesh library is built](/advanced/assets/).

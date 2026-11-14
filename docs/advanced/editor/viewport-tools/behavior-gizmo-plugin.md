@@ -12,6 +12,7 @@ Draws the behaviour of the selected NPC in the 3D viewport: for each schedule of
 |---|---|---|
 | `Callable` | [state_provider](#var-state-provider) | `Callable()` |
 | `BehaviorPanel` | [panel](#var-panel) | `null` |
+| `int` | [picked_id](#var-picked-id) | `-1` |
 
 ## Variable descriptions
 
@@ -22,4 +23,8 @@ What to draw: a Callable that takes the NPC and answers &#123;"script", "focus_s
 ### BehaviorPanel panel = null {#var-panel}
 
 The Behaviour tab: it keeps a drag as one step of Undo
+
+### int picked_id = -1 {#var-picked-id}
+
+The point handle pressed last (-1 none): it has the move gizmo (2026-11-14, AxisHandles: an X, a Y and a Z arrow; drag the tip of one to move the point along that axis only)
 

@@ -32,7 +32,7 @@ A **profile** is a ruleset for making a character of one archetype. The **Profil
 | Section | What it holds |
 |---|---|
 | **Profile identity** | A **profile id** (`human`, `elf`, `dwarf`; the id is saved with the character), a **display name**, a **description** and an **icon** shown in the selection |
-| **Body types** | The scenes the player can pick, for example `HumanMale.tscn` and `HumanFemale.tscn`, each with a **display name**. Every scene must contain a [Custom Skeleton](/basic/entity-assets/model-scenes#skeletons). With no names, the file names are used |
+| **Body types** | The scenes the player can pick, for example `HumanMale.tscn` and `HumanFemale.tscn`, each with a **display name**. Every scene must contain a [Custom Skeleton](/basic/entity-assets/skeletons#kinds-of-skeleton). With no names, the file names are used |
 | **Voice selection** | The **voice entity type** and the **voice variants** the player can choose (`Male_01`, `Female_02`), from the [audio library](/basic/audio/sound-library), each with a display name |
 | **Animation selection** | The **animation types** the player can choose (`humanoid_default`, `humanoid_heavy`) from the [animation library](/basic/entity-assets/animations), with display names |
 | **Facial features** | Which features appear in the creator for editing: eyes, eyebrows, ears, eye and eyebrow and ear (left and right), nose, teeth, tongue, hair, facial hair |
@@ -50,5 +50,5 @@ The creator builds a **custom character** definition from the choices (the profi
 
 ## See also
 
-- [Playable Character](/basic/entities/playable-character), [Player Classes](/basic/entities/player-classes), [Model Scenes](/basic/entity-assets/model-scenes).
+- [Playable Character](/basic/entities/playable-character), [Player Classes](/basic/entities/player-classes), [Skeletons](/basic/entity-assets/skeletons).
 - [How the game saves a custom character](/advanced/save-and-load).

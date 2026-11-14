@@ -6,7 +6,8 @@ Like the other asset libraries, these are not `.tres` records with an id. They a
 
 | Page | What it holds | Folder |
 |---|---|---|
-| [Model Scenes](/basic/entity-assets/model-scenes) | Skeletons for characters and creatures; scenes for interactable objects | `src/data/meshes/skeletons/`, `.../interactable_models/` |
+| [Skeletons](/basic/entity-assets/skeletons) | Skeletons for characters and creatures, with their points (where effects, shots and weapons sit) | `src/data/meshes/skeletons/` |
+| [Interactable Scenes](/basic/entity-assets/interactable-scenes) | Scenes for interactable objects (chests, doors), with their markers | `src/data/meshes/interactable_models/` |
 | [Equipment Meshes](/basic/entity-assets/equipment-meshes) | Weapon, armor-piece and facial meshes; materials | `src/data/meshes/` |
 | [Animations](/basic/entity-assets/animations) | An **animation pack** for each [entity type](/basic/types-and-groups/entity-types) | `src/data/animations/` |
 | [Weapon Profiles](/basic/entity-assets/weapon-profiles) | The ways of fighting your game has animations for (One Hand, Bow, Unarmed ...), defined once for every pack | `src/data/items/weapon_profiles/` |

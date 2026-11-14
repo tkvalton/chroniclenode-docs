@@ -63,6 +63,7 @@ Select the river: a bar shows over the viewport and every point of the course ge
 | **The point** (a dot on the course) | Moves the point. It slides over the ground at the *Water above ground* of the river. Hold **Alt** to move it freely sideways at its own height (to make the water run downhill or level) |
 | **The bank** (a small dot at the side of the river) | Widens or narrows the river **at this point**. Between two points the river changes width smoothly |
 | **The curve** (small dots joined to the point by a line; only on the point you are editing, and only when its curve is not Auto) | Pulls the curve out of the point |
+| **The arrows** (red X, green Y, blue Z, on the point you are editing) | The **move gizmo**: drag the tip of an arrow to move the point along that axis only. Y lifts or lowers it off the ground. Hold **Ctrl** for steps of a centimetre |
 
 The bar over the viewport has, for the point you last touched: its **Width**, its **Curve** (**Auto**: smooth, nothing to pull; **Mirrored**: one handle, the other side is its mirror; **Free**: two handles, a corner if you want one) and **Remove point** (a river keeps at least two). **Water above ground** is the height used when you move a point over the ground.
 

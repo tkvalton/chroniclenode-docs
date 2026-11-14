@@ -37,15 +37,15 @@ The plate is made for a **modular** character: it replaces the torso of the body
 
 **You should see** the plate in the tree under the torso. [Meshes: skins](/basic/entity-assets/equipment-meshes#skins).
 
-## 4. The warrior (a model scene)
+## 4. The warrior (a skeleton)
 
-1. Open **Entity Assets > Model Scenes**.
+1. Open **Entity Assets > Skeletons**.
 2. Press **Create Skeleton**. **Browse** to the imported scene of the warrior (the one that has a `Skeleton3D`).
 3. Give it a **target name** (`humanoid_warrior`) and choose the **kind**: *General* (one mesh), *Modular* (swappable parts: choose this for the plate) or *Custom* (modular with skin, hair and eye materials for [character creation](/basic/game-settings/character-creation)). For a modular one set the **equipment tag** to `humanoid`.
-4. Press **Convert**. The scene is saved in `src/data/meshes/skeletons/` and opens.
-5. In the 3D editor, move each **attachment point** to its bone: the hands, the head, the chest and the two weapon meshes. The editor lists the required points that are missing.
+4. Press **Convert**. The scene is saved in `src/data/meshes/skeletons/` with every point on its bone, and is selected.
+5. With the **Points tool** of the tab, pick each point (a dot in the view) and hold the arrows of the move gizmo to put it in place: the hands in the palms, the head in the middle of the head, the two weapon grips where a handle is held. Each change is saved at once.
 
-**You should see** `humanoid_warrior` in the Skeletons list with no missing points. [Model Scenes](/basic/entity-assets/model-scenes).
+**You should see** `humanoid_warrior` in the Skeletons list with every point there (nothing missing). [Skeletons](/basic/entity-assets/skeletons).
 
 ## 5. The swing (an animation)
 

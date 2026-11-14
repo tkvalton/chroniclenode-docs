@@ -37,7 +37,11 @@ A 3D preview of a scene you can turn around: the scene is shown in a world of it
 | `AnimationPlayer` | [figure_player](#var-figure-player) | `null` |
 | `String` | [attach_key](#var-attach-key) | `""` |
 | `Callable` | [tool_input](#var-tool-input) | `Callable()` |
+| `Array[AxisGizmo3D]` | [gizmos](#var-gizmos) | `[]` |
+| `CheckBox` | [local_axes_check](#var-local-axes-check) | `null` |
+| `bool` | [gizmo_local](#var-gizmo-local) | `false` |
 | `MeshInstance3D` | [material_item](#var-material-item) | `null` |
+| `String` | [locked_skeleton](#var-locked-skeleton) | `""` |
 
 ## Methods
 
@@ -61,6 +65,9 @@ A 3D preview of a scene you can turn around: the scene is shown in a world of it
 | `bool` | [is_attached](#method-is-attached)() |
 | `String` | [selected_animation_set](#method-selected-animation-set)() |
 | `Node3D` | [get_figure_point](#method-get-figure-point)( `key: String` ) |
+| `AxisGizmo3D` | [add_gizmo](#method-add-gizmo)() |
+| `void` | [remove_gizmo](#method-remove-gizmo)( `gizmo: AxisGizmo3D` ) |
+| `void` | [lock_figure](#method-lock-figure)( `skeleton_name: String` ) |
 
 ## Signals
 
@@ -180,9 +187,25 @@ Where the scene is put on the figure ("" none)
 
 A TOOL of an editor that works in the view (handles you drag, a click on a mesh): it gets the mouse first, and when it returns true the camera does not move. func(event: InputEvent) -&gt; bool
 
+### Array[AxisGizmo3D] gizmos = [] {#var-gizmos}
+
+THE MOVE GIZMOS in the view (2026-11-14: AxisGizmo3D, an X, a Y and a Z arrow on a point; add_gizmo()): they get the mouse before the tool and the camera
+
+### CheckBox local_axes_check = null {#var-local-axes-check}
+
+The Local axes switch of the toolbar (shown while the view has a gizmo): the arrows along the axes of the bone or mesh the point is in, not the world's
+
+### bool gizmo_local = false {#var-gizmo-local}
+
+(the choice of the last view, in every view)
+
 ### MeshInstance3D material_item = null {#var-material-item}
 
 the weapon a coat (a material for "The Enchanted Item") is shown on, set by the VFX tab's Weapon row (in the figure's hand or a mesh of its own); null: the weapon in the figure's main hand
+
+### String locked_skeleton = "" {#var-locked-skeleton}
+
+The skeleton the figure is held to ("" none: the Skeleton list chooses)
 
 ## Method descriptions
 
@@ -257,4 +280,16 @@ The animation set chosen ("" for None)
 ### Node3D get_figure_point( key: String ) {#method-get-figure-point}
 
 The node of the figure an attach key names (null: none, or the stand-in)
+
+### AxisGizmo3D add_gizmo() {#method-add-gizmo}
+
+Makes a move gizmo in the view (three arrows; AxisGizmo3D): it gets the mouse first, keeps its size on the screen, and the toolbar shows Local axes. Listen to its `dragged`; set its `follow` (or its position)
+
+### void remove_gizmo( gizmo: AxisGizmo3D ) {#method-remove-gizmo}
+
+Takes a move gizmo out of the view
+
+### void lock_figure( skeleton_name: String ) {#method-lock-figure}
+
+Shows one skeleton as the figure and hides the Skeleton list (the Skeletons tab shows the skeleton it edits); "" gives the list back. The animation set and the animation stay to choose
 

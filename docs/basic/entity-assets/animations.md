@@ -92,5 +92,5 @@ The animations of triggers are stored in the map by the **slot name** of the tri
 ## See also
 
 - [Weapon Profiles](/basic/entity-assets/weapon-profiles): the folders and clips of each way of fighting.
-- [Model Scenes](/basic/entity-assets/model-scenes): the skeleton the animations are played on.
+- [Skeletons](/basic/entity-assets/skeletons): the skeleton the animations are played on.
 - [How the animation library is built](/advanced/assets/).

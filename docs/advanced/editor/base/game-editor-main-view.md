@@ -11,6 +11,8 @@ Main container for the unified game editor system
 | | | |
 |---|---|---|
 | `BuildSizeEditor` | [build_size_editor](#var-build-size-editor) |  |
+| `SkeletonsEditor` | [skeleton_database_editor](#var-skeleton-database-editor) |  |
+| `InteractableScenesEditor` | [interactable_scenes_editor](#var-interactable-scenes-editor) |  |
 | `ResourceManager  # For ResourceManager-based editors` | [resource_manager](#var-resource-manager) |  |
 | `EditorPlugin` | [plugin](#var-plugin) |  |
 | `DockState` | [dock_state](#var-dock-state) | `DockState.DOCKED` |
@@ -76,6 +78,14 @@ Main container for the unified game editor system
 ### BuildSizeEditor build_size_editor {#var-build-size-editor}
 
 The Build Size tab (made in code: it has no scene).
+
+### SkeletonsEditor skeleton_database_editor {#var-skeleton-database-editor}
+
+Entity Assets &gt; Skeletons and Interactable Scenes (2026-11-14: Model Scenes split in two; made here)
+
+### InteractableScenesEditor interactable_scenes_editor {#var-interactable-scenes-editor}
+
+*No description yet.*
 
 ### ResourceManager  # For ResourceManager-based editors resource_manager {#var-resource-manager}
 

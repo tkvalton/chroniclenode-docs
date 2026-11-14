@@ -30,6 +30,10 @@ GeneralSkeleton provides standardized attachment points for equipment, VFX, and 
 |---|---|
 | `String` | [get_skeleton_type](#method-get-skeleton-type)() |
 | `Node3D` | [get_attachment_point](#method-get-attachment-point)( `slot: AttachmentSlot` ) |
+| `Node3D` | [get_point](#method-get-point)( `slot: PointSlot` ) |
+| `Node3D` | [find_point_node](#method-find-point-node)( `root: Node, slot: int` ) *static* |
+| `Node3D` | [get_grip](#method-get-grip)( `weapon_slot: WeaponSlot` ) |
+| `Node3D` | [find_named](#method-find-named)( `root: Node, node_name: String` ) *static* |
 | `MeshInstance3D` | [get_equipment_mesh](#method-get-equipment-mesh)( `slot: AttachmentSlot` ) |
 | `bool` | [set_equipment_mesh_with_materials](#method-set-equipment-mesh-with-materials)( `slot: AttachmentSlot, mesh: Mesh, material_overrides: Array[Material] = [], skin: Skin = null, mesh_scale: float = 1.0` ) |
 | `bool` | [remove_equipment_mesh](#method-remove-equipment-mesh)( `slot: AttachmentSlot` ) |
@@ -162,8 +166,30 @@ The options of weapon slot: main hand, off hand.
 - **MAIN_HAND** = `0` - Right hand weapon
 - **OFF_HAND** = `1` - Left hand weapon
 
+### enum PointSlot {#enum-pointslot}
+
+THE POINTS of the model (2026-11-14, the user: a fixed list of points, each a Node3D (a Marker3D) under a BoneAttachment3D of its bone, set in Entity Assets &gt; Skeletons with a 3D tool). Where effects, shots and the eyes of the model are: a point follows its bone and sits where it was put on it (the palm, not the wrist bone; the middle of the head, not the neck). Overhead and Feet are on the model itself (no bone). The weapon grips (MainHandGrip, OffHandGrip) are points too: the weapon meshes are under them.
+
+- **HEAD** = `0`
+- **CHEST** = `1`
+- **LEFT_HAND** = `2`
+- **RIGHT_HAND** = `3`
+- **OVERHEAD** = `4`
+- **FEET** = `5`
+- **BACK** = `6`
+- **HIP_LEFT** = `7`
+- **HIP_RIGHT** = `8`
+- **SHOULDER_LEFT** = `9`
+- **SHOULDER_RIGHT** = `10`
+- **ELBOW_LEFT** = `11`
+- **ELBOW_RIGHT** = `12`
+- **KNEE_LEFT** = `13`
+- **KNEE_RIGHT** = `14`
+
 ## Constants
 
+- `Array[Dictionary]` **POINTS** = `[` - Each point: its node (a unique name), the bone it is on by default ("": the model), what it is called, and what uses it
+- `Array[Dictionary]` **GRIPS** = `[` - The grips of the weapon slots: where a weapon's handle is held (a weapon mesh has its pivot at the handle; its own offset, set in Assets &gt; Meshes, is added on the grip)
 - `Array[String]` **WEAPON_META_KEYS** = `["enchant_start", "enchant_end", "enchant_width", "enchant_vfx_position", "pr...` - The metadata a weapon mesh carries to its MeshInstance3D: the enchant segment (start, end, width; the old enchant point), the projectile spawn point
 
 ## Property descriptions
@@ -202,7 +228,23 @@ The kind of skeleton ("GeneralSkeleton").
 
 ### Node3D get_attachment_point( slot: AttachmentSlot ) {#method-get-attachment-point}
 
-The node of an attachment slot (head, hand, back ...), or null.
+The holder of the equipment meshes of an attachment slot (head, hand, back ...), or null. The point of an effect is get_point().
+
+### Node3D get_point( slot: PointSlot ) {#method-get-point}
+
+The node of a point of the model (a Marker3D under the BoneAttachment3D of its bone; Overhead and Feet on the model), or null. A skeleton made before the points: Head, Chest and the hands are its old BoneAttachment3D nodes (a mesh holder of equipment is no point: null)
+
+### Node3D find_point_node( root: Node, slot: int ) {#method-find-point-node}
+
+The node of a point under a skeleton (by its unique name, or found by name: a skeleton put in another scene keeps its points)
+
+### Node3D get_grip( weapon_slot: WeaponSlot ) {#method-get-grip}
+
+The grip of a weapon slot (the weapon mesh is under it), or null (a skeleton made before the grips: the weapon is right under the hand bone)
+
+### Node3D find_named( root: Node, node_name: String ) {#method-find-named}
+
+A node of the skeleton by its unique name, or searched for by name
 
 ### MeshInstance3D get_equipment_mesh( slot: AttachmentSlot ) {#method-get-equipment-mesh}
 
