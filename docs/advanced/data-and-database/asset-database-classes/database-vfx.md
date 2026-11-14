@@ -8,7 +8,7 @@ The visual effects library of the project, read from the folders under `res://sr
 
 ## Description
 
-Each folder is a VFX TYPE (oneshot, loop, beam, path, weather, telegraph, material) and VFX_TYPES says which file types it takes. A type maps to a VFX class (VFXOneShot, VFXLoop ...). Subfolders are scanned too. The folders are scanned once on first use; call refresh_database after adding files.
+Each folder is a VFX TYPE (oneshot, loop, enchant, beam, path, weather, telegraph, material) and VFX_TYPES says which file types it takes. A type maps to a VFX class (VFXOneShot, VFXLoop ...). Subfolders are scanned too. The folders are scanned once on first use; call refresh_database after adding files.
 
 ## Methods
 

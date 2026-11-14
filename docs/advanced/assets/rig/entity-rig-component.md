@@ -21,7 +21,9 @@ EntityRigComponent manages visual representation and effects for entities. Exten
 | `void` | [apply_equipment](#method-apply-equipment)( `equipment: ItemInstance, slot_definition: EquipmentSlotDefinition = null, is_equipping: bool = true` ) |
 | `EntityAnimationPlayer` | [setup_entity_animation_player](#method-setup-entity-animation-player)() |
 | `void` | [set_head_tracking_target](#method-set-head-tracking-target)( `target: Node3D = null, transition_duration: float = 0.5` ) |
-| `bool` | [apply_vfx_material_effect](#method-apply-vfx-material-effect)( `selection: VFXSelectionMaterial, timer: Timer = null` ) |
+| `Array[MeshInstance3D]` | [material_target_meshes](#method-material-target-meshes)( `target: int, item: Object = null` ) |
+| `int` | [item_weapon_slot](#method-item-weapon-slot)( `item: Object` ) |
+| `bool` | [apply_vfx_material_effect](#method-apply-vfx-material-effect)( `selection: VFXSelectionMaterial, _timer: Timer = null` ) |
 | `bool` | [cleanup_vfx_material_effect](#method-cleanup-vfx-material-effect)( `selection: VFXSelectionMaterial` ) |
 | `Node3D` | [get_attachment_point_node](#method-get-attachment-point-node)( `location: VFXSelection.VfxLocation` ) |
 | `void` | [set_skeleton_invisible](#method-set-skeleton-invisible)() |
@@ -55,13 +57,21 @@ Makes the animation player of the entity.
 
 Makes the head follow a node (or nothing), blending over some seconds.
 
-### bool apply_vfx_material_effect( selection: VFXSelectionMaterial, timer: Timer = null ) {#method-apply-vfx-material-effect}
+### Array[MeshInstance3D] material_target_meshes( target: int, item: Object = null ) {#method-material-target-meshes}
 
-Puts a material effect on the model. False when there is no skeleton.
+The meshes a material effect goes on, by its target: the body, both weapons, a hand, or the hand the enchanted `item` is in (its slot's mesh slot)
+
+### int item_weapon_slot( item: Object ) {#method-item-weapon-slot}
+
+The weapon slot the item is shown in (the mesh slot of the equipment slot it is in; the main hand when it is not equipped)
+
+### bool apply_vfx_material_effect( selection: VFXSelectionMaterial, _timer: Timer = null ) {#method-apply-vfx-material-effect}
+
+Puts a material effect on the model (a layer keyed by the selection; VFXMaterial puts its own layers on through material_target_meshes). False when nothing was there to take it.
 
 ### bool cleanup_vfx_material_effect( selection: VFXSelectionMaterial ) {#method-cleanup-vfx-material-effect}
 
-Takes a material effect off the model.
+Takes a material effect off the model (only its layer).
 
 ### Node3D get_attachment_point_node( location: VFXSelection.VfxLocation ) {#method-get-attachment-point-node}
 

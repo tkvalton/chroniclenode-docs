@@ -4,7 +4,7 @@
 
 **Inherits:** [Resource](https://docs.godotengine.org/en/stable/classes/class_resource.html)
 
-**Inherited by:** [VFXSelectionBeam](/advanced/assets/selections-vfx/vfx-selection-beam), [VFXSelectionLoop](/advanced/assets/selections-vfx/vfx-selection-loop), [VFXSelectionMaterial](/advanced/assets/selections-vfx/vfx-selection-material), [VFXSelectionOneShot](/advanced/assets/selections-vfx/vfx-selection-one-shot), [VFXSelectionPath](/advanced/assets/selections-vfx/vfx-selection-path), [VFXSelectionTelegraph](/advanced/assets/selections-vfx/vfx-selection-telegraph), [VFXSelectionTransformation](/advanced/assets/selections-vfx/vfx-selection-transformation), [VFXSelectionWeather](/advanced/assets/selections-vfx/vfx-selection-weather)
+**Inherited by:** [VFXSelectionBeam](/advanced/assets/selections-vfx/vfx-selection-beam), [VFXSelectionEnchant](/advanced/assets/selections-vfx/vfx-selection-enchant), [VFXSelectionLoop](/advanced/assets/selections-vfx/vfx-selection-loop), [VFXSelectionMaterial](/advanced/assets/selections-vfx/vfx-selection-material), [VFXSelectionOneShot](/advanced/assets/selections-vfx/vfx-selection-one-shot), [VFXSelectionPath](/advanced/assets/selections-vfx/vfx-selection-path), [VFXSelectionTelegraph](/advanced/assets/selections-vfx/vfx-selection-telegraph), [VFXSelectionTransformation](/advanced/assets/selections-vfx/vfx-selection-transformation), [VFXSelectionWeather](/advanced/assets/selections-vfx/vfx-selection-weather)
 
 Base VFX selection class - stores VFX configuration and references All VFX selections inherit from this base class
 

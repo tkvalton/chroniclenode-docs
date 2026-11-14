@@ -4,7 +4,7 @@
 
 **Inherits:** [VFX](/advanced/assets/vfx/vfx) < [Node3D](https://docs.godotengine.org/en/stable/classes/class_node3d.html)
 
-**Inherited by:** [VFXWeather](/advanced/assets/vfx/vfx-weather)
+**Inherited by:** [VFXEnchant](/advanced/assets/vfx/vfx-enchant), [VFXWeather](/advanced/assets/vfx/vfx-weather)
 
 Loop VFX - Continuous effects like auras, channeling, persistent buffs/debuffs Supports start/loop/end animation sequence Now supports duration override with graceful stop sequence
 
@@ -26,6 +26,9 @@ Loop VFX - Continuous effects like auras, channeling, persistent buffs/debuffs S
 | `void` | [stop_loop_vfx](#method-stop-loop-vfx)() |
 | `void` | [attach_to_entity](#method-attach-to-entity)( `entity: Variant, location: VFXSelection.VfxLocation, offset: Vector3 = Vector3.ZERO` ) |
 | `void` | [deactivate_vfx](#method-deactivate-vfx)() |
+| `float` | [default_fade_in](#method-default-fade-in)() |
+| `float` | [default_fade_out](#method-default-fade-out)() |
+| `float` | [end_animation_length](#method-end-animation-length)( `effect: VFX, fallback: float` ) *static* |
 | `void` | [spawn_at_position](#method-spawn-at-position)( `pos: Vector3, new_rotation: Vector3 = Vector3.ZERO` ) |
 | `void` | [spawn_attached_to_entity](#method-spawn-attached-to-entity)( `entity: Entity, location: VFXSelection.VfxLocation, offset: Vector3 = Vector3.ZERO` ) |
 | `bool` | [is_fading](#method-is-fading)() |
@@ -86,6 +89,18 @@ Attaches the effect to a place on an entity, with an offset.
 
 Ends the effect (it plays its end animation first).
 
+### float default_fade_in() {#method-default-fade-in}
+
+A loop fades in over 0.25 s
+
+### float default_fade_out() {#method-default-fade-out}
+
+A loop with an end animation fades out over that animation (both end together), without one over 0.35 s
+
+### float end_animation_length( effect: VFX, fallback: float ) {#method-end-animation-length}
+
+The length of the end animation of an effect (clamped to 0.1 to 3 s), or `fallback` when it has none
+
 ### void spawn_at_position( pos: Vector3, new_rotation: Vector3 = Vector3.ZERO ) {#method-spawn-at-position}
 
 Starts the effect at a position and a rotation.
@@ -96,7 +111,7 @@ Starts the effect attached to an entity.
 
 ### bool is_fading() {#method-is-fading}
 
-Is the effect fading out? (a loop does not fade)
+Is the effect fading out?
 
 ### bool is_looping() {#method-is-looping}
 

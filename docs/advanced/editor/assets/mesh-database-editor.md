@@ -12,7 +12,12 @@ The editor of the Meshes tab (Assets &gt; Meshes): the equipment, facial and mat
 |---|---|---|
 | `Vector3Control` | [position_offset_control](#var-position-offset-control) |  |
 | `Vector3Control` | [rotation_offset_control](#var-rotation-offset-control) |  |
-| `Vector3Control` | [enchant_vfx_control](#var-enchant-vfx-control) |  |
+| `Vector3Control` | [enchant_start_control](#var-enchant-start-control) |  |
+| `Vector3Control` | [enchant_end_control](#var-enchant-end-control) |  |
+| `SpinBox` | [enchant_width_spin](#var-enchant-width-spin) |  |
+| `WeaponMeshTools` | [weapon_tools](#var-weapon-tools) |  |
+| `FoldableContainer` | [materials_fold](#var-materials-fold) |  |
+| `FoldableContainer` | [weapon_fold](#var-weapon-fold) |  |
 | `Vector3Control` | [projectile_spawn_control](#var-projectile-spawn-control) |  |
 | `Dictionary` | [equipment_data](#var-equipment-data) | `{}` |
 | `Dictionary` | [materials_data](#var-materials-data) | `{}` |
@@ -44,6 +49,10 @@ The editor of the Meshes tab (Assets &gt; Meshes): the equipment, facial and mat
 | `int` | [get_current_surface_index](#method-get-current-surface-index)() |
 | `int` | [get_surface_count](#method-get-surface-count)() |
 
+## Constants
+
+- `float` **SAVE_DELAY** = `0.4` - A weapon's changed values wait SAVE_DELAY seconds before the file is written: [mesh, path] of the waiting save
+
 ## Variable descriptions
 
 ### Vector3Control position_offset_control {#var-position-offset-control}
@@ -54,7 +63,27 @@ The editor of the Meshes tab (Assets &gt; Meshes): the equipment, facial and mat
 
 *No description yet.*
 
-### Vector3Control enchant_vfx_control {#var-enchant-vfx-control}
+### Vector3Control enchant_start_control {#var-enchant-start-control}
+
+*No description yet.*
+
+### Vector3Control enchant_end_control {#var-enchant-end-control}
+
+*No description yet.*
+
+### SpinBox enchant_width_spin {#var-enchant-width-spin}
+
+*No description yet.*
+
+### WeaponMeshTools weapon_tools {#var-weapon-tools}
+
+(2026-11-14, the user: set the data of a weapon mesh in a 3D view with tools: the weapon in the hand of a skeleton, the grip, the enchant segment and the spawn point dragged or clicked)
+
+### FoldableContainer materials_fold {#var-materials-fold}
+
+The foldable sections of the panel (2026-11-14, the user: the panel grew too tall): the materials of the surfaces, and the six weapon settings under the view
+
+### FoldableContainer weapon_fold {#var-weapon-fold}
 
 *No description yet.*
 

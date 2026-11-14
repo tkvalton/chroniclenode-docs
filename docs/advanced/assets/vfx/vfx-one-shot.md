@@ -23,6 +23,8 @@ OneShot VFX - Fire-and-forget effects like explosions, impacts, hits Can be posi
 
 | | |
 |---|---|
+| `float` | [default_fade_in](#method-default-fade-in)() |
+| `float` | [default_fade_out](#method-default-fade-out)() |
 | `void` | [activate_vfx](#method-activate-vfx)( `selection: VFXSelection = null` ) |
 | `void` | [deactivate_vfx](#method-deactivate-vfx)() |
 | `void` | [attach_to_entity](#method-attach-to-entity)( `target: Variant, location: VFXSelection.VfxLocation, offset: Vector3 = Vector3.ZERO` ) |
@@ -51,9 +53,17 @@ Delay timer for start delay
 
 ## Method descriptions
 
+### float default_fade_in() {#method-default-fade-in}
+
+OneShot VFX should always auto-cleanup when finished A one shot comes in at once (a hit has its punch); cut short, it fades out over 0.15 s
+
+### float default_fade_out() {#method-default-fade-out}
+
+The fade out of the kind of effect (VFX: 0.2 s); a kind overrides it *(from [VFX](/advanced/assets/vfx/vfx))*
+
 ### void activate_vfx( selection: VFXSelection = null ) {#method-activate-vfx}
 
-OneShot VFX should always auto-cleanup when finished
+Activate VFX from pool or fresh spawn *(from [VFX](/advanced/assets/vfx/vfx))*
 
 ### void deactivate_vfx() {#method-deactivate-vfx}
 

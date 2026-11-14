@@ -28,6 +28,7 @@ Base runtime rig class shared by EntityRigComponent and InteractableRigComponent
 |---|---|
 | `void` | [initialize_rig](#method-initialize-rig)( `owner_node: Node3D` ) |
 | `Node3D` | [get_attachment_point_node](#method-get-attachment-point-node)( `location: VFXSelection.VfxLocation` ) |
+| `Array[MeshInstance3D]` | [material_target_meshes](#method-material-target-meshes)( `_target: int, _item: Object = null` ) |
 | `bool` | [apply_vfx_material_effect](#method-apply-vfx-material-effect)( `selection: VFXSelectionMaterial, timer: Timer = null` ) |
 | `bool` | [cleanup_vfx_material_effect](#method-cleanup-vfx-material-effect)( `selection: VFXSelectionMaterial` ) |
 | `void` | [create_remotes_for_slot_index](#method-create-remotes-for-slot-index)( `slot_index: RemoteSlotIndex, parent: Node3D, count: int` ) |
@@ -124,6 +125,10 @@ Single entry point. Stores the owner, creates decals, defers remote setup. Subcl
 ### Node3D get_attachment_point_node( location: VFXSelection.VfxLocation ) {#method-get-attachment-point-node}
 
 Return the Node3D that physically represents a VfxLocation attachment point.
+
+### Array[MeshInstance3D] material_target_meshes( _target: int, _item: Object = null ) {#method-material-target-meshes}
+
+The meshes a material effect goes on (the base: all the rig's meshes; an entity's rig picks by the target)
 
 ### bool apply_vfx_material_effect( selection: VFXSelectionMaterial, timer: Timer = null ) {#method-apply-vfx-material-effect}
 

@@ -56,6 +56,7 @@ TRACKING:
 | `void` | [initialize](#method-initialize)( `system_hub: GameHost.SystemHub` ) |
 | `void` | [preload_all_vfx](#method-preload-all-vfx)( `system_hub: GameHost.SystemHub` ) |
 | `Array[VFX]` | [play_vfx_from_selection](#method-play-vfx-from-selection)( `selection: VFXSelection, target: Variant = null, timer: Timer = null` ) |
+| `VFXMaterial` | [apply_material](#method-apply-material)( `material_sel: VFXSelectionMaterial, target: Variant, timer: Timer = null, item: Object = null` ) |
 | `void` | [stop_material_effects_on_entity](#method-stop-material-effects-on-entity)( `entity: Entity` ) |
 | `void` | [stop_material_effect](#method-stop-material-effect)( `material_effect: VFXMaterial` ) |
 | `Array[VFXMaterial]` | [get_material_effects_for_entity](#method-get-material-effects-for-entity)( `entity: Entity` ) |
@@ -108,6 +109,10 @@ Preload ALL VFX during loading screen and report memory usage
 ### Array[VFX] play_vfx_from_selection( selection: VFXSelection, target: Variant = null, timer: Timer = null ) {#method-play-vfx-from-selection}
 
 Starts the effect of a selection on a target. Gives the effects made.
+
+### VFXMaterial apply_material( material_sel: VFXSelectionMaterial, target: Variant, timer: Timer = null, item: Object = null ) {#method-apply-material}
+
+Puts a material effect on an entity and gives it back (null when it could not go on): it lasts until its timer ends, the entity dies, or stop_material_effect. `item`: the enchanted item, for a selection that targets the item's own weapon.
 
 ### void stop_material_effects_on_entity( entity: Entity ) {#method-stop-material-effects-on-entity}
 

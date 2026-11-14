@@ -35,6 +35,8 @@ Base class for all projectile effects Handles shared functionality like spawn po
 | `String` | [get_effect_description](#method-get-effect-description)() |
 | `String` | [get_editor_description](#method-get-editor-description)() |
 | `bool` | [is_one_off_application](#method-is-one-off-application)() |
+| `bool` | [weapon_has_spawn_point](#method-weapon-has-spawn-point)( `weapon_node: Node3D` ) *static* |
+| `Vector3` | [weapon_spawn_position](#method-weapon-spawn-position)( `weapon_node: Node3D` ) *static* |
 
 ## Enumerations
 
@@ -67,11 +69,11 @@ Collision shape for projectile (defaults to small sphere if null)
 
 ### Vector3 offset = Vector3(0.3, 1, -1) {#prop-offset}
 
-Offset from spawn point
+Offset from spawn point (not used when the projectile leaves the weapon from its own spawn point)
 
 ### VFXSelection.VfxLocation spawn_point {#prop-spawn-point}
 
-Spawn location
+Spawn location. Weapon: the projectile spawn point set on the weapon mesh (Entity Assets &gt; Equipment Meshes, the Spawn tool: a bow's string, a wand's tip), or the weapon with the offset when it has none
 
 ## Method descriptions
 
@@ -122,4 +124,12 @@ A short text for the effect editor that says what the effect does.
 ### bool is_one_off_application() {#method-is-one-off-application}
 
 What this effect does it does once, when it is applied: a loaded save does not do it again
+
+### bool weapon_has_spawn_point( weapon_node: Node3D ) {#method-weapon-has-spawn-point}
+
+Does the weapon (a weapon slot node) have a projectile spawn point of its own (set on its mesh, it came over to the node in the hand)?
+
+### Vector3 weapon_spawn_position( weapon_node: Node3D ) {#method-weapon-spawn-position}
+
+Where a projectile leaves the weapon: its spawn point, in the world
 

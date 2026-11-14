@@ -227,6 +227,12 @@ export const groups = [
         "file": "editor_components/editors/assets/vfx_database_editor.gd"
       },
       {
+        "name": "WeaponMeshTools",
+        "base": "VBoxContainer",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\weapon_mesh_tools.gd",
+        "file": "editor_components/editors/assets/weapon_mesh_tools.gd"
+      },
+      {
         "name": "WeaponProfileEditor",
         "base": "ConfigEditorBase",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\editors\\assets\\weapon_profile_editor.gd",
@@ -1637,6 +1643,12 @@ export const groups = [
         "file": "editor_components/dialogs/vfx_dialogs/vfx_selection_dialog.gd"
       },
       {
+        "name": "VFXSelectionEnchantProperties",
+        "base": "VFXSelectionPropertyPanel",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\dialogs\\vfx_dialogs\\vfx_selection_enchant_property_panel.gd",
+        "file": "editor_components/dialogs/vfx_dialogs/vfx_selection_enchant_property_panel.gd"
+      },
+      {
         "name": "VFXSelectionLoopProperties",
         "base": "VFXSelectionPropertyPanel",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\dialogs\\vfx_dialogs\\vfx_selection_loop_property_panel.gd",
@@ -1827,6 +1839,12 @@ export const groups = [
         "base": "ConfigField",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\controls\\config_fields\\sound_source_field.gd",
         "file": "editor_components/controls/config_fields/sound_source_field.gd"
+      },
+      {
+        "name": "SpinDrag",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\editor_components\\factory\\spin_drag.gd",
+        "file": "editor_components/factory/spin_drag.gd"
       },
       {
         "name": "TextField",

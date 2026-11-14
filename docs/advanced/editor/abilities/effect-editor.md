@@ -15,6 +15,7 @@ Effect Editor for managing effect resources - refactored to use ResourceEditor b
 | `bool` | [is_creating_new_effect](#var-is-creating-new-effect) | `false` |
 | `Array[String]` | [immediate_blacklisted_effects](#var-immediate-blacklisted-effects) | `[ ... ]` |
 | `Variant` | [property_containers](#var-property-containers) | `[]` |
+| `VBoxContainer` | [extra_vfx_box](#var-extra-vfx-box) | `null` |
 
 ## Methods
 
@@ -44,6 +45,10 @@ Effect types that should NOT have the Immediate option These effects don't make 
 ### property_containers = [] {#var-property-containers}
 
 *No description yet.*
+
+### VBoxContainer extra_vfx_box = null {#var-extra-vfx-box}
+
+THE EXTRA VFX of the effect (2026-11-14): more VFX played with the main one (an enchant's particles and a material on its weapon), a row each under the VFX row, and an Add button
 
 ## Method descriptions
 

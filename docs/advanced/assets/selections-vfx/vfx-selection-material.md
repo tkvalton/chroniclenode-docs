@@ -15,6 +15,9 @@ Material VFX selection - material overrides for entities
 | `bool` | [auto_cleanup_on_entity_death](#prop-auto-cleanup-on-entity-death) | `true` |
 | `bool` | [allow_stacking](#prop-allow-stacking) | `true` |
 | `int` | [priority](#prop-priority) | `0` |
+| `float` | [fade_in](#prop-fade-in) | `0.4` |
+| `float` | [fade_out](#prop-fade-out) | `0.4` |
+| `VFXFade.Style` | [fade_style](#prop-fade-style) | `VFXFade.Style.DISSOLVE` |
 | `String` | [target_material_slot](#prop-target-material-slot) | `"body":` |
 
 ## Methods
@@ -42,6 +45,7 @@ Material VFX selection - material overrides for entities
 - **BODY** = `0`
 - **WEAPONS** = `1`
 - **MAIN_HAND** = `2`
+- **OFF_HAND** = `3`
 
 ### enum MaterialBlendMode {#enum-materialblendmode}
 
@@ -72,6 +76,18 @@ True when more than one of this material can be on the entity.
 ### int priority = 0 {#prop-priority}
 
 Which material wins when several are on the entity (higher wins).
+
+### float fade_in = 0.4 {#prop-fade-in}
+
+How long the material takes to come on, in seconds (0: at once). A skin is drawn over the body while it comes on and replaces it after.
+
+### float fade_out = 0.4 {#prop-fade-out}
+
+How long the material takes to go when it ends (its time is up, the effect ends, the entity dies), in seconds (0: at once)
+
+### VFXFade.Style fade_style = VFXFade.Style.DISSOLVE {#prop-fade-style}
+
+How it comes and goes: Fade (it gets fainter) or Dissolve (it spreads over the body in patches, and breaks up the same way)
 
 ### String target_material_slot = "body": {#prop-target-material-slot}
 

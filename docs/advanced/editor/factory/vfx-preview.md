@@ -20,6 +20,9 @@ The preview of a visual effect (VFX tab): the effect plays in a 3D view you can 
 | `ColorPickerButton` | [tint_color_button](#var-tint-color-button) | `null` |
 | `OptionButton` | [tint_mode_option](#var-tint-mode-option) | `null` |
 | `HSlider` | [tint_strength_slider](#var-tint-strength-slider) | `null` |
+| `HBoxContainer` | [weapon_row](#var-weapon-row) | `null` |
+| `OptionButton` | [weapon_option](#var-weapon-option) | `null` |
+| `MeshInstance3D` | [weapon_node](#var-weapon-node) | `null` |
 
 ## Methods
 
@@ -28,10 +31,11 @@ The preview of a visual effect (VFX tab): the effect plays in a 3D view you can 
 | `bool` | [show_vfx](#method-show-vfx)( `path: String, type: String` ) |
 | `void` | [clear](#method-clear)() |
 | `void` | [play](#method-play)() |
+| `Vector2` | [fade_times](#method-fade-times)() |
 
 ## Constants
 
-- `Array[String]` **PREVIEWED** = `["oneshot", "loop", "weather", "beam", "path", "telegraph", "material"]` - The kinds of effect the preview plays
+- `Array[String]` **PREVIEWED** = `["oneshot", "loop", "enchant", "weather", "beam", "path", "telegraph", "mater...` - The kinds of effect the preview plays
 - `float` **REPEAT_GAP** = `0.6` - The seconds between the end of a one shot and the next play when it repeats
 - `Vector3` **BEAM_START** = `Vector3(0.0, 1.0, 0.0)` - Where a beam starts and a path begins (metres above the ground)
 
@@ -77,6 +81,18 @@ The row with the tint of the preview (a colour put on the effect to see it in an
 
 *No description yet.*
 
+### HBoxContainer weapon_row = null {#var-weapon-row}
+
+*No description yet.*
+
+### OptionButton weapon_option = null {#var-weapon-option}
+
+*No description yet.*
+
+### MeshInstance3D weapon_node = null {#var-weapon-node}
+
+*No description yet.*
+
 ## Method descriptions
 
 ### bool show_vfx( path: String, type: String ) {#method-show-vfx}
@@ -90,4 +106,8 @@ Empties the preview
 ### void play() {#method-play}
 
 Plays the effect from its start: a one shot once (and again after its length when Repeat is on), a loop from the beginning, a beam and a path placed again
+
+### Vector2 fade_times() {#method-fade-times}
+
+How long the effect shown fades in (x) and out (y): its own fade_in and fade_out, or the defaults of its kind (VFXFade.DEFAULTS; a loop or a beam with an end animation fades out over it), as VFX does in the game (read as properties: in the editor a one shot is a placeholder, with no methods to call)
 

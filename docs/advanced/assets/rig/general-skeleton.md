@@ -45,6 +45,8 @@ GeneralSkeleton provides standardized attachment points for equipment, VFX, and 
 | `bool` | [set_weapon_mesh_with_materials](#method-set-weapon-mesh-with-materials)( `weapon_slot: WeaponSlot, mesh: Mesh, material_overrides: Array[Material] = [], scale: float = 1.0` ) |
 | `bool` | [remove_weapon_mesh](#method-remove-weapon-mesh)( `weapon_slot: WeaponSlot` ) |
 | `Vector3` | [get_weapon_enchant_vfx_position](#method-get-weapon-enchant-vfx-position)( `weapon_slot: WeaponSlot` ) |
+| `Dictionary` | [get_weapon_enchant_segment](#method-get-weapon-enchant-segment)( `weapon_slot: WeaponSlot` ) |
+| `Dictionary` | [enchant_segment_of](#method-enchant-segment-of)( `holder: Object` ) *static* |
 | `Vector3` | [get_weapon_enchant_vfx_global_position](#method-get-weapon-enchant-vfx-global-position)( `weapon_slot: WeaponSlot` ) |
 | `Vector3` | [get_weapon_projectile_spawn_point](#method-get-weapon-projectile-spawn-point)( `weapon_slot: WeaponSlot` ) |
 | `Vector3` | [get_weapon_projectile_spawn_global_position](#method-get-weapon-projectile-spawn-global-position)( `weapon_slot: WeaponSlot` ) |
@@ -54,10 +56,10 @@ GeneralSkeleton provides standardized attachment points for equipment, VFX, and 
 | `bool` | [restore_body_part_mesh](#method-restore-body-part-mesh)( `body_slot: BodySlot` ) |
 | `void` | [store_original_body_part_skin](#method-store-original-body-part-skin)( `body_slot: BodySlot` ) |
 | `void` | [restore_original_body_part_skin](#method-restore-original-body-part-skin)( `body_slot: BodySlot` ) |
-| `bool` | [apply_material_to_body](#method-apply-material-to-body)( `selection: VFXSelectionMaterial, entity: Entity, timer: Timer = null` ) |
-| `bool` | [apply_material_to_weapons](#method-apply-material-to-weapons)( `selection: VFXSelectionMaterial, entity: Entity, timer: Timer = null` ) |
-| `bool` | [apply_material_to_main_hand](#method-apply-material-to-main-hand)( `selection: VFXSelectionMaterial, entity: Entity, timer: Timer = null` ) |
-| `bool` | [apply_material_to_off_hand](#method-apply-material-to-off-hand)( `selection: VFXSelectionMaterial, entity: Entity, timer: Timer = null` ) |
+| `bool` | [apply_material_to_body](#method-apply-material-to-body)( `selection: VFXSelectionMaterial, _entity: Entity = null, _timer: Timer = null` ) |
+| `bool` | [apply_material_to_weapons](#method-apply-material-to-weapons)( `selection: VFXSelectionMaterial, _entity: Entity = null, _timer: Timer = null` ) |
+| `bool` | [apply_material_to_main_hand](#method-apply-material-to-main-hand)( `selection: VFXSelectionMaterial, _entity: Entity = null, _timer: Timer = null` ) |
+| `bool` | [apply_material_to_off_hand](#method-apply-material-to-off-hand)( `selection: VFXSelectionMaterial, _entity: Entity = null, _timer: Timer = null` ) |
 | `Array[MeshInstance3D]` | [get_body_meshes](#method-get-body-meshes)() |
 | `Array[MeshInstance3D]` | [get_weapon_meshes](#method-get-weapon-meshes)() |
 | `bool` | [cleanup_material_from_body](#method-cleanup-material-from-body)( `selection: VFXSelectionMaterial` ) |
@@ -160,6 +162,10 @@ The options of weapon slot: main hand, off hand.
 - **MAIN_HAND** = `0` - Right hand weapon
 - **OFF_HAND** = `1` - Left hand weapon
 
+## Constants
+
+- `Array[String]` **WEAPON_META_KEYS** = `["enchant_start", "enchant_end", "enchant_width", "enchant_vfx_position", "pr...` - The metadata a weapon mesh carries to its MeshInstance3D: the enchant segment (start, end, width; the old enchant point), the projectile spawn point
+
 ## Property descriptions
 
 ### bool has_mount_seat = false {#prop-has-mount-seat}
@@ -258,6 +264,14 @@ Remove weapon mesh
 
 Get the enchant VFX position for a weapon slot (in local space relative to weapon mesh)
 
+### Dictionary get_weapon_enchant_segment( weapon_slot: WeaponSlot ) {#method-get-weapon-enchant-segment}
+
+The ENCHANT SEGMENT of the weapon in a slot (2026-11-14), in the weapon mesh's own space: &#123;start, end, width&#125;. Set in Assets &gt; Meshes (the Enchant tool); a mesh with only the old enchant point starts there and runs 1.1 m up; a mesh with neither gets the old enchants' blade (1.1 m up from its origin)
+
+### Dictionary enchant_segment_of( holder: Object ) {#method-enchant-segment-of}
+
+The enchant segment read from the metas of a weapon mesh node (they come over from the mesh when it is put in the hand) or of a Mesh itself; see get_weapon_enchant_segment
+
 ### Vector3 get_weapon_enchant_vfx_global_position( weapon_slot: WeaponSlot ) {#method-get-weapon-enchant-vfx-global-position}
 
 Get the enchant VFX global position for a weapon slot
@@ -294,19 +308,19 @@ Virtual method: Store original body part skin (GeneralSkeleton doesn't support b
 
 Virtual method: Restore original body part skin (GeneralSkeleton doesn't support body parts)
 
-### bool apply_material_to_body( selection: VFXSelectionMaterial, entity: Entity, timer: Timer = null ) {#method-apply-material-to-body}
+### bool apply_material_to_body( selection: VFXSelectionMaterial, _entity: Entity = null, _timer: Timer = null ) {#method-apply-material-to-body}
 
-Apply material to all body/equipment meshes (excludes weapons)
+Apply material to all body/equipment meshes (excludes weapons). A layer of MaterialLayers keyed by the selection (VFXMaterial puts its own layers on instead)
 
-### bool apply_material_to_weapons( selection: VFXSelectionMaterial, entity: Entity, timer: Timer = null ) {#method-apply-material-to-weapons}
+### bool apply_material_to_weapons( selection: VFXSelectionMaterial, _entity: Entity = null, _timer: Timer = null ) {#method-apply-material-to-weapons}
 
 Apply material to all weapon meshes
 
-### bool apply_material_to_main_hand( selection: VFXSelectionMaterial, entity: Entity, timer: Timer = null ) {#method-apply-material-to-main-hand}
+### bool apply_material_to_main_hand( selection: VFXSelectionMaterial, _entity: Entity = null, _timer: Timer = null ) {#method-apply-material-to-main-hand}
 
 Apply material to main hand weapon only
 
-### bool apply_material_to_off_hand( selection: VFXSelectionMaterial, entity: Entity, timer: Timer = null ) {#method-apply-material-to-off-hand}
+### bool apply_material_to_off_hand( selection: VFXSelectionMaterial, _entity: Entity = null, _timer: Timer = null ) {#method-apply-material-to-off-hand}
 
 Apply material to off hand weapon only
 

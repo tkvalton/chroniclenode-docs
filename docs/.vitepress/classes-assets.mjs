@@ -137,6 +137,12 @@ export const groups = [
         "file": "data_classes/selections/vfx/vfx_selection_beam.gd"
       },
       {
+        "name": "VFXSelectionEnchant",
+        "base": "VFXSelection",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\selections\\vfx\\vfx_selection_enchant.gd",
+        "file": "data_classes/selections/vfx/vfx_selection_enchant.gd"
+      },
+      {
         "name": "VFXSelectionLoop",
         "base": "VFXSelection",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\data_classes\\selections\\vfx\\vfx_selection_loop.gd",
@@ -221,10 +227,28 @@ export const groups = [
     "slug": "vfx",
     "classes": [
       {
+        "name": "MaterialLayers",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\vfx\\material_layers.gd",
+        "file": "runtime_classes/vfx/material_layers.gd"
+      },
+      {
         "name": "VFX",
         "base": "Node3D",
         "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\vfx\\vfx.gd",
         "file": "runtime_classes/vfx/vfx.gd"
+      },
+      {
+        "name": "VFXEnchant",
+        "base": "VFXLoop",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\vfx\\vfx_enchant.gd",
+        "file": "runtime_classes/vfx/vfx_enchant.gd"
+      },
+      {
+        "name": "VFXFade",
+        "base": "RefCounted",
+        "path": "C:\\Users\\Rhys\\Documents\\rpg-toolkit\\addons\\chroniclenode\\runtime_classes\\vfx\\vfx_fade.gd",
+        "file": "runtime_classes/vfx/vfx_fade.gd"
       },
       {
         "name": "VFXLoop",

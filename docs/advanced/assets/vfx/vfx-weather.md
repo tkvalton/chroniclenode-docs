@@ -24,6 +24,8 @@ Weather VFX - Continuous environmental effects like rain, snow, fog Supports sha
 
 | | |
 |---|---|
+| `float` | [default_fade_in](#method-default-fade-in)() |
+| `float` | [default_fade_out](#method-default-fade-out)() |
 | `void` | [activate_vfx](#method-activate-vfx)( `selection: VFXSelection = null` ) |
 | `void` | [deactivate_vfx](#method-deactivate-vfx)() |
 | `void` | [set_intensity](#method-set-intensity)( `value: float, seconds: float = 0.0` ) |
@@ -63,6 +65,14 @@ Wind intensity (float 0.0 to 1.0)
 Track if we've set the shader globals (for cleanup)
 
 ## Method descriptions
+
+### float default_fade_in() {#method-default-fade-in}
+
+A weather comes and goes by its intensity (set_intensity over time), not by a fade
+
+### float default_fade_out() {#method-default-fade-out}
+
+A loop with an end animation fades out over that animation (both end together), without one over 0.35 s *(from [VFXLoop](/advanced/assets/vfx/vfx-loop))*
 
 ### void activate_vfx( selection: VFXSelection = null ) {#method-activate-vfx}
 

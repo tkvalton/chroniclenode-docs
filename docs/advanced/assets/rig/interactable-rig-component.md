@@ -24,7 +24,7 @@ InteractableRigComponent is the runtime rig for InteractableObjects. Extends Rig
 | `void` | [initialize_rig](#method-initialize-rig)( `owner_node: Node3D` ) |
 | `Node3D` | [get_attachment_point_node](#method-get-attachment-point-node)( `location: VFXSelection.VfxLocation` ) |
 | `bool` | [apply_vfx_material_effect](#method-apply-vfx-material-effect)( `selection: VFXSelectionMaterial, _timer: Timer = null` ) |
-| `bool` | [cleanup_vfx_material_effect](#method-cleanup-vfx-material-effect)( `_selection: VFXSelectionMaterial` ) |
+| `bool` | [cleanup_vfx_material_effect](#method-cleanup-vfx-material-effect)( `selection: VFXSelectionMaterial` ) |
 | `Array[String]` | [get_available_animations](#method-get-available-animations)() |
 | `bool` | [has_animation](#method-has-animation)( `anim_name: String` ) |
 | `bool` | [play_animation](#method-play-animation)( `anim_name: String` ) |
@@ -70,7 +70,7 @@ The node of the object where a visual effect attaches.
 
 Puts a material effect on the meshes of the object.
 
-### bool cleanup_vfx_material_effect( _selection: VFXSelectionMaterial ) {#method-cleanup-vfx-material-effect}
+### bool cleanup_vfx_material_effect( selection: VFXSelectionMaterial ) {#method-cleanup-vfx-material-effect}
 
 Takes the material effect off the meshes of the object.
 

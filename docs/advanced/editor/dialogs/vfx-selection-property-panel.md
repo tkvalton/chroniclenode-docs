@@ -4,7 +4,7 @@
 
 **Inherits:** [VBoxContainer](https://docs.godotengine.org/en/stable/classes/class_vboxcontainer.html)
 
-**Inherited by:** [VFXSelectionBeamProperties](/advanced/editor/dialogs/vfx-selection-beam-properties), [VFXSelectionLoopProperties](/advanced/editor/dialogs/vfx-selection-loop-properties), [VFXSelectionMaterialProperties](/advanced/editor/dialogs/vfx-selection-material-properties), [VFXSelectionOneShotProperties](/advanced/editor/dialogs/vfx-selection-one-shot-properties), [VFXSelectionPathProperties](/advanced/editor/dialogs/vfx-selection-path-properties), [VFXSelectionTelegraphProperties](/advanced/editor/dialogs/vfx-selection-telegraph-properties), [VFXSelectionTransformationProperties](/advanced/editor/dialogs/vfx-selection-transformation-properties)
+**Inherited by:** [VFXSelectionBeamProperties](/advanced/editor/dialogs/vfx-selection-beam-properties), [VFXSelectionEnchantProperties](/advanced/editor/dialogs/vfx-selection-enchant-properties), [VFXSelectionLoopProperties](/advanced/editor/dialogs/vfx-selection-loop-properties), [VFXSelectionMaterialProperties](/advanced/editor/dialogs/vfx-selection-material-properties), [VFXSelectionOneShotProperties](/advanced/editor/dialogs/vfx-selection-one-shot-properties), [VFXSelectionPathProperties](/advanced/editor/dialogs/vfx-selection-path-properties), [VFXSelectionTelegraphProperties](/advanced/editor/dialogs/vfx-selection-telegraph-properties), [VFXSelectionTransformationProperties](/advanced/editor/dialogs/vfx-selection-transformation-properties)
 
 Base class for VFX selection property panels Each VFX selection type gets its own specialized panel
 

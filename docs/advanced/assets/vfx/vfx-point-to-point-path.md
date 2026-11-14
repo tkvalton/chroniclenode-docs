@@ -40,6 +40,8 @@ Point-to-Point Path VFX - Spawns multiple VFX along a path between points Perfec
 
 | | |
 |---|---|
+| `float` | [default_fade_in](#method-default-fade-in)() |
+| `float` | [default_fade_out](#method-default-fade-out)() |
 | `void` | [set_path_points](#method-set-path-points)( `points: Array[Vector3]` ) |
 | `void` | [deactivate_vfx](#method-deactivate-vfx)() |
 | `void` | [add_path_point](#method-add-path-point)( `point: Vector3` ) |
@@ -140,6 +142,14 @@ How many effects were placed along the path so far.
 True while the effects are placed one after the other.
 
 ## Method descriptions
+
+### float default_fade_in() {#method-default-fade-in}
+
+========== INITIALIZATION ========== A path fades in over 0.2 s and out over 0.3 s
+
+### float default_fade_out() {#method-default-fade-out}
+
+The fade out of the kind of effect (VFX: 0.2 s); a kind overrides it *(from [VFX](/advanced/assets/vfx/vfx))*
 
 ### void set_path_points( points: Array[Vector3] ) {#method-set-path-points}
 

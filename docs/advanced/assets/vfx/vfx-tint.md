@@ -10,6 +10,7 @@ The TINT of a visual effect: one colour put on a whole effect (every mesh and pa
 
 | | |
 |---|---|
+| `bool` | [takes_tint](#method-takes-tint)( `node: Node` ) *static* |
 | `void` | [apply](#method-apply)( `root: Node, color: Color, strength: float, mode: int = Mode.MULTIPLY` ) *static* |
 | `void` | [clear](#method-clear)( `root: Node` ) *static* |
 
@@ -25,8 +26,13 @@ How the tint is put on: multiply the colours of the effect (for neutral effects)
 ## Constants
 
 - `String` **LIGHT_BASE_META** = `"vfx_tint_light_base"` - The name of the meta where a light keeps the colour it was made with
+- `String` **NO_TINT_META** = `"vfx_no_tint"` - A node with this meta set to true keeps its own colours under a tint (the wind round a physical arrow); the projectile mesh (the node "ProjectileMesh": the arrow, or the mesh of the item put there) never takes it
 
 ## Method descriptions
+
+### bool takes_tint( node: Node ) {#method-takes-tint}
+
+True when the tint is put on `node` (false for the projectile mesh and for nodes marked with NO_TINT_META)
 
 ### void apply( root: Node, color: Color, strength: float, mode: int = Mode.MULTIPLY ) {#method-apply}
 

@@ -46,6 +46,7 @@ The Effect class also manages its lifecycle, including initialization, applicati
 | `int` | [uses_filter_id](#prop-uses-filter-id) | `0` |
 | `SFXSelection` | [sfx_on_applied](#prop-sfx-on-applied) | `null` |
 | `VFXSelection` | [vfx_on_applied](#prop-vfx-on-applied) | `null` |
+| `Array[VFXSelection]` | [extra_vfx](#prop-extra-vfx) | `[]` |
 
 ## Methods
 
@@ -67,6 +68,7 @@ The Effect class also manages its lifecycle, including initialization, applicati
 | `String` | [get_tooltip_text](#method-get-tooltip-text)() |
 | `String` | [get_editor_description](#method-get-editor-description)() |
 | `bool` | [has_vfx](#method-has-vfx)() |
+| `Array[VFXSelection]` | [applied_vfx_selections](#method-applied-vfx-selections)() |
 | `Dictionary` | [check_requirements](#method-check-requirements)( `entity: Variant, context: Dictionary = {}` ) |
 | `Array[GroupDefinition]` | [get_group_definitions](#method-get-group-definitions)() |
 | `float` | [get_charge_multiplier](#method-get-charge-multiplier)( `effect_instance: EffectInstance, scales_with_charge: bool, minimum: float` ) |
@@ -224,6 +226,10 @@ SFX on effect application
 
 Can be any VFX type including beam, path, telegraph, etc.
 
+### Array[VFXSelection] extra_vfx = [] {#prop-extra-vfx}
+
+More VFX played with it (2026-11-14, the user: an enchant's particles AND a material on the weapon; barkskin's skin and its leaves). Each can be any kind; a material comes off when the effect ends.
+
 ## Method descriptions
 
 ### void process_before_start( _effect_instance: EffectInstance ) {#method-process-before-start}
@@ -256,7 +262,7 @@ Apply VFX
 
 ### void cleanup_effect_vfx( instance: EffectInstance ) {#method-cleanup-effect-vfx}
 
-Stop any VFX spawned by this effect
+Stop any VFX spawned by this effect (and take its materials off)
 
 ### String get_duration_description() {#method-get-duration-description}
 
@@ -289,6 +295,10 @@ A short text for the effect editor that says what the effect does.
 ### bool has_vfx() {#method-has-vfx}
 
 Check if effect has VFX configured
+
+### Array[VFXSelection] applied_vfx_selections() {#method-applied-vfx-selections}
+
+Every VFX the effect plays when it is applied: the main one, then the extra ones
 
 ### Dictionary check_requirements( entity: Variant, context: Dictionary = &#123;&#125; ) {#method-check-requirements}
 

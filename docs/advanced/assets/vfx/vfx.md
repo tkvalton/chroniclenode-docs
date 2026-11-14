@@ -15,9 +15,16 @@ Base class for all VFX nodes - handles pooling, lifecycle, and common functional
 | `String` | [vfx_type](#prop-vfx-type) | `""  # The VFX type identifier (from database)` |
 | `bool` | [auto_cleanup](#prop-auto-cleanup) | `true` |
 | `bool` | [on_top_level](#prop-on-top-level) | `false` |
+| `NodePath` | [variance_node](#prop-variance-node) |  |
+| `Vector3` | [variance_axis](#prop-variance-axis) | `Vector3.UP` |
+| `float` | [variance_turn](#prop-variance-turn) | `180.0` |
+| `float` | [variance_size](#prop-variance-size) | `0.1` |
 | `float` | [tint_strength](#prop-tint-strength) | `0.0` |
 | `Color` | [tint_color](#prop-tint-color) | `Color.WHITE` |
 | `VFXTint.Mode` | [tint_mode](#prop-tint-mode) | `VFXTint.Mode.MULTIPLY` |
+| `float` | [fade_in](#prop-fade-in) | `-1.0` |
+| `float` | [fade_out](#prop-fade-out) | `-1.0` |
+| `VFXFade.Style` | [fade_style](#prop-fade-style) | `VFXFade.Style.FADE` |
 
 ## Variables
 
@@ -49,6 +56,13 @@ Base class for all VFX nodes - handles pooling, lifecycle, and common functional
 | `void` | [attach_to_entity](#method-attach-to-entity)( `target: Variant, location: VFXSelection.VfxLocation, offset: Vector3 = Vector3.ZERO` ) |
 | `bool` | [is_attached_to_entity](#method-is-attached-to-entity)() |
 | `Entity` | [get_attached_entity](#method-get-attached-entity)() |
+| `void` | [apply_variance](#method-apply-variance)() |
+| `float` | [default_fade_in](#method-default-fade-in)() |
+| `float` | [default_fade_out](#method-default-fade-out)() |
+| `float` | [fade_in_time](#method-fade-in-time)() |
+| `float` | [fade_out_time](#method-fade-out-time)() |
+| `bool` | [is_fading_out](#method-is-fading-out)() |
+| `bool` | [begin_fade_out](#method-begin-fade-out)() |
 | `void` | [set_pool_return_callback](#method-set-pool-return-callback)( `callback: Callable` ) |
 | `bool` | [is_ready_for_pool](#method-is-ready-for-pool)() |
 | `void` | [reset_for_pool](#method-reset-for-pool)() |
@@ -95,6 +109,24 @@ Automatically return to pool when finished
 
 Set top_level = true when activated (for world-space positioning)
 
+*Variance*
+
+### NodePath variance_node {#prop-variance-node}
+
+A node (usually "Vary", holding the whole effect) that turns and changes size a little each time the effect plays, so an effect that plays often (a hit, a cast) does not look the same every time. Empty: no variance.
+
+### Vector3 variance_axis = Vector3.UP {#prop-variance-axis}
+
+The axis it turns round, in its own space (up for a hit on the ground, forward for a cast that fires forward)
+
+### float variance_turn = 180.0 {#prop-variance-turn}
+
+How far it may turn, in degrees either way
+
+### float variance_size = 0.1 {#prop-variance-size}
+
+How much its size may change (0.1: up to a tenth bigger or smaller)
+
 *Tint*
 
 ### float tint_strength = 0.0 {#prop-tint-strength}
@@ -108,6 +140,20 @@ The colour the scene is tinted with when `tint_strength` is above 0.
 ### VFXTint.Mode tint_mode = VFXTint.Mode.MULTIPLY {#prop-tint-mode}
 
 Multiply: the colours of the effect are multiplied by the tint (for neutral white and grey effects). Colorize: the brightness is kept and the colour is replaced (for effects that have their own colours).
+
+*Fade*
+
+### float fade_in = -1.0 {#prop-fade-in}
+
+How long the effect takes to come in when it starts, in seconds. -1: the default of its kind (a one shot or a weather 0: at once; a loop 0.25; a beam 0.12).
+
+### float fade_out = -1.0 {#prop-fade-out}
+
+How long the effect takes to go when it is stopped before it ends by itself (a loop or a beam stopped, an effect cleared, a duration cut short), in seconds; it is taken away after it. -1: the default of its kind (a loop or a beam with an end animation: the length of that animation, so both end together; without one 0.35; a one shot 0.15; a weather 0)
+
+### VFXFade.Style fade_style = VFXFade.Style.FADE {#prop-fade-style}
+
+How it fades: Fade (the whole effect gets fainter) or Dissolve (it breaks up in patches that grow)
 
 ## Variable descriptions
 
@@ -196,6 +242,34 @@ Check if VFX is attached to an entity
 ### Entity get_attached_entity() {#method-get-attached-entity}
 
 Get the entity this VFX is attached to
+
+### void apply_variance() {#method-apply-variance}
+
+Turns the variance node by a random amount round its axis and gives it a random size within the variance (each play: a pooled effect gets a new one every time)
+
+### float default_fade_in() {#method-default-fade-in}
+
+The fade in of the kind of effect (VFX: none); a kind overrides it
+
+### float default_fade_out() {#method-default-fade-out}
+
+The fade out of the kind of effect (VFX: 0.2 s); a kind overrides it
+
+### float fade_in_time() {#method-fade-in-time}
+
+How long the effect fades in (its own fade_in, or the default of its kind)
+
+### float fade_out_time() {#method-fade-out-time}
+
+How long the effect fades out (its own fade_out, or the default of its kind)
+
+### bool is_fading_out() {#method-is-fading-out}
+
+True while the effect fades out (it is taken away after)
+
+### bool begin_fade_out() {#method-begin-fade-out}
+
+Fades the effect out: called when it is stopped before it ends by itself; cleanup_vfx waits for the fade. False when it does not fade (no fade out, not shown)
 
 ### void set_pool_return_callback( callback: Callable ) {#method-set-pool-return-callback}
 

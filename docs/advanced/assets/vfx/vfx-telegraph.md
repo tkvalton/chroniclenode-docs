@@ -38,6 +38,8 @@ Telegraph VFX - Warning/indicator effects for abilities Uses shader-based approa
 | `void` | [set_outline_texture](#method-set-outline-texture)( `texture: Texture2D` ) |
 | `void` | [start_telegraph](#method-start-telegraph)( `duration: float` ) |
 | `void` | [interrupt_telegraph](#method-interrupt-telegraph)() |
+| `float` | [default_fade_in](#method-default-fade-in)() |
+| `float` | [default_fade_out](#method-default-fade-out)() |
 | `void` | [deactivate_vfx](#method-deactivate-vfx)() |
 | `bool` | [is_telegraph_valid](#method-is-telegraph-valid)() |
 | `float` | [get_remaining_time](#method-get-remaining-time)() |
@@ -144,6 +146,14 @@ Start the telegraph animation with given duration
 ### void interrupt_telegraph() {#method-interrupt-telegraph}
 
 Called when telegraph is interrupted (cast cancelled, etc.)
+
+### float default_fade_in() {#method-default-fade-in}
+
+A warning fades in over 0.1 s and, cut short, out over 0.15 s
+
+### float default_fade_out() {#method-default-fade-out}
+
+The fade out of the kind of effect (VFX: 0.2 s); a kind overrides it *(from [VFX](/advanced/assets/vfx/vfx))*
 
 ### void deactivate_vfx() {#method-deactivate-vfx}
 

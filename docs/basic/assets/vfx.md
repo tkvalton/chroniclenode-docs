@@ -71,14 +71,14 @@ An **environmental** effect is scenery rather than an ability effect: a campfire
 **Add New VFX Scene** makes the root node for the type you choose. Then build the effect under it with ordinary Godot nodes: particles, meshes, lights, an `AnimationPlayer`.
 
 - **How it ends.** A one-shot effect ends when its animation or its particles finish. Give the scene an `AnimationPlayer` with the animations below, or particles that are set to one-shot.
-- **Start, loop and end.** If the scene has an `AnimationPlayer`, the game plays the animation named `start` (or `Start`, `Init`, `Begin`), then `loop` (or `Loop`, `Idle`, `idle_loop`), and when the effect is stopped, `end` (or `End`, `Finish`, `Stop`, `Exit`). A loop with no `end` animation just stops.
+- **Start, loop and end.** If the scene has an `AnimationPlayer`, the game plays the animation named `start` (or `Start`, `Init`, `Begin`), then `loop` (or `Loop`, `Idle`, `idle_loop`), and when the effect is stopped, `end` (or `End`, `Finish`, `Stop`, `Exit`). A loop with no `end` animation fades out and stops (see [Fading in and out](#fading-in-and-out)).
 - **World space.** Tick *On top level* on the root for an effect that should stay where it was made while its source moves.
 
 ### Settings on the root node
 
 | Type | Settings |
 |---|---|
-| All | **VFX Type**; **Auto cleanup** (go back to the pool when finished); **On top level** |
+| All | **VFX Type**; **Auto cleanup** (go back to the pool when finished); **On top level**; the **Fade** group: **Fade In**, **Fade Out**, **Fade Style** (see [Fading in and out](#fading-in-and-out)) |
 | **One shot** | **Delay start**; **Follow target on death** (keep following even if the target dies) |
 | **Beam** | **Beam width**, **Beam segments**, **Curve intensity** (0 = straight), **Follow target movement**, **Update continuously**. Under *BeamRotation* the mesh named **Beam** is the beam itself (a tube with no caps: the game sets its length), and two optional nodes, **BeamStart** and **BeamEnd**, are put at the two ends of the beam: the flare at the caster and the impact on the target are particles under them |
 | **Path** | **VFX source node** (the node whose children are repeated), **Section size**, **Section overlap**, **Path curve strength**; **Follow terrain** with its layer mask, offset and maximum slope; **Spawn progressively** with a delay and direction; **Max sections** and **Despawn distant sections** |
@@ -215,6 +215,39 @@ Where a tint is set:
 - In the **VFX tab**: the **Tint** row under the preview puts a colour on the effect you are looking at, to try it. It stays on while you pick other effects, so you can look at a set in one colour.
 
 The tint works through the shaders of the toolkit (`fx_tint.gdshaderinc`, an instance uniform `vfx_tint`). The water and refraction shaders and shaders you wrote yourself do not have it, so they are not tinted; add the include to your own shader to make it follow the tint.
+
+### Fading in and out
+
+Every effect and every material fades: it comes in when it starts and goes when it is stopped, instead of popping. There are two styles:
+
+- **Fade**: the whole effect gets fainter.
+- **Dissolve**: the effect breaks up in patches that grow, with a soft edge.
+
+On a solid, lit mesh (a rock, a skin) a fade is a fine dither and a dissolve cuts the mesh in patches, so the mesh stays solid while it fades.
+
+**An effect scene.** The **Fade** group on the root node has three settings:
+
+- **Fade In**: seconds to come in when the effect starts.
+- **Fade Out**: seconds to go when the effect is stopped before it ends by itself. That means a loop or a beam that is stopped, an effect that is cleared, or a duration cut short. The effect is taken away after the fade.
+- **Fade Style**: Fade or Dissolve.
+
+A fade of **-1** uses the default for that kind of effect:
+
+| Kind | Fade in | Fade out |
+|---|---|---|
+| One shot | none (a hit keeps its punch) | 0.15 s when cut short (one that ends by itself just ends) |
+| Loop, enchant | 0.25 s | over its `end` animation if it has one, so both end together; 0.35 s without one |
+| Beam | 0.12 s | over its `end` animation, or 0.25 s |
+| Path | 0.2 s | 0.3 s |
+| Telegraph | 0.1 s | 0.15 s when it is interrupted |
+| Weather | none | none (a weather comes and goes by its [intensity](#intensity)) |
+
+**A material** (barkskin, burning, a coat on a weapon). The **Fade** row of the **Select VFX** window sets the seconds in, the seconds out (default 0.4 s each) and the style (default Dissolve, so the material spreads over the body in patches). A skin or form that replaces the body is drawn over the body while it comes on, and replaces it only once it is all there; it is drawn over it again while it goes. The material fades out when its time is up, when the effect that put it on ends and when the entity dies.
+
+**In the VFX tab**, **Play** and **Restart** fade the effect in, and **End** plays its `end` animation with its fade out. **End** shows for every loop, beam and enchant now, with or without an `end` animation.
+
+The fade works through the shaders of the toolkit (`fx_fade.gdshaderinc`, the instance uniforms `vfx_fade` and `vfx_fade_style`; every effect shader has it). A node drawn with another material (a `StandardMaterial3D`, a shader you wrote) fades by its *Transparency*, lights by their energy, decals by their modulate. To make your own shader fade as the toolkit's do, include `fx_fade.gdshaderinc` and, in `fragment()`, multiply `ALPHA` by `fx_fade(UV)`. For a solid shader, `discard` when `fx_fade_cut(UV, FRAGCOORD.xy) > 0.5`.
+
 
 ### The projectile mesh
 

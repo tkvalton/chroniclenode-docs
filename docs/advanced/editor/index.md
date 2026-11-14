@@ -93,6 +93,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [MeshDatabaseEditor](/advanced/editor/assets/mesh-database-editor) | The editor of the Meshes tab (Assets &gt; Meshes): the equipment, facial and material meshes of the mesh library as a tree, with a search bar, an import button, the settings of the selected mesh (its per-surface materials) and the checks of the library. |
 | [ModelSceneDatabaseEditor](/advanced/editor/assets/model-scene-database-editor) | The editor of the Model Scenes tab (Assets &gt; Model Scenes): the skeleton scenes of entities and the scenes of interactable objects, each as a list with a search bar and a button to create a new one. |
 | [VFXDatabaseEditor](/advanced/editor/assets/vfx-database-editor) | The editor of the VFX tab (Assets &gt; VFX): the visual effects of the VFX library as a tree by type, with a search bar, an import button and the information of the selected effect. |
+| [WeaponMeshTools](/advanced/editor/assets/weapon-mesh-tools) | THE TOOLS OF A WEAPON MESH (Assets &gt; Meshes, 2026-11-14; the user: a 3D view of the equipment mesh where the data a dev sets on it is set with tools, not typed blind). |
 | [WeaponProfileEditor](/advanced/editor/assets/weapon-profile-editor) | The Weapon Profiles tab (Entity Assets &gt; Weapon Profiles): the list of the profiles on the left, the settings on the right in a container for each group (Profile, Folders, Animation packs, Used by, Old tags, Warnings). |
 | [WorldAssetsEditor](/advanced/editor/assets/world-assets-editor) | The World Assets tab (Assets &gt; World Assets): the scenes of `res://src/data/world_assets/` that the Assets button of the placement tool puts in the world (houses, trees, props) as a list with a picture of each, a category list (a category is a folder; New category makes one), Import (copies scenes and models into a category) and a 3D preview of the selected scene you can turn around. |
 <!-- /classes -->
@@ -384,6 +385,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [VendorItemSlotDialog](/advanced/editor/dialogs/vendor-item-slot-dialog) | Dialog for configuring VendorItemStock entries |
 | [VFXSelectionBeamProperties](/advanced/editor/dialogs/vfx-selection-beam-properties) | Property panel for Beam VFX selections |
 | [VFXSelectionDialog](/advanced/editor/dialogs/vfx-selection-dialog) | Modular VFX selection dialog that works with any VFXSelection class type Uses property panels for detailed configuration and DatabaseVFX for VFX data access Now supports context-specific type locking and uses ItemList for VFX name selection |
+| [VFXSelectionEnchantProperties](/advanced/editor/dialogs/vfx-selection-enchant-properties) | Property panel for Enchant VFX selections: which weapon the enchant goes on |
 | [VFXSelectionLoopProperties](/advanced/editor/dialogs/vfx-selection-loop-properties) | Property panel for Loop VFX selections |
 | [VFXSelectionMaterialProperties](/advanced/editor/dialogs/vfx-selection-material-properties) | Property panel for Material VFX selections |
 | [VFXSelectionOneShotProperties](/advanced/editor/dialogs/vfx-selection-one-shot-properties) | Property panel for OneShot VFX selections |
@@ -422,6 +424,7 @@ Many editors build their controls **in code** by reflecting over the resource's 
 | [PropertyUIFactory](/advanced/editor/factory/property-ui-factory) | Factory for creating UI controls with consistent styling and behavior Uses class-based controls for complex components |
 | [ResourceField](/advanced/editor/factory/resource-field) | A property that holds a resource (a gradient, a curve, a texture, a sky driver) in a resource picker: pick one from the project, make a new one or clear it. |
 | [SoundSourceField](/advanced/editor/factory/sound-source-field) | The field of a SoundSource property (the music, the combat music or the ambience of a world, a zone, a weather or an encounter): None, a Track (chosen in the track window of the audio library, with its loop, the pause between plays, the volume and the fade) or an Album (a Music Album or a Combat Music Album of the project). |
+| [SpinDrag](/advanced/editor/factory/spin-drag) | Lets the mouse set a SpinBox: press on its field and drag sideways (2026-11-14, the user: the weapon fields of Equipment Meshes could use dragging). |
 | [TextField](/advanced/editor/factory/text-field) | A text (a String property) in a line. |
 | [ToggleField](/advanced/editor/factory/toggle-field) | A bool property in a check box. |
 | [Vector2Control](/advanced/editor/factory/vector2-control) | Two spinboxes for Vector2 input with clipboard paste support |

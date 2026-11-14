@@ -50,6 +50,8 @@ Point-to-Point Beam VFX - Direct beam/chain effects between targets Handles beam
 | `bool` | [are_targets_valid](#method-are-targets-valid)() |
 | `void` | [activate_vfx](#method-activate-vfx)( `selection: VFXSelection = null` ) |
 | `void` | [deactivate_vfx](#method-deactivate-vfx)() |
+| `float` | [default_fade_in](#method-default-fade-in)() |
+| `float` | [default_fade_out](#method-default-fade-out)() |
 | `bool` | [is_beam_looping](#method-is-beam-looping)() |
 | `bool` | [is_beam_ending](#method-is-beam-ending)() |
 | `void` | [force_stop_beam](#method-force-stop-beam)() |
@@ -195,6 +197,14 @@ Override activate_vfx to ensure visibility
 ### void deactivate_vfx() {#method-deactivate-vfx}
 
 Override cleanup to handle animation state and variant targets
+
+### float default_fade_in() {#method-default-fade-in}
+
+A beam fades in over 0.12 s
+
+### float default_fade_out() {#method-default-fade-out}
+
+A beam with an end animation fades out over it, without one over 0.25 s
 
 ### bool is_beam_looping() {#method-is-beam-looping}
 

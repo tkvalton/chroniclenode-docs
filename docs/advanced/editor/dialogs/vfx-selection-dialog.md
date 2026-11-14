@@ -23,6 +23,7 @@ Modular VFX selection dialog that works with any VFXSelection class type Uses pr
 | `OptionButton` | [category_filter](#var-category-filter) |  |
 | `VFXSelectionOneShotProperties` | [oneshot_properties](#var-oneshot-properties) |  |
 | `VFXSelectionLoopProperties` | [loop_properties](#var-loop-properties) |  |
+| `VFXSelectionEnchantProperties` | [enchant_properties](#var-enchant-properties) |  |
 | `VFXSelectionMaterialProperties` | [material_properties](#var-material-properties) |  |
 | `VFXSelectionBeamProperties` | [beam_properties](#var-beam-properties) |  |
 | `VFXSelectionTelegraphProperties` | [telegraph_properties](#var-telegraph-properties) |  |
@@ -81,6 +82,10 @@ The Theme and Category drop-downs above the list of names (read from the names o
 *No description yet.*
 
 ### VFXSelectionLoopProperties loop_properties {#var-loop-properties}
+
+*No description yet.*
+
+### VFXSelectionEnchantProperties enchant_properties {#var-enchant-properties}
 
 *No description yet.*
 

@@ -23,6 +23,7 @@ Three spinboxes for Vector3 input with clipboard paste support
 | | |
 |---|---|
 | `void` | [setup](#method-setup)( `p_initial_value: Vector3 = Vector3.ZERO, p_options: Dictionary = {}` ) |
+| `void` | [enable_drag](#method-enable-drag)( `per_pixel: float` ) |
 | `Vector3` | [get_value](#method-get-value)() |
 | `void` | [set_value](#method-set-value)( `value: Vector3` ) |
 
@@ -65,6 +66,10 @@ Three spinboxes for Vector3 input with clipboard paste support
 ### void setup( p_initial_value: Vector3 = Vector3.ZERO, p_options: Dictionary = &#123;&#125; ) {#method-setup}
 
 *No description yet.*
+
+### void enable_drag( per_pixel: float ) {#method-enable-drag}
+
+Lets the mouse set the three fields by dragging sideways (SpinDrag): each pixel adds per_pixel
 
 ### Vector3 get_value() {#method-get-value}
 
