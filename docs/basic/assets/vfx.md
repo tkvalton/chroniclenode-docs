@@ -80,7 +80,7 @@ An **environmental** effect is scenery rather than an ability effect: a campfire
 |---|---|
 | All | **VFX Type**; **Auto cleanup** (go back to the pool when finished); **On top level**; the **Fade** group: **Fade In**, **Fade Out**, **Fade Style** (see [Fading in and out](#fading-in-and-out)) |
 | **One shot** | **Delay start**; **Follow target on death** (keep following even if the target dies) |
-| **Beam** | **Beam width**, **Beam segments**, **Curve intensity** (0 = straight), **Follow target movement**, **Update continuously**. Under *BeamRotation* the mesh named **Beam** is the beam itself (a tube with no caps: the game sets its length), and two optional nodes, **BeamStart** and **BeamEnd**, are put at the two ends of the beam: the flare at the caster and the impact on the target are particles under them |
+| **Beam** | **Beam width** (the width the beam is made with), **Beam segments**, **Curve intensity** (0 = straight), **Follow target movement**, **Update continuously**. Under *BeamRotation* the mesh named **Beam** is the beam itself (a tube with no caps: the game sets its length), and two optional nodes, **BeamStart** and **BeamEnd**, are put at the two ends of the beam: the flare at the caster and the contact on the target are particles under them. A beam can have **layers**: more tubes under *BeamRotation* with the metadata `beam_layer` (their width as a part of the beam's width: 2 is a sleeve twice as wide, 0.3 a thin core) are stretched with it, and particle nodes there with the metadata `beam_along` (the part of the length they cover) are spread along it, at any length (see [Beam layers](#beam-layers)) |
 | **Path** | **VFX source node** (the node whose children are repeated), **Section size**, **Section overlap**, **Path curve strength**; **Follow terrain** with its layer mask, offset and maximum slope; **Spawn progressively** with a delay and direction; **Max sections** and **Despawn distant sections** |
 | **Telegraph** | **Size**, **Shape** (circle or square: used only when the telegraph has no picture), **Color**, **Attachment** (at a point, or attached to a character with an orientation), **Orientation offset**. The *VFX type* of the selection is the name of a picture in the telegraph folder (see [Telegraph outlines](#telegraph-outlines)) |
 | **Weather** | The effect follows the camera. The wind comes from the [weather](/basic/world/weather) that uses it, not from the scene. The toolkit's own particle shader (below) leans with that wind |
@@ -226,6 +226,21 @@ An effect that plays often (a hit, a cast) looks the same every time unless it c
 In the **Select VFX** window, the **Variety** section (under Tint) lists the effects of the variety. The list next to **Add** offers the effects with the same theme and category as the one chosen; **Add all like it** adds every number of the same theme, category and name (for `vfx_fire_hit_medium_03`: every `vfx_fire_hit_medium_NN`); **Remove** takes the selected ones off. An effect in the variety that is not in the library any more is skipped. Materials, telegraph outlines and weather have no variety (they play one fixed thing).
 
 Name your variants with the [naming rule](#naming-an-effect) so they group: the same theme, category and name, numbered `01`, `02` ...
+
+### Beam layers
+
+A beam is stretched between two points, so every part of it has to follow the length. The game does this for these parts of a beam scene (all under *BeamRotation*):
+
+- **The Beam tube** and every **layer tube**: a `MeshInstance3D` with a `CylinderMesh` (no caps, `resource_local_to_scene` on) and the metadata `beam_layer`, a number: its width as a part of the beam's width. Layers of different widths and shaders make the beam's **onion layers**: a thin hot core (0.3), the body (the Beam itself), a sleeve round it (1.5 to 2), a faint haze (2.5 and up). Every tube is as long as the beam at any length.
+- **Particles along the beam**: a `GPUParticles3D` with a **box** emission shape, local coordinates and the metadata `beam_along`, a number: the part of the length its particles are born over (0.9: all but the ends). Make it for a beam **10 m** long: a shorter beam shows a part of the particles, so they stay as dense at any length. Particles that fly toward the target (snow streaking, shards in a stream) get the metadata `beam_travel`, the metres they go in their life: they are born that far from the end, so none fly past the target.
+- **BeamStart** and **BeamEnd**: the flare at the caster and the **contact** where the beam touches the target.
+
+The **Select VFX** window of a beam has:
+
+- **Width (1 = as the beam was made)**: a scale of the beam's own width. The layer tubes and the particles along it widen with it.
+- **Show the start** and **Show the end**: hide the flare at the caster or the contact at the target. An ability that plays its own hit effect where the beam lands can turn the end off, so the beam's contact and the hit do not double up. A beam made for the toolkit keeps its end small (a glow, a little mist, a few chips) rather than a full hit, so both work together too.
+
+The beam shader (`fx_beam_add` for light, `fx_beam_mix` for matter) has, besides its flow, pulses and jitter: **edge** (0 is a glow bright in the middle, 1 a glass tube bright at its outline), **twist** (the streaks wind round the tube), **helix** strands (clean strands wound round it: how many, turns a metre, width, speed), and **body** (0 hides the tube's own glow so only its strands show).
 
 ### Fading in and out
 
