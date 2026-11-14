@@ -216,6 +216,17 @@ Where a tint is set:
 
 The tint works through the shaders of the toolkit (`fx_tint.gdshaderinc`, an instance uniform `vfx_tint`). The water and refraction shaders and shaders you wrote yourself do not have it, so they are not tinted; add the include to your own shader to make it follow the tint.
 
+### Variety: a different effect each time
+
+An effect that plays often (a hit, a cast) looks the same every time unless it changes. Two things change it:
+
+- **Variance**, on the effect scene: the root node's *Variance Node* (usually a node called `Vary` that holds the whole effect) is turned by a random amount round *Variance Axis* (up to *Variance Turn* degrees) and resized by up to *Variance Size* each time it plays. The same effect, a little different.
+- **Variety**, on the selection: more effects of the same kind played in its place. Each time it plays, **one of the main effect and its variety is picked at random**. A sword hit can be any of several hits of the same look.
+
+In the **Select VFX** window, the **Variety** section (under Tint) lists the effects of the variety. The list next to **Add** offers the effects with the same theme and category as the one chosen; **Add all like it** adds every number of the same theme, category and name (for `vfx_fire_hit_medium_03`: every `vfx_fire_hit_medium_NN`); **Remove** takes the selected ones off. An effect in the variety that is not in the library any more is skipped. Materials, telegraph outlines and weather have no variety (they play one fixed thing).
+
+Name your variants with the [naming rule](#naming-an-effect) so they group: the same theme, category and name, numbered `01`, `02` ...
+
 ### Fading in and out
 
 Every effect and every material fades: it comes in when it starts and goes when it is stopped, instead of popping. There are two styles:

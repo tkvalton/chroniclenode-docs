@@ -22,6 +22,12 @@ Base class for VFX selection property panels Each VFX selection type gets its ow
 | `ColorPickerButton` | [tint_color_button](#var-tint-color-button) |  |
 | `HSlider` | [tint_strength_slider](#var-tint-strength-slider) |  |
 | `OptionButton` | [tint_mode_option](#var-tint-mode-option) |  |
+| `VBoxContainer` | [variety_box](#var-variety-box) |  |
+| `ItemList` | [variety_list](#var-variety-list) |  |
+| `OptionButton` | [variety_option](#var-variety-option) |  |
+| `Button` | [variety_add_button](#var-variety-add-button) |  |
+| `Button` | [variety_all_button](#var-variety-all-button) |  |
+| `Button` | [variety_remove_button](#var-variety-remove-button) |  |
 
 ## Methods
 
@@ -32,6 +38,8 @@ Base class for VFX selection property panels Each VFX selection type gets its ow
 | `VFXSelection` | [get_configured_selection](#method-get-configured-selection)() |
 | `Dictionary` | [validate_configuration](#method-validate-configuration)() |
 | `void` | [reset_to_defaults](#method-reset-to-defaults)() |
+| `Array[String]` | [variety_like](#method-variety-like)( `main_name: String, same_name: bool` ) |
+| `void` | [refresh_variety](#method-refresh-variety)( `main_name: String` ) |
 
 ## Signals
 
@@ -81,6 +89,30 @@ Base class for VFX selection property panels Each VFX selection type gets its ow
 
 *No description yet.*
 
+### VBoxContainer variety_box {#var-variety-box}
+
+The VARIETY (2026-11-14): more effects played in its place, one picked at random each time (the whole section: hidden for the kinds that play one fixed thing: a material, a telegraph, a weather)
+
+### ItemList variety_list {#var-variety-list}
+
+*No description yet.*
+
+### OptionButton variety_option {#var-variety-option}
+
+*No description yet.*
+
+### Button variety_add_button {#var-variety-add-button}
+
+*No description yet.*
+
+### Button variety_all_button {#var-variety-all-button}
+
+*No description yet.*
+
+### Button variety_remove_button {#var-variety-remove-button}
+
+*No description yet.*
+
 ## Method descriptions
 
 ### void initialize_panel() {#method-initialize-panel}
@@ -102,4 +134,12 @@ Validate current configuration
 ### void reset_to_defaults() {#method-reset-to-defaults}
 
 Reset to default values
+
+### Array[String] variety_like( main_name: String, same_name: bool ) {#method-variety-like}
+
+The effects like `main_name` that can be added: the same kind, theme and category (`same_name`: also the same name, every number of it), not the main one
+
+### void refresh_variety( main_name: String ) {#method-refresh-variety}
+
+Shows the variety, and the effects like the main one to add (the dialog calls it when another effect is chosen)
 

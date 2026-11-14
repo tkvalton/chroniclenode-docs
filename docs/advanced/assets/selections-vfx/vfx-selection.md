@@ -19,11 +19,17 @@ Base VFX selection class - stores VFX configuration and references All VFX selec
 | `Color` | [tint_color](#prop-tint-color) | `Color.WHITE` |
 | `float` | [tint_strength](#prop-tint-strength) | `1.0` |
 | `VFXTint.Mode` | [tint_mode](#prop-tint-mode) | `VFXTint.Mode.MULTIPLY` |
+| `Array[String]` | [variety](#prop-variety) | `[]` |
 
 ## Methods
 
 | | |
 |---|---|
+| `void` | [begin_play](#method-begin-play)() |
+| `void` | [end_play](#method-end-play)() |
+| `String` | [pick_vfx_name](#method-pick-vfx-name)() |
+| `Array[String]` | [play_names](#method-play-names)() |
+| `String` | [vfx_name_to_play](#method-vfx-name-to-play)() |
 | `Array[VFX]` | [spawn_vfx](#method-spawn-vfx)( `vfx_manager: VFXManager, target: Variant = null, originator: Variant = null, timer: Timer = null` ) |
 | `Variant` | [prepare_target_for_vfx_type](#method-prepare-target-for-vfx-type)( `target: Variant, originator: Variant = null` ) |
 | `String` | [get_description](#method-get-description)() |
@@ -79,7 +85,33 @@ How much of the tint is put on: 1 is all of it, less mixes it with the colours t
 
 Multiply: the colours of the effect are multiplied by the tint (for neutral white and grey effects). Colorize: the brightness is kept and the colour is replaced (for effects that have their own colours).
 
+*Variety*
+
+### Array[String] variety = [] {#prop-variety}
+
+More effects of the same kind played in its place: each time it plays, one of the main effect and these is picked at random (2026-11-14: a hit that looks different every time: the seven hits of a theme, its signature hits). Empty: always the main effect.
+
 ## Method descriptions
+
+### void begin_play() {#method-begin-play}
+
+Picks the effect of this play: the main one or one of the variety, at random (VFXManager calls it when it spawns, end_play after)
+
+### void end_play() {#method-end-play}
+
+*No description yet.*
+
+### String pick_vfx_name() {#method-pick-vfx-name}
+
+One of the main effect and its variety, at random (the variety names that are not in the library are left out)
+
+### Array[String] play_names() {#method-play-names}
+
+Every effect this selection can play: the main one, then the variety (those in the library, once each)
+
+### String vfx_name_to_play() {#method-vfx-name-to-play}
+
+The name of the effect to play now: the one picked for this play, or the main one
 
 ### Array[VFX] spawn_vfx( vfx_manager: VFXManager, target: Variant = null, originator: Variant = null, timer: Timer = null ) {#method-spawn-vfx}
 
