@@ -19,7 +19,7 @@ ChainEffect applies child effects in a chain between multiple targets
 
 | | |
 |---|---|
-| `void` | [apply_effect_vfx](#method-apply-effect-vfx)( `instance: EffectInstance` ) |
+| `void` | [apply_effect_vfx](#method-apply-effect-vfx)( `instance: EffectInstance, crit: bool = false` ) |
 | `void` | [specific_effect_logic](#method-specific-effect-logic)( `effect_instance: EffectInstance` ) |
 | `void` | [on_apply_finished](#method-on-apply-finished)( `effect_instance: EffectInstance` ) |
 | `String` | [get_effect_description](#method-get-effect-description)() |
@@ -56,7 +56,7 @@ Which targets the effect jumps to (enemies, allies ...).
 
 ## Method descriptions
 
-### void apply_effect_vfx( instance: EffectInstance ) {#method-apply-effect-vfx}
+### void apply_effect_vfx( instance: EffectInstance, crit: bool = false ) {#method-apply-effect-vfx}
 
 Override VFX application to handle chain beams
 

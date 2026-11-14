@@ -47,6 +47,7 @@ The Effect class also manages its lifecycle, including initialization, applicati
 | `SFXSelection` | [sfx_on_applied](#prop-sfx-on-applied) | `null` |
 | `VFXSelection` | [vfx_on_applied](#prop-vfx-on-applied) | `null` |
 | `Array[VFXSelection]` | [extra_vfx](#prop-extra-vfx) | `[]` |
+| `VFXSelection` | [vfx_on_crit](#prop-vfx-on-crit) | `null` |
 
 ## Methods
 
@@ -58,7 +59,7 @@ The Effect class also manages its lifecycle, including initialization, applicati
 | `bool` | [is_one_off_application](#method-is-one-off-application)() |
 | `void` | [on_stack_reapply](#method-on-stack-reapply)( `_effect_instance: EffectInstance, _old_stack_count: int, _new_stack_count: int` ) |
 | `void` | [on_apply_finished](#method-on-apply-finished)( `effect_instance: EffectInstance` ) |
-| `void` | [apply_effect_vfx](#method-apply-effect-vfx)( `instance: EffectInstance` ) |
+| `void` | [apply_effect_vfx](#method-apply-effect-vfx)( `instance: EffectInstance, crit: bool = false` ) |
 | `void` | [cleanup_effect_vfx](#method-cleanup-effect-vfx)( `instance: EffectInstance` ) |
 | `String` | [get_duration_description](#method-get-duration-description)() |
 | `String` | [get_effect_description](#method-get-effect-description)() |
@@ -68,7 +69,7 @@ The Effect class also manages its lifecycle, including initialization, applicati
 | `String` | [get_tooltip_text](#method-get-tooltip-text)() |
 | `String` | [get_editor_description](#method-get-editor-description)() |
 | `bool` | [has_vfx](#method-has-vfx)() |
-| `Array[VFXSelection]` | [applied_vfx_selections](#method-applied-vfx-selections)() |
+| `Array[VFXSelection]` | [applied_vfx_selections](#method-applied-vfx-selections)( `crit: bool = false` ) |
 | `Dictionary` | [check_requirements](#method-check-requirements)( `entity: Variant, context: Dictionary = {}` ) |
 | `Array[GroupDefinition]` | [get_group_definitions](#method-get-group-definitions)() |
 | `float` | [get_charge_multiplier](#method-get-charge-multiplier)( `effect_instance: EffectInstance, scales_with_charge: bool, minimum: float` ) |
@@ -230,6 +231,10 @@ Can be any VFX type including beam, path, telegraph, etc.
 
 More VFX played with it (2026-11-14, the user: an enchant's particles AND a material on the weapon; barkskin's skin and its leaves). Each can be any kind; a material comes off when the effect ends.
 
+### VFXSelection vfx_on_crit = null {#prop-vfx-on-crit}
+
+Played in place of the main VFX when the hit or heal of this effect is a critical strike (2026-11-14: crit hits, vfx_&lt;theme&gt;_hit_&lt;size&gt;_crit_NN). With it set, the effect's VFX play just after its hit is worked out, so it is known whether it crit. Empty: the main VFX on a crit too.
+
 ## Method descriptions
 
 ### void process_before_start( _effect_instance: EffectInstance ) {#method-process-before-start}
@@ -256,9 +261,9 @@ Virtual method for custom stack reapply logic Called when an existing effect gai
 
 Handles the finishing of the effect, including cleanup and VFX/SFX (override in child classes if needed, call .super for cleanup)
 
-### void apply_effect_vfx( instance: EffectInstance ) {#method-apply-effect-vfx}
+### void apply_effect_vfx( instance: EffectInstance, crit: bool = false ) {#method-apply-effect-vfx}
 
-Apply VFX
+Apply VFX Plays the VFX of the effect (`crit`: its hit was a critical strike: the crit VFX in place of the main one)
 
 ### void cleanup_effect_vfx( instance: EffectInstance ) {#method-cleanup-effect-vfx}
 
@@ -296,9 +301,9 @@ A short text for the effect editor that says what the effect does.
 
 Check if effect has VFX configured
 
-### Array[VFXSelection] applied_vfx_selections() {#method-applied-vfx-selections}
+### Array[VFXSelection] applied_vfx_selections( crit: bool = false ) {#method-applied-vfx-selections}
 
-Every VFX the effect plays when it is applied: the main one, then the extra ones
+Every VFX the effect plays when it is applied: the main one (on a critical strike the crit one, when it has one), then the extra ones
 
 ### Dictionary check_requirements( entity: Variant, context: Dictionary = &#123;&#125; ) {#method-check-requirements}
 

@@ -114,8 +114,10 @@ An effect can end after a number of uses of abilities by the entity it is on. Th
 |---|---|
 | **SFX** | The sound played when the effect is applied |
 | **VFX** | The visual effect shown when the effect is applied. It can be any kind, including a beam, a path or a telegraph |
+| **On crit** | A visual effect shown **in place of the VFX** when the effect's hit or heal is a critical strike (a damage or heal effect). With it set, the effect's visuals play just after its hit is worked out, so it is known whether it crit. Empty: the same VFX on a crit |
+| **Also** (**Add VFX**) | More visual effects played with the VFX (an enchant's particles and a material on the weapon). A material comes off when the effect ends |
 
-Click either button to choose from the libraries in the **Entity Assets**, **Assets** and **Audio** categories.
+Click either button to choose from the libraries in the **Entity Assets**, **Assets** and **Audio** categories. In the Select VFX window, a **Variety** makes the effect show a different visual each time (see [VFX: Variety](/basic/assets/vfx#variety-a-different-effect-each-time)): give a hit a few others, and a crit a few crits.
 
 ## See also
 

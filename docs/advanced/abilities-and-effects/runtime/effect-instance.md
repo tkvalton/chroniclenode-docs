@@ -11,6 +11,7 @@ Lightweight runtime instance of an effect that references an EffectDefinition fo
 | | | |
 |---|---|---|
 | `Effect` | [definition](#var-definition) |  |
+| `bool` | [hit_was_crit](#var-hit-was-crit) | `false` |
 | `Variant` | [originator](#var-originator) |  |
 | `Variant` | [target](#var-target) |  |
 | `Variant` | [effect_owner](#var-effect-owner) |  |
@@ -118,6 +119,10 @@ The options of source type: intrinsic, external, stateful, persistent.
 ### Effect definition {#var-definition}
 
 Reference to the immutable effect definition (shared across all instances)
+
+### bool hit_was_crit = false {#var-hit-was-crit}
+
+True when a hit or heal of this effect was a critical strike (set by the damage and heal effects; the crit VFX reads it)
 
 ### Variant originator {#var-originator}
 
