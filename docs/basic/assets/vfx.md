@@ -283,6 +283,8 @@ The **Fade** row under the preview lets you look at a fade on its own, for an ef
 
 A material in the preview is the preview's own copy, so nothing you try there changes the material in the library.
 
+**Attach** in the figure row (with a skeleton chosen) puts the effect on a point of the figure, so you see it as it plays in game: Feet, Chest, Head, Overhead, a hand, a weapon. **Hands** puts it on **both** hands, one on each, as an effect whose attachment point is *Hands* plays (a cast in both hands); the two play, take the tint and fade together.
+
 The fade works through the shaders of the toolkit (`fx_fade.gdshaderinc`, the instance uniforms `vfx_fade` and `vfx_fade_style`; every effect shader has it). A node drawn with another material (a `StandardMaterial3D`, a shader you wrote) fades by its *Transparency*, lights by their energy, decals by their modulate. To make your own shader fade as the toolkit's do, include `fx_fade.gdshaderinc` and, in `fragment()`, multiply `ALPHA` by `fx_fade(UV)`. For a solid shader, `discard` when `fx_fade_cut(UV, FRAGCOORD.xy) > 0.5`.
 
 
