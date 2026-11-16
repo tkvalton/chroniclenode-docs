@@ -270,7 +270,18 @@ A fade of **-1** uses the default for that kind of effect:
 
 **A material** (barkskin, burning, a coat on a weapon). The **Fade** row of the **Select VFX** window sets the seconds in, the seconds out (default 0.4 s each) and the style (default Dissolve, so the material spreads over the body in patches). A skin or form that replaces the body is drawn over the body while it comes on, and replaces it only once it is all there; it is drawn over it again while it goes. The material fades out when its time is up, when the effect that put it on ends and when the entity dies.
 
+**Glowing eyes.** A material can go on the **Eyes** of a model: pick *Eyes (the eye meshes)* as the **Material Target**. The eyes are the meshes of the skeleton named for an eye (`FaceEyeLeft`, `FaceEyeRight`), not the brows, lashes or lids. A model whose eyes are part of its body mesh has no eye meshes, so an eye material does not show on it. The library's **eye glow** (`vfx_neutral_material_eye_glow_01`) is made for this. Picking it sets the Eyes target, and the window shows an **Eye colour and glow** row: the colour of the glow and how bright it is. Each selection sets its own, so one eye glow serves a red-eyed demon and a blue-eyed spirit. The glow is drawn over the eye, so when it fades out the eye is as it was. In the VFX tab the eye glow goes on the eyes of the chosen skeleton (with the camera on the head), with an **Eye colour** and **Glow** row to try them.
+
 **In the VFX tab**, **Play** and **Restart** fade the effect in, and **End** plays its `end` animation with its fade out. **End** shows for every loop, beam and enchant now, with or without an `end` animation.
+
+The **Fade** row under the preview lets you look at a fade on its own, for an effect or a material:
+
+- The **slider** sets how much of it is on, from 100% (all of it) to 0% (gone). Drag it to see the fade at any point.
+- **Fade in** and **Fade out** play the fade over the seconds in the box next to them.
+- **Loop** fades it out and in again and again.
+- **Fade** or **Dissolve** picks the style.
+
+A material in the preview is the preview's own copy, so nothing you try there changes the material in the library.
 
 The fade works through the shaders of the toolkit (`fx_fade.gdshaderinc`, the instance uniforms `vfx_fade` and `vfx_fade_style`; every effect shader has it). A node drawn with another material (a `StandardMaterial3D`, a shader you wrote) fades by its *Transparency*, lights by their energy, decals by their modulate. To make your own shader fade as the toolkit's do, include `fx_fade.gdshaderinc` and, in `fragment()`, multiply `ALPHA` by `fx_fade(UV)`. For a solid shader, `discard` when `fx_fade_cut(UV, FRAGCOORD.xy) > 0.5`.
 
