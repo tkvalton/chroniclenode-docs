@@ -277,8 +277,8 @@ A fade of **-1** uses the default for that kind of effect:
 The **Fade** row under the preview lets you look at a fade on its own, for an effect or a material:
 
 - The **slider** sets how much of it is on, from 100% (all of it) to 0% (gone). Drag it to see the fade at any point.
-- **Fade in** and **Fade out** play the fade over the seconds in the box next to them.
-- **Loop** fades it out and in again and again.
+- **Fade in** and **Fade out** play the fade over the seconds in the box next to them. On a looping effect with a **start** or an **end** animation, they play those too, as the game does: **Fade in** plays the start and then the loop, **Fade out** plays the end and fades over at least its length.
+- **Loop** fades it out and in again and again, with the end and the start animations.
 - **Fade** or **Dissolve** picks the style.
 
 A material in the preview is the preview's own copy, so nothing you try there changes the material in the library.
