@@ -287,6 +287,8 @@ A material in the preview is the preview's own copy, so nothing you try there ch
 
 The fade works through the shaders of the toolkit (`fx_fade.gdshaderinc`, the instance uniforms `vfx_fade` and `vfx_fade_style`; every effect shader has it). A node drawn with another material (a `StandardMaterial3D`, a shader you wrote) fades by its *Transparency*, lights by their energy, decals by their modulate. To make your own shader fade as the toolkit's do, include `fx_fade.gdshaderinc` and, in `fragment()`, multiply `ALPHA` by `fx_fade(UV)`. For a solid shader, `discard` when `fx_fade_cut(UV, FRAGCOORD.xy) > 0.5`.
 
+**Decals and render layers.** The toolkit's effect decals (marks on the ground under a caster, scorch marks, circles) draw on **render layer 1 only**: their cull mask is bit 1 (value 1). Characters are never on layer 1 (the rig puts its meshes on their own visual layer), so a decal under a character never lands on its legs, and a decal can keep a low normal fade (about 0.25) so it still covers the ground on a slope. Keep your ground, terrain and scenery on layer 1, and keep characters off it. A decal of your own that should only mark the ground takes the same cull mask.
+
 
 ### The projectile mesh
 
