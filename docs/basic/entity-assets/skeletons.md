@@ -25,7 +25,7 @@ A skeleton scene has a `Skeleton3D` with a ChronicleNode script. There are three
 
 ## The points
 
-A point is a `Marker3D` under a `BoneAttachment3D` of the bone it is on, so it follows that bone as the model moves, and sits **where you put it** on the bone: the palm rather than the wrist bone, the middle of the head rather than the neck. Overhead and Feet are on the model itself, not on a bone. Each skeleton has the same fixed list:
+A point is a `Marker3D` under a `BoneAttachment3D` of the bone it is on, so it follows that bone as the model moves, and sits **where you put it** on the bone: the palm rather than the wrist bone, the middle of the head rather than the neck. Overhead, Feet, Front and Behind are on the model itself, not on a bone: they turn with the model but not with its animations. Each skeleton has the same fixed list:
 
 | Point | Bone it starts on | Used by |
 |---|---|---|
@@ -34,10 +34,14 @@ A point is a `Marker3D` under a `BoneAttachment3D` of the bone it is on, so it f
 | **Left hand**, **Right hand** | LeftHand, RightHand | Effects in the hands (casting, the **Hands** location) |
 | **Overhead** | The model | Effects above the model (stuns, markers) |
 | **Feet** | The model | Effects on the ground under the model |
+| **Front** | The model | Effects in front of the model at its chest (a tome, a scroll, a circle in front of a caster), whatever its height |
+| **Behind** | The model | Effects behind the model at its chest (wings, a portal behind) |
 | **Back**, **Hip left**, **Hip right** | Chest, Hips | Gear on the back and hips |
 | **Shoulder**, **Elbow**, **Knee** (left and right) | The upper arm, lower arm, lower leg | Gear on the shoulders, elbows, knees |
 
-The **effect locations** of a VFX selection (Head, Chest, Left hand, Right hand, Overhead, Feet) are these points. **Weapon** is the weapon in the main hand.
+The **effect locations** of a VFX selection (Head, Chest, Left hand, Right hand, Overhead, Feet, Front, Behind) are these points. **Weapon** is the weapon in the main hand.
+
+Front and Behind are made at the height of the chest bone, in front of and behind it by a share of that height (closer on a small creature). The model's front is its +Z. A model without them still works: the game puts stand-ins at the height of its Chest point. Use **Add missing points** to give an older skeleton its own.
 
 ### The weapon grips
 

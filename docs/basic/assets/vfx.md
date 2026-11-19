@@ -198,6 +198,27 @@ The settings of `weather_particles` are the table above (*Shape*, *Area*, *Sprea
 
 ## Using an effect in an ability
 
+### Where an effect goes, and which way it faces
+
+A loop or oneshot selection has a **Location**: a point of the model (see [Skeletons](/basic/entity-assets/skeletons)), Base, Weapon or Hands. **Front** and **Behind** sit in front of and behind the chest and turn with the model but not with its animations, so an effect there suits any body; the tomes, scrolls and front circles that come with the toolkit are made for **Front**.
+
+**Orientation** says which way the effect faces on its point. It follows the point's position whichever you pick:
+
+| Orientation | The effect faces | For |
+|---|---|---|
+| **Point** | However the point is turned (a hand turns with its bone) | What is held in a hand, enchants, effects made for a point |
+| **Facing** | The way the model faces, not its animations | An effect at a hand that should point ahead |
+| **Aim** | The way the entity aims when the effect starts (its target, or the crosshair) | Shoots and muzzles |
+| **Upright** | Level, the way the model faced when it started | Effects that must stay level |
+
+Facing, Aim and Upright point the effect's front (its -Z, the way shots and projectiles are made) that way.
+
+A oneshot also has **Follow the point while it plays**: off, the effect is left where it started (a muzzle flash does not drag along with a moving hand). Picking a shoot in the window sets these for you: a muzzle, burst or arc gets **Aim** and Follow off; a launch goes on **Feet** and stays on the ground. Picking a tome, scroll, ancient scroll or front circle puts it on **Front**.
+
+In the VFX tab, **Attach** puts the effect on a point of the figure and **Turn** shows the orientation (the preview has nothing to aim at, so Aim faces the way the figure faces).
+
+### What goes where
+
 A projectile ability uses a **loop** as its projectile VFX (it flies with the projectile), a **oneshot** in its casting VFX (at the hands) and a **oneshot** as the hit effect. A buff or debuff effect points at a loop (placed at *Overhead*), a hit at a oneshot (placed at *Chest*), a material in a **VFX Selection Material** with its blend mode. A beam goes in a beam VFX selection (the ability gives its two ends), a wall or trail in a path selection (the ability gives the points), an environment effect in a [weather](/basic/world/weather) (it fades with the weather's intensity), a telegraph outline in a telegraph selection (below).
 
 ### Tinting an effect
