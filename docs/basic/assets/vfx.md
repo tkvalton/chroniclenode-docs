@@ -16,7 +16,7 @@ An effect is a **scene** (or, for two types, a material or a texture) in `res://
 
 ## The editor
 
-The effect you select **plays in a 3D preview** at the top of the panel on the right. Drag with the left button to orbit, turn the wheel to zoom, drag with the middle or right button to move the view. The buttons above the view are Frame, Reset, Grid, **Floor** (untick it to see the parts of a hit or a low projectile that go under the ground; the choice is kept for every view), a 1.8 m figure (to judge the size) and the light; the **dark** light shows the glow of an effect best. Each effect you select is shown from the Reset angle, framed. The controls under the view depend on the kind of effect:
+The effect you select **plays in a 3D preview** that fills the panel on the right. Drag with the left button to orbit, turn the wheel to zoom, drag with the middle or right button to move the view. The bars of the preview lie **over the view** (see-through, so they take no room of their own on a small screen): the bar over the top holds Frame, Reset, Grid, **Floor** (untick it to see the parts of a hit or a low projectile that go under the ground; the choice is kept for every view), a 1.8 m figure (to judge the size), the light (the **dark** light shows the glow of an effect best) and the figure row (Skeleton, Animations, Attach, Turn). The figure stays hidden while a skeleton is shown, also when you select another effect. Each effect you select is shown from the Reset angle, framed. The bar over the bottom holds the controls of the kind of effect, then Tint, Scale and Fade:
 
 | Kind | The preview |
 |---|---|
@@ -28,7 +28,7 @@ The effect you select **plays in a 3D preview** at the top of the panel on the r
 | **Telegraph** | The warning that fills up on the ground, as the game draws it: the shape of the picture you selected (its outline and its fill), a **Size**, a **Colour** (red to begin with) and the **Fill** (or **Auto**, which fills it again and again). The **Shape** menu (circle or square) is for the old telegraphs that have no picture and is off while a picture is shown. The size and colour of a real telegraph come from the ability that uses it |
 | **Material** | The material on a capsule the size of a character, as its material override |
 
-The **Speed** slider (0.1x to 2x) slows the effect down to look at it. The preview starts the particles and the animations of the scene the way the effect does and places the parts of a beam and a path itself; it does not run the game side of the effect (pools, timers, attaching to a creature).
+The **Speed** slider (0.1x to 2x) slows the effect down to look at it. The **Scale** slider (0.1x to 4x, **1x** puts it back) shows a loop or a one shot bigger or smaller, as a selection's *Scale* plays it in game (below). The preview starts the particles and the animations of the scene the way the effect does and places the parts of a beam and a path itself; it does not run the game side of the effect (pools, timers, attaching to a creature).
 
 The same preview is in the **Select VFX** window of an ability or an effect: the effect you click in the list plays next to it.
 
@@ -42,7 +42,7 @@ The demo has effects of each kind to try the previews with.
 | **Import** | Copy effect files in; you choose the type |
 | **Settings > Add New VFX Scene** | Makes a new scene of a type, with the right root node, and opens it |
 | **Settings > Validate All VFX** | Checks every scene (root type, required nodes) and lists the failures |
-| **Open in Editor** | Opens the selected scene (a material or an image cannot be opened, the button says so) |
+| **Open in Editor** | Under the preview: opens the selected scene (a material or an image cannot be opened, the button says so) |
 
 ## Naming an effect
 
@@ -288,6 +288,16 @@ A fade of **-1** uses the default for that kind of effect:
 | Path | 0.2 s | 0.3 s |
 | Telegraph | 0.1 s | 0.15 s when it is interrupted |
 | Weather | none | none (a weather comes and goes by its [intensity](#intensity)) |
+
+**Start and end in a selection.** The **Select VFX** window of a loop, a one shot, a beam, a path or an enchant has a **Start and end** section, so one effect can come and go in different ways in different abilities:
+
+- **On start** and **On end** (not for a one shot, its animation is the effect): *As made* (what the effect was made with), *Animation and fade*, *Animation only* (its `start` or `end` animation, no fade), *Fade only* (the fade, the animation is skipped: a book that is just there, open) or *Neither* (it is there at once, or gone at once).
+- **Fade in** and **Fade out**: the seconds of this selection's fades; **-1** keeps the effect's own (or the default of its kind, the table above). A loop that skips its end animation and has no fade out of its own fades over the plain loop time (0.35 s), not over the length of the end it skips.
+- The **style**: as made, Fade or Dissolve.
+
+The preview in the window plays as the selection: **Play** (and the Fade row) uses its start, end and fades, and its tint and scale are shown.
+
+**Scale in a selection.** A loop or a one shot selection has **Scale** (0.05x to 10x, 1 = as made). It is on top of the size of the point the effect is on (a big model's points are bigger) and of the effect's own variance. Beams, paths, enchants, telegraphs, materials and weather have no Scale: they take their size from what they cover (the two ends, the line, the weapon, the ability's area, the body, the weather box).
 
 **A material** (barkskin, burning, a coat on a weapon). The **Fade** row of the **Select VFX** window sets the seconds in, the seconds out (default 0.4 s each) and the style (default Dissolve, so the material spreads over the body in patches). A skin or form that replaces the body is drawn over the body while it comes on, and replaces it only once it is all there; it is drawn over it again while it goes. The material fades out when its time is up, when the effect that put it on ends and when the entity dies.
 
