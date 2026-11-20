@@ -28,7 +28,7 @@ The effect you select **plays in a 3D preview** that fills the panel on the righ
 | **Telegraph** | The warning that fills up on the ground, as the game draws it: the shape of the picture you selected (its outline and its fill), a **Size**, a **Colour** (red to begin with) and the **Fill** (or **Auto**, which fills it again and again). The **Shape** menu (circle or square) is for the old telegraphs that have no picture and is off while a picture is shown. The size and colour of a real telegraph come from the ability that uses it |
 | **Material** | The material on a capsule the size of a character, as its material override |
 
-The **Speed** slider (0.1x to 2x) slows the effect down to look at it. The **Scale** slider (0.1x to 4x, **1x** puts it back) shows a loop or a one shot bigger or smaller, as a selection's *Scale* plays it in game (below). The preview starts the particles and the animations of the scene the way the effect does and places the parts of a beam and a path itself; it does not run the game side of the effect (pools, timers, attaching to a creature).
+The **Speed** slider (0.1x to 2x) slows the effect down to look at it. The **Scale** slider (0.1x to 4x, **1x** puts it back) shows a loop or a one shot bigger or smaller, as a selection's *Scale* plays it in game (below). The **Offset** boxes beside it (**Side**, **Up**, **Fwd**, in metres) show the effect moved from its point, as a selection's *Offset* plays it. The preview starts the particles and the animations of the scene the way the effect does and places the parts of a beam and a path itself; it does not run the game side of the effect (pools, timers, attaching to a creature).
 
 The same preview is in the **Select VFX** window of an ability or an effect: the effect you click in the list plays next to it.
 
@@ -297,7 +297,9 @@ A fade of **-1** uses the default for that kind of effect:
 
 The preview in the window plays as the selection: **Play** (and the Fade row) uses its start, end and fades, and its tint and scale are shown.
 
-**Scale in a selection.** A loop or a one shot selection has **Scale** (0.05x to 10x, 1 = as made). It is on top of the size of the point the effect is on (a big model's points are bigger) and of the effect's own variance. Beams, paths, enchants, telegraphs, materials and weather have no Scale: they take their size from what they cover (the two ends, the line, the weapon, the ability's area, the body, the weather box).
+**Scale in a selection.** A loop or a one shot selection has **Scale** (0.05x to 10x, 1 = as made). It is on top of the size of the point the effect is on (a big model's points are bigger) and of the effect's own variance.
+
+**Offset in a selection.** Under Scale, **Offset** moves a loop or a one shot away from its point: **Side**, **Up** and **Forward**, in metres, in the effect's own frame after its turn. With the Orientation **Facing**, Forward is in front of the entity, so a ground mark made centred (a cone of cracks, a fissure) can be put in front of its caster. The offset grows with the Scale. Zero plays the effect where it was made. Beams, paths, enchants, telegraphs, materials and weather have no Scale: they take their size from what they cover (the two ends, the line, the weapon, the ability's area, the body, the weather box).
 
 **A material** (barkskin, burning, a coat on a weapon). The **Fade** row of the **Select VFX** window sets the seconds in, the seconds out (default 0.4 s each) and the style (default Dissolve, so the material spreads over the body in patches). A skin or form that replaces the body is drawn over the body while it comes on, and replaces it only once it is all there; it is drawn over it again while it goes. The material fades out when its time is up, when the effect that put it on ends and when the entity dies.
 
