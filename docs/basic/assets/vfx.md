@@ -24,7 +24,7 @@ The effect you select **plays in a 3D preview** that fills the panel on the righ
 | **One shot** | Plays when you select it and **repeats** after its length (the **Repeat** box, on to begin with). **Play** plays it once more |
 | **Weather** | Plays by itself over the view, with an **Intensity** slider (0 to 1) |
 | **Beam** | Stretches between two points: a **Length** slider (1 to 20 m) and **Sweep**, which moves the far end around so you can see the beam follow a target. The mesh named *Beam* is as long as the beam and turned to the far end, the way the game places it. A beam with a **Curve Intensity** bends toward a point beside its middle, as in the game. **Chain** shows the beam going on from its far end to two more targets, to see a beam that chains (lightning) |
-| **Path** | Puts a copy of what is under its source node every *section size* metres along a line; the **Length** slider makes the line longer or shorter |
+| **Path** | Puts a copy of what is under its source node every *section size* metres along a line, each one of the source's variants (see [Making a path](#making-a-path)); the **Length** slider makes the line longer or shorter |
 | **Telegraph** | The warning that fills up on the ground, as the game draws it: the shape of the picture you selected (its outline and its fill), a **Size**, a **Colour** (red to begin with) and the **Fill** (or **Auto**, which fills it again and again). The **Shape** menu (circle or square) is for the old telegraphs that have no picture and is off while a picture is shown. The size and colour of a real telegraph come from the ability that uses it |
 | **Material** | The material on a capsule the size of a character, as its material override |
 
@@ -81,9 +81,17 @@ An **environmental** effect is scenery rather than an ability effect: a campfire
 | All | **VFX Type**; **Auto cleanup** (go back to the pool when finished); **On top level**; the **Fade** group: **Fade In**, **Fade Out**, **Fade Style** (see [Fading in and out](#fading-in-and-out)) |
 | **One shot** | **Delay start**; **Follow target on death** (keep following even if the target dies) |
 | **Beam** | **Beam width** (the width the beam is made with), **Beam segments**, **Curve intensity** (0 = straight), **Follow target movement**, **Update continuously**. Under *BeamRotation* the mesh named **Beam** is the beam itself (a tube with no caps: the game sets its length), and two optional nodes, **BeamStart** and **BeamEnd**, are put at the two ends of the beam: the flare at the caster and the contact on the target are particles under them. A beam can have **layers**: more tubes under *BeamRotation* with the metadata `beam_layer` (their width as a part of the beam's width: 2 is a sleeve twice as wide, 0.3 a thin core) are stretched with it, and particle nodes there with the metadata `beam_along` (the part of the length they cover) are spread along it, at any length (see [Beam layers](#beam-layers)) |
-| **Path** | **VFX source node** (the node whose children are repeated), **Section size**, **Section overlap**, **Path curve strength**; **Follow terrain** with its layer mask, offset and maximum slope; **Spawn progressively** with a delay and direction; **Max sections** and **Despawn distant sections** |
+| **Path** | **VFX source node** (the node whose children are repeated), **Section size**, **Section overlap**, **Path curve strength**, **Align to path** (on: each section is turned so its +X runs the way the path goes there; off: every section keeps the path's own turn); **Follow terrain** with its layer mask, offset and maximum slope; **Spawn progressively** with a delay and direction; **Max sections** and **Despawn distant sections** |
 | **Telegraph** | **Size**, **Shape** (circle or square: used only when the telegraph has no picture), **Color**, **Attachment** (at a point, or attached to a character with an orientation), **Orientation offset**. The *VFX type* of the selection is the name of a picture in the telegraph folder (see [Telegraph outlines](#telegraph-outlines)) |
 | **Weather** | The effect follows the camera. The wind comes from the [weather](/basic/world/weather) that uses it, not from the scene. The toolkit's own particle shader (below) leans with that wind |
+
+### Making a path
+
+A path repeats one **section** along the line between its points: the children of its *VFX source node*, copied every *Section size* metres (less the overlap). Make a section from its point **forward along +X**, *Section size* long, standing on the ground. With *Align to path* on, each copy is turned so its +X runs the way the path goes there, so a wall or a crack made along X follows a bending path. The copies belong to the path, so its fade reaches them.
+
+- **Variants.** Children of the source node named `Variant 1`, `Variant 2` ... are versions of the section. Each section is a copy of one of them, picked at random each time the path plays, so a long path does not repeat the same piece. Without them, every section is a copy of all the source's children. When sections must meet (a crack or a wall running on unbroken), make the two ends of every variant the same.
+- **Start, loop and end.** An *AnimationPlayer* in the section (inside each variant) with an animation named `start` is played as each section appears, then its `loop` if it has one. When the path is stopped, every section plays its `end` animation while the path fades out, and the fade lasts as long as that animation. A section with a `start` and no `loop` plays once: the path ends by itself when every section has played it (an impact along a line). A section with none of these plays its animation as it was made (*autoplay*).
+- **Spawn progressively** puts the sections down one after another (every *delay* seconds) from the start of the path, so a wall rises along the line.
 
 ### The weather effects that come with the toolkit
 
@@ -285,7 +293,7 @@ A fade of **-1** uses the default for that kind of effect:
 | One shot | none (a hit keeps its punch) | 0.15 s when cut short (one that ends by itself just ends) |
 | Loop, enchant | 0.25 s | over its `end` animation if it has one, so both end together; 0.35 s without one |
 | Beam | 0.12 s | over its `end` animation, or 0.25 s |
-| Path | 0.2 s | 0.3 s |
+| Path | 0.2 s | over its sections' `end` animation if they have one, so both end together; 0.3 s without one |
 | Telegraph | 0.1 s | 0.15 s when it is interrupted |
 | Weather | none | none (a weather comes and goes by its [intensity](#intensity)) |
 
@@ -299,7 +307,7 @@ The preview in the window plays as the selection: **Play** (and the Fade row) us
 
 **Scale in a selection.** A loop or a one shot selection has **Scale** (0.05x to 10x, 1 = as made). It is on top of the size of the point the effect is on (a big model's points are bigger) and of the effect's own variance.
 
-**Offset in a selection.** Under Scale, **Offset** moves a loop or a one shot away from its point: **Side**, **Up** and **Forward**, in metres, in the effect's own frame after its turn. With the Orientation **Facing**, Forward is in front of the entity, so a ground mark made centred (a cone of cracks, a fissure) can be put in front of its caster. The offset grows with the Scale. Zero plays the effect where it was made. Beams, paths, enchants, telegraphs, materials and weather have no Scale: they take their size from what they cover (the two ends, the line, the weapon, the ability's area, the body, the weather box).
+**Offset in a selection.** Under Scale, **Offset** moves a loop or a one shot away from its point: **Side**, **Up** and **Forward**, in metres, in the effect's own frame after its turn. With the Orientation **Facing**, Forward is in front of the entity, so a ground mark made centred (an arc of cracks, a fissure) can be put in front of its caster. The offset grows with the Scale. Zero plays the effect where it was made. Beams, paths, enchants, telegraphs, materials and weather have no Scale: they take their size from what they cover (the two ends, the line, the weapon, the ability's area, the body, the weather box).
 
 **A material** (barkskin, burning, a coat on a weapon). The **Fade** row of the **Select VFX** window sets the seconds in, the seconds out (default 0.4 s each) and the style (default Dissolve, so the material spreads over the body in patches). A skin or form that replaces the body is drawn over the body while it comes on, and replaces it only once it is all there; it is drawn over it again while it goes. The material fades out when its time is up, when the effect that put it on ends and when the entity dies.
 
