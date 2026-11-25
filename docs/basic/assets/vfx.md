@@ -286,7 +286,7 @@ On a solid, lit mesh (a rock, a skin) a fade is a fine dither and a dissolve cut
 
 - **Fade In**: seconds to come in when the effect starts.
 - **Fade Out**: seconds to go when the effect is stopped before it ends by itself. That means a loop or a beam that is stopped, an effect that is cleared, or a duration cut short. The effect is taken away after the fade.
-- **Fade Style**: Fade or Dissolve.
+- **Fade Style**: Fade or Dissolve. Effects dissolve by default: breaking up in patches reads better than getting fainter for nearly every effect. Pick Fade for an effect that should only get fainter, such as a soft glow or a mist.
 
 A fade of **-1** uses the default for that kind of effect:
 

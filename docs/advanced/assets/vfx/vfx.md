@@ -24,7 +24,7 @@ Base class for all VFX nodes - handles pooling, lifecycle, and common functional
 | `VFXTint.Mode` | [tint_mode](#prop-tint-mode) | `VFXTint.Mode.MULTIPLY` |
 | `float` | [fade_in](#prop-fade-in) | `-1.0` |
 | `float` | [fade_out](#prop-fade-out) | `-1.0` |
-| `VFXFade.Style` | [fade_style](#prop-fade-style) | `VFXFade.Style.FADE` |
+| `VFXFade.Style` | [fade_style](#prop-fade-style) | `VFXFade.Style.DISSOLVE` |
 
 ## Variables
 
@@ -151,9 +151,9 @@ How long the effect takes to come in when it starts, in seconds. -1: the default
 
 How long the effect takes to go when it is stopped before it ends by itself (a loop or a beam stopped, an effect cleared, a duration cut short), in seconds; it is taken away after it. -1: the default of its kind (a loop or a beam with an end animation: the length of that animation, so both end together; without one 0.35; a one shot 0.15; a weather 0)
 
-### VFXFade.Style fade_style = VFXFade.Style.FADE {#prop-fade-style}
+### VFXFade.Style fade_style = VFXFade.Style.DISSOLVE {#prop-fade-style}
 
-How it fades: Fade (the whole effect gets fainter) or Dissolve (it breaks up in patches that grow)
+How it fades: Fade (the whole effect gets fainter) or Dissolve (it breaks up in patches that grow). Dissolve by default.
 
 ## Variable descriptions
 
