@@ -42,6 +42,8 @@ The demo has effects of each kind to try the previews with.
 | **Import** | Copy effect files in; you choose the type |
 | **Settings > Add New VFX Scene** | Makes a new scene of a type, with the right root node, and opens it |
 | **Settings > Validate All VFX** | Checks every scene (root type, required nodes) and lists the failures |
+| **Settings > Find Missing VFX** | Lists every VFX selection in your data that points at an effect no longer in the library, with a button that clears them (see [Deleting an effect](#deleting-an-effect-and-missing-vfx)) |
+| **Settings > Delete Selected VFX** | Deletes the selected effect (to your system's trash); if your data uses it, first shows where and offers to clear those selections |
 | **Open in Editor** | Under the preview: opens the selected scene (a material or an image cannot be opened, the button says so) |
 
 ## Naming an effect
@@ -354,6 +356,16 @@ A shape that points somewhere points **forward** (the way the caster faces); tur
 - A [world](/basic/world/worlds#default-weather)'s default weather is a weather effect.
 - Destructibles play a VFX when they are destroyed, [interactables](/basic/entities/interactables) when they are used.
 - An [event](/basic/events-and-quests/event-actions) can create one (*Create VFX*) or change the weather.
+
+## Deleting an effect, and missing VFX
+
+A VFX selection keeps its effect by **name** (the file name, without the folder: the selection's kind picks the folder). Moving an effect between subfolders of its type keeps it working; deleting or renaming it leaves every selection that used it pointing at nothing. The game does not break: the effect is simply not played, and a warning is printed.
+
+- **Settings > Delete Selected VFX** in the VFX tab asks before deleting. If nothing uses the effect it deletes it. If abilities, effects, items or other data use it, it lists them and offers **Delete and Clear Selections** (their VFX slot becomes empty; a selection in a list is taken out of it), **Delete Only** (they are left pointing at nothing) or Cancel. The file goes to your system's trash.
+- **Deleting from the FileSystem dock**: Godot deletes the file at once; if any of your data used it, the toolkit then lists those selections and offers to clear them.
+- **Settings > Find Missing VFX** looks through all of your data (`src/data`) for selections whose effect is not in the library (deleted, or renamed outside the toolkit) and offers to clear them. Run it after deleting or renaming effects by hand.
+
+To swap an effect instead of clearing it, open the ability or effect and pick a new VFX.
 
 ## Performance
 
